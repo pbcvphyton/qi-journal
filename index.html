@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Qi Journal</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f8fafc;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#334155;-webkit-font-smoothing:antialiased}
+.ctr{max-width:680px;margin:0 auto;padding:32px 20px}
+.mh{border-bottom:2px solid #0f172a;padding-bottom:14px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+.mh h1{font-size:28px;font-weight:800;color:#0f172a;letter-spacing:-0.5px;margin-bottom:2px;}
+.mh .sub{font-size:12px;color:#64748b;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+.mh .dt{font-size:13px;color:#64748b;text-align:right;font-weight:500}
+.pbar{display:flex;gap:16px;flex-wrap:wrap;padding:12px 0;margin-bottom:4px;border-bottom:1px solid #e2e8f0}
+.pi{font-size:13px;color:#475569}
+.pi strong{color:#0f172a;font-weight:700}
+.pv{font-size:12px;font-weight:700}
+.up{color:#16a34a}.dn{color:#dc2626}
+.ibar{display:flex;gap:16px;flex-wrap:wrap;padding:10px 0 16px;margin-bottom:24px;border-bottom:1px solid #e2e8f0}
+.ii{font-size:12px;color:#64748b;font-weight:500}
+.ii strong{color:#0f172a;font-weight:700}
+.opening{font-size:16px;color:#334155;line-height:1.7;margin-bottom:32px}
+.opening strong{color:#0f172a}
+
+/* Cards */
+.sec{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-top:40px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e2e8f0;color:#2563eb}
+
+.card-details > summary { list-style: none; cursor: pointer; outline: none; display: block; }
+.card-details > summary::-webkit-details-marker { display: none; }
+.card-details[open] .rm { display: none; }
+
+.card{background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);margin-bottom:20px;transition:all .2s ease;}
+.card:hover{box-shadow:0 10px 15px -3px rgba(0,0,0,.05); border-color:#cbd5e1;}
+.card-feat .hero{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:56px;overflow:hidden;position:relative}
+.card-side{display:flex}
+.card-side .hero{width:140px;min-height:100%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:36px;overflow:hidden;position:relative}
+.cb{padding:20px 24px; flex-grow:1}
+.cm{font-size:11px;color:#2563eb;font-weight:700;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+.card h2{font-size:18px;font-weight:700;color:#0f172a;line-height:1.35;margin-bottom:10px}
+.card-side h2{font-size:16px}
+.card p{font-size:14px;color:#475569;line-height:1.6}
+.card .rm{font-size:13px;color:#2563eb;font-weight:600;margin-top:12px;display:inline-block}
+
+/* Conteúdo Expandido */
+.full{background:#ffffff;border:1px solid #e2e8f0;border-top:none; border-radius:0 0 12px 12px;padding:24px;margin-top:-20px;margin-bottom:24px;box-shadow:0 4px 6px -1px rgba(0,0,0,.05);}
+.full .body{font-size:16px;color:#334155;line-height:1.75;margin-bottom:24px}
+.full .body strong{color:#0f172a}
+.full .bib{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px 20px;}
+.full .bib h3{font-size:12px;font-weight:700;color:#2563eb;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.full .bib a{display:block;font-size:14px;color:#2563eb;text-decoration:none;margin-bottom:8px;line-height:1.4; font-weight:600}
+.full .bib a:hover{text-decoration:underline}
+.src-link{color:#2563eb;text-decoration:none;font-weight:600}
+.src-link:hover{text-decoration:underline}
+
+.ft{border-top:2px solid #0f172a;padding-top:20px;margin-top:48px;font-size:12px;color:#64748b; font-weight:500}
+@media(max-width:600px){.card-side{flex-direction:column}.card-side .hero{width:100%;height:140px}.mh{flex-direction:column;align-items:flex-start}.pbar,.ibar{gap:12px}}
+</style>
+</head>
+<body>
+<div class="ctr">
+<div class="mh">
+  <div><h1>QI JOURNAL</h1><div class="sub">Seu briefing diário de mercado</div></div>
+  <div class="dt">Quarta, 4 de março de 2026 · 12:42 BRT</div>
+</div>
+<div class="pbar"><div class="pi">🇺🇸 Dólar <strong>R$ 5,21</strong> <span class="pv dn">-1.15%</span></div><div class="pi">🇪🇺 Euro <strong>R$ 6,05</strong> <span class="pv dn">-1.15%</span></div><div class="pi" style="color:#94a3b8; font-size:11px;">⏱ 12:41</div></div>
+<div class="ibar"><div class="ii">IPCA 12m <strong>4.44%</strong></div><div class="ii">IGP-M 12m <strong>-2.66%</strong></div></div>
+<div class="ibar" style="gap:20px;"><div class="ii">⛅ <strong>São Paulo</strong> 26°C <span style="color:#94a3b8;">↓18° ↑26°</span></div><div class="ii">☁️ <strong>Montevidéu</strong> 26°C <span style="color:#94a3b8;">↓22° ↑26°</span></div></div>
+<details class="card-details" id="conflito-no-oriente-medio-escala">
+<summary class="card card-feat">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><img src="https://i.guim.co.uk/img/media/a8545b64483071871e056ea874b7edbe0bdb4a65/439_39_2767_2214/master/2767.jpg?width=140&quality=85&auto=format&fit=max&s=72ba92b152cbcb845df33406d26c6ea7" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+<div class="cb"><div class="cm">GUARDIAN WORLD · BLOOMBERG MARKETS · FOLHA MUNDO</div>
+<h2>Conflito no Oriente Médio Escala</h2>
+<p>O conflito no Oriente Médio está se intensificando, com ataques aéreos israelenses contra alvos iranianos em Teerã e Beirute. O Irã ameaça com "destruição completa" na região. O mercado financeiro está reagindo às notícias, com as ações europeias em alta devido às esperanças de uma resolução rápida do conflito. <strong>20</strong> artigos sobre o tema foram publicados nas últimas 24 horas.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">O conflito no Oriente Médio está se intensificando, com ataques aéreos israelenses contra alvos iranianos em Teerã e Beirute. O Irã ameaça com "destruição completa" na região. O mercado financeiro está reagindo às notícias, com as ações europeias em alta devido às esperanças de uma resolução rápida do conflito. <strong>Israel</strong> realizou ataques aéreos contra alvos iranianos em Teerã e Beirute, enquanto o <strong>Irã</strong> ameaça com "destruição completa" na região. O <strong>preço do petróleo</strong> está flutuando devido à incerteza sobre o conflito. <strong>15</strong> países já se manifestaram sobre o conflito, com <strong>EUA</strong>, <strong>Israel</strong> e <strong>Canadá</strong> apoiando as ações militares, enquanto <strong>Rússia</strong>, <strong>China</strong> e <strong>Espanha</strong> condenam as ações.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://www.theguardian.com/world/2026/mar/04/israel-fresh-strikes-tehran-beirut-iran-targets-us-bases-gulf" target="_blank">Guardian World ↗</a><a href="https://www.bloomberg.com/news/articles/2026-03-04/european-stocks-post-modest-rebound-after-steep-two-day-drop" target="_blank">Bloomberg Markets ↗</a><a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/03/israel-hackeou-cameras-de-transito-para-rastrear-khamenei-revelam-agentes.shtml" target="_blank">Folha Mundo ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="envolvimento-de-servidores-do-bc-com-vorcaro">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><img src="https://s2-valor.glbimg.com/ZLR5v78FmUAPV-r_HQg3WVZEvV4=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/a/k/dlnSqjQX2SuemKv405Ew/418114562.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+<div class="cb"><div class="cm">VALOR ECONÔMICO</div>
+<h2>Envolvimento de Servidores do BC com Vorcaro</h2>
+<p>Dois servidores do Banco Central (BC) estão envolvidos em um escândalo com a Vorcaro, levantando preocupações sobre a imagem da autarquia. O caso está sendo investigado.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">Dois servidores do <strong>Banco Central (BC)</strong> estão envolvidos em um escândalo com a <strong>Vorcaro</strong>, levantando preocupações sobre a imagem da autarquia. O caso está sendo investigado. O <strong>BC</strong> está tomando medidas para esclarecer o caso e evitar danos à sua reputação. <strong>1</strong> artigo sobre o tema foi publicado nas últimas 24 horas.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://valor.globo.com/financas/noticia/2026/03/04/envolvimento-de-dois-servidores-do-bc-com-vorcaro-surpreende-e-levanta-preocupacoes-com-imagem-da-autarquia.ghtml" target="_blank">Valor Econômico ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="expansao-do-setor-de-servicos-nos-eua">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><span>📊</span></div>
+<div class="cb"><div class="cm">YAHOO FINANCE · BLOOMBERG MARKETS</div>
+<h2>Expansão do Setor de Serviços nos EUA</h2>
+<p>O setor de serviços nos EUA expandiu-se em fevereiro, com o índice de serviços do Institute for Supply Management subindo <strong>2,3 pontos</strong> para <strong>56,1</strong>, superando as projeções. Isso indica uma demanda crescente e pode ter implicações positivas para a economia. A criação de vagas no setor privado também aumentou mais do que o esperado.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A expansão do setor de serviços nos EUA é um indicador importante da saúde econômica do país. Com o índice de serviços subindo para <strong>56,1</strong>, isso sugere que as empresas estão contratando mais e investindo em seus negócios. Além disso, a criação de vagas no setor privado aumentou, o que pode levar a uma redução na taxa de desemprego. <strong>Jim Cramer</strong>, um conhecido especialista em investimentos, também expressou opiniões sobre várias empresas, incluindo <strong>Ares Management</strong>, <strong>KKR</strong>, <strong>Apollo</strong>, <strong>Goldman Sachs</strong>, <strong>Netflix</strong> e <strong>Dutch Bros</strong>. Essas opiniões podem influenciar os investidores e afetar o mercado de ações. No entanto, é importante lembrar que as opiniões de especialistas devem ser consideradas com cautela e que os investidores devem fazer suas próprias pesquisas antes de tomar decisões.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance ↗</a><a href="https://www.bloomberg.com/news/videos/2026-03-04/us-services-activity-expands-in-february-as-demand-grows-video" target="_blank">Bloomberg Markets ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="air-france-suspendera-servicos-para-cuba">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><img src="https://s2-valor.glbimg.com/EsteS48W3cbbKGG2NvwzPJpFDhU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2021/i/8/7LCAOrRP2zQiW6lA23Mg/screenshot-1.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+<div class="cb"><div class="cm">VALOR ECONÔMICO · AIR FRANCE</div>
+<h2>Air France Suspenderá Serviços para Cuba</h2>
+<p>A Air France anunciou que suspenderá seus serviços para Cuba devido à escassez de combustível. Isso pode afetar os passageiros que planejavam viajar para o país.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A decisão da Air France de suspender seus serviços para Cuba é um exemplo de como a escassez de combustível pode afetar as empresas e os consumidores. A falta de combustível pode levar a aumentos nos preços das passagens aéreas e afetar a economia do país. Além disso, a suspensão dos serviços pode ter implicações para os turistas e os negócios que dependem da conexão aérea com Cuba. <strong>A Air France</strong> é uma das principais companhias aéreas que operam na Europa e sua decisão pode ter um impacto significativo no mercado de aviação.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://valor.globo.com/" target="_blank">Valor Econômico ↗</a><a href="https://www.airfrance.com/" target="_blank">Air France ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="eua-e-ira-guerra-prolongada-e-negociacoes-improvaveis">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><span>🇧🇷</span></div>
+<div class="cb"><div class="cm">FOLHA MUNDO · NYT POLITICS</div>
+<h2>EUA e Irã: guerra prolongada e negociações improváveis</h2>
+<p>O Irã declarou que não negociará com os EUA e está preparado para uma guerra longa. O conselheiro do falecido líder supremo Ali Khamenei afirmou que não há confiança nos americanos. Isso ocorre no quinto dia de conflitos no Oriente Médio, com impactos globais significativos.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A recusa do Irã em negociar com os Estados Unidos e sua preparação para uma guerra prolongada indicam um cenário complexo e perigoso. O principal conselheiro do falecido líder supremo Ali Khamenei deixou claro que não há confiança nos EUA, o que sugere que o conflito pode se arrastar por um período indeterminado. Isso tem implicações graves para a estabilidade regional e global, afetando mercados financeiros, preços de commodities e relações internacionais. A posição firme do Irã pode levar a uma escalada do conflito, com possíveis intervenções de outras potências mundiais. A comunidade internacional deve estar preparada para lidar com as consequências dessa guerra prolongada, incluindo crises humanitárias e econômicas.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://aovivo.folha.uol.com.br/mundo/2026/02/28/6440-eua-e-israel-atacam-ira-acompanhe-ultimas-noticias.shtml#post450228" target="_blank">Folha Mundo ↗</a><a href="https://www.nytimes.com/2026/03/03/us/politics/trump-iran-leaders.html" target="_blank">NYT Politics ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="ue-aperta-medidas-contra-china-para-proteger-industria">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#1e3a8a);"><span>🌍</span></div>
+<div class="cb"><div class="cm">SCMP CHINA</div>
+<h2>UE aperta medidas contra China para proteger indústria</h2>
+<p>A União Europeia anunciou políticas para revitalizar sua indústria e proteger infraestrutura crítica, com foco em restringir empresas chinesas. As medidas refletem preocupações com a influência econômica chinesa no continente.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A União Europeia está adotando uma abordagem mais rigorosa em relação às empresas chinesas, visando proteger sua indústria e infraestrutura crítica. As novas políticas anunciadas têm como objetivo revitalizar a indústria europeia, que tem enfrentado desafios significativos nos últimos anos. As medidas incluem restrições a investimentos chineses em setores estratégicos e a imposição de barreiras comerciais. Essa abordagem mais dura reflete a crescente preocupação da UE com a influência econômica da China no continente. As restrições podem afetar empresas chinesas como <strong>Huawei</strong> e <strong>ZTE</strong>, que têm operações significativas na Europa. A UE está tentando equilibrar a necessidade de proteger sua indústria com a manutenção de relações comerciais saudáveis com a China, um dos maiores parceiros comerciais do bloco.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://www.scmp.com/news/china/diplomacy/article/3345467/china-crosshairs-eu-launches-sweeping-plans-save-its-industrial-future?utm_source=rss_feed" target="_blank">SCMP China ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="siria-busca-us-1-bilhao-em-investimento-em-telecomunicacoes">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><span>💻</span></div>
+<div class="cb"><div class="cm">BLOOMBERG TECH</div>
+<h2>Síria busca US$ 1 bilhão em investimento em telecomunicações</h2>
+<p>A Síria abrirá uma licitação para uma concessão de telecomunicações que pode atrair mais de US$ 1 bilhão. O objetivo é atrair investidores estrangeiros após a remoção de sanções dos EUA.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A Síria está prestes a abrir uma licitação para uma concessão de telecomunicações que pode atrair mais de US$ 1 bilhão em investimentos. Essa iniciativa faz parte dos esforços do presidente Ahmed al-Sharaa para revitalizar a economia do país após anos de sanções e conflitos. A remoção das sanções dos EUA tem aberto portas para investidores estrangeiros, que veem oportunidades em setores como telecomunicações, energia e infraestrutura. A concessão de telecomunicações é vista como um passo crucial para modernizar a infraestrutura do país e melhorar os serviços para os cidadãos. Empresas internacionais, incluindo <strong>Huawei</strong> e <strong>ZTE</strong>, podem estar interessadas nessa oportunidade, dada sua experiência em mercados emergentes. O sucesso dessa licitação pode impulsionar outros investimentos na Síria, contribuindo para a recuperação econômica do país.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://www.bloomberg.com/news/articles/2026-03-04/syria-to-seek-more-than-1-billion-investment-in-telecom-tender" target="_blank">Bloomberg Tech ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="tres-homens-presos-em-londres-por-suspeita-de-espionagem-par">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><span>🌐</span></div>
+<div class="cb"><div class="cm">SCMP CHINA</div>
+<h2>Três homens presos em Londres por suspeita de espionagem para China</h2>
+<p>A polícia de Londres prendeu três homens suspeitos de espionagem para a China. Eles são acusados de ajudar um serviço de inteligência estrangeiro em violação da Lei de Segurança Nacional de 2023.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A polícia de Londres prendeu três homens suspeitos de espionagem para a China, marcando um novo capítulo nas tensões entre o Reino Unido e a China. Os suspeitos são acusados de ajudar um serviço de inteligência estrangeiro em violação da Lei de Segurança Nacional de 2023. A polícia não divulgou os nomes dos suspeitos, mas a prisão destaca a preocupação crescente do Reino Unido com atividades de espionagem em seu território. As tensões entre o Reino Unido e a China têm aumentado nos últimos anos, especialmente em áreas como segurança cibernética, tecnologia e direitos humanos. A prisão desses indivíduos pode ter implicações significativas para as relações diplomáticas entre os dois países. O Reino Unido está tomando medidas mais rigorosas para proteger sua segurança nacional, incluindo a monitorização de atividades suspeitas e a cooperação com aliados internacionais.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://www.scmp.com/news/world/europe/article/3345462/london-police-arrest-3-men-suspicion-spying-china?utm_source=rss_feed" target="_blank">SCMP China ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="morte-de-song-ping-veterano-comunista-chines-aos-108-anos">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><span>🇧🇷</span></div>
+<div class="cb"><div class="cm">SCMP CHINA</div>
+<h2>Morte de Song Ping, veterano comunista chinês, aos 108 anos</h2>
+<p>Song Ping, um veterano revolucionário chinês, faleceu aos 108 anos. Ele foi descrito como um lutador comunista leal e um líder destacado do partido e do estado.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">Song Ping, um dos mais antigos e respeitados líderes comunistas chineses, faleceu aos 108 anos. Ele foi descrito pela agência de notícias estatal Xinhua como um lutador comunista leal e um líder destacado do partido e do estado. Song Ping viveu através de cinco gerações de líderes do Partido Comunista Chinês, testemunhando e participando de eventos históricos que moldaram a China moderna. Sua morte marca o fim de uma era, pois ele era um dos últimos líderes que participou ativamente da revolução comunista e da fundação da República Popular da China. Song Ping ocupou vários cargos importantes ao longo de sua carreira, incluindo membro do Politburo e chefe do Departamento de Organização do Partido Comunista Chinês. Sua contribuição para a política e a economia chinesa é amplamente reconhecida, e seu legado continuará a influenciar o partido e o país. A morte de Song Ping é um lembrete da importância da história e da continuidade na política chinesa, onde a experiência e a lealdade são altamente valorizadas.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://www.scmp.com/news/china/politics/article/3345438/song-ping-veteran-chinese-communist-dies-aged-108-after-career-spanned-decades?utm_source=rss_feed" target="_blank">SCMP China ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="operacao-contra-monopolio-ilegal-de-internet">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><span>🇧🇷</span></div>
+<div class="cb"><div class="cm">AGÊNCIA BRASIL · POLÍCIA FEDERAL</div>
+<h2>Operação contra monopólio ilegal de internet</h2>
+<p>A Polícia Federal e o GAECO deflagraram uma operação contra uma organização criminosa que interrompia serviços de telecomunicações em Cabo Frio. <strong>3</strong> suspeitos foram presos. A operação visa combater o monopólio ilegal de internet no município.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A operação foi realizada na manhã de quarta-feira (4) e resultou na prisão de <strong>3</strong> suspeitos. A organização criminosa era investigada por interromper serviços de telecomunicações no município de Cabo Frio, no estado do Rio de Janeiro. A Polícia Federal e o GAECO trabalharam juntos para combater o monopólio ilegal de internet no município. A operação é um exemplo de como as autoridades estão trabalhando para combater a criminalidade e proteger os direitos dos cidadãos. A <strong>Agência Brasil</strong> informou que a operação foi realizada após uma investigação detalhada. A <strong>Polícia Federal</strong> também informou que a operação foi um sucesso e que os suspeitos serão indiciados por crimes relacionados ao monopólio ilegal de internet.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://agenciabrasil.ebc.com.br/geral/noticia/2026-03/operacao-prende-suspeitos-de-monopolio-ilegal-de-internet-em-cabo-frio" target="_blank">Agência Brasil ↗</a><a href="https://www.pf.gov.br/" target="_blank">Polícia Federal ↗</a></div>
+</div>
+</details>
+<details class="card-details" id="suspeitos-de-espionagem-chinesa">
+<summary class="card card-side">
+<div class="hero" style="background:linear-gradient(135deg,#0f172a,#334155);"><span>🇧🇷</span></div>
+<div class="cb"><div class="cm">BBC · MET POLICE</div>
+<h2>Suspeitos de espionagem chinesa</h2>
+<p>A Met Police suspeita que <strong>3</strong> homens tenham assistido os serviços de inteligência chineses no Reino Unido. A investigação está em andamento e não há informações sobre a identidade dos suspeitos. A <strong>BBC</strong> informou que a operação foi realizada após uma investigação detalhada.</p>
+<span class="rm">Ler mais ↓</span></div>
+</summary>
+<div class="full">
+<div class="body">A Met Police informou que a investigação está em andamento e que os suspeitos serão indiciados por crimes relacionados à espionagem. A <strong>BBC</strong> também informou que a operação foi realizada após uma investigação detalhada. A <strong>China</strong> não se pronunciou sobre o assunto. A operação é um exemplo de como as autoridades estão trabalhando para combater a espionagem e proteger a segurança nacional. A <strong>Met Police</strong> também informou que a operação foi um sucesso e que os suspeitos serão julgados por crimes relacionados à espionagem.</div>
+<div class="bib"><h3>📚 Fontes da Matéria</h3><a href="https://www.bbc.com/news/articles/c7955ewj7gwo" target="_blank">BBC ↗</a><a href="https://www.met.police.uk/" target="_blank">Met Police ↗</a></div>
+</div>
+</details>
+<div class="ft"><strong style="color:#0f172a">QI JOURNAL</strong> · Mercado, Política e Tecnologia</div>
+</div>
+</body>
+</html>
