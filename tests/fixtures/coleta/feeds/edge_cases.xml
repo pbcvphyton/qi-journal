@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	>
+<channel>
+	<title>Money Times</title>
+	<link>https://www.moneytimes.com.br</link>
+	<description>Mercados e investimentos</description>
+	<language>pt-BR</language>
+	<item>
+		<title>Ibovespa &lt;script&gt;alert(1)&lt;/script&gt; fecha em queda com cautela antes do 1º turno</title>
+		<link>https://www.moneytimes.com.br/ibovespa-fecha-em-queda-com-cautela-antes-do-1o-turno/?utm_source=feed&amp;utm_medium=rss&amp;id=77</link>
+		<pubDate>Mon, 28 Sep 2026 21:05:00 +0000</pubDate>
+		<description><![CDATA[<p>(Reuters) - O Ibovespa recuou 0,26% nesta segunda-feira, a 182.991 pontos, em sessão marcada por cautela antes do primeiro turno das eleições.</p><p>Leia também: Dólar sobe e fecha a R$ 5,22</p><p>(Reuters)</p><p>Assine a newsletter do Money Times</p><img src="https://feeds.feedburner.com/~r/moneytimes/~4/abc123" height="1" width="1" alt=""/>]]></description>
+	</item>
+	<item>
+		<title><![CDATA[<b>Petrobras</b> aprova pagamento de R$ 12 bilhões em dividendos intermediários]]></title>
+		<link>http://WWW.MoneyTimes.com.br/petrobras-aprova-dividendos-intermediarios/#comentarios</link>
+		<pubDate>Wed, 30 Sep 2026 12:00:00 +0000</pubDate>
+		<description><![CDATA[Conselho da estatal aprovou a distribuição com base no balanço do segundo trimestre; pagamento será feito em duas parcelas.]]></description>
+		<enclosure url="https://www.moneytimes.com.br/uploads/2026/09/petrobras-sede.jpg" type="image/jpeg" length="102400"/>
+	</item>
+	<item>
+		<title>Vale conclui venda de fatia em unidade de metais básicos</title>
+		<link>https://www.moneytimes.com.br/vale-conclui-venda-de-fatia-em-unidade-de-metais-basicos/</link>
+		<pubDate>Tue, 29 Sep 2026 08:40:00 +0000</pubDate>
+		<description><![CDATA[Operação com fundo saudita foi concluída após aprovação de órgãos reguladores.]]></description>
+		<enclosure url="https://media.moneytimes.com.br/podcast/2026/09/episodio-212.mp3" type="audio/mpeg" length="30500000"/>
+	</item>
+	<item>
+		<title>Podcast: o que esperar do Copom de novembro</title>
+		<link>https://www.moneytimes.com.br/podcast-o-que-esperar-do-copom-de-novembro/</link>
+		<description><![CDATA[Economistas discutem o cenário para a Selic.]]></description>
+		<media:content url="https://media.moneytimes.com.br/video/2026/09/copom.mp4" medium="video" type="video/mp4" width="1920" height="1080"/>
+		<media:thumbnail url="https://www.moneytimes.com.br/uploads/2026/09/copom-thumb.jpg" width="640" height="360"/>
+	</item>
+	<item>
+		<title>Ibovespa fecha em queda com cautela antes do 1º turno</title>
+		<link>https://www.moneytimes.com.br/ibovespa-fecha-em-queda-com-cautela-antes-do-1o-turno/?id=77&amp;utm_campaign=newsletter</link>
+		<pubDate>Mon, 28 Sep 2026 21:05:00 +0000</pubDate>
+		<description><![CDATA[<p>Índice recuou 0,26%.</p>]]></description>
+		<media:content url="https://www.moneytimes.com.br/uploads/2026/09/b3-painel.gif" medium="image" width="1200" height="675"/>
+	</item>
+	<item>
+		<description><![CDATA[Item sem título deve ser descartado.]]></description>
+		<link>https://www.moneytimes.com.br/sem-titulo/</link>
+		<pubDate>Mon, 28 Sep 2026 20:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<title>Item sem link deve ser descartado</title>
+		<pubDate>Mon, 28 Sep 2026 20:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<title>Link com esquema inválido</title>
+		<link>javascript:alert(1)</link>
+		<pubDate>Mon, 28 Sep 2026 20:00:00 +0000</pubDate>
+	</item>
+	<item>
+		<title><![CDATA[<script>alert(1)</script>]]></title>
+		<link>https://www.moneytimes.com.br/so-script/</link>
+		<pubDate>Mon, 28 Sep 2026 20:00:00 +0000</pubDate>
+	</item>
+</channel>
+</rss>

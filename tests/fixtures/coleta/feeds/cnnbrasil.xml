@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	>
+<channel>
+	<title>CNN Brasil</title>
+	<link>https://www.cnnbrasil.com.br</link>
+	<description>Notícias do Brasil e do mundo</description>
+	<language>pt-BR</language>
+	<item>
+		<title>Ana Paula Renault confirma programa no GNT e explica por que saiu da Band</title>
+		<link>https://www.cnnbrasil.com.br/pop/tv/ana-paula-renault-confirma-programa-no-gnt-e-explica-por-que-saiu-da-band/</link>
+		<pubDate>Tue, 29 Sep 2026 01:35:56 +0000</pubDate>
+		<description><![CDATA[Apresentadora estreia atração semanal em novembro]]></description>
+		<media:content url="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/09/ana-paula-renault.jpg" medium="image" width="1280" height="720"/>
+	</item>
+	<item>
+		<title>Ex-galã de “Malhação”, Ronny Kriwatt mostra filho em viagem</title>
+		<link>https://www.cnnbrasil.com.br/pop/celebridades/ex-gala-de-malhacao-ronny-kriwatt-mostra-filho-em-viagem/</link>
+		<pubDate>Tue, 29 Sep 2026 01:10:00 +0000</pubDate>
+		<description><![CDATA[Ator publicou fotos nas redes sociais]]></description>
+	</item>
+	<item>
+		<title>Flamengo anuncia renovação com técnico até 2028</title>
+		<link>https://www.cnnbrasil.com.br/esportes/futebol/flamengo-anuncia-renovacao-com-tecnico-ate-2028/</link>
+		<pubDate>Mon, 28 Sep 2026 23:50:00 +0000</pubDate>
+		<description><![CDATA[Clube confirmou acordo nesta segunda]]></description>
+	</item>
+	<item>
+		<title>Renegociação de dívidas de adimplentes é prorrogada até 26 de outubro</title>
+		<link>https://www.cnnbrasil.com.br/economia/macroeconomia/renegociacao-de-dividas-de-adimplentes-e-prorrogada-ate-26-de-outubro/</link>
+		<pubDate>Mon, 28 Sep 2026 22:40:00 +0000</pubDate>
+		<description><![CDATA[Programa permite que consumidores com contas em dia troquem dívidas caras por crédito com juros menores e garantia do Fundo Garantidor de Operações]]></description>
+		<content:encoded><![CDATA[<p>O Ministério da Fazenda prorrogou até 26 de outubro o prazo para que consumidores com as contas em dia renegociem dívidas de cartão de crédito e cheque especial com juros menores. A medida foi publicada no Diário Oficial da União desta segunda-feira.</p><p>Segundo a pasta, 1,8 milhão de contratos já foram renegociados, somando R$ 14,6 bilhões.</p>]]></content:encoded>
+		<media:content url="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2026/09/renegociacao-dividas.jpg" medium="image" width="1280" height="720"/>
+	</item>
+</channel>
+</rss>

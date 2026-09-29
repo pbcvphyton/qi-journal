@@ -1,0 +1,154 @@
+{#- E-mail HTML: tabelas + CSS inline (o <style> é só melhoria progressiva para
+    celular e modo escuro). Sem JS, sem SVG, fontes do sistema.
+    Variáveis: v (EditionView), brand, subject, preheader, sections, story_url, footer. -#}
+{% set c = brand.colors %}
+{% set serif = "Georgia,serif" %}
+{% set sans = "Arial,sans-serif" %}
+{% set mono = "Menlo,Consolas,monospace" %}
+{#- Fontes: até 3 nomes (só o primeiro com link) e "+N"; a edição tem todos os links. -#}
+{% macro sources_line(s) -%}
+{% if s.sources %}
+<p style="margin:6px 0 0;font:11px/16px {{ sans }};color:#687487" class="muted">
+{%- for src in s.sources[:3] %}{% if not loop.first %} · {% endif %}{% if loop.first and src.url %}<a href="{{ src.url }}" style="color:#687487" class="muted">{{ src.name }}</a>{% else %}{{ src.name }}{% endif %}{% endfor %}{% if s.sources|length > 3 %} · +{{ s.sources|length - 3 }}{% endif -%}
+</p>
+{% endif %}
+{%- endmacro %}
+{% macro lang(s) -%}{% if s.lang %} lang="{{ s.lang }}"{% endif %}{%- endmacro %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>{{ subject }}</title>
+<style>
+  body{margin:0;padding:0;}
+  a{text-decoration:none;}
+  @media (max-width:660px){
+    .wrap{width:100%!important;}
+    .px{padding-left:18px!important;padding-right:18px!important;}
+    .hl{font-size:24px!important;line-height:30px!important;}
+  }
+  @media (prefers-color-scheme:dark){
+    .bg{background:#0b0f17!important;}
+    .card{background:#111827!important;}
+    .sc{color:#9fb3d9!important;}
+    .kick{color:#8fb0f5!important;border-color:#8fb0f5!important;}
+    .lnk{color:#8fb0f5!important;}
+    .ink{color:#e2e8f4!important;}
+    .muted{color:#a9b4c6!important;}
+    .soft{background:#131c2d!important;}
+    .rule{border-color:#2d3748!important;}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#f0f2f5;" class="bg">
+<div style="display:none;max-height:0;max-width:0;overflow:hidden;opacity:0;mso-hide:all;font-size:1px;line-height:1px;color:#f0f2f5;">{{ preheader }}{% for _ in range(12) %}&#847;&zwnj;&nbsp;{% endfor %}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f0f2f5;" class="bg">
+<tr><td align="center" style="padding:24px 10px;">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" class="wrap card" style="width:640px;max-width:640px;background:#ffffff;">
+
+{# Cabeçalho #}
+<tr><td align="center" class="px" style="padding:28px 20px 18px;border-bottom:3px solid {{ c.navy }};">
+  <p style="margin:0;font-family:{{ sans }};font-size:34px;line-height:40px;font-weight:bold;letter-spacing:-1px;color:{{ c.navy }};" class="ink">
+    {%- for part, cls in brand.wordmark %}<span style="color:{{ c.accent if cls == 'q' else c.navy }};{% if cls == 'journal' %}font-weight:900;{% endif %}"{% if cls != 'q' %} class="ink"{% endif %}>{{ part }}</span>{% endfor -%}
+  </p>
+  {% if brand.tagline %}
+  <p style="margin:6px 0 0;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#687487;" class="muted">{{ brand.tagline }}</p>
+  {% endif %}
+  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:#687487;" class="muted">{{ v.date_label }}{% if v.time_label %} · {{ v.time_label }} {{ v.tz_label }}{% endif %}</p>
+</td></tr>
+
+{# Cotações #}
+{% if v.quotes %}
+<tr><td class="px" align="center" style="padding:10px 20px;background:{{ c.navy }};font-family:{{ mono }};font-size:11px;line-height:19px;color:#b9c2d6;">
+  {%- for q in v.quotes %}{% if not loop.first %}<span style="color:#56627e;"> · </span>{% endif %}<span style="white-space:nowrap;">{{ q.label }} <b style="color:#ffffff;font-weight:bold;">{{ q.display }}</b>{% if q.change %} <span style="color:{{ c.ticker_up if q.css == 'u' else c.ticker_down if q.css == 'd' else '#b9c2d6' }};">{{ q.change }}</span>{% endif %}</span>{% endfor -%}
+</td></tr>
+{% endif %}
+
+{# Clima #}
+{% if v.weather %}
+<tr><td class="px soft rule" align="center" style="padding:7px 20px;background:#f8f9fb;border-bottom:1px solid #e4e7ec;font-family:{{ mono }};font-size:11px;line-height:17px;color:#687487;">
+  {%- for w in v.weather %}{% if not loop.first %}&nbsp;&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap">{{ w.now_emoji }} <b style="color:#1a2332" class="ink">{{ w.city }}</b> {{ w.now_temp }} ↓{{ w.today_min }} ↑{{ w.today_max }}</span> <span style="white-space:nowrap">| Amanhã {{ w.tomorrow_emoji }} ↓{{ w.tomorrow_min }} ↑{{ w.tomorrow_max }}</span>{% endfor -%}
+</td></tr>
+{% endif %}
+
+{# Editorial #}
+{% if v.editorial %}
+<tr><td class="px soft rule" align="center" style="padding:20px 28px;background:#fafbff;border-bottom:1px solid #e4e7ec;font-family:{{ serif }};font-size:16px;line-height:26px;font-style:italic;color:#4a5568;">
+  <span class="muted">{{ v.editorial|md_lite }}</span>
+</td></tr>
+{% endif %}
+
+{# Em 1 minuto (no modo automático ele só repetiria títulos: fica de fora do e-mail) #}
+{% if v.briefing and v.mode == "ai" %}
+<tr><td class="px" style="padding:20px 20px 8px;">
+  <p class="kick" style="margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid {{ c.primary }};font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;color:{{ c.primary }};">Em 1 minuto</p>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  {% for item in v.briefing %}
+  <tr>
+    <td width="16" valign="top" style="padding:3px 0 5px;font:14px/21px {{ sans }};color:{{ c.primary }}">&#9642;</td>
+    <td valign="top" class="ink" style="padding:3px 0 5px;font:14px/21px {{ sans }};color:#1a2332">{{ item|md_lite }}</td>
+  </tr>
+  {% endfor %}
+  </table>
+</td></tr>
+{% endif %}
+
+{# Manchete #}
+{% if v.lead %}
+{% set s = v.lead %}
+<tr><td class="px" style="padding:22px 20px 24px;border-bottom:2px solid {{ c.navy }};">
+  <p class="sc" style="margin:0 0 6px;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:{{ s.color }};">{{ s.section_title }}</p>
+  <h1 class="hl" style="margin:0 0 10px;font:bold 28px/34px {{ serif }};color:{{ c.navy }}"{{ lang(s) }}><a href="{{ story_url(s) }}" class="ink" style="color:{{ c.navy }};text-decoration:none">{{ s.headline }}</a></h1>
+  {% if s.dek %}
+  <p class="muted" style="margin:0 0 14px;font:15px/23px {{ sans }};color:#4a5568"{{ lang(s) }}>{{ s.dek }}</p>
+  {% endif %}
+  {% if s.image %}
+  <a href="{{ story_url(s) }}" style="text-decoration:none"><img src="{{ s.image }}" width="600" alt="{{ s.headline }}" style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0 0 12px;background:#e4e7ec;font:12px {{ sans }};color:#687487"></a>
+  {% endif %}
+  {{ sources_line(s) }}
+  <p style="margin:12px 0 0;font:bold 13px/18px {{ sans }}"><a href="{{ story_url(s) }}" class="lnk" style="color:{{ c.primary }}">Ler na edição &rarr;</a></p>
+</td></tr>
+{% endif %}
+
+{# Demais matérias, por seção #}
+{% for section in sections %}
+<tr><td class="px" style="padding:22px 20px 4px;">
+  <p class="sc" style="margin:0;padding:2px 0 2px 10px;border-left:4px solid {{ section.color }};font-family:{{ sans }};font-size:11px;line-height:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:{{ section.color }};">{{ section.title }}</p>
+</td></tr>
+{% for s in section.stories %}
+<tr><td class="px rule" style="padding:12px 20px 14px{% if not loop.last %};border-bottom:1px solid #e4e7ec{% endif %}">
+  <h2 style="margin:0 0 4px;font:bold 18px/24px {{ serif }};color:#1a2332"{{ lang(s) }}><a href="{{ story_url(s) }}" class="ink" style="color:#1a2332;text-decoration:none">{{ s.headline }}</a></h2>
+  {% if s.dek %}
+  <p class="muted" style="margin:0;font:14px/21px {{ sans }};color:#4a5568"{{ lang(s) }}>{{ s.dek }}</p>
+  {% endif %}
+  {{ sources_line(s) }}
+</td></tr>
+{% endfor %}
+{% endfor %}
+
+{# Chamada para a edição completa #}
+<tr><td align="center" class="px" style="padding:28px 20px 32px;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+  <tr><td align="center" bgcolor="{{ c.primary }}" style="border-radius:22px;background:{{ c.primary }};">
+    <a href="{{ v.base_url }}" style="display:inline-block;padding:12px 28px;font-family:{{ sans }};font-size:14px;line-height:18px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:22px;">Abrir edição completa &rarr;</a>
+  </td></tr>
+  </table>
+</td></tr>
+
+{# Rodapé #}
+<tr><td align="center" class="px" style="padding:18px 20px 20px;background:{{ c.navy }};font-family:{{ mono }};font-size:10px;line-height:17px;letter-spacing:1px;color:#b9c2d6;">
+  <b style="color:{{ c.accent }};">{{ brand.name }}</b> · {{ v.sources_total }} fontes consultadas<br>
+  <a href="{{ footer.archive_url }}" style="color:#ffffff;text-decoration:underline;">Edições anteriores</a>{% if v.repo_url %} · <a href="{{ v.repo_url }}" style="color:#ffffff;text-decoration:underline;">Código-fonte</a>{% endif %}<br>
+  {{ footer.generated }}
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

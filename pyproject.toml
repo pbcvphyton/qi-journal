@@ -1,0 +1,9 @@
+[project]
+name = "qijournal"
+version = "2.0.0"
+description = "QI Journal: jornal financeiro diário gerado automaticamente a partir de feeds RSS."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

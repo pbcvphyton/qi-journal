@@ -1,0 +1,58 @@
+# Testes automáticos e geração de uma edição de exemplo (sem rede, sem IA).
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - "index.html"
+      - "edicoes/**"
+      - "data/**"
+  pull_request:
+    paths-ignore:
+      - "index.html"
+      - "edicoes/**"
+      - "data/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v5
+
+      - name: Configurar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - name: Instalar dependências
+        run: pip install -r requirements-dev.txt
+
+      - name: Testes
+        run: pytest
+
+      - name: Edição de exemplo (offline)
+        run: |
+          out="$RUNNER_TEMP/out"
+          python -m qijournal render --bundle tests/fixtures/bundle.json --out "$out" --no-llm
+          date=$(python -c 'import json, sys; print(json.load(open(sys.argv[1]))["date"])' "$out/edicoes/latest.json")
+          for file in index.html "edicoes/$date.html" edicoes/index.html edicoes/latest.json \
+                      edicoes/email.html edicoes/email.txt "data/$date.json"; do
+            test -s "$out/$file" || { echo "::error::$file não foi gerado"; exit 1; }
+          done
+          ls -la "$out" "$out/edicoes" "$out/data"
+          # A rotina do Gmail copia email.html no htmlBody: o do exemplo tem de ficar
+          # com folga abaixo do limite de 40 KB (o real, com mais fontes, é maior).
+          size=$(wc -c < "$out/edicoes/email.html")
+          echo "email.html do exemplo: $size bytes"
+          [ "$size" -le 36000 ] || { echo "::error::email.html do exemplo com $size bytes (limite 36000)"; exit 1; }

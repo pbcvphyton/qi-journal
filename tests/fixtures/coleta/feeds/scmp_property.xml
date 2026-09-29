@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<title>South China Morning Post - Property</title>
+<link>https://www.scmp.com/rss/96/feed</link>
+<description>RSS feed</description>
+<language>en</language>
+<atom:link href="https://www.scmp.com/rss/96/feed" rel="self" type="application/rss+xml"/>
+<item>
+<title><![CDATA[Plan to turn Hong Kong office block into flats rejected amid high commercial vacancy rates]]></title>
+<link>https://www.scmp.com/business/china-business/article/3369122/plan-turn-hong-kong-office-block-flats-rejected-amid-high-commercial-vacancy-rates</link>
+<guid isPermaLink="true">https://www.scmp.com/business/china-business/article/3369122/plan-turn-hong-kong-office-block-flats-rejected-amid-high-commercial-vacancy-rates</guid>
+<description><![CDATA[The Town Planning Board turned down a proposal to convert a 1980s office tower in Wan Chai into 180 flats, saying the city still needs Grade B office space even as vacancies hover near 17 per cent. Developers had hoped the case would pave the way for more conversions.]]></description>
+<pubDate>Tue, 29 Sep 2026 00:01:06 +0000</pubDate>
+<media:content url="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/09/28/5b1e2d7c-3f4a-4c8b-9e2d-1a7f6c5b4e3d_8f2a1c3b.jpg?itok=Xk3pQ9rT" medium="image" width="1280" height="720"/>
+<media:thumbnail url="https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/canvas/2026/09/28/5b1e2d7c-3f4a-4c8b-9e2d-1a7f6c5b4e3d_8f2a1c3b.jpg?itok=Pm2sLq8W" width="768" height="768"/>
+<media:enclosure url="https://cdn.i-scmp.com/sites/default/files/d8/images/canvas/2026/09/28/5b1e2d7c.jpg" type="image/jpeg" length="0"/>
+</item>
+<item>
+<title><![CDATA[China’s new-home prices fall for 40th straight month as stimulus fails to lift demand]]></title>
+<link>https://www.scmp.com/economy/china-economy/article/3369080/chinas-new-home-prices-fall-40th-straight-month</link>
+<guid isPermaLink="true">https://www.scmp.com/economy/china-economy/article/3369080/chinas-new-home-prices-fall-40th-straight-month</guid>
+<description><![CDATA[Prices of new homes across 70 major cities slipped 0.4 per cent in August from July, according to the statistics bureau, extending a slump that began in 2023 despite mortgage rate cuts and eased purchase restrictions.]]></description>
+<pubDate>Mon, 28 Sep 2026 09:30:00 +0000</pubDate>
+<media:thumbnail url="https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/canvas/2026/09/28/homes.jpg?itok=Aa1" width="768" height="768"/>
+<media:thumbnail url="https://cdn.i-scmp.com/sites/default/files/styles/1020x680/public/d8/images/canvas/2026/09/28/homes.jpg?itok=Bb2" width="1020" height="680"/>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,1474 @@
+{
+ "date": "2026-09-29",
+ "date_label": "Terça-feira, 29 de setembro de 2026",
+ "generated_at": "2026-09-29T05:41:29+00:00",
+ "mode": "heuristic",
+ "model": null,
+ "editorial": "",
+ "briefing": [
+  "Governo determina que preço abusivo de combustíveis pode levar a multa de até R$ 500 milhões",
+  "Juros futuros sobem com pressão externa e pesquisas eleitorais",
+  "CNJ determina devolução ao Tesouro de mais R$ 2,36 bi em precatórios irregulares",
+  "Lula sanciona lei de incentivo ao futebol feminino e diz que fim de bets 'não traz prejuízo' ao esporte",
+  "Petróleo sobe com impasse nas negociações de cessar-fogo entre EUA e Irã"
+ ],
+ "lead": "fux-acata-pedido-da-defesa-de-flavio-e-cassa-dec",
+ "secondary": [
+  "quaest-49-desaprovam-governo-lula-e-46-aprovam",
+  "divida-publica-federal-alcanca-r-9-293-trilhoes",
+  "openai-abandona-lancamento-de-novo-modelo-de-ia"
+ ],
+ "highlights": [
+  "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
+  "agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo",
+  "ricardo-salles-desiste-de-concorrer-ao-senado-em",
+  "reino-unido-investiga-acao-de-estado-estrangeiro",
+  "starship-da-spacex-realiza-1o-voo-orbital-lanca",
+  "dolar-sobe-a-r-5-22-e-ibovespa-cai-com-petroleo",
+  "gilmar-quer-suspender-analise-sobre-alexandre-de",
+  "ambipar-obtem-aval-da-justica-dos-eua-para-centr"
+ ],
+ "sections": [
+  {
+   "id": "brasil",
+   "title": "Brasil · Economia",
+   "color": "#0A2051",
+   "story_ids": [
+    "divida-publica-federal-alcanca-r-9-293-trilhoes",
+    "governo-determina-que-preco-abusivo-de-combustiv",
+    "acoes-do-nubank-despencam-apos-rumores-de-eventu",
+    "mercado-eleva-projecoes-do-ipca-de-2026-para-4-9"
+   ]
+  },
+  {
+   "id": "mercados",
+   "title": "Mercados & Finanças",
+   "color": "#133D94",
+   "story_ids": [
+    "dolar-sobe-a-r-5-22-e-ibovespa-cai-com-petroleo",
+    "juros-futuros-sobem-com-pressao-externa-e-pesqui",
+    "ibovespa-cai-e-perde-os-183-mil-com-aversao-a-ri"
+   ]
+  },
+  {
+   "id": "juridico",
+   "title": "Jurídico & Regulação",
+   "color": "#1C49A5",
+   "story_ids": [
+    "fux-acata-pedido-da-defesa-de-flavio-e-cassa-dec",
+    "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
+    "agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo",
+    "gilmar-quer-suspender-analise-sobre-alexandre-de",
+    "ambipar-obtem-aval-da-justica-dos-eua-para-centr",
+    "cnj-determina-devolucao-ao-tesouro-de-mais-r-2-3"
+   ]
+  },
+  {
+   "id": "politica",
+   "title": "Política",
+   "color": "#2E6BD6",
+   "story_ids": [
+    "quaest-49-desaprovam-governo-lula-e-46-aprovam",
+    "ricardo-salles-desiste-de-concorrer-ao-senado-em",
+    "lula-sanciona-lei-de-incentivo-ao-futebol-femini"
+   ]
+  },
+  {
+   "id": "mundo",
+   "title": "Geopolítica & Mundo",
+   "color": "#C90055",
+   "story_ids": [
+    "reino-unido-investiga-acao-de-estado-estrangeiro",
+    "petroleo-sobe-com-impasse-nas-negociacoes-de-ces"
+   ]
+  },
+  {
+   "id": "tecnologia",
+   "title": "Tecnologia & Negócios",
+   "color": "#0F7C8C",
+   "story_ids": [
+    "openai-abandona-lancamento-de-novo-modelo-de-ia",
+    "anthropic-preve-em-prospecto-de-ipo-que-ia-pode",
+    "starship-da-spacex-realiza-1o-voo-orbital-lanca",
+    "nvidia-aprova-limite-adicional-de-us-150-bilhoes"
+   ]
+  },
+  {
+   "id": "imobiliario",
+   "title": "Imobiliário",
+   "color": "#6B3FA0",
+   "story_ids": [
+    "fii-trxf11-conclui-venda-de-15-imoveis-por-r-207",
+    "fii-da-kinea-aprova-13a-emissao-e-oferta-pode-so"
+   ]
+  }
+ ],
+ "stories": [
+  {
+   "id": "fux-acata-pedido-da-defesa-de-flavio-e-cassa-dec",
+   "section": "juridico",
+   "headline": "Fux acata pedido da defesa de Flávio e cassa decisão de Dino sobre Nossa Senhora Aparecida",
+   "dek": "O ministro Luiz Fux, do Supremo Tribunal Federal (STF) suspendeu no fim da noite de segunda-feira (28) decisão do ministro Flávio Dino que havia cassado uma determinação do Tribunal Superior Eleitoral (TSE), por seu…",
+   "body": [
+    "O ministro Luiz Fux, do Supremo Tribunal Federal (STF) suspendeu no fim da noite de segunda-feira (28) decisão do ministro Flávio Dino que havia cassado uma determinação do Tribunal Superior Eleitoral (TSE), por seu vice-presidente, André Mendonça, para retirada das redes de conteúdo relacionando o candidato Flávio Bolsonaro (PL) à intenção de retirar de Nossa Senhora Aparecida o título de padroeira do Brasil. Tanto Fux quanto Dino, em suas decisões monocráticas, submetem o caso ao plenário do STF, que deverá deliberar na quarta-feira (30).",
+    "O caso levou o presidente do Tribunal Superior Eleitoral (TSE), Kassio Nunes Marques, oficiar ao presidente do STF, Edson Fachin, reclamando de interferência de ministros da Corte na Justiça Eleitoral.",
+    "“Venho manifestar minha elevada preocupação com episódios reiterados de indevida sobreposição de competência e de violação ao juiz natural no âmbito do Supremo Tribunal Federal que vêm impactando diretamente a condução da eleição pelo Tribunal Superior Eleitoral”, diz Nunes Marques no ofício."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/noticia/2026/09/29/fux-acata-pedido-da-defesa-de-flvio-e-cassa-deciso-de-dino-sobre-nossa-senhora-aparecida.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/eleicoes/eleicoes-2026/dino-submete-ao-plenario-do-stf-decisao-que-restabeleceu-postagens-sobre-nossa-senhora-aparecida"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/09/flavio-pede-a-fux-suspensao-de-decisao-de-dino-que-liberou-publicacoes-sobre-nossa-senhora.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/fux-suspende-decisao-de-dino-sobre-fake-news-de-nossa-senhora-aparecida-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/fux-suspende-decisao-de-dino-e-retoma-determinacao-de-mendonca-sobre-posts-de-nossa-senhora-aparecida.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/flavio-recorre-fux-para-derrubar-post-sobre-nossa-senhora-aparecida"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/fachin-deve-levar-caso-de-nossa-senhora-ao-plenario-na-quarta-feira/"
+    }
+   ],
+   "article_ids": [
+    "bdcb98f5063f",
+    "f534cdfc2797",
+    "49959326ff16",
+    "458af4db588f",
+    "db20019b602e",
+    "805091df1a49",
+    "d8f375ff29e3",
+    "ed3c31f33745",
+    "cd23bcb3ac61",
+    "3786c29fa67d",
+    "035a0396fc15",
+    "ffc6f4d20744",
+    "206066fd3e3f",
+    "958a8dc56354",
+    "b5acde6e0a50",
+    "486aca9aaa9b",
+    "ffc459f47571",
+    "320403d3a3df",
+    "516693042882",
+    "b5703c20bfda",
+    "f47c1c72160c",
+    "9174dc99ea73"
+   ],
+   "importance": 5,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/WP6DrcrbInywVmMgQcRBzsX7q4U=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/F/S/RP9KqHRBurncYkWDSePw/foto21pol-201-fux-a12.jpg",
+   "published": "2026-09-29T03:46:20+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "quaest-49-desaprovam-governo-lula-e-46-aprovam",
+   "section": "politica",
+   "headline": "Quaest: 49% desaprovam governo Lula e 46% aprovam",
+   "dek": "Pesquisa Quaest divulgada nesta segunda-feira (28) mostra que 49% dos eleitores desaprovam o governo Lula, enquanto 46% afirmaram aprová-lo.",
+   "body": [
+    "Em relação ao levantamento anterior, divulgado em 21 de setembro, a desaprovação oscilou de 50% para 49%, enquanto a aprovação oscilou de 44% para 46%. A parcela dos que não souberam ou não responderam passou de 6% para 5%. A margem de erro da pesquisa é de dois pontos percentuais, para mais ou para menos.",
+    "O levantamento divulgado nesta segunda-feira foi contratado pelo Grupo Globo e ouviu 2.004 eleitores entre os dias 24 e 27 de setembro. A margem de erro é de dois pontos percentuais, para mais ou para menos, e o nível de confiança é de 95%. A pesquisa está registrada na Justiça Eleitoral sob o número BR-06520/2026.",
+    "Na avaliação do governo, 41% dos entrevistados consideram a gestão negativa (42% na anterior); 34% a avaliam como positiva (33% antes) e 23% classificam o governo como regular, mesma parcela da pesquisa anteiror. Outros 2% não souberam ou não responderam - também sem alteração ante a pesquisa anteiror."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/28/quaest-49percent-desaprovam-governo-lula-e-46percent-aprovam.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/eleicoes/eleicoes-2026/lula-abre-vantagem-no-1o-turno-e-empata-com-flavio-bolsonaro-no-2o-diz-quaest"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/09/quaest-lula-tem-39-e-flavio-bolsonaro-34-no-1o-turno.shtml"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-452-contra-447-de-lula-no-2o-turno-diz-pesquisa/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/09/28/quaest-presidente-2o-turno-28-setembro.ghtml"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/brasil/pesquisa-vox-brasil-flavio-bolsonaro-tem-452-e-lula-447-no-2o-turno/"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/vox-lula-tem-411-das-intencoes-de-voto-no-1o-turno-flavio-378/"
+    }
+   ],
+   "article_ids": [
+    "df9e06cf1494",
+    "ed8ad763e9f1",
+    "18a471b29ed4",
+    "9f0aa8a3b461",
+    "4023b0397417",
+    "279c4026e4ce",
+    "128e5df296d9",
+    "e4aa1f3c66e9",
+    "cc72f31a4001",
+    "11f72fd0dc39",
+    "fd3d274ad078",
+    "16a682034f64",
+    "6be7c0f8b331",
+    "126f6952a26b",
+    "fdef73cec6e8",
+    "9f0eb1727e43",
+    "84eb82d1d58a",
+    "7cdee5053254",
+    "f5842608c0b9",
+    "17586d882b30"
+   ],
+   "importance": 5,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/Ug9AJTShpK5bY_TpMVBaJGkN3u8=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/M/y/uxkvpcSfaaiaEzyI4fhA/lula-esfera3.jpg",
+   "published": "2026-09-28T14:55:44+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
+   "section": "juridico",
+   "headline": "Zanin manda Anatel garantir acesso gratuito a sites e aplicativos do TSE",
+   "dek": "O ministro Cristiano Zanin, do Supremo Tribunal Federal (STF), determinou que a Agência Nacional de Telecomunicações (Anatel) garanta acesso gratuito ao site de checagem de notícias falsas do Tribunal Superior Eleitoral…",
+   "body": [
+    "O ministro Cristiano Zanin, do Supremo Tribunal Federal (STF), determinou que a Agência Nacional de Telecomunicações (Anatel) garanta acesso gratuito ao site de checagem de notícias falsas do Tribunal Superior Eleitoral (TSE) e às páginas e aplicativos da Corte, como o e-Título. A medida vale a partir de 72 horas antes e vai até 24 horas depois de cada um dos turnos da eleição."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/28/zanin-manda-anatel-garantir-acesso-a-site-de-checagem-e-a-servicos-do-tse-72-horas-antes-das-eleicoes.ghtml"
+    },
+    {
+     "name": "Conjur",
+     "url": "https://conjur.com.br/2026-set-28/provedores-devem-dar-acesso-gratuito-a-sites-da-justica-eleitoral/"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/stf/do-supremo/zanin-autoriza-que-anatel-garanta-acesso-gratuito-a-sites-da-justica-eleitoral"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/zanin-determina-que-provedores-de-internet-deem-acesso-gratuito-a-sites-da-justica-eleitoral/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/09/28/zanin-determina-acesso-gratuito-a-servicos-do-tse-entre-72-horas-antes-e-24-horas-depois-das-eleicoes.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/zanin-libera-acesso-gratuito-sites-da-justica-eleitoral-nas-eleicoes"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/zanin-manda-anatel-garantir-acesso-gratuito-a-servicos-do-tse-nas-eleicoes/"
+    }
+   ],
+   "article_ids": [
+    "91efd974b670",
+    "9d45491b7c12",
+    "94f454ee215d",
+    "c940ae22de4b",
+    "e678b0514d9b",
+    "b59e9995bc81",
+    "59bb25b3fd72"
+   ],
+   "importance": 5,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/IX-AMSdKrVD-Q8y-UxHIqqkB0is=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/W/q/iw3R6wQeaim7padbxiKg/tse-novaurna.jpeg",
+   "published": "2026-09-28T22:45:11+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo",
+   "section": "juridico",
+   "headline": "AGU processa bets e pede R$ 1 bilhão por prejuízos à saúde da população e ao SUS",
+   "dek": "A Advocacia-Geral da União (AGU) ajuizou nesta segunda-feira (28) uma ação civil pública contra 17 operadores de apostas on-line por prejuízos causados à saúde da população.",
+   "body": [
+    "A instituição pede, além do ressarcimento de despesas do Sistema Único e Saúde (SUS), uma indenização por danos morais coletivos no valor mínimo de R$ 1 bilhão e a restituição em dobro dos valores apostados por pessoas diagnosticadas por ludopatia (transtorno do jogo patológico).",
+    "Entidades ligadas a bets acionam STF para suspender proibição A ação foi ajuizada na Justiça Federal em Pernambuco, porque, segundo a AGU, a região Nordeste é um dos locais onde os impactos são mais acentuados, considerando a maior concentração de grupos vulneráveis ao jogo de risco ou problemático. De acordo com a instituição essas 17 empresas representam cerca de 80% do mercado nacional de apostas de quota fixa no país.",
+    "Esta é a primeira vez que a União processa as empresas donas de bets desde que o governo Lula vetou as casas de apostas on-line e proibiu a operação das empresas até então autorizadas. O anúncio foi realizado na sexta-feira (25), em São Paulo."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/noticia/2026/09/28/agu-processa-bets-e-pede-r-1-bilho-por-prejuzos-sade-da-populao-e-ao-sus.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/justica/uniao-entra-com-acoes-contra-bets-e-pede-r-1-bilhao-de-indenizacao"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/governo-processa-17-bets-pede-indenizacao-de-r-1-bi-por-danos-morais-e-ressarcimento-ao-sus/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/09/governo-processa-bets-e-pede-r-1-bilhao-em-indenizacao-e-ressarcimento-ao-sus.shtml"
+    },
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/politica/governo-pede-na-justica-indenizacao-de-r-1-bi-de-17-bets/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/governo-vai-a-justica-contra-17-bets-e-pede-r-1-bilhao-de-indenizacao-por-danos-morais-coletivos-por-vicio-de-apostadores.ghtml"
+    }
+   ],
+   "article_ids": [
+    "98ed3d05c882",
+    "99492f7121c7",
+    "7b9ef716569a",
+    "09ca20f9fddd",
+    "153bcd04408b",
+    "1ca533460081"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/CBQR3uSsPiC6CVzpj1dwA9j0vBo=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/O/9/8wslpCQ1mnyHToNj935w/agu.jpg",
+   "published": "2026-09-28T22:23:12+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "divida-publica-federal-alcanca-r-9-293-trilhoes",
+   "section": "brasil",
+   "headline": "Dívida Pública Federal alcança R$ 9,293 trilhões em agosto",
+   "dek": "A Dívida Pública Federal (DPF) terminou agosto em R$ 9,293 trilhões, conforme divulgado nesta segunda-feira (28) pelo Tesouro Nacional no Relatório Mensal da Dívida.",
+   "body": [
+    "O número representa alta de 0,04%, sempre em relação ao mês anterior."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/divida-publica-federal-alcanca-r-9293-trilhoes-em-agosto.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/divida-publica-federal-vai-a-r-93-bi-em-agosto/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mercado/2026/09/divida-publica-total-atinge-r-929-tri-em-agosto-e-parcela-atrelada-a-selic-tem-novo-recorde.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/divida-publica-federal-cresce-em-agosto-e-atinge-r-929-trilhoes.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/divida-publica-federal-fica-estavel-em-agosto-e-chega-r-929-tri"
+    }
+   ],
+   "article_ids": [
+    "8d8c47bd97b7",
+    "b0eaf8bda686",
+    "58dc42594019",
+    "5b87e753094c",
+    "4749ca99a48d"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/EP8GdzVOPVMiI-O3uR2Czy8C60k=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/H/9/r2829xQYKrqflAwCcZYQ/55234659368-fa03bd6155-k.jpg",
+   "published": "2026-09-28T17:55:21+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "openai-abandona-lancamento-de-novo-modelo-de-ia",
+   "section": "tecnologia",
+   "headline": "OpenAI abandona lançamento de novo modelo de IA por preocupação com segurança",
+   "dek": "A OpenAI cancelou o lançamento de seu modelo de inteligência artificial de próxima geração devido a preocupações de segurança levantadas por pesquisadores durante testes internos, em um dos sinais mais claros, até agora…",
+   "body": [
+    "A OpenAI cancelou o lançamento de seu modelo de inteligência artificial de próxima geração devido a preocupações de segurança levantadas por pesquisadores durante testes internos, em um dos sinais mais claros, até agora, de que comportamentos inadequados de agentes de IA podem dificultar o rápido avanço da indústria."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/openai-abandona-lancamento-de-novo-modelo-de-ia-por-preocupacao-com-seguranca.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/ia/2026/09/openai-cancela-estreia-de-nova-versao-do-modelo-de-ia-astra-por-riscos-de-seguranca.shtml"
+    },
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/business/openai-segura-lancamento-de-novo-modelo-de-ia-apos-falhas-em-testes-de-seguranca/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/tecnologia/noticia/2026/09/28/openai-abandona-lancamento-de-novo-modelo-de-ia-por-preocupacoes-de-seguranca.ghtml"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/488cb467-3cb7-4d06-9a5f-c0749c729d91"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/technology/2026/sep/28/openai-new-model-astra-release-scrapped"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/09/28/technology/openai-astra-safety.html"
+    },
+    {
+     "name": "BBC News",
+     "url": "https://www.bbc.co.uk/news/articles/cm5y5nynl75ko"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html"
+    },
+    {
+     "name": "Al Jazeera",
+     "url": "https://www.aljazeera.com/economy/2026/9/29/openai-scraps-release-of-latest-ai-model-over-safety-concerns"
+    },
+    {
+     "name": "TechCrunch",
+     "url": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/"
+    }
+   ],
+   "article_ids": [
+    "40cdb4f42ecf",
+    "91a154ad32cd",
+    "45131619f98d",
+    "925a6571eff8",
+    "a596bab9c487",
+    "a2c275a76a43",
+    "2813ce406240",
+    "90cc429476bc",
+    "0f614f7c3995",
+    "3fa1cec903f9",
+    "220dea2c55f4"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/9m0SeGoJOJSikmEcHDyYm7JmQds=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/s/I/0v7JnURFSWL6Rz3n6Rzw/pexels-tim-witzdam-1081250691-32021560.jpg",
+   "published": "2026-09-28T23:31:28+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "ricardo-salles-desiste-de-concorrer-ao-senado-em",
+   "section": "politica",
+   "headline": "Ricardo Salles desiste de concorrer ao Senado em SP e apoia Derrite e André do Prado",
+   "dek": "A seis dias do primeiro turno das eleições, o deputado federal e candidato ao Senado Ricardo Salles (Novo-SP) anunciou nesta segunda-feira (28) que desistiu de concorrer após uma reunião com o governador e candidato à…",
+   "body": [
+    "A seis dias do primeiro turno das eleições, o deputado federal e candidato ao Senado Ricardo Salles (Novo-SP) anunciou nesta segunda-feira (28) que desistiu de concorrer após uma reunião com o governador e candidato à reeleição Tarcísio de Freitas (Republicanos) e que vai apoiar as candidaturas de Guilherme Derrite (PP) e André do Prado (PL).",
+    "Zema nega desistência e diz que levará sua candidatura 'até o final' Candidato do PSD em Minas, Carlos Viana declara apoio a Flávio Bolsonaro no 1º turno “Nós estamos em um momento muito difícil para o país, um risco enorme de nós continuarmos nesse projeto extremamente equivocado que está nos levando para o buraco. Aqui em São Paulo, graças à liderança do governador Tarcísio, nós estamos relativamente confortáveis com uma grande possibilidade, creio eu, de vencermos no primeiro turno”, afirmou Ricardo Salles.",
+    "Ricardo Salles inicialmente queria concorrer ao governo de São Paulo, mas mudou de planos quando o partido Novo decidiu apoiar Tarcísio. De acordo com a última pesquisa Datafolha para o Senado, divulgada na quinta-feira (24), Marina Silva lidera as intenções de voto consolidadas para o Senado em São Paulo, com 15%, em seguida vêm Simone Tebet, com 14%, e Guilherme Derrite e André do Prado, empatados com 12%. Salles aparece em quinto na disputa, com 4%."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/28/ricardo-salles-desiste-de-concorrer-ao-senado-e-apoia-derrite-e-andr-do-prado.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/eleicoes/eleicoes-2026/ricardo-salles-novo-desiste-de-candidatura-ao-senado-para-apoiar-derrite-pp-e-do-prado-pl"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/09/salles-desiste-de-candidatura-ao-senado-de-sao-paulo-e-apoia-derrite-e-andre-do-prado.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/salles-desistiu-do-senado-o-que-acontece-com-os-votos-e-a-foto-dele-na-urna-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/sp/sao-paulo/eleicoes/2026/noticia/2026/09/28/ricardo-salles-desiste-da-disputa-pelo-senado-a-6-dias-da-votacao-entenda-o-que-acontece-com-os-votos.ghtml"
+    }
+   ],
+   "article_ids": [
+    "12a8b01a9d37",
+    "3c62325da741",
+    "b7a148166dd5",
+    "ef53e3500228",
+    "4ddca3828eac",
+    "3c3dcdb44b8f",
+    "c1e5cd3a1147",
+    "be1dd331752e"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/JGnc4vG5-1DYemLSF2IuXPXUUeg=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/r/1/GMT0hhSAGkigw3EBPNKA/107179682-pa-brasilia-df-04-06-2024-pec-das-drogas-deve-ser-votada-na-ccj-da-camara-entenda-a-prop.jpg",
+   "published": "2026-09-28T14:57:08+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "reino-unido-investiga-acao-de-estado-estrangeiro",
+   "section": "mundo",
+   "headline": "Reino Unido investiga ação de Estado estrangeiro em plano contra base aérea",
+   "dek": "A polícia britânica afirmou nesta segunda-feira que investiga se pessoas que atuavam em nome de um Estado estrangeiro estiveram envolvidas em um suposto plano para atacar uma base aérea usada pelos Estados Unidos, mas…",
+   "body": [
+    "A polícia britânica afirmou nesta segunda-feira que investiga se pessoas que atuavam em nome de um Estado estrangeiro estiveram envolvidas em um suposto plano para atacar uma base aérea usada pelos Estados Unidos, mas informou que os cinco suspeitos presos seriam libertados.",
+    "Os cinco homens, todos britânicos de Londres e com pouco mais de 20 anos, foram detidos na madrugada de domingo depois que a polícia foi alertada sobre três vans brancas que seguiam em direção à RAF Fairford, base britânica que abriga bombardeiros americanos usados em missões contra o Irã.",
+    "A Guarda Revolucionária do Irã (IRGC) afirmou em julho que a base era um alvo legítimo. Laurence Taylor, chefe da polícia antiterrorismo britânica, disse que os homens, presos sob suspeita de crimes relacionados a explosivos e de planejar um ato terrorista, serão libertados ainda nesta segunda-feira sob rigorosas condições de fiança."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/mundo/noticia/2026/09/28/reino-unido-investiga-ao-de-estado-estrangeiro-em-plano-contra-base-area.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/09/suspeitos-de-terrorismo-detidos-no-reino-unido-sao-jovens-britanicos.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/suspeitos-de-planejar-atentado-a-base-britanica-usada-pelos-eua-sao-soltos-sob-fianca-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/mundo/noticia/2026/09/28/presos-suspeita-ataque-terrorista-reino-unido-5-britanicos.ghtml"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/09/28/world/europe/us-air-base-uk-terror-incident-fairford.html"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/uk-news/2026/sep/28/raf-fairford-representatives-sceptical-suspected-bomb-plot"
+    }
+   ],
+   "article_ids": [
+    "9f1604e36845",
+    "3b98e1b2f12d",
+    "205106837b89",
+    "5b0d92cb92aa",
+    "7f082e5a8942",
+    "e8a7d20e5e6a",
+    "49e649fe1346",
+    "c8f51a598c5e",
+    "e8745bd6a84c",
+    "0f0260ccf273",
+    "a6007ae0b5cc",
+    "6ccf9cd4e255",
+    "0281bd51431d",
+    "8a3a04800630",
+    "b258f1d904cf",
+    "122f1bbabbdb"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/4Ah1g6TwmXFj-aakBfCdoft7qXI=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/i/U/wd0CaAQwyYUGnwbmXrIw/2026-09-28t062716z-271215523-rc26snacd1f4-rtrmadp-3-britain-usa-fairford.jpg",
+   "published": "2026-09-28T16:16:21+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "starship-da-spacex-realiza-1o-voo-orbital-lanca",
+   "section": "tecnologia",
+   "headline": "Starship, da SpaceX, realiza 1º voo orbital, lança satélites e tem missão encerrada antes do previsto",
+   "dek": "O foguete Starship de nova geração da SpaceX alcançou a órbita pela primeira vez nesta segunda-feira (28), apesar de um de seus motores ter sido desligado inesperadamente, superando um problema em pleno voo para lançar…",
+   "body": [
+    "O foguete Starship de nova geração da SpaceX alcançou a órbita pela primeira vez nesta segunda-feira (28), apesar de um de seus motores ter sido desligado inesperadamente, superando um problema em pleno voo para lançar seu primeiro lote de novos satélites Starlink em uma missão truncada que terminou horas antes do planejado.",
+    "A missão estava programada para durar 10 horas, mas foi reduzida para três horas após o problema no motor. Lançado do Texas, nos Estados Unidos, este foi o 14º voo do foguete desde 2023, já que a empresa de Elon Musk planeja colocar o veículo em uso rotineiro a partir do final deste ano.",
+    "As ações da SpaceX, que subiram quase 9% desde a oferta pública inicial (IPO, na sigla em inglês), caíam 0,5% no meio da tarde desta segunda-feira. Grande parte do valor de mercado da SpaceX e da contínua confiança dos investidores na empresa — avaliada em US$ 2 trilhões no fechamento de sexta-feira — depende do sucesso da Starship, projetada como a primeira espaçonave totalmente reutilizável do mundo."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/starship-da-spacex-alcana-rbita-apesar-de-problema-no-motor.ghtml"
+    },
+    {
+     "name": "Brazil Journal",
+     "url": "https://braziljournal.com/startship-o-megafoguete-da-spacex-atinge-a-orbita/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/inovacao/noticia/2026/09/28/spacex-faz-14-voo-da-nave-starship.ghtml"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-internacional/starship-atinge-orbita-pela-1a-vez-e-entrega-satelites-starlink/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/6729bceb-2480-42b4-9308-51ef7728c181"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/spacex-prepares-to-send-starship-rocket-to-orbit-for-first-time.html"
+    }
+   ],
+   "article_ids": [
+    "488ab5db98c4",
+    "66a9a7c9116e",
+    "6c89a238405b",
+    "1e28200f591f",
+    "2c2c79fe3eb0",
+    "fdf05c698b25"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/ZsIrKQN_dhc8Obk8fABHbr7Q2TE=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/i/R/V4QsewTzAdgdwbQ59KEw/2026-09-28t134225z-1967050912-rc2dsnakleq5-rtrmadp-3-space-spacex-starship.jpg",
+   "published": "2026-09-28T14:56:26+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "dolar-sobe-a-r-5-22-e-ibovespa-cai-com-petroleo",
+   "section": "mercados",
+   "headline": "Dólar sobe a R$ 5,22 e Ibovespa cai com petróleo e eleição no foco",
+   "dek": "Os preços elevados do petróleo, diante de novos impasses entre Estados Unidos e Irã sobre uma solução para o conflito no Oriente Médio, pressionam as bolsas de Nova York e contribuem para a alta dos rendimentos dos…",
+   "body": [
+    "Os preços elevados do petróleo, diante de novos impasses entre Estados Unidos e Irã sobre uma solução para o conflito no Oriente Médio, pressionam as bolsas de Nova York e contribuem para a alta dos rendimentos dos Treasuries, que seguem nas máximas de duas décadas.",
+    "Ao longo da semana, uma série de dados econômicos relevantes deve ajudar a definir as próximas decisões do Federal Reserve (Fed) sobre os juros, em um cenário de aumento das apostas em novas altas das taxas. Por volta das 13h30, o índice Dow Jones caía 0,45%, aos 51.593,14 pontos; o S&P 500 cedia 0,51%, aos 7.703,72 pontos; e o Nasdaq Composto tinha queda de 0,58%, aos 26.911,343 pontos.",
+    "O petróleo Brent para entrega em novembro subia 0,35% a US$ 104,68 por barril, depois de ter chegado a US$ 108, e o WTI para o mesmo mês tinha queda de 0,23% a US$ 92,20, se afastando das máximas do dia, após subirem mais de 4%. Leia mais"
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/ao-vivo/2023/06/16/dolar-avanca-e-ibovespa-recua-em-dia-de-correcao-siga-os-mercados.ghtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/dolar-ibovespa.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/dolar-sobe-para-r-522-e-atinge-maior-nivel-desde-marco"
+    }
+   ],
+   "article_ids": [
+    "26d039e9147e",
+    "4bcdb0a88bb8",
+    "8a60228e3cc7",
+    "58241a25ebaf"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/18QvJ8onyuR5Eor9Lw9KbpxpGgU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/j/7/RvTZSYSEqcVMI0xY8AyQ/barril-de-petroleo-barris-jack-sue-drafahl-pexels.jpg",
+   "published": "2026-09-28T20:45:38+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "gilmar-quer-suspender-analise-sobre-alexandre-de",
+   "section": "juridico",
+   "headline": "Gilmar quer suspender análise sobre Alexandre de Moraes no caso Master até identificação de outros ministros",
+   "dek": "O ministro Gilmar Mendes, do Supremo Tribunal Federal (STF), fez ajustes e divulgou nesta segunda-feira (28) seu voto na questão de ordem que discute o formato do julgamento que trata da possibilidade de Alexandre de…",
+   "body": [
+    "O ministro Gilmar Mendes, do Supremo Tribunal Federal (STF), fez ajustes e divulgou nesta segunda-feira (28) seu voto na questão de ordem que discute o formato do julgamento que trata da possibilidade de Alexandre de Moraes no caso Master. A análise começou no dia 15 e foi suspensa por um pedido de vista de Flávio Dino.",
+    "Pessoas próximas a Gilmar justificaram a divulgação do texto só nessa segunda-feira afirmando que no julgamento do dia 15 não houve tempo de o ministro ler todo o documento. A Corte discutia um relatório da Polícia Federal (PF) que cita mensagens que teriam sido enviadas por Daniel Vorcaro, dono do Master, a Moraes. Gilmar propôs uma questão de ordem para que a análise ocorresse em conjunto com um pedido de Moraes para André Mendonça também ser investigado.",
+    "Moraes justificou o pedido com base em suspeitas sobre a atuação do colega no caso Master e nas apurações sobre a fraude em descontos associativos de aposentados e pensionistas do Instituto Nacional do Seguro Social (INSS)."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/noticia/2026/09/28/gilmar-quer-suspender-analise-sobre-alexandre-de-moraes-no-caso-master-ate-identificacao-de-outros-ministros.ghtml"
+    },
+    {
+     "name": "Conjur",
+     "url": "https://conjur.com.br/2026-set-28/gilmar-pede-suspensao-de-julgamento-sobre-caso-master-ate-identificacao-de-ministros-envolvidos/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/gilmar-quer-suspender-julgamento-de-moraes-no-caso-master-ate-identificacao-de-todos-ministros-envolvidos.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/mendes-quer-identificacao-de-ministros-citados-no-caso-master"
+    }
+   ],
+   "article_ids": [
+    "ee89730c59a4",
+    "24ffd5e6f2c5",
+    "204d68c22eb6",
+    "6fd79a3a300c",
+    "0a7991c0e0f9"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/MRt6mmmdjcmDCcLwsAd6fyN5Xwo=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/t/m/uDT7pCSbA3r4jd953EKw/55546886234-a75588d348-k.jpg",
+   "published": "2026-09-28T22:02:48+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "ambipar-obtem-aval-da-justica-dos-eua-para-centr",
+   "section": "juridico",
+   "headline": "Ambipar obtém aval da Justiça dos EUA para centralizar recuperação judicial no Brasil",
+   "dek": "A Ambipar informou que a Justiça dos Estados Unidos reconheceu sua recuperação judicial no Brasil como o principal processo de reestruturação do grupo e suspendeu o processo de “Chapter 11”, a recuperação judicial…",
+   "body": [
+    "A Ambipar informou que a Justiça dos Estados Unidos reconheceu sua recuperação judicial no Brasil como o principal processo de reestruturação do grupo e suspendeu o processo de “Chapter 11”, a recuperação judicial americana, da controlada Ambipar Emergency Response.",
+    "Confira os resultados e indicadores da Ambipar e das demais companhias de capital aberto no portal Valor Empresas 360 A decisão foi tomada pela Corte de Falências do Texas, que concluiu que o centro dos interesses da companhia está no Brasil. Com isso, a recuperação judicial conduzida pela 3ª Vara Empresarial do Rio de Janeiro passou a ser reconhecida nos EUA por meio do “Chapter 15”, mecanismo que permite o reconhecimento de processos de reestruturação conduzidos em outros países.",
+    "Segundo a empresa, a medida “favorece uma condução coordenada da reestruturação entre Brasil e Estados Unidos, tendo a recuperação judicial em trâmite no Rio de Janeiro como eixo central”. Os processos de reconhecimento sob o “Chapter 15” foram ajuizados em 9 de julho de 2026 e deferidos em relação às companhias em recuperação judicial e a determinadas subsidiárias. O processo de “Chapter 11” do grupo permanecerá suspenso até que a Justiça americana analise o reconhecimento final do plano de recuperação a ser aprovado no Brasil."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/ambipar-obtm-aval-da-justia-dos-eua-para-centralizar-recuperao-judicial-no-brasil.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://aovivo.folha.uol.com.br/mercado/2026/09/01/6558-dolar-empresas-e-bolsas-acompanhe-ao-vivo-o-mercado.shtml"
+    },
+    {
+     "name": "Seu Dinheiro",
+     "url": "https://www.seudinheiro.com/2026/empresas/ambipar-ambp3-consegue-decisao-favoravel-nos-eua-e-avanca-na-migracao-do-chapter-11-para-o-chapter-15-ccgg/"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/ambipar-ambp3-consegue-decisao-favoravel-nos-eua-e-avanca-na-migracao-do-chapter-11-para-o-chapter-15/"
+    }
+   ],
+   "article_ids": [
+    "cc425ac7a2f3",
+    "e8fb89d6eda8",
+    "50dcf0d9fb6c",
+    "0b607edbf0c3",
+    "1a5b0d31644c"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/JHWNQNOXFxHsep0dGmcnEOSI1Os=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/C/h/qr6pF4RFaiwr3SLLr4XQ/foto28emp-101-ambipar-b9.jpg",
+   "published": "2026-09-28T20:55:26+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "anthropic-preve-em-prospecto-de-ipo-que-ia-pode",
+   "section": "tecnologia",
+   "headline": "Anthropic prevê em prospecto de IPO que IA pode representar ‘riscos existenciais à humanidade’",
+   "dek": "A Anthropic planeja alertar potenciais investidores em sua oferta pública inicial (IPO) de que a inteligência artificial (IA) avançada pode representar \"riscos catastróficos ou existenciais para a humanidade\" — um aviso…",
+   "body": [
+    "A Anthropic planeja alertar potenciais investidores em sua oferta pública inicial (IPO) de que a inteligência artificial (IA) avançada pode representar \"riscos catastróficos ou existenciais para a humanidade\" — um aviso extraordinário para uma empresa que busca lucrar com a mesma tecnologia."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/anthropic-preve-em-prospecto-de-ipo-que-ia-pode-representar-riscos-existenciais-a-humanidade.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/ia/2026/09/anthropic-alerta-em-documento-de-ipo-que-ia-pode-trazer-risco-existencial-a-humanidade.shtml"
+    },
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/mercados/prospecto-do-ipo-da-anthropic-revela-visao-abrangente-de-ia-e-custos-crescentes/"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/economia/money/negocios/anthropic-revela-estrategia-de-ia-e-custos-crescentes-em-ipo/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/c7685a7e-7745-4cbc-8053-4958d0ea449b"
+    },
+    {
+     "name": "TechCrunch",
+     "url": "https://techcrunch.com/2026/09/28/anthropics-prospectus-details-losses-growth-and-yes-a-warning-that-its-ai-could-end-humanity/"
+    }
+   ],
+   "article_ids": [
+    "f2996af89f4a",
+    "2f3984c57a48",
+    "6b6c7293129a",
+    "a0e1f164ec1e",
+    "c3110693f88a",
+    "a1a1994c2061",
+    "a54b0644eac7"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/8J1BcupdvM7Yi3V0XhwyRj5ZxS0=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/D/y/IJlSv9QtG8L15bubLPfQ/ap26152607734335.jpg",
+   "published": "2026-09-29T02:21:10+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "nvidia-aprova-limite-adicional-de-us-150-bilhoes",
+   "section": "tecnologia",
+   "headline": "Nvidia aprova limite adicional de US$ 150 bilhões em programa de recompra de ações",
+   "dek": "Uma das empresas que mais têm capturado retornos de todo o alvoroço em torno da inteligência artificial (IA), a Nvidia não dá sinais de que vai perder fôlego nessa corrida.",
+   "body": [
+    "E o mais novo indicativo dessa sua disposição para seguir na dianteira dessa onda foi dado na segunda-feira, 28 de setembro. Liderada por Jensen Huang, […]"
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/nvidia-aprova-limite-adicional-de-us-150-bilhoes-em-programa-de-recompra-de-acoes.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/09/nvidia-supera-apple-com-recompra-recorde-de-us-150-bilhoes.shtml"
+    },
+    {
+     "name": "NeoFeed",
+     "url": "https://neofeed.com.br/inovacao/nvidia-supera-a-apple-mais-uma-vez-agora-com-recompra-de-acoes-recorde-de-us-150-bilhoes/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/88e87863-4cf6-4c4e-8858-f0099db350d4"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/technology/2026/sep/28/nvidia-ai-agent-security-platform-stock-buyback"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/nvidia-share-buyback-plan-gets-150-billion-boost.html"
+    },
+    {
+     "name": "MarketWatch",
+     "url": "https://www.marketwatch.com/story/nvidia-makes-a-statement-with-historic-150-billion-buyback-announcement-bfab5a22"
+    }
+   ],
+   "article_ids": [
+    "6bd3cfe852f2",
+    "5196b4be4181",
+    "f79937a652ef",
+    "69697ee91d84",
+    "bb026ab8e20b",
+    "643abb554990",
+    "1ed2b451d0e0"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/6qCNffgKl6bdSG8ZFHMW_VTvG_k=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/O/6/pb8IZZSRKBLbxW64XbPw/465770781.jpg",
+   "published": "2026-09-28T12:00:11+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "governo-determina-que-preco-abusivo-de-combustiv",
+   "section": "brasil",
+   "headline": "Governo determina que preço abusivo de combustíveis pode levar a multa de até R$ 500 milhões",
+   "dek": "BRASÍLIA - O governo Lula apresentou nesta segunda-feira, 28, um balanço das medidas para conter a alta dos preços dos combustíveis em decorrência do aumento da cotação internacional do barril de petróleo.",
+   "body": [
+    "Em caso de caracterização de “abusos” praticados por agentes, a multa administrativa poderá variar de R$ 20 mil a R$ 500 milhões, conforme dispõe a Medida Provisória (MP) publicada na última sexta-feira, 25.",
+    "O valor punitivo será aplicado quando agentes da cadeia de combustíveis praticarem determinadas condutas vedadas pelo Código de Defesa do Consumidor, entre elas, a elevação “sem justa causa” no preço de produtos. Foram alegados alguns casos em que a margem de lucro bruta das distribuidoras aumentou mais de 1.350%.",
+    "Em coletiva de imprensa, o ministro da Justiça e Segurança Pública, Wellington Lima e Silva, disse que a severidade da multa de até R$ 500 milhões somente pretende ter incidência para os casos “absolutamente” caracterizados como prática abusiva. “Chamamos a atenção para a distinção entre o uso ou a liberdade de preço e o abuso de preço. O uso dessa faculdade não se confunde com esse abuso”, declarou."
+   ],
+   "sources": [
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/governo-determina-que-preco-abusivo-de-combustiveis-pode-levar-a-multa-de-ate-r-500-milhoes/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mercado/2026/09/governo-eleva-para-r-500-mi-multa-maxima-por-preco-abusivo-do-combustivel.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/governo-amplia-fiscalizacao-de-precos-de-combustiveis-e-preve-multas-de-ate-r-500-milhoes-contra-praticas-abusivas.ghtml"
+    }
+   ],
+   "article_ids": [
+    "b9431e85d2d4",
+    "d06025affbee",
+    "7ec6ba4a2867"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://www.estadao.com.br/resizer/v2/KWCADUBSSBP35AO2GJXPGOI5GY.jpg?auth=0a5381a948e4c7fe163f7e06cec06cb09771ecb0a586a873ce60ce2e949a5b4d&smart=true&width=1000",
+   "published": "2026-09-29T01:20:52+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "cnj-determina-devolucao-ao-tesouro-de-mais-r-2-3",
+   "section": "juridico",
+   "headline": "CNJ determina devolução ao Tesouro de mais R$ 2,36 bi em precatórios irregulares",
+   "dek": "O corregedor-nacional de Justiça, ministro Benedito Gonçalves, determinou, nesta segunda-feira (28), o cancelamento de mais 14 precatórios de usinas do setor sucrolacooleiro e a devolução de R$ 2,36 bilhões, além dos…",
+   "body": [
+    "O corregedor-nacional de Justiça, ministro Benedito Gonçalves, determinou, nesta segunda-feira (28), o cancelamento de mais 14 precatórios de usinas do setor sucrolacooleiro e a devolução de R$ 2,36 bilhões, além dos rendimentos, ao Tesouro Nacional. A medida é liminar (provisória) e deverá ser submetida ao plenário do Conselho Nacional de Justiça (CNJ).",
+    "A decisão atendeu a um pedido da Advocacia-Geral da União (AGU) para ampliar a medida da semana passada, que já havia determinado o cancelamento de outros 16 precatórios, no valor de R$ 4,73 bilhões. Ao todo, os valores que serão devolvidos à União somarão R$ 7,09 bilhões. A parcela entrará como receita primária, ajudando o governo a perseguir a meta fiscal. Os valores foram depositados em contas judiciais em dezembro de 2023.",
+    "Essa segunda leva de precatórios cancelados envolve os valores de três empresas: Companhia Agroindustrial Santa Helena, Agrovale Companhia Agroindustrial Vale do Curu e Borborema Agro Industrial. A determinação suspendeu uma decisão da presidência do Tribunal Regional Federal da 1ª Região (TRF1), que reconsiderou uma liminar de 2022 e determinou o pagamento de precatórios à usina de Santa Helena."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/cnj-determina-devoluo-de-mais-r-236-bi-em-precatrios-irregulares.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/cnj-cancela-mais-14-precatorios-e-manda-restituir-r-236-bi-a-uniao-a-pedido-da-agu/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/blog/valdo-cruz/post/2026/09/28/master-agu-obtem-decisao-favoravel-no-cnj-em-processo-que-pede-a-devolucao-aos-cofres-publicos-de-r-236-bilhoes-em-precatorios.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/cnj-cancela-precatorios-irregulares-avaliados-em-r-2-bilhoes"
+    }
+   ],
+   "article_ids": [
+    "6ddebfb08c78",
+    "7f8fbbf8e4c4",
+    "11db342e9639",
+    "76ac4fc2ffcb"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/4obVEkb5_dGD8P97QZKZ0gJj2cs=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/k/a/oLT7eWTIKzKACBBmoj9w/minsterio-da-fazenda.jpg",
+   "published": "2026-09-28T21:39:04+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "mercado-eleva-projecoes-do-ipca-de-2026-para-4-9",
+   "section": "brasil",
+   "headline": "Mercado eleva projeções do IPCA de 2026 para 4,99% e de 2027 para 4,31%, aponta Focus",
+   "dek": "A mediana das projeções dos economistas do mercado para a inflação oficial brasileira em 2026 subiu de 4,92% para 4,99%, de acordo com o relatório Focus, do Banco Central (BC), divulgado nesta segunda-feira (28) com…",
+   "body": [
+    "A mediana das projeções dos economistas do mercado para a inflação oficial brasileira em 2026 subiu de 4,92% para 4,99%, de acordo com o relatório Focus, do Banco Central (BC), divulgado nesta segunda-feira (28) com estimativas coletadas até a última sexta-feira (25).",
+    "Para 2027, a mediana das expectativas para o Índice Nacional de Preços ao Consumidor Amplo (IPCA) subiu de 4,30% para 4,31%, e, para 2028, continuou em 3,80%. O IPCA 12 meses suavizado subiu de 4,62% para 4,65%.",
+    "Para a taxa básica de juros (Selic), a mediana das estimativas se manteve em 13,50% em 2026, pela sexta semana seguida. Para 2027, permaneceu em 12% pela 15ª semana, e, para 2028, seguiu em 10,50%, pela 13ª semana."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/brasil/noticia/2026/09/28/mercado-eleva-projecoes-do-ipca-de-2026-para-499percent-e-de-2027-para-431percent-aponta-focus.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mercado/2026/09/economistas-aumentam-previsao-da-inflacao-e-reduzem-a-do-pib-neste-ano.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/analistas-do-mercado-elevam-estimativa-de-inflacao-e-projetam-crescimento-economico-menor.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/mercado-aumenta-projecao-de-inflacao-para-499-e-reduz-pib"
+    }
+   ],
+   "article_ids": [
+    "f03e90c0dc09",
+    "27dc06487895",
+    "ec5d7dd00250",
+    "83367878d99a"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/-v2ZvUR1JRbJWl4hkKnVd6lcnkU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/X/K/Q53VSAQVSS6cTUFxNViA/ray-reyes-3xwrg7vv6ts-unsplash.jpg",
+   "published": "2026-09-28T11:44:24+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "petroleo-sobe-com-impasse-nas-negociacoes-de-ces",
+   "section": "mundo",
+   "headline": "Petróleo sobe com impasse nas negociações de cessar-fogo entre EUA e Irã",
+   "dek": "\"O Irã e os EUA permanecem muito distantes de um acordo de cessar-fogo e da reabertura do Estreito de Ormuz\", afirma Sally Auld, do NAB, em um comentário.",
+   "body": [
+    "\"Teerã declarou que mantém uma proposta rejeitada pelo presidente Trump, embora o ministro das Relações Exteriores do Irã, Abbas Araghchi, ainda devesse se reunir com mediadores em Nova York\", acrescenta a economista-chefe do grupo.",
+    "O Estreito de Ormuz é uma via navegável estratégica por onde passa um quinto do petróleo mundial.",
+    "Os contratos futuros de petróleo bruto WTI para novembro sobem 1,0%, para US$ 93,52 o barril, enquanto os contratos futuros de petróleo bruto Brent para o mesmo mês avançam 1,1%, para US$ 106,41 o barril. 28/09/2026 22:11:22"
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/petroleo-sobe-com-impasse-nas-negociacoes-de-cessar-fogo-entre-eua-e-ira.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mercado/2026/09/preco-do-petroleo-dispara-apos-trump-rejeitar-oferta-iraniana-de-tregua.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/preco-do-petroleo-sobe-quase-3percent-apos-trump-rejeitar-proposta-do-ira.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-09/preco-do-petroleo-sobe-apos-trump-rejeitar-proposta-de-paz-do-ira"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/economia/money/macroeconomia/analise-petroleo-sobe-depois-de-trump-rejeitar-acordo-de-paz/"
+    }
+   ],
+   "article_ids": [
+    "5a4c0178a716",
+    "953bce05b1f8",
+    "5e3b930d9864",
+    "f53e5ff83bc8",
+    "a99a4decaccd",
+    "5cb630fb6d9e",
+    "63d72e6e795e"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/-ZxX8E8lB-Rl7nGyr23aWpwbXiA=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/u/f/JP3d71TLyzewe0ALkTIQ/2026-09-28t112810z-1429216555-rc25snahczm1-rtrmadp-3-iran-crisis-hormuz-1-.jpg",
+   "published": "2026-09-29T02:39:50+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "lula-sanciona-lei-de-incentivo-ao-futebol-femini",
+   "section": "politica",
+   "headline": "Lula sanciona lei de incentivo ao futebol feminino e diz que fim de bets 'não traz prejuízo' ao esporte",
+   "dek": "O presidente Luiz Inácio Lula da Silva sancionou nesta segunda-feira (28) as diretrizes nacionais para o desenvolvimento do futebol feminino no Brasil por meio do Ministério do Esporte.",
+   "body": [
+    "O petista disse que o fim das apostas on-line no Brasil, grandes patrocinadoras de clubes, \"não traz nenhum prejuízo para o futebol\". A Lei nº 15.522/26, de autoria do Executivo, coloca o futebol feminino como prioridade para as políticas públicas esportivas do governo federal. Ela traça medidas para incentivo à igualdade salarial e de condições de trabalho, incluindo proteção à maternidade e enfrentamento à discriminação e à violência contra mulheres no futebol.",
+    "A iniciativa visa, por exemplo, a redução de atletas não profissionais atuando em competições oficiais, uma realidade para quase a totalidade dos clubes no país - mesmo o do primeiro escalão. Agora, há um limite inicial de quatro atletas não profissionais por equipe na principal divisão nacional, seis nas demais divisões e na principal divisão estadual e oito nas demais competições profissionais.",
+    "Também haverá incentivo a ações e medidas de promoção da igualdade salarial entre homens e mulheres no futebol. Não haverá equiparação automática dos salários, por questão de mercado, mas, segundo o Ministério do Esporte, o Executivo \"deverá estabelecer a redução progressiva desses limites até a profissionalização integral das competições oficiais de futebol feminino\"."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/brasil/noticia/2026/09/28/lula-sanciona-lei-de-incentivo-ao-futebol-feminino-e-diz-que-fim-de-bets-no-traz-prejuzo-ao-esporte.ghtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/em-meio-a-criticas-lula-defende-que-acabar-com-bets-nao-traz-prejuizo-para-o-futebol.ghtml"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-governo/governo-lula-adia-reuniao-com-clubes-de-futebol-sobre-bets/"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/lei-cria-diretrizes-permanentes-para-o-futebol-feminino-no-Brasil"
+    }
+   ],
+   "article_ids": [
+    "2cdb11da72f9",
+    "49c163568a2a",
+    "81e9cbcde764",
+    "ffe9a4ec4126",
+    "eccde2732714",
+    "ef882ced4885",
+    "fe8aad039781"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/OSDZc1sC9KMiJucGRdgm1mbeW6c=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/K/6/j3E846S8Cyr7tesTDB2Q/foto23pol-201-lula-a15.jpg",
+   "published": "2026-09-28T17:43:48+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "acoes-do-nubank-despencam-apos-rumores-de-eventu",
+   "section": "brasil",
+   "headline": "Ações do Nubank despencam após rumores de eventual fusão com fintech britânica",
+   "dek": "A ação do Nubank caiu 10,0% nesta segunda-feira (28) na Bolsa de Valores de Nova York (Nyse), após notícias no fim de semana de que o grupo brasileiro estaria negociando uma potencial fusão com a fintech britânica Monzo.",
+   "body": [
+    "Analistas apontam que uma eventual compra da Monzo daria ao Nubank uma forte presença no Reino Unido e em outros países da Europa, acirrando sua competição com a britânica Revolut, que também tem a ambição de ser o maior banco digital do mundo. Por outro lado, a fintech brasileira acabou de lançar sua operação nos Estados Unidos, e fazer uma megafusão na Europa neste momento exigiria um grande investimento de capital e tempo.",
+    "Em relatório, os analistas do Citi apontam que os contras de um acordo Nubank/Monzo incluem um grande desafio de execução; o fato de a integração de operações bancárias transfronteiriças em regimes macroeconômicos diferentes provavelmente atrair um escrutínio intenso por parte das autoridades britânicas; gastos de compliance elevados; e uma complexa supervisão multinacional.",
+    "Para a XP, embora a lógica estratégica para a compra da Monzo pareça clara, o movimento é visto com certa cautela. “A transação representaria um afastamento relevante do modelo de crescimento orgânico historicamente bem-sucedido do Nubank e introduziria um nível de complexidade de execução que a companhia ainda não enfrentou nessa escala. Em nossa visão, o desafio é ampliado pelos esforços em andamento para lançar e escalar a operação nos EUA, o que poderia sobrecarregar ainda mais a capacidade da administração e dividir sua atenção entre diversas iniciativas estratégicas.”"
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/aes-do-nubank-despencam-com-rumores-sobre-eventual-fuso-com-fintech-britnica.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/financas/2026/09/acoes-do-nubank-caem-mais-de-9-com-negociacao-de-compra-de-banco-britanico.shtml"
+    }
+   ],
+   "article_ids": [
+    "521d8d16d7e3",
+    "7aa41af7dc0d",
+    "e35a2a8e77dc"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/2Bg8jR87zLu-Jm4qPy28QfXj99c=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2020/H/d/lR2Yd6QAWCACex5mcz9w/nubank-escritorio-03.jpg",
+   "published": "2026-09-28T15:29:29+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "juros-futuros-sobem-com-pressao-externa-e-pesqui",
+   "section": "mercados",
+   "headline": "Juros futuros sobem com pressão externa e pesquisas eleitorais",
+   "dek": "Os juros futuros fecharam o pregão desta segunda-feira (28) em alta, com o movimento concentrado nos vértices de médio e longo prazo da curva a termo, uma vez que o mercado recompôs prêmios de risco nas taxas diante de…",
+   "body": [
+    "Os juros futuros fecharam o pregão desta segunda-feira (28) em alta, com o movimento concentrado nos vértices de médio e longo prazo da curva a termo, uma vez que o mercado recompôs prêmios de risco nas taxas diante de mais um dia de amplo estresse na renda fixa global.",
+    "O ambiente externo acabou por amplificar o mal-estar dos investidores com as pesquisas de intenção de voto divulgadas hoje, que mostraram alguma recuperação do presidente Luiz Inácio Lula da Silva (PT) na disputa contra o senador Flávio Bolsonaro (PL-RJ).",
+    "Assim, a taxa do contrato de Depósito Interfinanceiro (DI) com vencimento para janeiro de 2027 se ajustou em leve alta de 13,55%, do ajuste anterior, para 13,56%; a do DI de janeiro de 2028 subiu de 13,63% a 13,665%; a do DI de janeiro de 2029 avançou de 13,815% para 13,90%; e a do DI de janeiro de 2031 saltou de 13,935% a 14,05%."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/juros-futuros-sobem-com-pressao-externa-e-pesquisas-eleitorais.ghtml"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/juros-futuros-28-9-26-apsa/"
+    }
+   ],
+   "article_ids": [
+    "c76531eb7edb",
+    "f52e14409d9d",
+    "4abcae822730"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/wfrMxwovx_MzscMf7Looiz641_0=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2022/J/m/3ygaGBSiy5GjtOpCH6yg/taxas-juros-percentual-karolina-grabowska-pexels.jpg",
+   "published": "2026-09-28T20:17:21+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "ibovespa-cai-e-perde-os-183-mil-com-aversao-a-ri",
+   "section": "mercados",
+   "headline": "Ibovespa cai e perde os 183 mil com aversão a risco global",
+   "dek": "A alta dos preços do petróleo voltou a elevar a aversão a risco nos mercados globais nesta segunda-feira, o que pesou sobre a bolsa local.",
+   "body": [
+    "Pela manhã, o Ibovespa chegou a tocar os 181.931 pontos, diante do impasse entre os Estados Unidos e o Irã, que acabou levando a um avanço mais forte do óleo bruto e dos juros globais. Já no começo da tarde, a notícia de que os EUA estariam considerando a retirada de sanções ao Irã trouxe um alívio aos ativos de risco, com o índice registrando leve alta, chegando aos 184.095 pontos.",
+    "A dinâmica mais positiva, no entanto, durou pouco, e o índice voltou a ceder no meio da tarde, encerrando em queda de 0,26%, aos 182.991 pontos. Investidores também avaliaram os possíveis efeitos da proibição das bets na disputa entre o presidente Luiz Inácio Lula da Silva (PT) e o senador Flávio Bolsonaro (PL-RJ), repercutindo ainda a nova rodada da pesquisa Quaest, que mostrou os dois candidatos empatados com 42% das intenções de voto em um eventual segundo turno.",
+    "O aumento da aversão a risco pressionou também as ações de bancos, que lideraram as perdas, com destaque para as PN do Bradesco, que recuaram 1,23%. Na ponta contrária, a alta das ações da Petrobras e da Vale ajudou a conter uma queda maior; no fim, as PN da petroleira subiram 1,52%, enquanto as ON da mineradora avançaram 0,55%."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/ibovespa-perde-os-183-mil-com-aversao-a-risco-global.ghtml"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/invest/mercados/ibovespa-perde-183-mil-pontos-com-eleicao-no-radar-dolar-vai-a-r-522/"
+    }
+   ],
+   "article_ids": [
+    "f7d14c20e516",
+    "70d1f1395171"
+   ],
+   "importance": 1,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/WybrGNijyXKRYeZ8OoPGFLjwI4s=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/K/C/YR9jSmTdeSaJpbSctuFA/439453216.jpg",
+   "published": "2026-09-28T20:37:01+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "fii-trxf11-conclui-venda-de-15-imoveis-por-r-207",
+   "section": "imobiliario",
+   "headline": "FII TRXF11 conclui venda de 15 imóveis por R$ 207,25 milhões; veja lucro por cota",
+   "dek": "O fundo imobiliário TRXF11 (TRX Real Estate) concluiu a venda de um portfólio com 15 imóveis por R$ 207,25 milhões ao BRC Renda Urbana FII.",
+   "body": [
+    "A operação, anunciada inicialmente em junho, foi formalizada nesta segunda-feira (28), com a transferência dos empreendimentos para o comprador. O conjunto negociado reúne 11 agências da Caixa Econômica Federal, duas lojas do GPA, um centro comercial e um imóvel ocupado por Americanas e Dasa.",
+    "Os ativos estão distribuídos por diferentes estados, incluindo São Paulo, Rio de Janeiro, Bahia, Paraná e Maranhão. Venda deve gerar lucro de R$ 31,9 milhões Segundo as estimativas divulgadas pelo TRXF11, a operação deve resultar em um ganho de capital de aproximadamente R$ 31,9 milhões, equivalente a cerca de R$ 0,51 por cota.",
+    "A transação também apresenta uma taxa interna de retorno (TIR) estimada em 38,49% ao ano. De acordo com o fundo, esse retorno corresponde a aproximadamente 107% do CDI durante o período em que os imóveis permaneceram na carteira. A gestora TRX Investimentos afirmou que o preço negociado está alinhado aos valores indicados nos últimos laudos de avaliação dos imóveis."
+   ],
+   "sources": [
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-conclui-venda-de-15-imoveis-por-r-20725-milhoes-veja-lucro-por-cota/"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/fundo-imobiliario-vende-15-imoveis-por-r-207-milhoes-ganho-e-de-r-051-por-cota-igdl/"
+    }
+   ],
+   "article_ids": [
+    "f34566825ee5",
+    "de01f68a38e1"
+   ],
+   "importance": 1,
+   "why_it_matters": null,
+   "image": "https://www.infomoney.com.br/wp-content/uploads/2026/03/pao-de-acucar.jpg",
+   "published": "2026-09-28T20:21:02+00:00",
+   "lang": "pt"
+  },
+  {
+   "id": "fii-da-kinea-aprova-13a-emissao-e-oferta-pode-so",
+   "section": "imobiliario",
+   "headline": "FII da Kinea aprova 13ª emissão e oferta pode somar até R$ 3,12 bi; veja detalhes",
+   "dek": "O fundo imobiliário KNCR11 (Kinea Rendimentos Imobiliários) recebeu o aval de seus cotistas para seguir com a 13ª emissão de cotas.",
+   "body": [
+    "Caso o lote adicional seja integralmente exercido, a captação pode alcançar até R$ 3,12 bilhões. Na oferta base, o fundo prevê colocar até 24,39 milhões de novas cotas, ao preço unitário de R$ 102,51, o que equivale a cerca de R$ 2,5 bilhões.",
+    "Esse valor foi definido com base no patrimônio líquido por cota apurado em 31 de julho de 2026 e pode ser revisto conforme a evolução do patrimônio do KNCR11 até a oferta. Quem aderir também pagará uma taxa de distribuição primária de até 2%, somada ao preço de emissão.",
+    "Mesmo com esse custo, a entrada pela oferta sai abaixo da cotação no mercado secundário, onde o papel era negociado a R$ 105,93, conforme a referência apresentada. O fundo poderá ampliar a oferta em até 25% por meio de um lote adicional, o que representaria até 6,10 milhões de cotas a mais."
+   ],
+   "sources": [
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/onde-investir/fii-da-kinea-aprova-13a-emissao-e-oferta-pode-somar-ate-r-312-bi-veja-detalhes/"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/fundo-imobiliario-kncr11-aprova-emissao-de-cotas-que-pode-movimentar-ate-r-312-bilhoes-veja-os-detalhes-igdl/"
+    }
+   ],
+   "article_ids": [
+    "4ce4f35d63fa",
+    "3676eafef611"
+   ],
+   "importance": 1,
+   "why_it_matters": null,
+   "image": "https://www.infomoney.com.br/wp-content/uploads/2025/12/daniel-dan-ZbMuzk8iJAI-unsplash.jpg",
+   "published": "2026-09-28T17:43:42+00:00",
+   "lang": "pt"
+  }
+ ],
+ "quotes": [
+  {
+   "id": "usd",
+   "label": "Dólar",
+   "value": 5.2226,
+   "display": "R$ 5,22",
+   "change_pct": 0.1938,
+   "kind": "fx",
+   "as_of": "2026-09-29T02:34:24+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "eur",
+   "label": "Euro",
+   "value": 5.9359,
+   "display": "R$ 5,94",
+   "change_pct": 0.0624,
+   "kind": "fx",
+   "as_of": "2026-09-29T03:04:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "cny",
+   "label": "Yuan",
+   "value": 0.778,
+   "display": "R$ 0,78",
+   "change_pct": 0.072,
+   "kind": "fx",
+   "as_of": "2026-09-29T03:04:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ibov",
+   "label": "Ibovespa",
+   "value": 182991.12,
+   "display": "182.991 pts",
+   "change_pct": -0.265,
+   "kind": "index",
+   "as_of": "2026-09-28T20:19:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ifix",
+   "label": "IFIX",
+   "value": 3737.17,
+   "display": "3.737 pts",
+   "change_pct": -0.118,
+   "kind": "index",
+   "as_of": "2026-09-28T20:19:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "spx",
+   "label": "S&P 500",
+   "value": 7683.69,
+   "display": "7.684 pts",
+   "change_pct": -0.771,
+   "kind": "index",
+   "as_of": "2026-09-28T20:36:11+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "brent",
+   "label": "Brent",
+   "value": 100.03,
+   "display": "US$ 100,03",
+   "change_pct": 2.249,
+   "kind": "commodity",
+   "as_of": "2026-09-29T05:31:12+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "gold",
+   "label": "Ouro",
+   "value": 4158.4,
+   "display": "US$ 4.158",
+   "change_pct": -0.24,
+   "kind": "commodity",
+   "as_of": "2026-09-29T05:31:27+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "btc",
+   "label": "Bitcoin",
+   "value": 83087.3,
+   "display": "US$ 83.087",
+   "change_pct": -0.082,
+   "kind": "crypto",
+   "as_of": "2026-09-29T05:41:23+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "selic",
+   "label": "Selic",
+   "value": 13.75,
+   "display": "13,75%",
+   "change_pct": null,
+   "kind": "rate",
+   "as_of": "2026-09-29",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "ipca12m",
+   "label": "IPCA 12m",
+   "value": 4.22,
+   "display": "4,22%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "igpm12m",
+   "label": "IGP-M 12m",
+   "value": 2.178242946891751,
+   "display": "2,18%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "incc12m",
+   "label": "INCC 12m",
+   "value": 6.60767785260401,
+   "display": "6,61%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  }
+ ],
+ "weather": [
+  {
+   "city": "São Paulo",
+   "current_c": 19.0,
+   "current_emoji": "☁️",
+   "current_desc": "Nublado",
+   "today_min": 18.8,
+   "today_max": 32.6,
+   "tomorrow_min": 20.2,
+   "tomorrow_max": 30.5,
+   "tomorrow_emoji": "🌦️",
+   "tomorrow_desc": "Garoa moderada"
+  },
+  {
+   "city": "Montevidéu",
+   "current_c": 14.5,
+   "current_emoji": "🌦️",
+   "current_desc": "Garoa fraca",
+   "today_min": 13.8,
+   "today_max": 16.8,
+   "tomorrow_min": 10.9,
+   "tomorrow_max": 13.4,
+   "tomorrow_emoji": "☁️",
+   "tomorrow_desc": "Nublado"
+  }
+ ],
+ "stats": {
+  "sources_total": 64,
+  "sources_ok": 64,
+  "sources_failed": [],
+  "articles_collected": 1078,
+  "articles_considered": 1078,
+  "llm_input_tokens": null,
+  "llm_output_tokens": null
+ },
+ "wire": [
+  {
+   "title": "Austrália: BC eleva juros para 4,6% ao ano ante risco de inflação",
+   "url": "https://valor.globo.com/financas/noticia/2026/09/29/austrlia-bc-eleva-juros-para-46-pontos-percentuais-ao-ano-ante-risco-de-inflao.ghtml",
+   "source": "Valor Econômico",
+   "published": "2026-09-29T05:27:29+00:00",
+   "section": "mercados"
+  },
+  {
+   "title": "Por que a corrupção custa tanto? Entenda os efeitos além do dinheiro desviado",
+   "url": "https://g1.globo.com/g1-explica/noticia/2026/09/29/por-que-a-corrupcao-custa-tanto-entenda-os-efeitos-alem-do-dinheiro-desviado.ghtml",
+   "source": "g1",
+   "published": "2026-09-29T05:00:00+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "Brasil tem pouca tradição de aprender com o que deu errado, diz Malan",
+   "url": "https://valor.globo.com/brasil/noticia/2026/09/28/brasil-tem-pouca-tradicao-de-aprender-com-o-que-deu-errado-diz-malan.ghtml",
+   "source": "Valor Econômico",
+   "published": "2026-09-29T01:29:25+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "O novo presidente do BC americano relembra uma importante lição: moeda importa",
+   "url": "https://www.estadao.com.br/economia/o-novo-presidente-do-bc-americano-relembra-uma-importante-licao-moeda-importa/",
+   "source": "Estadão",
+   "published": "2026-09-29T01:00:00+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "Produtos devolvidos no e-commerce somam R$ 59 bi por ano",
+   "url": "https://www.estadao.com.br/economia/coluna-da-broad/produtos-devolvidos-no-e-commerce-somam-r-59-bi-por-ano/",
+   "source": "Estadão",
+   "published": "2026-09-29T01:00:00+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "Setor de materiais de construção endossa pleito de adiamento da Reforma Tributária",
+   "url": "https://www.estadao.com.br/economia/coluna-da-broad/setor-de-materiais-de-construcao-endossa-pleito-de-adiamento-da-reforma-tributaria/",
+   "source": "Estadão",
+   "published": "2026-09-29T00:59:00+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "Das companhias abertas brasileiras, 43% não têm comitês ligados ao conselho",
+   "url": "https://www.estadao.com.br/economia/coluna-da-broad/das-companhias-abertas-brasileiras-43-nao-tem-comites-ligados-ao-conselho/",
+   "source": "Estadão",
+   "published": "2026-09-29T00:58:00+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "Após MP do fim das bets, Banestes suspende tratativas para criar sua loteria",
+   "url": "https://valor.globo.com/financas/noticia/2026/09/28/aps-mp-do-fim-das-bets-banestes-suspende-tratativas-para-criar-sua-loteria.ghtml",
+   "source": "Valor Econômico",
+   "published": "2026-09-29T00:15:00+00:00",
+   "section": "mercados"
+  },
+  {
+   "title": "Governo cobra na Justiça gastos do SUS com tratamento de apostadores",
+   "url": "https://conjur.com.br/2026-set-28/governo-cobra-na-justica-gastos-do-sus-com-tratamento-de-apostadores/",
+   "source": "Conjur",
+   "published": "2026-09-28T23:56:03+00:00",
+   "section": "juridico"
+  },
+  {
+   "title": "Light diz que contratos de longo prazo têm que prever flexibilidade",
+   "url": "https://valor.globo.com/empresas/noticia/2026/09/28/light-diz-que-contratos-de-longo-prazo-tem-que-prever-flexibilidade.ghtml",
+   "source": "Valor Econômico",
+   "published": "2026-09-28T23:46:32+00:00",
+   "section": "juridico"
+  },
+  {
+   "title": "Exportação de petróleo do Brasil avança e mira recorde em setembro",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/09/exportacao-de-petroleo-do-brasil-avanca-e-mira-recorde-em-setembro.shtml",
+   "source": "Folha de S.Paulo",
+   "published": "2026-09-28T23:10:00+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "Bets: medidas testadas em países europeus mostram potencial para aplicação aqui",
+   "url": "https://www.estadao.com.br/economia/pedro-fernando-nery/bets-medidas-testadas-em-paises-europeus-mostram-potencial-para-aplicacao-aqui/",
+   "source": "Estadão",
+   "published": "2026-09-28T23:00:07+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "UE conclui que produções de frango e mel do Brasil atendem requisitos para exportações",
+   "url": "https://g1.globo.com/economia/agronegocios/noticia/2026/09/28/ue-conclui-que-producoes-de-frango-e-mel-do-brasil-atendem-requisitos-para-exportacoes.ghtml",
+   "source": "g1",
+   "published": "2026-09-28T22:54:58+00:00",
+   "section": "brasil"
+  },
+  {
+   "title": "Presidente do conselho da Tupy (TUPY3) renuncia, mas não deve dar adeus à empresa",
+   "url": "https://www.seudinheiro.com/2026/empresas/tupy-tupy3-presidente-do-conselho-renuncia-empresa-pauta-reforma-no-estatuto-ccgg/",
+   "source": "Seu Dinheiro",
+   "published": "2026-09-28T22:24:40+00:00",
+   "section": "mercados"
+  },
+  {
+   "title": "Renegociação de dívidas de adimplentes é prorrogada até 26 de outubro",
+   "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/renegociacao-de-dividas-de-adimplentes-e-prorrogada-ate-26-de-outubro",
+   "source": "Agência Brasil",
+   "published": "2026-09-28T22:06:00+00:00",
+   "section": "brasil"
+  }
+ ]
+}

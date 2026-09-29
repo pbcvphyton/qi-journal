@@ -1,0 +1,38 @@
+{#- Índice do arquivo. Variáveis: brand, months [{label, items}], total, home_href, base_url, repo_url. -#}
+{% extends "layout.html.j2" %}
+
+{% block title %}{{ brand.name }} — Edições anteriores{% endblock %}
+{% block description %}Arquivo com todas as edições do {{ brand.name }}.{% endblock %}
+{% block meta %}
+<link rel="canonical" href="{{ base_url }}edicoes/">
+{% endblock %}
+{% block home_link %}{{ home_href }}{% endblock %}
+{% block dateline %}Arquivo de edições{% endblock %}
+
+{% block content %}
+<section class="arch" aria-labelledby="arch-h">
+  <div class="arch-top">
+    <h2 class="kicker" id="arch-h">Edições anteriores</h2>
+    <a class="arch-home" href="{{ home_href }}">← Edição mais recente</a>
+  </div>
+  {% if months %}
+  {% for month in months %}
+  <h3 class="arch-m">{{ month.label }}</h3>
+  <ol class="arch-list">
+    {% for e in month["items"] %}
+    <li><a href="{{ e.href }}"><time datetime="{{ e.date }}">{{ e.date_label }}</time>{% if e.headline %}<span class="arch-t">{{ e.headline }}</span>{% endif %}</a>{% if e.ai %}<span class="badge" title="Edição gerada por IA">IA</span>{% endif %}</li>
+    {% endfor %}
+  </ol>
+  {% endfor %}
+  {% else %}
+  <p class="arch-empty">Nenhuma edição arquivada ainda.</p>
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer class="ft">
+  <p><strong>{{ brand.name }}</strong> · {{ total }} {{ "edição" if total == 1 else "edições" }} no arquivo</p>
+  <p class="ft-links"><a href="{{ home_href }}">Edição mais recente</a>{% if repo_url %} · <a href="{{ repo_url }}" rel="noopener">Código-fonte</a>{% endif %}</p>
+</footer>
+{% endblock %}

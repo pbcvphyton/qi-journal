@@ -1,0 +1,18 @@
+{#- Executado no <head>, antes da pintura: aplica o tema salvo (sem "piscar") e
+    registra o tratamento de imagens quebradas antes de qualquer <img> existir. -#}
+(function (d, w) {
+  var root = d.documentElement, theme = null;
+  root.classList.add('js');
+  try { theme = w.localStorage.getItem('qij-theme'); } catch (e) { theme = null; }
+  if (theme !== 'dark' && theme !== 'light') {
+    theme = w.matchMedia && w.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  root.setAttribute('data-theme', theme);
+  d.addEventListener('error', function (event) {
+    var el = event.target;
+    if (el && el.tagName === 'IMG') {
+      var figure = el.closest('[data-img]');
+      if (figure) figure.classList.add('img-fail');
+    }
+  }, true);
+})(document, window);
