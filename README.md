@@ -100,29 +100,35 @@ caminhos, que podem ser usados juntos ou separados.
 
 ### Opção 1 — Rotina diária do Claude (Gmail) — já configurada
 
-Uma rotina agendada do Claude, conectada ao Gmail, envia a edição todos os dias
-depois que ela é publicada. Ela usa os arquivos que o próprio jornal gera:
+Uma rotina agendada do Claude, com o conector do Gmail, roda todo dia às
+**06:54 (Brasília)** — depois da edição das 05:07 — e envia o e-mail do dia
+para o endereço cadastrado nela (o endereço fica só na rotina, não no
+repositório, que é público). Para pausar, mudar o horário ou apagar: lista de
+*Routines* do Claude Code em <https://claude.ai/code>.
+
+Ela usa os arquivos que o próprio jornal gera:
 
 - `edicoes/latest.json` — dados da última edição (data, assunto, manchete, links);
 - `edicoes/email.html` e `edicoes/email.txt` — o e-mail pronto. O HTML é
   enxuto (até 40 KB; matérias saem do e-mail se passar disso), porque a rotina o
   copia inteiro no parâmetro `htmlBody` do Gmail.
 
-Contrato da rotina:
+O que a rotina faz:
 
-1. Ler `latest.json` em
+1. Lê `latest.json` em
    `https://raw.githubusercontent.com/pbcvphyton/qi-journal/main/edicoes/latest.json`
    (os campos `email_html_raw_url` e `email_text_raw_url` apontam para o e-mail
    no mesmo lugar; `email_html_url` é a cópia no GitHub Pages).
-2. Enviar **só se** `date` for a data de hoje em `America/Sao_Paulo` **e**
-   `email_sent` for `false`. Caso contrário, não enviar nada (tentar de novo
-   mais tarde ou avisar que a edição do dia não saiu): num dia em que a coleta
-   falhou, `latest.json` continua sendo o de ontem.
-3. Usar `subject` como assunto e o conteúdo de `email.html` como `htmlBody`.
+2. Se `date` for a data de hoje em `America/Sao_Paulo`: não envia se
+   `email_sent` for `true` (já saiu por SMTP) ou se um e-mail com o mesmo
+   assunto já estiver na pasta *Enviados* do Gmail; senão, envia com `subject`
+   como assunto, `email.html` como corpo HTML e `email.txt` como texto.
+3. Se `date` **não** for de hoje (a edição do dia não saiu), manda só um aviso
+   curto com o link das execuções no GitHub, em vez de reenviar a edição de ontem.
 
-O campo `email_sent` indica se o e-mail já saiu por SMTP (opção 2). Ele
-sobrevive a uma nova execução no mesmo dia (inclusive com *Não enviar o
-e-mail*), então refazer a edição de manhã não dispara um segundo envio.
+O campo `email_sent` sobrevive a uma nova execução no mesmo dia (inclusive com
+*Não enviar o e-mail*), então refazer a edição de manhã não dispara um segundo
+envio por SMTP.
 
 ### Opção 2 — Envio direto por SMTP (Gmail com senha de app)
 

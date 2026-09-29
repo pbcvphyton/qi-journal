@@ -16,17 +16,6 @@ on:
         description: "Não enviar o e-mail por SMTP"
         type: boolean
         default: false
-  # TEMP: remover antes do merge (junto com o "git add --force -- build" abaixo
-  # e o build/ versionado: git rm -r --cached build/) — roda o pipeline a cada
-  # push nesta branch, sem e-mail. O commit do bot só altera index.html,
-  # edicoes/ e data/ (fora destes caminhos), então não há loop.
-  push:
-    branches: [claude/clever-euler-ydfk8n]
-    paths:
-      - "qijournal/**"
-      - "config/**"
-      - ".github/workflows/daily.yml"
-      - "requirements.txt"
 
 permissions:
   contents: write
@@ -87,8 +76,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           stage() {
             git add "$@" -- index.html edicoes data
-            # TEMP: remover antes do merge — nos testes da branch, guarda também a coleta crua.
-            if [ "$GITHUB_EVENT_NAME" = "push" ]; then git add --force -- build; fi
           }
           stage --all
           if git diff --cached --quiet; then
@@ -133,9 +120,9 @@ jobs:
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
 
       - name: Enviar e-mail (SMTP)
-        # Só depois do commit e do build do Pages (os links do e-mail já abrem);
-        # nunca nos testes por push. Sem os segredos SMTP, não faz nada.
-        if: steps.publish.outputs.changed == 'true' && github.event_name != 'push' && inputs.no_email != true
+        # Só depois do commit e do build do Pages (os links do e-mail já abrem).
+        # Sem os segredos SMTP, não faz nada.
+        if: steps.publish.outputs.changed == 'true' && inputs.no_email != true
         continue-on-error: true
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
