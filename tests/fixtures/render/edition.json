@@ -1,0 +1,907 @@
+{
+ "date": "2026-09-29",
+ "date_label": "Terça-feira, 29 de setembro de 2026",
+ "generated_at": "2026-09-29T08:07:00+00:00",
+ "mode": "ai",
+ "model": "claude-opus-5-5",
+ "editorial": "A cinco dias do primeiro turno, o mercado embute **prêmio eleitoral** nos juros futuros mesmo com arrecadação recorde e inflação mais comportada. Lá fora, a retomada do diálogo entre **EUA e China** e a tensão em Ormuz dividem a atenção dos investidores.",
+ "briefing": [
+  "Arrecadação federal soma **R$ 212,4 bi** em agosto, recorde para o mês.",
+  "IPCA-15 desacelera a **0,21%**; em 12 meses, 4,31%.",
+  "DI para 2029 sobe a 13,42% com prêmio de risco eleitoral; Ibovespa cai 0,27%.",
+  "STF forma maioria para limitar cobrança retroativa do Difal do ICMS.",
+  "EUA e China retomam em Genebra a negociação da trégua tarifária."
+ ],
+ "lead": "arrecadacao-federal-bate-recorde-em-agosto",
+ "secondary": [
+  "juros-futuros-sobem-e-ibovespa-recua-com-premio-eleitoral",
+  "stf-forma-maioria-para-limitar-cobranca-retroativa-do-difal",
+  "eua-e-china-retomam-negociacao-tarifaria"
+ ],
+ "highlights": [
+  "pesquisa-quaest-mostra-disputa-estavel",
+  "ipca-15-desacelera-para-0-21-em-setembro",
+  "nvidia-fecha-acordo-para-data-centers-no-brasil",
+  "citi-recomenda-compra-de-real",
+  "brent-sobe-com-tensao-no-estreito-de-ormuz",
+  "financiamento-imobiliario-com-poupanca-cai-18",
+  "camara-aprova-mp-que-restringe-apostas-on-line",
+  "milei-anuncia-fim-do-cepo-para-empresas"
+ ],
+ "sections": [
+  {
+   "id": "brasil",
+   "title": "Brasil · Economia",
+   "color": "#0A2051",
+   "story_ids": [
+    "arrecadacao-federal-bate-recorde-em-agosto",
+    "ipca-15-desacelera-para-0-21-em-setembro",
+    "desemprego-cai-a-5-6-no-trimestre-ate-agosto",
+    "bndes-aprova-r-8-bilhoes-para-transicao-energetica"
+   ]
+  },
+  {
+   "id": "mercados",
+   "title": "Mercados & Finanças",
+   "color": "#133D94",
+   "story_ids": [
+    "juros-futuros-sobem-e-ibovespa-recua-com-premio-eleitoral",
+    "citi-recomenda-compra-de-real",
+    "petrobras-avalia-emissao-de-bonds",
+    "bitcoin-recua-com-saida-de-etfs"
+   ]
+  },
+  {
+   "id": "juridico",
+   "title": "Jurídico & Regulação",
+   "color": "#1C49A5",
+   "story_ids": [
+    "stf-forma-maioria-para-limitar-cobranca-retroativa-do-difal",
+    "cvm-abre-consulta-para-tokenizacao-de-recebiveis",
+    "cade-aprova-com-restricoes-fusao-de-farmacias",
+    "tst-valida-acordo-coletivo-banco-de-horas"
+   ]
+  },
+  {
+   "id": "politica",
+   "title": "Política",
+   "color": "#2E6BD6",
+   "story_ids": [
+    "pesquisa-quaest-mostra-disputa-estavel",
+    "camara-aprova-mp-que-restringe-apostas-on-line",
+    "tse-amplia-fiscalizacao-sobre-ia-em-propaganda"
+   ]
+  },
+  {
+   "id": "mundo",
+   "title": "Geopolítica & Mundo",
+   "color": "#C90055",
+   "story_ids": [
+    "eua-e-china-retomam-negociacao-tarifaria",
+    "brent-sobe-com-tensao-no-estreito-de-ormuz",
+    "milei-anuncia-fim-do-cepo-para-empresas"
+   ]
+  },
+  {
+   "id": "tecnologia",
+   "title": "Tecnologia & Negócios",
+   "color": "#0F7C8C",
+   "story_ids": [
+    "nvidia-fecha-acordo-para-data-centers-no-brasil",
+    "bancos-aceleram-uso-de-ia-generativa",
+    "teste-de-seguranca-script"
+   ]
+  },
+  {
+   "id": "imobiliario",
+   "title": "Imobiliário & Real Estate",
+   "color": "#6B3FA0",
+   "story_ids": [
+    "financiamento-imobiliario-com-poupanca-cai-18",
+    "ifix-renova-maxima-com-fundos-de-galpoes",
+    "secovi-vendas-de-imoveis-novos-crescem-9"
+   ]
+  }
+ ],
+ "stories": [
+  {
+   "id": "arrecadacao-federal-bate-recorde-em-agosto",
+   "section": "brasil",
+   "headline": "Arrecadação federal bate recorde em agosto e alivia pressão sobre a meta fiscal",
+   "dek": "Receita somou R$ 212,4 bilhões no mês, alta real de 6,1%, puxada pelo IR sobre aplicações e pela tributação de fundos exclusivos.",
+   "body": [
+    "A arrecadação de impostos e contribuições federais somou **R$ 212,4 bilhões** em agosto, o maior valor para o mês desde o início da série histórica, segundo a Receita Federal. Descontada a inflação, o avanço foi de **6,1%** sobre agosto do ano passado.",
+    "O resultado foi puxado pelo Imposto de Renda sobre aplicações financeiras e pela tributação dos fundos exclusivos, que rendeu **R$ 4,8 bilhões** no mês, de acordo com o Valor. No acumulado do ano, a arrecadação chega a R$ 1,78 trilhão.",
+    "Segundo a Folha, técnicos da Fazenda avaliam que a receita mais forte reduz a chance de um novo bloqueio no relatório bimestral de novembro, embora o cenário de gastos obrigatórios continue pressionado."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/brasil/noticia/2026/09/29/arrecadacao-federal-agosto.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mercado/2026/09/arrecadacao-bate-recorde.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/arrecadacao-agosto-recorde/"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/arrecadacao-agosto"
+    }
+   ],
+   "article_ids": [
+    "a0010",
+    "a0011",
+    "a0012",
+    "a0013"
+   ],
+   "importance": 5,
+   "why_it_matters": "Receita mais forte diminui a necessidade de novos bloqueios e sustenta o cumprimento do arcabouço em ano eleitoral.",
+   "image": "https://s2-valor.glbimg.com/render-fixture/arrecadacao.jpg",
+   "published": "2026-09-29T05:55:00+00:00"
+  },
+  {
+   "id": "ipca-15-desacelera-para-0-21-em-setembro",
+   "section": "brasil",
+   "headline": "IPCA-15 desacelera para 0,21% em setembro, abaixo do esperado pelo mercado",
+   "dek": "Prévia da inflação teve alívio em alimentos e combustíveis; em 12 meses, índice recua para 4,31%.",
+   "body": [
+    "O IPCA-15, prévia da inflação oficial, subiu **0,21%** em setembro, depois de 0,35% em agosto, informou o IBGE. A mediana das projeções compiladas pelo Valor Data apontava 0,27%.",
+    "Em 12 meses, o índice desacelerou para **4,31%**, ainda acima do centro da meta de 3%. Alimentação e bebidas recuaram 0,12%, enquanto gasolina caiu 0,8% com a redução de preços nas refinarias."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/brasil/noticia/2026/09/29/ipca-15-setembro.ghtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/29/ipca-15.ghtml"
+    }
+   ],
+   "article_ids": [
+    "a0020",
+    "a0021"
+   ],
+   "importance": 4,
+   "why_it_matters": "Inflação corrente mais baixa reforça a aposta de início do ciclo de cortes da Selic no começo de 2027.",
+   "image": "https://s2-valor.glbimg.com/render-fixture/ipca15.jpg",
+   "published": "2026-09-29T03:07:00+00:00"
+  },
+  {
+   "id": "desemprego-cai-a-5-6-no-trimestre-ate-agosto",
+   "section": "brasil",
+   "headline": "Desemprego cai a 5,6% no trimestre até agosto, menor taxa da série do IBGE",
+   "dek": "População ocupada chega a 103,1 milhões de pessoas e rendimento médio real sobe 3,2% em um ano.",
+   "body": [
+    "A taxa de desocupação recuou para **5,6%** no trimestre encerrado em agosto, a menor da série da Pnad Contínua, iniciada em 2012, segundo o IBGE.",
+    "O rendimento médio real habitual foi estimado em **R$ 3.482**, alta de 3,2% em relação ao mesmo período do ano anterior, de acordo com a Agência Brasil."
+   ],
+   "sources": [
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/desemprego-pnad"
+    }
+   ],
+   "article_ids": [
+    "a0030"
+   ],
+   "importance": 3,
+   "why_it_matters": "Mercado de trabalho apertado mantém a inflação de serviços resistente e limita o espaço para cortes de juros.",
+   "image": null,
+   "published": "2026-09-29T00:37:00+00:00"
+  },
+  {
+   "id": "bndes-aprova-r-8-bilhoes-para-transicao-energetica",
+   "section": "brasil",
+   "headline": "BNDES aprova R$ 8 bilhões para transição energética de distribuidoras",
+   "dek": "Linha financia redes inteligentes e armazenamento em baterias em 11 concessionárias.",
+   "body": [
+    "O BNDES aprovou **R$ 8 bilhões** em financiamentos para 11 distribuidoras de energia investirem em redes inteligentes, medição digital e armazenamento em baterias, informou o banco."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/bndes-transicao-energetica.ghtml"
+    }
+   ],
+   "article_ids": [
+    "a0040"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-28T21:07:00+00:00"
+  },
+  {
+   "id": "juros-futuros-sobem-e-ibovespa-recua-com-premio-eleitoral",
+   "section": "mercados",
+   "headline": "Juros futuros sobem e Ibovespa recua com prêmio de risco eleitoral",
+   "dek": "Taxa do DI para janeiro de 2029 avança a 13,42%; bolsa cai 0,27% e dólar fecha em R$ 5,22.",
+   "body": [
+    "Os contratos de **DI para janeiro de 2029** subiram a 13,42% nesta segunda-feira, maior nível em seis semanas, com investidores embutindo prêmio de risco a cinco dias do primeiro turno, segundo o InfoMoney.",
+    "O **Ibovespa** fechou em queda de 0,27%, aos 182.991 pontos, pressionado por bancos e varejistas. O dólar subiu 0,19%, a R$ 5,22, de acordo com o Valor.",
+    "Gestores ouvidos pelo Brazil Journal afirmam que a volatilidade deve seguir elevada até a definição do segundo turno."
+   ],
+   "sources": [
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/mercados/ibovespa-hoje-28-09-2026/"
+    },
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/juros-futuros.ghtml"
+    },
+    {
+     "name": "Brazil Journal",
+     "url": "https://braziljournal.com/gestores-volatilidade-eleicao/"
+    }
+   ],
+   "article_ids": [
+    "a0050",
+    "a0051",
+    "a0052"
+   ],
+   "importance": 4,
+   "why_it_matters": "O prêmio eleitoral encarece o crédito para empresas e o financiamento da dívida pública nas próximas semanas.",
+   "image": "https://s2-valor.glbimg.com/render-fixture/juros.jpg",
+   "published": "2026-09-28T19:07:00+00:00"
+  },
+  {
+   "id": "citi-recomenda-compra-de-real",
+   "section": "mercados",
+   "headline": "Citi recomenda compra de real e vê dólar a R$ 4,90 até dezembro",
+   "dek": "Estrategistas avaliam que o mercado ainda não precificou totalmente um cenário de alternância de poder.",
+   "body": [
+    "Em relatório a clientes, estrategistas do **Citi** recomendaram posição comprada em real contra o dólar, com alvo de **R$ 4,90** até o fim do ano, informou o Valor.",
+    "O banco pondera que a recomendação depende de sinalizações fiscais críveis de quem vencer a eleição."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/intraday/post/2026/09/citi-real.ghtml"
+    }
+   ],
+   "article_ids": [
+    "a0060"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/citi.jpg",
+   "published": "2026-09-28T23:07:00+00:00"
+  },
+  {
+   "id": "petrobras-avalia-emissao-de-bonds",
+   "section": "mercados",
+   "headline": "Petrobras avalia emissão de US$ 2 bilhões em bonds para alongar dívida",
+   "dek": "Operação seria a primeira captação externa da estatal em 2026 e pode sair ainda em outubro.",
+   "body": [
+    "A **Petrobras** contratou bancos para avaliar uma emissão de até **US$ 2 bilhões** em títulos no exterior, segundo a Bloomberg Línea. Os recursos seriam usados para recomprar papéis com vencimento até 2028."
+   ],
+   "sources": [
+    {
+     "name": "Bloomberg Línea",
+     "url": "https://www.bloomberglinea.com.br/negocios/petrobras-bonds-2026/"
+    }
+   ],
+   "article_ids": [
+    "a0070"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-28T17:07:00+00:00"
+  },
+  {
+   "id": "bitcoin-recua-com-saida-de-etfs",
+   "section": "mercados",
+   "headline": "Bitcoin recua 0,7% com saída de ETFs nos EUA pelo quinto dia",
+   "dek": "Fundos à vista registraram resgates líquidos de US$ 610 milhões na semana, segundo a CNBC.",
+   "body": [
+    "O **bitcoin** caiu 0,7%, a US$ 83.061, em meio a resgates de ETFs à vista nos Estados Unidos pelo quinto pregão consecutivo, de acordo com a CNBC."
+   ],
+   "sources": [
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/bitcoin-etf-outflows.html"
+    }
+   ],
+   "article_ids": [
+    "a0080"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/bitcoin.jpg",
+   "published": "2026-09-29T04:07:00+00:00"
+  },
+  {
+   "id": "stf-forma-maioria-para-limitar-cobranca-retroativa-do-difal",
+   "section": "juridico",
+   "headline": "STF forma maioria para limitar cobrança retroativa do Difal do ICMS",
+   "dek": "Tese preserva contribuintes que ajuizaram ações até 2022 e reduz impacto estimado para empresas de varejo.",
+   "body": [
+    "O **Supremo Tribunal Federal** formou maioria para modular os efeitos da decisão sobre o diferencial de alíquotas do ICMS (**Difal**), impedindo a cobrança retroativa de contribuintes que ajuizaram ações até 2022, segundo o JOTA.",
+    "O julgamento no plenário virtual termina na sexta-feira. Tributaristas ouvidos pelo Conjur estimam que a modulação reduz em cerca de **R$ 9 bilhões** o passivo potencial do varejo."
+   ],
+   "sources": [
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/tributos/stf-difal-modulacao"
+    },
+    {
+     "name": "Conjur",
+     "url": "https://www.conjur.com.br/2026-set-28/stf-difal-icms/"
+    }
+   ],
+   "article_ids": [
+    "a0090",
+    "a0091"
+   ],
+   "importance": 4,
+   "why_it_matters": "A modulação reduz o risco de autuações bilionárias para varejistas e define a estratégia de provisões no balanço.",
+   "image": "https://s2-valor.glbimg.com/render-fixture/stf.jpg",
+   "published": "2026-09-29T02:07:00+00:00"
+  },
+  {
+   "id": "cvm-abre-consulta-para-tokenizacao-de-recebiveis",
+   "section": "juridico",
+   "headline": "CVM abre consulta pública sobre tokenização de recebíveis",
+   "dek": "Minuta cria regime para ofertas de tokens lastreados em duplicatas e CCBs com limite anual de R$ 30 milhões.",
+   "body": [
+    "A **Comissão de Valores Mobiliários** colocou em consulta pública até 30 de novembro uma minuta de resolução para ofertas de recebíveis tokenizados, informou o Valor."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/legislacao/noticia/2026/09/28/cvm-tokenizacao.ghtml"
+    }
+   ],
+   "article_ids": [
+    "a0100"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-29T00:07:00+00:00"
+  },
+  {
+   "id": "tst-valida-acordo-coletivo-banco-de-horas",
+   "section": "juridico",
+   "headline": "TST valida acordo coletivo que troca horas extras por banco de horas",
+   "dek": "Decisão da SDI-1 reforça prevalência do negociado sobre o legislado após a reforma trabalhista.",
+   "body": [
+    "A Subseção de Dissídios Individuais do **TST** validou cláusula de acordo coletivo que substitui o pagamento de horas extras por banco de horas anual, segundo o Conjur."
+   ],
+   "sources": [
+    {
+     "name": "Conjur",
+     "url": "https://www.conjur.com.br/2026-set-28/tst-banco-horas/"
+    }
+   ],
+   "article_ids": [
+    "a0110"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-28T12:07:00+00:00"
+  },
+  {
+   "id": "cade-aprova-com-restricoes-fusao-de-farmacias",
+   "section": "juridico",
+   "headline": "Cade aprova com restrições fusão de redes de farmácias",
+   "dek": "Empresas terão de vender 84 lojas em cidades onde a concentração superaria 40% do mercado.",
+   "body": [
+    "O Tribunal do **Cade** aprovou com restrições a fusão entre duas redes de farmácias, condicionada à venda de **84 lojas** em 17 municípios, informou o JOTA."
+   ],
+   "sources": [
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/concorrencia/cade-farmacias"
+    }
+   ],
+   "article_ids": [
+    "a0120"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/cade.jpg",
+   "published": "2026-09-28T22:07:00+00:00"
+  },
+  {
+   "id": "pesquisa-quaest-mostra-disputa-estavel",
+   "section": "politica",
+   "headline": "Pesquisa Quaest mostra disputa estável a cinco dias do primeiro turno",
+   "dek": "Levantamento indica empate técnico no segundo turno e rejeição acima de 45% para os dois líderes.",
+   "body": [
+    "A pesquisa **Quaest** divulgada nesta segunda-feira mostra estabilidade nas intenções de voto para presidente em relação ao levantamento da semana passada, segundo a Folha.",
+    "Nas simulações de segundo turno, os dois principais candidatos aparecem em **empate técnico**, dentro da margem de erro de dois pontos percentuais."
+   ],
+   "sources": [
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/09/pesquisa-quaest.shtml"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/pesquisas/quaest-28-set/"
+    }
+   ],
+   "article_ids": [
+    "a0130",
+    "a0131"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/quaest.jpg",
+   "published": "2026-09-29T05:07:00+00:00"
+  },
+  {
+   "id": "camara-aprova-mp-que-restringe-apostas-on-line",
+   "section": "politica",
+   "headline": "Câmara aprova MP que restringe apostas on-line e texto segue ao Senado",
+   "dek": "Medida proíbe publicidade de bets em horário nobre e eleva tributação sobre a receita das casas de apostas.",
+   "body": [
+    "A **Câmara dos Deputados** aprovou por 312 votos a 141 a medida provisória que restringe as apostas on-line, informou a Agência Brasil. O texto precisa ser votado pelo Senado até 12 de outubro."
+   ],
+   "sources": [
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-09/camara-aprova-mp-bets"
+    }
+   ],
+   "article_ids": [
+    "a0140"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/camara.jpg",
+   "published": "2026-09-28T20:07:00+00:00"
+  },
+  {
+   "id": "tse-amplia-fiscalizacao-sobre-ia-em-propaganda",
+   "section": "politica",
+   "headline": "TSE amplia fiscalização sobre uso de IA em propaganda eleitoral",
+   "dek": "Tribunal firma acordo com plataformas para remoção em até duas horas de vídeos manipulados.",
+   "body": [
+    "O **TSE** assinou acordo com plataformas digitais para acelerar a remoção de conteúdo manipulado por inteligência artificial na reta final da campanha, segundo o g1."
+   ],
+   "sources": [
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/tse-ia.ghtml"
+    }
+   ],
+   "article_ids": [
+    "a0150"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-28T16:07:00+00:00"
+  },
+  {
+   "id": "eua-e-china-retomam-negociacao-tarifaria",
+   "section": "mundo",
+   "headline": "EUA e China retomam negociação tarifária em Genebra",
+   "dek": "Delegações discutem prorrogação da trégua que reduziu tarifas sobre US$ 300 bilhões em produtos.",
+   "body": [
+    "Representantes dos **Estados Unidos** e da **China** retomaram nesta segunda-feira, em Genebra, as negociações sobre a trégua tarifária que expira em novembro, segundo o Financial Times.",
+    "De acordo com o South China Morning Post, Pequim pede a retirada de restrições à exportação de chips em troca de compras adicionais de soja e gás natural americanos."
+   ],
+   "sources": [
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/us-china-geneva-talks"
+    },
+    {
+     "name": "South China Morning Post",
+     "url": "https://www.scmp.com/economy/china-economy/article/us-china-trade-talks"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/09/28/business/us-china-tariffs.html"
+    }
+   ],
+   "article_ids": [
+    "a0160",
+    "a0161",
+    "a0162"
+   ],
+   "importance": 4,
+   "why_it_matters": "Uma prorrogação da trégua reduz o risco para exportadores brasileiros de commodities e para o câmbio.",
+   "image": "https://s2-valor.glbimg.com/render-fixture/genebra.jpg",
+   "published": "2026-09-29T02:37:00+00:00"
+  },
+  {
+   "id": "brent-sobe-com-tensao-no-estreito-de-ormuz",
+   "section": "mundo",
+   "headline": "Brent sobe 1,5% com tensão no Estreito de Ormuz",
+   "dek": "Barril volta a US$ 99 após relatos de interceptação de petroleiro por forças iranianas.",
+   "body": [
+    "O petróleo **Brent** avançou 1,5%, a US$ 99,27 o barril, depois de relatos de que um petroleiro foi interceptado no **Estreito de Ormuz**, segundo a Reuters citada pelo The Guardian."
+   ],
+   "sources": [
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/business/2026/sep/28/oil-prices-hormuz"
+    }
+   ],
+   "article_ids": [
+    "a0170"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/brent.jpg",
+   "published": "2026-09-29T01:37:00+00:00"
+  },
+  {
+   "id": "milei-anuncia-fim-do-cepo-para-empresas",
+   "section": "mundo",
+   "headline": "Milei anuncia fim do cepo cambial para empresas e peso oscila",
+   "dek": "Companhias poderão remeter dividendos ao exterior a partir de janeiro, segundo o governo argentino.",
+   "body": [
+    "O presidente da Argentina, **Javier Milei**, anunciou o fim das restrições cambiais para empresas a partir de janeiro, informou o El País."
+   ],
+   "sources": [
+    {
+     "name": "El País",
+     "url": "https://elpais.com/argentina/2026-09-28/milei-cepo-empresas.html"
+    }
+   ],
+   "article_ids": [
+    "a0180"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-28T18:07:00+00:00"
+  },
+  {
+   "id": "nvidia-fecha-acordo-para-data-centers-no-brasil",
+   "section": "tecnologia",
+   "headline": "Nvidia fecha acordo de US$ 5 bilhões para data centers de IA no Brasil",
+   "dek": "Parceria com operadora local prevê três campi no Nordeste movidos a energia eólica e solar.",
+   "body": [
+    "A **Nvidia** fechou acordo para fornecer chips e sistemas a um projeto de **US$ 5 bilhões** em data centers de inteligência artificial no Brasil, segundo o NeoFeed.",
+    "Os campi ficarão no Ceará, no Rio Grande do Norte e na Bahia, perto de parques eólicos e solares, de acordo com a TechCrunch."
+   ],
+   "sources": [
+    {
+     "name": "NeoFeed",
+     "url": "https://neofeed.com.br/negocios/nvidia-data-centers-brasil/"
+    },
+    {
+     "name": "TechCrunch",
+     "url": "https://techcrunch.com/2026/09/28/nvidia-brazil-data-centers/"
+    }
+   ],
+   "article_ids": [
+    "a0190",
+    "a0191"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/nvidia.jpg",
+   "published": "2026-09-28T23:37:00+00:00"
+  },
+  {
+   "id": "bancos-aceleram-uso-de-ia-generativa",
+   "section": "tecnologia",
+   "headline": "Bancos aceleram uso de IA generativa no atendimento, diz Febraban",
+   "dek": "Pesquisa anual mostra que 71% das instituições já usam assistentes de IA com clientes.",
+   "body": [
+    "Levantamento da **Febraban** com 24 bancos mostra que 71% já usam assistentes de IA generativa no atendimento a clientes, ante 38% no ano passado, segundo o Valor."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/febraban-ia.ghtml"
+    }
+   ],
+   "article_ids": [
+    "a0200"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-28T14:07:00+00:00"
+  },
+  {
+   "id": "teste-de-seguranca-script",
+   "section": "tecnologia",
+   "headline": "Teste <script>alert(1)</script> & \"aspas\" no título",
+   "dek": "Linha fina com <img src=x onerror=alert(2)> e & comercial.",
+   "body": [
+    "Parágrafo com **negrito**, tag <b>crua</b>, \"aspas\" & comercial e um asterisco * solto.",
+    "Outro parágrafo com <iframe src=//evil.example></iframe> e **negrito sem fechar."
+   ],
+   "sources": [
+    {
+     "name": "Fonte <i>Maliciosa</i>",
+     "url": "javascript:alert(3)"
+    },
+    {
+     "name": "Fonte Ok & Cia",
+     "url": "https://example.com/materia?a=1&b=2"
+    }
+   ],
+   "article_ids": [
+    "a0210",
+    "a0211"
+   ],
+   "importance": 1,
+   "why_it_matters": "Por que \"importa\" & <em>não</em> quebra o HTML.",
+   "image": "javascript:alert(4)",
+   "published": "2026-09-28T10:07:00+00:00"
+  },
+  {
+   "id": "financiamento-imobiliario-com-poupanca-cai-18",
+   "section": "imobiliario",
+   "headline": "Financiamento imobiliário com poupança cai 18% em agosto, aponta Abecip",
+   "dek": "Saques líquidos da caderneta reduzem funding e bancos migram para CRIs e LCIs.",
+   "body": [
+    "Os financiamentos imobiliários com recursos da **poupança** somaram R$ 14,2 bilhões em agosto, queda de **18%** em um ano, segundo a Abecip.",
+    "De acordo com o Imobi Report, grandes bancos têm recorrido a emissões de CRIs e LCIs para compensar os saques líquidos da caderneta."
+   ],
+   "sources": [
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/minhas-financas/abecip-agosto-2026/"
+    },
+    {
+     "name": "Imobi Report",
+     "url": "https://www.imobireport.com.br/abecip-agosto/"
+    }
+   ],
+   "article_ids": [
+    "a0220",
+    "a0221"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/abecip.jpg",
+   "published": "2026-09-29T03:37:00+00:00"
+  },
+  {
+   "id": "ifix-renova-maxima-com-fundos-de-galpoes",
+   "section": "imobiliario",
+   "headline": "IFIX renova máxima com fundos de galpões logísticos em alta",
+   "dek": "Índice de fundos imobiliários sobe 0,17% e acumula ganho de 11,4% no ano.",
+   "body": [
+    "O **IFIX** fechou em alta de 0,17%, aos 3.718 pontos, nova máxima histórica, puxado por fundos de galpões logísticos, segundo o Money Times."
+   ],
+   "sources": [
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/ifix-maxima-galpoes/"
+    }
+   ],
+   "article_ids": [
+    "a0230"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": null,
+   "published": "2026-09-28T18:37:00+00:00"
+  },
+  {
+   "id": "secovi-vendas-de-imoveis-novos-crescem-9",
+   "section": "imobiliario",
+   "headline": "Secovi-SP: vendas de imóveis novos na capital crescem 9% no ano",
+   "dek": "Unidades econômicas do Minha Casa, Minha Vida respondem por 58% das vendas.",
+   "body": [
+    "As vendas de imóveis residenciais novos na cidade de São Paulo cresceram **9%** de janeiro a agosto, segundo o Secovi-SP."
+   ],
+   "sources": [
+    {
+     "name": "Secovi-SP",
+     "url": "https://www.secovi.com.br/noticias/pesquisa-mercado-agosto-2026"
+    }
+   ],
+   "article_ids": [
+    "a0240"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/render-fixture/secovi.jpg",
+   "published": "2026-09-28T13:07:00+00:00"
+  }
+ ],
+ "quotes": [
+  {
+   "id": "usd",
+   "label": "Dólar",
+   "value": 5.2226,
+   "display": "R$ 5,22",
+   "change_pct": 0.1938,
+   "kind": "fx",
+   "as_of": "2026-09-29T02:00:03+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "eur",
+   "label": "Euro",
+   "value": 6.1127,
+   "display": "R$ 6,11",
+   "change_pct": 0.0852,
+   "kind": "fx",
+   "as_of": "2026-09-29T01:59:40+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "cny",
+   "label": "Yuan",
+   "value": 0.7321,
+   "display": "R$ 0,73",
+   "change_pct": 0.2602,
+   "kind": "fx",
+   "as_of": "2026-09-29T01:59:10+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ibov",
+   "label": "Ibovespa",
+   "value": 182991.12,
+   "display": "182.991 pts",
+   "change_pct": -0.265,
+   "kind": "index",
+   "as_of": "2026-09-28T20:19:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ifix",
+   "label": "IFIX",
+   "value": 3718.35,
+   "display": "3.718 pts",
+   "change_pct": 0.1738,
+   "kind": "index",
+   "as_of": "2026-09-28T20:15:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "spx",
+   "label": "S&P 500",
+   "value": 7683.69,
+   "display": "7.684 pts",
+   "change_pct": -0.771,
+   "kind": "index",
+   "as_of": "2026-09-28T20:36:11+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "brent",
+   "label": "Brent",
+   "value": 99.27,
+   "display": "US$ 99,27",
+   "change_pct": 1.472,
+   "kind": "commodity",
+   "as_of": "2026-09-29T01:52:44+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "gold",
+   "label": "Ouro",
+   "value": 4164.2,
+   "display": "US$ 4.164",
+   "change_pct": -0.101,
+   "kind": "commodity",
+   "as_of": "2026-09-29T01:52:41+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "btc",
+   "label": "Bitcoin",
+   "value": 83061.0,
+   "display": "US$ 83.061",
+   "change_pct": -0.6858,
+   "kind": "crypto",
+   "as_of": "2026-09-29T08:07:00+00:00",
+   "source": "CoinGecko"
+  },
+  {
+   "id": "selic",
+   "label": "Selic",
+   "value": 13.75,
+   "display": "13,75%",
+   "change_pct": null,
+   "kind": "rate",
+   "as_of": "2026-09-29",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "ipca12m",
+   "label": "IPCA 12m",
+   "value": 4.22,
+   "display": "4,22%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "igpm12m",
+   "label": "IGP-M 12m",
+   "value": 2.178242946891751,
+   "display": "2,18%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "incc12m",
+   "label": "INCC 12m",
+   "value": 6.60767785260401,
+   "display": "6,61%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  }
+ ],
+ "weather": [
+  {
+   "city": "São Paulo",
+   "current_c": 18.9,
+   "current_emoji": "☁️",
+   "current_desc": "Nublado",
+   "today_min": 18.8,
+   "today_max": 32.6,
+   "tomorrow_min": 19.3,
+   "tomorrow_max": 29.8,
+   "tomorrow_emoji": "🌦️",
+   "tomorrow_desc": "Pancadas de chuva fracas"
+  },
+  {
+   "city": "Montevidéu",
+   "current_c": 13.9,
+   "current_emoji": "🌦️",
+   "current_desc": "Garoa moderada",
+   "today_min": 13.8,
+   "today_max": 16.8,
+   "tomorrow_min": 11.6,
+   "tomorrow_max": 18.9,
+   "tomorrow_emoji": "⛅",
+   "tomorrow_desc": "Parcialmente nublado"
+  }
+ ],
+ "stats": {
+  "sources_total": 64,
+  "sources_ok": 59,
+  "sources_failed": [
+   {
+    "source_id": "bloomberglinea",
+    "url": "https://www.bloomberglinea.com.br/arc/outboundfeeds/rss/?outputType=xml",
+    "error": "XML inválido"
+   },
+   {
+    "source_id": "exame",
+    "url": "https://exame.com/feed/",
+    "error": "HTTP 403"
+   },
+   {
+    "source_id": "secovi",
+    "url": "https://www.secovi.com.br/feed",
+    "error": "0 itens"
+   },
+   {
+    "source_id": "scmp",
+    "url": "https://www.scmp.com/rss/36/feed",
+    "error": "timeout"
+   },
+   {
+    "source_id": "elpais",
+    "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada",
+    "error": "HTTP 404"
+   }
+  ],
+  "articles_collected": 612,
+  "articles_considered": 180,
+  "llm_input_tokens": 61234,
+  "llm_output_tokens": 9876
+ }
+}

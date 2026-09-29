@@ -1,0 +1,69 @@
+{#- Blocos reutilizados na página da edição. "s" é sempre uma StoryView (textos já limpos). -#}
+
+{% macro figure(s, cls) -%}
+<figure class="{{ cls }}" data-img><img src="{{ s.image }}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+{%- endmacro %}
+
+{% macro meta(s) -%}
+{% if s.source_names or s.age %}
+<p class="meta">{% if s.source_names %}<span>{{ s.source_names }}</span>{% endif %}{% if s.age %}<time datetime="{{ s.published }}">{{ s.age }}</time>{% endif %}</p>
+{% endif %}
+{%- endmacro %}
+
+{% macro card(s) -%}
+<article class="cl" style="--sc:{{ s.color }}">
+  <p class="cat">{{ s.section_title }}</p>
+  {% if s.image %}
+  {{ figure(s, "ci") }}
+  {% endif %}
+  <h3><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+  {% if s.dek %}
+  <p class="dk">{{ s.dek }}</p>
+  {% endif %}
+  {{ meta(s) }}
+</article>
+{%- endmacro %}
+
+{% macro modal(s, tz_label) -%}
+<div class="mo" id="{{ s.anchor }}" role="dialog" aria-modal="true" aria-labelledby="t-{{ s.id }}" style="--sc:{{ s.color }}">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">{{ s.section_title }}</p>
+      <h2 id="t-{{ s.id }}">{{ s.headline }}</h2>
+      {% if s.dek and not s.dek_in_body %}
+      <p class="mdek">{{ s.dek }}</p>
+      {% endif %}
+    </header>
+    {% if s.image %}
+    {{ figure(s, "mi") }}
+    {% endif %}
+    {% if s.body %}
+    <div class="bt">
+      {% for paragraph in s.body %}
+      <p>{{ paragraph|md_lite }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if s.why %}
+    <aside class="why">
+      <h3>Por que importa</h3>
+      <p>{{ s.why }}</p>
+    </aside>
+    {% endif %}
+    {% if s.sources %}
+    <div class="bb">
+      <h3>Fontes</h3>
+      <ul>
+        {% for src in s.sources %}
+        <li>{% if src.url %}<a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.name }} <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>{% else %}<span>{{ src.name }}</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if s.time %}
+    <p class="mtime">Publicado às <time datetime="{{ s.published }}">{{ s.time }}</time> {{ tz_label }}{% if s.age %} · {{ s.age }}{% endif %}</p>
+    {% endif %}
+  </article>
+</div>
+{%- endmacro %}

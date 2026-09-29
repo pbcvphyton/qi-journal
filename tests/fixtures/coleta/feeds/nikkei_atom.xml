@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Nikkei Asia - Business</title>
+  <id>https://asia.nikkei.com/rss/business</id>
+  <link rel="self" href="https://asia.nikkei.com/rss/feed/business"/>
+  <link rel="alternate" href="https://asia.nikkei.com/Business"/>
+  <entry>
+    <title>Japan's exports rise for third month as chip demand offsets US tariffs</title>
+    <link rel="alternate" type="text/html" href="https://asia.nikkei.com/Economy/Trade/Japan-s-exports-rise-for-third-month-as-chip-demand-offsets-US-tariffs"/>
+    <id>https://asia.nikkei.com/Economy/Trade/Japan-s-exports-rise-for-third-month-as-chip-demand-offsets-US-tariffs</id>
+    <summary type="html">&lt;p&gt;Shipments of semiconductor equipment to China and Taiwan drove a 4.1% increase in August, while car exports to the US fell for a sixth straight month.&lt;/p&gt;</summary>
+  </entry>
+  <entry>
+    <title type="html">Toyota to invest &lt;b&gt;$10bn&lt;/b&gt; in US battery plants</title>
+    <link rel="alternate" type="text/html" href="HTTPS://Asia.Nikkei.com/Business/Automobiles/Toyota-to-invest-10bn-in-US-battery-plants#top"/>
+    <id>https://asia.nikkei.com/Business/Automobiles/Toyota-to-invest-10bn-in-US-battery-plants</id>
+    <content type="html">&lt;p&gt;The carmaker will expand its North Carolina complex and build a second site in Kentucky as it bets on hybrids and plug-in models amid slowing demand for fully electric cars.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Entry without a web link</title>
+    <id>tag:asia.nikkei.com,2026:internal-4411</id>
+    <summary>Internal item that has no public URL.</summary>
+  </entry>
+</feed>

@@ -1,0 +1,132 @@
+# Edição diária do QI Journal: coleta, edita (IA ou automática), publica no
+# GitHub Pages (commit em index.html, edicoes/ e data/) e envia o e-mail por
+# SMTP quando os segredos estiverem configurados.
+name: Edição diária
+
+on:
+  schedule:
+    - cron: "7 8 * * *" # 05:07 em Brasília (UTC-3, sem horário de verão)
+  workflow_dispatch:
+    inputs:
+      no_llm:
+        description: "Gerar sem IA (edição automática)"
+        type: boolean
+        default: false
+      no_email:
+        description: "Não enviar o e-mail por SMTP"
+        type: boolean
+        default: false
+  # TEMP: remover antes do merge — roda o pipeline a cada push nesta branch.
+  # O commit do bot só altera index.html, edicoes/ e data/ (fora destes
+  # caminhos), então não há loop.
+  push:
+    branches: [claude/clever-euler-ydfk8n]
+    paths:
+      - "qijournal/**"
+      - "config/**"
+      - ".github/workflows/daily.yml"
+      - "requirements.txt"
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: daily-edition
+  cancel-in-progress: false
+
+jobs:
+  edition:
+    runs-on: ubuntu-latest
+    # Pior caso: coleta com retentativas (~6 min) + enriquecimento (~2 min) +
+    # 2 chamadas à IA (até 20 min cada, ver llm.timeout_seconds). Se a IA
+    # travar, o SDK desiste antes deste limite e a edição sai em modo automático.
+    timeout-minutes: 55
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v5
+
+      - name: Configurar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Gerar a edição
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          QIJ_BRAND: ${{ vars.QIJ_BRAND }}
+          QIJ_MODEL: ${{ vars.QIJ_MODEL }}
+          # Entradas do disparo manual (vazias no agendamento): passadas por
+          # variável de ambiente, nunca interpoladas direto no script.
+          INPUT_NO_LLM: ${{ inputs.no_llm }}
+          INPUT_NO_EMAIL: ${{ inputs.no_email }}
+          TZ: America/Sao_Paulo
+          PYTHONUNBUFFERED: "1"
+        run: |
+          args=(--out .)
+          if [ "$INPUT_NO_LLM" = "true" ]; then args+=(--no-llm); fi
+          if [ "$INPUT_NO_EMAIL" = "true" ]; then args+=(--no-email); fi
+          python -m qijournal run "${args[@]}"
+
+      - name: Publicar (commit e push)
+        id: publish
+        env:
+          TZ: America/Sao_Paulo
+        run: |
+          git add --all -- index.html edicoes data
+          # TEMP: remover antes do merge — nos testes da branch, guarda também a coleta crua.
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then git add --force -- build; fi
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança para publicar."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet -m "🗞️ Edição de $(date +%d/%m/%Y)"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then break; fi
+            echo "::notice::Push recusado (tentativa ${attempt}/3); sincronizando com o remoto."
+            sleep $((attempt * 5))
+            if ! git pull --rebase origin "${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "::error::Conflito ao sincronizar com ${GITHUB_REF_NAME}; edição não publicada."
+              exit 1
+            fi
+          done
+          echo "::error::Não foi possível enviar a edição após 3 tentativas."
+          exit 1
+
+      - name: Pedir build do GitHub Pages
+        if: steps.publish.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
+
+      - name: Guardar a coleta crua
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coleta-${{ github.run_id }}
+          path: build/
+          retention-days: 7
+          if-no-files-found: ignore

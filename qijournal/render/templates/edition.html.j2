@@ -1,0 +1,192 @@
+{#- Página da edição. Variáveis: v (EditionView), brand, home_href, archive_href. -#}
+{% extends "layout.html.j2" %}
+{% import "macros.html.j2" as m %}
+
+{% block title %}{{ brand.name }} — {{ v.date_label }}{% endblock %}
+{% block description %}{{ v.description }}{% endblock %}
+{% block meta %}
+<link rel="canonical" href="{{ v.edition_url }}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="{{ brand.name }}">
+<meta property="og:title" content="{{ brand.name }} — {{ v.date_label }}">
+<meta property="og:description" content="{{ v.description }}">
+<meta property="og:url" content="{{ v.edition_url }}">
+{% if v.og_image %}
+<meta property="og:image" content="{{ v.og_image }}">
+<meta name="twitter:card" content="summary_large_image">
+{% else %}
+<meta name="twitter:card" content="summary">
+{% endif %}
+{% endblock %}
+
+{% block home_link %}{{ home_href }}{% endblock %}
+{% block dateline %}{{ v.date_label }}{% if v.time_label %} · {{ v.time_label }} {{ v.tz_label }}{% endif %}{% endblock %}
+
+{% block tools %}
+    <a class="tool" href="{{ archive_href }}" title="Edições anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Edições</span></a>
+    {% if v.sections %}
+    <button class="tool" type="button" id="srchBtn" aria-controls="srchInput" title="Buscar (atalho: /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Buscar</span></button>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if v.quotes %}
+<section class="tk" aria-label="Cotações e indicadores">
+  <div class="tk-rail">
+    <ul class="tk-track">
+      {% for q in v.quotes %}
+      <li class="tk-i"{% if q.note %} title="{{ q.note }}"{% endif %}>{{ q.label }} <b>{{ q.display }}</b>{% if q.change %} <span class="{{ q.css }}">{{ q.change }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <button class="tk-pause" type="button" aria-label="Pausar rolagem das cotações" hidden>&#10074;&#10074;</button>
+</section>
+{% endif %}
+
+{% if v.weather %}
+<section class="wx" aria-label="Clima">
+  {% for w in v.weather %}
+  <p>{% if w.now_emoji %}<span role="img" aria-label="{{ w.now_desc }}" title="{{ w.now_desc }}">{{ w.now_emoji }}</span>{% endif %}<strong>{{ w.city }}</strong>{{ w.now_temp }} <span aria-hidden="true">↓</span><span class="sr-only">mínima </span>{{ w.today_min }} <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>{{ w.today_max }}<span class="sep" aria-hidden="true">|</span>Amanhã {% if w.tomorrow_emoji %}<span role="img" aria-label="{{ w.tomorrow_desc }}" title="{{ w.tomorrow_desc }}">{{ w.tomorrow_emoji }}</span> {% endif %}<span aria-hidden="true">↓</span><span class="sr-only">mínima </span>{{ w.tomorrow_min }} <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>{{ w.tomorrow_max }}</p>
+  {% endfor %}
+</section>
+{% endif %}
+
+{% if v.editorial %}
+<section class="op-bar" aria-label="Editorial do dia">
+  <p>{{ v.editorial|md_lite }}</p>
+</section>
+{% endif %}
+
+{% if v.briefing %}
+<section class="brief" aria-labelledby="brief-h">
+  <h2 class="kicker" id="brief-h">Em 1 minuto</h2>
+  <ul>
+    {% for item in v.briefing %}
+    <li>{{ item|md_lite }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if v.lead %}
+{% set s = v.lead %}
+<section class="hero{% if not v.secondary %} solo{% endif %}" aria-label="Manchete">
+  <article class="hero-l" style="--sc:{{ s.color }}">
+    <p class="cat">{{ s.section_title }}</p>
+    <h2><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h2>
+    {% if s.dek %}
+    <p class="dek">{{ s.dek }}</p>
+    {% endif %}
+    {% if s.image %}
+    {{ m.figure(s, "hi") }}
+    {% endif %}
+    {% if v.lead_excerpt %}
+    <p class="sub">{{ v.lead_excerpt|md_lite }}</p>
+    {% endif %}
+    {% for paragraph in v.lead_more %}
+    <p class="sub more">{{ paragraph|md_lite }}</p>
+    {% endfor %}
+    {{ m.meta(s) }}
+    <p class="rd" aria-hidden="true">Ler matéria completa →</p>
+  </article>
+  {% if v.secondary %}
+  <div class="hero-r">
+    {% for s in v.secondary %}
+    <article class="ss" style="--sc:{{ s.color }}">
+      <p class="cat">{{ s.section_title }}</p>
+      <h3><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+      {% if s.dek %}
+      <p>{{ s.dek }}</p>
+      {% endif %}
+      {{ m.meta(s) }}
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+
+{% if v.highlights %}
+<section class="dst" aria-labelledby="dst-h">
+  <h2 class="kicker" id="dst-h">Destaques</h2>
+  <ol>
+    {% for s in v.highlights %}
+    <li><div><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a><span class="dst-cat">{{ s.section_title }}</span></div></li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if v.sections %}
+<section class="tabs-wrap" id="editorias" aria-label="Matérias por seção">
+  <div class="srch" role="search">
+    <label class="srch-label" for="srchInput">Buscar</label>
+    <input class="srch-input" id="srchInput" type="search" placeholder="Pesquisar nas matérias do dia…" autocomplete="off" spellcheck="false" aria-keyshortcuts="/">
+    <span class="srch-count" id="srchCount" role="status" aria-live="polite"></span>
+  </div>
+  <div class="tabs-nav">
+  <button class="tabs-arrow prev" type="button" tabindex="-1" aria-hidden="true" hidden>&#8249;</button>
+  <div class="tabs-bar" role="tablist" aria-label="Seções">
+    {% for sec in v.sections %}
+    <button class="tab-btn" type="button" role="tab" id="tab-{{ sec.id }}" data-tab="{{ sec.id }}" aria-controls="pane-{{ sec.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}" style="--sc:{{ sec.color }}">{{ sec.title }}<span class="n">{{ sec.stories|length }}</span></button>
+    {% endfor %}
+    <button class="tab-btn" type="button" role="tab" id="tab-all" data-tab="all" aria-controls="panes" aria-selected="false" tabindex="-1" style="--sc:{{ brand.colors.primary }}">Todas<span class="n">{{ v.stories|length }}</span></button>
+  </div>
+  <button class="tabs-arrow next" type="button" tabindex="-1" aria-hidden="true" hidden>&#8250;</button>
+  </div>
+  <div class="tab-layout">
+    <div class="tab-main" id="panes">
+      {% for sec in v.sections %}
+      <div class="tab-pane{% if loop.first %} active{% endif %}" id="pane-{{ sec.id }}" role="tabpanel" aria-labelledby="tab-{{ sec.id }}" style="--sc:{{ sec.color }}">
+        <h2 class="pane-hd">{{ sec.title }}</h2>
+        <div class="cards">
+          {% for s in sec.stories %}
+          {{ m.card(s) }}
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+      <p class="no-res" id="noRes" hidden>Nenhuma matéria encontrada para esta busca.</p>
+    </div>
+    {% if v.radar %}
+    <aside class="tab-side" aria-labelledby="radar-h">
+      <div class="radar">
+        <h2 class="radar-hd" id="radar-h">Radar de Notícias</h2>
+        <ol class="radar-list">
+          {% for s in v.radar %}
+          <li><a class="radar-item" href="#{{ s.anchor }}"><span class="tm">{{ s.time }}</span><span class="src">{{ s.sources[0].name if s.sources else s.section_title }}</span><span class="tt">{{ s.headline }}</span></a></li>
+          {% endfor %}
+        </ol>
+      </div>
+    </aside>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block footer %}
+<footer class="ft">
+  <p><strong>{{ brand.name }}</strong> · {{ v.sources_total }} fontes consultadas · {{ v.mode_label }} · {{ v.date_label }}</p>
+  <p class="ft-links"><a href="{{ archive_href }}">Edições anteriores</a>{% if v.repo_url %} · <a href="{{ v.repo_url }}" rel="noopener">Código-fonte</a>{% endif %}</p>
+  {% if v.source_groups %}
+  <details>
+    <summary>Status das fontes · {{ v.sources_ok }} de {{ v.sources_total }} feeds ok</summary>
+    <ul class="src-list">
+      {% for g in v.source_groups %}
+      <li class="st-{{ g.status }}"><span class="dot" aria-hidden="true"></span>{{ g.name }}{% if g.feeds > 1 %} <span class="nf">({{ g.feeds }} feeds)</span>{% endif %}{% if g.failed %}: <em>{{ g.errors|join(", ") }}</em>{% endif %}<span class="sr-only"> — {{ g.status }}</span></li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endif %}
+</footer>
+{% endblock %}
+
+{% block after %}
+<div class="modals">
+{% for s in v.stories %}
+{{ m.modal(s, v.tz_label) }}
+{% endfor %}
+</div>
+{% endblock %}

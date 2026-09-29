@@ -1,0 +1,433 @@
+{#- Interações da página (sem bibliotecas): tema, efeito do cabeçalho em canvas 2D,
+    ticker, abas, busca, modais das matérias, progresso de leitura e voltar ao topo.
+    Cada parte verifica se seus elementos existem (a página do arquivo usa só algumas). -#}
+(function () {
+  'use strict';
+  var d = document, w = window, root = d.documentElement;
+  var THEME_KEY = 'qij-theme';
+  var noMedia = { matches: false, addEventListener: function () {} };
+  function media(query) { return w.matchMedia ? w.matchMedia(query) : noMedia; }
+  var reduceMotion = media('(prefers-reduced-motion: reduce)');
+  var prefersDark = media('(prefers-color-scheme: dark)');
+
+  function storageGet(key) {
+    try { return w.localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function storageSet(key, value) {
+    try { w.localStorage.setItem(key, value); } catch (e) { /* armazenamento indisponível (modo privado) */ }
+  }
+  function onMediaChange(query, handler) {
+    if (query.addEventListener) query.addEventListener('change', handler);
+  }
+  function onResize(handler) {
+    var timer = 0;
+    w.addEventListener('resize', function () {
+      clearTimeout(timer);
+      timer = setTimeout(handler, 150);
+    });
+  }
+  function smooth() { return reduceMotion.matches ? 'auto' : 'smooth'; }
+
+  /* ── Tema claro/escuro ─────────────────────────────────────────────── */
+  var themeListeners = [];
+  function setupTheme() {
+    var button = d.getElementById('dmBtn');
+    var label = button && button.querySelector('.lbl');
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      if (label) label.textContent = theme === 'dark' ? 'Claro' : 'Escuro';
+      if (button) button.title = theme === 'dark' ? 'Mudar para o modo claro' : 'Mudar para o modo escuro';
+      themeListeners.forEach(function (fn) { fn(theme); });
+    }
+    apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+    if (button) {
+      button.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        storageSet(THEME_KEY, next);
+        apply(next);
+      });
+    }
+    onMediaChange(prefersDark, function (event) {
+      var saved = storageGet(THEME_KEY);
+      if (saved !== 'dark' && saved !== 'light') apply(event.matches ? 'dark' : 'light');
+    });
+  }
+
+  /* ── Cabeçalho: rede de partículas em canvas 2D (bem sutil) ────────── */
+  function setupCanvas() {
+    var canvas = d.getElementById('mast-canvas');
+    var ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (!ctx) return;
+    var LINK = 110, width = 0, height = 0, points = [], frame = 0, visible = true, colors = {};
+
+    function readColors() {
+      var style = getComputedStyle(root);
+      colors.dot = style.getPropertyValue('--qi').trim() || '#1C49A5';
+      colors.line = style.getPropertyValue('--qc').trim() || '#57D9FF';
+    }
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var ratio = Math.min(w.devicePixelRatio || 1, 2);
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      var count = Math.round(Math.min(90, Math.max(24, (width * height) / 2600)));
+      points = [];
+      for (var i = 0; i < count; i++) {
+        points.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.25
+        });
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = colors.line;
+      for (var i = 0; i < points.length; i++) {
+        for (var j = i + 1; j < points.length; j++) {
+          var dx = points[i].x - points[j].x, dy = points[i].y - points[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < LINK) {
+            ctx.globalAlpha = 1 - dist / LINK;
+            ctx.beginPath();
+            ctx.moveTo(points[i].x, points[i].y);
+            ctx.lineTo(points[j].x, points[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = colors.dot;
+      points.forEach(function (p) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+    function step() {
+      frame = 0;
+      points.forEach(function (p) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+      });
+      draw();
+      schedule();
+    }
+    function schedule() {
+      if (!frame && visible && !d.hidden && !reduceMotion.matches) frame = w.requestAnimationFrame(step);
+    }
+    function stop() {
+      if (frame) w.cancelAnimationFrame(frame);
+      frame = 0;
+    }
+    readColors();
+    resize();
+    draw();
+    schedule();
+    onResize(function () { resize(); draw(); });
+    themeListeners.push(function () { readColors(); draw(); });
+    onMediaChange(reduceMotion, function () { stop(); schedule(); });
+    d.addEventListener('visibilitychange', function () { stop(); schedule(); });
+    if ('IntersectionObserver' in w) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        stop();
+        schedule();
+      }).observe(canvas);
+    }
+  }
+
+  /* ── Ticker: rolagem contínua só quando não cabe numa linha ─────────── */
+  function setupTicker() {
+    var tk = d.querySelector('.tk');
+    if (!tk) return;
+    var rail = tk.querySelector('.tk-rail'), track = tk.querySelector('.tk-track'), pause = tk.querySelector('.tk-pause');
+    var clone = null;
+    function layout() {
+      if (clone) { clone.remove(); clone = null; }
+      tk.classList.remove('run');
+      if (pause) pause.hidden = true;
+      if (reduceMotion.matches) return;
+      tk.classList.add('run');
+      if (track.scrollWidth <= tk.clientWidth) {
+        tk.classList.remove('run');
+        return;
+      }
+      clone = track.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      rail.appendChild(clone);
+      tk.style.setProperty('--tk-dur', Math.max(20, Math.round(track.scrollWidth / 45)) + 's');
+      if (pause) pause.hidden = false;
+    }
+    if (pause) {
+      pause.addEventListener('click', function () {
+        var paused = tk.classList.toggle('paused');
+        pause.setAttribute('aria-label', paused ? 'Retomar rolagem das cotações' : 'Pausar rolagem das cotações');
+        pause.textContent = paused ? '▶' : '❚❚';
+      });
+    }
+    layout();
+    onResize(layout);
+    onMediaChange(reduceMotion, layout);
+  }
+
+  /* ── Abas por seção ────────────────────────────────────────────────── */
+  function setupTabs() {
+    var wrap = d.querySelector('.tabs-wrap');
+    if (!wrap) return null;
+    var tabs = Array.prototype.slice.call(wrap.querySelectorAll('[role="tab"]'));
+    var panes = Array.prototype.slice.call(wrap.querySelectorAll('.tab-pane'));
+    var bar = wrap.querySelector('.tabs-bar');
+    var api = { wrap: wrap, onSelect: null };
+
+    function reveal(tab) {
+      var left = tab.offsetLeft, right = left + tab.offsetWidth;
+      if (left < bar.scrollLeft) bar.scrollLeft = left - 16;
+      else if (right > bar.scrollLeft + bar.clientWidth) bar.scrollLeft = right - bar.clientWidth + 16;
+    }
+    function select(tab, focus) {
+      var key = tab.getAttribute('data-tab');
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+      });
+      wrap.classList.toggle('all', key === 'all');
+      panes.forEach(function (p) { p.classList.toggle('active', key === 'all' || p.id === 'pane-' + key); });
+      if (focus) tab.focus();
+      reveal(tab);
+    }
+    setupTabArrows(bar);
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        if (api.onSelect) api.onSelect();
+        select(tab, false);
+      });
+    });
+    bar.addEventListener('keydown', function (event) {
+      var index = tabs.indexOf(d.activeElement);
+      if (index < 0) return;
+      var next = null;
+      if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
+      else if (event.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
+      else if (event.key === 'Home') next = tabs[0];
+      else if (event.key === 'End') next = tabs[tabs.length - 1];
+      if (!next) return;
+      event.preventDefault();
+      if (api.onSelect) api.onSelect();
+      select(next, true);
+    });
+    return api;
+  }
+
+  /* Setas de rolagem quando as abas não cabem numa linha (atalho para o mouse). */
+  function setupTabArrows(bar) {
+    var nav = bar.parentNode;
+    var prev = nav.querySelector('.tabs-arrow.prev'), next = nav.querySelector('.tabs-arrow.next');
+    if (!prev || !next) return;
+    function update() {
+      prev.hidden = bar.scrollLeft <= 2;
+      next.hidden = bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2;
+    }
+    function scrollBy(direction) {
+      bar.scrollBy({ left: direction * bar.clientWidth * 0.6, behavior: smooth() });
+    }
+    prev.addEventListener('click', function () { scrollBy(-1); });
+    next.addEventListener('click', function () { scrollBy(1); });
+    bar.addEventListener('scroll', update, { passive: true });
+    onResize(update);
+    update();
+  }
+
+  /* ── Busca em tempo real (sem acento e sem diferenciar maiúsculas) ─── */
+  var modalIsOpen = function () { return false; };
+  function setupSearch(tabsApi) {
+    var input = d.getElementById('srchInput');
+    if (!input || !tabsApi) return;
+    var wrap = tabsApi.wrap;
+    var count = d.getElementById('srchCount'), none = d.getElementById('noRes');
+    var panes = Array.prototype.slice.call(wrap.querySelectorAll('.tab-pane'));
+    function norm(value) {
+      return value.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    }
+    var cards = Array.prototype.slice.call(wrap.querySelectorAll('.cl'));
+    cards.forEach(function (card) { card.searchText = norm(card.textContent.replace(/\s+/g, ' ')); });
+
+    function run() {
+      var terms = norm(input.value).split(/\s+/).filter(Boolean);
+      var total = 0;
+      wrap.classList.toggle('searching', terms.length > 0);
+      panes.forEach(function (pane) {
+        var shown = 0;
+        Array.prototype.forEach.call(pane.querySelectorAll('.cl'), function (card) {
+          var match = terms.every(function (t) { return card.searchText.indexOf(t) !== -1; });
+          card.classList.toggle('is-hidden', !match);
+          if (match) shown++;
+        });
+        pane.classList.toggle('empty', shown === 0);
+        total += shown;
+      });
+      if (count) count.textContent = terms.length ? (total === 1 ? '1 matéria' : total + ' matérias') : '';
+      if (none) none.hidden = !terms.length || total > 0;
+    }
+    function clear() {
+      if (!input.value) return;
+      input.value = '';
+      run();
+    }
+    function focusSearch() {
+      input.scrollIntoView({ block: 'center', behavior: smooth() });
+      input.focus({ preventScroll: true });
+    }
+    tabsApi.onSelect = clear;
+    input.addEventListener('input', run);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && input.value) {
+        event.preventDefault();
+        clear();
+      }
+    });
+    var button = d.getElementById('srchBtn');
+    if (button) button.addEventListener('click', focusSearch);
+    d.addEventListener('keydown', function (event) {
+      var target = event.target;
+      var typing = target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName));
+      if (event.key === '/' && !typing && !event.ctrlKey && !event.metaKey && !event.altKey && !modalIsOpen()) {
+        event.preventDefault();
+        focusSearch();
+      }
+    });
+    if (input.value) run();
+  }
+
+  /* ── Modais das matérias (#s-<id>) ─────────────────────────────────── */
+  function setupModals() {
+    var modals = d.querySelectorAll('.mo');
+    if (!modals.length) return;
+    var paper = d.querySelector('.paper');
+    var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    var current = null, lastFocus = null, trigger = null, pushed = false;
+
+    function find(hash) {
+      if (!hash || hash.indexOf('#s-') !== 0) return null;
+      var id;
+      try { id = decodeURIComponent(hash.slice(1)); } catch (e) { return null; }
+      var el = d.getElementById(id);
+      return el && el.classList.contains('mo') ? el : null;
+    }
+    function open(modal) {
+      if (current === modal) return;
+      if (current) current.classList.remove('on');
+      else lastFocus = trigger || d.activeElement;
+      trigger = null;
+      current = modal;
+      modal.classList.add('on');
+      modal.scrollTop = 0;
+      d.body.classList.add('modal-open');
+      if (paper) paper.inert = true;
+      var box = modal.querySelector('.ml');
+      (box || modal).focus({ preventScroll: true });
+    }
+    function close() {
+      if (!current) return;
+      var modal = current;
+      current = null;
+      modal.classList.remove('on');
+      d.body.classList.remove('modal-open');
+      if (paper) paper.inert = false;
+      if (w.location.hash === '#' + modal.id) {
+        // Aberto por um link desta página: voltar no histórico; aberto por URL: só limpar a âncora.
+        if (pushed) w.history.back();
+        else if (w.history.replaceState) w.history.replaceState(null, '', w.location.pathname + w.location.search);
+      }
+      pushed = false;
+      if (lastFocus && lastFocus.focus && d.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+      lastFocus = null;
+    }
+    function sync() {
+      var modal = find(w.location.hash);
+      if (modal) open(modal);
+      else close();
+    }
+    modalIsOpen = function () { return current !== null; };
+
+    d.addEventListener('click', function (event) {
+      var link = event.target.closest ? event.target.closest('a[href^="#s-"]') : null;
+      if (link && find(link.getAttribute('href'))) {
+        pushed = true;
+        trigger = link;
+      }
+    });
+    Array.prototype.forEach.call(modals, function (modal) {
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal || (event.target.closest && event.target.closest('.mc'))) close();
+      });
+    });
+    d.addEventListener('keydown', function (event) {
+      if (!current) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        close();
+      } else if (event.key === 'Tab') {
+        var items = Array.prototype.filter.call(current.querySelectorAll(FOCUSABLE), function (el) {
+          return el.offsetParent !== null;
+        });
+        if (!items.length) return;
+        var first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && (d.activeElement === first || !current.contains(d.activeElement))) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && d.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+    w.addEventListener('hashchange', sync);
+    sync();
+  }
+
+  /* ── Progresso de leitura e voltar ao topo ─────────────────────────── */
+  function setupScroll() {
+    var progress = d.getElementById('rdprog'), top = d.getElementById('btt');
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var y = w.pageYOffset || root.scrollTop;
+      var max = root.scrollHeight - w.innerHeight;
+      if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+      if (top) top.classList.toggle('show', y > 400);
+    }
+    w.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        w.requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    if (top) {
+      top.addEventListener('click', function () {
+        w.scrollTo({ top: 0, behavior: smooth() });
+        var skipTarget = d.querySelector('.mast h1');
+        if (skipTarget) {
+          skipTarget.setAttribute('tabindex', '-1');
+          skipTarget.focus({ preventScroll: true });
+        }
+      });
+    }
+    update();
+  }
+
+  setupTheme();
+  setupCanvas();
+  setupTicker();
+  setupSearch(setupTabs());
+  setupModals();
+  setupScroll();
+})();

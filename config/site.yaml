@@ -112,7 +112,10 @@ llm:
   effort: "medium"
   max_tokens_select: 16000
   max_tokens_write: 48000
-  timeout_seconds: 600
+  # Tempo máximo sem receber dados do stream (a API envia "ping" enquanto o
+  # modelo trabalha). Com 3 retentativas do SDK, cada chamada leva no pior caso
+  # 4 × 300 s = 20 min; as 2 chamadas cabem no timeout-minutes do daily.yml.
+  timeout_seconds: 300
 
 # Cotações e indicadores do ticker, na ordem de exibição.
 # provider: yahoo (símbolo do Yahoo Finance), coingecko (id da moeda),

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title><![CDATA[Home International]]></title>
+<description><![CDATA[Home International]]></description>
+<link>https://www.ft.com/home/international</link>
+<generator>RSS for Node</generator>
+<lastBuildDate>Tue, 29 Sep 2026 01:10:22 GMT</lastBuildDate>
+<atom:link href="https://www.ft.com/rss/home" rel="self" type="application/rss+xml"/>
+<copyright><![CDATA[© Copyright The Financial Times Ltd 2026. "FT" and "Financial Times" are trademarks of the Financial Times Ltd.]]></copyright>
+<language><![CDATA[en]]></language>
+<ttl>15</ttl>
+<item>
+<title><![CDATA[Anthropic warns of ‘existential risks to humanity’ in IPO prospectus]]></title>
+<description><![CDATA[AI group sets out unusual disclosures as it prepares one of the largest listings on record]]></description>
+<link>https://www.ft.com/content/c7685a7e-7745-4cbc-8053-4958d0ea449b?syn-25a6b1a6=1</link>
+<guid isPermaLink="false">c7685a7e-7745-4cbc-8053-4958d0ea449b</guid>
+<pubDate>Tue, 29 Sep 2026 01:06:35 GMT</pubDate>
+<media:thumbnail url="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F8a1f4c2e-5b3d-4e6f-9a7c-2d1e0f3b4a5c.jpg?source=next-barrier-page&amp;fit=scale-down&amp;width=2048"/>
+</item>
+<item>
+<title><![CDATA[OpenAI axes next model citing safety issues]]></title>
+<description><![CDATA[ChatGPT maker says internal tests showed its Astra system could not be released under its own safeguards]]></description>
+<link>https://www.ft.com/content/488cb467-3cb7-4d06-9a5f-c0749c729d91?syn-25a6b1a6=1</link>
+<guid isPermaLink="false">488cb467-3cb7-4d06-9a5f-c0749c729d91</guid>
+<pubDate>Mon, 28 Sep 2026 22:41:09 GMT</pubDate>
+<media:thumbnail url="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2Fb2c3d4e5-6f7a-4b8c-9d0e-1f2a3b4c5d6e.jpg?source=next-barrier-page&amp;fit=scale-down&amp;width=2048"/>
+</item>
+</channel>
+</rss>

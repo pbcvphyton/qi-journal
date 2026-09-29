@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:nyt="http://www.nytimes.com/namespaces/rss/2.0" version="2.0">
+  <channel>
+    <title>NYT &gt; Business</title>
+    <link>https://www.nytimes.com/section/business</link>
+    <atom:link href="https://rss.nytimes.com/services/xml/rss/nyt/Business.xml" rel="self" type="application/rss+xml"></atom:link>
+    <description></description>
+    <language>en-us</language>
+    <copyright>Copyright 2026 The New York Times Company</copyright>
+    <lastBuildDate>Tue, 29 Sep 2026 00:40:02 +0000</lastBuildDate>
+    <image>
+      <title>NYT &gt; Business</title>
+      <url>https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png</url>
+      <link>https://www.nytimes.com/section/business</link>
+    </image>
+    <item>
+      <title>Could Homeownership Reverse the Decline in Birthrates?</title>
+      <link>https://www.nytimes.com/2026/09/28/us/home-mortgage-program-birthrate-decline.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2026/09/28/us/home-mortgage-program-birthrate-decline.html</guid>
+      <atom:link href="https://www.nytimes.com/2026/09/28/us/home-mortgage-program-birthrate-decline.html" rel="standout"></atom:link>
+      <description>A proposed federal mortgage program would offer lower rates to young families, betting that cheaper housing leads to more children. Economists are skeptical.</description>
+      <dc:creator>Jeanna Smialek</dc:creator>
+      <pubDate>Mon, 28 Sep 2026 15:21:50 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Mortgages</category>
+      <media:content height="1800" medium="image" url="https://static01.nyt.com/images/2026/09/28/multimedia/28biz-birthrate-housing-lqkp/28biz-birthrate-housing-lqkp-mediumSquareAt3X.jpg" width="1800"></media:content>
+      <media:credit>Jim Wilson/The New York Times</media:credit>
+      <media:description>A new housing development outside Boise, Idaho.</media:description>
+    </item>
+    <item>
+      <title>Two of China’s EV Makers Announce a Deal as Auto Industry Moves Toward Consolidation</title>
+      <link>https://www.nytimes.com/2026/09/28/business/china-ev-geely-nio.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2026/09/28/business/china-ev-geely-nio.html</guid>
+      <description>Geely will take a controlling stake in Nio, the latest sign that Beijing wants fewer, stronger carmakers after years of price wars.</description>
+      <dc:creator>Keith Bradsher</dc:creator>
+      <pubDate>Mon, 28 Sep 2026 11:02:13 +0000</pubDate>
+      <media:content height="1800" medium="image" url="https://static01.nyt.com/images/2026/09/28/multimedia/28biz-china-ev-wqzt/28biz-china-ev-wqzt-mediumSquareAt3X.jpg" width="1800"></media:content>
+      <media:credit>Qilai Shen for The New York Times</media:credit>
+    </item>
+    <item>
+      <title>Nvidia Adds $150 Billion to Massive Stock Buyback, the Largest Ever</title>
+      <link>https://www.nytimes.com/2026/09/28/business/nvidia-stock-buyback.html</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2026/09/28/business/nvidia-stock-buyback.html</guid>
+      <description>The chipmaker’s board authorized the repurchase on top of an existing program, a sign of how much cash the A.I. boom is generating.</description>
+      <dc:creator>Tripp Mickle</dc:creator>
+      <pubDate>Mon, 28 Sep 2026 21:47:30 +0000</pubDate>
+      <media:content height="1800" medium="image" url="https://static01.nyt.com/images/2026/09/28/multimedia/28biz-nvidia-buyback-bvmf/28biz-nvidia-buyback-bvmf-mediumSquareAt3X.jpg" width="1800"></media:content>
+    </item>
+  </channel>
+</rss>
