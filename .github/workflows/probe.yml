@@ -1,0 +1,16 @@
+name: probe-sources (temporário)
+on:
+  push:
+    branches: [claude/clever-euler-ydfk8n]
+    paths: [".github/workflows/probe.yml", "scripts/probe_sources.py"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: python scripts/probe_sources.py
