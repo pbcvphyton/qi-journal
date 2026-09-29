@@ -127,7 +127,64 @@ def truncate(text: str, max_chars: int) -> str:
     return cut.rstrip(" ,;:.-–—") + "…"
 
 
-_SENTENCE_END = re.compile(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ\"“])")
+# Fim de frase: pontuação final seguida de espaço e de maiúscula (ou aspas/parêntese + maiúscula).
+_SENTENCE_END = re.compile(r"(?<=[.!?…])\s+(?=[\"“'(]?[A-ZÁÉÍÓÚÂÊÔÃÕÇ])")
+# Trechos que terminam em abreviação não encerram a frase: siglas com pontos
+# (R.A.F., U.S., S.A.), iniciais (John F. Kennedy) e tratamentos (Sr., Dr., Inc.).
+_ABBREV_END = re.compile(
+    r"(?:\b(?:[A-Za-z]\.){2,}|\b[A-Z]\.|\b(?:Sr|Sra|Srs|Srta|Dr|Dra|Drs|Jr|St|Mr|Mrs|Ms|Prof|Profa|Gov|Sen"
+    r"|Rep|Gen|Inc|Corp|Co|Ltd|Av|No|vs|Exmo|Exma)\.)$"
+)
+
+
+def split_sentences(value: str) -> list[str]:
+    """Divide o texto em frases sem cortar em abreviações ("R.A.F.", "U.S.", "Dr.", "S.A.").
+
+    Custo aceito: uma sigla com pontos no fim de uma frase ("in the U.S. The
+    market") junta as duas frases em vez de truncar uma delas.
+    """
+    parts = [s.strip() for s in _SENTENCE_END.split(re.sub(r"\s+", " ", value or "").strip()) if s.strip()]
+    out: list[str] = []
+    for part in parts:
+        if out and _ABBREV_END.search(out[-1]):
+            out[-1] = f"{out[-1]} {part}"
+        else:
+            out.append(part)
+    return out
+
+
+# Avisos de paywall, cadastro ou "presente" dos sites, casados em texto normalizado
+# (minúsculas, sem acento e sem pontuação; ver :func:`normalize`). Evita termos
+# genéricos ("assine o decreto", "subscribe to the IPO", "assinantes da operadora").
+PAYWALL_RE = re.compile(
+    r"exclusiv[oa]s? (?:para|de|a) assinantes|restrit[oa] (?:a|para) assinantes|para continuar lendo"
+    r"|ja e assinante|^assine\b|\bassine (?:ja|agora)\b|\bassine para (?:ler|continuar|ter acesso)"
+    r"|faca (?:seu |o )?login para|subscribe (?:now|to (?:continue|read|unlock))|subscribers? only"
+    r"|to continue reading|sign in to (?:read|continue)|already a subscriber|log in to continue"
+    r"|para ter acesso completo|faca (?:o )?seu cadastro|acessos? por dia para (?:dar de presente|conteudos)"
+    r"|dar de presente|assinantes podem liberar|qualquer pessoa que nao e assinante"
+    r"|reportagem foi antecipada a assinantes"
+)
+
+
+def is_paywall(value: str) -> bool:
+    """O trecho é um aviso de paywall/cadastro (e não notícia)?"""
+    return bool(PAYWALL_RE.search(normalize(value)))
+
+
+def strip_paywall(value: str) -> str:
+    """Remove as frases de paywall/cadastro de um texto, preservando as quebras de linha."""
+    if not value:
+        return ""
+    lines = []
+    for line in value.split("\n"):
+        if not is_paywall(line):
+            lines.append(line)
+            continue
+        kept = [s for s in split_sentences(line) if not is_paywall(s)]
+        if kept:
+            lines.append(" ".join(kept))
+    return "\n".join(lines).strip()
 
 
 def first_sentences(text: str, max_chars: int = 260) -> str:
@@ -136,7 +193,7 @@ def first_sentences(text: str, max_chars: int = 260) -> str:
     if len(text) <= max_chars:
         return text
     out = ""
-    for sentence in _SENTENCE_END.split(text):
+    for sentence in split_sentences(text):
         candidate = (out + " " + sentence).strip()
         if len(candidate) > max_chars:
             break

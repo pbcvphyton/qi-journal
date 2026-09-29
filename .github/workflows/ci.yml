@@ -51,3 +51,8 @@ jobs:
             test -s "$out/$file" || { echo "::error::$file não foi gerado"; exit 1; }
           done
           ls -la "$out" "$out/edicoes" "$out/data"
+          # A rotina do Gmail copia email.html no htmlBody: o do exemplo tem de ficar
+          # com folga abaixo do limite de 40 KB (o real, com mais fontes, é maior).
+          size=$(wc -c < "$out/edicoes/email.html")
+          echo "email.html do exemplo: $size bytes"
+          [ "$size" -le 36000 ] || { echo "::error::email.html do exemplo com $size bytes (limite 36000)"; exit 1; }

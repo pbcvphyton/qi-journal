@@ -213,9 +213,15 @@ class FakeCollectors:
         self.market_error: Exception | None = None
         self.weather_error: Exception | None = None
 
-    def feeds(self, sources, *, now, max_age_hours, global_exclude, fetch):
+    def feeds(self, sources, *, now, max_age_hours, global_exclude, fetch, exclude_title_patterns=()):
         self.fetches["feeds"] = fetch
-        self.feeds_kwargs = dict(sources=sources, now=now, max_age_hours=max_age_hours, global_exclude=global_exclude)
+        self.feeds_kwargs = dict(
+            sources=sources,
+            now=now,
+            max_age_hours=max_age_hours,
+            global_exclude=global_exclude,
+            exclude_title_patterns=exclude_title_patterns,
+        )
         return list(self.articles), list(self.statuses)
 
     def market(self, entries, *, fetch, now):
@@ -261,6 +267,7 @@ def test_collect_bundle_runs_all_collectors_with_the_same_fetch(collectors: Fake
         now=NOW,
         max_age_hours=config.edition.max_age_hours,
         global_exclude=config.edition.exclude_url_patterns,
+        exclude_title_patterns=config.edition.exclude_title_patterns,
     )
     assert bundle.collected_at == "2026-09-29T08:07:00+00:00"
     assert len(bundle.articles) == 20  # duplicata removida
@@ -492,3 +499,125 @@ def test_local_date_uses_site_timezone():
         pipeline.local_date(datetime(2026, 9, 30, 2, 59, tzinfo=UTC), "America/Sao_Paulo").isoformat() == "2026-09-29"
     )
     assert pipeline.local_date(datetime(2026, 9, 30, 3, 0, tzinfo=UTC), "America/Sao_Paulo").isoformat() == "2026-09-30"
+
+
+# ── regressões de operação (edição real de 29/09/2026) ──────────────────────
+
+
+def test_calibrated_minimums_reject_a_mostly_offline_english_only_collection():
+    """4 de 64 feeds (só em inglês) com os mínimos de config/site.yaml: nada é publicado."""
+    from qijournal.config import load_config
+
+    config = load_config(env={})
+    statuses = [
+        SourceStatus(source_id=f"f{i}", source_name=f"F{i}", url=f"https://f{i}.example/rss", ok=i < 4)
+        for i in range(64)
+    ]
+    articles = [
+        Article(id=f"en{i}", url=f"https://nyt.example/{i}", title=f"World news {i}", summary="Text.",
+                source_id=f"f{i % 4}", source_name="NYT", lang="en")
+        for i in range(160)
+    ]
+    bundle = Bundle(collected_at=NOW.isoformat(), articles=articles, quotes=[], weather=[], sources=statuses)
+    with pytest.raises(pipeline.InsufficientData) as info:
+        pipeline.check_minimums(bundle, config)
+    message = str(info.value)
+    assert "4/64 feeds ok (mínimo 50%)" in message and "0 fontes em português (mínimo 10)" in message
+
+
+def test_calibrated_minimums_accept_the_sample_edition_bundle():
+    from qijournal.config import load_config
+
+    bundle = pipeline.load_bundle(Path(__file__).parent / "fixtures" / "bundle.json")
+    pipeline.check_minimums(bundle, load_config(env={}))  # não levanta: o CI gera a edição de exemplo
+
+
+def test_offline_run_reapplies_the_current_cleaning_rules(
+    tmp_path: Path, render: FakeRender, editor: FakeEditor, mailer: FakeMailer, no_network: None
+):
+    bundle = make_bundle()
+    bundle.articles[0].summary = (
+        "Resumo real da notícia. Matéria exclusiva para assinantes. Para ter acesso completo, acesse o link da "
+        "matéria e faça o seu cadastro."
+    )
+    bundle.articles[1].title = "Candidatos a deputado estadual no MS: veja número e nome na lista de 2026"
+    pipeline.run(make_config(), out_dir=tmp_path, bundle_path=write_bundle(tmp_path, bundle), send_email=False, env={})
+    seen = editor.calls[0]["bundle"]
+    assert seen.articles[0].summary == "Resumo real da notícia."
+    assert not any("veja número e nome" in a.title for a in seen.articles)
+
+
+class EnrichingEditor(FakeEditor):
+    """Editor falso que consulta o enriquecimento de dois artigos, como o real."""
+
+    def __call__(self, bundle: Bundle, config, *, now, use_llm, client, enrich_fn):
+        self.pages = enrich_fn(bundle.articles[:2])
+        return super().__call__(bundle, config, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn)
+
+
+def test_enriched_pages_are_saved_and_replayed_offline(
+    tmp_path: Path, render: FakeRender, collectors: FakeCollectors, monkeypatch: pytest.MonkeyPatch
+):
+    from qijournal.collect.enrich import PageInfo
+
+    page = PageInfo(image="https://img.example/og.jpg", description="Descrição.", text="Corpo da matéria.")
+    monkeypatch.setattr(pipeline, "enrich", lambda articles, **kw: {articles[0].id: page})
+    online = EnrichingEditor()
+    monkeypatch.setattr(pipeline, "make_edition", online)
+    result = pipeline.run(make_config(), out_dir=tmp_path, now=NOW, fetch=fake_fetch, send_email=False, env={})
+    saved = tmp_path / "build" / "pages-2026-09-29.json"
+    assert result.outputs["pages"] == saved
+    assert json.loads(saved.read_text(encoding="utf-8")) == {"art000": {"image": page.image, "description": page.description, "text": page.text}}
+
+    offline = EnrichingEditor()
+    monkeypatch.setattr(pipeline, "make_edition", offline)
+    pipeline.run(make_config(), out_dir=tmp_path / "x", bundle_path=result.outputs["bundle"], send_email=False, env={})
+    assert offline.pages == {"art000": page}
+
+
+def test_same_day_rerun_does_not_resend_the_email(
+    tmp_path: Path, render: FakeRender, editor: FakeEditor, mailer: FakeMailer
+):
+    bundle = write_bundle(tmp_path)
+    first = pipeline.run(make_config(), out_dir=tmp_path, bundle_path=bundle, env=SMTP_ENV)
+    sent_at = latest(tmp_path)["email_sent_at"]
+    second = pipeline.run(make_config(), out_dir=tmp_path, bundle_path=bundle, env=SMTP_ENV)
+    assert first.email_sent is True and second.email_sent is False and len(mailer.sent) == 1
+    assert any("já enviado" in w for w in second.warnings)
+    # refazer com "Não enviar o e-mail" mantém o registro (a rotina do Gmail não reenvia)
+    pipeline.run(make_config(), out_dir=tmp_path, bundle_path=bundle, send_email=False, env=SMTP_ENV)
+    assert latest(tmp_path)["email_sent"] is True and latest(tmp_path)["email_sent_at"] == sent_at
+    # reenvio deliberado
+    forced = pipeline.run(make_config(), out_dir=tmp_path, bundle_path=bundle, env=SMTP_ENV, force_email=True)
+    assert forced.email_sent is True and len(mailer.sent) == 2
+
+
+def test_send_published_email_is_once_per_edition(
+    tmp_path: Path, render: FakeRender, editor: FakeEditor, mailer: FakeMailer
+):
+    pipeline.run(make_config(), out_dir=tmp_path, bundle_path=write_bundle(tmp_path), send_email=False, env={})
+    settings = pipeline.email_settings(make_config(), SMTP_ENV)
+    pipeline.send_published_email(settings, out_dir=tmp_path)
+    with pytest.raises(pipeline.EmailAlreadySent):
+        pipeline.send_published_email(settings, out_dir=tmp_path)
+    pipeline.send_published_email(settings, out_dir=tmp_path, force=True)
+    assert len(mailer.sent) == 2
+
+
+def test_unexpected_smtp_error_never_drops_the_published_edition(
+    tmp_path: Path, render: FakeRender, editor: FakeEditor, monkeypatch: pytest.MonkeyPatch
+):
+    monkeypatch.setattr(pipeline, "deliver_email", FakeMailer(RuntimeError("bug no envio")))
+    result = pipeline.run(make_config(), out_dir=tmp_path, bundle_path=write_bundle(tmp_path), env=SMTP_ENV)
+    assert result.email_sent is False
+    assert "E-mail não enviado por SMTP: erro inesperado (RuntimeError)" in result.warnings
+    assert (tmp_path / "index.html").is_file() and latest(tmp_path)["email_sent"] is False
+
+
+def test_oversized_email_html_is_a_warning(
+    tmp_path: Path, render: FakeRender, editor: FakeEditor, monkeypatch: pytest.MonkeyPatch
+):
+    monkeypatch.setattr(pipeline, "render_email", lambda edition, config: ("Assunto", "<p>" + "x" * 45_000 + "</p>", "x"))
+    result = pipeline.run(make_config(), out_dir=tmp_path, bundle_path=write_bundle(tmp_path), send_email=False, env={})
+    assert any("email.html com 44 KB passa do limite de 40 KB" in w for w in result.warnings)
+    assert latest(tmp_path)["email_html_bytes"] == 45_007

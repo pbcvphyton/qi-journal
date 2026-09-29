@@ -9,6 +9,7 @@ Layout publicado (raiz do GitHub Pages)::
     edicoes/email.html|.txt    e-mail da última edição
     data/AAAA-MM-DD.json       edição em JSON (``Edition.to_dict``)
     build/bundle-AAAA-MM-DD.json   coleta crua (fora do git; artefato do Actions)
+    build/pages-AAAA-MM-DD.json    páginas enriquecidas (reproduz o enriquecimento no ``render --bundle``)
 
 Todos os arquivos são gravados de forma atômica (arquivo temporário +
 ``os.replace``) e as páginas são renderizadas antes de qualquer escrita: um
@@ -26,7 +27,7 @@ import re
 import sys
 import tempfile
 from concurrent.futures import Future, ThreadPoolExecutor
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable, Mapping, TypeVar
@@ -34,7 +35,7 @@ from zoneinfo import ZoneInfo
 
 from qijournal import net, text
 from qijournal.collect.enrich import PageInfo, enrich
-from qijournal.collect.feeds import collect_feeds, dedupe_articles
+from qijournal.collect.feeds import collect_feeds, dedupe_articles, sanitize_articles
 from qijournal.collect.market import collect_market
 from qijournal.collect.weather import collect_weather
 from qijournal.config import Config
@@ -54,6 +55,8 @@ BUILD_DIR = "build"
 EMAIL_CHANNEL_SMTP = "smtp"
 # Fração de feeds com erro a partir da qual a execução emite um aviso.
 FAILED_FEEDS_WARNING_RATIO = 0.25
+# A rotina do Gmail copia email.html no parâmetro htmlBody: acima disso, aviso.
+EMAIL_MAX_BYTES = 40_000
 
 _DATED_FILE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.(html|json)$")
 
@@ -185,6 +188,7 @@ def collect_bundle(config: Config, *, now: datetime, fetch: Fetcher = net.fetch)
             max_age_hours=config.edition.max_age_hours,
             global_exclude=config.edition.exclude_url_patterns,
             fetch=fetch,
+            exclude_title_patterns=config.edition.exclude_title_patterns,
         )
         market_job = pool.submit(collect_market, config.market, fetch=fetch, now=now)
         weather_job = pool.submit(collect_weather, config.weather, fetch=fetch)
@@ -213,14 +217,27 @@ def collect_bundle(config: Config, *, now: datetime, fetch: Fetcher = net.fetch)
 
 
 def check_minimums(bundle: Bundle, config: Config) -> None:
-    """Levanta :class:`InsufficientData` se a coleta estiver abaixo dos mínimos."""
+    """Levanta :class:`InsufficientData` se a coleta estiver abaixo dos mínimos.
+
+    Além dos números absolutos (artigos, feeds ok), exige uma fração mínima de
+    feeds ok (``min_sources_ratio``) e de veículos em português com artigos
+    (``min_pt_sources_ok``): com os sites brasileiros fora do ar, sairia uma
+    edição só em inglês por cima da boa.
+    """
+    edition = config.edition
     articles = len(bundle.articles)
+    total = len(bundle.sources)
     sources_ok = sum(1 for s in bundle.sources if s.ok)
     problems = []
-    if articles < config.edition.min_articles:
-        problems.append(f"{articles} artigos (mínimo {config.edition.min_articles})")
-    if sources_ok < config.edition.min_sources_ok:
-        problems.append(f"{sources_ok} feeds ok (mínimo {config.edition.min_sources_ok})")
+    if articles < edition.min_articles:
+        problems.append(f"{articles} artigos (mínimo {edition.min_articles})")
+    if sources_ok < edition.min_sources_ok:
+        problems.append(f"{sources_ok} feeds ok (mínimo {edition.min_sources_ok})")
+    if total and edition.min_sources_ratio > 0 and sources_ok / total < edition.min_sources_ratio:
+        problems.append(f"{sources_ok}/{total} feeds ok (mínimo {edition.min_sources_ratio:.0%})")
+    pt_sources = len({a.source_id for a in bundle.articles if a.lang == "pt"})
+    if pt_sources < edition.min_pt_sources_ok:
+        problems.append(f"{pt_sources} fontes em português (mínimo {edition.min_pt_sources_ok})")
     if problems:
         raise InsufficientData(
             "dados insuficientes para a edição: " + "; ".join(problems),
@@ -241,6 +258,58 @@ def _page_enricher(config: Config, fetch: Fetcher) -> EnrichFn:
         return enrich(articles, fetch=fetch, limit=config.edition.enrich_limit)
 
     return enrich_pages
+
+
+class _RecordingEnricher:
+    """Guarda tudo o que o enriquecimento devolveu (salvo em ``build/pages-<data>.json``)."""
+
+    def __init__(self, fn: EnrichFn) -> None:
+        self._fn = fn
+        self.pages: dict[str, PageInfo] = {}
+
+    def __call__(self, articles: list[Article]) -> dict[str, PageInfo]:
+        result = self._fn(articles) or {}
+        self.pages.update(result)
+        return result
+
+
+def pages_path_for(bundle_path: Path) -> Path:
+    """``build/bundle-2026-09-29.json`` → ``build/pages-2026-09-29.json``."""
+    bundle_path = Path(bundle_path)
+    return bundle_path.with_name(bundle_path.name.replace("bundle-", "pages-", 1))
+
+
+def save_pages(pages: Mapping[str, PageInfo], path: Path) -> Path:
+    data = {article_id: asdict(info) if not isinstance(info, dict) else info for article_id, info in pages.items()}
+    return _write_json(Path(path), data)
+
+
+def load_pages(path: Path) -> dict[str, PageInfo]:
+    """Lê ``pages-*.json``; arquivo ausente ou inválido → ``{}`` (sem enriquecimento)."""
+    path = Path(path)
+    if not path.is_file():
+        return {}
+    try:
+        data = _read_json(path)
+        return {
+            str(article_id): PageInfo(
+                image=info.get("image"), description=info.get("description"), text=info.get("text")
+            )
+            for article_id, info in data.items()
+            if isinstance(info, dict)
+        }
+    except (OSError, ValueError, AttributeError) as exc:
+        log.warning("Páginas enriquecidas ilegíveis (%s): %s — seguindo sem enriquecimento", path, exc)
+        return {}
+
+
+def _saved_enricher(pages: Mapping[str, PageInfo]) -> EnrichFn:
+    """Enriquecimento "gravado": devolve as páginas salvas na execução original."""
+
+    def replay(articles: list[Article]) -> dict[str, PageInfo]:
+        return {a.id: pages[a.id] for a in articles if a.id in pages}
+
+    return replay
 
 
 # ── Publicação ───────────────────────────────────────────────────────────────
@@ -306,9 +375,21 @@ def _archive_entry(day: date, data_dir: Path, current: Edition) -> dict[str, Any
     return entry
 
 
-def latest_manifest(edition: Edition, config: Config, subject: str) -> dict[str, Any]:
-    """Conteúdo de ``edicoes/latest.json`` (e-mail ainda não enviado)."""
+def _raw_base(repo_url: str) -> str | None:
+    """``https://github.com/dono/repo`` → ``https://raw.githubusercontent.com/dono/repo/main/``."""
+    match = re.match(r"^https://github\.com/([^/\s]+)/([^/\s]+?)(?:\.git)?/?$", (repo_url or "").strip())
+    return f"https://raw.githubusercontent.com/{match.group(1)}/{match.group(2)}/main/" if match else None
+
+
+def latest_manifest(edition: Edition, config: Config, subject: str, email_html: str | None = None) -> dict[str, Any]:
+    """Conteúdo de ``edicoes/latest.json`` (e-mail ainda não enviado).
+
+    Os campos relativos (``email_html``/``email_text``) continuam para
+    compatibilidade; os ``*_url`` absolutos e os ``*_raw_url`` (branch main no
+    raw.githubusercontent.com) servem à rotina do Gmail sem depender do Pages.
+    """
     base_url = config.site.base_url
+    raw = _raw_base(config.site.repo_url)
     return {
         "date": edition.date,
         "date_label": edition.date_label,
@@ -320,6 +401,11 @@ def latest_manifest(edition: Edition, config: Config, subject: str) -> dict[str,
         "subject": subject,
         "email_html": f"{ARCHIVE_DIR}/email.html",
         "email_text": f"{ARCHIVE_DIR}/email.txt",
+        "email_html_url": f"{base_url}{ARCHIVE_DIR}/email.html",
+        "email_text_url": f"{base_url}{ARCHIVE_DIR}/email.txt",
+        "email_html_raw_url": f"{raw}{ARCHIVE_DIR}/email.html" if raw else None,
+        "email_text_raw_url": f"{raw}{ARCHIVE_DIR}/email.txt" if raw else None,
+        "email_html_bytes": len(email_html.encode("utf-8")) if email_html is not None else None,
         "email_sent": False,
         "email_sent_at": None,
         "email_channel": None,
@@ -376,9 +462,15 @@ def publish(
 
     # Renderiza tudo antes de escrever.
     home_page = render_edition_page(edition, config, home_href="./", archive_href=f"{ARCHIVE_DIR}/")
-    archived_page = render_edition_page(edition, config, home_href="../", archive_href="./")
+    archived_page = render_edition_page(edition, config, home_href="../", archive_href="./", is_archive=True)
     archive_index = render_archive_index(entries, config, home_href="../")
-    manifest = latest_manifest(edition, config, subject)
+    manifest = latest_manifest(edition, config, subject, email_html)
+    # Refazer a edição no mesmo dia não apaga o registro de e-mail já enviado
+    # (a rotina do Gmail usa email_sent para não enviar em dobro).
+    previous = previous_manifest(out_dir)
+    if previous.get("date") == edition.date and previous.get("email_sent"):
+        for key in ("email_sent", "email_sent_at", "email_channel"):
+            manifest[key] = previous.get(key)
 
     _write_json(paths["data"], edition.to_dict())
     write_atomic(paths["edition"], archived_page)
@@ -398,6 +490,15 @@ def publish(
 # ── E-mail ───────────────────────────────────────────────────────────────────
 
 
+def previous_manifest(out_dir: Path) -> dict[str, Any]:
+    """``edicoes/latest.json`` já publicado (``{}`` se ausente ou ilegível)."""
+    try:
+        data = _read_json(Path(out_dir) / ARCHIVE_DIR / "latest.json")
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
 def email_settings(config: Config, env: Mapping[str, str]) -> SMTPSettings | None:
     """Configuração SMTP do ambiente, com o nome da marca como remetente."""
     return smtp_settings_from_env(env, config.email.to, sender_name=config.brand.name)
@@ -415,14 +516,24 @@ def mark_email_sent(out_dir: Path, *, channel: str = EMAIL_CHANNEL_SMTP, sent_at
     return _write_json(path, manifest)
 
 
-def send_published_email(settings: SMTPSettings, *, out_dir: Path) -> None:
+class EmailAlreadySent(Exception):
+    """O e-mail desta edição já foi enviado (use ``force`` para reenviar)."""
+
+
+def send_published_email(settings: SMTPSettings, *, out_dir: Path, force: bool = False) -> None:
     """Envia por SMTP o e-mail já publicado em ``edicoes/`` e atualiza ``latest.json``.
 
-    Levanta ``FileNotFoundError`` se a edição não foi gerada e
-    :class:`~qijournal.deliver.smtp.EmailDeliveryError` se o envio falhar.
+    Levanta ``FileNotFoundError`` se a edição não foi gerada,
+    :class:`EmailAlreadySent` se ``latest.json`` já registra o envio (salvo com
+    ``force``) e :class:`~qijournal.deliver.smtp.EmailDeliveryError` se o envio falhar.
     """
     archive_dir = Path(out_dir) / ARCHIVE_DIR
     manifest = _read_json(archive_dir / "latest.json")
+    if manifest.get("email_sent") and not force:
+        raise EmailAlreadySent(
+            f"e-mail de {manifest.get('date')} já enviado em {manifest.get('email_sent_at')}; "
+            "use --force-email para reenviar"
+        )
     html = (archive_dir / "email.html").read_text(encoding="utf-8")
     plain = (archive_dir / "email.txt").read_text(encoding="utf-8")
     subject = manifest.get("subject") or f"Edição de {manifest.get('date_label', '')}".strip()
@@ -447,15 +558,28 @@ def _send_run_email(
     except EmailDeliveryError as exc:
         warnings.append(f"E-mail não enviado por SMTP: {exc}")
         return False
+    except Exception as exc:  # noqa: BLE001 — a edição já foi gravada; o envio é acessório
+        log.exception("Falha inesperada no envio SMTP")
+        warnings.append(f"E-mail não enviado por SMTP: erro inesperado ({type(exc).__name__})")
+        return False
     return True
 
 
 # ── Relatórios ───────────────────────────────────────────────────────────────
 
 
-def _quality_warnings(bundle: Bundle, edition: Edition, config: Config, *, use_llm: bool) -> list[str]:
+def _quality_warnings(
+    bundle: Bundle, edition: Edition, config: Config, *, use_llm: bool, email_html: str | None = None
+) -> list[str]:
     """Avisos sobre a qualidade da edição (não impedem a publicação)."""
     warnings: list[str] = []
+    if email_html is not None:
+        size = len(email_html.encode("utf-8"))
+        if size > EMAIL_MAX_BYTES:
+            warnings.append(
+                f"email.html com {size / 1024:.0f} KB passa do limite de {EMAIL_MAX_BYTES // 1000} KB "
+                "da rotina do Gmail; enxugue o template"
+            )
     if use_llm and config.llm.enabled and edition.mode != "ai":
         warnings.append(
             "Edição gerada sem IA (modo automático): verifique o segredo ANTHROPIC_API_KEY e o log da etapa"
@@ -573,14 +697,19 @@ def run(
     client: Any = None,
     enrich_fn: EnrichFn | None = None,
     env: Mapping[str, str] | None = None,
+    force_email: bool = False,
 ) -> RunResult:
     """Gera e publica a edição do dia.
 
-    - Com ``bundle_path`` (modo offline) a coleta é lida do arquivo, o
-      enriquecimento das páginas fica desligado (salvo ``enrich_fn``) e ``now``
-      padrão é o ``collected_at`` do bundle, para reproduzir a edição daquele
-      momento. Sem ``bundle_path`` a coleta é feita agora e salva em
-      ``out_dir/build/bundle-<data>.json``.
+    - Com ``bundle_path`` (modo offline) a coleta é lida do arquivo, as regras
+      atuais de limpeza/exclusão são reaplicadas aos artigos, o enriquecimento
+      vem de ``pages-<data>.json`` ao lado do bundle quando existir (senão fica
+      desligado, salvo ``enrich_fn``) e ``now`` padrão é o ``collected_at`` do
+      bundle, para reproduzir a edição daquele momento. Sem ``bundle_path`` a
+      coleta é feita agora e salva em ``out_dir/build/bundle-<data>.json``, e o
+      enriquecimento em ``out_dir/build/pages-<data>.json``.
+    - O e-mail SMTP não é reenviado se ``latest.json`` já registra o envio da
+      edição do mesmo dia, salvo ``force_email``.
     - Abaixo dos mínimos (``min_articles``/``min_sources_ok``) levanta
       :class:`InsufficientData` sem escrever a edição.
     - Falha no envio SMTP vira aviso em ``RunResult.warnings``; não derruba a
@@ -590,17 +719,30 @@ def run(
     out_dir = Path(out_dir)
     outputs: dict[str, Path] = {}
 
+    recorder: _RecordingEnricher | None = None
+    pages_path: Path | None = None
     if bundle_path is not None:
         bundle = load_bundle(bundle_path)
+        bundle.articles = sanitize_articles(
+            bundle.articles,
+            exclude_url_patterns=config.edition.exclude_url_patterns,
+            exclude_title_patterns=config.edition.exclude_title_patterns,
+        )
         now = as_utc(now) if now is not None else parse_iso_datetime(bundle.collected_at)
-        enrich_fn = enrich_fn or _no_enrichment
+        if enrich_fn is None:
+            saved = load_pages(pages_path_for(bundle_path))
+            if saved:
+                log.info("Enriquecimento reproduzido de %s (%d páginas)", pages_path_for(bundle_path), len(saved))
+            enrich_fn = _saved_enricher(saved) if saved else _no_enrichment
         log.info("Modo offline: coleta lida de %s (%d artigos)", bundle_path, len(bundle.articles))
     else:
         now = as_utc(now) if now is not None else datetime.now(timezone.utc)
         bundle = collect_bundle(config, now=now, fetch=fetch)
         day = local_date(now, config.site.timezone)
         outputs["bundle"] = save_bundle(bundle, out_dir / BUILD_DIR / f"bundle-{day.isoformat()}.json")
-        enrich_fn = enrich_fn or _page_enricher(config, fetch)
+        recorder = _RecordingEnricher(enrich_fn or _page_enricher(config, fetch))
+        enrich_fn = recorder
+        pages_path = out_dir / BUILD_DIR / f"pages-{day.isoformat()}.json"
 
     try:
         check_minimums(bundle, config)
@@ -614,14 +756,28 @@ def run(
         raise
 
     edition = make_edition(bundle, config, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn)
+    if recorder is not None and pages_path is not None:
+        try:
+            outputs["pages"] = save_pages(recorder.pages, pages_path)
+        except (OSError, TypeError, ValueError) as exc:
+            log.warning("Páginas enriquecidas não salvas (%s): %s", pages_path, exc)
     subject, email_html, email_text = render_email(edition, config)
+    previous = previous_manifest(out_dir)
+    already_sent = previous.get("date") == edition.date and previous.get("email_sent") is True
     outputs.update(
         publish(edition, config, out_dir=out_dir, subject=subject, email_html=email_html, email_text=email_text)
     )
 
-    warnings = _quality_warnings(bundle, edition, config, use_llm=use_llm)
+    warnings = _quality_warnings(bundle, edition, config, use_llm=use_llm, email_html=email_html)
     email_sent = False
-    if send_email:
+    if send_email and already_sent and not force_email:
+        message = (
+            f"E-mail de {edition.date} já enviado em {previous.get('email_sent_at')}; "
+            "não reenviado (use --force-email para reenviar)"
+        )
+        log.info("%s", message)
+        warnings.append(message)
+    elif send_email:
         email_sent = _send_run_email(config, env, subject=subject, html=email_html, plain=email_text, warnings=warnings)
         if email_sent:
             try:

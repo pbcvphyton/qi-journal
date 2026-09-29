@@ -13,6 +13,7 @@ import math
 from datetime import date, datetime, timezone
 from typing import Any, Callable
 from urllib.parse import quote
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from .. import net, text
 from ..models import Quote
@@ -142,16 +143,22 @@ def _from_yahoo(spec: dict[str, Any], fetch: Fetcher, now: datetime) -> _Result:
     meta = result.get("meta") or {}
 
     quotes = (result.get("indicators") or {}).get("quote") or [{}]
-    closes = [c for c in (_to_float(v) for v in quotes[0].get("close") or []) if c is not None]
+    series = _daily_closes(result.get("timestamp") or [], quotes[0].get("close") or [], meta)
+    last = max((i for i, c in enumerate(series) if c is not None), default=None)
     price = _to_float(meta.get("regularMarketPrice"))
-    if price is None and closes:
-        price = closes[-1]
+    reference_end = len(series) - 1  # candle do dia corrente (fechado ou não) fica fora da referência
+    if price is None and last is not None:
+        price, reference_end = series[last], last
     if price is None or price <= 0:
         raise ValueError(f"Yahoo sem preço válido para {symbol}")
 
     change = _to_float(meta.get("regularMarketChangePercent"))
-    if change is None and len(closes) >= 2:
-        change = _pct_change(closes[-1], closes[-2])
+    if change is None:
+        # Variação do preço exibido contra o último fechamento anterior ao candle
+        # corrente: um candle de hoje ainda sem fechamento (None) ou repetido não
+        # faz o ticker mostrar a variação de ontem nem 0%.
+        previous = [c for c in series[:reference_end] if c is not None]
+        change = _pct_change(price, previous[-1]) if previous else None
 
     market_time = _to_float(meta.get("regularMarketTime"))
     if market_time:
@@ -159,6 +166,34 @@ def _from_yahoo(spec: dict[str, Any], fetch: Fetcher, now: datetime) -> _Result:
     else:
         as_of = now.replace(microsecond=0).isoformat()
     return price, change, as_of
+
+
+def _exchange_zone(meta: dict[str, Any]) -> ZoneInfo | timezone:
+    try:
+        return ZoneInfo(str(meta.get("exchangeTimezoneName") or "UTC"))
+    except (ZoneInfoNotFoundError, ValueError):
+        return timezone.utc
+
+
+def _daily_closes(timestamps: list[Any], raw_closes: list[Any], meta: dict[str, Any]) -> list[float | None]:
+    """Fechamentos por dia (na ordem), um por data do pregão; ``None`` = candle sem fechamento.
+
+    Com timestamps, linhas repetidas do mesmo dia viram uma só (a última com valor).
+    Sem timestamps utilizáveis, mantém a lista como veio.
+    """
+    closes = [_to_float(c) for c in raw_closes]
+    if not timestamps or len(timestamps) != len(closes):
+        return closes
+    zone = _exchange_zone(meta)
+    by_day: dict[date, float | None] = {}
+    for stamp, close in zip(timestamps, closes, strict=True):
+        try:
+            day = datetime.fromtimestamp(int(stamp), zone).date()
+        except (TypeError, ValueError, OverflowError, OSError):
+            continue
+        if close is not None or day not in by_day:
+            by_day[day] = close
+    return [by_day[day] for day in sorted(by_day)]
 
 
 def _from_coingecko(spec: dict[str, Any], fetch: Fetcher, now: datetime) -> _Result:

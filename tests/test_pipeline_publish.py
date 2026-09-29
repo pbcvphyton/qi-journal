@@ -100,6 +100,12 @@ def test_latest_json_has_exactly_the_contract_keys(tmp_path: Path, render: FakeR
         "subject": "QI Journal — Terça-feira, 29 de setembro de 2026",
         "email_html": "edicoes/email.html",
         "email_text": "edicoes/email.txt",
+        # URLs absolutas e estáveis para a rotina do Gmail (Pages e raw.githubusercontent.com)
+        "email_html_url": "https://pbcvphyton.github.io/qi-journal/edicoes/email.html",
+        "email_text_url": "https://pbcvphyton.github.io/qi-journal/edicoes/email.txt",
+        "email_html_raw_url": "https://raw.githubusercontent.com/pbcvphyton/qi-journal/main/edicoes/email.html",
+        "email_text_raw_url": "https://raw.githubusercontent.com/pbcvphyton/qi-journal/main/edicoes/email.txt",
+        "email_html_bytes": paths["email_html"].stat().st_size,
         "email_sent": False,
         "email_sent_at": None,
         "email_channel": None,

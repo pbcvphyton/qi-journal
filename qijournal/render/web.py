@@ -32,10 +32,12 @@ DEFAULT_COLORS = {
     "ticker_down": "#FF2F80",
 }
 RADAR_SIZE = 8
+RADAR_WIRE_SIZE = 12  # itens do Radar quando a edição traz notícias além das matérias
 LEAD_MORE_PARAGRAPHS = 2  # texto extra da manchete quando não há imagem (ou ela falha)
 DESCRIPTION_MAX = 200
 EXCERPT_OVERLAP = 0.6  # similaridade a partir da qual um parágrafo repete a linha fina
 ORPHAN_SECTION = ("outras", "Outras notícias")
+DEFAULT_ALL_MIN = 3  # 1ª seção com menos matérias que isso: a aba "Todas" abre por padrão
 
 
 @dataclass(frozen=True)
@@ -58,9 +60,10 @@ class StoryView:
     why: str
     image: str | None
     sources: list[SourceLink]
-    time: str  # "05:07" (fuso do site)
-    age: str  # "há 3 h"
+    time: str  # "05:07", "ontem, 21:10" ou "27/09, 18:30" (fuso do site, relativo à edição)
+    age: str  # "há 3 h" (vazio nas cópias do arquivo, em que ficaria congelado)
     published: str | None
+    lang: str | None = None  # idioma do texto quando não é português (atributo lang)
 
     @property
     def source_names(self) -> str:
@@ -73,6 +76,18 @@ class StoryView:
         então mostra só o corpo, sem repetir o texto."""
         dek = text.normalize(self.dek)
         return bool(dek and self.body and text.normalize(filters.plain(self.body[0])).startswith(dek))
+
+
+@dataclass
+class RadarItem:
+    """Linha do Radar: notícia do dia (link externo) ou matéria da edição (âncora)."""
+
+    time: str
+    source: str
+    title: str
+    href: str
+    external: bool
+    lang: str | None = None
 
 
 @dataclass
@@ -149,7 +164,7 @@ class EditionView:
     highlights: list[StoryView]
     sections: list[SectionView]
     stories: list[StoryView]
-    radar: list[StoryView]
+    radar: list[RadarItem]
     quotes: list[QuoteView]
     weather: list[WeatherView]
     sources_total: int
@@ -160,6 +175,8 @@ class EditionView:
     edition_url: str
     description: str
     og_image: str | None
+    mode: str = "heuristic"  # "ai" | "heuristic"
+    default_all: bool = False  # aba "Todas" aberta por padrão (1ª seção com poucas matérias)
 
 
 # ── marca ────────────────────────────────────────────────────────────────────
@@ -202,8 +219,11 @@ def _source_links(story: Story) -> list[SourceLink]:
     return links
 
 
-def _story_view(story: Story, section: tuple[str, str], *, tz: str, now_iso: str) -> StoryView:
+def _story_view(
+    story: Story, section: tuple[str, str], *, tz: str, now_iso: str, archive: bool = False
+) -> StoryView:
     title, color = section
+    lang = (story.lang or "pt").strip().lower()
     return StoryView(
         id=story.id,
         anchor=f"s-{story.id}",
@@ -215,9 +235,10 @@ def _story_view(story: Story, section: tuple[str, str], *, tz: str, now_iso: str
         why=filters.plain(story.why_it_matters),
         image=filters.safe_url(story.image),
         sources=_source_links(story),
-        time=filters.local_time(story.published, tz),
-        age=filters.rel_age(story.published, now_iso),
+        time=filters.local_time(story.published, tz, now_iso),
+        age="" if archive else filters.rel_age(story.published, now_iso),
         published=story.published,
+        lang=None if lang.startswith("pt") else lang,
     )
 
 
@@ -349,6 +370,40 @@ def _lead_more(lead: StoryView | None, excerpt: str) -> list[str]:
     return lead.body[start : start + LEAD_MORE_PARAGRAPHS]
 
 
+def _radar(edition: Edition, ordered: list[StoryView], tz: str) -> list[RadarItem]:
+    """Radar: notícias do dia que não viraram matéria (``edition.wire``, com link para
+    a fonte); em edições sem esse campo, as matérias mais recentes da edição."""
+    items: list[RadarItem] = []
+    for entry in edition.wire:
+        href = filters.safe_url(entry.get("url"))
+        title = filters.plain(str(entry.get("title") or ""))
+        if not href or not title:
+            continue
+        items.append(
+            RadarItem(
+                time=filters.local_time(entry.get("published"), tz, edition.generated_at),
+                source=filters.plain(str(entry.get("source") or "")),
+                title=title,
+                href=href,
+                external=True,
+            )
+        )
+    if items:
+        return items[:RADAR_WIRE_SIZE]
+    recent = sorted((v for v in ordered if v.published), key=_published_ts, reverse=True)[:RADAR_SIZE]
+    return [
+        RadarItem(
+            time=v.time,
+            source=v.sources[0].name if v.sources else v.section_title,
+            title=v.headline,
+            href=f"#{v.anchor}",
+            external=False,
+            lang=v.lang,
+        )
+        for v in recent
+    ]
+
+
 def _mode_label(edition: Edition) -> str:
     if edition.mode == "ai":
         return f"Edição gerada por IA ({edition.model})" if edition.model else "Edição gerada por IA"
@@ -358,8 +413,12 @@ def _mode_label(edition: Edition) -> str:
 # ── view completa ────────────────────────────────────────────────────────────
 
 
-def build_view(edition: Edition, config: Config) -> EditionView:
-    """Converte a edição num modelo de apresentação validado e sem marcação."""
+def build_view(edition: Edition, config: Config, *, archive: bool = False) -> EditionView:
+    """Converte a edição num modelo de apresentação validado e sem marcação.
+
+    ``archive``: cópia do arquivo (``edicoes/AAAA-MM-DD.html``), sem idade
+    relativa ("há 3 h") que ficaria congelada.
+    """
     brand = brand_view(config)
     tz = config.site.timezone
     default_color = brand.colors["primary"]
@@ -371,7 +430,11 @@ def build_view(edition: Edition, config: Config) -> EditionView:
             log.warning("Matéria com id duplicado ignorada: %s", story.id)
             continue
         view = _story_view(
-            story, lookup.get(story.section, (story.section, default_color)), tz=tz, now_iso=edition.generated_at
+            story,
+            lookup.get(story.section, (story.section, default_color)),
+            tz=tz,
+            now_iso=edition.generated_at,
+            archive=archive,
         )
         if not view.headline:
             log.warning("Matéria sem título ignorada na renderização: %s", story.id)
@@ -390,7 +453,7 @@ def build_view(edition: Edition, config: Config) -> EditionView:
         used.add(lead.id)
     secondary = _pick(edition.secondary, by_id, used)
     highlights = _pick(edition.highlights, by_id, used)
-    radar = sorted((v for v in ordered if v.published), key=_published_ts, reverse=True)[:RADAR_SIZE]
+    radar = _radar(edition, ordered, tz)
 
     description = filters.plain(edition.editorial) or (lead.dek if lead else "") or brand.tagline
     base_url = config.site.base_url
@@ -420,15 +483,22 @@ def build_view(edition: Edition, config: Config) -> EditionView:
         edition_url=f"{base_url}edicoes/{edition.date}.html",
         description=text.truncate(description, DESCRIPTION_MAX),
         og_image=lead.image if lead else None,
+        mode=edition.mode,
+        default_all=bool(sections) and len(sections[0].stories) < DEFAULT_ALL_MIN,
     )
 
 
 # ── páginas ──────────────────────────────────────────────────────────────────
 
 
-def render_edition_page(edition: Edition, config: Config, *, home_href: str, archive_href: str) -> str:
-    """Página única e autocontida da edição (CSS/JS inline)."""
-    view = build_view(edition, config)
+def render_edition_page(
+    edition: Edition, config: Config, *, home_href: str, archive_href: str, is_archive: bool = False
+) -> str:
+    """Página única e autocontida da edição (CSS/JS inline).
+
+    ``is_archive``: cópia de ``edicoes/`` (sem idade relativa congelada).
+    """
+    view = build_view(edition, config, archive=is_archive)
     template = filters.environment().get_template("edition.html.j2")
     html = template.render(
         v=view,

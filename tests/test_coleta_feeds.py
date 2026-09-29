@@ -376,7 +376,7 @@ def test_max_age_boundaries() -> None:
 
 def test_limit_of_items_per_feed_keeps_most_recent() -> None:
     items = [rss_item(f"Notícia número {i}", f"https://ex.com/n{i}", NOW - timedelta(minutes=10 * i))
-             for i in range(55)]
+             for i in range(MAX_ITEMS_PER_FEED + 30)]
     items.reverse()  # feed fora de ordem
     articles = parse_feed(rss(items), make_source(), now=NOW, max_age_hours=30, exclude=[])
     assert len(articles) == MAX_ITEMS_PER_FEED
@@ -573,3 +573,228 @@ def test_feed_with_all_items_filtered_is_ok_with_zero_items() -> None:
     articles, [status] = collect_feeds([source], now=NOW, max_age_hours=1, global_exclude=[], fetch=fetch)
     assert articles == []
     assert (status.ok, status.items, status.error) == (True, 0, None)
+
+
+# ── regressões da edição real de 29/09/2026 ─────────────────────────────────
+
+VALOR_PAYWALL = "Matéria exclusiva para assinantes. Para ter acesso completo, acesse o link da matéria e faça o seu cadastro."
+
+
+@pytest.mark.parametrize(
+    "summary, expected",
+    [
+        # rodapé do Valor numa linha própria
+        (f"A Anthropic planeja alertar investidores sobre riscos da IA.\n{VALOR_PAYWALL}",
+         "A Anthropic planeja alertar investidores sobre riscos da IA."),
+        # colado na última frase
+        (f"Fachin quer julgar o caso rapidamente de forma colegiada. {VALOR_PAYWALL}",
+         "Fachin quer julgar o caso rapidamente de forma colegiada."),
+        # só a primeira frase do aviso
+        ("A Nvidia lança o maior programa de recompra já anunciado. Matéria exclusiva para assinantes.",
+         "A Nvidia lança o maior programa de recompra já anunciado."),
+        # resumo que era só paywall
+        (VALOR_PAYWALL, ""),
+        # JOTA
+        ("O Confaz decide sobre ICMS.\nEsta reportagem foi antecipada a assinantes JOTA PRO Tributos em 24/9. "
+         "Conheça a plataforma do JOTA de monitoramento tributário\nPara ela, isso importa.",
+         "O Confaz decide sobre ICMS.\nPara ela, isso importa."),
+    ],
+)
+def test_paywall_footers_are_removed_from_summaries(summary: str, expected: str) -> None:
+    assert feeds.clean_summary(summary) == expected
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "✅ Clique e siga o canal do g1 GO no WhatsApp",
+        "✅ Siga o canal de notícias internacionais do g1 no WhatsApp",
+        "📱Favorite o g1 no Google e acompanhe as principais notícias do dia",
+        "Clique aqui para seguir o canal de Loterias do g1 no WhatsApp",
+        "🗒️ Tem alguma sugestão de reportagem? Mande para o g1",
+        "🗒️ Tem alguma sugestão de reportagem? Envie para o g1",
+        "Agora no g1",
+        "VÍDEOS: agora no g1",
+        "Volte ao topo",
+        "Seguir leyendo",
+        "Conheça o JOTA PRO Eleições, cobertura eleitoral especial do JOTA que oferece transparência e previsibilidade para empresas",
+        "Quer receber reportagens do JOTA com mais frequência? Clique aqui e selecione o JOTA como fonte de informação no Google Notícias",
+        "Follow the day’s news live",
+        "Get our breaking news email, free app or daily news podcast",
+        "Initial plugin text",
+    ],
+)
+def test_portal_boilerplate_lines_are_removed(line: str) -> None:
+    summary = f"Primeiro parágrafo da notícia.\n{line}\nSegundo parágrafo da notícia."
+    assert feeds.clean_summary(summary) == "Primeiro parágrafo da notícia.\nSegundo parágrafo da notícia."
+
+
+def test_g1_call_to_action_glued_to_the_next_paragraph() -> None:
+    summary = (
+        "A decisão foi tomada após testes internos.\n📱Favorite o g1 no Google e acompanhe as principais notícias "
+        "do dia O diretor-executivo da OpenAI, Sam Altman, falou."
+    )
+    assert feeds.clean_summary(summary) == (
+        "A decisão foi tomada após testes internos. O diretor-executivo da OpenAI, Sam Altman, falou."
+    )
+
+
+def test_abr_related_news_block_is_removed_but_prose_is_kept() -> None:
+    summary = (
+        "O dólar subiu.\nNotícias relacionadas:\nMercado eleva projeção de inflação para 4,99% e reduz PIB.\n"
+        "Fazenda mantém subsídio de R$ 2,12 ao óleo diesel.\n"
+        "O petróleo também terminou o dia em alta, embora distante das máximas alcançadas durante a sessão."
+    )
+    assert feeds.clean_summary(summary) == (
+        "O dólar subiu.\nO petróleo também terminou o dia em alta, embora distante das máximas alcançadas durante a sessão."
+    )
+
+
+def test_photo_captions_and_credits_are_removed() -> None:
+    assert feeds.clean_summary("Texto sobre o ouro.\nBarras de ouro\nPixabay") == "Texto sobre o ouro."
+    assert feeds.clean_summary("Quaest, 1º turno: região\nArte/g1\nO levantamento ouviu 2 mil eleitores.") == (
+        "O levantamento ouviu 2 mil eleitores."
+    )
+    assert feeds.clean_summary("Fato.\nAidan Howe/Pixabay") == "Fato."
+    # linha com barra que é conteúdo (tem dígito ou é longa) fica
+    assert feeds.clean_summary("Fato.\nPreço médio: R$ 5/kg") == "Fato.\nPreço médio: R$ 5/kg"
+
+
+def test_g1_first_line_caption_or_related_headline_is_dropped() -> None:
+    caption = "O logotipo da OpenAI é visto em um celular\nAP/Michael Dwyer, Arquivo\nA OpenAI afirmou nesta segunda."
+    assert feeds.clean_summary(caption, source_id="g1") == "A OpenAI afirmou nesta segunda."
+    related = "Greve da Caixa: veja como ficam pagamentos do Bolsa Família\nO TST analisa o dissídio nesta terça."
+    assert feeds.clean_summary(related, source_id="g1") == "O TST analisa o dissídio nesta terça."
+    # só no g1: em outro veículo a primeira linha sem ponto final pode ser conteúdo
+    assert feeds.clean_summary(related, source_id="valor").startswith("Greve da Caixa")
+    # item do g1 que começa com a foto: a legenda some mesmo com pontuação
+    html = '<img src="https://s2.glbimg.com/x.jpg"><br>Foto do evento.<p>O texto de verdade começa aqui.</p>'
+    assert feeds.clean_summary(html, source_id="g1") == "O texto de verdade começa aqui."
+
+
+def test_continue_reading_is_only_removed_as_a_trailing_link() -> None:
+    assert feeds.clean_summary("Investors continue reading the Fed minutes.") == "Investors continue reading the Fed minutes."
+    assert feeds.clean_summary("Continue reading the minutes.") == "Continue reading the minutes."
+    assert feeds.clean_summary("It took two years. Continue reading...") == "It took two years."
+    assert feeds.clean_summary("x. Continue reading…\nnext line") == "x.\nnext line"
+
+
+def test_abr_tracking_pixel_is_never_the_photo() -> None:
+    assert not is_usable_image_url("https://agenciabrasil.ebc.com.br/ebc.png?id=1703575&o=rss")
+    html = (
+        '<img src="https://agenciabrasil.ebc.com.br/ebc.png?id=1&amp;o=rss" width="1px" height="1px">'
+        '<img src="https://agenciabrasil.ebc.com.br/sites/default/files/foto.jpg">'
+    )
+    assert feeds._first_html_image([html]) == "https://agenciabrasil.ebc.com.br/sites/default/files/foto.jpg"
+    # dimensões com unidade ou só no style também valem
+    assert feeds._to_int("1px") == 1 and feeds._to_int("300.0") == 300 and feeds._to_int(None) is None
+    styled = '<img src="https://ex.com/p.png" style="width:1px;height:1px"><img src="https://ex.com/foto.jpg">'
+    assert feeds._first_html_image([styled]) == "https://ex.com/foto.jpg"
+
+
+def test_site_exclusions_cover_sponsored_service_and_sports_without_false_positives() -> None:
+    config = load_config(env={})
+    urls = {
+        "https://neofeed.com.br/negocios/esporte-movimenta-bilhoes/": True,  # "/esporte" era falso positivo
+        "https://ex.com/patrocinado/banco-x-lanca-conta": False,
+        "https://g1.globo.com/loterias/noticia/mega-sena.ghtml": False,
+        "https://g1.globo.com/esporte/futebol/jogo.ghtml": False,
+        "https://www.bbc.com/news/videos/c1234": False,
+        "https://g1.globo.com/economia/noticia/bbbrasil-fundo.ghtml": True,  # "/bbb" era falso positivo
+    }
+    for url, kept in urls.items():
+        assert (not feeds._is_excluded(canonical_url(url), config.edition.exclude_url_patterns)) is kept, url
+
+    pattern = feeds.compile_title_patterns(config.edition.exclude_title_patterns)
+    service = [
+        "Candidatos a deputado estadual no Mato Grosso do Sul (MS): veja número e nome na lista de 2026",
+        "Mega-Sena: resultado do concurso 3064",
+        "Dia de Sorte: confira o resultado do concurso 1309",
+        "Horóscopo do dia",
+        "Onde assistir ao jogo do Brasil",
+    ]
+    assert all(feeds.is_excluded_title(t, pattern) for t in service)
+    assert not feeds.is_excluded_title("Ibovespa ao vivo: bolsa cai com cautela", pattern)
+    assert not feeds.is_excluded_title("Candidatos ao Senado prometem reforma tributária", pattern)
+
+
+def test_sponsored_items_are_dropped_by_the_collector() -> None:
+    content = rss([
+        rss_item("Global markets outlook", "https://www.scmp.com/presented/x", NOW,
+                 "[The content of this article has been produced by our advertising partner.] Markets..."),
+        rss_item("Advertorial sem marcação na URL", "https://www.scmp.com/news/y", NOW,
+                 "[The content of this article has been produced by our advertising partner.]<p>Texto.</p>"),
+        rss_item("Notícia normal", "https://www.scmp.com/news/z", NOW),
+    ])
+    articles = parse_feed(content, make_source(), now=NOW, max_age_hours=30, exclude=GLOBAL_EXCLUDE)
+    assert [a.title for a in articles] == ["Notícia normal"]
+
+
+def test_title_exclusions_apply_at_collection() -> None:
+    content = rss([
+        rss_item("Candidatos a deputado federal em SP: veja número e nome", "https://g1.globo.com/a", NOW),
+        rss_item("Copom mantém a Selic", "https://g1.globo.com/b", NOW),
+    ])
+    pattern = feeds.compile_title_patterns(load_config(env={}).edition.exclude_title_patterns)
+    articles = parse_feed(content, make_source(), now=NOW, max_age_hours=30, exclude=[], exclude_titles=pattern)
+    assert [a.title for a in articles] == ["Copom mantém a Selic"]
+
+
+def test_traffic_source_is_a_tracking_param() -> None:
+    assert canonical_url("https://www.cnnbrasil.com.br/x/?traffic_source=rss&id=3") == "https://www.cnnbrasil.com.br/x/?id=3"
+
+
+def test_general_feeds_get_the_section_hint_from_the_url() -> None:
+    capa = make_source(topics=[])
+    content = rss([
+        rss_item("Trump fala sobre a China", "https://www.cnnbrasil.com.br/internacional/trump-china/", NOW),
+        rss_item("Dino envia caso ao plenário", "https://valor.globo.com/politica/noticia/2026/09/28/x.ghtml", NOW),
+        rss_item("Sem seção na URL", "https://www.aljazeera.com/news/2026/9/29/x", NOW),
+    ])
+    articles = parse_feed(content, capa, now=NOW, max_age_hours=30, exclude=[])
+    assert [a.topics for a in articles] == [["mundo"], ["politica"], []]
+    # feed com topics definidos mantém os seus
+    assert parse_feed(content, make_source(topics=["brasil"]), now=NOW, max_age_hours=30, exclude=[])[0].topics == ["brasil"]
+
+
+def test_saved_bundles_are_cleaned_with_the_current_rules() -> None:
+    dirty = Article(
+        id="x", url="https://valor.globo.com/brasil/noticia/x.ghtml", title="Dívida pública sobe",
+        summary=f"A dívida subiu 0,04%.\n{VALOR_PAYWALL}", source_id="valor", source_name="Valor Econômico",
+        lang="pt", image="https://agenciabrasil.ebc.com.br/ebc.png?id=1&o=rss",
+    )
+    service = Article(
+        id="y", url="https://g1.globo.com/politica/eleicoes/x.ghtml", title="Candidatos no MS: veja número e nome",
+        summary="Lista.", source_id="g1", source_name="g1", lang="pt",
+    )
+    config = load_config(env={})
+    cleaned = feeds.sanitize_articles(
+        [dirty, service],
+        exclude_url_patterns=config.edition.exclude_url_patterns,
+        exclude_title_patterns=config.edition.exclude_title_patterns,
+    )
+    assert [a.id for a in cleaned] == ["x"]
+    assert cleaned[0].summary == "A dívida subiu 0,04%." and cleaned[0].image is None
+    assert dirty.summary.endswith("cadastro.")  # não altera o original
+
+
+def test_related_headline_runs_without_header_are_removed() -> None:
+    """Valor: chamadas para outras matérias no meio do resumo, sem "Leia também"."""
+    summary = (
+        "O presidente do TSE reclamou de interferência do STF.\n"
+        "Quaest: Lula retoma liderança no 1º turno e mantém empate com Flávio no 2º\n"
+        "Gilmar quer suspender análise sobre Moraes no caso Master\n"
+        "“Venho manifestar minha elevada preocupação”, diz Nunes Marques no ofício."
+    )
+    assert feeds.clean_summary(summary) == (
+        "O presidente do TSE reclamou de interferência do STF.\n"
+        "“Venho manifestar minha elevada preocupação”, diz Nunes Marques no ofício."
+    )
+    # listas com pontuação (cotações) e itens que continuam a frase ficam
+    quotes = "Confira os números:\nDólar à vista: R$ 5,226 (+0,83%);\nIbovespa: 182.991 pontos (-0,26%)."
+    assert feeds.clean_summary(quotes) == quotes
+    items = "Os eleitos:\nKast venceu o segundo turno chileno em 2025,\nEspriella venceu a disputa colombiana em 2026, e\nFim."
+    assert feeds.clean_summary(items) == items
+    # o subtítulo do Guardian (sem ponto) fica; a chamada para a newsletter sai
+    guardian = "Outrage over treatment of alleged offenders has grown\nSign up for the Breaking News US newsletter email\nText."
+    assert feeds.clean_summary(guardian) == "Outrage over treatment of alleged offenders has grown\nText."

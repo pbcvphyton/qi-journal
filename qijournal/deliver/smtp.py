@@ -92,9 +92,13 @@ def _parse_recipients(raw: str) -> list[str]:
 
 
 def _normalize_password(password: str, host: str) -> str:
-    """Remove os espaços da senha de app do Gmail colada como aparece na tela do Google."""
-    if host.lower().endswith("gmail.com") and _GMAIL_APP_PASSWORD.fullmatch(password):
-        return password.replace(" ", "")
+    """Remove os espaços da senha de app do Gmail colada como aparece na tela do Google
+    (inclusive espaço não separável ou tabulação, comuns ao copiar da página)."""
+    if not host.lower().endswith("gmail.com"):
+        return password
+    spaced = re.sub(r"\s+", " ", password)
+    if _GMAIL_APP_PASSWORD.fullmatch(spaced):
+        return spaced.replace(" ", "")
     return password
 
 
@@ -143,7 +147,9 @@ def build_message(settings: SMTPSettings, subject: str, html: str, text: str) ->
     msg = EmailMessage()
     msg["Subject"] = _single_line(subject)
     msg["From"] = formataddr((_single_line(settings.sender_name or ""), settings.sender))
-    msg["To"] = ", ".join(settings.to)
+    # Vários destinatários: cada um recebe como cópia oculta (envelope), e o
+    # cabeçalho To mostra só o remetente — ninguém vê o endereço dos outros.
+    msg["To"] = settings.to[0] if len(settings.to) == 1 else msg["From"]
     msg["Date"] = formatdate(localtime=False, usegmt=True)
     domain = settings.sender.rpartition("@")[2] or None
     msg["Message-ID"] = make_msgid(idstring="qijournal", domain=domain)
@@ -188,6 +194,11 @@ def send_email(settings: SMTPSettings, subject: str, html: str, text: str) -> No
         raise EmailDeliveryError(f"{target} recusou todos os destinatários: {', '.join(exc.recipients)}") from exc
     except smtplib.SMTPException as exc:
         raise EmailDeliveryError(f"erro SMTP em {target}: {exc}") from exc
+    except (UnicodeError, ValueError) as exc:  # ex.: senha com caractere não ASCII (nunca a exibe)
+        raise EmailDeliveryError(
+            f"configuração SMTP inválida para {target} (provavelmente caractere não ASCII em SMTP_USER/SMTP_PASSWORD): "
+            f"{type(exc).__name__}"
+        ) from exc
     except OSError as exc:  # DNS, conexão recusada, timeout, certificado (ssl.SSLError)
         raise EmailDeliveryError(f"falha de conexão com {target}: {exc}") from exc
 

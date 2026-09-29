@@ -235,3 +235,57 @@ def test_enrich_with_non_positive_limit_does_nothing(limit: int) -> None:
 
 def test_enrich_empty_list() -> None:
     assert enrich([], fetch=FakeFetch({})) == {}
+
+
+# ── regressões da edição real de 29/09/2026 ─────────────────────────────────
+
+FOLHA_GIFT = (
+    "Você tem 7 acessos por dia para dar de presente. Qualquer pessoa que não é assinante poderá ler. "
+    "Assinantes podem liberar 7 acessos por dia para conteúdos da Folha."
+)
+LEAD = (
+    "O presidente Donald Trump afirmou nesta segunda-feira que os Estados Unidos vão manter as tarifas "
+    "sobre a China até o fim do ano."
+)
+
+
+def test_folha_gift_banner_and_valor_signup_are_paywall() -> None:
+    from qijournal.collect.enrich import _is_paywall, _paragraph_body
+
+    assert _is_paywall(FOLHA_GIFT)
+    assert _is_paywall("Para ter acesso completo, acesse o link da matéria e faça o seu cadastro.")
+    assert not _is_paywall("Os assinantes da operadora cresceram 12% no trimestre, segundo a Anatel.")
+    assert _paragraph_body([FOLHA_GIFT, LEAD]) == LEAD
+
+
+def test_gift_banner_never_becomes_the_description_or_body() -> None:
+    html = html_page(
+        f"<article><p>{FOLHA_GIFT}</p><p>{LEAD}</p><p>{LEAD} Segundo parágrafo.</p></article>",
+        head=f'<meta property="og:description" content="{FOLHA_GIFT}">',
+    )
+    info = parse_page(html)
+    assert info.description is None
+    assert info.text.startswith("O presidente Donald Trump") and "presente" not in info.text
+
+
+def test_read_also_blocks_are_cut_from_the_body() -> None:
+    html = html_page(
+        "<article>"
+        f"<p>{FOLHA_GIFT}</p>"
+        f"<p>{LEAD} Leia também:<a href='/a'>Irã nega envolvimento em plano</a><a href='/b'>Ministro sugere</a></p>"
+        "<p>Leia também</p><p>Pandas cedidos pela China chegam aos EUA</p>"
+        "<p>O embaixador disse que a oferta foi feita durante a visita, segundo relato publicado na imprensa.</p>"
+        "</article>"
+    )
+    info = parse_page(html)
+    assert info.text.startswith(LEAD)
+    assert "Leia também" not in info.text and "Irã nega" not in info.text and "Pandas" not in info.text
+    assert "O embaixador disse" in info.text
+
+
+def test_list_items_inside_a_paragraph_do_not_glue_words() -> None:
+    html = html_page(
+        "<article><p>Principais pontos do relatório divulgado nesta segunda-feira pelo Tesouro:"
+        "<ul><li>alta da dívida</li><li>mais pós-fixados</li></ul></p></article>"
+    )
+    assert "dívidamais" not in (parse_page(html).text or "")

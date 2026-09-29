@@ -4,9 +4,11 @@
 <figure class="{{ cls }}" data-img><img src="{{ s.image }}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
 {%- endmacro %}
 
+{% macro lang(s) -%}{% if s.lang %} lang="{{ s.lang }}"{% endif %}{%- endmacro %}
+
 {% macro meta(s) -%}
 {% if s.source_names or s.age %}
-<p class="meta">{% if s.source_names %}<span>{{ s.source_names }}</span>{% endif %}{% if s.age %}<time datetime="{{ s.published }}">{{ s.age }}</time>{% endif %}</p>
+<p class="meta">{% if s.source_names %}<span>{{ s.source_names }}</span>{% endif %}{% if s.age %}<time datetime="{{ s.published }}" data-age>{{ s.age }}</time>{% endif %}</p>
 {% endif %}
 {%- endmacro %}
 
@@ -16,9 +18,9 @@
   {% if s.image %}
   {{ figure(s, "ci") }}
   {% endif %}
-  <h3><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+  <h3{{ lang(s) }}><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
   {% if s.dek %}
-  <p class="dk">{{ s.dek }}</p>
+  <p class="dk"{{ lang(s) }}>{{ s.dek }}</p>
   {% endif %}
   {{ meta(s) }}
 </article>
@@ -26,7 +28,7 @@
 
 {% macro modal(s, tz_label) -%}
 <div class="mo" id="{{ s.anchor }}" role="dialog" aria-modal="true" aria-labelledby="t-{{ s.id }}" style="--sc:{{ s.color }}">
-  <article class="ml" tabindex="-1">
+  <article class="ml" tabindex="-1"{{ lang(s) }}>
     <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
     <header class="mhd">
       <p class="mcat">{{ s.section_title }}</p>
@@ -62,8 +64,9 @@
     </div>
     {% endif %}
     {% if s.time %}
-    <p class="mtime">Publicado às <time datetime="{{ s.published }}">{{ s.time }}</time> {{ tz_label }}{% if s.age %} · {{ s.age }}{% endif %}</p>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="{{ s.published }}">{{ s.time }}</time> {{ tz_label }}{% if s.age %} · <time datetime="{{ s.published }}" data-age>{{ s.age }}</time>{% endif %}</p>
     {% endif %}
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
   </article>
 </div>
 {%- endmacro %}

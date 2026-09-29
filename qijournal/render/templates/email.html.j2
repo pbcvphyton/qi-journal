@@ -2,16 +2,18 @@
     celular e modo escuro). Sem JS, sem SVG, fontes do sistema.
     Variáveis: v (EditionView), brand, subject, preheader, sections, story_url, footer. -#}
 {% set c = brand.colors %}
-{% set serif = "Georgia,'Times New Roman',Times,serif" %}
-{% set sans = "Arial,Helvetica,sans-serif" %}
-{% set mono = "Menlo,Consolas,'Courier New',monospace" %}
+{% set serif = "Georgia,serif" %}
+{% set sans = "Arial,sans-serif" %}
+{% set mono = "Menlo,Consolas,monospace" %}
+{#- Fontes: até 3 nomes (só o primeiro com link) e "+N"; a edição tem todos os links. -#}
 {% macro sources_line(s) -%}
 {% if s.sources %}
-<p style="margin:6px 0 0;font-family:{{ sans }};font-size:11px;line-height:16px;color:#687487;" class="muted">
-{%- for src in s.sources %}{% if not loop.first %} · {% endif %}{% if src.url %}<a href="{{ src.url }}" style="color:#687487;text-decoration:underline;" class="muted">{{ src.name }}</a>{% else %}{{ src.name }}{% endif %}{% endfor -%}
+<p style="margin:6px 0 0;font:11px/16px {{ sans }};color:#687487" class="muted">
+{%- for src in s.sources[:3] %}{% if not loop.first %} · {% endif %}{% if loop.first and src.url %}<a href="{{ src.url }}" style="color:#687487" class="muted">{{ src.name }}</a>{% else %}{{ src.name }}{% endif %}{% endfor %}{% if s.sources|length > 3 %} · +{{ s.sources|length - 3 }}{% endif -%}
 </p>
 {% endif %}
 {%- endmacro %}
+{% macro lang(s) -%}{% if s.lang %} lang="{{ s.lang }}"{% endif %}{%- endmacro %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -44,7 +46,7 @@
 </style>
 </head>
 <body style="margin:0;padding:0;background:#f0f2f5;" class="bg">
-<div style="display:none;max-height:0;max-width:0;overflow:hidden;opacity:0;mso-hide:all;font-size:1px;line-height:1px;color:#f0f2f5;">{{ preheader }}{% for _ in range(40) %}&#847;&zwnj;&nbsp;{% endfor %}</div>
+<div style="display:none;max-height:0;max-width:0;overflow:hidden;opacity:0;mso-hide:all;font-size:1px;line-height:1px;color:#f0f2f5;">{{ preheader }}{% for _ in range(12) %}&#847;&zwnj;&nbsp;{% endfor %}</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f0f2f5;" class="bg">
 <tr><td align="center" style="padding:24px 10px;">
 <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" class="wrap card" style="width:640px;max-width:640px;background:#ffffff;">
@@ -70,7 +72,7 @@
 {# Clima #}
 {% if v.weather %}
 <tr><td class="px soft rule" align="center" style="padding:7px 20px;background:#f8f9fb;border-bottom:1px solid #e4e7ec;font-family:{{ mono }};font-size:11px;line-height:17px;color:#687487;">
-  {%- for w in v.weather %}{% if not loop.first %}&nbsp;&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap;">{{ w.now_emoji }} <b style="color:#1a2332;" class="ink">{{ w.city }}</b> {{ w.now_temp }} ↓{{ w.today_min }} ↑{{ w.today_max }} | Amanhã {{ w.tomorrow_emoji }} ↓{{ w.tomorrow_min }} ↑{{ w.tomorrow_max }}</span>{% endfor -%}
+  {%- for w in v.weather %}{% if not loop.first %}&nbsp;&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap">{{ w.now_emoji }} <b style="color:#1a2332" class="ink">{{ w.city }}</b> {{ w.now_temp }} ↓{{ w.today_min }} ↑{{ w.today_max }}</span> <span style="white-space:nowrap">| Amanhã {{ w.tomorrow_emoji }} ↓{{ w.tomorrow_min }} ↑{{ w.tomorrow_max }}</span>{% endfor -%}
 </td></tr>
 {% endif %}
 
@@ -81,15 +83,15 @@
 </td></tr>
 {% endif %}
 
-{# Em 1 minuto #}
-{% if v.briefing %}
+{# Em 1 minuto (no modo automático ele só repetiria títulos: fica de fora do e-mail) #}
+{% if v.briefing and v.mode == "ai" %}
 <tr><td class="px" style="padding:20px 20px 8px;">
   <p class="kick" style="margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid {{ c.primary }};font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;color:{{ c.primary }};">Em 1 minuto</p>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
   {% for item in v.briefing %}
   <tr>
-    <td width="16" valign="top" style="padding:3px 0 5px;font-family:{{ sans }};font-size:14px;line-height:21px;color:{{ c.primary }};">&#9642;</td>
-    <td valign="top" class="ink" style="padding:3px 0 5px;font-family:{{ sans }};font-size:14px;line-height:21px;color:#1a2332;">{{ item|md_lite }}</td>
+    <td width="16" valign="top" style="padding:3px 0 5px;font:14px/21px {{ sans }};color:{{ c.primary }}">&#9642;</td>
+    <td valign="top" class="ink" style="padding:3px 0 5px;font:14px/21px {{ sans }};color:#1a2332">{{ item|md_lite }}</td>
   </tr>
   {% endfor %}
   </table>
@@ -101,15 +103,15 @@
 {% set s = v.lead %}
 <tr><td class="px" style="padding:22px 20px 24px;border-bottom:2px solid {{ c.navy }};">
   <p class="sc" style="margin:0 0 6px;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:{{ s.color }};">{{ s.section_title }}</p>
-  <h1 class="hl" style="margin:0 0 10px;font-family:{{ serif }};font-size:28px;line-height:34px;font-weight:bold;color:{{ c.navy }};"><a href="{{ story_url(s) }}" class="ink" style="color:{{ c.navy }};text-decoration:none;">{{ s.headline }}</a></h1>
+  <h1 class="hl" style="margin:0 0 10px;font:bold 28px/34px {{ serif }};color:{{ c.navy }}"{{ lang(s) }}><a href="{{ story_url(s) }}" class="ink" style="color:{{ c.navy }};text-decoration:none">{{ s.headline }}</a></h1>
   {% if s.dek %}
-  <p class="muted" style="margin:0 0 14px;font-family:{{ sans }};font-size:15px;line-height:23px;color:#4a5568;">{{ s.dek }}</p>
+  <p class="muted" style="margin:0 0 14px;font:15px/23px {{ sans }};color:#4a5568"{{ lang(s) }}>{{ s.dek }}</p>
   {% endif %}
   {% if s.image %}
-  <a href="{{ story_url(s) }}" style="text-decoration:none;"><img src="{{ s.image }}" width="600" alt="{{ s.headline }}" style="display:block;width:100%;max-width:600px;height:auto;border:0;outline:none;margin:0 0 12px;background:#e4e7ec;font-family:{{ sans }};font-size:12px;color:#687487;"></a>
+  <a href="{{ story_url(s) }}" style="text-decoration:none"><img src="{{ s.image }}" width="600" alt="{{ s.headline }}" style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0 0 12px;background:#e4e7ec;font:12px {{ sans }};color:#687487"></a>
   {% endif %}
   {{ sources_line(s) }}
-  <p style="margin:12px 0 0;font-family:{{ sans }};font-size:13px;line-height:18px;font-weight:bold;"><a href="{{ story_url(s) }}" class="lnk" style="color:{{ c.primary }};text-decoration:none;">Ler na edição &rarr;</a></p>
+  <p style="margin:12px 0 0;font:bold 13px/18px {{ sans }}"><a href="{{ story_url(s) }}" class="lnk" style="color:{{ c.primary }}">Ler na edição &rarr;</a></p>
 </td></tr>
 {% endif %}
 
@@ -119,10 +121,10 @@
   <p class="sc" style="margin:0;padding:2px 0 2px 10px;border-left:4px solid {{ section.color }};font-family:{{ sans }};font-size:11px;line-height:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:{{ section.color }};">{{ section.title }}</p>
 </td></tr>
 {% for s in section.stories %}
-<tr><td class="px rule" style="padding:12px 20px 14px;{% if not loop.last %}border-bottom:1px solid #e4e7ec;{% endif %}">
-  <h2 style="margin:0 0 4px;font-family:{{ serif }};font-size:18px;line-height:24px;font-weight:bold;color:#1a2332;"><a href="{{ story_url(s) }}" class="ink" style="color:#1a2332;text-decoration:none;">{{ s.headline }}</a></h2>
+<tr><td class="px rule" style="padding:12px 20px 14px{% if not loop.last %};border-bottom:1px solid #e4e7ec{% endif %}">
+  <h2 style="margin:0 0 4px;font:bold 18px/24px {{ serif }};color:#1a2332"{{ lang(s) }}><a href="{{ story_url(s) }}" class="ink" style="color:#1a2332;text-decoration:none">{{ s.headline }}</a></h2>
   {% if s.dek %}
-  <p class="muted" style="margin:0;font-family:{{ sans }};font-size:14px;line-height:21px;color:#4a5568;">{{ s.dek }}</p>
+  <p class="muted" style="margin:0;font:14px/21px {{ sans }};color:#4a5568"{{ lang(s) }}>{{ s.dek }}</p>
   {% endif %}
   {{ sources_line(s) }}
 </td></tr>

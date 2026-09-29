@@ -11,6 +11,20 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# Títulos de conteúdo de serviço, sem valor jornalístico para a edição (regex
+# sobre o título normalizado: minúsculas, sem acento e sem pontuação). Evita
+# "ao vivo" solto, que também derrubaria coberturas de mercado legítimas.
+DEFAULT_EXCLUDE_TITLE_PATTERNS = [
+    r"veja (?:o )?numero e nome",
+    r"quem sao os candidatos",
+    r"resultado d[oa] (?:concurso|mega ?sena|lotofacil|quina|lotomania|timemania|dupla ?sena)",
+    r"confira o resultado",
+    r"horoscopo",
+    r"(?:como|onde) assistir",
+    r"gabarito",
+    r"transmite ao vivo",
+]
+
 
 @dataclass
 class SourceConfig:
@@ -62,8 +76,14 @@ class EditionConfig:
     highlights_count: int = 8
     min_articles: int = 15
     min_sources_ok: int = 4
+    # Fração mínima de feeds ok e de fontes em português com artigos: uma coleta
+    # quase toda fora do ar (ex.: runner bloqueado pelos sites brasileiros) não
+    # publica uma edição só em inglês por cima da boa.
+    min_sources_ratio: float = 0.0
+    min_pt_sources_ok: int = 0
     enrich_limit: int = 40
     exclude_url_patterns: list[str] = field(default_factory=list)
+    exclude_title_patterns: list[str] = field(default_factory=lambda: list(DEFAULT_EXCLUDE_TITLE_PATTERNS))
 
 
 @dataclass
@@ -71,9 +91,14 @@ class LLMConfig:
     enabled: bool = True
     model: str = "claude-opus-5-5"
     effort: str = "medium"
-    max_tokens_select: int = 16000
-    max_tokens_write: int = 48000
+    # O raciocínio do modelo conta dentro de max_tokens: com folga, uma pauta
+    # grande não é cortada (o que descartaria a edição por IA inteira).
+    max_tokens_select: int = 64000
+    max_tokens_write: int = 64000
     timeout_seconds: int = 600
+    # Prazo total da edição por IA (s): novas tentativas após erro passageiro só
+    # acontecem se ainda couberem nele (o job do Actions tem 55 min).
+    deadline_seconds: int = 2700
 
 
 @dataclass
@@ -86,7 +111,7 @@ class CityConfig:
 
 @dataclass
 class EmailConfig:
-    subject_template: str = "{brand} — {date_label}"
+    subject_template: str = "{brand} · {date}: {lead}"
     max_stories: int = 14
     to: list[str] = field(default_factory=list)  # só via ambiente (EMAIL_TO)
 

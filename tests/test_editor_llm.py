@@ -107,7 +107,8 @@ def test_edition_maps_short_ids_to_articles(config):
     assert lead.why_it_matters == "Importa para o leitor 1."
     assert lead.image == "https://img.example.com/copom.jpg"
     assert lead.published == "2026-09-29T05:07:00+00:00"
-    assert [s.name for s in lead.sources] == ["Valor Econômico", "Folha de S.Paulo", "Estadão", "g1"]
+    # mesmo peso: a versão mais recente vem antes (Estadão 2,2 h × Folha 2,5 h)
+    assert [s.name for s in lead.sources] == ["Valor Econômico", "Estadão", "Folha de S.Paulo", "g1"]
     assert lead.sources[0].url == "https://valor.example.com/noticia/copom-valor"
 
     assert edition.editorial.startswith("O dia combina **juros**")
@@ -168,9 +169,9 @@ def test_writing_prompt_contents(config):
 
 
 def test_max_candidates_limits_the_list(config):
-    small = dataclasses.replace(config, edition=dataclasses.replace(config.edition, max_candidates=10))
+    small = dataclasses.replace(config, edition=dataclasses.replace(config.edition, max_candidates=12))
 
-    def respond(kwargs):  # uma matéria por candidato, como ids curtos
+    def respond(kwargs):  # uma matéria por linha, como ids curtos
         prompt = kwargs["messages"][0]["content"]
         stories = [
             {"article_ids": [m.group(1)], "section": m.group(5), "importance": 3, "angle": "fato"}
@@ -181,13 +182,114 @@ def test_max_candidates_limits_the_list(config):
     client = FakeClient(respond, write_responder())
     edition = run(small, client)
     prompt = client.calls[0]["messages"][0]["content"]
-    assert [m.group(1) for m in CANDIDATE_RE.finditer(prompt)] == [f"a{i}" for i in range(1, 11)]
-    assert len(edition.stories) == 10
+    lines = list(CANDIDATE_RE.finditer(prompt))
+    assert [m.group(1) for m in lines] == [f"a{i}" for i in range(1, 13)]
+    assert edition.stats.articles_considered == 12
     listed = set(short_ids(prompt))
-    assert {aid for s in edition.stories for aid in s.article_ids} == listed
-    assert edition.stats.articles_considered == 10
-    # clusters inteiros entram juntos, na ordem do ranqueamento (o Copom primeiro)
+    assert len(listed) == 12  # cada artigo uma vez
+    # 1ª passada: 9 linhas (75%), uma por fato, com todas as seções; 2ª: mais fontes do Copom
+    assert {m.group(5) for m in lines[:9]} == set(config.section_ids)
     assert {"copom-valor", "copom-folha", "copom-g1", "copom-estadao"} <= listed
+    # linhas repetidas do mesmo fato não viram matérias duplicadas: 9 fatos, 9 matérias
+    assert len(edition.stories) == 9
+    covered = {aid for s in edition.stories for aid in s.article_ids}
+    assert listed <= covered
+
+
+def test_candidates_cover_many_facts_with_a_quota_per_section(config):
+    """Dia com muitos fatos: cada linha da 1ª passada é um fato diferente, toda seção
+    tem seus melhores fatos garantidos (mesmo abaixo no ranqueamento) e a linha do
+    principal anota as outras fontes do fato."""
+    import hashlib
+
+    from tests.fixtures.editor.factory import make_article
+
+    def unique_title(seed: str) -> str:  # palavras sem nenhum radical em comum entre fatos
+        digest = hashlib.sha1(seed.encode()).hexdigest()
+        letters = "".join("bcdfghjklmnpqrstv"[int(c, 16)] for c in digest)
+        return " ".join(letters[i : i + 7] for i in range(0, 35, 7)).capitalize()
+
+    articles = []
+    for i in range(40):  # 40 fatos de Mercados, bem pontuados (fontes de peso alto)
+        title = unique_title(f"m{i}")
+        articles.append(make_article(f"m{i}", title, "Resumo do fato.", source_id="valor", weight=1.5,
+                                     topics=("mercados",)))
+    for i in range(6):  # Imobiliário: poucos e com peso baixo
+        title = unique_title(f"i{i}")
+        articles.append(make_article(f"i{i}", title, "Resumo.", source_id="imobireport", weight=0.5,
+                                     topics=("imobiliario",)))
+    # um fato com três fontes
+    for source in ("valor", "folha", "g1"):
+        articles.append(make_article(f"copom-{source}", "Copom mantém Selic em 15% ao ano pela quinta vez seguida",
+                                     "O Copom manteve a Selic em 15% ao ano.", source_id=source, topics=("brasil",)))
+    small = dataclasses.replace(config, edition=dataclasses.replace(config.edition, max_candidates=20))
+    candidates = llm.build_candidates(sample_bundle(articles), small, now=NOW)
+
+    assert len(candidates.lines) == 20
+    first = [candidates.by_short_id[f"a{i}"] for i in range(1, 16)]  # 75% de 20
+    groups = {id(candidates.cluster_of[a.id]) for a in first}
+    assert len(groups) == 15  # uma linha por fato na 1ª passada
+    assert sum(a.id.startswith("i") for a in first) >= 6  # cota de Imobiliário
+    copom_line = next(line for line in candidates.lines if "Copom" in line)
+    assert copom_line.endswith("(+2 fontes: g1, Valor Econômico)")  # principal: Folha (mesmo peso, id)
+    # a matéria escolhida leva todas as fontes do fato, mesmo as fora da lista
+    copom_ids = {a.id for a in candidates.cluster_of["copom-valor"]}
+    assert copom_ids == {"copom-valor", "copom-folha", "copom-g1"}
+
+
+def test_picking_the_primary_brings_the_whole_cluster(config):
+    only_primaries = [([arts[0]], section, imp, angle) for arts, section, imp, angle in CANONICAL_PICKS]
+
+    def respond(kwargs):
+        return message(canonical_selection(kwargs["messages"][0]["content"], picks=only_primaries))
+
+    edition = run(config, FakeClient(respond, write_responder()))
+    lead = edition.story(edition.lead)
+    assert sorted(lead.article_ids) == sorted(["copom-valor", "copom-folha", "copom-g1", "copom-estadao"])
+
+
+def test_transient_stream_error_is_retried_once(config, caplog):
+    request = httpx2.Request("POST", "https://api.anthropic.com/v1/messages")
+    overloaded = anthropic.APIStatusError(
+        "Overloaded",
+        response=httpx2.Response(200, request=request),
+        body={"type": "error", "error": {"type": "overloaded_error", "message": "Overloaded"}},
+    )
+    client = FakeClient(overloaded, select_responder(), write_responder())
+    caplog.set_level(logging.WARNING, logger="qijournal.edit.llm")
+    edition = run(config, client)
+    assert edition.mode == "ai" and len(client.calls) == 3
+    assert "nova tentativa 1/1" in caplog.text
+
+
+def test_no_retry_past_the_deadline(config):
+    tight = dataclasses.replace(config, llm=dataclasses.replace(config.llm, deadline_seconds=0))
+    failure = api_error(anthropic.InternalServerError, 500)
+    client = FakeClient(failure, failure)
+    with pytest.raises(LLMUnavailable, match=r"erro da API \(500\)"):
+        run(tight, client)
+    assert len(client.calls) == 1
+
+
+def test_usage_counts_every_iteration_and_the_serving_model(config):
+    def respond(kwargs):
+        msg = select_responder()(kwargs)
+        msg.model = "claude-x-fallback"
+        msg.usage = NS(
+            input_tokens=700,
+            output_tokens=300,
+            iterations=[
+                NS(type="message", input_tokens=1000, output_tokens=50),
+                NS(type="fallback_message", input_tokens=700, output_tokens=300),
+                NS(type="compaction", input_tokens=99, output_tokens=99),
+            ],
+        )
+        return msg
+
+    edition = run(config, FakeClient(respond, write_responder()))
+    assert edition.model == "claude-x-fallback + claude-opus-5-5"
+    assert edition.stats.llm_input_tokens == 1000 + 700 + 5000
+    assert edition.stats.llm_output_tokens == 50 + 300 + 3000
 
 
 # ── validação da pauta e pós-processamento da redação ──────────────────────
@@ -321,7 +423,8 @@ def test_mid_stream_fallback_text_blocks_are_joined(config, caplog):
     caplog.set_level(logging.INFO, logger="qijournal.edit.llm")
     edition = run(config, FakeClient(respond, write_responder()))
     assert len(edition.stories) == len(CANONICAL_PICKS)
-    assert edition.model == "claude-opus-5-5"
+    # a edição registra os modelos que de fato responderam (pauta pelo fallback)
+    assert edition.model == "claude-opus-4-8 + claude-opus-5-5"
     assert "modelo de fallback claude-opus-4-8" in caplog.text
 
 
@@ -351,13 +454,16 @@ REQUEST = httpx2.Request("POST", "https://api.anthropic.com/v1/messages")
         (api_error(anthropic.BadRequestError, 400), r"erro da API \(400\)"),
         (anthropic.APITimeoutError(request=REQUEST), "tempo esgotado"),
         (anthropic.APIConnectionError(request=REQUEST), "falha de conexão"),
+        (httpx2.RemoteProtocolError("peer closed connection"), "falha de conexão durante o stream"),
     ],
 )
 def test_selection_failures_raise_llm_unavailable(config, failure, match):
-    client = FakeClient(failure)
+    client = FakeClient(failure, failure)
     with pytest.raises(LLMUnavailable, match=match):
         run(config, client)
-    assert len(client.calls) == 1
+    # erros passageiros (5xx, timeout, conexão) ganham uma nova tentativa; os demais, não
+    transient = isinstance(failure, (anthropic.InternalServerError, anthropic.APIConnectionError, httpx2.TransportError))
+    assert len(client.calls) == (2 if transient else 1)
 
 
 @pytest.mark.parametrize(

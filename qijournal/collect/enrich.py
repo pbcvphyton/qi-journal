@@ -23,7 +23,7 @@ from urllib.parse import urljoin
 from .. import net, text
 from ..models import Article
 from ..net import Fetcher
-from .feeds import is_usable_image_url
+from .feeds import is_usable_image_url, strip_boilerplate
 
 log = logging.getLogger(__name__)
 
@@ -40,14 +40,23 @@ _ARTICLE_TYPES = {
     "backgroundnewsarticle", "reviewnewsarticle", "blogposting", "liveblogposting", "techarticle", "report",
 }
 
-# Frases típicas de paywall/chamada de assinatura (casadas em texto normalizado, sem acento).
-# Evita termos genéricos ("assine o decreto", "subscribe to the IPO") que aparecem em notícias.
-_PAYWALL = re.compile(
-    r"exclusiv[oa]s? (?:para|de|a) assinantes|restrit[oa] (?:a|para) assinantes|para continuar lendo"
-    r"|ja e assinante|^assine\b|\bassine (?:ja|agora)\b|\bassine para (?:ler|continuar|ter acesso)"
-    r"|faca (?:seu |o )?login para|subscribe (?:now|to (?:continue|read|unlock))|subscribers? only"
-    r"|to continue reading|sign in to (?:read|continue)|already a subscriber|log in to continue"
+# Frases típicas de paywall/chamada de assinatura, cadastro e "presente" (Folha):
+# lista única em :data:`qijournal.text.PAYWALL_RE`, também usada na limpeza dos feeds.
+_PAYWALL = text.PAYWALL_RE
+
+# Chamadas para outras matérias ("Leia também: <títulos colados>"): corta do
+# marcador até o fim do parágrafo.
+_RELATED = re.compile(
+    r"\s*(?:Leia (?:mais|tamb[ée]m)|Veja tamb[ée]m|Saiba mais|Not[íi]cias relacionadas|Read more)\s*:.*$",
+    re.I | re.S,
 )
+# Parágrafo que só anuncia outras matérias, e os títulos curtos que o seguem.
+_RELATED_START = re.compile(r"^(?:leia|veja) (?:tambem|mais)\b|^saiba mais\b|^read more\b|^related\b")
+_RELATED_TITLE_MAX = 160
+_TERMINAL = re.compile(r"[.!?…][\"'”’)\]]*$")
+
+# Blocos que, dentro de um <p>, separam palavras (sem espaço, "título1título2" grudaria).
+_SPACED_TAGS = {"li", "div", "ul", "ol", "h2", "h3", "h4", "section"}
 
 # Tags cujo conteúdo não é corpo de matéria.
 _SKIP_TAGS = {"script", "style", "noscript", "template", "svg", "figure", "figcaption", "aside", "nav",
@@ -86,6 +95,8 @@ class _PageParser(HTMLParser):
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = {name.lower(): (value or "") for name, value in attrs}
+        if tag in _SPACED_TAGS and self._paragraph is not None:
+            self._paragraph.append(" ")  # itens de lista/blocos dentro do parágrafo não grudam palavras
         if tag == "meta":
             self._handle_meta(attributes)
         elif tag == "link" and attributes.get("rel", "").lower() == "image_src":
@@ -106,6 +117,8 @@ class _PageParser(HTMLParser):
             self._paragraph.append(" ")
 
     def handle_endtag(self, tag: str) -> None:
+        if tag in _SPACED_TAGS and self._paragraph is not None:
+            self._paragraph.append(" ")
         if tag == "script" and self._jsonld_buf is not None:
             self.jsonld.append("".join(self._jsonld_buf))
             self._jsonld_buf = None
@@ -246,15 +259,32 @@ def _jsonld_article(blocks: list[str]) -> _LdArticle:
 
 
 def _is_paywall(value: str) -> bool:
-    return bool(_PAYWALL.search(text.normalize(value)))
+    return text.is_paywall(value)
+
+
+def _drop_related(paragraphs: list[str]) -> list[str]:
+    """Tira as chamadas "Leia também" (e os títulos curtos que as seguem) e corta
+    o marcador quando ele aparece no meio de um parágrafo."""
+    out: list[str] = []
+    skipping = False
+    for paragraph in paragraphs:
+        paragraph = " ".join(paragraph.split())
+        if skipping and len(paragraph) <= _RELATED_TITLE_MAX and not _TERMINAL.search(paragraph):
+            continue
+        skipping = bool(_RELATED_START.search(text.normalize(paragraph)))
+        paragraph = _RELATED.sub("", paragraph).strip()
+        if paragraph:
+            out.append(paragraph)
+    return out
 
 
 def _clean_body(value: str | None) -> str | None:
-    """Texto do corpo sem parágrafos de paywall; ``None`` se sobrar pouco."""
+    """Texto do corpo sem parágrafos de paywall nem "Leia também"; ``None`` se sobrar pouco."""
     if not value:
         return None
-    paragraphs = [p for p in text.html_to_text(value).split("\n") if p.strip() and not _is_paywall(p)]
-    body = "\n".join(" ".join(p.split()) for p in paragraphs)
+    paragraphs = _drop_related(text.html_to_text(value).split("\n"))
+    paragraphs = [p for p in paragraphs if p and not _is_paywall(p)]
+    body = strip_boilerplate("\n".join(paragraphs))
     if len(body) < MIN_BODY_CHARS:
         return None
     return text.truncate(body, TEXT_MAX_CHARS)
@@ -264,7 +294,7 @@ def _paragraph_body(paragraphs: list[str]) -> str | None:
     """Junta parágrafos longos (≥ 60 chars, sem paywall) até ~3000 caracteres."""
     selected: list[str] = []
     total = 0
-    for paragraph in paragraphs:
+    for paragraph in _drop_related(paragraphs):
         if len(paragraph) < MIN_PARAGRAPH_CHARS or _is_paywall(paragraph):
             continue
         selected.append(paragraph)
@@ -292,7 +322,7 @@ def _pick_description(candidates: list[str | None]) -> str | None:
     for candidate in candidates:
         if not candidate:
             continue
-        description = " ".join(text.html_to_text(candidate).split())
+        description = " ".join(strip_boilerplate(text.html_to_text(candidate)).split())
         if description and not _is_paywall(description):
             return text.truncate(description, DESCRIPTION_MAX_CHARS)
     return None

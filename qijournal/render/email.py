@@ -8,6 +8,7 @@ tamanho total bem abaixo do corte de ~102 KB do Gmail.
 from __future__ import annotations
 
 import logging
+import re
 import textwrap
 from dataclasses import dataclass
 from datetime import date
@@ -21,10 +22,15 @@ from .web import EditionView, StoryView, build_view
 
 log = logging.getLogger(__name__)
 
-DEFAULT_SUBJECT = "{brand} — {date_label}"
+DEFAULT_SUBJECT = "{brand} · {date}: {lead}"
+SUBJECT_LEAD_MAX = 70
 PREHEADER_MAX = 150
 TEXT_WIDTH = 72
-MAX_EMAIL_BYTES = 90 * 1024
+# A rotina do Claude copia o HTML inteiro no parâmetro htmlBody do Gmail: o
+# e-mail precisa ser enxuto. Acima disso, matérias saem do e-mail (a edição
+# completa tem todas) até caber.
+MAX_EMAIL_BYTES = 40 * 1024
+_BETWEEN_TAGS = re.compile(r">\s*\n\s*<")  # só quebras de linha do template (nunca o espaço entre palavras)
 
 
 @dataclass
@@ -49,7 +55,17 @@ def _subject(edition: Edition, config: Config) -> str:
         short_date = text.pt_short_date(date.fromisoformat(edition.date))
     except ValueError:
         short_date = edition.date
-    values = {"brand": config.brand.name, "date_label": edition.date_label, "date": short_date}
+    lead = ""
+    try:
+        lead = text.truncate(" ".join(edition.story(edition.lead).headline.split()), SUBJECT_LEAD_MAX)
+    except KeyError:
+        pass
+    values = {
+        "brand": config.brand.name,
+        "date_label": edition.date_label,
+        "date": short_date,
+        "lead": lead or edition.date_label,
+    }
     try:
         subject = config.email.subject_template.format(**values)
     except (KeyError, IndexError, ValueError) as exc:
@@ -60,13 +76,27 @@ def _subject(edition: Edition, config: Config) -> str:
 
 
 def _select_sections(view: EditionView, limit: int) -> list[EmailSection]:
-    """Até ``limit`` matérias (além da manchete), priorizando chamadas e destaques,
-    agrupadas por seção na ordem da edição."""
+    """Até ``limit`` matérias (além da manchete), agrupadas por seção na ordem da edição.
+
+    1ª passada: a melhor matéria (fora a manchete) de cada seção não vazia, para
+    nenhuma seção sumir do e-mail; 2ª passada: completa pela prioridade de
+    sempre (chamadas, destaques, demais).
+    """
     lead_id = view.lead.id if view.lead else None
+    limit = max(limit, 0)
     priority = [*view.secondary, *view.highlights, *view.stories]
-    chosen: list[str] = []
+    rank: dict[str, int] = {}
     for story in priority:
-        if len(chosen) >= max(limit, 0):
+        rank.setdefault(story.id, len(rank))
+    chosen: list[str] = []
+    for section in view.sections:
+        if len(chosen) >= limit:
+            break
+        candidates = [s for s in section.stories if s.id != lead_id and s.id not in chosen]
+        if candidates:
+            chosen.append(min(candidates, key=lambda s: rank.get(s.id, len(rank))).id)
+    for story in priority:
+        if len(chosen) >= limit:
             break
         if story.id != lead_id and story.id not in chosen:
             chosen.append(story.id)
@@ -176,35 +206,56 @@ def _render_text(view: EditionView, sections: list[EmailSection], footer: dict[s
 # ── API ──────────────────────────────────────────────────────────────────────
 
 
+def _minify(html: str) -> str:
+    """Tira a indentação e as quebras de linha entre tags (o visual não muda)."""
+    return _BETWEEN_TAGS.sub("><", html).strip() + "\n"
+
+
 def render_email(edition: Edition, config: Config) -> tuple[str, str, str]:
-    """Gera ``(assunto, html, texto)`` do e-mail da edição."""
+    """Gera ``(assunto, html, texto)`` do e-mail da edição.
+
+    O HTML respeita :data:`MAX_EMAIL_BYTES`: se passar, as últimas matérias saem
+    (uma a uma) até caber; a versão em texto traz as mesmas matérias.
+    """
     view = build_view(edition, config)
     subject = _subject(edition, config)
-    sections = _select_sections(view, config.email.max_stories)
     time_part = f" em {view.time_label} ({view.tz_label})" if view.time_label else ""
     footer = {
         "archive_url": f"{view.base_url}edicoes/",
         "generated": f"Gerado automaticamente{time_part} · {view.mode_label}",
     }
     template = filters.environment().get_template("email.html.j2")
-    html = template.render(
-        v=view,
-        brand=view.brand,
-        subject=subject,
-        preheader=_preheader(view),
-        sections=sections,
-        story_url=lambda story: story_url(view.edition_url, story.id),
-        footer=footer,
-    )
-    plain_text = _render_text(view, sections, footer)
-    size = len(html.encode("utf-8"))
+    limit = max(config.email.max_stories, 0)
+    while True:
+        sections = _select_sections(view, limit)
+        html = _minify(
+            template.render(
+                v=view,
+                brand=view.brand,
+                subject=subject,
+                preheader=_preheader(view),
+                sections=sections,
+                story_url=lambda story: story_url(view.edition_url, story.id),
+                footer=footer,
+            )
+        )
+        size = len(html.encode("utf-8"))
+        shown = sum(len(s.stories) for s in sections)
+        if size <= MAX_EMAIL_BYTES or shown == 0:
+            break
+        limit = shown - 1
     if size > MAX_EMAIL_BYTES:
         log.warning(
-            "HTML do e-mail com %.0f KB (acima de %d KB: o Gmail pode cortar)", size / 1024, MAX_EMAIL_BYTES // 1024
+            "HTML do e-mail com %.0f KB mesmo sem matérias além da manchete (limite: %d KB)",
+            size / 1024,
+            MAX_EMAIL_BYTES // 1024,
         )
+    elif limit < config.email.max_stories:
+        log.info("E-mail reduzido a %d matérias para caber em %d KB", shown, MAX_EMAIL_BYTES // 1024)
+    plain_text = _render_text(view, sections, footer)
     log.info(
         "E-mail renderizado: %d matérias em %d seções, %.0f KB",
-        sum(len(s.stories) for s in sections) + (1 if view.lead else 0),
+        shown + (1 if view.lead else 0),
         len(sections),
         size / 1024,
     )

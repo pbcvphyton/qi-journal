@@ -19,7 +19,11 @@ import httpx2
 from qijournal.edit.assemble import plain_text
 from tests.fixtures.editor.factory import sample_articles
 
-CANDIDATE_RE = re.compile(r"^\[(a\d+)\] (.+?) \| (pt|en|es) \| (.+?) \| seção-sugerida: (\w+) \| (.+)$", re.M)
+# [aN] Fonte | idioma | idade | seção-sugerida: <id> | Título — resumo (+N fontes: …)
+# (a cobertura "(+N fontes: …)" só aparece na linha do principal de cada fato)
+CANDIDATE_RE = re.compile(
+    r"^\[(a\d+)\] (.+?) \| (pt|en|es) \| (.+?) \| seção-sugerida: (\w+) \| (.+?)(?: (\(\+\d+ fontes?: [^()]*\)))?$", re.M
+)
 
 # Pauta "canônica": artigos (Article.id), seção, importância, ângulo
 CANONICAL_PICKS: list[tuple[list[str], str, int, str]] = [

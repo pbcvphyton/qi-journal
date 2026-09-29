@@ -46,12 +46,16 @@ brands:
 
 # Seções da edição, na ordem de exibição. Os ids são usados pelo editor (IA ou
 # heurístico) e nas âncoras da página. "keywords" alimenta a classificação
-# heurística (sem acento, minúsculas; casamento por palavra/trecho).
+# heurística (sem acento, minúsculas; casamento por palavra/trecho). Palavras
+# com até 3 letras casam só inteiras; as demais toleram até 3 letras a mais
+# ("imobiliari" → "imobiliarios"). Um "=" no fim força a palavra inteira
+# ("real=" não casa com "realiza"; "vale=" não casa com "valeria"). "meta"
+# solto não entra (meta de inflação, meta fiscal): use "meta platforms".
 sections:
   - id: brasil
     title: "Brasil · Economia"
     description: "Economia brasileira, política econômica, fiscal, juros, inflação, empresas brasileiras."
-    keywords: [ipca, selic, copom, banco central, haddad, fiscal, arcabouco, pib, inflacao, desemprego, petrobras, vale, itau, bradesco, nubank, bndes, tesouro, receita federal, imposto, tributar, reforma tributaria, orcamento, cambio, real]
+    keywords: [ipca, selic, copom, banco central, haddad, fiscal, arcabouco, pib, inflacao, desemprego, petrobras, vale=, itau, bradesco, nubank, bndes, tesouro, receita federal, imposto, tributar, reforma tributaria, orcamento, cambio, real=, reais=, balanca comercial, superavit, deficit, exportac, importac, secex, divida publica, boletim focus, relatorio focus, pesquisa focus]
   - id: mercados
     title: "Mercados & Finanças"
     description: "Bolsa, juros, câmbio, commodities, bancos, fundos, IPOs, M&A, cripto (Brasil e mundo)."
@@ -67,13 +71,13 @@ sections:
   - id: mundo
     title: "Geopolítica & Mundo"
     description: "Relações internacionais, conflitos, EUA, China, Europa, América Latina."
-    keywords: [trump, casa branca, china, xi jinping, russia, ucrania, putin, ira, israel, gaza, otan, uniao europeia, onu, tarifa, sancao, guerra, eua, argentina, milei, uruguai, venezuela, mexico, japao, india, ormuz]
+    keywords: [trump, casa branca, china, xi jinping, russia, ucrania, putin, ira, israel, gaza, otan, uniao europeia, onu, tarifa, sancao, guerra, eua, argentina, milei, uruguai, venezuela, mexico, japao, india, ormuz, papa=, vaticano, pope=, vatican]
   - id: tecnologia
     title: "Tecnologia & Negócios"
     description: "Tecnologia, inteligência artificial, big techs, startups, negócios e indústria."
-    keywords: [inteligencia artificial, ia, openai, anthropic, google, apple, microsoft, meta, nvidia, amazon, tesla, startup, chip, semicondutor, software, dados, ciberseguranca, tecnologia, app, varejo, industria]
+    keywords: [inteligencia artificial, ia, openai, anthropic, google, apple, microsoft, meta platforms, zuckerberg, facebook, instagram, nvidia, amazon, tesla, startup, chip, semicondutor, software, data center, dados pessoais, ciberseguranca, tecnologia, app, varejo, industria, spacex, starship, starlink, foguete, satelite, nasa, espacial, rocket, satellite]
   - id: imobiliario
-    title: "Imobiliário & Real Estate"
+    title: "Imobiliário"
     description: "Mercado imobiliário, fundos imobiliários (FIIs), construção, incorporação, crédito imobiliário, real estate global."
     keywords: [imobiliari, imovel, imoveis, fii, fiis, fundo imobiliario, ifix, incorporadora, construtora, construcao civil, lancamento, aluguel, locacao, shopping, galpao, lajes corporativas, credito imobiliario, financiamento imobiliario, minha casa minha vida, cri, real estate, property, mortgage, reit, secovi, incc]
 
@@ -83,11 +87,16 @@ edition:
   target_stories: 24           # matérias na edição (o editor pode variar ±4)
   secondary_count: 3           # chamadas ao lado da manchete
   highlights_count: 8          # lista numerada "Destaques"
-  min_articles: 15             # abaixo disso a edição é abortada (não sobrescreve a anterior)
-  min_sources_ok: 4
+  # Mínimos da coleta: abaixo deles a edição é abortada (job vermelho) e a
+  # anterior continua no ar. Um dia normal traz ~1.000 artigos de 64 feeds;
+  # o exemplo tests/fixtures/bundle.json (92 artigos, 59 feeds) também passa.
+  min_articles: 80
+  min_sources_ok: 16
+  min_sources_ratio: 0.5       # fração mínima de feeds ok
+  min_pt_sources_ok: 10        # veículos em português com artigos (evita edição só em inglês)
   enrich_limit: 40             # quantas matérias têm a página original consultada (imagem/descrição)
-  exclude_url_patterns:        # descartados em todas as fontes
-    - "/esporte"
+  exclude_url_patterns:        # descartados em todas as fontes (trecho da URL)
+    - "/esporte/"
     - "/esportes/"
     - "/futebol/"
     - "/pop/"
@@ -95,7 +104,7 @@ edition:
     - "/entretenimento/"
     - "/horoscopo/"
     - "/novelas/"
-    - "/bbb"
+    - "/bbb/"
     - "/receitas/"
     - "/eu-e/"
     - "/sport/"
@@ -105,13 +114,38 @@ edition:
     - "/tv-and-radio/"
     - "/culture/"
     - "/style/"
+    - "/sports/"
+    - "/loterias/"
+    - "resultado-do-concurso"
+    - "/curiosidades/"
+    - "/casual/"
+    - "/patrocinado/"          # publieditorial
+    - "/native/"
+    - "/presented/"
+    - "/buyside/"
+    - "bbc.com/news/videos/"   # vídeos sem texto (os de análise da NeoFeed/g1 ficam)
+    - "bbc.co.uk/news/videos/"
+    - "aljazeera.com/video/"
+  # Títulos de serviço (regex no título sem acento e em minúsculas). "ao vivo"
+  # solto não entra: derrubaria coberturas como "Ibovespa ao vivo".
+  exclude_title_patterns:
+    - 'veja (?:o )?numero e nome'
+    - 'quem sao os candidatos'
+    - 'resultado d[oa] (?:concurso|mega ?sena|lotofacil|quina|lotomania|timemania|dupla ?sena)'
+    - 'confira o resultado'
+    - 'horoscopo'
+    - '(?:como|onde) assistir'
+    - 'gabarito'
+    - 'transmite ao vivo'
 
 llm:
   enabled: true                # usa IA se ANTHROPIC_API_KEY estiver definido
   model: "claude-opus-5-5"
   effort: "medium"
-  max_tokens_select: 16000
-  max_tokens_write: 48000
+  # O raciocínio do modelo conta dentro de max_tokens (saída máxima: 128k); com
+  # folga, a resposta não é cortada, o que descartaria a edição por IA inteira.
+  max_tokens_select: 64000
+  max_tokens_write: 64000
   # Tempo máximo sem receber dados do stream (a API envia "ping" enquanto o
   # modelo trabalha). Com 3 retentativas do SDK, cada chamada leva no pior caso
   # 4 × 300 s = 20 min; as 2 chamadas cabem no timeout-minutes do daily.yml.
@@ -144,5 +178,6 @@ weather:
 email:
   # Destinatários NÃO ficam aqui (o repositório é público): use o segredo
   # EMAIL_TO no GitHub Actions ou a rotina de e-mail do Claude.
-  subject_template: "{brand} — {date_label}"
+  # Campos: {brand}, {date} (29/09/2026), {date_label} e {lead} (manchete, até 70 caracteres).
+  subject_template: "{brand} · {date}: {lead}"
   max_stories: 14

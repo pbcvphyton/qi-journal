@@ -42,6 +42,11 @@ LATEST_KEYS = {
     "subject",
     "email_html",
     "email_text",
+    "email_html_url",
+    "email_text_url",
+    "email_html_raw_url",
+    "email_text_raw_url",
+    "email_html_bytes",
     "email_sent",
     "email_sent_at",
     "email_channel",
@@ -52,11 +57,16 @@ LATEST_KEYS = {
 }
 
 
+# Mínimos pequenos, na escala dos bundles destes testes (20 artigos, 6 feeds, 1
+# veículo). Os valores calibrados de config/site.yaml têm testes próprios.
+TEST_MINIMUMS = {"min_articles": 15, "min_sources_ok": 4, "min_sources_ratio": 0.0, "min_pt_sources_ok": 0}
+
+
 def make_config(**edition_overrides: Any) -> Config:
-    """Configuração real do repositório, sem influência do ambiente do processo."""
+    """Configuração real do repositório (sem influência do ambiente do processo),
+    com os mínimos da coleta de :data:`TEST_MINIMUMS` salvo ``edition_overrides``."""
     config = load_config(env={})
-    if edition_overrides:
-        config.edition = dataclasses.replace(config.edition, **edition_overrides)
+    config.edition = dataclasses.replace(config.edition, **{**TEST_MINIMUMS, **edition_overrides})
     return config
 
 
@@ -175,7 +185,9 @@ class FakeRender:
         self.archives: list[list[dict[str, Any]]] = []
         self.emails: list[str] = []
 
-    def edition_page(self, edition: Edition, config: Config, *, home_href: str, archive_href: str) -> str:
+    def edition_page(
+        self, edition: Edition, config: Config, *, home_href: str, archive_href: str, is_archive: bool = False
+    ) -> str:
         self.pages.append((edition.date, home_href, archive_href))
         headline = edition.story(edition.lead).headline
         return f"<html><h1>{headline}</h1><a href='{home_href}'>capa</a><a href='{archive_href}'>arquivo</a></html>"

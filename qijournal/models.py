@@ -174,6 +174,7 @@ class Story:
     why_it_matters: str | None = None  # "Por que importa" (1 frase), texto puro
     image: str | None = None
     published: str | None = None  # ISO 8601 UTC do artigo principal
+    lang: str = "pt"  # idioma de título/linha fina/corpo ("en" quando a edição automática usa o original)
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
@@ -239,6 +240,9 @@ class Edition:
     quotes: list[Quote]
     weather: list[CityWeather]
     stats: EditionStats = field(default_factory=EditionStats)
+    # Radar: notícias recentes que não viraram matéria
+    # ({"title", "url", "source", "published", "section"}); vazio em edições antigas.
+    wire: list[dict[str, Any]] = field(default_factory=list)
 
     def story(self, story_id: str) -> Story:
         for s in self.stories:
@@ -263,6 +267,7 @@ class Edition:
             "quotes": [q.to_dict() for q in self.quotes],
             "weather": [w.to_dict() for w in self.weather],
             "stats": self.stats.to_dict(),
+            "wire": [dict(item) for item in self.wire],
         }
 
     @classmethod
@@ -283,4 +288,5 @@ class Edition:
             quotes=[Quote.from_dict(q) for q in data.get("quotes", [])],
             weather=[CityWeather.from_dict(w) for w in data.get("weather", [])],
             stats=EditionStats.from_dict(data.get("stats", {})),
+            wire=[dict(item) for item in data.get("wire") or [] if isinstance(item, dict)],
         )

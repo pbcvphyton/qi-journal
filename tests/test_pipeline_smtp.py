@@ -199,7 +199,10 @@ def test_message_is_multipart_alternative_with_all_headers():
     assert parsed["Subject"] == "QI Journal — Terça-feira, 29 de setembro"
     assert parsed["From"].addresses[0].display_name == "QI Journal"
     assert parsed["From"].addresses[0].addr_spec == "robo@gmail.com"
-    assert parsed["To"] == "leitor@example.com, outro@example.com"
+    # vários destinatários: ninguém vê o endereço dos outros (cópia oculta pelo envelope)
+    assert "outro@example.com" not in parsed["To"] and "leitor@example.com" not in parsed["To"]
+    assert parsed["To"].addresses[0].addr_spec == "robo@gmail.com"
+    assert parsed["Bcc"] is None
     assert parsed["Date"]
     assert parsed["Message-ID"].endswith("@gmail.com>")
     parts = [p.get_content_type() for p in parsed.iter_parts()]
@@ -300,3 +303,26 @@ def test_no_recipients_is_an_error(fake_smtp: Registry):
     with pytest.raises(EmailDeliveryError, match="EMAIL_TO"):
         send_email(settings(to=[]), "s", "h", "t")
     assert fake_smtp.servers == []
+
+
+# ── regressões ───────────────────────────────────────────────────────────────
+
+
+def test_non_ascii_password_becomes_delivery_error_without_leaking(fake_smtp: Registry):
+    fake_smtp.login_error = UnicodeEncodeError("ascii", "sénha", 1, 2, "ordinal not in range(128)")
+    with pytest.raises(EmailDeliveryError, match="não ASCII") as info:
+        send_email(settings(password="sénha-secreta"), "s", "h", "t")
+    assert "sénha-secreta" not in str(info.value)
+
+
+def test_gmail_app_password_with_non_breaking_spaces_is_normalized():
+    env = {**BASE_ENV, "SMTP_PASSWORD": "abcd efgh\tijkl mnop"}
+    assert smtp_settings_from_env(env, []).password == "abcdefghijklmnop"
+
+
+def test_single_recipient_stays_in_the_to_header_and_everyone_gets_the_envelope(fake_smtp: Registry):
+    msg = build_message(settings(to=["leitor@example.com"]), "s", "<p>h</p>", "t")
+    assert msg["To"] == "leitor@example.com"
+    send_email(settings(), "s", "h", "t")
+    _, _, to_addrs = fake_smtp.server.sent[0]
+    assert to_addrs == ["leitor@example.com", "outro@example.com"]

@@ -276,3 +276,53 @@ def test_empty_entries_and_naive_now() -> None:
             "format": "usd", "decimals": 0}
     [quote] = collect_market([spec], fetch=FakeFetch(), now=NOW.replace(tzinfo=None))
     assert quote.as_of == NOW.isoformat()
+
+
+# ── variação alinhada ao preço exibido ───────────────────────────────────────
+
+
+def _yahoo_payload(closes: list, timestamps: list[int], price: float | None, **meta) -> dict:
+    return {
+        "chart": {
+            "result": [
+                {
+                    "meta": {"regularMarketPrice": price, "exchangeTimezoneName": "America/Sao_Paulo", **meta},
+                    "timestamp": timestamps,
+                    "indicators": {"quote": [{"close": closes}]},
+                }
+            ],
+            "error": None,
+        }
+    }
+
+
+DAY = 86_400
+T0 = 1_790_049_600  # 2026-09-22 03:00 UTC (meia-noite em São Paulo)
+
+
+def _yahoo_change(payload: dict) -> float | None:
+    from qijournal.collect.market import _from_yahoo
+
+    class Fetch:
+        def __call__(self, url, **kwargs):
+            return net.Response(url=url, status=200, content=json.dumps(payload).encode(), headers={})
+
+    return _from_yahoo({"symbol": "USDBRL=X"}, Fetch(), NOW)[1]
+
+
+def test_yahoo_change_ignores_todays_null_candle():
+    # candle de hoje sem fechamento: variação = preço de agora × último fechamento (5,22), não a de ontem
+    payload = _yahoo_payload([5.10, 5.14, 5.22, None], [T0, T0 + DAY, T0 + 2 * DAY, T0 + 3 * DAY], 5.30)
+    assert _yahoo_change(payload) == pytest.approx((5.30 / 5.22 - 1) * 100)
+    assert round(_yahoo_change(payload), 2) == 1.53
+
+
+def test_yahoo_change_with_duplicated_last_row():
+    # a última linha repetida (mesmo dia) não vira variação 0%
+    payload = _yahoo_payload([5.10, 5.14, 5.22, 5.22], [T0, T0 + DAY, T0 + 2 * DAY, T0 + 2 * DAY + 600], 5.22)
+    assert _yahoo_change(payload) == pytest.approx((5.22 / 5.14 - 1) * 100)
+
+
+def test_yahoo_change_without_timestamps_keeps_the_old_rule():
+    payload = _yahoo_payload([5.10, 5.14, 5.22], [], 5.22)
+    assert _yahoo_change(payload) == pytest.approx((5.22 / 5.14 - 1) * 100)

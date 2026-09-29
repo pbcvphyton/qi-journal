@@ -55,7 +55,9 @@ def recorder(monkeypatch: pytest.MonkeyPatch) -> RunRecorder:
 
 def test_run_defaults(recorder: RunRecorder, config):
     assert main(["run"], config) == 0
-    assert recorder.kwargs == dict(out_dir=Path("."), now=None, bundle_path=None, use_llm=True, send_email=True)
+    assert recorder.kwargs == dict(
+        out_dir=Path("."), now=None, bundle_path=None, use_llm=True, send_email=True, force_email=False
+    )
 
 
 def test_run_with_all_options(recorder: RunRecorder, config, tmp_path: Path):
@@ -67,6 +69,7 @@ def test_run_with_all_options(recorder: RunRecorder, config, tmp_path: Path):
         "b.json",
         "--no-llm",
         "--no-email",
+        "--force-email",
         "--now",
         "2026-09-29T05:07:00-03:00",
         "-v",
@@ -78,6 +81,7 @@ def test_run_with_all_options(recorder: RunRecorder, config, tmp_path: Path):
         bundle_path=Path("b.json"),
         use_llm=False,
         send_email=False,
+        force_email=True,
     )
 
 
@@ -318,3 +322,15 @@ def test_setup_logging_levels():
         assert logging.getLogger("httpx").level == logging.WARNING
     finally:
         root.setLevel(previous)
+
+
+def test_send_email_twice_needs_force(monkeypatch: pytest.MonkeyPatch, config, published: Path, caplog):
+    for key, value in SMTP_ENV.items():
+        monkeypatch.setenv(key, value)
+    sent = []
+    monkeypatch.setattr(pipeline, "deliver_email", lambda settings, subject, html, text: sent.append(subject))
+    assert main(["send-email", "--dir", str(published)], config) == 0
+    assert main(["send-email", "--dir", str(published)], config) == 0  # não reenvia, sem erro
+    assert len(sent) == 1 and "já enviado" in caplog.text
+    assert main(["send-email", "--dir", str(published), "--force-email"], config) == 0
+    assert len(sent) == 2

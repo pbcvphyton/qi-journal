@@ -78,15 +78,24 @@ def test_lead_is_portuguese_with_image_and_top_importance(edition):
     assert lead.headline == "Copom mantém Selic em 15% ao ano pela quinta reunião seguida"
     assert lead.image == "https://img.example.com/copom.jpg"
     assert lead.importance == 5
-    assert [s.name for s in lead.sources] == ["Valor Econômico", "Folha de S.Paulo", "Estadão", "g1"]
+    # mesmo peso: a versão mais recente vem antes (Estadão 2,2 h × Folha 2,5 h)
+    assert [s.name for s in lead.sources] == ["Valor Econômico", "Estadão", "Folha de S.Paulo", "g1"]
     assert sorted(lead.article_ids) == sorted(["copom-valor", "copom-folha", "copom-g1", "copom-estadao"])
     assert lead.section == "brasil"
     assert lead.published == "2026-09-29T05:07:00+00:00"
 
 
-def test_briefing_is_first_five_featured_headlines(edition):
-    featured = [edition.lead, *edition.secondary, *edition.highlights][:5]
-    assert edition.briefing == [edition.story(sid).headline for sid in featured]
+def test_briefing_brings_what_the_top_of_the_page_does_not_show(edition):
+    """"Em 1 minuto" automático: a melhor matéria de cada seção fora da manchete, das
+    chamadas e dos destaques (antes só repetia esses títulos)."""
+    shown = {edition.lead, *edition.secondary, *edition.highlights}
+    expected = []
+    for section in edition.sections:
+        rest = [sid for sid in section.story_ids if sid not in shown]
+        if rest:
+            expected.append(edition.story(rest[0]).headline)
+    assert edition.briefing == expected[:5]
+    assert not {edition.story(sid).headline for sid in shown} & set(edition.briefing)
 
 
 def test_malicious_title_is_cleaned(edition):
@@ -263,3 +272,148 @@ def test_shared_bundle_fixture(config):
     assert_edition_invariants(edition, config)
     assert len(edition.stories) == min(config.edition.target_stories, len(edition.stories))
     assert len(edition.stories) >= 10
+
+
+# ── regressões da edição real de 29/09/2026 ─────────────────────────────────
+
+VALOR_STUB = (
+    "Com caixa elevado graças ao boom da IA, a Nvidia lança o maior programa de recompra já anunciado nos EUA. "
+    "Matéria exclusiva para assinantes. Para ter acesso completo, acesse o link da matéria e faça o seu cadastro."
+)
+FOLHA_GIFT = (
+    "Você tem 7 acessos por dia para dar de presente. Qualquer pessoa que não é assinante poderá ler. "
+    "Assinantes podem liberar 7 acessos por dia para conteúdos da Folha."
+)
+
+
+def test_paywall_stub_primary_borrows_the_text_of_the_group():
+    """Principal do Valor com resumo de paywall: a matéria usa o texto mais longo do
+    grupo (mesmo idioma primeiro) e nenhuma frase de paywall/presente sobra."""
+    valor = make_article("nv-valor", "Nvidia aprova limite adicional de US$ 150 bilhões em recompra de ações",
+                         VALOR_STUB, source_id="valor", weight=1.3)
+    folha_text = (
+        "A Nvidia anunciou nesta segunda-feira um programa de recompra de US$ 150 bilhões, o maior da história, "
+        "superando a Apple. A empresa tem caixa elevado graças à demanda por chips de inteligência artificial. "
+        "Analistas avaliam que a medida sinaliza confiança na continuidade do ciclo de investimentos."
+    )
+    folha = make_article("nv-folha", "Nvidia supera Apple com recompra recorde de US$ 150 bilhões", "Resumo curto.",
+                         source_id="folha")
+    ft = make_article("nv-ft", "Nvidia launches record $150bn share buyback", "x " * 200, source_id="ft", lang="en")
+    page_info = {"nv-folha": SimpleNamespace(image=None, description=FOLHA_GIFT, text=f"{FOLHA_GIFT}\n{folha_text}")}
+    story = story_from_articles([valor, folha, ft], section="tecnologia", importance=5, page_info=page_info, taken=set())
+    text_all = " ".join([story.dek, *story.body])
+    assert "assinantes" not in text_all and "cadastro" not in text_all and "presente" not in text_all
+    assert story.dek.startswith("A Nvidia anunciou nesta segunda-feira")
+    assert story.lang == "pt" and story.headline.startswith("Nvidia aprova")
+
+
+def test_paywall_sentence_never_becomes_the_dek():
+    dek, body = dek_and_body("Título", f"{FOLHA_GIFT} O Ibovespa fechou em queda de 0,26%, aos 182.991 pontos.")
+    assert dek == "O Ibovespa fechou em queda de 0,26%, aos 182.991 pontos."
+    assert not any("presente" in p for p in body)
+
+
+def test_abbreviations_do_not_cut_the_dek():
+    summary = (
+        "Five British men who were detained near R.A.F. Fairford, a base used by American forces in the war "
+        "against Iran, were being released on bail but remained under investigation."
+    )
+    dek, _ = dek_and_body("UK releases suspects", summary)
+    assert dek == summary  # frase inteira (abaixo de DEK_MAX), não "…detained near R.A.F."
+    dek, _ = dek_and_body("Conselho", "O conselho entende que a atuação do Sr. Fulano foi regular. Outra frase aqui.")
+    assert dek.startswith("O conselho entende que a atuação do Sr. Fulano foi regular.")
+
+
+def test_intertitles_are_not_glued_to_the_next_paragraph():
+    _, body = dek_and_body(
+        "Dívida pública",
+        "A dívida pública federal subiu 0,04% em agosto e chegou a R$ 9,29 trilhões.\nDívida interna\n"
+        "A maior parte da dívida está concentrada no mercado doméstico, segundo o Tesouro.",
+    )
+    assert not any("Dívida interna A maior" in p for p in body)
+
+
+def test_feed_thumbnails_lose_to_the_page_og_image():
+    thumb = make_article("t", "Título da matéria do JOTA sobre o STF", "Resumo.", source_id="jota",
+                         image="https://www.jota.info/wp-content/uploads/2026/09/foto-300x200.jpg")
+    other = make_article("o", "Outra fonte", "Resumo.", source_id="g1", image="https://s2.glbimg.com/foto.jpg?fit=300%2C200")
+    page_info = {"t": SimpleNamespace(image="https://www.jota.info/wp-content/uploads/2026/09/foto.jpg", description=None, text=None)}
+    from qijournal.edit.heuristic import image_for
+
+    assert image_for([thumb, other], page_info) == "https://www.jota.info/wp-content/uploads/2026/09/foto.jpg"
+    # sem og:image, a miniatura ainda é melhor que nada
+    assert image_for([thumb], {}) == thumb.image
+    # foto grande do feed do principal continua em primeiro lugar
+    big = make_article("b", "Título", source_id="valor", image="https://s2.glbimg.com/foto-grande.jpg")
+    assert image_for([big], page_info) == big.image
+
+
+def test_credits_prefer_the_on_topic_article_of_each_outlet():
+    from qijournal.edit.heuristic import sources_for
+
+    group = [
+        make_article("p", "Nvidia aprova recompra de US$ 150 bilhões", source_id="valor"),
+        make_article("cnbc", "Nvidia share buyback plan gets $150 billion boost", source_id="cnbc", lang="en"),
+        make_article("ft-pope", "Pope Leo criticises Nvidia’s Jensen Huang over AI safety", source_id="ft", lang="en"),
+        make_article("ft-buyback", "Nvidia launches record $150bn share buyback", source_id="ft", lang="en"),
+        make_article("wsj", "Opinion | Pope Leo’s French Resistance", source_id="wsj", lang="en"),
+    ]
+    refs = {r.name: r.url for r in sources_for(group)}
+    assert refs["Financial Times"].endswith("/ft-buyback")
+    assert "The Wall Street Journal" not in refs
+    assert list(refs)[0] == "Valor Econômico"
+
+
+def test_english_only_duplicate_of_a_chosen_portuguese_fact_is_left_out(config):
+    pt = Cluster(
+        articles=[make_article("pt", "Reino Unido investiga plano contra base aérea de Fairford usada pela RAF",
+                               "Suspeitos detidos perto da base de Fairford.", source_id="valor")],
+        score=5.0,
+        section="mundo",
+    )
+    en = Cluster(
+        articles=[make_article("en", "Possible Terrorist Plot at RAF Fairford Air Base", "Five men detained near RAF Fairford.",
+                               source_id="nyt", lang="en")],
+        score=6.0,
+        section="mundo",
+    )
+    fillers = [
+        Cluster(articles=[make_article(f"f{i}", f"Fato {i}", source_id="g1")], score=1.0 + i / 10, section="brasil")
+        for i in range(5)
+    ]
+    chosen = select_clusters([en, pt, *fillers], config)
+    assert pt in chosen and en not in chosen
+
+
+def test_lead_skips_service_titles_and_stories_without_text(config):
+    from qijournal.edit.heuristic import _choose_lead
+    from qijournal.models import Story
+
+    def story(sid, headline, body_chars, image=True):
+        return Story(id=sid, section="brasil", headline=headline, dek="", body=["x" * body_chars], sources=[],
+                     article_ids=[sid], image="https://img/x.jpg" if image else None)
+
+    stories = [
+        story("lista", "Candidatos a deputado no MS: veja número e nome na lista", 900),
+        story("stub", "Nota curta", 80),
+        story("focus", "Mercado eleva projeção do IPCA para 4,99%, aponta Focus", 600),
+    ]
+    clusters = [Cluster(articles=[make_article(s.id, s.headline)], score=10 - i, section="brasil")
+                for i, s in enumerate(stories)]
+    assert _choose_lead(stories, clusters).id == "focus"
+
+
+def test_wire_lists_recent_relevant_news_that_are_not_stories(config):
+    from qijournal.edit.heuristic import wire_items
+
+    clusters = [
+        Cluster(articles=[make_article("used", "Copom mantém Selic", hours_ago=1)], score=9, section="brasil"),
+        Cluster(articles=[make_article("w1", "Juros futuros sobem", hours_ago=2)], score=5, section="mercados"),
+        Cluster(articles=[make_article("w2", "CNJ cancela precatórios", hours_ago=1)], score=4, section="juridico"),
+        Cluster(articles=[make_article("en", "Gold edges higher", lang="en", hours_ago=1)], score=8, section="mercados"),
+        Cluster(articles=[make_article("pol", "Lula fala em comício", hours_ago=1)], score=8, section="politica"),
+        Cluster(articles=[make_article("srv", "Mega-Sena: confira o resultado", hours_ago=1)], score=8, section="brasil"),
+    ]
+    items = wire_items(clusters, {"used"})
+    assert [i["title"] for i in items] == ["CNJ cancela precatórios", "Juros futuros sobem"]  # mais recente primeiro
+    assert items[0]["url"].endswith("/w2") and items[0]["source"] == "Valor Econômico"

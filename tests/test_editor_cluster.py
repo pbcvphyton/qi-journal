@@ -11,6 +11,8 @@ from qijournal.edit.cluster import (
     Cluster,
     classify,
     cluster_articles,
+    editorial_score,
+    is_service_title,
     order_primary_first,
     parse_iso,
     rank_clusters,
@@ -315,3 +317,141 @@ def test_related_but_distinct_facts_stay_apart():
     assert group_of("banestes") is not group_of("governo edita decreto")
     assert group_of("nvidia adds") is not group_of("nvidia releases software")  # recompra x software
     assert group_of("mortgage rates") is not group_of("treasury yields climb")
+
+
+# ── regressões da edição real de 29/09/2026 ─────────────────────────────────
+
+
+def test_service_series_from_one_outlet_does_not_beat_a_multi_source_economic_fact():
+    """Oito listas "veja número e nome" do mesmo veículo (e o "quinto dia útil") não
+    passam de um fato econômico com três fontes: bônus de repetição limitado +
+    penalidade de serviço."""
+    lists = [
+        make_article(f"lista-{uf}", f"Candidatos a deputado estadual em {uf}: veja número e nome na lista de 2026",
+                     "Veja a lista completa.", source_id="g1", weight=1.0)
+        for uf in ("MS", "ES", "DF", "SP", "RJ", "MG", "BA", "PR")
+    ]
+    fact = [
+        make_article(f"divida-{s}", "Dívida pública federal atinge R$ 9,29 trilhões em agosto",
+                     "O Tesouro informou nesta segunda-feira.", source_id=s, weight=1.0)
+        for s in ("valor", "folha", "estadao")
+    ]
+    service_score = score_cluster(lists, now=NOW, max_age_hours=30)
+    fact_score = score_cluster(fact, now=NOW, max_age_hours=30)
+    assert fact_score > service_score
+    # sem a penalidade, a série ainda vale só 1 + 0,3 (um extra por fonte), não 1 + 7 × 0,3
+    plain = [make_article(f"x{i}", f"Relatório trimestral {i} da empresa Alfa {i}", source_id="g1") for i in range(8)]
+    assert score_cluster(plain[:2], now=NOW, max_age_hours=30) == score_cluster(plain, now=NOW, max_age_hours=30)
+    assert is_service_title("Quando é o quinto dia útil de outubro de 2026? Veja data para pagamentos dos salários")
+    assert is_service_title("Opinion | Pope Leo's French Resistance")
+    assert not is_service_title("Copom mantém a Selic em 15%")
+
+
+def test_generic_service_words_do_not_glue_facts():
+    elections = make_article("eleicao", "Eleições 2026: veja quando é o dia da votação e o que levar",
+                             "O primeiro turno será no domingo.", source_id="g1")
+    payday = make_article("salario", "Quando é o quinto dia útil de outubro de 2026? Veja data para pagamentos",
+                          "O quinto dia útil cai na terça-feira.", source_id="g1")
+    assert len(cluster_articles([elections, payday])) == 2
+
+
+def test_member_similar_to_a_member_but_not_to_the_primary_stays_out():
+    """Anti-encadeamento: A~B e B~C não juntam C ao fato de A."""
+    a = make_article("a", "Papa diz que extrema direita não é expressão autêntica do cristianismo",
+                     "O papa Leão 14 afirmou nesta segunda-feira que a extrema direita...", source_id="folha")
+    b = make_article("b", "Papa Leão XIV diz que extrema direita não é expressão autêntica do cristianismo",
+                     "O papa Leão XIV afirmou que a associação entre extrema direita e religião...", source_id="estadao")
+    c = make_article("c", "Papa Leão XIV diz que temores de que IA possa destruir o mundo não são fake news",
+                     "O papa Leão XIV afirmou que os temores sobre a inteligência artificial...", source_id="g1")
+    groups = _groups_by_id(cluster_articles([a, b, c]))
+    assert sorted(sorted(g) for g in groups) == [["a", "b"], ["c"]]
+
+
+def test_same_protagonist_is_not_the_same_fact_across_languages():
+    pt = make_article("pt", "Jensen Huang coloca US$ 150 bilhões na mesa: por que as ações da Nvidia ficaram irresistíveis",
+                      "A Nvidia anunciou recompra.", source_id="seudinheiro")
+    en = make_article("en", "Pope Leo criticises Nvidia’s Jensen Huang over AI safety",
+                      "The pope said...", source_id="ft", lang="en")
+    assert len(cluster_articles([pt, en])) == 2
+
+
+def _unique_title(seed: str) -> str:
+    import hashlib
+
+    digest = hashlib.sha1(seed.encode()).hexdigest()
+    return " ".join("".join("bcdfghjklmnpqrstv"[int(c, 16)] for c in digest[i : i + 7]) for i in range(0, 28, 7))
+
+
+def test_cross_language_second_pass_joins_the_same_fact():
+    from qijournal.edit.cluster import _merge_cross_language
+
+    lead_pt = "A polícia britânica investiga plano terrorista contra a base de Fairford, usada pela RAF."
+    ordered = [
+        make_article("pt0", "Reino Unido investiga ação de Estado estrangeiro em plano terrorista contra base aérea",
+                     lead_pt, source_id="valor"),
+        make_article("pt1", "Suspeitos de plano terrorista em base usada pelos EUA são soltos sob fiança",
+                     lead_pt, source_id="estadao"),
+        make_article("en0", "Possible Terrorist Plot at RAF Fairford Air Base in U.K.: What We Know",
+                     "Five men detained near RAF Fairford were released on bail.", source_id="nyt", lang="en"),
+        make_article("en1", "Five UK nationals arrested near RAF Fairford base released on bail",
+                     "A terrorist plot against the base is under investigation.", source_id="guardian", lang="en"),
+        make_article("x0", "Jensen Huang coloca US$ 150 bilhões na mesa da Nvidia", "A Nvidia de Jensen Huang...",
+                     source_id="seudinheiro"),
+        make_article("x1", "Pope Leo criticises Nvidia’s Jensen Huang over AI safety", "Pope Leo said Jensen Huang...",
+                     source_id="ft", lang="en"),
+    ] + [make_article(f"o{i}", _unique_title(f"o{i}"), _unique_title(f"s{i}")) for i in range(12)]
+    groups = [[0, 1], [2, 3], [4], [5]] + [[6 + i] for i in range(12)]
+    merged = [sorted(ordered[i].id for i in g) for g in _merge_cross_language(groups, ordered)]
+    assert ["en0", "en1", "pt0", "pt1"] in merged  # "Fairford"/"RAF" + palavras em comum
+    assert ["x0"] in merged and ["x1"] in merged  # só o protagonista em comum não basta
+    assert len(merged) == 15
+
+
+def test_primary_prefers_the_newest_sufficient_summary():
+    older = make_article("tarde", "Dólar hoje tem alta firme", "x" * 1500, source_id="valor", hours_ago=10)
+    newer = make_article("fechamento", "Dólar sobe a R$ 5,22", "y" * 1499, source_id="valor", hours_ago=1)
+    assert [a.id for a in order_primary_first([older, newer])] == ["fechamento", "tarde"]
+    short = make_article("curto", "Dólar sobe", "z" * 100, source_id="valor", hours_ago=0.5)
+    assert order_primary_first([short, older])[0].id == "tarde"  # resumo suficiente antes de mais recente
+
+
+def test_topic_hints_weigh_by_share_of_the_cluster(config):
+    """A dica do feed pesa pela fração de artigos que a trazem: Starship (feeds de
+    mercado e de tecnologia misturados) vai para Tecnologia, o Papa para Mundo."""
+    sections = config.sections
+    starship = "Starship, da SpaceX, realiza 1º voo orbital, lança satélites e tem missão encerrada antes do previsto"
+    weights = {"mercados": 2 / 6, "brasil": 1 / 6, "tecnologia": 1 / 6, "mundo": 2 / 6}
+    assert classify(starship, ["brasil", "mercados", "tecnologia", "mundo"], sections, weights) == "tecnologia"
+    pope = "Papa diz que extrema direita não é expressão autêntica do cristianismo"
+    weights = {"mundo": 0.5, "tecnologia": 0.25, "brasil": 0.25}
+    assert classify(pope, ["mundo", "tecnologia", "brasil"], sections, weights) == "mundo"
+    # um único artigo: comportamento de antes (bônus cheio)
+    assert classify("Nota sem palavras-chave", ["imobiliario"], sections) == "imobiliario"
+
+
+def test_exact_keywords_do_not_match_longer_words(config):
+    brasil = next(s for s in config.sections if s.id == "brasil")
+    assert "real=" in brasil.keywords
+    assert _hits(brasil.keywords, "empresa realiza evento") == 0
+    assert _hits(brasil.keywords, "o real se valoriza") == 1
+    tech = next(s for s in config.sections if s.id == "tecnologia")
+    assert _hits(tech.keywords, "meta de inflacao e meta fiscal") == 0
+
+
+def test_editorial_score_favours_brazilian_economy_over_english_global_volume(config):
+    """Um fato global de tecnologia coberto em inglês não vence um fato brasileiro
+    de mercado/jurídico com score bruto um pouco menor."""
+    global_tech = Cluster(
+        articles=[make_article(f"n{i}", "Nvidia buyback", lang="en" if i < 7 else "pt") for i in range(11)],
+        score=10.0,
+        section="tecnologia",
+    )
+    stf = Cluster(articles=[make_article(f"s{i}", "STF decide", source_id="jota") for i in range(8)], score=9.0,
+                  section="juridico")
+    assert editorial_score(stf) > editorial_score(global_tech)
+
+
+def _hits(keywords, normalized_text):
+    from qijournal.edit.cluster import _keyword_hits
+
+    return _keyword_hits(keywords, normalized_text)

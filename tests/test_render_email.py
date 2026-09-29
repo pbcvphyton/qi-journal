@@ -7,6 +7,7 @@ import re
 
 import pytest
 
+from qijournal import text
 from qijournal.render.email import render_email, story_url
 from tests.fixtures.render.helpers import LEAD_ID, MALICIOUS_ID, load_edition, parse, pbcv_config, qi_config
 
@@ -37,9 +38,26 @@ def linked_story_ids(html: str) -> list[str]:
 # ── assunto ──────────────────────────────────────────────────────────────────
 
 
-def test_default_subject(rendered):
+def expected_subject(edition, brand: str = "QI Journal") -> str:
+    lead = text.truncate(edition.story(edition.lead).headline, 70)
+    return f"{brand} · 29/09/2026: {lead}"
+
+
+def test_default_subject(rendered, edition):
+    """O assunto traz o gancho do dia (a manchete, até 70 caracteres)."""
     subject, _, _ = rendered
-    assert subject == "QI Journal — Terça-feira, 29 de setembro de 2026"
+    assert subject == expected_subject(edition)
+    assert subject.startswith("QI Journal · 29/09/2026: Arrecadação federal bate recorde")
+    assert len(subject) <= len("QI Journal · 29/09/2026: ") + 71
+
+
+def test_subject_without_lead_and_with_line_breaks(edition):
+    cfg = qi_config()
+    ed = copy.deepcopy(edition)
+    ed.story(ed.lead).headline = "Linha um\nlinha dois"
+    assert render_email(ed, cfg)[0] == "QI Journal · 29/09/2026: Linha um linha dois"
+    ed.lead = "nao-existe"
+    assert render_email(ed, cfg)[0] == "QI Journal · 29/09/2026: Terça-feira, 29 de setembro de 2026"
 
 
 def test_custom_subject_template_with_short_date(edition):
@@ -52,7 +70,7 @@ def test_custom_subject_template_with_short_date(edition):
 def test_invalid_subject_template_falls_back(edition, template):
     cfg = qi_config()
     cfg.email.subject_template = template
-    assert render_email(edition, cfg)[0] == "QI Journal — Terça-feira, 29 de setembro de 2026"
+    assert render_email(edition, cfg)[0] == expected_subject(edition)
 
 
 def test_subject_has_no_line_breaks(edition):
@@ -101,7 +119,8 @@ def test_header_ticker_weather_editorial_and_briefing(rendered):
         in html
     )
     assert '<span style="color:#FF2F80;">-0,27%</span>' in html
-    assert "São Paulo</b> 19°C ↓19° ↑33° | Amanhã" in html
+    # cidade e "Amanhã" em grupos separados: no celular (360 px) a linha quebra em vez de estourar
+    assert 'São Paulo</b> 19°C ↓19° ↑33°</span> <span style="white-space:nowrap">| Amanhã' in html
     assert "<strong>prêmio eleitoral</strong>" in html
     assert "Em 1 minuto" in html and "<strong>R$ 212,4 bi</strong>" in html
 
@@ -111,9 +130,7 @@ def test_lead_with_image_and_link(rendered, edition):
     lead = edition.story(LEAD_ID)
     lead_url = f"{PAGE}#s-{LEAD_ID}"
     assert f'<img src="{lead.image}" width="600" alt="{lead.headline}"' in html
-    assert (
-        f'<a href="{lead_url}" class="lnk" style="color:#1C49A5;text-decoration:none;">Ler na edição &rarr;</a>' in html
-    )
+    assert f'<a href="{lead_url}" class="lnk" style="color:#1C49A5">Ler na edição &rarr;</a>' in html
     assert linked_story_ids(html)[0] == LEAD_ID
 
 
@@ -157,7 +174,7 @@ def test_malicious_story_is_escaped_in_email(edition):
     assert "<script>alert" not in html and "<img src=x" not in html
     assert "Teste &lt;script&gt;alert(1)&lt;/script&gt; &amp; &#34;aspas&#34; no título" in html
     assert "javascript:" not in html.lower() and "javascript:" not in text.lower()
-    assert '<a href="https://example.com/materia?a=1&amp;b=2"' in html
+    assert "https://example.com/materia?a=1&b=2" not in html  # só aparece escapado (&amp;)
     assert "Fonte &lt;i&gt;Maliciosa&lt;/i&gt;" in html
     assert len(html.encode("utf-8")) < 90 * 1024
 
@@ -177,7 +194,7 @@ def test_optional_blocks_are_omitted(edition, config):
 
 def test_pbcv_brand_email_uses_text_wordmark(edition):
     subject, html, _ = render_email(edition, pbcv_config())
-    assert subject.startswith("PBCV Advogados — ")
+    assert subject.startswith("PBCV Advogados · 29/09/2026: ")
     assert "<svg" not in html.lower()
     assert '<span style="color:#A3B4E0;">PBCV</span>' in html
     assert "background:#1B2745;" in html
@@ -214,3 +231,59 @@ def test_text_lines_are_wrapped(rendered):
 def test_story_url_encodes_unexpected_characters():
     assert story_url(BASE, "copom-mantem-selic") == f"{BASE}#s-copom-mantem-selic"
     assert story_url(BASE, 'a b"<c') == f"{BASE}#s-a%20b%22%3Cc"
+
+
+# ── regressões da edição real de 29/09/2026 ─────────────────────────────────
+
+
+def test_every_section_gets_at_least_one_story_in_the_email(edition):
+    """Antes, Imobiliário e Tecnologia (além da manchete) ficavam de fora do e-mail."""
+    cfg = qi_config()
+    cfg.email.max_stories = 8
+    _, html, _ = render_email(edition, cfg)
+    ids = linked_story_ids(html)[1:]
+    section_of = {s.id: s.section for s in edition.stories}
+    with_stories = {sec.id for sec in edition.sections if any(sid != LEAD_ID for sid in sec.story_ids)}
+    assert {section_of[i] for i in ids} == with_stories
+    assert len(ids) == 8
+
+
+def test_email_is_slim_and_shows_at_most_three_sources(edition):
+    from qijournal.models import SourceRef
+
+    cfg = qi_config()
+    inflated = copy.deepcopy(edition)
+    for story in inflated.stories:
+        story.sources = [SourceRef(name=f"Veículo {i}", url=f"https://v{i}.example.com/{story.id}") for i in range(10)]
+    _, html, _ = render_email(inflated, cfg)
+    assert len(html.encode("utf-8")) <= 40 * 1024
+    assert "Veículo 3" not in html and "· +7" in html
+    # só a primeira fonte de cada matéria leva link
+    assert html.count('href="https://v0.example.com/') >= 1 and 'href="https://v1.example.com/' not in html
+    assert "\n  <" not in html  # sem indentação do template
+
+
+def test_email_budget_drops_stories_until_it_fits(edition, monkeypatch):
+    from qijournal.render import email as email_module
+
+    cfg = qi_config()
+    monkeypatch.setattr(email_module, "MAX_EMAIL_BYTES", 20 * 1024)
+    _, html, text = render_email(edition, cfg)
+    assert len(html.encode("utf-8")) <= 20 * 1024
+    shown = linked_story_ids(html)
+    assert shown[0] == LEAD_ID and 1 <= len(shown) - 1 < cfg.email.max_stories
+    assert text.count("#s-") == len(shown)  # texto puro com as mesmas matérias
+
+
+def test_heuristic_email_skips_the_one_minute_block(edition, config):
+    ed = copy.deepcopy(edition)
+    ed.mode, ed.model = "heuristic", None
+    _, html, _ = render_email(ed, config)
+    assert "Em 1 minuto" not in html
+
+
+def test_english_story_is_marked_in_the_email(edition, config):
+    ed = copy.deepcopy(edition)
+    ed.story(LEAD_ID).lang = "en"
+    _, html, _ = render_email(ed, config)
+    assert re.search(r'<h1 class="hl"[^>]*lang="en"', html)

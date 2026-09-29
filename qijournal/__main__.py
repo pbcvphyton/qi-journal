@@ -145,6 +145,7 @@ def _cmd_run(args: argparse.Namespace, config: Config) -> int:
         bundle_path=Path(args.bundle) if args.bundle else None,
         use_llm=not args.no_llm,
         send_email=not args.no_email,
+        force_email=getattr(args, "force_email", False),
     )
     log.info("Capa: %s", result.outputs["index"])
     return EXIT_OK
@@ -169,7 +170,10 @@ def _cmd_send_email(args: argparse.Namespace, config: Config) -> int:
         log.error("SMTP não configurado: defina SMTP_USER, SMTP_PASSWORD e EMAIL_TO")
         return EXIT_ERROR
     try:
-        pipeline.send_published_email(settings, out_dir=Path(args.dir))
+        pipeline.send_published_email(settings, out_dir=Path(args.dir), force=args.force_email)
+    except pipeline.EmailAlreadySent as exc:
+        log.warning("%s", exc)
+        return EXIT_OK
     except FileNotFoundError as exc:
         log.error("Edição não encontrada (%s); gere-a antes com `python -m qijournal run`", exc.filename or exc)
         return EXIT_ERROR
@@ -215,6 +219,9 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--bundle", metavar="FILE", help="usa uma coleta salva em vez de acessar a rede")
     run.add_argument("--no-llm", action="store_true", help="edição automática, sem IA")
     run.add_argument("--no-email", action="store_true", help="não envia o e-mail por SMTP")
+    run.add_argument(
+        "--force-email", action="store_true", help="reenvia o e-mail mesmo que o do dia já tenha saído"
+    )
     run.add_argument("--now", type=_iso_datetime, metavar="ISO", help="data/hora de referência (sem fuso = UTC)")
     run.set_defaults(handler=_cmd_run)
 
@@ -231,6 +238,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     send = commands.add_parser("send-email", parents=[common], help="envia por SMTP o e-mail da última edição")
     send.add_argument("--dir", default=".", metavar="DIR", help="pasta publicada (padrão: .)")
+    send.add_argument(
+        "--force-email", action="store_true", help="reenvia mesmo que latest.json registre o envio"
+    )
     send.set_defaults(handler=_cmd_send_email)
 
     check = commands.add_parser("check-sources", parents=[common], help="testa cada feed de config/sources.yaml")

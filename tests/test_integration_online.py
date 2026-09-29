@@ -20,7 +20,7 @@ import pytest
 from qijournal import net, pipeline
 from qijournal.collect.market import BCB_SGS_URL, COINGECKO_URL, YAHOO_URL
 from qijournal.collect.weather import forecast_url
-from qijournal.config import load_config
+from tests.fixtures.pipeline.factory import make_config
 
 COLETA = Path(__file__).parent / "fixtures" / "coleta"
 NOW = datetime(2026, 9, 29, 8, 7, tzinfo=timezone.utc)
@@ -90,7 +90,8 @@ class Internet:
 def config(monkeypatch: pytest.MonkeyPatch):
     for key in ("ANTHROPIC_API_KEY", "SMTP_USER", "SMTP_PASSWORD", "EMAIL_TO", "GITHUB_ACTIONS", "QIJ_NO_LLM"):
         monkeypatch.delenv(key, raising=False)
-    return load_config(env={})
+    # A "internet" de teste tem 14 feeds com conteúdo (de 64): mínimos na escala dela.
+    return make_config()
 
 
 def test_partial_network_failures_still_publish_a_complete_edition(tmp_path: Path, config):

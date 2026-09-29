@@ -74,18 +74,18 @@
 <section class="hero{% if not v.secondary %} solo{% endif %}" aria-label="Manchete">
   <article class="hero-l" style="--sc:{{ s.color }}">
     <p class="cat">{{ s.section_title }}</p>
-    <h2><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h2>
+    <h2{{ m.lang(s) }}><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h2>
     {% if s.dek %}
-    <p class="dek">{{ s.dek }}</p>
+    <p class="dek"{{ m.lang(s) }}>{{ s.dek }}</p>
     {% endif %}
     {% if s.image %}
     {{ m.figure(s, "hi") }}
     {% endif %}
     {% if v.lead_excerpt %}
-    <p class="sub">{{ v.lead_excerpt|md_lite }}</p>
+    <p class="sub"{{ m.lang(s) }}>{{ v.lead_excerpt|md_lite }}</p>
     {% endif %}
     {% for paragraph in v.lead_more %}
-    <p class="sub more">{{ paragraph|md_lite }}</p>
+    <p class="sub more"{{ m.lang(s) }}>{{ paragraph|md_lite }}</p>
     {% endfor %}
     {{ m.meta(s) }}
     <p class="rd" aria-hidden="true">Ler matéria completa →</p>
@@ -95,9 +95,9 @@
     {% for s in v.secondary %}
     <article class="ss" style="--sc:{{ s.color }}">
       <p class="cat">{{ s.section_title }}</p>
-      <h3><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+      <h3{{ m.lang(s) }}><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
       {% if s.dek %}
-      <p>{{ s.dek }}</p>
+      <p{{ m.lang(s) }}>{{ s.dek }}</p>
       {% endif %}
       {{ m.meta(s) }}
     </article>
@@ -112,14 +112,14 @@
   <h2 class="kicker" id="dst-h">Destaques</h2>
   <ol>
     {% for s in v.highlights %}
-    <li><div><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a><span class="dst-cat">{{ s.section_title }}</span></div></li>
+    <li><div><a class="hit" href="#{{ s.anchor }}"{{ m.lang(s) }}>{{ s.headline }}</a><span class="dst-cat">{{ s.section_title }}</span></div></li>
     {% endfor %}
   </ol>
 </section>
 {% endif %}
 
 {% if v.sections %}
-<section class="tabs-wrap" id="editorias" aria-label="Matérias por seção">
+<section class="tabs-wrap{% if v.default_all %} all{% endif %}" id="editorias" aria-label="Matérias por seção">
   <div class="srch" role="search">
     <label class="srch-label" for="srchInput">Buscar</label>
     <input class="srch-input" id="srchInput" type="search" placeholder="Pesquisar nas matérias do dia…" autocomplete="off" spellcheck="false" aria-keyshortcuts="/">
@@ -129,16 +129,17 @@
   <button class="tabs-arrow prev" type="button" tabindex="-1" aria-hidden="true" hidden>&#8249;</button>
   <div class="tabs-bar" role="tablist" aria-label="Seções">
     {% for sec in v.sections %}
-    <button class="tab-btn" type="button" role="tab" id="tab-{{ sec.id }}" data-tab="{{ sec.id }}" aria-controls="pane-{{ sec.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}" style="--sc:{{ sec.color }}">{{ sec.title }}<span class="n">{{ sec.stories|length }}</span></button>
+    {% set on = loop.first and not v.default_all %}
+    <button class="tab-btn" type="button" role="tab" id="tab-{{ sec.id }}" data-tab="{{ sec.id }}" aria-controls="pane-{{ sec.id }}" aria-selected="{{ 'true' if on else 'false' }}" tabindex="{{ '0' if on else '-1' }}" style="--sc:{{ sec.color }}">{{ sec.title }}<span class="n">{{ sec.stories|length }}</span></button>
     {% endfor %}
-    <button class="tab-btn" type="button" role="tab" id="tab-all" data-tab="all" aria-controls="panes" aria-selected="false" tabindex="-1" style="--sc:{{ brand.colors.primary }}">Todas<span class="n">{{ v.stories|length }}</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-all" data-tab="all" aria-controls="panes" aria-selected="{{ 'true' if v.default_all else 'false' }}" tabindex="{{ '0' if v.default_all else '-1' }}" style="--sc:{{ brand.colors.primary }}">Todas<span class="n">{{ v.stories|length }}</span></button>
   </div>
   <button class="tabs-arrow next" type="button" tabindex="-1" aria-hidden="true" hidden>&#8250;</button>
   </div>
   <div class="tab-layout">
     <div class="tab-main" id="panes">
       {% for sec in v.sections %}
-      <div class="tab-pane{% if loop.first %} active{% endif %}" id="pane-{{ sec.id }}" role="tabpanel" aria-labelledby="tab-{{ sec.id }}" style="--sc:{{ sec.color }}">
+      <div class="tab-pane{% if loop.first or v.default_all %} active{% endif %}" id="pane-{{ sec.id }}" role="tabpanel" aria-labelledby="tab-{{ sec.id }}" style="--sc:{{ sec.color }}">
         <h2 class="pane-hd">{{ sec.title }}</h2>
         <div class="cards">
           {% for s in sec.stories %}
@@ -154,8 +155,8 @@
       <div class="radar">
         <h2 class="radar-hd" id="radar-h">Radar de Notícias</h2>
         <ol class="radar-list">
-          {% for s in v.radar %}
-          <li><a class="radar-item" href="#{{ s.anchor }}"><span class="tm">{{ s.time }}</span><span class="src">{{ s.sources[0].name if s.sources else s.section_title }}</span><span class="tt">{{ s.headline }}</span></a></li>
+          {% for r in v.radar %}
+          <li><a class="radar-item" href="{{ r.href }}"{% if r.external %} target="_blank" rel="noopener noreferrer"{% endif %}><span class="tm">{{ r.time }}</span><span class="src">{{ r.source }}</span><span class="tt"{% if r.lang %} lang="{{ r.lang }}"{% endif %}>{{ r.title }}</span>{% if r.external %}<span class="sr-only"> (abre a fonte em nova aba)</span>{% endif %}</a></li>
           {% endfor %}
         </ol>
       </div>

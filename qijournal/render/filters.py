@@ -110,12 +110,27 @@ def _zone(tz: str) -> ZoneInfo | timezone:
         return timezone.utc
 
 
-def local_time(iso: str | None, tz: str) -> str:
-    """Hora local ``"HH:MM"`` de um instante ISO no fuso ``tz``; vazio se inválido."""
+def local_time(iso: str | None, tz: str, ref_iso: str | None = None) -> str:
+    """Hora local ``"HH:MM"`` de um instante ISO no fuso ``tz``; vazio se inválido.
+
+    Com ``ref_iso`` (o horário da edição), um instante de outro dia ganha a data:
+    ``"ontem, 21:10"`` no dia anterior e ``"27/09, 18:30"`` antes disso — "09:00"
+    sozinho numa edição de madrugada parece horário futuro.
+    """
     moment = parse_iso(iso)
     if moment is None:
         return ""
-    return moment.astimezone(_zone(tz)).strftime("%H:%M")
+    local = moment.astimezone(_zone(tz))
+    clock = local.strftime("%H:%M")
+    ref = parse_iso(ref_iso)
+    if ref is None:
+        return clock
+    days = (ref.astimezone(_zone(tz)).date() - local.date()).days
+    if days == 0:
+        return clock
+    if days == 1:
+        return f"ontem, {clock}"
+    return f"{local.day:02d}/{local.month:02d}, {clock}"
 
 
 def tz_label(tz: str, iso: str | None = None) -> str:

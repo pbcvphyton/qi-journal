@@ -39,8 +39,10 @@ Garantias importantes:
 - **Uma fonte fora do ar não derruba a edição.** Cada feed, cotação e cidade é
   coletado de forma independente.
 - **Se quase tudo falhar, nada é publicado.** Abaixo do mínimo de notícias
-  (`min_articles`) ou de fontes (`min_sources_ok`), a execução para e a edição
-  anterior continua no ar.
+  (`min_articles`), de feeds ok (`min_sources_ok` e `min_sources_ratio`, a
+  fração dos feeds) ou de veículos em português (`min_pt_sources_ok`), a
+  execução para com erro e a edição anterior continua no ar — inclusive o
+  `latest.json`, então a rotina de e-mail não reenvia nada.
 - **Sem IA, o jornal sai do mesmo jeito**, no modo automático (títulos e resumos
   dos próprios veículos, sem tradução).
 
@@ -102,10 +104,25 @@ Uma rotina agendada do Claude, conectada ao Gmail, envia a edição todos os dia
 depois que ela é publicada. Ela usa os arquivos que o próprio jornal gera:
 
 - `edicoes/latest.json` — dados da última edição (data, assunto, manchete, links);
-- `edicoes/email.html` e `edicoes/email.txt` — o e-mail pronto.
+- `edicoes/email.html` e `edicoes/email.txt` — o e-mail pronto. O HTML é
+  enxuto (até 40 KB; matérias saem do e-mail se passar disso), porque a rotina o
+  copia inteiro no parâmetro `htmlBody` do Gmail.
 
-O campo `email_sent` de `latest.json` indica se o e-mail já saiu por SMTP
-(opção 2), o que permite evitar envio em dobro.
+Contrato da rotina:
+
+1. Ler `latest.json` em
+   `https://raw.githubusercontent.com/pbcvphyton/qi-journal/main/edicoes/latest.json`
+   (os campos `email_html_raw_url` e `email_text_raw_url` apontam para o e-mail
+   no mesmo lugar; `email_html_url` é a cópia no GitHub Pages).
+2. Enviar **só se** `date` for a data de hoje em `America/Sao_Paulo` **e**
+   `email_sent` for `false`. Caso contrário, não enviar nada (tentar de novo
+   mais tarde ou avisar que a edição do dia não saiu): num dia em que a coleta
+   falhou, `latest.json` continua sendo o de ontem.
+3. Usar `subject` como assunto e o conteúdo de `email.html` como `htmlBody`.
+
+O campo `email_sent` indica se o e-mail já saiu por SMTP (opção 2). Ele
+sobrevive a uma nova execução no mesmo dia (inclusive com *Não enviar o
+e-mail*), então refazer a edição de manhã não dispara um segundo envio.
 
 ### Opção 2 — Envio direto por SMTP (Gmail com senha de app)
 
@@ -126,9 +143,15 @@ O próprio GitHub envia o e-mail logo após gerar a edição.
 
 4. Teste: *Actions → Edição diária → Run workflow*.
 
-Se o envio falhar (senha errada, por exemplo), a edição é publicada mesmo assim
-e o problema aparece como aviso no resumo da execução. Os destinatários ficam
-só nos segredos — nunca no repositório, que é público.
+O envio acontece **depois** que a edição foi commitada e o GitHub Pages terminou
+de publicá-la (a etapa espera até ~3 minutos), para os links do e-mail já
+funcionarem; se a publicação falhar, nenhum e-mail sai. Se o envio falhar (senha
+errada, por exemplo), a edição continua publicada e o problema aparece na
+etapa *Enviar e-mail*. Rodar de novo no mesmo dia não reenvia o e-mail já
+enviado; para reenviar de propósito, use `python -m qijournal send-email
+--force-email`. Os destinatários ficam só nos segredos — nunca no repositório,
+que é público —, e com vários endereços cada leitor recebe como cópia oculta
+(ninguém vê o e-mail dos outros).
 
 ---
 
@@ -165,10 +188,10 @@ Todos os comandos (`python -m qijournal <comando> --help` mostra os detalhes):
 
 | Comando | O que faz |
 |---|---|
-| `run [--out DIR] [--bundle ARQ] [--no-llm] [--no-email] [--now ISO] [-v]` | coleta, edita, publica e envia o e-mail (SMTP, se configurado) |
+| `run [--out DIR] [--bundle ARQ] [--no-llm] [--no-email] [--force-email] [--now ISO] [-v]` | coleta, edita, publica e envia o e-mail (SMTP, se configurado; não reenvia o do dia sem `--force-email`) |
 | `collect --out ARQ` | só coleta e salva as notícias em JSON |
 | `render --bundle ARQ --out DIR [--no-llm]` | gera a edição a partir de uma coleta salva, sem internet e sem e-mail |
-| `send-email [--dir DIR]` | envia por SMTP o e-mail da última edição gerada |
+| `send-email [--dir DIR] [--force-email]` | envia por SMTP o e-mail da última edição gerada (uma vez por edição, salvo `--force-email`) |
 | `check-sources` | testa cada fonte e mostra quais estão respondendo |
 
 Códigos de saída: `0` sucesso; `1` erro; `2` dados insuficientes (edição não
@@ -181,7 +204,7 @@ publicada) ou argumentos inválidos.
 As fontes ficam em [`config/sources.yaml`](config/sources.yaml), uma por linha:
 
 ```yaml
-- {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/", lang: pt, weight: 1.3, topics: [brasil]}
+- {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/brasil/", lang: pt, weight: 1.3, topics: [brasil]}
 ```
 
 | Campo | Significado |
@@ -191,7 +214,7 @@ As fontes ficam em [`config/sources.yaml`](config/sources.yaml), uma por linha:
 | `url` | endereço do feed RSS/Atom |
 | `lang` | `pt`, `en` ou `es` |
 | `weight` | importância editorial (0,5 a 1,5) — pesa na escolha das matérias |
-| `topics` | seções prováveis (`brasil`, `mercados`, `juridico`, `politica`, `mundo`, `tecnologia`, `imobiliario`) |
+| `topics` | seções prováveis (`brasil`, `mercados`, `juridico`, `politica`, `mundo`, `tecnologia`, `imobiliario`); em feeds gerais (capas), use `[]` e a dica sai do endereço da matéria (`/internacional/` → `mundo`…) |
 | `enabled` | `false` desliga a fonte sem apagá-la |
 | `exclude_url_patterns` | trechos de endereço a ignorar nessa fonte |
 
@@ -240,9 +263,14 @@ publicado normalmente.
   (*Run workflow*) ou esperar o dia seguinte.
 - **Outros erros:** o GitHub avisa por e-mail o dono do repositório. O log da
   etapa *Gerar a edição* mostra a causa.
-- **Investigar uma edição:** cada execução guarda por 7 dias a coleta crua
-  (artefato `coleta-…` na página da execução). Para reproduzir a edição:
-  `python -m qijournal render --bundle bundle-AAAA-MM-DD.json --out /tmp/x`.
+- **Investigar uma edição:** cada execução guarda por 7 dias a coleta crua e as
+  páginas enriquecidas (artefato `coleta-…` na página da execução, com
+  `bundle-AAAA-MM-DD.json` e `pages-AAAA-MM-DD.json`). Para reproduzir a edição
+  automática, com o mesmo enriquecimento (o `pages-*.json` ao lado do bundle é
+  lido sozinho) e as regras de limpeza atuais:
+  `python -m qijournal render --bundle bundle-AAAA-MM-DD.json --out /tmp/x --no-llm`.
+  A edição por IA não é reproduzível (o modelo pode escolher e escrever
+  diferente a cada chamada).
 - **O agendamento parou:** o GitHub pode desativar rotinas agendadas de
   repositórios sem atividade. Reative em *Actions → Edição diária → Enable
   workflow*. O horário também pode atrasar alguns minutos em dias de pico.

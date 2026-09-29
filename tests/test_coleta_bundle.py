@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 
 from qijournal import text
-from qijournal.collect.feeds import article_id, canonical_url, is_usable_image_url
+from qijournal.collect.feeds import article_id, canonical_url, is_usable_image_url, url_topics
 from qijournal.collect.market import format_value
 from qijournal.config import load_config
 from qijournal.models import Bundle
@@ -52,8 +52,9 @@ def test_articles_are_consistent_with_collector(bundle: Bundle, config) -> None:
     for a in bundle.articles:
         assert a.url == canonical_url(a.url) and a.id == article_id(a.url)
         source = sources_by_url[a.feed_url]
+        # feeds gerais (capas) não têm topics: a dica vem do caminho da URL
         assert (a.source_id, a.source_name, a.lang, a.weight, a.topics) == (
-            source.id, source.name, source.lang, source.weight, source.topics)
+            source.id, source.name, source.lang, source.weight, list(source.topics) or url_topics(a.url))
         assert not any(p.lower() in a.url.lower() for p in config.edition.exclude_url_patterns)
         assert a.image is None or is_usable_image_url(a.image)
 

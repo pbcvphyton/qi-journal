@@ -150,7 +150,10 @@ def test_modal_content(page):
     assert (
         'href="https://www.jota.info/tributos/stf-difal-modulacao" target="_blank" rel="noopener noreferrer"' in modal
     )
-    assert "Publicado às <time" in modal and "23:07</time> BRT · há 6 h" in modal
+    # publicado no dia anterior ao da edição: a hora ganha "ontem" (09:00 numa edição das 05:07 parecia futuro)
+    assert "Publicado: <time" in modal and "ontem, 23:07</time> BRT · " in modal
+    assert '<time datetime="2026-09-29T02:07:00+00:00" data-age>há 6 h</time>' in modal
+    assert '<button class="mc2" type="button">&larr; Voltar à edição</button>' in modal
 
 
 def test_hero_lead_secondary_and_highlights(page, edition):
@@ -184,7 +187,7 @@ def test_cards_show_optional_image_and_metadata(page):
     assert len(with_image) == 2  # desemprego e BNDES não têm imagem
     assert "VALOR ECONÔMICO" not in cards[0]  # caixa alta é feita por CSS
     assert "<span>Valor Econômico · Folha de S.Paulo · Estadão · Agência Brasil</span>" in cards[0]
-    assert '<time datetime="2026-09-29T05:55:00+00:00">há 2 h</time>' in cards[0]
+    assert '<time datetime="2026-09-29T05:55:00+00:00" data-age>há 2 h</time>' in cards[0]
 
 
 def test_ticker_and_weather(page):
@@ -318,8 +321,12 @@ def test_view_cleans_sources_and_orders_radar(edition, config):
     names = [s.name for s in view.lead.sources]
     assert names == ["Valor Econômico", "Folha de S.Paulo", "Estadão", "Agência Brasil", "Negrito"]
     assert view.lead.sources[-1].url is None
-    times = [s.published for s in view.radar]
-    assert times == sorted(times, reverse=True) and 0 < len(view.radar) <= 8
+    # edição sem "wire": o Radar lista as matérias mais recentes da própria edição (âncoras)
+    assert not ed.wire and 0 < len(view.radar) <= 8
+    by_anchor = {f"#{s.anchor}": s for s in view.stories}
+    times = [by_anchor[r.href].published for r in view.radar]
+    assert times == sorted(times, reverse=True)
+    assert not any(r.external for r in view.radar)
 
 
 def test_view_strips_markdown_from_headline_and_dek(edition, config):
@@ -454,3 +461,75 @@ def test_lead_extra_paragraphs_only_for_missing_image(edition):
     page_html = render(ed)
     assert '<p class="sub more">Segundo <strong>parágrafo</strong>.</p>' in page_html
     assert ".hero-l .more{display:none}" in page_html  # só aparecem sem imagem (CSS :has)
+
+
+# ── regressões da edição real de 29/09/2026 ─────────────────────────────────
+
+
+def test_english_story_is_marked_with_lang_en(edition, config):
+    ed = copy.deepcopy(edition)
+    story = next(s for s in ed.stories if s.id != LEAD_ID)
+    story.lang = "en"
+    page = render_edition_page(ed, config, home_href="./", archive_href="edicoes/")
+    card = re.search(rf'<article class="cl"[^>]*>(?:(?!</article>).)*#s-{re.escape(story.id)}".*?</article>', page, re.S)
+    assert card and '<h3 lang="en">' in card.group(0)
+    modal = re.search(rf'<div class="mo" id="s-{re.escape(story.id)}".*?</article>', page, re.S).group(0)
+    assert '<article class="ml" tabindex="-1" lang="en">' in modal
+    # matérias em português não repetem o atributo (a página já é pt-BR)
+    assert 'lang="pt' not in re.sub(r'<html lang="pt-BR"|lang="pt-BR">Publicado|<p class="mback" lang="pt-BR"', "", page)
+
+
+def test_archive_copy_has_no_frozen_relative_age(edition, config):
+    archived = render_edition_page(edition, config, home_href="../", archive_href="./", is_archive=True)
+    home = render_edition_page(edition, config, home_href="./", archive_href="edicoes/")
+    assert "<time datetime=\"2026-09-29T05:55:00+00:00\" data-age>" in home
+    assert " data-age>" not in archived
+    assert "há 2 h" in home and "há 2 h" not in archived
+
+
+def test_radar_uses_the_wire_with_links_to_the_sources(edition, config):
+    ed = copy.deepcopy(edition)
+    ed.wire = [
+        {"title": "Juros futuros sobem com pesquisas", "url": "https://valor.globo.com/financas/juros.ghtml",
+         "source": "Valor Econômico", "published": "2026-09-28T20:10:00+00:00", "section": "mercados"},
+        {"title": "Link inválido", "url": "javascript:alert(1)", "source": "X", "published": None, "section": "brasil"},
+    ]
+    page = render_edition_page(ed, config, home_href="./", archive_href="edicoes/")
+    radar = re.search(r'<ol class="radar-list">.*?</ol>', page, re.S).group(0)
+    assert radar.count("<li>") == 1 and "javascript:" not in radar
+    assert 'href="https://valor.globo.com/financas/juros.ghtml" target="_blank" rel="noopener noreferrer"' in radar
+    assert '<span class="tm">ontem, 17:10</span>' in radar
+    # a edição round-trip mantém o campo (e edições antigas, sem ele, continuam válidas)
+    from qijournal.models import Edition
+
+    assert Edition.from_dict(ed.to_dict()).wire[0]["title"] == "Juros futuros sobem com pesquisas"
+    old = ed.to_dict()
+    del old["wire"]
+    assert Edition.from_dict(old).wire == []
+
+
+def test_all_tab_opens_first_when_the_first_section_is_thin(edition, config):
+    ed = copy.deepcopy(edition)
+    first = ed.sections[0]
+    keep, move = first.story_ids[:2], first.story_ids[2:]
+    first.story_ids = keep
+    ed.sections[1].story_ids = move + ed.sections[1].story_ids
+    for sid in move:
+        ed.story(sid).section = ed.sections[1].id
+    page = render_edition_page(ed, config, home_href="./", archive_href="edicoes/")
+    assert '<section class="tabs-wrap all"' in page
+    assert re.search(r'id="tab-all"[^>]*aria-selected="true"', page)
+    assert re.search(rf'data-tab="{first.id}"[^>]*aria-selected="false"', page)
+    assert page.count('class="tab-pane active"') == len(ed.sections)
+
+
+def test_modal_opened_from_the_email_link_can_go_back_to_the_edition(page):
+    assert "w.history.pushState(null, '', '#' + initial.id)" in page  # "voltar" do sistema fecha o modal
+    assert "w.addEventListener('load'" in page  # foco no diálogo depois da navegação por âncora
+    assert ".mc{position:sticky" in page  # o × acompanha a rolagem
+    assert "closest('.mc,.mc2')" in page
+
+
+def test_desktop_tabs_fit_without_hiding_sections(page, config):
+    assert "@media (min-width:900px){.tab-btn{padding:12px 11px;letter-spacing:.8px}" in page
+    assert next(s.title for s in config.sections if s.id == "imobiliario") == "Imobiliário"

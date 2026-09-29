@@ -12,7 +12,7 @@
    "published": "2026-09-29T01:25:00+00:00",
    "image": "https://s2-valor.glbimg.com/wn85EMs5sDidwpByZ4aJHrXnqfg=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/N/b/VAJLSpaMfTT7PbE72nd4/decisao-sobre-posts-refe.jpg",
    "topics": [
-    "brasil"
+    "politica"
    ],
    "weight": 1.3,
    "feed_url": "https://valor.globo.com/rss/valor/"
@@ -476,7 +476,7 @@
    "published": "2026-09-29T00:01:00+00:00",
    "image": "https://www.infomoney.com.br/wp-content/uploads/2026/09/governo-publica-decreto-que-cria-comite-.jpg?w=1024&quality=70&strip=info",
    "topics": [
-    "mercados"
+    "politica"
    ],
    "weight": 1.0,
    "feed_url": "https://www.infomoney.com.br/feed/"
@@ -1371,9 +1371,7 @@
    "lang": "en",
    "published": "2026-09-29T01:07:00+00:00",
    "image": null,
-   "topics": [
-    "mundo"
-   ],
+   "topics": [],
    "weight": 0.8,
    "feed_url": "https://www.aljazeera.com/xml/rss/all.xml"
   },
@@ -1387,9 +1385,7 @@
    "lang": "en",
    "published": "2026-09-29T01:01:00+00:00",
    "image": null,
-   "topics": [
-    "mundo"
-   ],
+   "topics": [],
    "weight": 0.8,
    "feed_url": "https://www.aljazeera.com/xml/rss/all.xml"
   },

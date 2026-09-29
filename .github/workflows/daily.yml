@@ -1,6 +1,6 @@
 # Edição diária do QI Journal: coleta, edita (IA ou automática), publica no
-# GitHub Pages (commit em index.html, edicoes/ e data/) e envia o e-mail por
-# SMTP quando os segredos estiverem configurados.
+# GitHub Pages (commit em index.html, edicoes/ e data/) e, depois que o Pages
+# publicou, envia o e-mail por SMTP quando os segredos estiverem configurados.
 name: Edição diária
 
 on:
@@ -16,9 +16,10 @@ on:
         description: "Não enviar o e-mail por SMTP"
         type: boolean
         default: false
-  # TEMP: remover antes do merge — roda o pipeline a cada push nesta branch.
-  # O commit do bot só altera index.html, edicoes/ e data/ (fora destes
-  # caminhos), então não há loop.
+  # TEMP: remover antes do merge (junto com o "git add --force -- build" abaixo
+  # e o build/ versionado: git rm -r --cached build/) — roda o pipeline a cada
+  # push nesta branch, sem e-mail. O commit do bot só altera index.html,
+  # edicoes/ e data/ (fora destes caminhos), então não há loop.
   push:
     branches: [claude/clever-euler-ydfk8n]
     paths:
@@ -32,7 +33,8 @@ permissions:
   pages: write
 
 concurrency:
-  group: daily-edition
+  # Por branch: um push de teste numa branch não cancela a execução pendente da main.
+  group: daily-edition-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -45,6 +47,11 @@ jobs:
     steps:
       - name: Baixar o repositório
         uses: actions/checkout@v5
+        with:
+          # Ponta da branch no início do job (não o SHA do evento): uma execução
+          # que esperou na fila (concurrency) ou um "Re-run" parte da edição mais
+          # nova já publicada, sem conflito nos arquivos gerados.
+          ref: ${{ github.ref_name }}
 
       - name: Configurar Python
         uses: actions/setup-python@v6
@@ -58,24 +65,17 @@ jobs:
       - name: Gerar a edição
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           QIJ_BRAND: ${{ vars.QIJ_BRAND }}
           QIJ_MODEL: ${{ vars.QIJ_MODEL }}
           # Entradas do disparo manual (vazias no agendamento): passadas por
           # variável de ambiente, nunca interpoladas direto no script.
           INPUT_NO_LLM: ${{ inputs.no_llm }}
-          INPUT_NO_EMAIL: ${{ inputs.no_email }}
           TZ: America/Sao_Paulo
           PYTHONUNBUFFERED: "1"
         run: |
-          args=(--out .)
+          # O e-mail sai numa etapa própria, só depois da publicação no Pages.
+          args=(--out . --no-email)
           if [ "$INPUT_NO_LLM" = "true" ]; then args+=(--no-llm); fi
-          if [ "$INPUT_NO_EMAIL" = "true" ]; then args+=(--no-email); fi
           python -m qijournal run "${args[@]}"
 
       - name: Publicar (commit e push)
@@ -83,16 +83,19 @@ jobs:
         env:
           TZ: America/Sao_Paulo
         run: |
-          git add --all -- index.html edicoes data
-          # TEMP: remover antes do merge — nos testes da branch, guarda também a coleta crua.
-          if [ "$GITHUB_EVENT_NAME" = "push" ]; then git add --force -- build; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          stage() {
+            git add "$@" -- index.html edicoes data
+            # TEMP: remover antes do merge — nos testes da branch, guarda também a coleta crua.
+            if [ "$GITHUB_EVENT_NAME" = "push" ]; then git add --force -- build; fi
+          }
+          stage --all
           if git diff --cached --quiet; then
             echo "Nenhuma mudança para publicar."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit --quiet -m "🗞️ Edição de $(date +%d/%m/%Y)"
           for attempt in 1 2 3; do
             if git push origin "HEAD:${GITHUB_REF_NAME}"; then
@@ -100,13 +103,20 @@ jobs:
               exit 0
             fi
             if [ "$attempt" -eq 3 ]; then break; fi
-            echo "::notice::Push recusado (tentativa ${attempt}/3); sincronizando com o remoto."
+            echo "::notice::Push recusado (tentativa ${attempt}/3); refazendo o commit sobre o remoto."
             sleep $((attempt * 5))
-            if ! git pull --rebase origin "${GITHUB_REF_NAME}"; then
-              git rebase --abort || true
-              echo "::error::Conflito ao sincronizar com ${GITHUB_REF_NAME}; edição não publicada."
-              exit 1
+            # Refaz o commit na ponta nova: só os arquivos gerados por esta execução
+            # entram (o código que outros enviaram fica como está, sem conflito), e
+            # arquivos que só existem no remoto (ex.: edição mais nova) não são apagados.
+            git fetch --quiet origin "${GITHUB_REF_NAME}"
+            git reset --quiet --mixed FETCH_HEAD
+            stage --ignore-removal
+            if git diff --cached --quiet; then
+              echo "Nada a publicar depois de sincronizar com o remoto."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
             fi
+            git commit --quiet -m "🗞️ Edição de $(date +%d/%m/%Y)"
           done
           echo "::error::Não foi possível enviar a edição após 3 tentativas."
           exit 1
@@ -122,11 +132,58 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
 
+      - name: Enviar e-mail (SMTP)
+        # Só depois do commit e do build do Pages (os links do e-mail já abrem);
+        # nunca nos testes por push. Sem os segredos SMTP, não faz nada.
+        if: steps.publish.outputs.changed == 'true' && github.event_name != 'push' && inputs.no_email != true
+        continue-on-error: true
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          QIJ_BRAND: ${{ vars.QIJ_BRAND }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TZ: America/Sao_Paulo
+          PYTHONUNBUFFERED: "1"
+        run: |
+          if [ -z "$SMTP_USER" ] || [ -z "$SMTP_PASSWORD" ] || [ -z "$EMAIL_TO" ]; then
+            echo "SMTP não configurado; o e-mail fica para a rotina do Gmail."
+            exit 0
+          fi
+          # Espera o GitHub Pages publicar este commit (até ~3 min); se demorar, envia assim mesmo.
+          sha=$(git rev-parse HEAD)
+          for i in $(seq 1 18); do
+            status=$(curl -fsS -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds/latest" \
+              | python -c 'import json, sys; d = json.load(sys.stdin); print(d.get("status") if d.get("commit") == sys.argv[1] else "")' "$sha" || true)
+            if [ "$status" = "built" ]; then break; fi
+            sleep 10
+          done
+          python -m qijournal send-email --dir .
+          # Registra o envio em latest.json (a rotina do Gmail não envia de novo).
+          git add -- edicoes/latest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit --quiet -m "📧 E-mail de $(date +%d/%m/%Y) enviado"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep $((attempt * 5))
+            git fetch --quiet origin "${GITHUB_REF_NAME}"
+            git reset --quiet --mixed FETCH_HEAD
+            git add -- edicoes/latest.json
+            git diff --cached --quiet || git commit --quiet -m "📧 E-mail de $(date +%d/%m/%Y) enviado"
+          done
+          echo "::warning::E-mail enviado, mas edicoes/latest.json não foi atualizado no repositório."
+
       - name: Guardar a coleta crua
         if: always()
-        uses: actions/upload-artifact@v4
+        # Um erro ao guardar o artefato de depuração não marca como falha uma edição já publicada.
+        continue-on-error: true
+        uses: actions/upload-artifact@v6
         with:
-          name: coleta-${{ github.run_id }}
+          name: coleta-${{ github.run_id }}-${{ github.run_attempt }}
           path: build/
           retention-days: 7
           if-no-files-found: ignore

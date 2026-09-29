@@ -7,6 +7,7 @@ assinatura de :func:`fetch`, para que os testes rodem sem internet.
 from __future__ import annotations
 
 import gzip
+import http.client
 import json
 import logging
 import re
@@ -31,6 +32,11 @@ DEFAULT_HEADERS = {
     "Accept-Encoding": "gzip, deflate",
 }
 RETRY_STATUS = {408, 425, 429, 500, 502, 503, 504}
+READ_CHUNK = 64 * 1024
+# Prazo total de uma tentativa (conexão + leitura), em múltiplos de ``timeout``:
+# o timeout do socket vale por operação, e um servidor que manda poucos bytes
+# por vez nunca o dispararia.
+TOTAL_DEADLINE_FACTOR = 3
 
 
 class FetchError(Exception):
@@ -40,6 +46,10 @@ class FetchError(Exception):
         super().__init__(f"{message} ({url})")
         self.url = url
         self.status = status
+
+
+class _Transient(Exception):
+    """Falha passageira detectada aqui (corpo truncado, prazo total): vale nova tentativa."""
 
 
 @dataclass
@@ -95,6 +105,21 @@ def _decompress(data: bytes, encoding: str) -> bytes:
     return data
 
 
+def _read_body(resp: Any, max_bytes: int, deadline: float) -> bytes:
+    """Lê o corpo em blocos, até ``max_bytes + 1`` bytes, respeitando o prazo total."""
+    chunks: list[bytes] = []
+    size = 0
+    while size <= max_bytes:
+        chunk = resp.read(min(READ_CHUNK, max_bytes + 1 - size))
+        if not chunk:
+            break
+        chunks.append(chunk)
+        size += len(chunk)
+        if time.monotonic() > deadline:
+            raise _Transient("prazo total de leitura esgotado")
+    return b"".join(chunks)
+
+
 def fetch(
     url: str,
     *,
@@ -105,7 +130,10 @@ def fetch(
 ) -> Response:
     """GET com retentativas exponenciais (1s, 2s, ...) para erros transitórios.
 
-    Levanta :class:`FetchError` para HTTP >= 400 ou falha de rede persistente.
+    Um corpo menor que o ``Content-Length`` anunciado (conexão caiu no meio),
+    gzip/deflate truncado ou leitura além de ``3 × timeout`` contam como erro
+    transitório. Levanta :class:`FetchError` para HTTP >= 400 ou falha de rede
+    persistente.
     """
     if not url.lower().startswith(("http://", "https://")):
         raise FetchError(url, "esquema de URL não suportado")
@@ -118,10 +146,13 @@ def fetch(
         try:
             req = urllib.request.Request(url, headers=req_headers)
             with urllib.request.urlopen(req, timeout=timeout) as resp:
-                raw = resp.read(max_bytes + 1)
+                raw = _read_body(resp, max_bytes, start + timeout * TOTAL_DEADLINE_FACTOR)
                 if len(raw) > max_bytes:
                     raise FetchError(url, f"resposta maior que {max_bytes} bytes")
                 hdrs = {k.lower(): v for k, v in resp.headers.items()}
+                declared = (hdrs.get("content-length") or "").strip()
+                if declared.isdigit() and len(raw) < int(declared):
+                    raise _Transient(f"corpo truncado ({len(raw)}/{declared} bytes)")
                 content = _decompress(raw, hdrs.get("content-encoding", ""))
                 return Response(
                     url=resp.geturl(),
@@ -136,7 +167,18 @@ def fetch(
                 break
         except FetchError:
             raise
-        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError, ValueError) as e:
+        except _Transient as e:
+            last_error = FetchError(url, str(e))
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            ConnectionError,
+            OSError,
+            ValueError,
+            EOFError,  # gzip truncado
+            zlib.error,  # deflate truncado
+            http.client.HTTPException,  # IncompleteRead, RemoteDisconnected...
+        ) as e:
             reason = getattr(e, "reason", e)
             last_error = FetchError(url, f"{type(e).__name__}: {reason}")
         log.debug("tentativa %d falhou para %s: %s", attempt + 1, url, last_error)

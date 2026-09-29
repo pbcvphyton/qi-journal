@@ -236,3 +236,15 @@ def test_environment_autoescapes_and_exposes_filters():
     template = env.from_string("{{ x }}|{{ y|md_lite }}|{{ z|safe_url }}")
     out = template.render(x="<b>&</b>", y="**<i>**", z="javascript:alert(1)")
     assert out == "&lt;b&gt;&amp;&lt;/b&gt;|<strong>&lt;i&gt;</strong>|None"
+
+
+@pytest.mark.parametrize(
+    ("iso", "expected"),
+    [
+        ("2026-09-29T06:00:00+00:00", "03:00"),  # mesmo dia da edição (29/09 em Brasília)
+        ("2026-09-28T12:00:00+00:00", "ontem, 09:00"),  # "09:00" sozinho parecia horário futuro
+        ("2026-09-27T21:30:00+00:00", "27/09, 18:30"),
+    ],
+)
+def test_local_time_names_the_day_when_it_is_not_the_edition_day(iso, expected):
+    assert filters.local_time(iso, "America/Sao_Paulo", "2026-09-29T08:07:00+00:00") == expected
