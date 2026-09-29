@@ -196,6 +196,7 @@ figure.img-fail{display:none}
 .tab-btn[aria-selected="true"]{color:var(--ink);background:var(--paper)}
 .tab-btn .n{margin-left:4px;font-family:var(--mn);font-size:9px;font-weight:500;letter-spacing:0;color:var(--faint)}
 .tab-btn:focus-visible{outline-offset:-3px}
+@media (min-width:900px){.tab-btn{padding:12px 11px;letter-spacing:.8px}.tabs-bar{flex-wrap:wrap}}
 .tabs-wrap.searching .tab-btn[aria-selected="true"]{color:var(--mute2);background:transparent}
 .tabs-nav{position:relative}
 .tabs-arrow{position:absolute;top:0;bottom:2px;z-index:2;width:40px;border:none;font-family:var(--ss);font-size:22px;line-height:1;color:var(--ink);cursor:pointer}
@@ -252,7 +253,12 @@ body.modal-open{overflow:hidden}
 :root[data-theme="dark"] .ml{background:#161f31}
 .ml:focus{outline:none}
 @keyframes ml-in{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
-.mc{position:absolute;top:12px;right:14px;width:36px;height:36px;border:none;border-radius:50%;background:none;font-family:var(--ss);font-size:26px;line-height:1;color:var(--faint);cursor:pointer;transition:color .2s,background .2s}
+/* O × acompanha a rolagem do modal (.mo é o contêiner que rola): matéria longa aberta pelo e-mail não o esconde. */
+.mc{position:sticky;top:8px;float:right;z-index:2;margin:-28px -30px 0 0;width:36px;height:36px;border:none;border-radius:50%;background:var(--paper);font-family:var(--ss);font-size:26px;line-height:1;color:var(--faint);cursor:pointer;transition:color .2s,background .2s}
+:root[data-theme="dark"] .mc{background:#161f31}
+.mback{margin-top:22px;text-align:center}
+.mc2{padding:9px 18px;border:1.5px solid var(--rl);border-radius:20px;background:transparent;font-family:var(--ss);font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--link);cursor:pointer}
+.mc2:hover{border-color:var(--link)}
 .mc:hover{color:var(--ink);background:var(--soft)}
 .ml .mcat{font-family:var(--ss);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:8px;color:var(--sc,var(--qi))}
 .ml h2{padding-right:24px;font-size:26px;font-weight:900;line-height:1.2;margin-bottom:12px;color:var(--head)}
@@ -349,6 +355,7 @@ body.modal-open .btt{visibility:hidden}
   .mo{padding:0}
   .ml{min-height:100%;padding:28px 18px 32px;border-top-width:4px}
   .ml h2{font-size:22px}
+  .mc{margin:-20px -8px 0 0}
   .ft{padding:18px 16px}
   .arch{padding:18px 16px 28px}
   .arch-list a{flex-direction:column;gap:2px}
@@ -397,7 +404,7 @@ body.modal-open .btt{visibility:hidden}
   </div>
   <h3 class="arch-m">Setembro de 2026</h3>
   <ol class="arch-list">
-    <li><a href="2026-09-29.html"><time datetime="2026-09-29">Terça-feira, 29 de setembro de 2026</time><span class="arch-t">Nvidia aprova limite adicional de US$ 150 bilhões em programa de recompra de ações</span></a></li>
+    <li><a href="2026-09-29.html"><time datetime="2026-09-29">Terça-feira, 29 de setembro de 2026</time><span class="arch-t">Fux acata pedido da defesa de Flávio e cassa decisão de Dino sobre Nossa Senhora Aparecida</span></a></li>
   </ol>
 </section>
 </main>
@@ -774,7 +781,7 @@ body.modal-open .btt{visibility:hidden}
     });
     Array.prototype.forEach.call(modals, function (modal) {
       modal.addEventListener('click', function (event) {
-        if (event.target === modal || (event.target.closest && event.target.closest('.mc'))) close();
+        if (event.target === modal || (event.target.closest && event.target.closest('.mc,.mc2'))) close();
       });
     });
     d.addEventListener('keydown', function (event) {
@@ -798,7 +805,40 @@ body.modal-open .btt{visibility:hidden}
       }
     });
     w.addEventListener('hashchange', sync);
+    // Aberto pelo link do e-mail (…/AAAA-MM-DD.html#s-id): uma entrada da edição
+    // entra no histórico antes da matéria, para o "voltar" do sistema fechar o
+    // modal e cair na edição (em vez de sair do site).
+    var initial = find(w.location.hash);
+    if (initial && w.history.pushState && w.history.replaceState) {
+      w.history.replaceState(null, '', w.location.pathname + w.location.search);
+      w.history.pushState(null, '', '#' + initial.id);
+      pushed = true;
+    }
     sync();
+    // O Chromium limpa o foco depois da navegação por âncora: devolve o foco ao
+    // diálogo quando a página termina de carregar (leitor de tela anuncia a matéria).
+    w.addEventListener('load', function () {
+      if (current) (current.querySelector('.ml') || current).focus({ preventScroll: true });
+    });
+  }
+
+  /* ── Idade relativa ("há 3 h") recalculada na hora da leitura ───────── */
+  function setupAges() {
+    var now = Date.now();
+    Array.prototype.forEach.call(d.querySelectorAll('time[data-age]'), function (el) {
+      var then = Date.parse(el.getAttribute('datetime') || '');
+      if (isNaN(then)) return;
+      var minutes = Math.floor((now - then) / 60000), label;
+      if (minutes < 1) label = 'agora';
+      else if (minutes < 60) label = 'há ' + minutes + ' min';
+      else if (minutes < 24 * 60) label = 'há ' + Math.floor(minutes / 60) + ' h';
+      else if (minutes < 48 * 60) label = 'ontem';
+      else {
+        var day = new Date(then);
+        label = ('0' + day.getDate()).slice(-2) + '/' + ('0' + (day.getMonth() + 1)).slice(-2);
+      }
+      el.textContent = label;
+    });
   }
 
   /* ── Progresso de leitura e voltar ao topo ─────────────────────────── */
@@ -835,6 +875,7 @@ body.modal-open .btt{visibility:hidden}
   setupCanvas();
   setupTicker();
   setupSearch(setupTabs());
+  setupAges();
   setupModals();
   setupScroll();
 })();</script>
