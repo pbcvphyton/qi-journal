@@ -1,0 +1,1349 @@
+{
+ "date": "2026-09-29",
+ "date_label": "Terça-feira, 29 de setembro de 2026",
+ "generated_at": "2026-09-29T03:45:42+00:00",
+ "mode": "heuristic",
+ "model": null,
+ "editorial": "",
+ "briefing": [
+  "Nvidia aprova limite adicional de US$ 150 bilhões em programa de recompra de ações",
+  "Decisão sobre posts referentes à Nossa Senhora Aparecida deve ir ao plenário do STF na quarta-feira",
+  "Starship, da SpaceX, realiza 1º voo orbital, lança satélites e tem missão encerrada antes do previsto",
+  "Candidatos a deputado estadual no Mato Grosso do Sul (MS): veja número e nome na lista de 2026",
+  "Zanin manda Anatel garantir acesso gratuito a sites e aplicativos do TSE"
+ ],
+ "lead": "nvidia-aprova-limite-adicional-de-us-150-bilhoes",
+ "secondary": [
+  "decisao-sobre-posts-referentes-a-nossa-senhora-a",
+  "starship-da-spacex-realiza-1o-voo-orbital-lanca",
+  "candidatos-a-deputado-estadual-no-mato-grosso-do"
+ ],
+ "highlights": [
+  "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
+  "agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo",
+  "reino-unido-investiga-acao-de-estado-estrangeiro",
+  "trump-perguntou-a-xi-se-china-gostaria-de-compra",
+  "nunes-marques-reclama-a-fachin-de-interferencia",
+  "lula-e-janja-exploram-fake-news-sobre-nossa-senh",
+  "eua-revogam-vistos-de-27-latino-americanos-sob-a",
+  "possible-terrorist-plot-at-raf-fairford-air-base"
+ ],
+ "sections": [
+  {
+   "id": "brasil",
+   "title": "Brasil · Economia",
+   "color": "#0A2051",
+   "story_ids": [
+    "pos-fixados-ampliam-fatia-na-divida-publica",
+    "acoes-do-nubank-despencam-apos-rumores-de-eventu"
+   ]
+  },
+  {
+   "id": "mercados",
+   "title": "Mercados & Finanças",
+   "color": "#133D94",
+   "story_ids": [
+    "starship-da-spacex-realiza-1o-voo-orbital-lanca",
+    "dolar-hoje-tem-alta-firme-com-maior-risco-global"
+   ]
+  },
+  {
+   "id": "juridico",
+   "title": "Jurídico & Regulação",
+   "color": "#1C49A5",
+   "story_ids": [
+    "decisao-sobre-posts-referentes-a-nossa-senhora-a",
+    "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
+    "agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo",
+    "nunes-marques-reclama-a-fachin-de-interferencia",
+    "bets-entram-com-adi-no-stf-para-derrubar-mp-do-g",
+    "ambipar-obtem-aval-da-justica-dos-eua-para-centr"
+   ]
+  },
+  {
+   "id": "politica",
+   "title": "Política",
+   "color": "#2E6BD6",
+   "story_ids": [
+    "candidatos-a-deputado-estadual-no-mato-grosso-do",
+    "lula-e-janja-exploram-fake-news-sobre-nossa-senh"
+   ]
+  },
+  {
+   "id": "mundo",
+   "title": "Geopolítica & Mundo",
+   "color": "#C90055",
+   "story_ids": [
+    "reino-unido-investiga-acao-de-estado-estrangeiro",
+    "trump-perguntou-a-xi-se-china-gostaria-de-compra",
+    "possible-terrorist-plot-at-raf-fairford-air-base",
+    "eua-revogam-vistos-de-27-latino-americanos-sob-a",
+    "petroleo-sobe-com-noticias-conflitantes-sobre-ne",
+    "seul-acusa-ucrania-de-violar-acordo-de-sigilo-so"
+   ]
+  },
+  {
+   "id": "tecnologia",
+   "title": "Tecnologia & Negócios",
+   "color": "#0F7C8C",
+   "story_ids": [
+    "nvidia-aprova-limite-adicional-de-us-150-bilhoes",
+    "anthropic-preve-em-prospecto-de-ipo-que-ia-pode",
+    "openai-scraps-release-of-new-model-over-safety-c",
+    "papa-diz-que-extrema-direita-nao-e-expressao-aut"
+   ]
+  },
+  {
+   "id": "imobiliario",
+   "title": "Imobiliário & Real Estate",
+   "color": "#6B3FA0",
+   "story_ids": [
+    "fii-trxf11-conclui-venda-de-15-imoveis-por-r-207",
+    "fii-da-kinea-aprova-13a-emissao-e-oferta-pode-so"
+   ]
+  }
+ ],
+ "stories": [
+  {
+   "id": "nvidia-aprova-limite-adicional-de-us-150-bilhoes",
+   "section": "tecnologia",
+   "headline": "Nvidia aprova limite adicional de US$ 150 bilhões em programa de recompra de ações",
+   "dek": "Com caixa elevado graças ao boom da inteligência artificial, a fabricante de chips Nvidia está lançando o maior programa de recompra de ações já anunciado nos Estados Unidos. Matéria exclusiva para assinantes.",
+   "body": [
+    "Para ter acesso completo, acesse o link da matéria e faça o seu cadastro."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/nvidia-aprova-limite-adicional-de-us-150-bilhoes-em-programa-de-recompra-de-acoes.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/09/nvidia-supera-apple-com-recompra-recorde-de-us-150-bilhoes.shtml"
+    },
+    {
+     "name": "NeoFeed",
+     "url": "https://neofeed.com.br/inovacao/nvidia-supera-a-apple-mais-uma-vez-agora-com-recompra-de-acoes-recorde-de-us-150-bilhoes/"
+    },
+    {
+     "name": "Seu Dinheiro",
+     "url": "https://www.seudinheiro.com/2026/internacional/jensen-huang-coloca-us-150-bilhoes-na-mesa-por-que-as-acoes-da-nvidia-ficaram-irresistiveis-para-a-propria-nvidia-ccgg/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/5c627794-766b-49db-ab96-7532731e7084"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/09/28/business/nvidia-stock-buyback.html"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/opinion/pope-leos-french-resistance-c6da5799"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/technology/2026/sep/28/nvidia-ai-agent-security-platform-stock-buyback"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/nvidia-share-buyback-plan-gets-150-billion-boost.html"
+    },
+    {
+     "name": "MarketWatch",
+     "url": "https://www.marketwatch.com/story/nvidia-makes-a-statement-with-historic-150-billion-buyback-announcement-bfab5a22"
+    }
+   ],
+   "article_ids": [
+    "6bd3cfe852f2",
+    "5196b4be4181",
+    "f79937a652ef",
+    "5ab31f64c3b1",
+    "6974199cc85e",
+    "69697ee91d84",
+    "e444389a8c55",
+    "75b0b809d9e0",
+    "bb026ab8e20b",
+    "643abb554990",
+    "1ed2b451d0e0"
+   ],
+   "importance": 5,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/6qCNffgKl6bdSG8ZFHMW_VTvG_k=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/O/6/pb8IZZSRKBLbxW64XbPw/465770781.jpg",
+   "published": "2026-09-28T12:00:11+00:00"
+  },
+  {
+   "id": "decisao-sobre-posts-referentes-a-nossa-senhora-a",
+   "section": "juridico",
+   "headline": "Decisão sobre posts referentes à Nossa Senhora Aparecida deve ir ao plenário do STF na quarta-feira",
+   "dek": "O presidente do Supremo Tribunal Federal (STF), Edson Fachin, deve levar ao plenário da Corte na quarta-feira (30) a decisão do ministro Flávio Dino sobre publicações que se referem à Nossa Senhora Aparecida feitas nas…",
+   "body": [
+    "O presidente do Supremo Tribunal Federal (STF), Edson Fachin, deve levar ao plenário da Corte na quarta-feira (30) a decisão do ministro Flávio Dino sobre publicações que se referem à Nossa Senhora Aparecida feitas nas redes sociais.",
+    "Segundo interlocutores no STF, Fachin sinalizou a colegas que quer julgar o caso rapidamente de forma colegiada. Matéria exclusiva para assinantes. Para ter acesso completo, acesse o link da matéria e faça o seu cadastro."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/28/decisao-sobre-posts-referentes-a-nossa-senhora-aparecida-deve-ir-ao-plenario-do-stf-na-quarta-feira.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/eleicoes/eleicoes-2026/dino-submete-ao-plenario-do-stf-decisao-que-restabeleceu-postagens-sobre-nossa-senhora-aparecida"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/09/fux-contraria-dino-e-manda-suspender-novamente-publicacoes-sobre-nossa-senhora.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/fux-suspende-decisao-de-dino-sobre-fake-news-de-nossa-senhora-aparecida-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/defesa-de-flavio-entra-com-recurso-contra-decisao-de-dino.ghtml"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-justica/fachin-avalia-proposta-para-pautar-caso-da-nossa-senhora-na-4a-feira/"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/flavio-recorre-fux-para-derrubar-post-sobre-nossa-senhora-aparecida"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/fachin-deve-levar-caso-de-nossa-senhora-ao-plenario-na-quarta-feira/"
+    }
+   ],
+   "article_ids": [
+    "49959326ff16",
+    "db20019b602e",
+    "458af4db588f",
+    "cd23bcb3ac61",
+    "3786c29fa67d",
+    "035a0396fc15",
+    "958a8dc56354",
+    "320403d3a3df",
+    "ffc459f47571",
+    "30f06f9abd05",
+    "563ab5c677a0",
+    "f47c1c72160c",
+    "9174dc99ea73"
+   ],
+   "importance": 5,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/puxZmTaun0GqMb--L25-l-AtC-w=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/P/d/BtAPlNRmAXpuBKqiHjJg/foto28pol-101-fachin-a18.jpg",
+   "published": "2026-09-29T00:43:55+00:00"
+  },
+  {
+   "id": "starship-da-spacex-realiza-1o-voo-orbital-lanca",
+   "section": "mercados",
+   "headline": "Starship, da SpaceX, realiza 1º voo orbital, lança satélites e tem missão encerrada antes do previsto",
+   "dek": "O foguete Starship de nova geração da SpaceX alcançou a órbita pela primeira vez nesta segunda-feira (28), apesar de um de seus motores ter sido desligado inesperadamente, superando um problema em pleno voo para lançar…",
+   "body": [
+    "O foguete Starship de nova geração da SpaceX alcançou a órbita pela primeira vez nesta segunda-feira (28), apesar de um de seus motores ter sido desligado inesperadamente, superando um problema em pleno voo para lançar seu primeiro lote de novos satélites Starlink em uma missão truncada que terminou horas antes do planejado.",
+    "A missão estava programada para durar 10 horas, mas foi reduzida para três horas após o problema no motor. Lançado do Texas, nos Estados Unidos, este foi o 14º voo do foguete desde 2023, já que a empresa de Elon Musk planeja colocar o veículo em uso rotineiro a partir do final deste ano.",
+    "As ações da SpaceX, que subiram quase 9% desde a oferta pública inicial (IPO, na sigla em inglês), caíam 0,5% no meio da tarde desta segunda-feira. Grande parte do valor de mercado da SpaceX e da contínua confiança dos investidores na empresa — avaliada em US$ 2 trilhões no fechamento de sexta-feira — depende do sucesso da Starship, projetada como a primeira espaçonave totalmente reutilizável do mundo."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/starship-da-spacex-alcana-rbita-apesar-de-problema-no-motor.ghtml"
+    },
+    {
+     "name": "Brazil Journal",
+     "url": "https://braziljournal.com/startship-o-megafoguete-da-spacex-atinge-a-orbita/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/inovacao/noticia/2026/09/28/spacex-faz-14-voo-da-nave-starship.ghtml"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-internacional/starship-atinge-orbita-pela-1a-vez-e-entrega-satelites-starlink/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/6729bceb-2480-42b4-9308-51ef7728c181"
+    },
+    {
+     "name": "BBC News",
+     "url": "https://www.bbc.co.uk/news/videos/c6ge4lp442npo"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/spacex-prepares-to-send-starship-rocket-to-orbit-for-first-time.html"
+    },
+    {
+     "name": "Al Jazeera",
+     "url": "https://www.aljazeera.com/video/newsfeed/2026/9/28/fiery-end-for-spacex-starship-mission?traffic_source=rss"
+    }
+   ],
+   "article_ids": [
+    "488ab5db98c4",
+    "66a9a7c9116e",
+    "6c89a238405b",
+    "4eda089bd4d7",
+    "1e28200f591f",
+    "2c2c79fe3eb0",
+    "d3e6e0963bc9",
+    "fdf05c698b25",
+    "509678483e74"
+   ],
+   "importance": 5,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/ZsIrKQN_dhc8Obk8fABHbr7Q2TE=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/i/R/V4QsewTzAdgdwbQ59KEw/2026-09-28t134225z-1967050912-rc2dsnakleq5-rtrmadp-3-space-spacex-starship.jpg",
+   "published": "2026-09-28T14:56:26+00:00"
+  },
+  {
+   "id": "candidatos-a-deputado-estadual-no-mato-grosso-do",
+   "section": "politica",
+   "headline": "Candidatos a deputado estadual no Mato Grosso do Sul (MS): veja número e nome na lista de 2026",
+   "dek": "Mato Grosso do Sul (MS) tem 253 candidatos a deputado estadual registrados para disputar a preferência do eleitor nas eleições 2026, conforme dados do Tribunal Superior Eleitoral (TSE).",
+   "body": [
+    "A votação do primeiro turno acontece no dia 4 de outubro, das 8h às 17h, no horário de Brasília. Em Mato Grosso do Sul há 2.024.884 eleitores aptos a votar e 24 vagas para deputado estadual na Assembleia Legislativa. O eleitor vota somente em um candidato para este cargo.",
+    "Veja abaixo a lista de todos os candidatos com os nomes, partidos, números de urna e situação das candidaturas: Lista de candidatos a deputado estadual em Mato Grosso do Sul Até o início da votação, pode haver mudanças nas listas dos candidatos, com indeferimento de candidaturas por diversas razões. As situações de candidatura possíveis são:",
+    "Aguardando julgamento: Candidatura cujo o pedido ainda não foi apreciado pela Justiça EleitoralCancelado em prazo recursal ou com recurso: Candidatura cujo registro foi cancelado pelo partido; no entanto, há recurso interposto contra essa decisão e aguarda julgamento por instância superiorDeferido: Candidatura regular, com dados e documentação completos, que atendeu aos requisitos para concorrer e cujo pedido já foi julgado pela Justiça EleitoralDeferido com recurso: Candidatura regular e com pedido de registro julgado deferido; no entanto, há recurso interposto contra essa decisão e aguarda…"
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/28/candidatos-a-deputado-estadual-no-mato-grosso-do-sul-ms-veja-numero-e-nome-na-lista-de-2026.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/eleicoes/eleicoes-2026/quando-e-o-dia-dos-ultimos-debates-do-primeiro-turno-das-eleicoes-2026"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/trabalho-e-carreira/noticia/2026/09/28/quando-e-o-quinto-dia-util-de-outubro-de-2026.ghtml"
+    }
+   ],
+   "article_ids": [
+    "0ea72e1fdea2",
+    "bf0914d559aa",
+    "8073a84115ce",
+    "bb703596b63d",
+    "bb5f183c5a2e",
+    "22cf64d02ad7",
+    "108f644bb5d3",
+    "8724fc80d2c0",
+    "65b1c190e3b7",
+    "c3e2f448d642",
+    "888c0de185e2",
+    "44bf5b309a5d",
+    "164aa7e82d6d",
+    "324ee4aa205a",
+    "7f5835a11f36",
+    "5a1e9665dddc"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/yNSxMS_2oBBFKlOvJzRtDtH5euY=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/w/M/kUGDDwTl2D8jI13g8Mxg/tarja-estaduais.jpg",
+   "published": "2026-09-28T22:27:35+00:00"
+  },
+  {
+   "id": "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
+   "section": "juridico",
+   "headline": "Zanin manda Anatel garantir acesso gratuito a sites e aplicativos do TSE",
+   "dek": "O ministro Cristiano Zanin, do Supremo Tribunal Federal (STF), determinou que a Agência Nacional de Telecomunicações (Anatel) garanta acesso gratuito ao site de checagem de notícias falsas do Tribunal Superior Eleitoral…",
+   "body": [
+    "O ministro Cristiano Zanin, do Supremo Tribunal Federal (STF), determinou que a Agência Nacional de Telecomunicações (Anatel) garanta acesso gratuito ao site de checagem de notícias falsas do Tribunal Superior Eleitoral (TSE) e às páginas e aplicativos da Corte, como o e-Título.",
+    "A medida vale a partir de 72 horas antes e vai até 24 horas depois de cada um dos turnos da eleição. Matéria exclusiva para assinantes. Para ter acesso completo, acesse o link da matéria e faça o seu cadastro."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/28/zanin-manda-anatel-garantir-acesso-a-site-de-checagem-e-a-servicos-do-tse-72-horas-antes-das-eleicoes.ghtml"
+    },
+    {
+     "name": "Conjur",
+     "url": "https://conjur.com.br/2026-set-28/provedores-devem-dar-acesso-gratuito-a-sites-da-justica-eleitoral/"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/stf/do-supremo/zanin-autoriza-que-anatel-garanta-acesso-gratuito-a-sites-da-justica-eleitoral"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/zanin-determina-que-provedores-de-internet-deem-acesso-gratuito-a-sites-da-justica-eleitoral/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/09/28/zanin-determina-acesso-gratuito-a-servicos-do-tse-entre-72-horas-antes-e-24-horas-depois-das-eleicoes.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/sociedade-civil-rebate-anatel-sobre-internet-gratis-na-eleicao"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/zanin-manda-anatel-garantir-acesso-gratuito-a-servicos-do-tse-nas-eleicoes/"
+    }
+   ],
+   "article_ids": [
+    "91efd974b670",
+    "9d45491b7c12",
+    "94f454ee215d",
+    "c940ae22de4b",
+    "e678b0514d9b",
+    "c6fc58203d4c",
+    "b59e9995bc81",
+    "59bb25b3fd72"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/IX-AMSdKrVD-Q8y-UxHIqqkB0is=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/W/q/iw3R6wQeaim7padbxiKg/tse-novaurna.jpeg",
+   "published": "2026-09-28T22:45:11+00:00"
+  },
+  {
+   "id": "agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo",
+   "section": "juridico",
+   "headline": "AGU processa bets e pede R$ 1 bilhão por prejuízos à saúde da população e ao SUS",
+   "dek": "A Advocacia-Geral da União (AGU) ajuizou nesta segunda-feira (28) uma ação civil pública contra 17 operadores de apostas on-line por prejuízos causados à saúde da população.",
+   "body": [
+    "A instituição pede, além do ressarcimento de despesas do Sistema Único e Saúde (SUS), uma indenização por danos morais coletivos no valor mínimo de R$ 1 bilhão e a restituição em dobro dos valores apostados por pessoas diagnosticadas por ludopatia (transtorno do jogo patológico).",
+    "Entidades ligadas a bets acionam STF para suspender proibição A ação foi ajuizada na Justiça Federal em Pernambuco, porque, segundo a AGU, a região Nordeste é um dos locais onde os impactos são mais acentuados, considerando a maior concentração de grupos vulneráveis ao jogo de risco ou problemático. De acordo com a instituição essas 17 empresas representam cerca de 80% do mercado nacional de apostas de quota fixa no país.",
+    "Esta é a primeira vez que a União processa as empresas donas de bets desde que o governo Lula vetou as casas de apostas on-line e proibiu a operação das empresas até então autorizadas. O anúncio foi realizado na sexta-feira (25), em São Paulo."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/noticia/2026/09/28/agu-processa-bets-e-pede-r-1-bilho-por-prejuzos-sade-da-populao-e-ao-sus.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/justica/uniao-entra-com-acoes-contra-bets-e-pede-r-1-bilhao-de-indenizacao"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/governo-processa-17-bets-pede-indenizacao-de-r-1-bi-por-danos-morais-e-ressarcimento-ao-sus/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/09/governo-processa-bets-e-pede-r-1-bilhao-em-indenizacao-e-ressarcimento-ao-sus.shtml"
+    },
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/politica/governo-pede-na-justica-indenizacao-de-r-1-bi-de-17-bets/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/governo-vai-a-justica-contra-17-bets-e-pede-r-1-bilhao-de-indenizacao-por-danos-morais-coletivos-por-vicio-de-apostadores.ghtml"
+    }
+   ],
+   "article_ids": [
+    "98ed3d05c882",
+    "99492f7121c7",
+    "7b9ef716569a",
+    "09ca20f9fddd",
+    "153bcd04408b",
+    "1ca533460081"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/CBQR3uSsPiC6CVzpj1dwA9j0vBo=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/O/9/8wslpCQ1mnyHToNj935w/agu.jpg",
+   "published": "2026-09-28T22:23:12+00:00"
+  },
+  {
+   "id": "reino-unido-investiga-acao-de-estado-estrangeiro",
+   "section": "mundo",
+   "headline": "Reino Unido investiga ação de Estado estrangeiro em plano contra base aérea",
+   "dek": "A polícia britânica afirmou nesta segunda-feira que investiga se pessoas que atuavam em nome de um Estado estrangeiro estiveram envolvidas em um suposto plano para atacar uma base aérea usada pelos Estados Unidos, mas…",
+   "body": [
+    "A polícia britânica afirmou nesta segunda-feira que investiga se pessoas que atuavam em nome de um Estado estrangeiro estiveram envolvidas em um suposto plano para atacar uma base aérea usada pelos Estados Unidos, mas informou que os cinco suspeitos presos seriam libertados.",
+    "Leia também:Irã nega envolvimento em plano contra base aérea britânica usada pelos EUAMinistro britânico sugere que suspeitos de plano contra base usada pelos EUA já eram monitoradosPolícia britânica prende suspeitos de planejar ataque a base local dos EUA",
+    "Os cinco homens, todos britânicos de Londres e com pouco mais de 20 anos, foram detidos na madrugada de domingo depois que a polícia foi alertada sobre três vans brancas que seguiam em direção à RAF Fairford, base britânica que abriga bombardeiros americanos usados em missões contra o Irã."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/mundo/noticia/2026/09/28/reino-unido-investiga-ao-de-estado-estrangeiro-em-plano-contra-base-area.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/09/suspeitos-de-terrorismo-detidos-no-reino-unido-sao-jovens-britanicos.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/suspeitos-de-planejar-atentado-a-base-britanica-usada-pelos-eua-sao-soltos-sob-fianca-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/mundo/noticia/2026/09/28/como-fazendeira-ajudou-policia-a-prender-suspeitos-de-ataque-a-base-militar-no-reino-unido.ghtml"
+    }
+   ],
+   "article_ids": [
+    "9f1604e36845",
+    "3b98e1b2f12d",
+    "205106837b89",
+    "5b0d92cb92aa",
+    "7f082e5a8942",
+    "c8f51a598c5e",
+    "49e649fe1346",
+    "e8a7d20e5e6a",
+    "0f0260ccf273",
+    "e8745bd6a84c",
+    "a6007ae0b5cc"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/4Ah1g6TwmXFj-aakBfCdoft7qXI=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/i/U/wd0CaAQwyYUGnwbmXrIw/2026-09-28t062716z-271215523-rc26snacd1f4-rtrmadp-3-britain-usa-fairford.jpg",
+   "published": "2026-09-28T16:16:21+00:00"
+  },
+  {
+   "id": "trump-perguntou-a-xi-se-china-gostaria-de-compra",
+   "section": "mundo",
+   "headline": "Trump perguntou a Xi se China gostaria de comprar armas dos EUA, diz embaixador",
+   "dek": "O presidente dos Estados Unidos, Donald Trump, perguntou ao líder chinês, Xi Jinping, se a China gostaria de comprar armas americanas, segundo declarações dadas pelo embaixador dos EUA em Pequim, David Perdue, à Fox…",
+   "body": [
+    "O presidente dos Estados Unidos, Donald Trump, perguntou ao líder chinês, Xi Jinping, se a China gostaria de comprar armas americanas, segundo declarações dadas pelo embaixador dos EUA em Pequim, David Perdue, à Fox News no domingo. A declaração é considerada incomum diante das tensões entre os dois países em torno de Taiwan.",
+    "Leia também:Primeira-dama da China foi peça de ‘soft power’ de Xi durante visita aos EUAPandas cedidos pela China chegam aos EUAEUA e China concordam com alívio tarifário para US$ 30 bilhões em produtos não sensíveis de cada lado",
+    "“Trump continua dizendo: ‘Nós vendemos armas para outros países ao redor do mundo’. Em determinado momento, ele chegou a perguntar ao presidente Xi se gostaria de comprar algumas”, afirmou Perdue. A declaração foi feita poucos dias depois de Trump receber Xi em Washington e durante uma entrevista sobre a política americana para Taiwan. Taipei aguarda há meses a aprovação de um novo pacote de armas americanas no valor de US$ 14 bilhões."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/mundo/noticia/2026/09/28/trump-perguntou-a-xi-se-china-gostaria-de-comprar-armas-dos-eua-diz-embaixador.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/09/trump-ofereceu-vender-armas-a-china-em-conversa-com-xi-diz-embaixador-americano.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/china-e-eua-concordam-em-reduzir-tarifas-sobre-us-60-bilhoes-em-mercadorias.ghtml"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/09/28/business/china-us-summit-tariffs.html"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/us-china-lower-tariffs-trump-xi-meeting.html"
+    }
+   ],
+   "article_ids": [
+    "e83d117a44ae",
+    "56456270092e",
+    "afb4144dc1eb",
+    "c358235bda18",
+    "b610be7916c3",
+    "7c5b5bdafd50",
+    "089ca5a3b284"
+   ],
+   "importance": 4,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/eBP0ibvg1azexoXL-a0EyjSTmGY=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/C/h/JS8l6vRzqaBMbNHsnMXA/2026-09-25t000845z-187093637-rc2zpna97tnm-rtrmadp-3-usa-china.jpg",
+   "published": "2026-09-28T14:49:35+00:00"
+  },
+  {
+   "id": "nunes-marques-reclama-a-fachin-de-interferencia",
+   "section": "juridico",
+   "headline": "Nunes Marques reclama a Fachin de interferência do STF no TSE",
+   "dek": "O presidente do Tribunal Superior Eleitoral (TSE), Kassio Nunes Marques, reclamou na segunda-feira (28) de interferência do Supremo Tribunal Federal (STF) na Justiça Eleitoral.",
+   "body": [
+    "O ofício foi enviado a Edson Fachin, presidente do Supremo. A medida ocorre após Flávio Dino anular uma decisão dada por André Mendonça no TSE e liberar publicações nas redes sociais que tratam da retirada do título de padroeira do Brasil de Nossa Senhora Aparecida.",
+    "Quaest: Lula retoma liderança no 1º turno e mantém empate com Flávio no 2ºGilmar quer suspender análise sobre Moraes no caso Master “Venho manifestar minha elevada preocupação com episódios reiterados de indevida sobreposição de competência e de violação ao juiz natural no âmbito do Supremo Tribunal Federal que vêm impactando diretamente a condução da eleição pelo Tribunal Superior Eleitoral”, diz Nunes Marques no ofício.",
+    "Segundo ele, há o risco de “captura institucional” e de se esvaziar a competência do TSE. “Em período eleitoral, marcado por prazos exíguos e por efeitos de difícil reversão, a instabilidade decisória gera insegurança jurídica, estimula a litigância estratégica perante a instância recebida como mais favorável e compromete a previsibilidade das regras do jogo.”"
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/09/28/aps-deciso-de-dino-nunes-marques-reclama-a-fachin-de-interferncia-do-stf-no-tse.ghtml"
+    },
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/politica/nunes-marques-alerta-para-erosao-democratica-por-sobreposicao-do-stf-ao-tse/"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/nunes-marques-alerta-para-erosao-democratica-causada-por-indevida-sobreposicao-do-stf-ao-tse/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/kassio-nunes-marques-reclama-de-indevida-sobreposicao-de-competencia-do-stf-sobre-o-tse.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/presidente-do-tse-reclama-de-interferencia-em-decisoes-da-corte"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/tse-cobra-tres-sobre-transporte-publico-gratuito-nas-eleicoes/"
+    }
+   ],
+   "article_ids": [
+    "f534cdfc2797",
+    "b5acde6e0a50",
+    "486aca9aaa9b",
+    "516693042882",
+    "b5703c20bfda",
+    "1b59ec5b0446"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/9IfT1zH5_yYzM122MYVYct8cUqY=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/7/h/Ma4vBoT3AZqlh8AGulig/55545259141-2b2d2ee768-k.jpg",
+   "published": "2026-09-28T22:42:03+00:00"
+  },
+  {
+   "id": "lula-e-janja-exploram-fake-news-sobre-nossa-senh",
+   "section": "politica",
+   "headline": "Lula e Janja exploram fake news sobre Nossa Senhora, e presidente ataca igreja por elo com Vorcaro",
+   "dek": "Você tem 7 acessos por dia para dar de presente. Qualquer pessoa que não é assinante poderá ler. Assinantes podem liberar 7 acessos por dia para conteúdos da Folha.",
+   "body": [
+    "O presidente Luiz Inácio Lula da Silva (PT) afirmou nesta segunda-feira (28), durante agenda de campanha no Pará, que ninguém irá \"avacalhar Nossa Senhora Aparecida\" enquanto ele estiver na Presidência e atacou a Igreja Batista da Lagoinha e o pastor André Valadão. Antes dele, a primeira-dama Janja Lula da Silva havia associado a oposição à defesa do fim do título de padroeira do Brasil dado à santa.",
+    "\"Enquanto eu for presidente da República, ninguém vai avacalhar Nossa Senhora Aparecida. Ninguém. As pessoas precisam aprender a respeitar todas as religiões, inclusive a religião de matriz africana. É preciso. Ninguém é dono da verdade. A única igreja mentirosa é aquela da Lagoinha, daquele pastor chamado Valadão, que era próximo do Vorcaro\", disse Lula.",
+    "No fim do discurso, o ex-governador do Pará Helder Barbalho (MDB), candidato ao Senado, entregou ao presidente uma imagem de Nossa Senhora de Nazaré, cuja devoção é o centro do Círio de Nazaré, uma das maiores manifestações religiosas do país, realizada anualmente em Belém."
+   ],
+   "sources": [
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/09/lula-e-janja-exploram-fake-news-sobre-nossa-senhora-e-presidente-ataca-igreja-por-elo-com-vorcaro.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/janja-usa-medalha-de-nossa-senhora-aparecida-apos-fake-news-sobre-padroeira/"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-governo/janja-volta-a-surfar-em-fake-news-sobre-padroeira-do-brasil/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/09/28/em-meio-a-polemica-com-nossa-senhora-janja-usa-medalha-da-padroeira-do-brasil-em-evento.ghtml"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/brasil/no-para-lula-diz-que-ninguem-vai-avacalhar-n-s-aparecida-enquanto-ele-for-presidente/"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/eleicoes/lula-enquanto-eu-for-presidente-ninguem-vai-avacalhar-com-nossa-senhora/"
+    }
+   ],
+   "article_ids": [
+    "4d3900ac2647",
+    "c511b182cab0",
+    "cee21985e233",
+    "423172480bf1",
+    "7245e5318df2",
+    "a8dfd28a1526",
+    "45165659b179"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://www.estadao.com.br/resizer/v2/PRJXQYQXNJB5NMFT2BQUAZFTHQ.jpeg?auth=3543d74d84fabf3610cfb63e9ea837efb00966092cbc749867dd3fa39683bc7d&smart=true&width=1000",
+   "published": "2026-09-29T02:43:00+00:00"
+  },
+  {
+   "id": "eua-revogam-vistos-de-27-latino-americanos-sob-a",
+   "section": "mundo",
+   "headline": "EUA revogam vistos de 27 latino-americanos sob alegação de corrupção",
+   "dek": "O governo Trump está revogando os vistos de 27 autoridades latino-americanas, ex-autoridades e de familiares, incluindo o procurador-geral da Bolívia, devido a acusações de corrupção, reporta a AP.",
+   "body": [
+    "Os atingidos e respectivas famílias são da Bolívia, Colômbia, Equador e Peru — todos países com líderes de direita alinhados ao presidente Donald Trump. Leia também:Presidente do Chile divulga plano de US$1,3 bi para criar 100 mil empregosPaíses da América Latina seguem EUA e classificam PCC e CV como terroristasDemocratas pretendem investigar negócios da família Trump se vencerem eleições",
+    "O secretário de Estado americano, Marco Rubio, visitou a Colômbia, o Equador e o Peru neste mês, prometendo apoio dos EUA aos esforços desses países no combate ao tráfico de drogas e de pessoas. Os líderes latino-americanos reclamaram que muitos dos que foram alvo dessas revogações de visto estariam dificultando os esforços de combate ao crime.",
+    "O Departamento de Estado anunciou as revogações nesta segunda-feira, afirmando que decorrem da necessidade de “cumprir os compromissos de defender a governança democrática em todo o nosso Hemisfério contra a corrupção e o narcotráfico”."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/mundo/noticia/2026/09/28/governo-dos-eua-revoga-vistos-de-27-latino-americanos-sob-alegao-de-corrupo.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/09/eua-cancelam-vistos-de-autoridades-latinas-e-ampliam-ofensiva-do-escudo-das-americas.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/eua-cancelam-vistos-autoridades-bolivia-colombia-equador-peru-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/mundo/noticia/2026/09/28/eua-cancelam-vistos-funcionarios-autoridades-bolivia-colombia-equador-e-peru.ghtml"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/mundo/eua-cancelam-vistos-de-autoridades-e-juizes-da-bolivia-colombia-equador-e-peru/"
+    }
+   ],
+   "article_ids": [
+    "86031561bd18",
+    "8bc129fb067f",
+    "e9fec3629a69",
+    "f1fb6b4949ad",
+    "d990188bdd7a",
+    "3faf9800c09f"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/ZkWYM7DvCMSG1Yjjih1B-2e1DVk=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/A/C/E0CbiRSaSNbp65BSSkiw/2026-09-22t193451z-890204863-rc2jonayjn2v-rtrmadp-3-un-assembly.jpg",
+   "published": "2026-09-28T19:33:43+00:00"
+  },
+  {
+   "id": "possible-terrorist-plot-at-raf-fairford-air-base",
+   "section": "mundo",
+   "headline": "Possible Terrorist Plot at RAF Fairford Air Base in U.K.: What We Know",
+   "dek": "Five British men who were detained near R.A.F.",
+   "body": [
+    "Fairford, a base used by American forces in the war against Iran, were being released on bail but remained under investigation."
+   ],
+   "sources": [
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/09/28/world/europe/raf-fairford-incident-air-base-terrorism-uk.html"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/world/u-k-probes-possible-iran-link-to-suspected-terror-plot-at-base-hosting-u-s-forces-b2328fb2"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/world/2026/sep/28/questions-remain-over-irans-link-to-alleged-raf-fairford-bomb-plot"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/iran-war-trump-hormuz.html"
+    }
+   ],
+   "article_ids": [
+    "6ccf9cd4e255",
+    "0281bd51431d",
+    "c8272e6bc4d6",
+    "b258f1d904cf",
+    "122f1bbabbdb",
+    "8a3a04800630",
+    "980f2cc62999",
+    "a7f5ffa9a386"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://static01.nyt.com/images/2026/09/28/multimedia/28int-uk-airbase-wtk-gwzc/28int-uk-airbase-wtk-gwzc-mediumSquareAt3X.jpg",
+   "published": "2026-09-28T21:57:21+00:00"
+  },
+  {
+   "id": "openai-scraps-release-of-new-model-over-safety-c",
+   "section": "tecnologia",
+   "headline": "OpenAI scraps release of new model over safety concerns in internal testing",
+   "dek": "GPT-6.1 Astra showed deceptive behavior and tried to use external tools despite knowing it would be unsafe",
+   "body": [
+    "OpenAI is scrapping the release of GPT-6.1 Astra, a next-generation ⁠AI model planned for an October debut, over safety concerns raised by researchers ⁠during internal testing, the ⁠Wall ​Street Journal reported on Monday.",
+    "The model, expected to appear in ChatGPT and ⁠Codex, was designed to handle more complex tasks without human assistance, the report said. Earlier this ⁠month, Dario Amodei, the Anthropic CEO, called for the industry ​to slow the development ‌of frontier ‌AI models to allow safety measures to keep pace, a ‌view endorsed by Sam Altman, the OpenAI CEO, and Elon Musk, the SpaceX CEO.",
+    "OpenAI did not immediately respond to a Reuters request for comment. Saachi Jain, the ChatGPT parent’s safety chief, told the Journal on Monday ‌that Astra fell short of the company’s standards in alignment tests, which assess whether a ​system follows human intent."
+   ],
+   "sources": [
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/technology/2026/sep/28/openai-new-model-astra-release-scrapped"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/09/28/technology/openai-astra-safety.html"
+    },
+    {
+     "name": "BBC News",
+     "url": "https://www.bbc.co.uk/news/articles/cm5y5nynl75ko"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html"
+    },
+    {
+     "name": "Al Jazeera",
+     "url": "https://www.aljazeera.com/economy/2026/9/29/openai-scraps-release-of-latest-ai-model-over-safety-concerns?traffic_source=rss"
+    },
+    {
+     "name": "TechCrunch",
+     "url": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/"
+    }
+   ],
+   "article_ids": [
+    "a2c275a76a43",
+    "2813ce406240",
+    "90cc429476bc",
+    "0f614f7c3995",
+    "bf11ea6fbec1",
+    "220dea2c55f4"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://i.guim.co.uk/img/media/888177c732f90802c4408241d5ffe34e0afa610d/701_0_4167_3335/master/4167.jpg?width=700&quality=85&auto=format&fit=max&s=fe52f8d38d25323f21cd1c183fa559aa",
+   "published": "2026-09-28T23:02:28+00:00"
+  },
+  {
+   "id": "anthropic-preve-em-prospecto-de-ipo-que-ia-pode",
+   "section": "tecnologia",
+   "headline": "Anthropic prevê em prospecto de IPO que IA pode representar ‘riscos existenciais à humanidade’",
+   "dek": "A Anthropic planeja alertar potenciais investidores em sua oferta pública inicial (IPO) de que a inteligência artificial (IA) avançada pode representar \"riscos catastróficos ou existenciais para a humanidade\" — um aviso…",
+   "body": [
+    "A Anthropic planeja alertar potenciais investidores em sua oferta pública inicial (IPO) de que a inteligência artificial (IA) avançada pode representar \"riscos catastróficos ou existenciais para a humanidade\" — um aviso extraordinário para uma empresa que busca lucrar com a mesma tecnologia. Matéria exclusiva para assinantes. Para ter acesso completo, acesse o link da matéria e faça o seu cadastro."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/anthropic-preve-em-prospecto-de-ipo-que-ia-pode-representar-riscos-existenciais-a-humanidade.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/ia/2026/09/anthropic-alerta-em-documento-de-ipo-que-ia-pode-trazer-risco-existencial-a-humanidade.shtml"
+    },
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/mercados/prospecto-do-ipo-da-anthropic-revela-visao-abrangente-de-ia-e-custos-crescentes/"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/economia/money/negocios/anthropic-revela-estrategia-de-ia-e-custos-crescentes-em-ipo/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/c7685a7e-7745-4cbc-8053-4958d0ea449b"
+    }
+   ],
+   "article_ids": [
+    "f2996af89f4a",
+    "2f3984c57a48",
+    "6b6c7293129a",
+    "a0e1f164ec1e",
+    "c3110693f88a"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/8J1BcupdvM7Yi3V0XhwyRj5ZxS0=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/D/y/IJlSv9QtG8L15bubLPfQ/ap26152607734335.jpg",
+   "published": "2026-09-29T02:21:10+00:00"
+  },
+  {
+   "id": "pos-fixados-ampliam-fatia-na-divida-publica",
+   "section": "brasil",
+   "headline": "Pós-fixados ampliam fatia na dívida pública",
+   "dek": "Com a redução da oferta de prefixados e de títulos indexados à inflação nos leilões do Tesouro Nacional, a participação de pós-fixados na Dívida Pública Federal (DPF) aumentou de 51,11% para 52,74% em agosto.",
+   "body": [
+    "O estoque da DPF somou R$ 9,293 trilhões, alta de 0,04% em relação a julho. Matéria exclusiva para assinantes. Para ter acesso completo, acesse o link da matéria e faça o seu cadastro."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/tesouro-quer-mais-equilibrio-na-divida-com-maior-fatia-de-prefixados-e-indexados-a-inflacao-diz-coordenador.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/divida-publica-federal-vai-a-r-93-bi-em-agosto/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/divida-publica-federal-cresce-em-agosto-e-atinge-r-929-trilhoes.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/divida-publica-federal-fica-estavel-em-agosto-e-chega-r-929-tri"
+    }
+   ],
+   "article_ids": [
+    "8d728bfbd293",
+    "8d8c47bd97b7",
+    "b0eaf8bda686",
+    "5b87e753094c",
+    "4749ca99a48d"
+   ],
+   "importance": 3,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/nWdZ-xWDz8PqECVSJ857NSmkMGc=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/4/H/QK324iSbGFP3BjWI06dw/helano-borges-dias.jpg",
+   "published": "2026-09-28T19:07:00+00:00"
+  },
+  {
+   "id": "bets-entram-com-adi-no-stf-para-derrubar-mp-do-g",
+   "section": "juridico",
+   "headline": "Bets entram com ADI no STF para derrubar MP do governo",
+   "dek": "As bets, através da Associação Nacional de Jogos e Loterias (ANJL), entraram com uma ação no Supremo Tribunal Federal (STF) para tentar derrubar a Medida Provisória do governo federal que proíbe a atuação das empresas…",
+   "body": [
+    "As bets, através da Associação Nacional de Jogos e Loterias (ANJL), entraram com uma ação no Supremo Tribunal Federal (STF) para tentar derrubar a Medida Provisória do governo federal que proíbe a atuação das empresas no país. O processo foi protocolado três dias após a publicação da MP, na última sexta-feira, 25. A associação pede, inclusive por liminar, a suspensão da eficácia da norma até que ela seja convertida em lei pelo Congresso Nacional ou até que haja o julgamento do assunto pelo Supremo.",
+    "Se o pedido principal não for acatado, as bets pedem que, pelo menos, a MP não tenha validade para as companhias autorizadas a operar no mercado brasileiro - atualmente, são 85 empresas, que detêm 186 marcas. Ou que a proibição só comece a contar depois de seis meses. A petição, de 71 páginas, foi feita em \"cooperação técnico-institucional\" com o Instituto Brasileiro de jogo Responsável (IBJR). A ANJL é composta por 32 empresas do setor, todas com autorização.",
+    "Dentre os argumentos, a ANJL diz que a MP viola desde a segurança jurídica, livre inciativa, princípio da proporcionalidade à defesa do consumidor e pacto federativo. Na visão da entidade, o cronograma estabelecido pela MP é \"abusivo\". \"Tem-se um ato do Poder Executivo que extingue, por inteiro e em dias, um mercado que o Congresso Nacional criou por lei, a pedido do próprio Executivo\", diz."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/noticia/2026/09/28/bets-entram-com-adi-no-stf-para-derrubar-mp-do-governo.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/09/associacao-de-jogos-e-loterias-pede-ao-stf-suspensao-da-mp-que-vetou-bets.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/entidades-que-representam-bets-pedem-ao-stf-suspensao-da-mp-de-lula-que-proibe-apostas-online.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-09/associacoes-de-jogos-acionam-stf-contra-mp-que-proibiu-apostas-online"
+    }
+   ],
+   "article_ids": [
+    "bb8aae00abbb",
+    "5f90e6c8e707",
+    "31a930331dde",
+    "266256dac637",
+    "0ff8cf8340b7"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/HxNi8jTI8SjHv4U36gP9vFNFtUM=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/f/8/IdkHsdQYWylt8HLhgs9Q/20260121200144-1746e8d4ccfa91d6a6464d5ca54b4e6de8f5294fad9fbe53b45b655587a568c1.webp",
+   "published": "2026-09-28T20:55:49+00:00"
+  },
+  {
+   "id": "ambipar-obtem-aval-da-justica-dos-eua-para-centr",
+   "section": "juridico",
+   "headline": "Ambipar obtém aval da Justiça dos EUA para centralizar recuperação judicial no Brasil",
+   "dek": "A Ambipar informou que a Justiça dos Estados Unidos reconheceu sua recuperação judicial no Brasil como o principal processo de reestruturação do grupo e suspendeu o processo de “Chapter 11”, a recuperação judicial…",
+   "body": [
+    "A Ambipar informou que a Justiça dos Estados Unidos reconheceu sua recuperação judicial no Brasil como o principal processo de reestruturação do grupo e suspendeu o processo de “Chapter 11”, a recuperação judicial americana, da controlada Ambipar Emergency Response.",
+    "Confira os resultados e indicadores da Ambipar e das demais companhias de capital aberto no portal Valor Empresas 360 A decisão foi tomada pela Corte de Falências do Texas, que concluiu que o centro dos interesses da companhia está no Brasil. Com isso, a recuperação judicial conduzida pela 3ª Vara Empresarial do Rio de Janeiro passou a ser reconhecida nos EUA por meio do “Chapter 15”, mecanismo que permite o reconhecimento de processos de reestruturação conduzidos em outros países.",
+    "Segundo a empresa, a medida “favorece uma condução coordenada da reestruturação entre Brasil e Estados Unidos, tendo a recuperação judicial em trâmite no Rio de Janeiro como eixo central”. Os processos de reconhecimento sob o “Chapter 15” foram ajuizados em 9 de julho de 2026 e deferidos em relação às companhias em recuperação judicial e a determinadas subsidiárias. O processo de “Chapter 11” do grupo permanecerá suspenso até que a Justiça americana analise o reconhecimento final do plano de recuperação a ser aprovado no Brasil."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/09/28/ambipar-obtm-aval-da-justia-dos-eua-para-centralizar-recuperao-judicial-no-brasil.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://aovivo.folha.uol.com.br/mercado/2026/09/01/6558-dolar-empresas-e-bolsas-acompanhe-ao-vivo-o-mercado.shtml"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/ambipar-ambp3-consegue-decisao-favoravel-nos-eua-e-avanca-na-migracao-do-chapter-11-para-o-chapter-15/"
+    },
+    {
+     "name": "Seu Dinheiro",
+     "url": "https://www.seudinheiro.com/2026/empresas/ambipar-ambp3-consegue-decisao-favoravel-nos-eua-e-avanca-na-migracao-do-chapter-11-para-o-chapter-15-ccgg/"
+    }
+   ],
+   "article_ids": [
+    "cc425ac7a2f3",
+    "50dcf0d9fb6c",
+    "e8fb89d6eda8",
+    "1a5b0d31644c",
+    "0b607edbf0c3"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/JHWNQNOXFxHsep0dGmcnEOSI1Os=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/C/h/qr6pF4RFaiwr3SLLr4XQ/foto28emp-101-ambipar-b9.jpg",
+   "published": "2026-09-28T20:55:26+00:00"
+  },
+  {
+   "id": "petroleo-sobe-com-noticias-conflitantes-sobre-ne",
+   "section": "mundo",
+   "headline": "Petróleo sobe com notícias conflitantes sobre negociações entre EUA e Irã",
+   "dek": "Os contratos futuros do petróleo encerraram esta segunda-feira (28) em alta, mas ficaram longe das máximas intradiárias, em meio às informações conflitantes sobre as negociações entre os Estados Unidos e o Irã.",
+   "body": [
+    "O ativo devolveu boa parte do avanço nas últimas horas de negociação após a notícia de que Washington estaria considerando a retirada de sanções sobre Teerã. O petróleo Brent com entrega para novembro encerrou em alta de 0,92%, cotado a US$ 105,28 por barril, na ICE, depois de ter superado os US$ 108. O WTI com vencimento para o mesmo mês subiu 0,21%, cotado a US$ 92,60 por barril, na Nymex.",
+    "Os preços do petróleo exibiam alta firme no início do dia, após o presidente dos Estados Unidos, Donald Trump, ter rejeitado, no fim de semana, as condições por um cessar-fogo apresentadas pelo Irã. A tendência perdurou até o início da tarde, quando a CNN americana reportou que o republicano pensa em abrandar as sanções sobre o Irã e liberar recursos congelados em troca de um “progresso concreto” em torno de um acordo nuclear.",
+    "Embora a notícia tenha gerado um alívio nos preços do petróleo, ainda há algum grau de ceticismo no mercado, visto que as informações sobre o grau das tratativas têm sido contrastantes. Segundo reportagem da Bloomberg, autoridades iranianas expressaram pessimismo quanto à possibilidade de um acordo antes das eleições de meio de mandato nos EUA, em novembro. A tendência desde o início da guerra, que já dura mais de sete meses, é de que os desdobramentos diplomáticos tenham vida curta e sejam seguidos de novas escaladas militares."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/petroleo-sobe-com-noticias-conflitantes-sobre-negociacoes-entre-eua-e-ira.ghtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/preco-do-petroleo-sobe-quase-3percent-apos-trump-rejeitar-proposta-do-ira.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-09/preco-do-petroleo-sobe-apos-trump-rejeitar-proposta-de-paz-do-ira"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/economia/money/macroeconomia/analise-petroleo-sobe-depois-de-trump-rejeitar-acordo-de-paz/"
+    }
+   ],
+   "article_ids": [
+    "953bce05b1f8",
+    "5a4c0178a716",
+    "a99a4decaccd",
+    "5cb630fb6d9e",
+    "63d72e6e795e"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/MQCdo4RU5viUh6N5SESHXHdX1dc=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2021/Y/t/bklJYtS4yDETSEDSKHzg/unidade-offshore-santa-ynez-da-exxon-mobil-facebook-exxon-mobil.jpg",
+   "published": "2026-09-28T19:09:41+00:00"
+  },
+  {
+   "id": "dolar-hoje-tem-alta-firme-com-maior-risco-global",
+   "section": "mercados",
+   "headline": "Dólar hoje tem alta firme com maior risco global e pesquisas eleitorais",
+   "dek": "O dólar à vista registra valorização firme no início da tarde desta segunda-feira (28), refletindo o sentimento de aversão a risco observado na maioria dos mercados mais líquidos no exterior.",
+   "body": [
+    "A rejeição do presidente americano, Donald Trump, de um acordo de cessar-fogo com o Irã alimentou a piora dos mercados, puxados pela pressão nos títulos americanos e nos preços do petróleo. O real até vinha se beneficiando da alta dos preços da commodity, mas o cenário eleitoral limitou esse desempenho mais construtivo do câmbio brasileiro. Além disso, especificamente sobre hoje, a pesquisa Quaest mais favorável ao presidente Luiz Inácio Lula da Silva (PT) pode ter ajudado a elevar o prêmio de risco sobre o real.",
+    "Perto das 13h20, o dólar à vista era negociado em alta de 0,75%, cotado a R$ 5,2196, depois de ter encostado na mínima de R$ 5,1915 e batido na máxima de R$ 5,2266. Já o euro comercial apreciava 0,51%, a R$ 5,9338. No exterior, o índice DXY, que mede a força do dólar contra uma cesta de seis moedas de mercados desenvolvidos, apreciava 0,24%, aos 101,214 pontos.",
+    "Desde o começo do pregão o dólar à vista avança contra o real. O movimento está alinhado ao que é observado nos mercados no exterior, onde a moeda americana valoriza. Segundo operadores de câmbio, a dinâmica é resultado do mau humor com a piora no risco geopolítico e também com a pressão na curva de juros americana."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/dolar-avanca-ante-o-real-em-linha-com-aversao-a-risco-no-exterior.ghtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/09/28/dolar-ibovespa.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/dolar-sobe-para-r-522-e-atinge-maior-nivel-desde-marco"
+    }
+   ],
+   "article_ids": [
+    "189e2b4fc876",
+    "4bcdb0a88bb8",
+    "26d039e9147e",
+    "8a60228e3cc7",
+    "58241a25ebaf"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/N57-lqTDEMBbF8WNc4vmQoIWaK0=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2019/c/u/xwbGQgRAWDQzA0x3GA2w/005fev12.jpg",
+   "published": "2026-09-28T12:25:37+00:00"
+  },
+  {
+   "id": "seul-acusa-ucrania-de-violar-acordo-de-sigilo-so",
+   "section": "mundo",
+   "headline": "Seul acusa Ucrânia de violar acordo de sigilo sobre soldados da Coreia do Norte",
+   "dek": "Você tem 7 acessos por dia para dar de presente. Qualquer pessoa que não é assinante poderá ler. Assinantes podem liberar 7 acessos por dia para conteúdos da Folha.",
+   "body": [
+    "Uma crise diplomática extraordinária eclodiu entre a Coreia do Sul e a Ucrânia depois que Seul acusou Kiev de violar um acordo de sigilo sobre o destino de soldados norte-coreanos capturados. A disputa foi desencadeada pelo discurso do presidente da Ucrânia, Volodimir Zelenski, na Assembleia Geral da ONU, em Nova York, na semana passada, quando ele revelou que dois soldados da Coreia do Norte capturados na Rússia haviam sido enviados à Coreia do Sul.",
+    "Na noite deste domingo (27), Sung Ki-hong, secretário presidencial sênior da Coreia do Sul, manifestou \"profundo pesar\" pela decisão da Ucrânia de tornar pública a transferência de forma \"unilateral e repentina\".",
+    "Ele afirmou que a Ucrânia havia solicitado que a transferência fosse mantida em sigilo, o que Seul aceitou devido à sensibilidade do assunto. \"Exigimos uma explicação oficial e um pedido de desculpas\", acrescentou. Nesta segunda-feira (28), a Coreia do Sul convocou o representante da Ucrânia em Seul para expressar \"sérias preocupações\" com a revelação."
+   ],
+   "sources": [
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/09/seul-acusa-ucrania-de-violar-acordo-de-sigilo-sobre-soldados-da-coreia-do-norte.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/coreia-do-sul-cobra-ucrania-por-divulgar-transferencia-de-prisioneiros-norte-coreanos-para-seul-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/mundo/noticia/2026/09/28/coreia-do-sul-convoca-embaixador-ucraniano-crise-diplomatica-prisioneiros-norte-coreanos.ghtml"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/internacional/zelenskiy-diz-que-coreia-do/"
+    }
+   ],
+   "article_ids": [
+    "75d3da28b19d",
+    "4e28f8c5d852",
+    "5961f991c717",
+    "e818ef8f516b"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://www.estadao.com.br/resizer/v2/OJVQTZ375JHITLVZ5FDTQT22PU.jpg?auth=f8c1b670c69f78584d61d6b7875afb2f7cf234d415b50381359ef8341288bbb2&smart=true&width=1000",
+   "published": "2026-09-28T13:57:00+00:00"
+  },
+  {
+   "id": "papa-diz-que-extrema-direita-nao-e-expressao-aut",
+   "section": "tecnologia",
+   "headline": "Papa diz que extrema direita não é expressão autêntica do cristianismo",
+   "dek": "Você tem 7 acessos por dia para dar de presente. Qualquer pessoa que não é assinante poderá ler. Assinantes podem liberar 7 acessos por dia para conteúdos da Folha.",
+   "body": [
+    "O papa Leão 14 afirmou nesta segunda-feira (28) que a associação entre posições da extrema direita e determinadas expressões religiosas na Alemanha \"não é uma expressão autêntica do cristianismo\". O pontífice respondia a uma questão sobre o declínio no número de fiéis da Igreja na Alemanha. Ele afirmou que gostaria de visitar o país e ainda não tem uma data para fazê-lo, mas que seria interessante \"estudar e analisar\" se existe uma relação entre a crise religiosa e o crescimento da extrema direita.",
+    "\"Seria interessante estudar e analisar se existe, e de que maneira poderia existir, uma relação, por exemplo, entre o crescimento desses grupos de extrema direita\", afirmou, ao comentar o cenário alemão.",
+    "O papa disse que pretende manter o diálogo com lideranças católicas e protestantes alemãs. Segundo ele, lideranças das duas igrejas já se manifestaram contra a combinação de posições extremistas com determinadas formas de religião."
+   ],
+   "sources": [
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/09/papa-diz-que-extrema-direita-nao-e-expressao-autentica-do-cristianismo.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/papa-leao-xiv-diz-extrema-direita-nao-e-expressao-autentica-cristianismo-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/tecnologia/noticia/2026/09/28/papa-leao-xiv-inteligencia-artificial.ghtml"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/internacional/papa-leao-diz-que-extrema-direita-nao-e-expressao-autentica-do-cristianismo/"
+    }
+   ],
+   "article_ids": [
+    "90655291be52",
+    "df9f6a62108c",
+    "a82cb7fc557f",
+    "54e79d845073"
+   ],
+   "importance": 2,
+   "why_it_matters": null,
+   "image": "https://s2-g1.glbimg.com/INIdD8-RDoTdVz9uVhGdb71or5w=/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/x/i/oanmBRSY2xXOAYGGAP0A/2026-09-25t145227z-757595378-rc2dqnatn46s-rtrmadp-3-pope-france.jpg",
+   "published": "2026-09-28T23:05:00+00:00"
+  },
+  {
+   "id": "acoes-do-nubank-despencam-apos-rumores-de-eventu",
+   "section": "brasil",
+   "headline": "Ações do Nubank despencam após rumores de eventual fusão com fintech britânica",
+   "dek": "A ação do Nubank caiu 10,0% nesta segunda-feira (28) na Bolsa de Valores de Nova York (Nyse), após notícias no fim de semana de que o grupo brasileiro estaria negociando uma potencial fusão com a fintech britânica Monzo.",
+   "body": [
+    "Analistas apontam que uma eventual compra da Monzo daria ao Nubank uma forte presença no Reino Unido e em outros países da Europa, acirrando sua competição com a britânica Revolut, que também tem a ambição de ser o maior banco digital do mundo. Por outro lado, a fintech brasileira acabou de lançar sua operação nos Estados Unidos, e fazer uma megafusão na Europa neste momento exigiria um grande investimento de capital e tempo.",
+    "Em relatório, os analistas do Citi apontam que os contras de um acordo Nubank/Monzo incluem um grande desafio de execução; o fato de a integração de operações bancárias transfronteiriças em regimes macroeconômicos diferentes provavelmente atrair um escrutínio intenso por parte das autoridades britânicas; gastos de compliance elevados; e uma complexa supervisão multinacional.",
+    "Para a XP, embora a lógica estratégica para a compra da Monzo pareça clara, o movimento é visto com certa cautela. “A transação representaria um afastamento relevante do modelo de crescimento orgânico historicamente bem-sucedido do Nubank e introduziria um nível de complexidade de execução que a companhia ainda não enfrentou nessa escala. Em nossa visão, o desafio é ampliado pelos esforços em andamento para lançar e escalar a operação nos EUA, o que poderia sobrecarregar ainda mais a capacidade da administração e dividir sua atenção entre diversas iniciativas estratégicas.”"
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/09/28/aes-do-nubank-despencam-com-rumores-sobre-eventual-fuso-com-fintech-britnica.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/financas/2026/09/acoes-do-nubank-caem-mais-de-9-com-negociacao-de-compra-de-banco-britanico.shtml"
+    }
+   ],
+   "article_ids": [
+    "521d8d16d7e3",
+    "7aa41af7dc0d",
+    "e35a2a8e77dc"
+   ],
+   "importance": 1,
+   "why_it_matters": null,
+   "image": "https://s2-valor.glbimg.com/2Bg8jR87zLu-Jm4qPy28QfXj99c=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2020/H/d/lR2Yd6QAWCACex5mcz9w/nubank-escritorio-03.jpg",
+   "published": "2026-09-28T15:29:29+00:00"
+  },
+  {
+   "id": "fii-da-kinea-aprova-13a-emissao-e-oferta-pode-so",
+   "section": "imobiliario",
+   "headline": "FII da Kinea aprova 13ª emissão e oferta pode somar até R$ 3,12 bi; veja detalhes",
+   "dek": "O fundo imobiliário KNCR11 (Kinea Rendimentos Imobiliários) recebeu o aval de seus cotistas para seguir com a 13ª emissão de cotas.",
+   "body": [
+    "Caso o lote adicional seja integralmente exercido, a captação pode alcançar até R$ 3,12 bilhões. Na oferta base, o fundo prevê colocar até 24,39 milhões de novas cotas, ao preço unitário de R$ 102,51, o que equivale a cerca de R$ 2,5 bilhões.",
+    "Esse valor foi definido com base no patrimônio líquido por cota apurado em 31 de julho de 2026 e pode ser revisto conforme a evolução do patrimônio do KNCR11 até a oferta. Quem aderir também pagará uma taxa de distribuição primária de até 2%, somada ao preço de emissão.",
+    "Mesmo com esse custo, a entrada pela oferta sai abaixo da cotação no mercado secundário, onde o papel era negociado a R$ 105,93, conforme a referência apresentada. Leia Mais: “Novo Mercado” dos FIIs? B3 revela o que vem sendo feito para melhorar governança"
+   ],
+   "sources": [
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/onde-investir/fii-da-kinea-aprova-13a-emissao-e-oferta-pode-somar-ate-r-312-bi-veja-detalhes/"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/fundo-imobiliario-kncr11-aprova-emissao-de-cotas-que-pode-movimentar-ate-r-312-bilhoes-veja-os-detalhes-igdl/"
+    },
+    {
+     "name": "Suno Notícias",
+     "url": "https://www.suno.com.br/noticias/kncr11-aprova-13a-emissao-cotas/"
+    }
+   ],
+   "article_ids": [
+    "4ce4f35d63fa",
+    "3676eafef611",
+    "1b9df0594b80"
+   ],
+   "importance": 1,
+   "why_it_matters": null,
+   "image": "https://www.infomoney.com.br/wp-content/uploads/2025/12/daniel-dan-ZbMuzk8iJAI-unsplash.jpg?fit=300%2C200&quality=70&strip=all",
+   "published": "2026-09-28T17:43:42+00:00"
+  },
+  {
+   "id": "fii-trxf11-conclui-venda-de-15-imoveis-por-r-207",
+   "section": "imobiliario",
+   "headline": "FII TRXF11 conclui venda de 15 imóveis por R$ 207,25 milhões; veja lucro por cota",
+   "dek": "O fundo imobiliário TRXF11 (TRX Real Estate) concluiu a venda de um portfólio com 15 imóveis por R$ 207,25 milhões ao BRC Renda Urbana FII.",
+   "body": [
+    "A operação, anunciada inicialmente em junho, foi formalizada nesta segunda-feira (28), com a transferência dos empreendimentos para o comprador. O conjunto negociado reúne 11 agências da Caixa Econômica Federal, duas lojas do GPA, um centro comercial e um imóvel ocupado por Americanas e Dasa.",
+    "Os ativos estão distribuídos por diferentes estados, incluindo São Paulo, Rio de Janeiro, Bahia, Paraná e Maranhão. Leia Mais: FII da Kinea aprova 13ª emissão e oferta pode somar até R$ 3,12 bi; veja detalhes",
+    "Segundo as estimativas divulgadas pelo TRXF11, a operação deve resultar em um ganho de capital de aproximadamente R$ 31,9 milhões, equivalente a cerca de R$ 0,51 por cota. A transação também apresenta uma taxa interna de retorno (TIR) estimada em 38,49% ao ano. De acordo com o fundo, esse retorno corresponde a aproximadamente 107% do CDI durante o período em que os imóveis permaneceram na carteira."
+   ],
+   "sources": [
+    {
+     "name": "InfoMoney",
+     "url": "https://www.infomoney.com.br/onde-investir/fii-trxf11-conclui-venda-de-15-imoveis-por-r-20725-milhoes-veja-lucro-por-cota/"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/fundo-imobiliario-vende-15-imoveis-por-r-207-milhoes-ganho-e-de-r-051-por-cota-igdl/"
+    }
+   ],
+   "article_ids": [
+    "f34566825ee5",
+    "de01f68a38e1"
+   ],
+   "importance": 1,
+   "why_it_matters": null,
+   "image": "https://www.infomoney.com.br/wp-content/uploads/2026/03/pao-de-acucar.jpg?fit=300%2C232&quality=70&strip=all",
+   "published": "2026-09-28T20:21:02+00:00"
+  }
+ ],
+ "quotes": [
+  {
+   "id": "usd",
+   "label": "Dólar",
+   "value": 5.2226,
+   "display": "R$ 5,22",
+   "change_pct": 0.1938,
+   "kind": "fx",
+   "as_of": "2026-09-29T02:34:24+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "eur",
+   "label": "Euro",
+   "value": 5.9359,
+   "display": "R$ 5,94",
+   "change_pct": 0.0624,
+   "kind": "fx",
+   "as_of": "2026-09-29T03:04:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "cny",
+   "label": "Yuan",
+   "value": 0.778,
+   "display": "R$ 0,78",
+   "change_pct": 0.072,
+   "kind": "fx",
+   "as_of": "2026-09-29T03:04:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ibov",
+   "label": "Ibovespa",
+   "value": 182991.12,
+   "display": "182.991 pts",
+   "change_pct": -0.265,
+   "kind": "index",
+   "as_of": "2026-09-28T20:19:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ifix",
+   "label": "IFIX",
+   "value": 3737.17,
+   "display": "3.737 pts",
+   "change_pct": -0.118,
+   "kind": "index",
+   "as_of": "2026-09-28T20:19:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "spx",
+   "label": "S&P 500",
+   "value": 7683.69,
+   "display": "7.684 pts",
+   "change_pct": -0.771,
+   "kind": "index",
+   "as_of": "2026-09-28T20:00:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "brent",
+   "label": "Brent",
+   "value": 99.48,
+   "display": "US$ 99,48",
+   "change_pct": 1.687,
+   "kind": "commodity",
+   "as_of": "2026-09-29T03:33:54+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "gold",
+   "label": "Ouro",
+   "value": 4168.3,
+   "display": "US$ 4.168",
+   "change_pct": -0.002,
+   "kind": "commodity",
+   "as_of": "2026-09-29T03:35:37+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "btc",
+   "label": "Bitcoin",
+   "value": 83085.07,
+   "display": "US$ 83.085",
+   "change_pct": -0.288,
+   "kind": "crypto",
+   "as_of": "2026-09-29T03:45:39+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "selic",
+   "label": "Selic",
+   "value": 13.75,
+   "display": "13,75%",
+   "change_pct": null,
+   "kind": "rate",
+   "as_of": "2026-09-29",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "ipca12m",
+   "label": "IPCA 12m",
+   "value": 4.22,
+   "display": "4,22%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "igpm12m",
+   "label": "IGP-M 12m",
+   "value": 2.178242946891751,
+   "display": "2,18%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "incc12m",
+   "label": "INCC 12m",
+   "value": 6.60767785260401,
+   "display": "6,61%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-08",
+   "source": "Banco Central (SGS)"
+  }
+ ],
+ "weather": [
+  {
+   "city": "São Paulo",
+   "current_c": 19.1,
+   "current_emoji": "☁️",
+   "current_desc": "Nublado",
+   "today_min": 18.8,
+   "today_max": 32.6,
+   "tomorrow_min": 20.2,
+   "tomorrow_max": 30.5,
+   "tomorrow_emoji": "🌦️",
+   "tomorrow_desc": "Garoa moderada"
+  },
+  {
+   "city": "Montevidéu",
+   "current_c": 14.8,
+   "current_emoji": "🌦️",
+   "current_desc": "Garoa intensa",
+   "today_min": 13.8,
+   "today_max": 16.8,
+   "tomorrow_min": 10.9,
+   "tomorrow_max": 13.4,
+   "tomorrow_emoji": "☁️",
+   "tomorrow_desc": "Nublado"
+  }
+ ],
+ "stats": {
+  "sources_total": 64,
+  "sources_ok": 64,
+  "sources_failed": [],
+  "articles_collected": 993,
+  "articles_considered": 993,
+  "llm_input_tokens": null,
+  "llm_output_tokens": null
+ }
+}
