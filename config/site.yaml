@@ -1,0 +1,145 @@
+# Configuração geral do QI Journal.
+# Fontes de notícia ficam em config/sources.yaml.
+#
+# Várias chaves podem ser sobrescritas por variáveis de ambiente
+# (útil no GitHub Actions): QIJ_BRAND, QIJ_BASE_URL, QIJ_MODEL, QIJ_EFFORT,
+# QIJ_NO_LLM=1, EMAIL_TO (lista separada por vírgulas).
+
+site:
+  base_url: "https://pbcvphyton.github.io/qi-journal/"
+  repo_url: "https://github.com/pbcvphyton/qi-journal"
+  timezone: "America/Sao_Paulo"
+  archive_keep_days: 400        # edições (HTML + JSON) mais antigas são removidas
+
+# Marca ativa: "qi" (QI Journal) ou "pbcv" (PBCV Advogados).
+brand: qi
+
+brands:
+  qi:
+    name: "QI Journal"
+    wordmark: ["Q", "I", " JOURNAL"]   # "Q" usa a cor de destaque, como no layout original
+    tagline: "Seu terminal financeiro diário"
+    logo_svg: null
+    favicon_svg: null
+    colors:
+      primary: "#1C49A5"     # --qi
+      navy: "#0A2051"        # --qn
+      accent: "#57D9FF"      # --qc (alta no ticker)
+      alert: "#FF2F80"       # --qr (queda no ticker)
+      ticker_up: "#57D9FF"
+      ticker_down: "#FF2F80"
+    section_palette: ["#0A2051", "#133D94", "#1C49A5", "#2E6BD6", "#C90055", "#0F7C8C", "#6B3FA0"]
+  pbcv:
+    name: "PBCV Advogados"
+    wordmark: ["PBCV", "", " ADVOGADOS"]
+    tagline: "Boletim diário · Mercados, Negócios e Direito"
+    logo_svg: "assets/pbcv-logo.svg"
+    favicon_svg: "assets/pbcv-favicon.svg"
+    colors:
+      primary: "#394A7A"
+      navy: "#1B2745"
+      accent: "#A3B4E0"
+      alert: "#FF2F80"
+      ticker_up: "#7FC8FF"
+      ticker_down: "#FF5C9A"
+    section_palette: ["#1B2745", "#1F6F6B", "#394A7A", "#5B6FA8", "#C90055", "#7A5C1F", "#6B3FA0"]
+
+# Seções da edição, na ordem de exibição. Os ids são usados pelo editor (IA ou
+# heurístico) e nas âncoras da página. "keywords" alimenta a classificação
+# heurística (sem acento, minúsculas; casamento por palavra/trecho).
+sections:
+  - id: brasil
+    title: "Brasil · Economia"
+    description: "Economia brasileira, política econômica, fiscal, juros, inflação, empresas brasileiras."
+    keywords: [ipca, selic, copom, banco central, haddad, fiscal, arcabouco, pib, inflacao, desemprego, petrobras, vale, itau, bradesco, nubank, bndes, tesouro, receita federal, imposto, tributar, reforma tributaria, orcamento, cambio, real]
+  - id: mercados
+    title: "Mercados & Finanças"
+    description: "Bolsa, juros, câmbio, commodities, bancos, fundos, IPOs, M&A, cripto (Brasil e mundo)."
+    keywords: [ibovespa, bolsa, b3, acoes, dolar, juros futuros, treasury, s&p, nasdaq, dow jones, fed, bitcoin, cripto, ipo, fusao, aquisicao, m&a, private equity, private credit, debenture, fundo, gestora, investidor, petroleo, brent, ouro, commodities, wall street]
+  - id: juridico
+    title: "Jurídico & Regulação"
+    description: "Decisões do STF, STJ, TST e tribunais; legislação; regulação setorial; tributário; compliance."
+    keywords: [stf, stj, tst, tse, tribunal, ministro, julgamento, decisao judicial, liminar, acordao, jurisprudencia, lei, projeto de lei, regulamenta, regulacao, cvm, anpd, cade, anatel, aneel, anvisa, tributario, processo, acao judicial, advogad, oab, justica]
+  - id: politica
+    title: "Política"
+    description: "Política nacional: governo, Congresso, eleições, partidos."
+    keywords: [lula, bolsonaro, congresso, camara, senado, eleicao, eleicoes, candidato, partido, pt, pl, planalto, ministerio, governo federal, deputado, senador, pesquisa eleitoral, turno]
+  - id: mundo
+    title: "Geopolítica & Mundo"
+    description: "Relações internacionais, conflitos, EUA, China, Europa, América Latina."
+    keywords: [trump, casa branca, china, xi jinping, russia, ucrania, putin, ira, israel, gaza, otan, uniao europeia, onu, tarifa, sancao, guerra, eua, argentina, milei, uruguai, venezuela, mexico, japao, india, ormuz]
+  - id: tecnologia
+    title: "Tecnologia & Negócios"
+    description: "Tecnologia, inteligência artificial, big techs, startups, negócios e indústria."
+    keywords: [inteligencia artificial, ia, openai, anthropic, google, apple, microsoft, meta, nvidia, amazon, tesla, startup, chip, semicondutor, software, dados, ciberseguranca, tecnologia, app, varejo, industria]
+  - id: imobiliario
+    title: "Imobiliário & Real Estate"
+    description: "Mercado imobiliário, fundos imobiliários (FIIs), construção, incorporação, crédito imobiliário, real estate global."
+    keywords: [imobiliari, imovel, imoveis, fii, fiis, fundo imobiliario, ifix, incorporadora, construtora, construcao civil, lancamento, aluguel, locacao, shopping, galpao, lajes corporativas, credito imobiliario, financiamento imobiliario, minha casa minha vida, cri, real estate, property, mortgage, reit, secovi, incc]
+
+edition:
+  max_age_hours: 30            # ignora notícias mais velhas que isso
+  max_candidates: 180          # candidatos enviados ao editor (após deduplicação)
+  target_stories: 24           # matérias na edição (o editor pode variar ±4)
+  secondary_count: 3           # chamadas ao lado da manchete
+  highlights_count: 8          # lista numerada "Destaques"
+  min_articles: 15             # abaixo disso a edição é abortada (não sobrescreve a anterior)
+  min_sources_ok: 4
+  enrich_limit: 40             # quantas matérias têm a página original consultada (imagem/descrição)
+  exclude_url_patterns:        # descartados em todas as fontes
+    - "/esporte"
+    - "/esportes/"
+    - "/futebol/"
+    - "/pop/"
+    - "/celebridades/"
+    - "/entretenimento/"
+    - "/horoscopo/"
+    - "/novelas/"
+    - "/bbb"
+    - "/receitas/"
+    - "/eu-e/"
+    - "/sport/"
+    - "/football/"
+    - "/lifeandstyle/"
+    - "/fashion/"
+    - "/tv-and-radio/"
+    - "/culture/"
+    - "/style/"
+
+llm:
+  enabled: true                # usa IA se ANTHROPIC_API_KEY estiver definido
+  model: "claude-opus-5-5"
+  effort: "medium"
+  max_tokens_select: 16000
+  max_tokens_write: 48000
+  timeout_seconds: 600
+
+# Cotações e indicadores do ticker, na ordem de exibição.
+# provider: yahoo (símbolo do Yahoo Finance), coingecko (id da moeda),
+#           bcb_sgs (série do SGS/Banco Central).
+# transform (bcb_sgs): last = último valor; accum12 = acumulado de 12 meses a partir de variação mensal.
+# format: brl | usd | pts | pct
+market:
+  - {id: usd, label: "Dólar", kind: fx, provider: yahoo, symbol: "USDBRL=X", format: brl, decimals: 2, fallback: {provider: bcb_sgs, series: 1, format: brl, decimals: 2}}
+  - {id: eur, label: "Euro", kind: fx, provider: yahoo, symbol: "EURBRL=X", format: brl, decimals: 2, fallback: {provider: bcb_sgs, series: 21619, format: brl, decimals: 2}}
+  - {id: cny, label: "Yuan", kind: fx, provider: yahoo, symbol: "CNYBRL=X", format: brl, decimals: 2}
+  - {id: ibov, label: "Ibovespa", kind: index, provider: yahoo, symbol: "^BVSP", format: pts, decimals: 0}
+  - {id: ifix, label: "IFIX", kind: index, provider: yahoo, symbol: "IFIX.SA", format: pts, decimals: 0}
+  - {id: spx, label: "S&P 500", kind: index, provider: yahoo, symbol: "^GSPC", format: pts, decimals: 0}
+  - {id: brent, label: "Brent", kind: commodity, provider: yahoo, symbol: "BZ=F", format: usd, decimals: 2}
+  - {id: gold, label: "Ouro", kind: commodity, provider: yahoo, symbol: "GC=F", format: usd, decimals: 0}
+  - {id: btc, label: "Bitcoin", kind: crypto, provider: yahoo, symbol: "BTC-USD", format: usd, decimals: 0, fallback: {provider: coingecko, coin: bitcoin, format: usd, decimals: 0}}
+  - {id: selic, label: "Selic", kind: rate, provider: bcb_sgs, series: 432, transform: last, format: pct, decimals: 2}
+  - {id: ipca12m, label: "IPCA 12m", kind: inflation, provider: bcb_sgs, series: 13522, transform: last, format: pct, decimals: 2}
+  - {id: igpm12m, label: "IGP-M 12m", kind: inflation, provider: bcb_sgs, series: 189, transform: accum12, format: pct, decimals: 2}
+  - {id: incc12m, label: "INCC 12m", kind: inflation, provider: bcb_sgs, series: 192, transform: accum12, format: pct, decimals: 2}
+
+weather:
+  - {name: "São Paulo", lat: -23.55, lon: -46.63, timezone: "America/Sao_Paulo"}
+  - {name: "Montevidéu", lat: -34.90, lon: -56.16, timezone: "America/Montevideo"}
+
+email:
+  # Destinatários NÃO ficam aqui (o repositório é público): use o segredo
+  # EMAIL_TO no GitHub Actions ou a rotina de e-mail do Claude.
+  subject_template: "{brand} — {date_label}"
+  max_stories: 14

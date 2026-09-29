@@ -1,0 +1,86 @@
+# Fontes de notícia (RSS/Atom). Todas as URLs abaixo foram testadas a partir
+# de um runner do GitHub Actions em 29/09/2026. Para testar de novo:
+#   python -m qijournal check-sources
+#
+# Campos:
+#   id        identificador curto da fonte (repete-se entre feeds do mesmo veículo)
+#   name      nome exibido nos créditos
+#   url       endereço do feed
+#   lang      pt | en | es
+#   weight    peso editorial (0.5 a 1.5) usado no ranqueamento heurístico
+#   topics    dicas de seção (ids de config/site.yaml) para o classificador
+#   enabled   false para desligar sem apagar
+#   exclude_url_patterns  trechos de URL descartados só nesta fonte
+
+feeds:
+  # ── Brasil: economia, mercados, política ────────────────────────────────
+  - {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/", lang: pt, weight: 1.3, topics: [brasil]}
+  - {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/financas/", lang: pt, weight: 1.3, topics: [mercados]}
+  - {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/brasil/", lang: pt, weight: 1.3, topics: [brasil]}
+  - {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/empresas/", lang: pt, weight: 1.3, topics: [tecnologia]}
+  - {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/mundo/", lang: pt, weight: 1.3, topics: [mundo]}
+  - {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/politica/", lang: pt, weight: 1.2, topics: [politica]}
+  - {id: valor, name: "Valor Econômico", url: "https://valor.globo.com/rss/valor/legislacao/", lang: pt, weight: 1.3, topics: [juridico]}
+  - {id: folha, name: "Folha de S.Paulo", url: "https://feeds.folha.uol.com.br/mercado/rss091.xml", lang: pt, weight: 1.1, topics: [brasil]}
+  - {id: folha, name: "Folha de S.Paulo", url: "https://feeds.folha.uol.com.br/poder/rss091.xml", lang: pt, weight: 1.1, topics: [politica]}
+  - {id: folha, name: "Folha de S.Paulo", url: "https://feeds.folha.uol.com.br/mundo/rss091.xml", lang: pt, weight: 1.1, topics: [mundo]}
+  - {id: folha, name: "Folha de S.Paulo", url: "https://feeds.folha.uol.com.br/tec/rss091.xml", lang: pt, weight: 1.0, topics: [tecnologia]}
+  - {id: estadao, name: "Estadão", url: "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/economia/", lang: pt, weight: 1.1, topics: [brasil]}
+  - {id: estadao, name: "Estadão", url: "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/politica/", lang: pt, weight: 1.0, topics: [politica]}
+  - {id: estadao, name: "Estadão", url: "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/internacional/", lang: pt, weight: 1.0, topics: [mundo]}
+  - {id: g1, name: "g1", url: "https://g1.globo.com/rss/g1/economia/", lang: pt, weight: 1.0, topics: [brasil]}
+  - {id: g1, name: "g1", url: "https://g1.globo.com/rss/g1/politica/", lang: pt, weight: 0.9, topics: [politica]}
+  - {id: g1, name: "g1", url: "https://g1.globo.com/rss/g1/mundo/", lang: pt, weight: 0.9, topics: [mundo]}
+  - {id: g1, name: "g1", url: "https://g1.globo.com/rss/g1/tecnologia/", lang: pt, weight: 0.9, topics: [tecnologia]}
+  - {id: infomoney, name: "InfoMoney", url: "https://www.infomoney.com.br/feed/", lang: pt, weight: 1.0, topics: [mercados]}
+  - {id: bloomberglinea, name: "Bloomberg Línea", url: "https://www.bloomberglinea.com.br/arc/outboundfeeds/rss/?outputType=xml", lang: pt, weight: 1.0, topics: [mercados]}
+  - {id: neofeed, name: "NeoFeed", url: "https://neofeed.com.br/feed/", lang: pt, weight: 1.0, topics: [mercados]}
+  - {id: braziljournal, name: "Brazil Journal", url: "https://braziljournal.com/feed/", lang: pt, weight: 1.1, topics: [mercados]}
+  - {id: poder360, name: "Poder360", url: "https://www.poder360.com.br/feed/", lang: pt, weight: 0.9, topics: [politica]}
+  - {id: agenciabrasil, name: "Agência Brasil", url: "https://agenciabrasil.ebc.com.br/rss/economia/feed.xml", lang: pt, weight: 0.9, topics: [brasil]}
+  - {id: agenciabrasil, name: "Agência Brasil", url: "https://agenciabrasil.ebc.com.br/rss/politica/feed.xml", lang: pt, weight: 0.8, topics: [politica]}
+  - {id: agenciabrasil, name: "Agência Brasil", url: "https://agenciabrasil.ebc.com.br/rss/internacional/feed.xml", lang: pt, weight: 0.8, topics: [mundo]}
+  - {id: exame, name: "Exame", url: "https://exame.com/feed/", lang: pt, weight: 0.8, topics: [brasil]}
+  - {id: cnnbrasil, name: "CNN Brasil", url: "https://www.cnnbrasil.com.br/feed/", lang: pt, weight: 0.7, topics: [brasil]}
+  - {id: moneytimes, name: "Money Times", url: "https://www.moneytimes.com.br/feed/", lang: pt, weight: 0.8, topics: [mercados]}
+  - {id: seudinheiro, name: "Seu Dinheiro", url: "https://www.seudinheiro.com/feed/", lang: pt, weight: 0.8, topics: [mercados]}
+  - {id: suno, name: "Suno Notícias", url: "https://www.suno.com.br/noticias/feed/", lang: pt, weight: 0.8, topics: [mercados]}
+
+  # ── Jurídico ───────────────────────────────────────────────────────────
+  - {id: jota, name: "JOTA", url: "https://www.jota.info/feed", lang: pt, weight: 1.2, topics: [juridico]}
+  - {id: conjur, name: "Conjur", url: "https://www.conjur.com.br/rss.xml", lang: pt, weight: 1.2, topics: [juridico]}
+  - {id: agenciabrasil, name: "Agência Brasil", url: "https://agenciabrasil.ebc.com.br/rss/justica/feed.xml", lang: pt, weight: 0.8, topics: [juridico]}
+
+  # ── Imobiliário ────────────────────────────────────────────────────────
+  - {id: infomoney, name: "InfoMoney", url: "https://www.infomoney.com.br/tudo-sobre/fundos-imobiliarios/feed/", lang: pt, weight: 1.0, topics: [imobiliario]}
+  - {id: moneytimes, name: "Money Times", url: "https://www.moneytimes.com.br/tag/fundos-imobiliarios/feed/", lang: pt, weight: 0.9, topics: [imobiliario]}
+  - {id: imobireport, name: "Imobi Report", url: "https://www.imobireport.com.br/feed/", lang: pt, weight: 0.9, topics: [imobiliario]}
+  - {id: secovi, name: "Secovi-SP", url: "https://www.secovi.com.br/feed", lang: pt, weight: 0.7, topics: [imobiliario]}
+  - {id: cnbc, name: "CNBC", url: "https://www.cnbc.com/id/10000115/device/rss/rss.html", lang: en, weight: 0.7, topics: [imobiliario]}
+  - {id: scmp, name: "South China Morning Post", url: "https://www.scmp.com/rss/96/feed", lang: en, weight: 0.7, topics: [imobiliario]}
+
+  # ── Internacional ──────────────────────────────────────────────────────
+  - {id: ft, name: "Financial Times", url: "https://www.ft.com/rss/home", lang: en, weight: 1.2, topics: [mundo]}
+  - {id: ft, name: "Financial Times", url: "https://www.ft.com/markets?format=rss", lang: en, weight: 1.2, topics: [mercados]}
+  - {id: ft, name: "Financial Times", url: "https://www.ft.com/companies?format=rss", lang: en, weight: 1.1, topics: [tecnologia]}
+  - {id: wsj, name: "The Wall Street Journal", url: "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain", lang: en, weight: 1.1, topics: [mercados]}
+  - {id: wsj, name: "The Wall Street Journal", url: "https://feeds.content.dowjones.io/public/rss/RSSWorldNews", lang: en, weight: 1.1, topics: [mundo]}
+  - {id: marketwatch, name: "MarketWatch", url: "https://feeds.content.dowjones.io/public/rss/mw_topstories", lang: en, weight: 0.8, topics: [mercados]}
+  - {id: nyt, name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml", lang: en, weight: 1.1, topics: [mercados]}
+  - {id: nyt, name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml", lang: en, weight: 1.1, topics: [mundo]}
+  - {id: nyt, name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/Economy.xml", lang: en, weight: 1.0, topics: [mercados]}
+  - {id: nyt, name: "The New York Times", url: "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml", lang: en, weight: 1.0, topics: [tecnologia]}
+  - {id: guardian, name: "The Guardian", url: "https://www.theguardian.com/world/rss", lang: en, weight: 1.0, topics: [mundo]}
+  - {id: guardian, name: "The Guardian", url: "https://www.theguardian.com/business/rss", lang: en, weight: 1.0, topics: [mercados]}
+  - {id: guardian, name: "The Guardian", url: "https://www.theguardian.com/technology/rss", lang: en, weight: 0.9, topics: [tecnologia]}
+  - {id: cnbc, name: "CNBC", url: "https://www.cnbc.com/id/100003114/device/rss/rss.html", lang: en, weight: 0.9, topics: [mercados]}
+  - {id: cnbc, name: "CNBC", url: "https://www.cnbc.com/id/100727362/device/rss/rss.html", lang: en, weight: 0.9, topics: [mundo]}
+  - {id: cnbc, name: "CNBC", url: "https://www.cnbc.com/id/19854910/device/rss/rss.html", lang: en, weight: 0.8, topics: [tecnologia]}
+  - {id: bbc, name: "BBC News", url: "https://feeds.bbci.co.uk/news/world/rss.xml", lang: en, weight: 0.9, topics: [mundo]}
+  - {id: bbc, name: "BBC News", url: "https://feeds.bbci.co.uk/news/business/rss.xml", lang: en, weight: 0.9, topics: [mercados]}
+  - {id: scmp, name: "South China Morning Post", url: "https://www.scmp.com/rss/4/feed", lang: en, weight: 0.9, topics: [mundo]}
+  - {id: scmp, name: "South China Morning Post", url: "https://www.scmp.com/rss/92/feed", lang: en, weight: 0.9, topics: [mercados]}
+  - {id: scmp, name: "South China Morning Post", url: "https://www.scmp.com/rss/36/feed", lang: en, weight: 0.8, topics: [tecnologia]}
+  - {id: aljazeera, name: "Al Jazeera", url: "https://www.aljazeera.com/xml/rss/all.xml", lang: en, weight: 0.8, topics: [mundo]}
+  - {id: techcrunch, name: "TechCrunch", url: "https://techcrunch.com/feed/", lang: en, weight: 0.7, topics: [tecnologia]}
+  - {id: elpais, name: "El País", url: "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada", lang: es, weight: 0.7, topics: [mundo]}
