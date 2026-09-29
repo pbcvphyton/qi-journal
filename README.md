@@ -106,6 +106,11 @@ para o endereço cadastrado nela (o endereço fica só na rotina, não no
 repositório, que é público). Para pausar, mudar o horário ou apagar: lista de
 *Routines* do Claude Code em <https://claude.ai/code>.
 
+> **Importante:** a rotina precisa do **conector do Gmail** anexado a ela. Em
+> <https://claude.ai/code>, abra *Routines → "QI Journal — e-mail diário" →
+> Edit* e adicione o conector **Gmail**. Sem ele, a rotina roda mas não
+> consegue enviar (nesse caso, use a opção 2).
+
 Ela usa os arquivos que o próprio jornal gera:
 
 - `edicoes/latest.json` — dados da última edição (data, assunto, manchete, links);
