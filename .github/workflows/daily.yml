@@ -6,6 +6,14 @@ name: Edição diária
 on:
   schedule:
     - cron: "7 8 * * *" # 05:07 em Brasília (UTC-3, sem horário de verão)
+    # Reservas: o GitHub pode atrasar ou descartar um agendamento em horário de
+    # pico. Se a edição do dia já saiu, estas execuções terminam em segundos.
+    - cron: "37 9 * * *" # 06:37 em Brasília
+    - cron: "7 11 * * *" # 08:07 em Brasília
+  push:
+    # Mudou este workflow na main: gera a edição do dia se ela ainda não saiu.
+    branches: [main]
+    paths: [".github/workflows/daily.yml"]
   workflow_dispatch:
     inputs:
       no_llm:
@@ -27,7 +35,39 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check:
+    # Agendamentos de reserva e push: só seguem se a edição de hoje ainda não
+    # foi publicada. O disparo manual sempre gera (refaz a edição do dia).
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      run: ${{ steps.check.outputs.run }}
+    steps:
+      - name: Baixar o manifesto da última edição
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout: edicoes/latest.json
+          sparse-checkout-cone-mode: false
+
+      - name: Verificar se a edição de hoje já saiu
+        id: check
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          today=$(TZ=America/Sao_Paulo date +%F)
+          published=$(python3 -c 'import json; print(json.load(open("edicoes/latest.json")).get("date", ""))' 2>/dev/null || true)
+          if [ "$EVENT" != "workflow_dispatch" ] && [ "$published" = "$today" ]; then
+            echo "Edição de $today já publicada; nada a fazer nesta execução ($EVENT)."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Última edição publicada: ${published:-nenhuma}; gerando a de $today."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
   edition:
+    needs: check
+    if: needs.check.outputs.run == 'true'
     runs-on: ubuntu-latest
     # Pior caso: coleta com retentativas (~6 min) + enriquecimento (~2 min) +
     # edição por IA, limitada a llm.deadline_seconds (35 min): no modo blocos,

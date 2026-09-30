@@ -17,7 +17,7 @@ Nada precisa ser feito à mão: o GitHub gera a edição sozinho às **05:07
 ## Como funciona
 
 ```
-  GitHub Actions — todo dia às 05:07 (Brasília)
+  GitHub Actions — todo dia às 05:07 (Brasília; reservas às 06:37 e 08:07)
         │
         ▼
   1. Coleta ── ~100 feeds (Valor, Folha, Estadão, FT, WSJ, NYT, JOTA, STF, STJ, ge,
@@ -178,16 +178,13 @@ caminhos, que podem ser usados juntos ou separados.
 
 ### Opção 1 — Rotina diária do Claude (Gmail) — já configurada
 
-Uma rotina agendada do Claude, com o conector do Gmail, roda todo dia às
-**06:54 (Brasília)** — depois da edição das 05:07 — e envia o e-mail do dia
-para o endereço cadastrado nela (o endereço fica só na rotina, não no
-repositório, que é público). Para pausar, mudar o horário ou apagar: lista de
-*Routines* do Claude Code em <https://claude.ai/code>.
-
-> **Importante:** a rotina precisa do **conector do Gmail** anexado a ela. Em
-> <https://claude.ai/code>, abra *Routines → "PBCV Tech — e-mail diário" →
-> Edit* e adicione o conector **Gmail**. Sem ele, a rotina roda mas não
-> consegue enviar (nesse caso, use a opção 2).
+Uma rotina agendada do Claude, com o Gmail conectado, roda todo dia às
+**06:54 (Brasília)** e envia o e-mail do dia para o endereço cadastrado nela (o
+endereço fica só na rotina, não no repositório, que é público). Se a edição do
+dia ainda não tiver saído (agendamento do GitHub atrasado), ela não envia nada e
+tenta de novo às **09:04**; só então, se a edição não saiu, manda um aviso
+curto. Nunca envia duas vezes no mesmo dia. Para pausar, mudar o horário ou
+apagar: lista de *Routines* do Claude Code em <https://claude.ai/code>.
 
 Ela usa os arquivos que o próprio jornal gera:
 
@@ -376,8 +373,8 @@ publicado normalmente.
 ## Quando algo dá errado
 
 - **A execução falhou com código 2:** poucas fontes responderam; nada foi
-  publicado e a edição anterior continua no ar. Basta rodar de novo mais tarde
-  (*Run workflow*) ou esperar o dia seguinte.
+  publicado e a edição anterior continua no ar. Os horários de reserva (06:37 e
+  08:07) tentam de novo sozinhos; também dá para rodar à mão (*Run workflow*).
 - **Outros erros:** o GitHub avisa por e-mail o dono do repositório. O log da
   etapa *Gerar a edição* mostra a causa.
 - **Investigar uma edição:** cada execução guarda por 7 dias a coleta crua e as
@@ -388,9 +385,14 @@ publicado normalmente.
   `python -m qijournal render --bundle bundle-AAAA-MM-DD.json --out /tmp/x --no-llm`.
   A edição por IA não é reproduzível (o modelo pode escolher e escrever
   diferente a cada chamada).
-- **O agendamento parou:** o GitHub pode desativar rotinas agendadas de
-  repositórios sem atividade. Reative em *Actions → Edição diária → Enable
-  workflow*. O horário também pode atrasar alguns minutos em dias de pico.
+- **O agendamento atrasou ou não rodou:** o GitHub pode atrasar ou descartar
+  agendamentos em horário de pico. Por isso há reservas às **06:37** e às
+  **08:07** (Brasília): se a edição do dia ainda não saiu, elas a geram; se já
+  saiu, terminam em segundos. Mudar o `daily.yml` na `main` também gera a edição
+  do dia, se ela ainda não saiu.
+- **O agendamento parou:** o GitHub desativa agendamentos de repositórios sem
+  atividade por 60 dias (o commit diário da edição evita isso). Reative em
+  *Actions → Edição diária → Enable workflow*.
 
 ---
 
