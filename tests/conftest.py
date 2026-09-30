@@ -14,6 +14,7 @@ def _no_llm_retry_wait(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 @pytest.fixture(autouse=True)
-def _no_real_mistral(monkeypatch: pytest.MonkeyPatch) -> None:
-    """Uma MISTRAL_API_KEY do ambiente de quem roda os testes nunca chama a API de verdade."""
-    monkeypatch.delenv("MISTRAL_API_KEY", raising=False)
+def _no_real_ai_keys(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Chaves de IA do ambiente de quem roda os testes nunca chamam as APIs de verdade."""
+    for name in ("MISTRAL_API_KEY", "AIMLAPI_KEY", "SENSENOVA_API_KEY", "MOONSHOT_API_KEY"):
+        monkeypatch.delenv(name, raising=False)

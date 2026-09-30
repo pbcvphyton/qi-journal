@@ -69,6 +69,10 @@
 </section>
 {% endif %}
 
+{% if v.rationale %}
+<p class="rat-strip"><span>{{ v.rationale.strip }}</span> <a href="#racional">Como foi compilada</a>{% if v.index_url %} · <a href="{{ v.index_url }}">Todas as {{ v.index_total|num }} notícias</a>{% endif %}</p>
+{% endif %}
+
 {% if v.lead %}
 {% set s = v.lead %}
 <section class="hero{% if not v.secondary %} solo{% endif %}" aria-label="Manchete">
@@ -172,6 +176,24 @@
 </section>
 {% endif %}
 
+{% if v.rationale %}
+<section class="rat" id="racional" aria-labelledby="rat-h">
+  <h2 class="kicker" id="rat-h">Racional da edição</h2>
+  <p class="rat-sum">{{ v.rationale.summary }}</p>
+  {% if v.rationale.blocks %}
+  <ol class="rat-blocks">
+    {% for b in v.rationale.blocks %}
+    <li class="{{ 'ok' if b.ok else 'off' }}"><b>{{ b.name }}</b><span>{{ b.articles|num }} notícias{% if b.ok %} · {{ b.stories }} matérias redigidas · {{ b.compared }} outros assuntos comparados{% else %} · bloco sem resposta da IA (notícias na lista completa){% endif %}</span></li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+  {% if v.index_url %}
+  <p class="rat-all"><a href="{{ v.index_url }}">Ver todas as {{ v.index_total|num }} notícias do dia, por editoria e assunto &rarr;</a></p>
+  {% endif %}
+  <p class="rat-note">Na análise de cada assunto, a IA define os dois enfoques do debate, interpreta o foco de cada veículo (o que priorizou, o enquadramento e o que deixou de lado em relação aos outros) e diz para que lado cada um seguiu. A barra cresce para o lado com mais veículos. A análise usa só os títulos e trechos publicados.</p>
+</section>
+{% endif %}
+
 {% if v.compared %}
 <section class="cmp" id="cobertura" aria-labelledby="cmp-h">
   <div class="cmp-top">
@@ -189,6 +211,7 @@
   </ol>
 </section>
 {% endif %}
+
 {% endblock %}
 
 {% block footer %}

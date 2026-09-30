@@ -104,7 +104,10 @@ SECTION_WEIGHT = {
     "imobiliario": 1.2,
     "politica": 1.0,
     "tecnologia": 1.0,
+    "natureza": 0.9,
     "mundo": 0.85,
+    "esporte": 0.8,
+    "variedades": 0.7,
 }
 
 

@@ -20,7 +20,7 @@ from qijournal.edit.heuristic import (
     story_from_articles,
 )
 from qijournal.models import Bundle, Edition
-from tests.fixtures.editor.factory import NOW, make_article, sample_bundle
+from tests.fixtures.editor.factory import NOW, make_article, sample_bundle, sample_sections
 
 FORBIDDEN = set("*#<>")
 SHARED_BUNDLE = Path(__file__).parent / "fixtures" / "bundle.json"
@@ -70,7 +70,7 @@ def test_heuristic_edition_contract(edition, config):
     assert len(edition.secondary) == config.edition.secondary_count
     assert len(edition.highlights) == config.edition.highlights_count
     # todas as seções com candidatos aparecem
-    assert {s.id for s in edition.sections} == set(config.section_ids)
+    assert {s.id for s in edition.sections} == sample_sections(config)
 
 
 def test_lead_is_portuguese_with_image_and_top_importance(edition):

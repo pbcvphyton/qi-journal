@@ -1,8 +1,10 @@
 # PBCV Tech — jornal diário
 
-Jornal financeiro diário em português, montado e publicado automaticamente todo
-dia de manhã: mercados, economia, direito e regulação, política, geopolítica,
-tecnologia e mercado imobiliário — com cotações, clima e um resumo "Em 1 minuto".
+Jornal diário em português, montado e publicado automaticamente todo dia de
+manhã: mercados, economia, direito e regulação (STF, STJ, TJs…), política,
+geopolítica, tecnologia, mercado imobiliário, esporte, natureza e meio ambiente
+e cultura — com cotações, clima, um resumo "Em 1 minuto", a análise de como cada
+veículo cobriu cada assunto e a lista completa de todas as notícias do dia.
 
 - **Edição do dia:** <https://pbcvphyton.github.io/qi-journal/>
 - **Edições anteriores:** <https://pbcvphyton.github.io/qi-journal/edicoes/>
@@ -18,15 +20,20 @@ Nada precisa ser feito à mão: o GitHub gera a edição sozinho às **05:07
   GitHub Actions — todo dia às 05:07 (Brasília)
         │
         ▼
-  1. Coleta ── ~64 feeds de notícias (Valor, Folha, Estadão, FT, WSJ, NYT, JOTA…)
-        │      cotações (Yahoo Finance, CoinGecko, Banco Central) e clima (Open-Meteo)
+  1. Coleta ── ~100 feeds (Valor, Folha, Estadão, FT, WSJ, NYT, JOTA, STF, STJ, ge,
+        │      g1 Natureza…), cotações (Yahoo Finance, CoinGecko, Banco Central) e
+        │      clima (Open-Meteo). Nenhuma editoria é descartada.
         ▼
-  2. Edição ── com IA (Mistral; reserva: Claude): lê TODAS as notícias, agrupa por
-        │      assunto, escolhe os fatos do dia, escreve em português e compara
-        │      como cada veículo cobriu cada assunto (lados do debate + medidor)
-        │      sem IA (ou se a IA falhar): edição automática com os textos dos veículos
+  2. Edição ── com IA, compilação por editoria: TODAS as notícias em blocos
+        │      (Economia & Mercados, Política & Justiça, Empresas/Tecnologia/
+        │      Imobiliário, Mundo & Natureza, Esporte/Cultura); em cada bloco a IA
+        │      une o que é o mesmo assunto, interpreta o foco de cada veículo e o
+        │      lado que ele seguiu, e redige; o fechamento escolhe as matérias.
+        │      Se uma IA estourar o limite, a seguinte assume (AIML → SenseNova →
+        │      Mistral → Kimi → Claude). Sem IA: edição automática.
         ▼
-  3. Páginas ── capa (index.html), cópia no arquivo (edicoes/), e-mail em HTML e texto
+  3. Páginas ── capa (index.html), cópia no arquivo (edicoes/), todas as notícias
+        │      do dia (edicoes/AAAA-MM-DD-todas.html), e-mail em HTML e texto
         │
         ▼
   4. Commit no repositório ──► GitHub Pages publica o site
@@ -56,6 +63,7 @@ Garantias importantes:
 | Edição do dia | <https://pbcvphyton.github.io/qi-journal/> |
 | Arquivo (edições anteriores) | <https://pbcvphyton.github.io/qi-journal/edicoes/> |
 | Uma edição específica | `https://pbcvphyton.github.io/qi-journal/edicoes/AAAA-MM-DD.html` |
+| Todas as notícias de um dia | `https://pbcvphyton.github.io/qi-journal/edicoes/AAAA-MM-DD-todas.html` |
 
 Cada matéria tem endereço próprio (`…#s-<id>`). Os links do e-mail apontam para a
 cópia arquivada (`edicoes/AAAA-MM-DD.html#s-<id>`), que continua válida depois que a
@@ -70,80 +78,102 @@ arquivo guarda as edições dos últimos 400 dias (`archive_keep_days` em
 
 ## Ativar a edição por IA
 
-Há dois editores por IA, tentados nesta ordem (`llm.providers` em
-`config/site.yaml`); cada um só entra se o segredo dele existir, e se falhar a
-edição passa ao próximo e, por fim, ao modo automático:
+Os editores por IA ficam numa **cadeia**, na ordem de `llm.providers` em
+`config/site.yaml`. Cada um só entra se o segredo dele existir no GitHub:
 
-1. **[Mistral](https://mistral.ai/)** (`MISTRAL_API_KEY`) — editor principal,
-   com a **análise completa**: lê *todas* as notícias do dia, junta as que
-   tratam do mesmo assunto, faz a pauta, redige e monta a **cobertura
-   comparada** (veja abaixo).
-2. **[Claude](https://www.anthropic.com/)** (`ANTHROPIC_API_KEY`) — reserva:
-   pauta e redação em duas chamadas, sem a cobertura comparada.
+| Ordem | Editor | Segredo | Custo e limite |
+|---|---|---|---|
+| 1 | [AIML API](https://aimlapi.com/) (`openai/gpt-5-5`) | `AIMLAPI_KEY` | grátis; 10 requisições por hora |
+| 2 | [SenseNova](https://platform.sensenova.ai/) (`sensenova-6.8-flash-lite`) | `SENSENOVA_API_KEY` | grátis (beta); 1.500 requisições a cada 5 horas |
+| 3 | [Mistral](https://mistral.ai/) (`mistral-large-latest`) | `MISTRAL_API_KEY` | grátis (*Experiment*); poucas requisições por minuto |
+| 4 | [Kimi](https://platform.kimi.ai/) (`kimi-k3`) | `MOONSHOT_API_KEY` | pago (recarga mínima de US$ 1) |
+| 5 | [Claude](https://www.anthropic.com/) (`claude-opus-5-5`) | `ANTHROPIC_API_KEY` | pago |
 
-### Mistral (gratuito)
+**Quando uma IA estoura o limite, a seguinte assume**, chamada a chamada, até
+toda a demanda ser compilada: se o editor da vez esgotar o teto de requisições
+da edição (ex.: as 10 por hora da AIML), receber 429 que persiste, ficar sem
+cota ou tiver a chave recusada, ele sai da cadeia e a mesma chamada é refeita
+no seguinte. Outros erros (resposta cortada, JSON inválido) refazem só aquela
+chamada no seguinte. Se nenhum conseguir, a edição sai no modo automático e a
+execução no GitHub mostra um aviso amarelo explicando o motivo.
 
-O plano gratuito da Mistral (*Experiment*) dá acesso a todos os modelos,
-inclusive o `mistral-large-latest` usado aqui, com cota mensal bem acima do que
-o jornal usa (da ordem de 250 mil tokens por dia). O limite é de requisições por
-minuto, por isso as chamadas saem uma de cada vez, com intervalo mínimo de 30 s
-(`mistral_min_interval_seconds`) e novas tentativas quando a API pede para
-esperar; uma edição leva de 10 a 15 chamadas. No plano gratuito, a Mistral pode
-usar o conteúdo enviado para treinar modelos (aqui, só notícias públicas).
+Para ativar um editor: crie a chave no site dele e, no GitHub, *Settings →
+Secrets and variables → Actions → New repository secret*, com o nome da tabela
+e a chave como valor. **Nunca** coloque a chave no código ou em arquivos do
+repositório (ele é público). O modelo de cada um pode ser trocado pela variável
+`QIJ_<NOME>_MODEL` (aba *Variables*): `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`,
+`QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` e `QIJ_MODEL` (Claude). Os limites de cada
+um (janela de contexto, saída máxima, teto de requisições, chamadas simultâneas)
+ficam em `llm.apis` no `config/site.yaml`, com os padrões em
+`qijournal/config.py` (`DEFAULT_APIS`).
 
-1. Crie a chave em <https://console.mistral.ai/> (*API Keys*; o plano gratuito
-   pede só a verificação do telefone).
-2. No GitHub: *Settings → Secrets and variables → Actions → New repository
-   secret*, nome **`MISTRAL_API_KEY`**, valor = a chave. **Nunca** coloque a
-   chave no código ou em arquivos do repositório (ele é público).
-3. Opcional: variável **`QIJ_MISTRAL_MODEL`** (aba *Variables*) para trocar o
-   modelo, ex.: `mistral-medium-latest`.
+### Compilação por editoria (modo "blocos")
 
-A API segue o formato de chat do OpenAI (`/chat/completions` com JSON Schema),
-então outro provedor compatível pode entrar mudando `mistral_base_url` e o
-modelo em `config/site.yaml`.
+Todas as notícias do dia (1.000 a 1.500) são divididas em **blocos por
+editoria** (`llm.block_groups`), e cada bloco vai numa chamada:
 
-### Cobertura comparada
+1. Economia & Mercados · 2. Política & Justiça · 3. Empresas, Tecnologia &
+   Imobiliário · 4. Mundo & Natureza · 5. Esporte, Cultura & Variedades
 
-Para cada assunto coberto por dois ou mais veículos, a IA recebe o título e um
-trecho de cada um e devolve:
+Em cada bloco, a IA lê todas as notícias dele, **une as que tratam do mesmo
+assunto**, faz a **análise da cobertura** (abaixo) e **redige as matérias mais
+importantes**. Uma **chamada de fechamento** recebe o que todos os blocos
+produziram, junta assuntos que se repetiram entre blocos, escolhe as matérias da
+edição (`target_stories`) e a manchete e escreve o editorial e o "Em 1 minuto".
+
+O limite de cada chamada é respeitado: um bloco que não cabe na entrada
+(janela de contexto do modelo menos a saída) ou na saída máxima do modelo é
+dividido em partes de tamanho igual, até **9 chamadas no total** (`max_calls`,
+contando o fechamento). Com a cadeia, os blocos são planejados pelo menor limite
+entre os editores ativos, para que qualquer um deles consiga assumir qualquer
+bloco. Uma edição típica usa 6 chamadas (5 blocos + fechamento).
+
+O modo alternativo `etapas` (`llm.apis.<nome>.mode: etapas`) faz agrupamento,
+pauta, redação e cobertura em chamadas separadas (10 a 15 por edição).
+
+### Análise da cobertura (o analítico)
+
+Para cada assunto coberto por dois ou mais veículos, a IA devolve:
 
 - os **dois lados do debate**, como enfoques neutros ("Destaca o risco fiscal" ×
   "Destaca a arrecadação recorde") — ou nenhum, quando todos relatam o fato do
   mesmo jeito;
-- a **posição de cada veículo** (lado A, lado B ou neutro) e o que ele destacou;
+- para **cada veículo**, o lado que ele seguiu (A, B ou neutro) e a
+  **interpretação do foco dele**: o que priorizou, que enquadramento deu (tom,
+  personagens, dados que destacou ou deixou de lado em comparação com os
+  outros) e por que isso o põe naquele lado;
 - a **conclusão**: em que sentido a cobertura seguiu e quem destoou.
 
 No site, um **medidor** mostra cada veículo como um trecho da barra (lado A à
 esquerda, neutros no meio, lado B à direita): a barra cresce para o lado com
 mais veículos, com o rótulo "Pende para: …". Ele aparece no card de cada
-matéria, na janela da matéria (com a conclusão e a lista de veículos por lado)
-e na nova seção **Cobertura comparada**, com os demais assuntos do dia (até
-`coverage_max_topics`, os com mais veículos primeiro). No e-mail, cada matéria
-ganha a barra e a conclusão. A análise usa só o que os veículos publicaram;
-quando o trecho não permite dizer, o veículo fica como neutro.
+matéria, na janela da matéria (com a conclusão e a **análise por veículo**) e na
+seção **Cobertura comparada**, com os demais assuntos do dia. No e-mail, cada
+matéria ganha a barra e a conclusão. A análise usa só o que os veículos
+publicaram; quando o trecho não permite dizer, o veículo fica como neutro.
 
-### Claude (reserva, pago)
+### Racional da edição e lista completa do dia
 
-1. Crie uma chave em <https://console.anthropic.com/> (menu *API Keys*).
-2. No GitHub: segredo **`ANTHROPIC_API_KEY`**, valor = a chave.
-
-- **Custo estimado:** cerca de **US$ 0,50 a 1,00 por dia** (US$ 15 a 30 por
-  mês) com o modelo `claude-opus-5-5`: duas chamadas por edição, somando da
-  ordem de 50 mil tokens de entrada (US$ 4 por milhão) e 25 mil de saída
-  (US$ 20 por milhão). O resumo de cada execução no GitHub mostra os tokens
-  realmente usados.
-- **Trocar o modelo:** crie a variável (aba *Variables*, não *Secrets*)
-  **`QIJ_MODEL`** com o nome do modelo desejado.
-- **Sem nenhuma chave**, ou se a IA falhar, a edição sai no modo automático e a
-  execução no GitHub mostra um aviso amarelo explicando o motivo.
+- **Racional da edição:** uma faixa no topo da capa e uma seção própria dizem
+  como a edição foi compilada — quantas notícias e veículos, os blocos por
+  editoria (notícias lidas, matérias redigidas e assuntos comparados em cada
+  um), quantos assuntos sobraram depois de unir as repetidas e qual IA fez o
+  trabalho. Cada matéria mostra de quantas notícias e veículos foi compilada e
+  em que bloco.
+- **Nenhuma notícia é descartada:** a página *Todas as notícias do dia*
+  (`edicoes/AAAA-MM-DD-todas.html`, com link na capa e no e-mail) lista todas as
+  notícias coletadas, por editoria e por assunto (as repetidas ficam juntas),
+  com link para o original. Só ficam de fora da coleta publieditoriais,
+  resultados de loteria, horóscopo e vídeos sem texto (`exclude_url_patterns` e
+  `exclude_title_patterns` em `config/site.yaml`).
 
 ---
 
 ## Receber por e-mail
 
-O e-mail traz a manchete com imagem, o resumo do dia, cotações, clima e as
-principais matérias por seção, com links para a edição completa. Há dois
+O e-mail traz a manchete com imagem, o resumo do dia, cotações, clima, o
+racional da compilação e as principais matérias por seção, com links para a
+edição completa e para todas as notícias do dia. Há dois
 caminhos, que podem ser usados juntos ou separados.
 
 ### Opção 1 — Rotina diária do Claude (Gmail) — já configurada
@@ -155,7 +185,7 @@ repositório, que é público). Para pausar, mudar o horário ou apagar: lista d
 *Routines* do Claude Code em <https://claude.ai/code>.
 
 > **Importante:** a rotina precisa do **conector do Gmail** anexado a ela. Em
-> <https://claude.ai/code>, abra *Routines → "QI Journal — e-mail diário" →
+> <https://claude.ai/code>, abra *Routines → "PBCV Tech — e-mail diário" →
 > Edit* e adicione o conector **Gmail**. Sem ele, a rotina roda mas não
 > consegue enviar (nesse caso, use a opção 2).
 
@@ -273,7 +303,7 @@ As fontes ficam em [`config/sources.yaml`](config/sources.yaml), uma por linha:
 | `url` | endereço do feed RSS/Atom |
 | `lang` | `pt`, `en` ou `es` |
 | `weight` | importância editorial (0,5 a 1,5) — pesa na escolha das matérias |
-| `topics` | seções prováveis (`brasil`, `mercados`, `juridico`, `politica`, `mundo`, `tecnologia`, `imobiliario`); em feeds gerais (capas), use `[]` e a dica sai do endereço da matéria (`/internacional/` → `mundo`…) |
+| `topics` | seções prováveis (`brasil`, `mercados`, `juridico`, `politica`, `mundo`, `tecnologia`, `imobiliario`, `esporte`, `natureza`, `variedades`); em feeds gerais (capas), use `[]` e a dica sai do endereço da matéria (`/internacional/` → `mundo`, `/esporte/` → `esporte`…) |
 | `enabled` | `false` desliga a fonte sem apagá-la |
 | `exclude_url_patterns` | trechos de endereço a ignorar nessa fonte |
 
@@ -327,13 +357,16 @@ Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 
 | Nome | Tipo | Para quê |
 |---|---|---|
-| `MISTRAL_API_KEY` | segredo | editor principal (Mistral, análise completa) |
-| `ANTHROPIC_API_KEY` | segredo | editor reserva (Claude) |
+| `AIMLAPI_KEY` | segredo | editor 1 da cadeia (AIML, grátis) |
+| `SENSENOVA_API_KEY` | segredo | editor 2 (SenseNova, grátis) |
+| `MISTRAL_API_KEY` | segredo | editor 3 (Mistral, grátis) |
+| `MOONSHOT_API_KEY` | segredo | editor 4 (Kimi, pago) |
+| `ANTHROPIC_API_KEY` | segredo | editor 5 (Claude, pago) |
 | `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_TO` | segredos | envio do e-mail por SMTP |
 | `EMAIL_FROM`, `SMTP_HOST`, `SMTP_PORT` | segredos (opcionais) | ajustes do SMTP |
 | `QIJ_BRAND` | variável | marca (`tech` ou `pbcv`) |
 | `QIJ_MODEL` | variável | modelo do Claude |
-| `QIJ_MISTRAL_MODEL` | variável | modelo do Mistral (padrão `mistral-large-latest`) |
+| `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` | variáveis | modelo de cada editor (padrões na tabela de editores acima) |
 
 Todos são opcionais: sem nenhum deles, o jornal é gerado no modo automático e
 publicado normalmente.
@@ -366,9 +399,11 @@ publicado normalmente.
 ```
 qijournal/                código do jornal
   collect/                coleta: feeds, páginas das matérias, cotações, clima
-  edit/                   edição: agrupamento, IA (llm.py; mistral.py; topics.py =
-                          todas as notícias por assunto; coverage.py = cobertura
-                          comparada) e modo automático
+  edit/                   edição: agrupamento, IA (llm.py = Claude e fluxo geral;
+                          chatapi.py = AIML, SenseNova, Mistral, Kimi; chain.py =
+                          cadeia de editores; blocks.py = compilação por
+                          editoria; topics.py e coverage.py = modo etapas;
+                          index.py = todas as notícias do dia) e modo automático
   render/                 páginas HTML e e-mail (modelos em render/templates/)
   deliver/smtp.py         envio do e-mail por SMTP
   pipeline.py             orquestra coleta → edição → páginas → e-mail
@@ -377,7 +412,8 @@ config/site.yaml          marca, seções, cotações, clima, limites da ediçã
 config/sources.yaml       fontes de notícia
 assets/                   logos e ícones das marcas
 index.html                edição do dia (gerado automaticamente)
-edicoes/                  arquivo de edições, e-mail e latest.json (gerado)
+edicoes/                  arquivo de edições, todas as notícias de cada dia,
+                          e-mail e latest.json (gerado)
 data/                     cada edição em JSON (gerado)
 tests/                    testes automáticos
 .github/workflows/        daily.yml (edição diária) e ci.yml (testes)

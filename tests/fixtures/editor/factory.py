@@ -67,6 +67,16 @@ def _img(name: str) -> str:
     return f"https://img.example.com/{name}.jpg"
 
 
+# Seções criadas depois deste exemplo (sem artigos nele): Esporte, Natureza e
+# Cultura & Variedades.
+SECTIONS_WITHOUT_SAMPLE = {"esporte", "natureza", "variedades"}
+
+
+def sample_sections(config) -> set[str]:
+    """Seções que têm artigos no exemplo."""
+    return set(config.section_ids) - SECTIONS_WITHOUT_SAMPLE
+
+
 def sample_articles() -> list[Article]:
     a = make_article
     return [

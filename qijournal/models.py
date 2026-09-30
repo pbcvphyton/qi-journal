@@ -168,7 +168,9 @@ class CoverageOutlet:
 
     name: str  # ex.: "Folha de S.Paulo"
     stance: str  # "a" | "b" | "neutro" (lados definidos em Coverage)
-    framing: str = ""  # o que o veículo destacou (1 frase curta), texto puro
+    # Interpretação do foco do veículo (1-2 frases): o que priorizou, que
+    # enquadramento deu e por que isso o põe no lado A, B ou neutro; texto puro.
+    framing: str = ""
     url: str | None = None  # artigo do veículo sobre o assunto
 
     def to_dict(self) -> dict[str, Any]:
@@ -196,6 +198,7 @@ class Coverage:
     section: str | None = None
     published: str | None = None  # ISO 8601 UTC do artigo mais recente
     url: str | None = None  # artigo principal (assuntos que não viraram matéria)
+    article_ids: list[str] = field(default_factory=list)  # notícias do assunto (Article.id)
 
     @property
     def has_debate(self) -> bool:
@@ -233,6 +236,7 @@ class Story:
     published: str | None = None  # ISO 8601 UTC do artigo principal
     lang: str = "pt"  # idioma de título/linha fina/corpo ("en" quando a edição automática usa o original)
     coverage: Coverage | None = None  # cobertura comparada (só na edição por IA com análise completa)
+    block: str | None = None  # bloco por editoria em que a IA compilou a matéria (modo blocos)
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
@@ -282,6 +286,93 @@ class EditionStats:
 
 
 @dataclass
+class IndexItem:
+    """Uma notícia na lista completa do dia."""
+
+    source: str
+    title: str
+    url: str
+    published: str | None = None
+    lang: str = "pt"
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "IndexItem":
+        return _from_dict(cls, data)
+
+
+@dataclass
+class IndexTopic:
+    """Um assunto na lista completa do dia ("Todas as notícias"): as notícias
+    sobre ele, da mais relevante para a menos. Nenhuma notícia coletada fica de
+    fora da lista."""
+
+    section: str
+    title: str
+    items: list[IndexItem]
+    story_id: str | None = None  # virou matéria da edição
+    compared: bool = False  # tem cobertura comparada (seção "Cobertura comparada")
+
+    def to_dict(self) -> dict[str, Any]:
+        d = asdict(self)
+        d["items"] = [i.to_dict() for i in self.items]
+        return d
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "IndexTopic":
+        d = dict(data)
+        d["items"] = [IndexItem.from_dict(i) for i in d.get("items") or [] if isinstance(i, dict)]
+        return _from_dict(cls, d)
+
+
+@dataclass
+class BlockInfo:
+    """Um bloco da compilação por editoria (modo blocos)."""
+
+    name: str  # ex.: "Economia & Mercados" ou "Economia & Mercados (parte 1 de 2)"
+    sections: list[str]
+    articles: int = 0  # notícias lidas pela IA no bloco
+    groups: int = 0  # grupos automáticos (títulos parecidos) no bloco
+    stories: int = 0  # matérias redigidas no bloco
+    compared: int = 0  # outros assuntos com cobertura comparada
+    ok: bool = True  # a chamada do bloco deu certo
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "BlockInfo":
+        return _from_dict(cls, data)
+
+
+@dataclass
+class Rationale:
+    """Racional da compilação: como a edição foi montada a partir do noticiário."""
+
+    method: str = "automática"  # "blocos" | "etapas" | "duas chamadas" | "automática"
+    provider: str | None = None  # editor por IA usado (ex.: "aiml")
+    articles: int = 0  # notícias coletadas
+    outlets: int = 0  # veículos distintos
+    groups: int = 0  # grupos automáticos por títulos parecidos
+    topics: int = 0  # assuntos depois de a IA unir as notícias repetidas (0 = sem união por IA)
+    calls: int = 0  # chamadas à IA
+    blocks: list[BlockInfo] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        d = asdict(self)
+        d["blocks"] = [b.to_dict() for b in self.blocks]
+        return d
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "Rationale":
+        d = dict(data)
+        d["blocks"] = [BlockInfo.from_dict(b) for b in d.get("blocks") or [] if isinstance(b, dict)]
+        return _from_dict(cls, d)
+
+
+@dataclass
 class Edition:
     """A edição do dia, pronta para renderização."""
 
@@ -306,6 +397,10 @@ class Edition:
     # Cobertura comparada dos demais assuntos do dia (vistos por 2+ veículos) que
     # não viraram matéria; vazio sem a análise completa e em edições antigas.
     compared: list[Coverage] = field(default_factory=list)
+    # Racional da compilação e lista completa do dia (todas as notícias por
+    # assunto); vazios em edições antigas.
+    rationale: Rationale | None = None
+    index: list[IndexTopic] = field(default_factory=list)
 
     def story(self, story_id: str) -> Story:
         for s in self.stories:
@@ -332,6 +427,8 @@ class Edition:
             "stats": self.stats.to_dict(),
             "wire": [dict(item) for item in self.wire],
             "compared": [c.to_dict() for c in self.compared],
+            "rationale": self.rationale.to_dict() if self.rationale else None,
+            "index": [t.to_dict() for t in self.index],
         }
 
     @classmethod
@@ -354,4 +451,6 @@ class Edition:
             stats=EditionStats.from_dict(data.get("stats", {})),
             wire=[dict(item) for item in data.get("wire") or [] if isinstance(item, dict)],
             compared=[Coverage.from_dict(c) for c in data.get("compared") or [] if isinstance(c, dict)],
+            rationale=Rationale.from_dict(data["rationale"]) if isinstance(data.get("rationale"), dict) else None,
+            index=[IndexTopic.from_dict(t) for t in data.get("index") or [] if isinstance(t, dict)],
         )

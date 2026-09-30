@@ -1,15 +1,18 @@
-"""Edição por IA: pauta (seleção e agrupamento) + redação, com Claude ou Mistral.
+"""Edição por IA: pauta (seleção e agrupamento) + redação, com Claude ou um editor
+com API de chat no formato OpenAI (:mod:`qijournal.edit.chatapi`).
 
-Fluxo de :func:`build_llm_edition`:
+No modo "blocos" (``backend.block_mode``), :func:`build_llm_edition` passa a
+edição para :func:`qijournal.edit.blocks.build_block_edition` (todas as notícias
+compiladas por editoria). Nos demais, o fluxo é:
 
-1. ranqueia os artigos (:func:`rank_clusters`); com a análise completa
-   (``backend.full_analysis``, editor Mistral), a IA lê TODAS as notícias e junta
-   os grupos sobre o mesmo assunto (:mod:`qijournal.edit.topics`);
+1. ranqueia os artigos (:func:`rank_clusters`); com a análise completa no modo
+   "etapas" (``backend.full_analysis``), a IA lê TODAS as notícias e junta os
+   grupos sobre o mesmo assunto (:mod:`qijournal.edit.topics`);
 2. envia até ``max_candidates`` linhas ao modelo, com ids curtos ``a1..aN``;
 3. **pauta**: o modelo agrupa artigos sobre o mesmo fato, escolhe seção,
    importância, ângulo e a manchete (JSON validado aqui);
 4. enriquece os artigos principais (texto/imagem da página original);
-5. **redação** (em lotes no Mistral): título, linha fina, corpo e "por que
+5. **redação** (em lotes no modo "etapas"): título, linha fina, corpo e "por que
    importa" de cada matéria, além do editorial e do "Em 1 minuto";
 6. com a análise completa, **cobertura comparada**
    (:mod:`qijournal.edit.coverage`): lados do debate, posição de cada veículo e
@@ -23,8 +26,8 @@ heurística. Falhas no agrupamento por assunto ou na cobertura comparada não
 derrubam a edição: ela sai sem essa parte.
 
 No Claude, as chamadas usam streaming, saída estruturada (JSON Schema estrito) e
-o fallback de recusa do lado do servidor (``fallbacks="default"``); o Mistral
-está em :mod:`qijournal.edit.mistral`.
+o fallback de recusa do lado do servidor (``fallbacks="default"``); os demais
+editores estão em :mod:`qijournal.edit.chatapi`.
 """
 
 from __future__ import annotations
@@ -56,7 +59,7 @@ from qijournal.edit.heuristic import (
     story_from_articles,
     wire_items,
 )
-from qijournal.models import Article, Bundle, Edition, Quote, Story
+from qijournal.models import Article, Bundle, Edition, Quote, Rationale, Story
 
 if TYPE_CHECKING:
     from qijournal.collect.enrich import PageInfo
@@ -104,7 +107,16 @@ _EMPTY_BOLD_RE = re.compile(r"\*\*\s*\*\*")
 
 
 class LLMUnavailable(Exception):
-    """A edição por IA não pôde ser produzida (sem chave, erro de API, recusa, JSON inválido…)."""
+    """A edição por IA não pôde ser produzida (sem chave, erro de API, recusa, JSON inválido…).
+
+    ``exhausted``: o editor não serve mais nesta edição (limite de uso, cota ou
+    teto de requisições estourado, chave recusada, modelo inexistente); a cadeia
+    de editores (:mod:`qijournal.edit.chain`) passa as chamadas para o seguinte.
+    """
+
+    def __init__(self, message: str = "", *, exhausted: bool = False) -> None:
+        super().__init__(message)
+        self.exhausted = exhausted
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -141,10 +153,11 @@ desdobramento novo e relevante.
 mas o critério final é o impacto para o leitor, não o volume de cobertura.
 4. Diversidade: toda seção que tiver material relevante deve aparecer com pelo menos uma matéria; \
 não concentre a edição em um único tema; nunca faça duas matérias sobre o mesmo fato.
-5. Descarte: fofoca e celebridades, esporte, entretenimento, crimes comuns sem repercussão \
-econômica, horóscopo, receitas, conteúdo promocional ou patrocinado, guias de consumo e de \
-"como fazer", coberturas "ao vivo"/minuto a minuto, boletins de cotação sem fato novo (ex.: \
-"dólar abre em alta") e notas sem substância.
+5. Todas as editorias do jornal valem, inclusive jurídico (STF, STJ, TST, TSE, CNJ, TJs e TRFs), \
+esporte, natureza e meio ambiente e cultura: escolha os fatos de maior peso de cada uma. Não \
+transforme em matéria conteúdo promocional ou patrocinado, coberturas "ao vivo"/minuto a minuto, \
+boletins de cotação sem fato novo (ex.: "dólar abre em alta") e notas sem substância; as notícias \
+que não virarem matéria continuam na lista completa do dia.
 
 Como agrupar
 - Junte na mesma matéria todos os artigos que relatam o MESMO fato (mesmo evento, decisão, \
@@ -312,11 +325,13 @@ class _Usage:
     input_tokens: int = 0
     output_tokens: int = 0
     served_models: list[str] = field(default_factory=list)  # modelos que redigiram (fallback incluso)
+    calls: int = 0  # respostas recebidas
     _lock: threading.Lock = field(default_factory=threading.Lock, repr=False, compare=False)
 
     def record(self, model: str | None, used_in: int, used_out: int) -> None:
         """Soma um consumo já apurado (chamadas em paralelo usam a mesma instância)."""
         with self._lock:
+            self.calls += 1
             self.input_tokens += used_in
             self.output_tokens += used_out
             if isinstance(model, str) and model and model not in self.served_models:
@@ -395,15 +410,21 @@ def _is_transient(exc: Exception) -> bool:
 def _unavailable(exc: Exception, label: str, config: Config) -> LLMUnavailable:
     """Converte o erro do SDK numa mensagem clara (sem a chave da API)."""
     if isinstance(exc, anthropic.AuthenticationError):
-        return LLMUnavailable(f"{label}: autenticação recusada (401) — verifique ANTHROPIC_API_KEY")
+        return LLMUnavailable(
+            f"{label}: autenticação recusada (401) — verifique ANTHROPIC_API_KEY", exhausted=True
+        )
     if isinstance(exc, anthropic.PermissionDeniedError):
-        return LLMUnavailable(f"{label}: chave sem permissão para {config.llm.model} (403): {_error_detail(exc)}")
+        return LLMUnavailable(
+            f"{label}: chave sem permissão para {config.llm.model} (403): {_error_detail(exc)}", exhausted=True
+        )
     if isinstance(exc, anthropic.NotFoundError):
-        return LLMUnavailable(f"{label}: modelo {config.llm.model} não encontrado (404)")
+        return LLMUnavailable(f"{label}: modelo {config.llm.model} não encontrado (404)", exhausted=True)
     if isinstance(exc, anthropic.RateLimitError):
-        return LLMUnavailable(f"{label}: limite de uso da API atingido (429): {_error_detail(exc)}")
+        return LLMUnavailable(f"{label}: limite de uso da API atingido (429): {_error_detail(exc)}", exhausted=True)
     if isinstance(exc, anthropic.APIStatusError):
-        return LLMUnavailable(f"{label}: erro da API ({exc.status_code}): {_error_detail(exc)}")
+        return LLMUnavailable(
+            f"{label}: erro da API ({exc.status_code}): {_error_detail(exc)}", exhausted=exc.status_code == 402
+        )
     if isinstance(exc, anthropic.APITimeoutError):
         return LLMUnavailable(f"{label}: tempo esgotado aguardando a API")
     if isinstance(exc, anthropic.APIConnectionError):
@@ -485,15 +506,17 @@ def _call_claude(
 class ClaudeBackend:
     """Editor Claude: a pauta e a redação em duas chamadas (sem análise completa).
 
-    Interface comum dos editores (ver também ``MistralBackend``): ``call`` devolve
+    Interface comum dos editores (ver também ``ChatBackend``): ``call`` devolve
     o JSON já decodificado e soma o consumo em ``usage``; os demais atributos
     ajustam o fluxo de :func:`build_llm_edition`.
     """
 
     provider = "claude"
     full_analysis = False  # sem agrupamento de todas as notícias nem cobertura comparada
+    block_mode = False
     write_batch_size = 0  # redação numa chamada só
     parallel = 1
+    context_tokens = 200000  # janela considerada quando o Claude assume blocos de outro editor
 
     def __init__(self, client: Any, config: Config) -> None:
         self.client = client
@@ -1099,6 +1122,7 @@ def build_llm_edition(
     pauta com menos de 8 matérias ou nenhuma matéria redigida).
     """
     # import tardio: os módulos da análise completa importam deste
+    from qijournal.edit.blocks import build_block_edition
     from qijournal.edit.coverage import analyze_coverage
     from qijournal.edit.topics import group_topics
 
@@ -1107,9 +1131,12 @@ def build_llm_edition(
         deadline = time.monotonic() + max(0, config.llm.deadline_seconds)
     if backend is None:
         backend = ClaudeBackend(client if client is not None else _make_client(config), config)
+    if getattr(backend, "block_mode", False):
+        return build_block_edition(bundle, config, now=now, backend=backend, enrich_fn=enrich_fn, deadline=deadline)
     usage = backend.usage
 
     clusters = rank_clusters(bundle.articles, config, now=now)
+    groups_before = len(clusters)
     if backend.full_analysis:
         clusters = group_topics(clusters, config, backend, now=now, deadline=deadline)
     candidates = build_candidates(bundle, config, now=now, clusters=clusters)
@@ -1190,6 +1217,15 @@ def build_llm_edition(
         edition.briefing = top_headlines(edition, BRIEFING_ITEMS)
     edition.wire = wire_items(candidates.clusters, {a.id for pick in picks for a in pick.articles})
     edition.compared = compared
+    edition.rationale = Rationale(
+        method="etapas" if backend.full_analysis else "duas chamadas",
+        provider=getattr(backend, "provider", None),
+        articles=len(bundle.articles),
+        outlets=len({a.source_name for a in bundle.articles}),
+        groups=groups_before,
+        topics=len(clusters) if backend.full_analysis else 0,
+        calls=getattr(backend, "requests", 0) or usage.calls,
+    )
     log.info(
         "Edição por IA (%s): %d matérias em %d seções, %d com cobertura comparada e %d outros assuntos "
         "comparados; tokens: %d de entrada, %d de saída",

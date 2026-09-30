@@ -94,13 +94,136 @@ class EditionConfig:
     exclude_title_patterns: list[str] = field(default_factory=lambda: list(DEFAULT_EXCLUDE_TITLE_PATTERNS))
 
 
+API_MODES = ("blocos", "etapas")
+
+
+@dataclass
+class ApiConfig:
+    """Um editor por IA com API de chat no formato OpenAI (``/chat/completions``).
+
+    ``mode``: ``"blocos"`` (todas as notícias divididas por editoria, uma
+    chamada por bloco, mais o fechamento) ou ``"etapas"`` (agrupamento, pauta,
+    redação e cobertura em chamadas separadas).
+    """
+
+    key_env: str  # variável de ambiente (segredo do GitHub) com a chave
+    base_url: str
+    model: str
+    mode: str = "blocos"
+    max_tokens: int = 16000  # saída máxima de cada chamada (inclui o raciocínio do modelo)
+    token_param: str = "max_tokens"  # modelos de raciocínio da OpenAI: "max_completion_tokens"
+    temperature: float | None = 0.2  # None: não envia (modelos que só aceitam o padrão)
+    context_tokens: int = 128000  # janela de contexto do modelo (entrada + saída)
+    parallel: int = 1  # chamadas simultâneas
+    min_interval_seconds: float = 0.0  # intervalo mínimo entre o início de duas chamadas
+    max_requests: int = 0  # teto de requisições por edição, contando novas tentativas (0 = sem teto)
+    max_retries: int = 3  # novas tentativas após erro passageiro
+    timeout_seconds: int = 300  # espera máxima pela resposta de cada chamada
+
+
+DEFAULT_APIS: dict[str, dict[str, Any]] = {
+    # Plano gratuito: todos os modelos (inclusive GPT-5.5), 10 requisições por hora.
+    "aiml": {
+        "key_env": "AIMLAPI_KEY",
+        "base_url": "https://api.aimlapi.com/v1",
+        "model": "openai/gpt-5-5",
+        "max_tokens": 64000,
+        "token_param": "max_completion_tokens",
+        "temperature": None,
+        "context_tokens": 1050000,
+        "parallel": 3,
+        "max_requests": 10,
+        "max_retries": 1,
+        "timeout_seconds": 900,
+    },
+    # Beta gratuito: 1.500 requisições a cada 5 horas por modelo; 256k de contexto, 64k de saída.
+    "sensenova": {
+        "key_env": "SENSENOVA_API_KEY",
+        "base_url": "https://token.sensenova.ai/v1",
+        "model": "sensenova-6.8-flash-lite",
+        "max_tokens": 48000,
+        "context_tokens": 256000,
+        "parallel": 2,
+        "timeout_seconds": 600,
+    },
+    # Plano gratuito (Experiment): cota mensal folgada, poucas requisições por minuto.
+    "mistral": {
+        "key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+        "model": "mistral-large-latest",
+        "max_tokens": 32000,
+        "context_tokens": 128000,
+        "min_interval_seconds": 30,
+        "timeout_seconds": 600,
+    },
+    # Pago (recarga mínima de US$ 1; nível 0: 3 requisições por minuto).
+    "kimi": {
+        "key_env": "MOONSHOT_API_KEY",
+        "base_url": "https://api.moonshot.ai/v1",
+        "model": "kimi-k3",
+        "max_tokens": 64000,
+        "temperature": None,
+        "context_tokens": 1048576,
+        "min_interval_seconds": 21,
+        "timeout_seconds": 900,
+    },
+}
+
+
+@dataclass
+class BlockGroup:
+    """Um bloco da compilação por editoria: seções afins lidas numa mesma chamada."""
+
+    name: str
+    sections: list[str]
+
+
+DEFAULT_BLOCK_GROUPS: list[dict[str, Any]] = [
+    {"name": "Economia & Mercados", "sections": ["brasil", "mercados"]},
+    {"name": "Política & Justiça", "sections": ["politica", "juridico"]},
+    {"name": "Empresas, Tecnologia & Imobiliário", "sections": ["tecnologia", "imobiliario"]},
+    {"name": "Mundo & Natureza", "sections": ["mundo", "natureza"]},
+    {"name": "Esporte, Cultura & Variedades", "sections": ["esporte", "variedades"]},
+]
+
+
+def _block_groups(raw: Any) -> list[BlockGroup]:
+    items = DEFAULT_BLOCK_GROUPS if raw is None else raw
+    return [BlockGroup(name=str(g["name"]), sections=[str(x) for x in g.get("sections") or []]) for g in items or []]
+
+
+def _api_configs(raw: Mapping[str, Any] | None) -> dict[str, ApiConfig]:
+    """``llm.apis`` do site.yaml por cima de :data:`DEFAULT_APIS` (campo a campo)."""
+    merged: dict[str, dict[str, Any]] = {name: dict(values) for name, values in DEFAULT_APIS.items()}
+    for name, values in (raw or {}).items():
+        merged.setdefault(name, {}).update(values or {})
+    apis = {name: ApiConfig(**values) for name, values in merged.items()}
+    for name, api in apis.items():
+        if api.mode not in API_MODES:
+            log.warning("llm.apis.%s.mode inválido (%r); usando 'blocos'", name, api.mode)
+            api.mode = "blocos"
+    return apis
+
+
 @dataclass
 class LLMConfig:
     enabled: bool = True
     # Editores por IA, na ordem de tentativa. Cada um só entra com a sua chave
-    # (MISTRAL_API_KEY, ANTHROPIC_API_KEY); se falhar, tenta o próximo e, por
-    # fim, a edição automática.
-    providers: list[str] = field(default_factory=lambda: ["mistral", "claude"])
+    # (ver apis e ANTHROPIC_API_KEY); se falhar, tenta o próximo e, por fim, a
+    # edição automática.
+    providers: list[str] = field(default_factory=lambda: ["aiml", "sensenova", "mistral", "kimi", "claude"])
+    apis: dict[str, ApiConfig] = field(default_factory=lambda: _api_configs(None))
+    # ── Modo "blocos" ──
+    # Todas as notícias do dia divididas por editoria (block_groups: seções
+    # afins numa mesma chamada), mais uma chamada de fechamento (manchete,
+    # editorial, "Em 1 minuto" e assuntos repetidos entre blocos). Um bloco que
+    # não cabe no limite da chamada (entrada ou saída do modelo) é dividido em
+    # partes iguais, até max_calls chamadas no total. Sem block_groups: `blocks`
+    # partes de tamanho igual.
+    block_groups: list[BlockGroup] = field(default_factory=lambda: _block_groups(None))
+    blocks: int = 5
+    max_calls: int = 9
+    block_closing: bool = True
     model: str = "claude-opus-5-5"
     effort: str = "medium"
     # O raciocínio do modelo conta dentro de max_tokens: com folga, uma pauta
@@ -111,23 +234,16 @@ class LLMConfig:
     # Prazo total da edição por IA (s): novas tentativas após erro passageiro só
     # acontecem se ainda couberem nele (o job do Actions tem 55 min).
     deadline_seconds: int = 2700
-    # ── Mistral ──
-    mistral_model: str = "mistral-large-latest"
-    mistral_base_url: str = "https://api.mistral.ai/v1"
-    mistral_max_tokens: int = 16000  # saída máxima de cada chamada
-    # Plano gratuito (Experiment): poucas requisições por minuto. As chamadas saem
-    # uma de cada vez, com pelo menos este intervalo entre o início de cada uma.
-    mistral_parallel: int = 1  # chamadas simultâneas nas etapas em lotes
-    mistral_min_interval_seconds: float = 30.0
-    # ── Análise completa (editor Mistral) ──
+    # ── Modo "etapas" ──
     # Todas as notícias do dia são lidas e agrupadas por assunto, em lotes de
     # até topics_batch_chars caracteres; a redação sai em lotes de
     # write_batch_size matérias (respostas menores, sem corte por tamanho).
     topics_batch_chars: int = 100000
     write_batch_size: int = 12
-    # Cobertura comparada: para cada assunto com coverage_min_outlets veículos
-    # ou mais, os dois lados do debate, a posição de cada veículo e a conclusão.
-    # Além das matérias da edição, até coverage_max_topics outros assuntos.
+    # Cobertura comparada (os dois modos): para cada assunto com
+    # coverage_min_outlets veículos ou mais, os dois lados do debate, a posição
+    # de cada veículo e a conclusão. Além das matérias da edição, até
+    # coverage_max_topics outros assuntos.
     coverage: bool = True
     coverage_min_outlets: int = 2
     coverage_max_topics: int = 80
@@ -241,13 +357,18 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
 
     edition = EditionConfig(**site_raw.get("edition", {}))
 
-    llm = LLMConfig(**site_raw.get("llm", {}))
+    llm_raw = dict(site_raw.get("llm") or {})
+    apis = _api_configs(llm_raw.pop("apis", None))
+    groups = _block_groups(llm_raw.pop("block_groups", None))
+    llm = LLMConfig(**llm_raw, apis=apis, block_groups=groups)
     if env.get("QIJ_MODEL"):
         llm.model = env["QIJ_MODEL"]
     if env.get("QIJ_EFFORT"):
         llm.effort = env["QIJ_EFFORT"]
-    if env.get("QIJ_MISTRAL_MODEL"):
-        llm.mistral_model = env["QIJ_MISTRAL_MODEL"]
+    for name, api in llm.apis.items():  # QIJ_AIML_MODEL, QIJ_MISTRAL_MODEL, QIJ_KIMI_MODEL…
+        model = env.get(f"QIJ_{name.upper()}_MODEL")
+        if model:
+            api.model = model
     if _truthy(env.get("QIJ_NO_LLM")):
         llm.enabled = False
 

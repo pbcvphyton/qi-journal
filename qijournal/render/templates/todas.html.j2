@@ -1,0 +1,42 @@
+{#- Todas as notícias do dia. Variáveis: v (EditionView), brand, home_href, edition_href. -#}
+{% extends "layout.html.j2" %}
+
+{% block title %}{{ brand.name }} — Todas as notícias · {{ v.date_label }}{% endblock %}
+{% block description %}Todas as {{ v.index_total }} notícias coletadas em {{ v.date_label }}, por editoria e assunto.{% endblock %}
+{% block meta %}
+<link rel="canonical" href="{{ v.index_url }}">
+{% endblock %}
+{% block home_link %}{{ home_href }}{% endblock %}
+{% block dateline %}{{ v.date_label }}{% endblock %}
+
+{% block content %}
+<section class="todas" id="todas" aria-labelledby="todas-h">
+  <div class="arch-top">
+    <h2 class="kicker" id="todas-h">Todas as notícias do dia <span>{{ v.index_total|num }}</span></h2>
+    <a class="arch-home" href="{{ edition_href }}">&larr; Voltar à edição</a>
+  </div>
+  {% if v.rationale %}<p class="todas-note">{{ v.rationale.summary }}</p>{% endif %}
+  <p class="todas-note">Por editoria e por assunto: as notícias sobre o mesmo fato ficam juntas. Os links abrem a notícia original em nova aba.</p>
+  {% for sec in v.index %}
+  <details class="todas-sec" style="--sc:{{ sec.color }}"{% if loop.first %} open{% endif %}>
+    <summary><b>{{ sec.title }}</b> <span>{{ sec.articles|num }} notícias em {{ sec.topics|length|num }} assuntos</span></summary>
+    <ul class="idx">
+      {% for topic in sec.topics %}
+      <li class="idx-t"><p class="idx-h">{% if topic.href %}<a href="{{ topic.href }}">{{ topic.title }}</a> <em>matéria</em>{% else %}{{ topic.title }}{% endif %}{% if topic.compared %} <em class="cmpd">cobertura comparada</em>{% endif %}{% if topic.items|length > 1 %} <span>· {{ topic.items|length }}</span>{% endif %}</p><ul>
+        {% for item in topic.items %}
+        <li{% if item.lang %} lang="{{ item.lang }}"{% endif %}>{% if item.time %}<time>{{ item.time }}</time> {% endif %}<b>{{ item.source }}</b> {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</li>
+        {% endfor %}
+      </ul></li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endfor %}
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer class="ft">
+  <p><strong>{{ brand.name }}</strong> · {{ v.index_total }} notícias · {{ v.date_label }}</p>
+  <p class="ft-links"><a href="{{ edition_href }}">Edição do dia</a> · <a href="{{ home_href }}">Edição mais recente</a></p>
+</footer>
+{% endblock %}

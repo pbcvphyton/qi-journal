@@ -22,6 +22,7 @@ BUNDLE = ROOT / "tests" / "fixtures" / "bundle.json"
 EXPECTED_FILES = [
     "index.html",
     "edicoes/2026-09-29.html",
+    "edicoes/2026-09-29-todas.html",
     "edicoes/index.html",
     "edicoes/latest.json",
     "edicoes/email.html",
@@ -73,7 +74,7 @@ def test_archive_accumulates_days_and_reruns_are_idempotent(tmp_path: Path, clea
     assert render(tmp_path, "--now", "2026-09-30T08:07:00Z") == 0
 
     archive = sorted(p.name for p in (tmp_path / "edicoes").glob("2026-*.html"))
-    assert archive == ["2026-09-29.html", "2026-09-30.html"]
+    assert archive == ["2026-09-29-todas.html", "2026-09-29.html", "2026-09-30-todas.html", "2026-09-30.html"]
     assert sorted(p.name for p in (tmp_path / "data").iterdir()) == ["2026-09-29.json", "2026-09-30.json"]
     assert json.loads((tmp_path / "edicoes" / "latest.json").read_text(encoding="utf-8"))["date"] == "2026-09-30"
     archive_index = (tmp_path / "edicoes" / "index.html").read_text(encoding="utf-8")

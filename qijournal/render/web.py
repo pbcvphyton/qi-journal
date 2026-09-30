@@ -18,7 +18,7 @@ from markupsafe import Markup
 from .. import text
 from ..collect.market import format_change
 from ..config import Config
-from ..models import Coverage, Edition, Quote, Story
+from ..models import Coverage, Edition, Quote, Rationale, Story
 from . import filters
 
 log = logging.getLogger(__name__)
@@ -100,6 +100,7 @@ class StoryView:
     published: str | None
     lang: str | None = None  # idioma do texto quando não é português (atributo lang)
     coverage: CoverageView | None = None
+    compiled: str = ""  # "Compilada de 7 notícias de 5 veículos · bloco Economia & Mercados"
 
     @property
     def source_names(self) -> str:
@@ -132,6 +133,59 @@ class SectionView:
     title: str
     color: str
     stories: list[StoryView]
+
+
+@dataclass
+class BlockView:
+    """Um bloco da compilação por editoria, no racional da edição."""
+
+    name: str
+    articles: int
+    stories: int
+    compared: int
+    ok: bool
+
+
+@dataclass
+class RationaleView:
+    """Racional da compilação: resumo, números e blocos por editoria."""
+
+    summary: str  # parágrafo em texto puro
+    strip: str  # linha curta do topo da página e do e-mail
+    articles: int
+    outlets: int
+    topics: int
+    method: str
+    blocks: list[BlockView] = field(default_factory=list)
+
+
+@dataclass
+class IndexItemView:
+    source: str
+    title: str
+    url: str | None
+    time: str
+    lang: str | None = None
+
+
+@dataclass
+class IndexTopicView:
+    title: str
+    items: list[IndexItemView]
+    href: str | None = None  # âncora da matéria da edição
+    compared: bool = False
+
+
+@dataclass
+class IndexSectionView:
+    id: str
+    title: str
+    color: str
+    topics: list[IndexTopicView]
+
+    @property
+    def articles(self) -> int:
+        return sum(len(t.items) for t in self.topics)
 
 
 @dataclass
@@ -231,6 +285,13 @@ class EditionView:
     mode: str = "heuristic"  # "ai" | "heuristic"
     default_all: bool = False  # aba "Todas" aberta por padrão (1ª seção com poucas matérias)
     compared: list[CoverageView] = field(default_factory=list)  # demais assuntos com cobertura comparada
+    rationale: RationaleView | None = None  # racional da compilação (vazio em edições antigas)
+    index: list[IndexSectionView] = field(default_factory=list)  # todas as notícias do dia, por seção
+    index_url: str = ""  # página com todas as notícias do dia (edicoes/AAAA-MM-DD-todas.html)
+
+    @property
+    def index_total(self) -> int:
+        return sum(section.articles for section in self.index)
 
 
 # ── marca ────────────────────────────────────────────────────────────────────
@@ -384,11 +445,29 @@ def _source_links(story: Story) -> list[SourceLink]:
     return links
 
 
+def _compiled_label(story: Story, sources: list[SourceLink]) -> str:
+    """"Compilada de 7 notícias de 5 veículos · bloco Economia & Mercados"."""
+    count = len(dict.fromkeys(story.article_ids))
+    if count <= 1 and not story.block:
+        return ""
+    label = f"Compilada de {_count(count, 'notícia', 'notícias')}"
+    if sources:
+        label += f" de {_count(len(sources), 'veículo', 'veículos')}"
+    if story.block:
+        label += f" · bloco {filters.plain(story.block)}"
+    return label
+
+
+def _count(value: int, singular: str, plural: str) -> str:
+    return f"{text.format_number_pt(value, 0)} {singular if value == 1 else plural}"
+
+
 def _story_view(
     story: Story, section: tuple[str, str], *, tz: str, now_iso: str, archive: bool = False
 ) -> StoryView:
     title, color = section
     lang = (story.lang or "pt").strip().lower()
+    sources = _source_links(story)
     return StoryView(
         id=story.id,
         anchor=f"s-{story.id}",
@@ -399,12 +478,13 @@ def _story_view(
         body=[p.strip() for p in story.body if p and filters.plain(p)],
         why=filters.plain(story.why_it_matters),
         image=filters.safe_url(story.image),
-        sources=_source_links(story),
+        sources=sources,
         time=filters.local_time(story.published, tz, now_iso),
         age="" if archive else filters.rel_age(story.published, now_iso),
         published=story.published,
         lang=None if lang.startswith("pt") else lang,
         coverage=coverage_view(story.coverage),
+        compiled=_compiled_label(story, sources),
     )
 
 
@@ -581,6 +661,110 @@ def _compared(edition: Edition, lookup: dict[str, tuple[str, str]], default_colo
     return views
 
 
+_METHOD_TEXT = {
+    "blocos": "em blocos por editoria",
+    "etapas": "em etapas (agrupamento, pauta, redação e cobertura)",
+    "duas chamadas": "em duas chamadas (pauta e redação)",
+}
+
+
+def _rationale_view(edition: Edition) -> RationaleView | None:
+    """Racional da compilação em texto (resumo, linha curta e blocos)."""
+    rationale: Rationale | None = edition.rationale
+    if rationale is None or not rationale.articles:
+        return None
+    articles = _count(rationale.articles, "notícia", "notícias")
+    outlets = _count(rationale.outlets, "veículo", "veículos")
+    stories = _count(len(edition.stories), "matéria", "matérias")
+    analysed = sum(1 for s in edition.stories if s.coverage) + len(edition.compared)
+    blocks = [
+        BlockView(name=filters.plain(b.name), articles=b.articles, stories=b.stories, compared=b.compared, ok=b.ok)
+        for b in rationale.blocks
+    ]
+    if rationale.method == "automática" or edition.mode != "ai":
+        topics = rationale.groups
+        summary = (
+            f"Edição automática (sem IA): as {articles} coletadas de {outlets} foram agrupadas por títulos "
+            f"parecidos em {_count(topics, 'assunto', 'assuntos')}; as {stories} saíram por relevância, "
+            "frescor e número de veículos. Nenhuma notícia foi descartada: todas estão na lista completa do dia."
+        )
+        strip = f"Compilada de {articles} de {outlets} · {_count(topics, 'assunto', 'assuntos')} · sem IA"
+    else:
+        topics = rationale.topics or rationale.groups
+        how = _METHOD_TEXT.get(rationale.method, "")
+        summary = f"A IA leu as {articles} coletadas de {outlets}"
+        if blocks:
+            summary += f", compiladas em {_count(len(blocks), 'bloco', 'blocos')} por editoria"
+        elif how:
+            summary += f", {how}"
+        if rationale.topics:
+            summary += f"; uniu as notícias repetidas em {_count(rationale.topics, 'assunto', 'assuntos')}"
+        if analysed:
+            summary += (
+                f", interpretou o foco de cada veículo e comparou para que lado cada um seguiu em "
+                f"{_count(analysed, 'assunto', 'assuntos')}"
+            )
+        summary += (
+            f" e escolheu as {stories} desta edição. Nenhuma notícia foi descartada: todas estão na lista "
+            "completa do dia."
+        )
+        strip = f"Compilada de {articles} de {outlets}"
+        if blocks:
+            strip += f" · {_count(len(blocks), 'bloco', 'blocos')} por editoria"
+        strip += f" · {_count(topics, 'assunto', 'assuntos')}"
+        if analysed:
+            strip += f" · {_count(analysed, 'análise', 'análises')} de cobertura"
+    return RationaleView(
+        summary=summary,
+        strip=strip,
+        articles=rationale.articles,
+        outlets=rationale.outlets,
+        topics=topics,
+        method=rationale.method,
+        blocks=blocks,
+    )
+
+
+def _index_view(
+    edition: Edition, lookup: dict[str, tuple[str, str]], default_color: str, tz: str, by_id: dict[str, StoryView]
+) -> list[IndexSectionView]:
+    """Todas as notícias do dia por seção e assunto (links validados, horários locais)."""
+    sections: dict[str, IndexSectionView] = {}
+    for topic in edition.index:
+        items = []
+        for item in topic.items:
+            title = filters.plain(item.title)
+            if not title:
+                continue
+            lang = (item.lang or "pt").strip().lower()
+            items.append(
+                IndexItemView(
+                    source=filters.plain(item.source),
+                    title=title,
+                    url=filters.safe_url(item.url),
+                    time=filters.local_time(item.published, tz, edition.generated_at),
+                    lang=None if lang.startswith("pt") else lang,
+                )
+            )
+        if not items:
+            continue
+        story = by_id.get(topic.story_id or "")
+        title, color = lookup.get(topic.section, (topic.section, default_color))
+        section = sections.setdefault(
+            topic.section, IndexSectionView(id=topic.section, title=title, color=color, topics=[])
+        )
+        section.topics.append(
+            IndexTopicView(
+                title=filters.plain(topic.title) or items[0].title,
+                items=items,
+                href=f"#{story.anchor}" if story else None,
+                compared=topic.compared,
+            )
+        )
+    order = {sid: i for i, sid in enumerate(lookup)}
+    return sorted(sections.values(), key=lambda s: order.get(s.id, len(order)))
+
+
 def _mode_label(edition: Edition) -> str:
     if edition.mode == "ai":
         return f"Edição gerada por IA ({edition.model})" if edition.model else "Edição gerada por IA"
@@ -663,6 +847,9 @@ def build_view(edition: Edition, config: Config, *, archive: bool = False) -> Ed
         og_image=lead.image if lead else None,
         mode=edition.mode,
         default_all=bool(sections) and len(sections[0].stories) < DEFAULT_ALL_MIN,
+        rationale=_rationale_view(edition),
+        index=_index_view(edition, lookup, default_color, tz, by_id),
+        index_url=f"{base_url}edicoes/{index_page_name(edition.date)}" if edition.index else "",
     )
 
 
@@ -690,6 +877,35 @@ def render_edition_page(
         len(view.stories),
         len(view.sections),
         len(html.encode("utf-8")) / 1024,
+    )
+    return html
+
+
+def index_page_name(iso_date: str) -> str:
+    """Nome da página com todas as notícias do dia: ``2026-09-29-todas.html``."""
+    return f"{iso_date}-todas.html"
+
+
+def render_index_page(edition: Edition, config: Config, *, home_href: str, edition_href: str) -> str:
+    """Página com todas as notícias do dia, por editoria e assunto (links das
+    matérias apontam para a cópia arquivada da edição)."""
+    view = build_view(edition, config, archive=True)
+    for section in view.index:
+        for topic in section.topics:
+            if topic.href:
+                topic.href = f"{edition_href}{topic.href}"
+    template = filters.environment().get_template("todas.html.j2")
+    html = template.render(
+        v=view,
+        brand=view.brand,
+        home_href=filters.safe_href(home_href) or "../",
+        edition_href=filters.safe_href(edition_href) or "./",
+    )
+    log.info(
+        "Página com todas as notícias de %s renderizada: %d notícias, %d KB",
+        edition.date,
+        view.index_total,
+        len(html.encode("utf-8")) // 1024,
     )
     return html
 

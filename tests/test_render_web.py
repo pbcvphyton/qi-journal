@@ -637,8 +637,9 @@ def test_coverage_on_cards_modal_and_compared_section(edition, config):
     assert page.count('<div class="cov mini lean-a"') == 2  # manchete + card dela na aba da seção
     assert page.count('<div class="cov mini lean-b"') == 1  # card
     modal = re.search(rf'<div class="mo" id="s-{LEAD_ID}".*?</article>\s*</div>', page, re.S).group(0)
-    assert '<section class="mcov" aria-label="Cobertura comparada">' in modal
+    assert '<section class="mcov" aria-label="Análise da cobertura">' in modal
     assert '<details class="cov-who" open>' in modal
+    assert "Análise por veículo: o foco de cada um e o lado que seguiu (3)" in modal
     assert '<span class="cov-a" style="width:67%"></span><span class="cov-b" style="width:33%"></span>' in modal
     assert "A cobertura pendeu para o alívio." in modal
     section = re.search(r'<section class="cmp" id="cobertura".*?</section>', page, re.S).group(0)

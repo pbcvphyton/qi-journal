@@ -36,8 +36,9 @@ log = logging.getLogger(__name__)
 
 MAX_PER_SECTION = 6
 MIN_PER_SECTION = 2  # reservadas por seção (quando houver candidatas), antes de completar por score
-# O dia econômico brasileiro sempre aparece (Focus, juros, câmbio, Ibovespa).
-MIN_BY_SECTION = {"brasil": 4, "mercados": 3}
+# O dia econômico brasileiro sempre aparece (Focus, juros, câmbio, Ibovespa);
+# esporte, natureza e variedades têm uma vaga garantida (o jornal é econômico).
+MIN_BY_SECTION = {"brasil": 4, "mercados": 3, "esporte": 1, "natureza": 1, "variedades": 1}
 HEADLINE_MAX = 140
 DEK_MAX = 220
 PARAGRAPH_MAX = 600

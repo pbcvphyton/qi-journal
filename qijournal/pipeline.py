@@ -4,6 +4,7 @@ Layout publicado (raiz do GitHub Pages)::
 
     index.html                 edição do dia (capa)
     edicoes/AAAA-MM-DD.html    cópia arquivada de cada edição
+    edicoes/AAAA-MM-DD-todas.html  todas as notícias do dia, por editoria e assunto
     edicoes/index.html         índice do arquivo
     edicoes/latest.json        manifesto da última edição (usado pela rotina de e-mail)
     edicoes/email.html|.txt    e-mail da última edição
@@ -45,7 +46,7 @@ from qijournal.edit import make_edition
 from qijournal.models import Article, Bundle, Edition
 from qijournal.net import Fetcher
 from qijournal.render.email import render_email
-from qijournal.render.web import render_archive_index, render_edition_page
+from qijournal.render.web import index_page_name, render_archive_index, render_edition_page, render_index_page
 
 log = logging.getLogger(__name__)
 
@@ -59,6 +60,7 @@ FAILED_FEEDS_WARNING_RATIO = 0.25
 EMAIL_MAX_BYTES = 40_000
 
 _DATED_FILE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.(html|json)$")
+_INDEX_FILE = re.compile(r"^(\d{4}-\d{2}-\d{2})-todas\.html$")  # todas as notícias do dia
 
 T = TypeVar("T")
 EnrichFn = Callable[[list[Article]], dict[str, PageInfo]]
@@ -331,6 +333,21 @@ def _dated_files(directory: Path, suffix: str) -> dict[date, Path]:
     return found
 
 
+def _index_files(directory: Path) -> dict[date, Path]:
+    """Páginas ``AAAA-MM-DD-todas.html`` (todas as notícias do dia) indexadas pela data."""
+    found: dict[date, Path] = {}
+    if not directory.is_dir():
+        return found
+    for path in directory.iterdir():
+        match = _INDEX_FILE.match(path.name)
+        if match and path.is_file():
+            try:
+                found[date.fromisoformat(match.group(1))] = path
+            except ValueError:
+                continue
+    return found
+
+
 def _archive_cutoff(today: date, keep_days: int) -> date | None:
     """Edições anteriores a esta data são removidas (``None``: guardar tudo)."""
     return today - timedelta(days=keep_days) if keep_days > 0 else None
@@ -445,6 +462,8 @@ def publish(
         "latest": archive_dir / "latest.json",
         "archive": archive_dir / "index.html",
     }
+    if edition.index:  # todas as notícias do dia (edições antigas não têm a lista)
+        paths["all_news"] = archive_dir / index_page_name(edition.date)
 
     # Arquivo histórico: edições existentes + a de hoje, menos as que expiraram
     # (o corte é sempre anterior a hoje, então a edição do dia nunca expira).
@@ -456,7 +475,8 @@ def publish(
     pages = _dated_files(archive_dir, "html")
     pages[today] = paths["edition"]
     records = _dated_files(data_dir, "json")
-    expired = sorted(p for d, p in [*pages.items(), *records.items()] if is_expired(d))
+    index_pages = _index_files(archive_dir)
+    expired = sorted(p for d, p in [*pages.items(), *records.items(), *index_pages.items()] if is_expired(d))
     kept_days = sorted((d for d in pages if not is_expired(d)), reverse=True)
     entries = [_archive_entry(day, data_dir, edition) for day in kept_days]
 
@@ -464,6 +484,11 @@ def publish(
     home_page = render_edition_page(edition, config, home_href="./", archive_href=f"{ARCHIVE_DIR}/")
     archived_page = render_edition_page(edition, config, home_href="../", archive_href="./", is_archive=True)
     archive_index = render_archive_index(entries, config, home_href="../")
+    all_news_page = (
+        render_index_page(edition, config, home_href="../", edition_href=f"{edition.date}.html")
+        if edition.index
+        else None
+    )
     manifest = latest_manifest(edition, config, subject, email_html)
     # Refazer a edição no mesmo dia não apaga o registro de e-mail já enviado
     # (a rotina do Gmail usa email_sent para não enviar em dobro).
@@ -474,6 +499,10 @@ def publish(
 
     _write_json(paths["data"], edition.to_dict())
     write_atomic(paths["edition"], archived_page)
+    if all_news_page is not None:
+        write_atomic(paths["all_news"], all_news_page)
+    else:  # refazer o dia sem a lista não deixa uma página velha no lugar
+        (archive_dir / index_page_name(edition.date)).unlink(missing_ok=True)
     write_atomic(paths["email_html"], email_html)
     write_atomic(paths["email_text"], email_text)
     for path in expired:
@@ -582,7 +611,8 @@ def _quality_warnings(
             )
     if use_llm and config.llm.enabled and edition.mode != "ai":
         warnings.append(
-            "Edição gerada sem IA (modo automático): verifique os segredos MISTRAL_API_KEY / ANTHROPIC_API_KEY "
+            "Edição gerada sem IA (modo automático): verifique os segredos AIMLAPI_KEY / SENSENOVA_API_KEY / "
+            "MISTRAL_API_KEY / MOONSHOT_API_KEY / ANTHROPIC_API_KEY "
             "e o log da etapa"
         )
     failed = [s for s in bundle.sources if not s.ok]

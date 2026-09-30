@@ -114,6 +114,7 @@ def test_offline_run_replays_the_bundle_without_network(
     assert call["enrich_fn"]([make_article(1)]) == {}  # enriquecimento desligado
     assert not (out / "build").exists()
     assert (out / "index.html").is_file() and (out / "edicoes" / "2026-09-29.html").is_file()
+    # editor falso sem lista completa: sem a página de todas as notícias
     assert set(result.outputs) == {"index", "edition", "data", "email_html", "email_text", "latest", "archive"}
     assert result.email_sent is False and mailer.sent == []
 

@@ -168,12 +168,14 @@ def test_prunes_editions_older_than_keep_days(tmp_path: Path, render: FakeRender
     for day in ["2026-08-01", "2026-08-29", "2026-08-30", "2026-09-28"]:
         seed_edition(tmp_path, day)
     (tmp_path / "data" / "2026-07-01.json").write_text("{}", encoding="utf-8")  # JSON órfão antigo
+    for day in ["2026-08-01", "2026-09-28"]:  # páginas com todas as notícias do dia
+        (tmp_path / "edicoes" / f"{day}-todas.html").write_text("<html></html>", encoding="utf-8")
 
     publish(make_edition(), tmp_path, config)
 
     remaining_html = sorted(p.name for p in (tmp_path / "edicoes").glob("2026-*.html"))
     remaining_json = sorted(p.name for p in (tmp_path / "data").glob("*.json"))
-    assert remaining_html == ["2026-08-30.html", "2026-09-28.html", "2026-09-29.html"]
+    assert remaining_html == ["2026-08-30.html", "2026-09-28-todas.html", "2026-09-28.html", "2026-09-29.html"]
     assert remaining_json == ["2026-08-30.json", "2026-09-28.json", "2026-09-29.json"]
     assert [e["date"] for e in render.archives[-1]] == ["2026-09-29", "2026-09-28", "2026-08-30"]
 

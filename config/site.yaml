@@ -45,7 +45,7 @@ brands:
       alert: "#FF5A1F"       # --qr · radar ao vivo, fonte com erro
       ticker_up: "#7FC8FF"
       ticker_down: "#FF5C9A"
-    section_palette: ["#1B2745", "#2E6BD6", "#394A7A", "#C90055", "#0F7C8C", "#C2410C", "#6B3FA0"]
+    section_palette: ["#1B2745", "#2E6BD6", "#394A7A", "#C90055", "#0F7C8C", "#C2410C", "#6B3FA0", "#B45309", "#2F7D32", "#4B5563"]
   pbcv:
     name: "PBCV Advogados"
     wordmark: ["PBCV", "", " ADVOGADOS"]
@@ -59,7 +59,7 @@ brands:
       alert: "#FF2F80"
       ticker_up: "#7FC8FF"
       ticker_down: "#FF5C9A"
-    section_palette: ["#1B2745", "#1F6F6B", "#394A7A", "#5B6FA8", "#C90055", "#7A5C1F", "#6B3FA0"]
+    section_palette: ["#1B2745", "#1F6F6B", "#394A7A", "#5B6FA8", "#C90055", "#7A5C1F", "#6B3FA0", "#9A5B13", "#2F7D32", "#4B5563"]
 
 # Seções da edição, na ordem de exibição. Os ids são usados pelo editor (IA ou
 # heurístico) e nas âncoras da página. "keywords" alimenta a classificação
@@ -79,8 +79,8 @@ sections:
     keywords: [ibovespa, bolsa, b3, acoes, dolar, juros futuros, treasury, s&p, nasdaq, dow jones, fed, bitcoin, cripto, ipo, fusao, aquisicao, m&a, private equity, private credit, debenture, fundo, gestora, investidor, petroleo, brent, ouro, commodities, wall street]
   - id: juridico
     title: "Jurídico & Regulação"
-    description: "Decisões do STF, STJ, TST e tribunais; legislação; regulação setorial; tributário; compliance."
-    keywords: [stf, stj, tst, tse, tribunal, ministro, julgamento, decisao judicial, liminar, acordao, jurisprudencia, lei, projeto de lei, regulamenta, regulacao, cvm, anpd, cade, anatel, aneel, anvisa, tributario, processo, acao judicial, advogad, oab, justica]
+    description: "Decisões do STF, STJ, TST, TSE, CNJ, TJs e TRFs; legislação; regulação setorial; tributário; compliance."
+    keywords: [stf, stj, tst, tse, stm, cnj, cjf, tjsp, tjrj, tjmg, tjrs, tjpr, tjsc, tjba, tjdft, trf1, trf2, trf3, trf4, trf5, trf6, tribunal, supremo, ministro relator, ministra relatora, desembargador, desembargadora, juiz=, juiza, vara=, julgamento, decisao judicial, liminar, acordao, sumula, repercussao geral, recurso repetitivo, recurso especial, recurso extraordinario, habeas corpus, mandado de seguranca, jurisprudencia, lei, projeto de lei, regulamenta, regulacao, cvm, anpd, cade, anatel, aneel, anvisa, tributario, processo, acao judicial, advogad, oab, justica, pgr, mpf, ministerio publico, defensoria]
   - id: politica
     title: "Política"
     description: "Política nacional: governo, Congresso, eleições, partidos."
@@ -97,6 +97,18 @@ sections:
     title: "Imobiliário"
     description: "Mercado imobiliário, fundos imobiliários (FIIs), construção, incorporação, crédito imobiliário, real estate global."
     keywords: [imobiliari, imovel, imoveis, fii, fiis, fundo imobiliario, ifix, incorporadora, construtora, construcao civil, lancamento, aluguel, locacao, shopping, galpao, lajes corporativas, credito imobiliario, financiamento imobiliario, minha casa minha vida, cri, real estate, property, mortgage, reit, secovi, incc]
+  - id: esporte
+    title: "Esporte"
+    description: "Futebol, seleção, Olimpíadas, Fórmula 1, tênis, vôlei, basquete, lutas e o negócio do esporte."
+    keywords: [futebol, brasileirao, libertadores, sul americana, copa do brasil, copa do mundo, selecao brasileira, cbf, fifa, conmebol, flamengo, palmeiras, corinthians, sao paulo fc, santos fc, vasco, gremio, inter de porto alegre, atletico mineiro, atletico mg, cruzeiro, botafogo, fluminense, gol=, gols, artilheiro, rodada, campeonato, tecnico do, treinador, atacante, zagueiro, goleiro, olimpiada, olimpico, paralimpic, formula 1, f1=, grande premio, tenis, volei, basquete, nba, nfl, ufc, mma, boxe, atleta, maratona, surfe, skate, ciclismo, natacao, esporte, esportiv, sport=, sports, football, soccer, premier league, champions league, la liga]
+  - id: natureza
+    title: "Natureza & Meio Ambiente"
+    description: "Meio ambiente, clima, biodiversidade, desmatamento, energia limpa, fauna e flora."
+    keywords: [meio ambiente, ambiental, clima=, climatic, aquecimento global, mudanca climatica, mudancas climaticas, cop30, cop31, desmatamento, amazonia, cerrado, pantanal, mata atlantica, caatinga, floresta, queimada, incendio florestal, biodiversidade, especie, fauna, flora, animal, animais, oceano, recife de coral, seca=, estiagem, enchente, chuva, tempestade, ciclone, furacao, terremoto, vulcao, sustentab, carbono, emissoes, energia solar, energia eolica, renovave, ibama, icmbio, inpe, reciclagem, poluicao, natureza, environment, wildlife]
+  - id: variedades
+    title: "Cultura & Variedades"
+    description: "Cultura, entretenimento, celebridades, TV, cinema, música, gastronomia e comportamento."
+    keywords: [cultura, cinema, filme, serie=, series, streaming, netflix, novela, bbb, big brother, reality, celebridade, famoso, famosa, cantor, cantora, musica, show=, festival, album, artista, ator=, atriz, oscar, grammy, livro, literatura, exposicao, museu, teatro, moda, gastronomia, receita, comportamento, horoscopo, curiosidade, entretenimento, pop=]
 
 edition:
   max_age_hours: 30            # ignora notícias mais velhas que isso
@@ -112,30 +124,13 @@ edition:
   min_sources_ratio: 0.5       # fração mínima de feeds ok
   min_pt_sources_ok: 10        # veículos em português com artigos (evita edição só em inglês)
   enrich_limit: 40             # quantas matérias têm a página original consultada (imagem/descrição)
-  exclude_url_patterns:        # descartados em todas as fontes (trecho da URL)
-    - "/esporte/"
-    - "/esportes/"
-    - "/futebol/"
-    - "/pop/"
-    - "/celebridades/"
-    - "/entretenimento/"
+  # Descartados em todas as fontes (trecho da URL): só o que não é notícia
+  # (publieditorial, loteria, horóscopo, vídeo sem texto). Esporte,
+  # entretenimento e cultura entram (seções Esporte e Cultura & Variedades).
+  exclude_url_patterns:
     - "/horoscopo/"
-    - "/novelas/"
-    - "/bbb/"
-    - "/receitas/"
-    - "/eu-e/"
-    - "/sport/"
-    - "/football/"
-    - "/lifeandstyle/"
-    - "/fashion/"
-    - "/tv-and-radio/"
-    - "/culture/"
-    - "/style/"
-    - "/sports/"
     - "/loterias/"
     - "resultado-do-concurso"
-    - "/curiosidades/"
-    - "/casual/"
     - "/patrocinado/"          # publieditorial
     - "/native/"
     - "/presented/"
@@ -157,21 +152,55 @@ edition:
 
 llm:
   enabled: true
-  # Editores por IA, na ordem de tentativa: Mistral (MISTRAL_API_KEY) e, se ele
-  # faltar ou falhar, Claude (ANTHROPIC_API_KEY). Sem nenhum: edição automática.
-  providers: [mistral, claude]
-  # ── Mistral: lê TODAS as notícias do dia, agrupa por assunto, faz a pauta,
-  # redige e compara a cobertura dos veículos (lados do debate + medidor).
-  # Plano gratuito da Mistral (Experiment): todos os modelos, cota mensal folgada,
-  # mas poucas requisições por minuto — por isso uma chamada de cada vez, com
-  # intervalo mínimo entre elas (e novas tentativas se a API pedir para esperar).
-  mistral_model: "mistral-large-latest"   # ou a variável QIJ_MISTRAL_MODEL
-  mistral_max_tokens: 16000
-  mistral_parallel: 1          # chamadas simultâneas nas etapas em lotes
-  mistral_min_interval_seconds: 30
+  # Editores por IA, na ordem de tentativa. Cada um só entra se o segredo com a
+  # chave dele existir no GitHub (ver apis abaixo; Claude: ANTHROPIC_API_KEY);
+  # se faltar ou falhar, tenta o próximo. Sem nenhum: edição automática.
+  providers: [aiml, sensenova, mistral, kimi, claude]
+  # ── Modo "blocos": compilação por editoria. TODAS as notícias do dia são
+  # divididas pelos blocos abaixo (seções afins lidas numa mesma chamada; seção
+  # fora da lista vai para um bloco "Demais editorias"). Em cada bloco, a IA une
+  # as notícias sobre o mesmo assunto, interpreta o foco de cada veículo e em
+  # que lado do debate ele ficou (cobertura comparada) e redige as principais
+  # matérias. Depois, uma chamada de fechamento escolhe as matérias da edição e
+  # a manchete, escreve o editorial e o "Em 1 minuto" e junta assuntos
+  # repetidos entre blocos. Um bloco que não cabe no limite da chamada (entrada
+  # ou saída do modelo) é dividido em partes iguais, até max_calls chamadas no
+  # total. Sem block_groups: `blocks` partes de tamanho igual.
+  block_groups:
+    - {name: "Economia & Mercados", sections: [brasil, mercados]}
+    - {name: "Política & Justiça", sections: [politica, juridico]}
+    - {name: "Empresas, Tecnologia & Imobiliário", sections: [tecnologia, imobiliario]}
+    - {name: "Mundo & Natureza", sections: [mundo, natureza]}
+    - {name: "Esporte, Cultura & Variedades", sections: [esporte, variedades]}
+  blocks: 5
+  max_calls: 9
+  block_closing: true
+  # Provedores com API no formato OpenAI. Valores omitidos vêm do padrão em
+  # qijournal/config.py (DEFAULT_APIS); o modelo também pode ser trocado pela
+  # variável QIJ_<NOME>_MODEL (ex.: QIJ_AIML_MODEL) no GitHub.
+  apis:
+    aiml:        # grátis: todos os modelos, 10 requisições por hora
+      model: "openai/gpt-5-5"
+      mode: blocos
+      max_requests: 10         # teto por edição, contando novas tentativas
+      parallel: 3
+    sensenova:   # grátis (beta): 1.500 requisições a cada 5 horas por modelo
+      model: "sensenova-6.8-flash-lite"
+      mode: blocos
+      parallel: 2
+    mistral:     # grátis (Experiment): poucas requisições por minuto
+      model: "mistral-large-latest"
+      mode: blocos
+      min_interval_seconds: 30
+    kimi:        # pago: exige recarga mínima de US$ 1
+      model: "kimi-k3"
+      mode: blocos
+  # ── Modo "etapas" (alternativa): agrupamento em lotes, pauta, redação em
+  # lotes e cobertura em lotes, em chamadas separadas (10-15 por edição).
   topics_batch_chars: 100000   # tamanho de cada lote do agrupamento por assunto
   write_batch_size: 12         # matérias redigidas por chamada
-  coverage: true               # cobertura comparada (lados do debate e conclusão)
+  # Cobertura comparada (os dois modos)
+  coverage: true               # lados do debate e conclusão
   coverage_min_outlets: 2      # veículos distintos para comparar um assunto
   coverage_max_topics: 80      # assuntos além das matérias da edição
   coverage_batch_chars: 45000
@@ -185,9 +214,9 @@ llm:
   # Prazo total da edição por IA, comum a todos os editores tentados (s). Com a
   # coleta (~8 min no pior caso), cabe no timeout-minutes (55) do daily.yml.
   deadline_seconds: 2100
-  # Tempo máximo de espera por dados em cada requisição (Claude: sem dados do
-  # stream, a API envia "ping" enquanto o modelo trabalha; Mistral: resposta).
-  # Novas tentativas só começam se couberem em deadline_seconds.
+  # Claude: tempo máximo sem dados do stream (a API envia "ping" enquanto o
+  # modelo trabalha); nos outros, apis.<nome>.timeout_seconds. Novas
+  # tentativas só começam se couberem em deadline_seconds.
   timeout_seconds: 300
 
 # Cotações e indicadores do ticker, na ordem de exibição.
