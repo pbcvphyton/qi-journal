@@ -14,6 +14,17 @@
 {% endif %}
 {%- endmacro %}
 {% macro lang(s) -%}{% if s.lang %} lang="{{ s.lang }}"{% endif %}{%- endmacro %}
+{#- Cobertura comparada: barra (tabela, funciona em qualquer cliente) que cresce
+    para o lado com mais veículos, o lado predominante e a conclusão. -#}
+{% macro coverage_line(s) -%}
+{% if s.coverage %}
+{% set cv = s.coverage %}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0 0;"><tr>
+{%- for pct, color in [(cv.pct_a, c.primary), (cv.pct_n, "#CFC9BC"), (cv.pct_b, "#C8631A")] if pct %}<td width="{{ pct }}%" height="6" bgcolor="{{ color }}" style="height:6px;line-height:6px;font-size:1px;background:{{ color }};">&nbsp;</td>{% endfor -%}
+</tr></table>
+<p style="margin:5px 0 0;font:11px/16px {{ sans }};color:#6F6A60" class="muted"><b style="color:#0E1016" class="ink">{{ cv.lean_label }}</b>{% if cv.conclusion %} · {{ cv.conclusion }}{% endif %}</p>
+{% endif %}
+{%- endmacro %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -129,6 +140,7 @@
   <a href="{{ story_url(s) }}" style="text-decoration:none"><img src="{{ s.image }}" width="600" alt="{{ s.headline }}" style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0 0 12px;background:#EAE6DE;font:12px {{ sans }};color:#6F6A60"></a>
   {% endif %}
   {{ sources_line(s) }}
+  {{ coverage_line(s) }}
   <p style="margin:12px 0 0;font:bold 13px/18px {{ sans }}"><a href="{{ story_url(s) }}" class="lnk" style="color:{{ c.primary }}">Ler na edição &rarr;</a></p>
 </td></tr>
 {% endif %}
@@ -145,6 +157,7 @@
   <p class="muted" style="margin:0;font:14px/21px {{ sans }};color:#45413A"{{ lang(s) }}>{{ s.dek }}</p>
   {% endif %}
   {{ sources_line(s) }}
+  {{ coverage_line(s) }}
 </td></tr>
 {% endfor %}
 {% endfor %}

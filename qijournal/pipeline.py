@@ -582,7 +582,8 @@ def _quality_warnings(
             )
     if use_llm and config.llm.enabled and edition.mode != "ai":
         warnings.append(
-            "Edição gerada sem IA (modo automático): verifique o segredo ANTHROPIC_API_KEY e o log da etapa"
+            "Edição gerada sem IA (modo automático): verifique os segredos MISTRAL_API_KEY / ANTHROPIC_API_KEY "
+            "e o log da etapa"
         )
     failed = [s for s in bundle.sources if not s.ok]
     if bundle.sources and len(failed) / len(bundle.sources) >= FAILED_FEEDS_WARNING_RATIO:

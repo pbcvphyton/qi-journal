@@ -159,6 +159,63 @@ class SourceRef:
         return _from_dict(cls, data)
 
 
+STANCES = ("a", "b", "neutro")
+
+
+@dataclass
+class CoverageOutlet:
+    """Como um veículo conduziu a cobertura de um assunto."""
+
+    name: str  # ex.: "Folha de S.Paulo"
+    stance: str  # "a" | "b" | "neutro" (lados definidos em Coverage)
+    framing: str = ""  # o que o veículo destacou (1 frase curta), texto puro
+    url: str | None = None  # artigo do veículo sobre o assunto
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "CoverageOutlet":
+        return _from_dict(cls, data)
+
+
+@dataclass
+class Coverage:
+    """Cobertura comparada de um assunto: os dois lados do debate, a posição de
+    cada veículo e a conclusão (em que sentido a cobertura seguiu).
+
+    Sem debate (todos relatam o fato do mesmo jeito), ``side_a``/``side_b`` ficam
+    vazios e todos os veículos, ``"neutro"``.
+    """
+
+    topic: str  # título curto e neutro do assunto, texto puro
+    conclusion: str  # 1-2 frases, texto puro
+    outlets: list[CoverageOutlet]
+    side_a: str = ""
+    side_b: str = ""
+    section: str | None = None
+    published: str | None = None  # ISO 8601 UTC do artigo mais recente
+    url: str | None = None  # artigo principal (assuntos que não viraram matéria)
+
+    @property
+    def has_debate(self) -> bool:
+        return bool(self.side_a and self.side_b)
+
+    def count(self, stance: str) -> int:
+        return sum(1 for o in self.outlets if o.stance == stance)
+
+    def to_dict(self) -> dict[str, Any]:
+        d = asdict(self)
+        d["outlets"] = [o.to_dict() for o in self.outlets]
+        return d
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "Coverage":
+        d = dict(data)
+        d["outlets"] = [CoverageOutlet.from_dict(o) for o in d.get("outlets") or [] if isinstance(o, dict)]
+        return _from_dict(cls, d)
+
+
 @dataclass
 class Story:
     """Uma matéria da edição (pode agrupar vários artigos sobre o mesmo fato)."""
@@ -175,16 +232,19 @@ class Story:
     image: str | None = None
     published: str | None = None  # ISO 8601 UTC do artigo principal
     lang: str = "pt"  # idioma de título/linha fina/corpo ("en" quando a edição automática usa o original)
+    coverage: Coverage | None = None  # cobertura comparada (só na edição por IA com análise completa)
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
         d["sources"] = [s.to_dict() for s in self.sources]
+        d["coverage"] = self.coverage.to_dict() if self.coverage else None
         return d
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "Story":
         d = dict(data)
         d["sources"] = [SourceRef.from_dict(s) for s in d.get("sources", [])]
+        d["coverage"] = Coverage.from_dict(d["coverage"]) if isinstance(d.get("coverage"), dict) else None
         return _from_dict(cls, d)
 
 
@@ -243,6 +303,9 @@ class Edition:
     # Radar: notícias recentes que não viraram matéria
     # ({"title", "url", "source", "published", "section"}); vazio em edições antigas.
     wire: list[dict[str, Any]] = field(default_factory=list)
+    # Cobertura comparada dos demais assuntos do dia (vistos por 2+ veículos) que
+    # não viraram matéria; vazio sem a análise completa e em edições antigas.
+    compared: list[Coverage] = field(default_factory=list)
 
     def story(self, story_id: str) -> Story:
         for s in self.stories:
@@ -268,6 +331,7 @@ class Edition:
             "weather": [w.to_dict() for w in self.weather],
             "stats": self.stats.to_dict(),
             "wire": [dict(item) for item in self.wire],
+            "compared": [c.to_dict() for c in self.compared],
         }
 
     @classmethod
@@ -289,4 +353,5 @@ class Edition:
             weather=[CityWeather.from_dict(w) for w in data.get("weather", [])],
             stats=EditionStats.from_dict(data.get("stats", {})),
             wire=[dict(item) for item in data.get("wire") or [] if isinstance(item, dict)],
+            compared=[Coverage.from_dict(c) for c in data.get("compared") or [] if isinstance(c, dict)],
         )

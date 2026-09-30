@@ -18,7 +18,7 @@ from markupsafe import Markup
 from .. import text
 from ..collect.market import format_change
 from ..config import Config
-from ..models import Edition, Quote, Story
+from ..models import Coverage, Edition, Quote, Story
 from . import filters
 
 log = logging.getLogger(__name__)
@@ -47,6 +47,40 @@ class SourceLink:
     url: str | None  # None quando a URL original não é http(s)
 
 
+@dataclass(frozen=True)
+class OutletView:
+    name: str
+    url: str | None
+    framing: str
+
+
+@dataclass
+class CoverageView:
+    """Cobertura comparada pronta para exibição: medidor, lado predominante e veículos por lado."""
+
+    topic: str
+    conclusion: str
+    side_a: str
+    side_b: str
+    a: list[OutletView]
+    b: list[OutletView]
+    neutral: list[OutletView]
+    pct_a: int  # larguras do medidor (somam 100)
+    pct_n: int
+    pct_b: int
+    lean: str  # "a" | "b" | "equilibrio" | "convergente"
+    lean_label: str  # "Pende para: Destaca o alívio · 3 de 5 veículos"
+    aria: str  # descrição do medidor para leitores de tela
+    section_title: str = ""
+    color: str = ""
+    url: str | None = None  # artigo principal (assuntos fora da edição)
+    time: str = ""
+
+    @property
+    def total(self) -> int:
+        return len(self.a) + len(self.b) + len(self.neutral)
+
+
 @dataclass
 class StoryView:
     """Matéria pronta para exibição (textos limpos, URLs seguras, horários locais)."""
@@ -65,6 +99,7 @@ class StoryView:
     age: str  # "há 3 h" (vazio nas cópias do arquivo, em que ficaria congelado)
     published: str | None
     lang: str | None = None  # idioma do texto quando não é português (atributo lang)
+    coverage: CoverageView | None = None
 
     @property
     def source_names(self) -> str:
@@ -191,6 +226,7 @@ class EditionView:
     og_image: str | None
     mode: str = "heuristic"  # "ai" | "heuristic"
     default_all: bool = False  # aba "Todas" aberta por padrão (1ª seção com poucas matérias)
+    compared: list[CoverageView] = field(default_factory=list)  # demais assuntos com cobertura comparada
 
 
 # ── marca ────────────────────────────────────────────────────────────────────
@@ -243,6 +279,83 @@ def _email_logo(raw: dict[str, Any] | None, base_url: str) -> EmailLogo | None:
     return EmailLogo(src=url, width=width, height=height)
 
 
+# ── cobertura comparada ──────────────────────────────────────────────────────
+
+
+def _veiculos(count: int) -> str:
+    return f"{count} veículo{'s' if count != 1 else ''}"
+
+
+def _percentages(a: int, n: int, b: int) -> tuple[int, int, int]:
+    """Larguras inteiras que somam 100 (maior resto), sem zerar um lado presente."""
+    total = a + n + b
+    if not total:
+        return 0, 100, 0
+    raw = [a * 100 / total, n * 100 / total, b * 100 / total]
+    widths = [int(x) for x in raw]
+    for i in sorted(range(3), key=lambda i: raw[i] - widths[i], reverse=True)[: 100 - sum(widths)]:
+        widths[i] += 1
+    return widths[0], widths[1], widths[2]
+
+
+def coverage_view(
+    coverage: Coverage | None,
+    *,
+    section: tuple[str, str] | None = None,
+    tz: str | None = None,
+    now_iso: str | None = None,
+) -> CoverageView | None:
+    """Medidor da cobertura: cresce para o lado com mais veículos; sem debate, "convergente"."""
+    if coverage is None or not coverage.outlets:
+        return None
+    debate = bool(filters.plain(coverage.side_a) and filters.plain(coverage.side_b))
+    groups: dict[str, list[OutletView]] = {"a": [], "b": [], "neutro": []}
+    for outlet in coverage.outlets:
+        name = filters.plain(outlet.name)
+        if not name:
+            continue
+        stance = outlet.stance if debate and outlet.stance in groups else "neutro"
+        groups[stance].append(OutletView(name=name, url=filters.safe_url(outlet.url), framing=filters.plain(outlet.framing)))
+    a, b, neutral = groups["a"], groups["b"], groups["neutro"]
+    total = len(a) + len(b) + len(neutral)
+    if not total:
+        return None
+    side_a, side_b = (filters.plain(coverage.side_a), filters.plain(coverage.side_b)) if debate else ("", "")
+    if not debate:
+        lean, label = "convergente", f"Sem divergência entre {'os ' + _veiculos(total) if total > 1 else 'os veículos'}"
+    elif len(a) > len(b):
+        lean, label = "a", f"Pende para: {side_a} · {len(a)} de {_veiculos(total)}"
+    elif len(b) > len(a):
+        lean, label = "b", f"Pende para: {side_b} · {len(b)} de {_veiculos(total)}"
+    else:
+        lean, label = "equilibrio", f"Equilíbrio: {len(a)} × {len(b)} de {_veiculos(total)}"
+    if debate:
+        aria = f"{side_a}: {_veiculos(len(a))}; neutros: {len(neutral)}; {side_b}: {_veiculos(len(b))}"
+    else:
+        aria = f"Todos os {_veiculos(total)} relataram o assunto de forma semelhante"
+    pct_a, pct_n, pct_b = _percentages(len(a), len(neutral), len(b))
+    title, color = section or ("", "")
+    return CoverageView(
+        topic=filters.plain(coverage.topic),
+        conclusion=filters.plain(coverage.conclusion),
+        side_a=side_a,
+        side_b=side_b,
+        a=a,
+        b=b,
+        neutral=neutral,
+        pct_a=pct_a,
+        pct_n=pct_n,
+        pct_b=pct_b,
+        lean=lean,
+        lean_label=label,
+        aria=aria,
+        section_title=title,
+        color=color,
+        url=filters.safe_url(coverage.url),
+        time=filters.local_time(coverage.published, tz, now_iso) if tz else "",
+    )
+
+
 # ── matérias ─────────────────────────────────────────────────────────────────
 
 
@@ -278,6 +391,7 @@ def _story_view(
         age="" if archive else filters.rel_age(story.published, now_iso),
         published=story.published,
         lang=None if lang.startswith("pt") else lang,
+        coverage=coverage_view(story.coverage),
     )
 
 
@@ -443,6 +557,17 @@ def _radar(edition: Edition, ordered: list[StoryView], tz: str) -> list[RadarIte
     ]
 
 
+def _compared(edition: Edition, lookup: dict[str, tuple[str, str]], default_color: str, tz: str) -> list[CoverageView]:
+    """Demais assuntos com cobertura comparada, na ordem da edição (mais veículos primeiro)."""
+    views = []
+    for coverage in edition.compared:
+        section = lookup.get(coverage.section or "", ("", default_color))
+        view = coverage_view(coverage, section=section, tz=tz, now_iso=edition.generated_at)
+        if view is not None and view.topic:
+            views.append(view)
+    return views
+
+
 def _mode_label(edition: Edition) -> str:
     if edition.mode == "ai":
         return f"Edição gerada por IA ({edition.model})" if edition.model else "Edição gerada por IA"
@@ -512,6 +637,7 @@ def build_view(edition: Edition, config: Config, *, archive: bool = False) -> Ed
         sections=sections,
         stories=ordered,
         radar=radar,
+        compared=_compared(edition, lookup, default_color, tz),
         quotes=[_quote_view(q) for q in edition.quotes],
         weather=_weather_views(edition),
         sources_total=edition.stats.sources_total,

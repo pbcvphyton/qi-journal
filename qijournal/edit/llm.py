@@ -1,22 +1,30 @@
-"""Edição com Claude: pauta (seleção e agrupamento) + redação.
+"""Edição por IA: pauta (seleção e agrupamento) + redação, com Claude ou Mistral.
 
 Fluxo de :func:`build_llm_edition`:
 
-1. ranqueia os artigos (:func:`rank_clusters`) e envia até ``max_candidates``
-   ao modelo, um por linha, com ids curtos ``a1..aN``;
-2. **chamada 1 — pauta**: o modelo agrupa artigos sobre o mesmo fato, escolhe
-   seção, importância, ângulo e a manchete (JSON validado aqui);
-3. enriquece os artigos principais (texto/imagem da página original);
-4. **chamada 2 — redação**: o modelo escreve título, linha fina, corpo e
-   "por que importa" de cada matéria, além do editorial e do "Em 1 minuto";
-5. pós-processa (limpa markdown, limita tamanhos, completa matérias faltantes
+1. ranqueia os artigos (:func:`rank_clusters`); com a análise completa
+   (``backend.full_analysis``, editor Mistral), a IA lê TODAS as notícias e junta
+   os grupos sobre o mesmo assunto (:mod:`qijournal.edit.topics`);
+2. envia até ``max_candidates`` linhas ao modelo, com ids curtos ``a1..aN``;
+3. **pauta**: o modelo agrupa artigos sobre o mesmo fato, escolhe seção,
+   importância, ângulo e a manchete (JSON validado aqui);
+4. enriquece os artigos principais (texto/imagem da página original);
+5. **redação** (em lotes no Mistral): título, linha fina, corpo e "por que
+   importa" de cada matéria, além do editorial e do "Em 1 minuto";
+6. com a análise completa, **cobertura comparada**
+   (:mod:`qijournal.edit.coverage`): lados do debate, posição de cada veículo e
+   conclusão, para as matérias e os demais assuntos vistos por 2+ veículos;
+7. pós-processa (limpa markdown, limita tamanhos, completa matérias faltantes
    com o texto heurístico) e monta a edição com :func:`assemble_edition`.
 
 Qualquer falha que impeça uma edição confiável levanta :class:`LLMUnavailable`;
-quem chama (``make_edition``) cai para a edição heurística.
+quem chama (``make_edition``) tenta o próximo editor ou cai para a edição
+heurística. Falhas no agrupamento por assunto ou na cobertura comparada não
+derrubam a edição: ela sai sem essa parte.
 
-As duas chamadas usam streaming, saída estruturada (JSON Schema estrito) e o
-fallback de recusa do lado do servidor (``fallbacks="default"``).
+No Claude, as chamadas usam streaming, saída estruturada (JSON Schema estrito) e
+o fallback de recusa do lado do servidor (``fallbacks="default"``); o Mistral
+está em :mod:`qijournal.edit.mistral`.
 """
 
 from __future__ import annotations
@@ -25,6 +33,7 @@ import json
 import logging
 import os
 import re
+import threading
 import time
 from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
@@ -303,6 +312,15 @@ class _Usage:
     input_tokens: int = 0
     output_tokens: int = 0
     served_models: list[str] = field(default_factory=list)  # modelos que redigiram (fallback incluso)
+    _lock: threading.Lock = field(default_factory=threading.Lock, repr=False, compare=False)
+
+    def record(self, model: str | None, used_in: int, used_out: int) -> None:
+        """Soma um consumo já apurado (chamadas em paralelo usam a mesma instância)."""
+        with self._lock:
+            self.input_tokens += used_in
+            self.output_tokens += used_out
+            if isinstance(model, str) and model and model not in self.served_models:
+                self.served_models.append(model)
 
     def add(self, message: Any) -> tuple[int, int]:
         """Soma o consumo da resposta; devolve (entrada, saída) desta chamada.
@@ -320,11 +338,7 @@ class _Usage:
         else:
             used_in = int(getattr(usage, "input_tokens", 0) or 0)
             used_out = int(getattr(usage, "output_tokens", 0) or 0)
-        self.input_tokens += used_in
-        self.output_tokens += used_out
-        model = getattr(message, "model", None)
-        if isinstance(model, str) and model and model not in self.served_models:
-            self.served_models.append(model)
+        self.record(getattr(message, "model", None), used_in, used_out)
         return used_in, used_out
 
 
@@ -468,6 +482,53 @@ def _call_claude(
     return _parse_json(message, label)
 
 
+class ClaudeBackend:
+    """Editor Claude: a pauta e a redação em duas chamadas (sem análise completa).
+
+    Interface comum dos editores (ver também ``MistralBackend``): ``call`` devolve
+    o JSON já decodificado e soma o consumo em ``usage``; os demais atributos
+    ajustam o fluxo de :func:`build_llm_edition`.
+    """
+
+    provider = "claude"
+    full_analysis = False  # sem agrupamento de todas as notícias nem cobertura comparada
+    write_batch_size = 0  # redação numa chamada só
+    parallel = 1
+
+    def __init__(self, client: Any, config: Config) -> None:
+        self.client = client
+        self.config = config
+        self.usage = _Usage()
+        self.max_tokens_select = config.llm.max_tokens_select
+        self.max_tokens_write = config.llm.max_tokens_write
+
+    @property
+    def model(self) -> str:
+        return self.config.llm.model
+
+    def call(
+        self,
+        *,
+        label: str,
+        system: str,
+        user_text: str,
+        schema: dict[str, Any],
+        max_tokens: int,
+        deadline: float | None = None,
+    ) -> Any:
+        return _call_claude(
+            self.client,
+            self.config,
+            label=label,
+            system=system,
+            user_text=user_text,
+            schema=schema,
+            max_tokens=max_tokens,
+            usage=self.usage,
+            deadline=deadline,
+        )
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 # Chamada 1 — pauta
 # ═══════════════════════════════════════════════════════════════════════════
@@ -550,7 +611,9 @@ def _coverage(cluster: Cluster, article: Article) -> str:
     return f" (+{len(names)} fonte{'s' if len(names) > 1 else ''}: {listed})"
 
 
-def build_candidates(bundle: Bundle, config: Config, *, now: datetime) -> Candidates:
+def build_candidates(
+    bundle: Bundle, config: Config, *, now: datetime, clusters: list[Cluster] | None = None
+) -> Candidates:
     """Achata os clusters ranqueados em até ``max_candidates`` linhas ``[aN] …``.
 
     1ª passada: uma linha por cluster (o principal, com a cobertura "+N fontes"),
@@ -559,9 +622,13 @@ def build_candidates(bundle: Bundle, config: Config, *, now: datetime) -> Candid
     bem ranqueados (até :data:`MAX_ARTICLES_PER_CLUSTER` por cluster); se ainda
     sobrar, mais fatos. Assim um dia com 700 fatos não vira uma lista de 40
     fatos repetidos em várias fontes.
+
+    ``clusters``: ranqueamento já pronto (ex.: agrupado por assunto pela IA);
+    sem ele, :func:`rank_clusters` sobre os artigos do ``bundle``.
     """
     limit = max(1, config.edition.max_candidates)
-    clusters = rank_clusters(bundle.articles, config, now=now)
+    if clusters is None:
+        clusters = rank_clusters(bundle.articles, config, now=now)
     first_size = min(len(clusters), max(1, int(limit * FIRST_PASS_SHARE)))
     first = _first_pass(clusters, config.section_ids, first_size)
 
@@ -786,8 +853,15 @@ def writing_prompt(
     config: Config,
     *,
     now: datetime,
+    other_angles: list[str] | None = None,
+    edition_fields: bool = True,
 ) -> str:
-    """Pauta + textos das fontes de cada matéria + painel de mercado."""
+    """Pauta + textos das fontes de cada matéria + painel de mercado.
+
+    Na redação em lotes: ``other_angles`` lista as matérias redigidas em outros
+    lotes (contexto do editorial e do "Em 1 minuto", que saem do 1º lote);
+    ``edition_fields=False`` pede editorial e briefing vazios.
+    """
     tz = ZoneInfo(config.site.timezone)
     titles = {s.id: s.title for s in config.sections}
     parts = [
@@ -796,8 +870,19 @@ def writing_prompt(
         "Painel de mercado (cotações mais recentes coletadas):",
         market_panel(quotes),
         "",
-        f"Matérias da pauta ({len(picks)}):",
     ]
+    if not edition_fields:
+        parts += [
+            "Nesta parte da redação, escreva só as matérias: deixe editorial vazio e briefing como lista vazia.",
+            "",
+        ]
+    elif other_angles:
+        parts += [
+            "Outras matérias da edição, redigidas em outra etapa (use-as só no editorial e no \"Em 1 minuto\"):",
+            *(f"- {angle}" for angle in other_angles),
+            "",
+        ]
+    parts.append(f"Matérias da pauta ({len(picks)}):")
     for key, pick in zip(keys, picks, strict=True):
         parts.append("")
         parts.append(
@@ -923,6 +1008,73 @@ def _story_from_writing(
 # ═══════════════════════════════════════════════════════════════════════════
 
 
+def _write(
+    backend: Any,
+    picks: list[Pick],
+    keys: list[str],
+    page_info: Mapping[str, PageInfo],
+    quotes: list[Quote],
+    config: Config,
+    *,
+    now: datetime,
+    deadline: float,
+) -> tuple[str, list[str], dict[str, dict[str, Any]]]:
+    """Redação numa chamada ou em lotes de ``backend.write_batch_size`` matérias.
+
+    Em lotes, o editorial e o "Em 1 minuto" saem do 1º lote (as matérias mais
+    importantes), que recebe os ângulos das demais como contexto; um lote que
+    falha deixa as matérias dele para o texto automático, mas a falha do 1º lote
+    (ou de todos) derruba a redação.
+    """
+    size = backend.write_batch_size
+    if not size or len(picks) <= size:
+        writing = backend.call(
+            label="redação",
+            system=WRITE_SYSTEM,
+            user_text=writing_prompt(picks, keys, page_info, quotes, config, now=now),
+            schema=write_schema(keys),
+            max_tokens=backend.max_tokens_write,
+            deadline=deadline,
+        )
+        return parse_writing(writing, keys)
+
+    editorial, briefing = "", []
+    written: dict[str, dict[str, Any]] = {}
+    for start in range(0, len(picks), size):
+        chunk_picks, chunk_keys = picks[start : start + size], keys[start : start + size]
+        first = start == 0
+        others = [pick.angle for pick in picks[size:] if pick.angle] if first else None
+        label = f"redação {start // size + 1}"
+        try:
+            data = backend.call(
+                label=label,
+                system=WRITE_SYSTEM,
+                user_text=writing_prompt(
+                    chunk_picks,
+                    chunk_keys,
+                    page_info,
+                    quotes,
+                    config,
+                    now=now,
+                    other_angles=others,
+                    edition_fields=first,
+                ),
+                schema=write_schema(chunk_keys),
+                max_tokens=backend.max_tokens_write,
+                deadline=deadline,
+            )
+            chunk_editorial, chunk_briefing, chunk_written = parse_writing(data, chunk_keys)
+        except LLMUnavailable as exc:
+            if first:
+                raise
+            log.warning("IA (%s) falhou (%s); essas matérias saem com o texto automático", label, exc)
+            continue
+        if first:
+            editorial, briefing = chunk_editorial, chunk_briefing
+        written.update(chunk_written)
+    return editorial, briefing, written
+
+
 def build_llm_edition(
     bundle: Bundle,
     config: Config,
@@ -930,35 +1082,46 @@ def build_llm_edition(
     now: datetime,
     client: Any = None,
     enrich_fn: EnrichFn | None = None,
+    backend: Any = None,
+    deadline: float | None = None,
 ) -> Edition:
-    """Edição completa redigida por Claude (``mode="ai"``).
+    """Edição completa redigida por IA (``mode="ai"``).
 
-    ``client``: cliente do SDK (ou objeto compatível); sem ele, é criado a
-    partir de ``ANTHROPIC_API_KEY``. ``enrich_fn``: função de enriquecimento das
-    páginas (padrão: :func:`qijournal.collect.enrich.enrich`).
+    ``backend``: editor (``ClaudeBackend`` ou ``MistralBackend``); sem ele, Claude
+    com ``client`` (cliente do SDK ou objeto compatível) ou, sem ``client``, um
+    cliente criado a partir de ``ANTHROPIC_API_KEY``. ``enrich_fn``: função de
+    enriquecimento das páginas (padrão: :func:`qijournal.collect.enrich.enrich`).
+    ``deadline``: prazo (``time.monotonic()``) comum a todos os editores tentados;
+    sem ele, ``llm.deadline_seconds`` a partir de agora.
 
     Levanta :class:`LLMUnavailable` quando a IA não consegue produzir uma edição
     confiável (sem chave, erro de API, recusa, resposta cortada, JSON inválido,
     pauta com menos de 8 matérias ou nenhuma matéria redigida).
     """
-    now = as_utc(now)
-    deadline = time.monotonic() + max(0, config.llm.deadline_seconds)
-    client = client if client is not None else _make_client(config)
-    usage = _Usage()
+    # import tardio: os módulos da análise completa importam deste
+    from qijournal.edit.coverage import analyze_coverage
+    from qijournal.edit.topics import group_topics
 
-    candidates = build_candidates(bundle, config, now=now)
+    now = as_utc(now)
+    if deadline is None:
+        deadline = time.monotonic() + max(0, config.llm.deadline_seconds)
+    if backend is None:
+        backend = ClaudeBackend(client if client is not None else _make_client(config), config)
+    usage = backend.usage
+
+    clusters = rank_clusters(bundle.articles, config, now=now)
+    if backend.full_analysis:
+        clusters = group_topics(clusters, config, backend, now=now, deadline=deadline)
+    candidates = build_candidates(bundle, config, now=now, clusters=clusters)
     if len(candidates.lines) < MIN_STORIES:
         raise LLMUnavailable(f"só {len(candidates.lines)} artigo(s) candidato(s); mínimo {MIN_STORIES}")
 
-    selection = _call_claude(
-        client,
-        config,
+    selection = backend.call(
         label="pauta",
         system=SELECT_SYSTEM,
         user_text=selection_prompt(candidates, config, now=now),
         schema=select_schema(config.section_ids),
-        max_tokens=config.llm.max_tokens_select,
-        usage=usage,
+        max_tokens=backend.max_tokens_select,
         deadline=deadline,
     )
     picks, lead_index = parse_selection(selection, candidates, config)
@@ -966,18 +1129,9 @@ def build_llm_edition(
 
     page_info = _enrich(picks, enrich_fn, config)
     keys = [f"s{i + 1}" for i in range(len(picks))]
-    writing = _call_claude(
-        client,
-        config,
-        label="redação",
-        system=WRITE_SYSTEM,
-        user_text=writing_prompt(picks, keys, page_info, bundle.quotes, config, now=now),
-        schema=write_schema(keys),
-        max_tokens=config.llm.max_tokens_write,
-        usage=usage,
-        deadline=deadline,
+    editorial, briefing, written = _write(
+        backend, picks, keys, page_info, bundle.quotes, config, now=now, deadline=deadline
     )
-    editorial, briefing, written = parse_writing(writing, keys)
 
     taken: set[str] = set()
     stories: list[Story] = []
@@ -1000,13 +1154,28 @@ def build_llm_edition(
         log.warning("Redação da IA com 'Em 1 minuto' insuficiente (%d itens); usando os títulos", len(briefing))
         briefing = []
 
+    compared = []
+    if backend.full_analysis and config.llm.coverage:
+        story_coverage, compared = analyze_coverage(
+            backend,
+            [pick.articles for pick in picks],
+            [pick.angle for pick in picks],
+            clusters,
+            page_info,
+            config,
+            deadline=deadline,
+        )
+        for index, coverage in story_coverage.items():
+            coverage.section = stories[index].section
+            stories[index].coverage = coverage
+
     edition = assemble_edition(
         stories,
         bundle=bundle,
         config=config,
         now=now,
         mode="ai",
-        model=" + ".join(usage.served_models) or config.llm.model,
+        model=" + ".join(usage.served_models) or backend.model,
         editorial=editorial,
         briefing=briefing,
         lead_id=stories[lead_index].id if lead_index is not None else None,
@@ -1020,10 +1189,15 @@ def build_llm_edition(
     if not edition.briefing:
         edition.briefing = top_headlines(edition, BRIEFING_ITEMS)
     edition.wire = wire_items(candidates.clusters, {a.id for pick in picks for a in pick.articles})
+    edition.compared = compared
     log.info(
-        "Edição por IA: %d matérias em %d seções; tokens: %d de entrada, %d de saída",
+        "Edição por IA (%s): %d matérias em %d seções, %d com cobertura comparada e %d outros assuntos "
+        "comparados; tokens: %d de entrada, %d de saída",
+        backend.provider,
         len(stories),
         len(edition.sections),
+        sum(1 for story in stories if story.coverage),
+        len(compared),
         usage.input_tokens,
         usage.output_tokens,
     )

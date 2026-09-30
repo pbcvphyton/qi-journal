@@ -12,6 +12,58 @@
 {% endif %}
 {%- endmacro %}
 
+{#- Medidor da cobertura comparada (c: CoverageView). Cada veículo é um trecho da
+    barra: lado A à esquerda, neutros no meio, lado B à direita — a barra cresce
+    para o lado com mais veículos. -#}
+{% macro bar(c) -%}
+<div class="cov-bar" role="img" aria-label="{{ c.aria }}">
+  {%- if c.pct_a %}<span class="cov-a" style="width:{{ c.pct_a }}%"></span>{% endif -%}
+  {%- if c.pct_n %}<span class="cov-n" style="width:{{ c.pct_n }}%"></span>{% endif -%}
+  {%- if c.pct_b %}<span class="cov-b" style="width:{{ c.pct_b }}%"></span>{% endif -%}
+</div>
+{%- endmacro %}
+
+{#- Selo do card: barra fina e o lado para onde a cobertura pendeu. -#}
+{% macro badge(c) -%}
+<div class="cov mini lean-{{ c.lean }}" lang="pt-BR">
+  {{ bar(c) }}
+  <p class="cov-lean">{{ c.lean_label }}</p>
+</div>
+{%- endmacro %}
+
+{% macro outlet_list(title, cls, outlets) -%}
+<div class="cov-col {{ cls }}">
+  <h4>{{ title }} <span>({{ outlets|length }})</span></h4>
+  <ul>
+    {% for o in outlets %}
+    <li>{% if o.url %}<a href="{{ o.url }}" target="_blank" rel="noopener noreferrer">{{ o.name }}<span class="sr-only"> (abre em nova aba)</span></a>{% else %}<b>{{ o.name }}</b>{% endif %}{% if o.framing %}<span class="cov-f"> — {{ o.framing }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</div>
+{%- endmacro %}
+
+{#- Bloco completo: lados, medidor, conclusão e veículos por lado. -#}
+{% macro coverage(c, open=False) -%}
+<div class="cov full lean-{{ c.lean }}" lang="pt-BR">
+  {% if c.side_a %}
+  <div class="cov-scale"><span class="cov-sa">{{ c.side_a }} <b>{{ c.a|length }}</b></span><span class="cov-sb"><b>{{ c.b|length }}</b> {{ c.side_b }}</span></div>
+  {% endif %}
+  {{ bar(c) }}
+  <p class="cov-lean">{{ c.lean_label }}</p>
+  {% if c.conclusion %}
+  <p class="cov-c">{{ c.conclusion }}</p>
+  {% endif %}
+  <details class="cov-who"{% if open %} open{% endif %}>
+    <summary>Como cada veículo cobriu ({{ c.total }})</summary>
+    <div class="cov-cols">
+      {% if c.a %}{{ outlet_list(c.side_a, "ca", c.a) }}{% endif %}
+      {% if c.b %}{{ outlet_list(c.side_b, "cb", c.b) }}{% endif %}
+      {% if c.neutral %}{{ outlet_list("Neutros" if c.side_a else "Veículos", "cn", c.neutral) }}{% endif %}
+    </div>
+  </details>
+</div>
+{%- endmacro %}
+
 {% macro card(s) -%}
 <article class="cl" style="--sc:{{ s.color }}">
   <p class="cat">{{ s.section_title }}</p>
@@ -23,6 +75,9 @@
   <p class="dk"{{ lang(s) }}>{{ s.dek }}</p>
   {% endif %}
   {{ meta(s) }}
+  {% if s.coverage %}
+  {{ badge(s.coverage) }}
+  {% endif %}
 </article>
 {%- endmacro %}
 
@@ -52,6 +107,12 @@
       <h3>Por que importa</h3>
       <p>{{ s.why }}</p>
     </aside>
+    {% endif %}
+    {% if s.coverage %}
+    <section class="mcov" aria-label="Cobertura comparada">
+      <h3>Cobertura comparada</h3>
+      {{ coverage(s.coverage, open=True) }}
+    </section>
     {% endif %}
     {% if s.sources %}
     <div class="bb">

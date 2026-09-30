@@ -93,6 +93,10 @@ class EditionConfig:
 @dataclass
 class LLMConfig:
     enabled: bool = True
+    # Editores por IA, na ordem de tentativa. Cada um só entra com a sua chave
+    # (MISTRAL_API_KEY, ANTHROPIC_API_KEY); se falhar, tenta o próximo e, por
+    # fim, a edição automática.
+    providers: list[str] = field(default_factory=lambda: ["mistral", "claude"])
     model: str = "claude-opus-5-5"
     effort: str = "medium"
     # O raciocínio do modelo conta dentro de max_tokens: com folga, uma pauta
@@ -103,6 +107,27 @@ class LLMConfig:
     # Prazo total da edição por IA (s): novas tentativas após erro passageiro só
     # acontecem se ainda couberem nele (o job do Actions tem 55 min).
     deadline_seconds: int = 2700
+    # ── Mistral ──
+    mistral_model: str = "mistral-large-latest"
+    mistral_base_url: str = "https://api.mistral.ai/v1"
+    mistral_max_tokens: int = 16000  # saída máxima de cada chamada
+    # Plano gratuito (Experiment): poucas requisições por minuto. As chamadas saem
+    # uma de cada vez, com pelo menos este intervalo entre o início de cada uma.
+    mistral_parallel: int = 1  # chamadas simultâneas nas etapas em lotes
+    mistral_min_interval_seconds: float = 30.0
+    # ── Análise completa (editor Mistral) ──
+    # Todas as notícias do dia são lidas e agrupadas por assunto, em lotes de
+    # até topics_batch_chars caracteres; a redação sai em lotes de
+    # write_batch_size matérias (respostas menores, sem corte por tamanho).
+    topics_batch_chars: int = 100000
+    write_batch_size: int = 12
+    # Cobertura comparada: para cada assunto com coverage_min_outlets veículos
+    # ou mais, os dois lados do debate, a posição de cada veículo e a conclusão.
+    # Além das matérias da edição, até coverage_max_topics outros assuntos.
+    coverage: bool = True
+    coverage_min_outlets: int = 2
+    coverage_max_topics: int = 80
+    coverage_batch_chars: int = 45000
 
 
 @dataclass
@@ -213,6 +238,8 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
         llm.model = env["QIJ_MODEL"]
     if env.get("QIJ_EFFORT"):
         llm.effort = env["QIJ_EFFORT"]
+    if env.get("QIJ_MISTRAL_MODEL"):
+        llm.mistral_model = env["QIJ_MISTRAL_MODEL"]
     if _truthy(env.get("QIJ_NO_LLM")):
         llm.enabled = False
 

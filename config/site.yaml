@@ -147,16 +147,38 @@ edition:
     - 'transmite ao vivo'
 
 llm:
-  enabled: true                # usa IA se ANTHROPIC_API_KEY estiver definido
+  enabled: true
+  # Editores por IA, na ordem de tentativa: Mistral (MISTRAL_API_KEY) e, se ele
+  # faltar ou falhar, Claude (ANTHROPIC_API_KEY). Sem nenhum: edição automática.
+  providers: [mistral, claude]
+  # ── Mistral: lê TODAS as notícias do dia, agrupa por assunto, faz a pauta,
+  # redige e compara a cobertura dos veículos (lados do debate + medidor).
+  # Plano gratuito da Mistral (Experiment): todos os modelos, cota mensal folgada,
+  # mas poucas requisições por minuto — por isso uma chamada de cada vez, com
+  # intervalo mínimo entre elas (e novas tentativas se a API pedir para esperar).
+  mistral_model: "mistral-large-latest"   # ou a variável QIJ_MISTRAL_MODEL
+  mistral_max_tokens: 16000
+  mistral_parallel: 1          # chamadas simultâneas nas etapas em lotes
+  mistral_min_interval_seconds: 30
+  topics_batch_chars: 100000   # tamanho de cada lote do agrupamento por assunto
+  write_batch_size: 12         # matérias redigidas por chamada
+  coverage: true               # cobertura comparada (lados do debate e conclusão)
+  coverage_min_outlets: 2      # veículos distintos para comparar um assunto
+  coverage_max_topics: 80      # assuntos além das matérias da edição
+  coverage_batch_chars: 45000
+  # ── Claude (reserva): pauta + redação em duas chamadas.
   model: "claude-opus-5-5"
   effort: "medium"
   # O raciocínio do modelo conta dentro de max_tokens (saída máxima: 128k); com
   # folga, a resposta não é cortada, o que descartaria a edição por IA inteira.
   max_tokens_select: 64000
   max_tokens_write: 64000
-  # Tempo máximo sem receber dados do stream (a API envia "ping" enquanto o
-  # modelo trabalha). Com 3 retentativas do SDK, cada chamada leva no pior caso
-  # 4 × 300 s = 20 min; as 2 chamadas cabem no timeout-minutes do daily.yml.
+  # Prazo total da edição por IA, comum a todos os editores tentados (s). Com a
+  # coleta (~8 min no pior caso), cabe no timeout-minutes (55) do daily.yml.
+  deadline_seconds: 2100
+  # Tempo máximo de espera por dados em cada requisição (Claude: sem dados do
+  # stream, a API envia "ping" enquanto o modelo trabalha; Mistral: resposta).
+  # Novas tentativas só começam se couberem em deadline_seconds.
   timeout_seconds: 300
 
 # Cotações e indicadores do ticker, na ordem de exibição.

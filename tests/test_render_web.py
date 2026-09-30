@@ -577,3 +577,59 @@ def test_unknown_brand_falls_back_to_the_default(caplog):
         cfg = load_config(env={"QIJ_BRAND": "qi"})
     assert cfg.brand.key == "tech" and cfg.brand.name == "PBCV Tech"
     assert "Marca 'qi' não existe" in caplog.text
+
+
+# ── cobertura comparada ──────────────────────────────────────────────────────
+
+
+def _coverage(stances, *, sides=("Destaca o alívio", "Destaca o risco"), **extra):
+    from qijournal.models import Coverage, CoverageOutlet
+
+    outlets = [
+        CoverageOutlet(name=f"Veículo {i}", stance=st, framing=f"Enfoque {i}", url=f"https://v{i}.example/n")
+        for i, st in enumerate(stances)
+    ]
+    return Coverage(
+        topic="Assunto do dia", conclusion="A cobertura pendeu para o alívio.", outlets=outlets,
+        side_a=sides[0], side_b=sides[1], **extra,
+    )
+
+
+def test_coverage_view_meter_grows_toward_the_side_with_more_outlets():
+    from qijournal.render.web import coverage_view
+
+    view = coverage_view(_coverage(["a", "a", "a", "b", "neutro", "neutro", "a"]))
+    assert (view.pct_a, view.pct_n, view.pct_b) == (57, 29, 14) and view.lean == "a"
+    assert view.lean_label == "Pende para: Destaca o alívio · 4 de 7 veículos"
+    assert view.aria == "Destaca o alívio: 4 veículos; neutros: 2; Destaca o risco: 1 veículo"
+    tie = coverage_view(_coverage(["a", "b"]))
+    assert tie.lean == "equilibrio" and tie.lean_label == "Equilíbrio: 1 × 1 de 2 veículos"
+    flat = coverage_view(_coverage(["a", "b", "neutro"], sides=("", "")))  # sem debate: todos neutros
+    assert flat.lean == "convergente" and (flat.pct_a, flat.pct_n, flat.pct_b) == (0, 100, 0)
+    assert flat.lean_label == "Sem divergência entre os 3 veículos"
+    assert coverage_view(None) is None
+
+
+def test_coverage_on_cards_modal_and_compared_section(edition, config):
+    ed = copy.deepcopy(edition)
+    ed.story(LEAD_ID).coverage = _coverage(["a", "a", "b"])
+    card_story = next(s for s in ed.stories if s.id not in (ed.lead, *ed.secondary))
+    card_story.coverage = _coverage(["b", "b", "a"])
+    ed.compared = [_coverage(["a", "neutro"], section="mercados", url="javascript:alert(1)", published=ed.generated_at)]
+    page = render(ed, config)
+    assert page.count('<div class="cov mini lean-a"') == 2  # manchete + card dela na aba da seção
+    assert page.count('<div class="cov mini lean-b"') == 1  # card
+    modal = re.search(rf'<div class="mo" id="s-{LEAD_ID}".*?</article>\s*</div>', page, re.S).group(0)
+    assert '<section class="mcov" aria-label="Cobertura comparada">' in modal
+    assert '<details class="cov-who" open>' in modal
+    assert '<span class="cov-a" style="width:67%"></span><span class="cov-b" style="width:33%"></span>' in modal
+    assert "A cobertura pendeu para o alívio." in modal
+    section = re.search(r'<section class="cmp" id="cobertura".*?</section>', page, re.S).group(0)
+    assert "<h3>Assunto do dia</h3>" in section  # URL insegura: título sem link
+    assert "Mercados &amp; Finanças" in section and "javascript:" not in page
+    assert parse(page).errors == []
+
+
+def test_no_coverage_no_section(edition, config):
+    page = render(edition, config)
+    assert 'class="cmp"' not in page and 'class="cov ' not in page

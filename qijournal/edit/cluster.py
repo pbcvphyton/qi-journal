@@ -690,20 +690,21 @@ def editorial_score(cluster: Cluster) -> float:
     return cluster.score * SECTION_WEIGHT.get(cluster.section, 1.0) * (0.5 + 0.5 * pt_share)
 
 
+def build_cluster(group: list[Article], config: Config, *, now: datetime) -> Cluster:
+    """Cluster classificado e pontuado a partir de um grupo já ordenado (principal primeiro)."""
+    primary = group[0]
+    classify_text = " ".join([primary.title, primary.summary or ""] + [a.title for a in group[1:]])
+    return Cluster(
+        articles=group,
+        score=score_cluster(group, now=now, max_age_hours=config.edition.max_age_hours),
+        section=classify(classify_text, _cluster_topics(group), config.sections, _topic_weights(group)),
+    )
+
+
 def rank_clusters(articles: list[Article], config: Config, *, now: datetime) -> list[Cluster]:
     """Agrupa, classifica e pontua os artigos; devolve clusters por score decrescente."""
     now = as_utc(now)
-    clusters: list[Cluster] = []
-    for group in cluster_articles(articles):
-        primary = group[0]
-        classify_text = " ".join([primary.title, primary.summary or ""] + [a.title for a in group[1:]])
-        clusters.append(
-            Cluster(
-                articles=group,
-                score=score_cluster(group, now=now, max_age_hours=config.edition.max_age_hours),
-                section=classify(classify_text, _cluster_topics(group), config.sections, _topic_weights(group)),
-            )
-        )
+    clusters = [build_cluster(group, config, now=now) for group in cluster_articles(articles)]
     clusters.sort(key=lambda c: (-c.score, c.key))
     log.debug("%d artigos agrupados em %d clusters", len(articles), len(clusters))
     return clusters

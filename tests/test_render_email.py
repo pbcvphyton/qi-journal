@@ -303,3 +303,22 @@ def test_english_story_is_marked_in_the_email(edition, config):
     ed.story(LEAD_ID).lang = "en"
     _, html, _ = render_email(ed, config)
     assert re.search(r'<h1 class="hl"[^>]*lang="en"', html)
+
+
+def test_coverage_line_in_html_and_text(edition):
+    from qijournal.models import Coverage, CoverageOutlet
+
+    ed = copy.deepcopy(edition)
+    ed.story(LEAD_ID).coverage = Coverage(
+        topic="Arrecadação",
+        conclusion="A maioria destacou o recorde.",
+        outlets=[CoverageOutlet(name=n, stance=st) for n, st in (("Valor", "a"), ("Folha", "a"), ("g1", "b"))],
+        side_a="Destaca o recorde",
+        side_b="Destaca o risco fiscal",
+    )
+    _, html, text = render_email(ed, default_config())
+    assert '<td width="67%" height="6" bgcolor="#3322CC"' in html and '<td width="33%" height="6" bgcolor="#C8631A"' in html
+    assert "Pende para: Destaca o recorde · 2 de 3 veículos</b> · A maioria destacou o recorde." in html
+    flat = " ".join(text.split())  # o texto puro quebra as linhas
+    assert "Cobertura: Pende para: Destaca o recorde · 2 de 3 veículos. A maioria destacou o recorde." in flat
+    assert parse(html).errors == []

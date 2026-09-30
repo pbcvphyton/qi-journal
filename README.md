@@ -21,8 +21,9 @@ Nada precisa ser feito à mão: o GitHub gera a edição sozinho às **05:07
   1. Coleta ── ~64 feeds de notícias (Valor, Folha, Estadão, FT, WSJ, NYT, JOTA…)
         │      cotações (Yahoo Finance, CoinGecko, Banco Central) e clima (Open-Meteo)
         ▼
-  2. Edição ── com IA (Claude): escolhe os fatos do dia, agrupa as fontes,
-        │      escreve em português e traduz o que vem em inglês
+  2. Edição ── com IA (Mistral; reserva: Claude): lê TODAS as notícias, agrupa por
+        │      assunto, escolhe os fatos do dia, escreve em português e compara
+        │      como cada veículo cobriu cada assunto (lados do debate + medidor)
         │      sem IA (ou se a IA falhar): edição automática com os textos dos veículos
         ▼
   3. Páginas ── capa (index.html), cópia no arquivo (edicoes/), e-mail em HTML e texto
@@ -69,16 +70,63 @@ arquivo guarda as edições dos últimos 400 dias (`archive_keep_days` em
 
 ## Ativar a edição por IA
 
-A IA é o [Claude](https://www.anthropic.com/), da Anthropic. Ela lê as notícias
-coletadas, escolhe as ~24 mais relevantes para um leitor executivo brasileiro,
-junta as fontes que falam do mesmo fato e escreve título, linha fina, texto e
-"Por que importa" — sempre com base apenas no que os veículos publicaram.
+Há dois editores por IA, tentados nesta ordem (`llm.providers` em
+`config/site.yaml`); cada um só entra se o segredo dele existir, e se falhar a
+edição passa ao próximo e, por fim, ao modo automático:
+
+1. **[Mistral](https://mistral.ai/)** (`MISTRAL_API_KEY`) — editor principal,
+   com a **análise completa**: lê *todas* as notícias do dia, junta as que
+   tratam do mesmo assunto, faz a pauta, redige e monta a **cobertura
+   comparada** (veja abaixo).
+2. **[Claude](https://www.anthropic.com/)** (`ANTHROPIC_API_KEY`) — reserva:
+   pauta e redação em duas chamadas, sem a cobertura comparada.
+
+### Mistral (gratuito)
+
+O plano gratuito da Mistral (*Experiment*) dá acesso a todos os modelos,
+inclusive o `mistral-large-latest` usado aqui, com cota mensal bem acima do que
+o jornal usa (da ordem de 250 mil tokens por dia). O limite é de requisições por
+minuto, por isso as chamadas saem uma de cada vez, com intervalo mínimo de 30 s
+(`mistral_min_interval_seconds`) e novas tentativas quando a API pede para
+esperar; uma edição leva de 10 a 15 chamadas. No plano gratuito, a Mistral pode
+usar o conteúdo enviado para treinar modelos (aqui, só notícias públicas).
+
+1. Crie a chave em <https://console.mistral.ai/> (*API Keys*; o plano gratuito
+   pede só a verificação do telefone).
+2. No GitHub: *Settings → Secrets and variables → Actions → New repository
+   secret*, nome **`MISTRAL_API_KEY`**, valor = a chave. **Nunca** coloque a
+   chave no código ou em arquivos do repositório (ele é público).
+3. Opcional: variável **`QIJ_MISTRAL_MODEL`** (aba *Variables*) para trocar o
+   modelo, ex.: `mistral-medium-latest`.
+
+A API segue o formato de chat do OpenAI (`/chat/completions` com JSON Schema),
+então outro provedor compatível pode entrar mudando `mistral_base_url` e o
+modelo em `config/site.yaml`.
+
+### Cobertura comparada
+
+Para cada assunto coberto por dois ou mais veículos, a IA recebe o título e um
+trecho de cada um e devolve:
+
+- os **dois lados do debate**, como enfoques neutros ("Destaca o risco fiscal" ×
+  "Destaca a arrecadação recorde") — ou nenhum, quando todos relatam o fato do
+  mesmo jeito;
+- a **posição de cada veículo** (lado A, lado B ou neutro) e o que ele destacou;
+- a **conclusão**: em que sentido a cobertura seguiu e quem destoou.
+
+No site, um **medidor** mostra cada veículo como um trecho da barra (lado A à
+esquerda, neutros no meio, lado B à direita): a barra cresce para o lado com
+mais veículos, com o rótulo "Pende para: …". Ele aparece no card de cada
+matéria, na janela da matéria (com a conclusão e a lista de veículos por lado)
+e na nova seção **Cobertura comparada**, com os demais assuntos do dia (até
+`coverage_max_topics`, os com mais veículos primeiro). No e-mail, cada matéria
+ganha a barra e a conclusão. A análise usa só o que os veículos publicaram;
+quando o trecho não permite dizer, o veículo fica como neutro.
+
+### Claude (reserva, pago)
 
 1. Crie uma chave em <https://console.anthropic.com/> (menu *API Keys*).
-2. No GitHub: *Settings → Secrets and variables → Actions → New repository
-   secret*, nome **`ANTHROPIC_API_KEY`**, valor = a chave.
-
-Pronto: a próxima edição já sai com IA.
+2. No GitHub: segredo **`ANTHROPIC_API_KEY`**, valor = a chave.
 
 - **Custo estimado:** cerca de **US$ 0,50 a 1,00 por dia** (US$ 15 a 30 por
   mês) com o modelo `claude-opus-5-5`: duas chamadas por edição, somando da
@@ -87,7 +135,7 @@ Pronto: a próxima edição já sai com IA.
   realmente usados.
 - **Trocar o modelo:** crie a variável (aba *Variables*, não *Secrets*)
   **`QIJ_MODEL`** com o nome do modelo desejado.
-- **Sem a chave**, ou se a IA falhar, a edição sai no modo automático e a
+- **Sem nenhuma chave**, ou se a IA falhar, a edição sai no modo automático e a
   execução no GitHub mostra um aviso amarelo explicando o motivo.
 
 ---
@@ -267,11 +315,13 @@ no Claude Design) e as cores dele: azul `#3322CC` (cabeçalho em bloco), tinta
 
 | Nome | Tipo | Para quê |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | segredo | liga a edição por IA |
+| `MISTRAL_API_KEY` | segredo | editor principal (Mistral, análise completa) |
+| `ANTHROPIC_API_KEY` | segredo | editor reserva (Claude) |
 | `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_TO` | segredos | envio do e-mail por SMTP |
 | `EMAIL_FROM`, `SMTP_HOST`, `SMTP_PORT` | segredos (opcionais) | ajustes do SMTP |
 | `QIJ_BRAND` | variável | marca (`tech` ou `pbcv`) |
 | `QIJ_MODEL` | variável | modelo do Claude |
+| `QIJ_MISTRAL_MODEL` | variável | modelo do Mistral (padrão `mistral-large-latest`) |
 
 Todos são opcionais: sem nenhum deles, o jornal é gerado no modo automático e
 publicado normalmente.
@@ -304,7 +354,9 @@ publicado normalmente.
 ```
 qijournal/                código do jornal
   collect/                coleta: feeds, páginas das matérias, cotações, clima
-  edit/                   edição: agrupamento de notícias, IA (Claude) e modo automático
+  edit/                   edição: agrupamento, IA (llm.py; mistral.py; topics.py =
+                          todas as notícias por assunto; coverage.py = cobertura
+                          comparada) e modo automático
   render/                 páginas HTML e e-mail (modelos em render/templates/)
   deliver/smtp.py         envio do e-mail por SMTP
   pipeline.py             orquestra coleta → edição → páginas → e-mail
