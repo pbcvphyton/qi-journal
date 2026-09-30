@@ -27,7 +27,7 @@ DEFAULT_COLORS = {
     "primary": "#1E36C8",
     "navy": "#0A2051",
     "accent": "#1FD1E1",
-    "alert": "#D14424",
+    "alert": "#E0245E",
     "ticker_up": "#2EDBEA",
     "ticker_down": "#FF5C8A",
 }
@@ -197,6 +197,7 @@ class BrandView:
     logo_svg_dark: Markup | None = None  # versão própria para o modo escuro (ids prefixados)
     logo_height: int | None = None  # altura do logo no cabeçalho (px, desktop)
     email_logo: EmailLogo | None = None
+    email_logo_dark: EmailLogo | None = None  # só com email_logo
 
 
 @dataclass
@@ -265,7 +266,8 @@ def brand_view(config: Config) -> BrandView:
         logo_mono=bool(logo_svg and "currentColor" in logo_svg),
         logo_svg_dark=logo_dark if logo_svg else None,
         logo_height=height,
-        email_logo=_email_logo(brand.email_logo, config.site.base_url),
+        email_logo=(email_logo := _email_logo(brand.email_logo, config.site.base_url)),
+        email_logo_dark=_email_logo(brand.email_logo_dark, config.site.base_url) if email_logo else None,
     )
 
 

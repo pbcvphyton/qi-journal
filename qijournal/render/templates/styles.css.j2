@@ -10,7 +10,7 @@
   --up:{{ brand.colors.ticker_up }};--down:{{ brand.colors.ticker_down }};
   --qi-rgb:{{ brand.rgb.primary }};--qn-rgb:{{ brand.rgb.navy }};--qr-rgb:{{ brand.rgb.alert }};
   --ink:#1a2332;--paper:#fff;--bg:#f0f2f5;--rule:#d0d5dd;--rl:#e4e7ec;
-  --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#687487;--faint:#6b778a;
+  --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#5f6b7e;--faint:#626e81;
   --soft:#f8f9fb;--side:#fdfdfd;--hover:#fafbff;--hl:#e8ebf0;--op-a:#fafbff;--op-b:#f0f2f5;
   --link:var(--qi);--text:#333d4d;
   --fx-dot:var(--qi);--fx-line:var(--qc);
@@ -36,7 +36,8 @@ button{font:inherit;color:inherit}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-9999px;top:8px;z-index:10000;padding:8px 14px;background:var(--paper);color:var(--link);font-family:var(--ss);font-size:13px;font-weight:700;border:2px solid var(--qi)}
 .skip:focus{left:16px}
-.paper{max-width:1120px;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(var(--qn-rgb),.08)}
+.paper{max-width:1120px;min-height:100vh;display:flex;flex-direction:column;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(var(--qn-rgb),.08)}
+.paper>main{flex:1}
 :root[data-theme="dark"] .paper{box-shadow:0 0 60px rgba(0,0,0,.5)}
 
 /* Barra de progresso de leitura */
@@ -69,6 +70,7 @@ button{font:inherit;color:inherit}
 .mast-sub{font-family:var(--ss);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--mute2);margin-top:6px}
 .mast h1.logo+.mast-sub{margin-top:14px}
 .mast-date{font-family:var(--mn);font-size:10px;color:var(--faint);margin-top:8px;letter-spacing:1px}
+.mast-date .nw{white-space:nowrap}
 {% if brand.masthead %}
 /* Cabeçalho em bloco de cor (brand.masthead): logo, slogan, data e botões em on_masthead */
 .mast-wrap.solid{--mh:{{ brand.masthead }};--on-mh:{{ brand.on_masthead }};--on-mh-rgb:{{ brand.rgb.on_masthead }};--fx-dot:var(--on-mh);--fx-line:var(--on-mh);background:var(--mh);background:linear-gradient(135deg,color-mix(in srgb,var(--mh) 94%,#fff),color-mix(in srgb,var(--mh) 92%,#000))}
@@ -364,14 +366,18 @@ body.modal-open .btt{visibility:hidden}
 .badge{flex-shrink:0;padding:1px 6px;border:1px solid var(--rule);border-radius:10px;font-family:var(--mn);font-size:8.5px;letter-spacing:1px;color:var(--faint)}
 .arch-empty{padding:30px 0;font-family:var(--ss);color:var(--muted)}
 
+/* Tablet: os botões do canto ainda ficam na mesma linha; o logo desce para não ficar sob eles */
+@media (max-width:880px){
+  .mast{padding-top:52px}
+}
 @media (max-width:760px){
   .paper{box-shadow:none}
   .mast{padding:52px 16px 18px}
   .mast h1{font-size:36px}
   .mast h1.logo svg{height:92px}
   .mast h1.logo.mono svg{height:46px}
-  {% if brand.logo_height %}.mast h1.logo svg,.mast h1.logo.mono svg{height:{{ (brand.logo_height * 0.72)|round|int }}px}{% endif %}
-  .mast-tools{top:12px;right:12px;left:12px;justify-content:flex-end}
+  {% if brand.logo_height %}.mast h1.logo svg,.mast h1.logo.mono svg{height:{{ (brand.logo_height * 0.85)|round|int }}px}{% endif %}
+  .mast-tools{top:12px;right:16px;left:16px;justify-content:center}
   .tool{height:26px;padding:0 10px}
   .wx{justify-content:flex-start;padding:6px 16px;gap:2px 20px;white-space:normal}
   .wx p{white-space:normal}
@@ -414,6 +420,7 @@ body.modal-open .btt{visibility:hidden}
   .btt{right:16px;bottom:16px}
 }
 @media (max-width:420px){
+  .mast-date{letter-spacing:.4px}
   .mast h1{font-size:32px}
 }
 @media (prefers-reduced-motion:reduce){

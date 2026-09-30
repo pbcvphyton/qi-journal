@@ -201,7 +201,8 @@ def test_ticker_and_weather(page):
 
 
 def test_header_dateline_and_tools(page):
-    assert "Terça-feira, 29 de setembro de 2026 · 05:07 BRT" in page
+    # hora e fuso inseparáveis: no celular a quebra cai antes do "·", nunca deixa "BRT" sozinho
+    assert 'Terça-feira, 29 de setembro de 2026 <span class="nw">· 05:07 BRT</span>' in page
     assert '<header class="mast-wrap">' in page  # cabeçalho claro, como no QI Journal
     assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in page
     assert '<title id="pbcv-tech-logo-title">PBCV Tech</title>' in page
@@ -383,7 +384,8 @@ def test_default_brand_logo_palette_and_favicon(edition):
     # Luz Cruzada: PBCV na tinta marinho da QI; versão escura própria, sem filtro de inversão
     assert 'fill="#0A2051"' in html and 'fill="#DCE4FF"' in html
     assert ':root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:' in html
-    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:44px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:34px}" in html  # celular: 85%
     assert "--ink:#1a2332;--paper:#fff;--bg:#f0f2f5;" in html  # neutros frios do layout original
     favicon = re.search(r'<link rel="icon" type="image/svg\+xml" href="([^"]+)"', html).group(1)
     assert favicon.startswith("data:image/svg+xml,%3Csvg") and "prisma-tile" in favicon
@@ -657,5 +659,5 @@ def test_logo_with_dark_variant_and_height(edition):
     assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in html
     assert '<span class="lg lg-d"><svg viewBox="0 0 10 2"><title id="dk-t">Escuro</title>' in html
     assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:56px;max-width:100%}" in html
-    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html  # celular: 72%
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:48px}" in html  # celular: 85%
     assert parse(html).ids["t"] == 1 and parse(html).ids["dk-t"] == 1

@@ -112,21 +112,30 @@ def test_preheader_is_hidden_and_plain(rendered):
 
 def test_header_ticker_weather_editorial_and_briefing(rendered):
     _, html, _ = rendered
-    # Cabeçalho claro: logo em PNG (GitHub Pages) numa célula branca explícita (modo escuro dos clientes).
-    assert '<td align="center" bgcolor="#ffffff" class="px" style="padding:28px 20px 18px;background:#ffffff;' in html
+    # Cabeçalho claro: logo em PNG (GitHub Pages) numa célula branca; no modo escuro (CSS) troca pela versão escura.
+    assert '<td align="center" bgcolor="#ffffff" class="px hdr" style="padding:28px 20px 18px;background:#ffffff;' in html
     assert (
-        '<img src="https://pbcvphyton.github.io/qi-journal/assets/pbcv-tech-logo-email.png" width="260" height="38"'
-        ' alt="PBCV Tech"' in html
+        '<img class="lg-l" src="https://pbcvphyton.github.io/qi-journal/assets/pbcv-tech-logo-email.png"'
+        ' width="260" height="38" alt="PBCV Tech"' in html
     )
-    assert 'text-transform:uppercase;color:#687487;">Seu terminal financeiro diário</p>' in html
-    assert "Terça-feira, 29 de setembro de 2026 · 05:07 BRT" in html
+    assert (
+        '<!--[if !mso]><!--><img class="lg-d" src="https://pbcvphyton.github.io/qi-journal/assets/'
+        'pbcv-tech-logo-email-dark.png" width="260" height="38" alt="" style="display:none;' in html
+    )
+    assert ".hdr{background:#111827!important;" in html and ".lg-d{display:block!important;" in html
+    assert 'text-transform:uppercase;color:#5f6b7e;" class="muted">Seu terminal financeiro diário</p>' in html
+    assert 'Terça-feira, 29 de setembro de 2026 <span style="white-space:nowrap">· 05:07 BRT</span>' in html
+    assert "#687487" not in html  # cinza antigo, abaixo de AA sobre #f8f9fb
     assert (
         'Dólar <b style="color:#ffffff;font-weight:bold;">R$ 5,22</b> <span style="color:#2EDBEA;">+0,19%</span>'
         in html
     )
     assert '<span style="color:#FF5C8A;">-0,27%</span>' in html
     # cidade e "Amanhã" em grupos separados: no celular (360 px) a linha quebra em vez de estourar
-    assert 'São Paulo</b> 19°C ↓19° ↑33°</span> <span style="white-space:nowrap">| Amanhã' in html
+    # cada cidade (hoje + amanhã) inteira numa linha: nenhuma linha começa com "| Amanhã"
+    assert 'São Paulo</b> 19°C ↓19° ↑33° | Amanhã' in html
+    assert '<td class="px soft rule muted" align="center"' in html
+    assert "<span style=\"color:#56627e;\"> · </span>" not in html  # ticker sem "·" pendurado nas quebras
     assert "<strong>prêmio eleitoral</strong>" in html
     assert "Em 1 minuto" in html and "<strong>R$ 212,4 bi</strong>" in html
 

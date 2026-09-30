@@ -32,7 +32,7 @@
   {
    "id": "brasil",
    "title": "Brasil · Economia",
-   "color": "#1E36C8",
+   "color": "#0A2051",
    "story_ids": [
     "divida-publica-federal-alcanca-r-9-293-trilhoes",
     "governo-determina-que-preco-abusivo-de-combustiv",
@@ -43,7 +43,7 @@
   {
    "id": "mercados",
    "title": "Mercados & Finanças",
-   "color": "#0F7C8C",
+   "color": "#133D94",
    "story_ids": [
     "dolar-sobe-a-r-5-22-e-ibovespa-cai-com-petroleo",
     "juros-futuros-sobem-com-pressao-externa-e-pesqui",
@@ -53,7 +53,7 @@
   {
    "id": "juridico",
    "title": "Jurídico & Regulação",
-   "color": "#1E6B52",
+   "color": "#1E36C8",
    "story_ids": [
     "fux-acata-pedido-da-defesa-de-flavio-e-cassa-dec",
     "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
@@ -76,7 +76,7 @@
   {
    "id": "mundo",
    "title": "Geopolítica & Mundo",
-   "color": "#6B3FA0",
+   "color": "#C90055",
    "story_ids": [
     "reino-unido-investiga-acao-de-estado-estrangeiro",
     "petroleo-sobe-com-impasse-nas-negociacoes-de-ces"
@@ -85,7 +85,7 @@
   {
    "id": "tecnologia",
    "title": "Tecnologia & Negócios",
-   "color": "#C90055",
+   "color": "#0F7C8C",
    "story_ids": [
     "openai-abandona-lancamento-de-novo-modelo-de-ia",
     "anthropic-preve-em-prospecto-de-ipo-que-ia-pode",
@@ -96,7 +96,7 @@
   {
    "id": "imobiliario",
    "title": "Imobiliário",
-   "color": "#0A2051",
+   "color": "#6B3FA0",
    "story_ids": [
     "fii-trxf11-conclui-venda-de-15-imoveis-por-r-207",
     "fii-da-kinea-aprova-13a-emissao-e-oferta-pode-so"

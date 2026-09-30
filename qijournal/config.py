@@ -63,6 +63,7 @@ class BrandConfig:
     logo_height: int | None = None  # altura do logo no cabeçalho, em px (desktop)
     favicon_svg: str | None = None
     email_logo: dict[str, Any] | None = None  # {src, width, height}: imagem servida em base_url + src
+    email_logo_dark: dict[str, Any] | None = None  # versão do modo escuro (mesmo formato)
 
 
 @dataclass
@@ -218,6 +219,7 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
         logo_height=int(brand_raw["logo_height"]) if brand_raw.get("logo_height") else None,
         favicon_svg=_read_svg(root, brand_raw.get("favicon_svg")),
         email_logo=dict(brand_raw["email_logo"]) if brand_raw.get("email_logo") else None,
+        email_logo_dark=dict(brand_raw["email_logo_dark"]) if brand_raw.get("email_logo_dark") else None,
     )
 
     sections = []
