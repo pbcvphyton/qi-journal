@@ -20,28 +20,32 @@ brands:
     name: "PBCV Tech"
     wordmark: ["", "PBCV", " Tech"]   # só sem logo (texto do cabeçalho e alternativa do e-mail)
     tagline: "Seu terminal financeiro diário"
-    # Logo "Luz Cruzada" (Claude Design, PBCV Tech — Logo 2026, direção 08): o
-    # prisma cobalto + aqua faz o papel do Q ciano do antigo QI Journal. O PBCV
-    # usa a tinta marinho da QI (#0A2051), a mesma do ticker. Cabeçalho claro,
-    # como na QI; no modo escuro entra a versão própria (sem filtro de inversão).
+    # Logo "Sinal" (Claude Design, PBCV Tech — Logo 2026, direção 06): letreiro
+    # próprio em grade de pixels de 16 e a tarja laranja "Tech". Cabeçalho claro,
+    # como no QI Journal; no modo escuro entra a versão própria (letras brancas).
+    # Pixel art: altura múltipla de 20 (a grade do SVG) para os pixels ficarem
+    # nítidos — 60 px = 3 px por unidade (o tamanho do quadro do Claude Design
+    # para o cabeçalho do jornal); no celular, 40 px = 2 px por unidade.
     logo_svg: "assets/pbcv-tech-logo.svg"
     logo_svg_dark: "assets/pbcv-tech-logo-dark.svg"
-    logo_height: 40                    # maiúsculas do PBCV na altura das do antigo "QI JOURNAL"
+    logo_height: 60
+    logo_height_mobile: 40
     favicon_svg: "assets/pbcv-tech-favicon.svg"
-    # Logo do e-mail (PNG 3x com fundo branco opaco, para não sumir no modo
-    # escuro dos clientes), servido pelo GitHub Pages em base_url + src.
-    email_logo: {src: "assets/pbcv-tech-logo-email.png", width: 260, height: 38}
+    # Logo do e-mail (PNG 3x com fundo opaco), servido pelo GitHub Pages em base_url + src.
+    email_logo: {src: "assets/pbcv-tech-logo-email.png", width: 267, height: 60}
     # Versão escura, trocada pelo CSS do modo escuro (Apple Mail, iOS…); quem
     # ignora o CSS (Gmail, Outlook) fica com a clara na faixa branca.
-    email_logo_dark: {src: "assets/pbcv-tech-logo-email-dark.png", width: 260, height: 38}
+    email_logo_dark: {src: "assets/pbcv-tech-logo-email-dark.png", width: 267, height: 60}
+    # Paleta do quadro "Sinal": marinho e ardósia frios, com o laranja de sinal
+    # como destaque; altas e quedas do ticker como no cabeçalho de jornal do quadro.
     colors:
-      primary: "#1E36C8"     # --qi · cobalto profundo do prisma (links, réguas, chapéus)
-      navy: "#0A2051"        # --qn · marinho da QI (ticker, rodapé, títulos)
-      accent: "#1FD1E1"      # --qc · aqua do prisma (marcadores; só decoração no fundo claro)
-      alert: "#E0245E"       # --qr · radar ao vivo, fonte com erro (rosa, da família das quedas)
-      ticker_up: "#2EDBEA"
-      ticker_down: "#FF5C8A"
-    section_palette: ["#0A2051", "#133D94", "#1E36C8", "#2E6BD6", "#C90055", "#0F7C8C", "#6B3FA0"]  # a da QI, com o cobalto
+      primary: "#394A7A"     # --qi · ardósia (links, réguas, chapéus)
+      navy: "#1B2745"        # --qn · marinho (ticker, rodapé, títulos)
+      accent: "#FF5A1F"      # --qc · laranja "Sinal" (marcadores, barra de leitura; só decoração no branco)
+      alert: "#FF5A1F"       # --qr · radar ao vivo, fonte com erro
+      ticker_up: "#7FC8FF"
+      ticker_down: "#FF5C9A"
+    section_palette: ["#1B2745", "#2E6BD6", "#394A7A", "#C90055", "#0F7C8C", "#C2410C", "#6B3FA0"]
   pbcv:
     name: "PBCV Advogados"
     wordmark: ["PBCV", "", " ADVOGADOS"]

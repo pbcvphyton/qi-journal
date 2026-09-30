@@ -24,12 +24,12 @@ from . import filters
 log = logging.getLogger(__name__)
 
 DEFAULT_COLORS = {
-    "primary": "#1E36C8",
-    "navy": "#0A2051",
-    "accent": "#1FD1E1",
-    "alert": "#E0245E",
-    "ticker_up": "#2EDBEA",
-    "ticker_down": "#FF5C8A",
+    "primary": "#394A7A",
+    "navy": "#1B2745",
+    "accent": "#FF5A1F",
+    "alert": "#FF5A1F",
+    "ticker_up": "#7FC8FF",
+    "ticker_down": "#FF5C9A",
 }
 DEFAULT_ON_MASTHEAD = "#FFFFFF"
 RADAR_SIZE = 8
@@ -196,6 +196,7 @@ class BrandView:
     logo_mono: bool = False
     logo_svg_dark: Markup | None = None  # versão própria para o modo escuro (ids prefixados)
     logo_height: int | None = None  # altura do logo no cabeçalho (px, desktop)
+    logo_height_mobile: int | None = None  # no celular (px)
     email_logo: EmailLogo | None = None
     email_logo_dark: EmailLogo | None = None  # só com email_logo
 
@@ -251,6 +252,9 @@ def brand_view(config: Config) -> BrandView:
     logo_svg = filters.clean_svg(brand.logo_svg)
     logo_dark = filters.clean_svg(filters.prefix_svg_ids(brand.logo_svg_dark, "dk-")) if brand.logo_svg_dark else None
     height = brand.logo_height if brand.logo_height and 16 <= brand.logo_height <= 200 else None
+    mobile = brand.logo_height_mobile if brand.logo_height_mobile and 16 <= brand.logo_height_mobile <= 200 else None
+    if height and not mobile:
+        mobile = round(height * 0.85)
     rgb = {k: filters.rgb_triplet(v) for k, v in colors.items()}
     rgb["on_masthead"] = filters.rgb_triplet(on_masthead)
     return BrandView(
@@ -266,6 +270,7 @@ def brand_view(config: Config) -> BrandView:
         logo_mono=bool(logo_svg and "currentColor" in logo_svg),
         logo_svg_dark=logo_dark if logo_svg else None,
         logo_height=height,
+        logo_height_mobile=mobile if height else None,
         email_logo=(email_logo := _email_logo(brand.email_logo, config.site.base_url)),
         email_logo_dark=_email_logo(brand.email_logo_dark, config.site.base_url) if email_logo else None,
     )

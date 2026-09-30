@@ -53,11 +53,11 @@
     .muted{color:#a9b4c6!important;}
     .soft{background:#131c2d!important;}
     .rule{border-color:#2d3748!important;}
-    .hdr{background:#111827!important;border-bottom-color:#1E36C8!important;}
+    .hdr{background:#111827!important;border-bottom-color:{{ c.primary }}!important;}
     .lg-l{display:none!important;}
     .lg-d{display:block!important;max-height:none!important;}
-    .lead-rule{border-color:#4A66FF!important;}
-    .cv-a{background:#6F86FF!important;}
+    .lead-rule{border-color:{{ c.primary|blend("#ffffff", 0.55) }}!important;}
+    .cv-a{background:{{ c.primary|blend("#ffffff", 0.55) }}!important;}
     .cv-n{background:#3A4658!important;}
     .cv-b{background:#FF8A5C!important;}
     {%- for section in sections %}

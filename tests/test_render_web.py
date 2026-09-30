@@ -311,7 +311,7 @@ def test_invalid_brand_color_is_replaced(edition):
     cfg.brand.colors["primary"] = "red;}</style><script>alert(1)</script>"
     html = render(edition, cfg)
     assert "<script>alert(1)" not in html
-    assert "--qi:#1E36C8;" in html
+    assert "--qi:#394A7A;" in html
 
 
 # ── view ─────────────────────────────────────────────────────────────────────
@@ -377,18 +377,20 @@ def test_pbcv_brand_renders_inline_logo(edition):
 
 def test_default_brand_logo_palette_and_favicon(edition):
     html = render(edition, default_config())
-    assert '<meta name="theme-color" content="#0A2051">' in html
+    assert '<meta name="theme-color" content="#1B2745">' in html
     assert '<meta name="generator" content="PBCV Tech · qijournal 2.0">' in html
-    assert "--qi:#1E36C8;--qn:#0A2051;--qc:#1FD1E1;" in html
+    assert "--qi:#394A7A;--qn:#1B2745;--qc:#FF5A1F;" in html
     assert ".mast-wrap.solid{" not in html  # cabeçalho claro
-    # Luz Cruzada: PBCV na tinta marinho da QI; versão escura própria, sem filtro de inversão
-    assert 'fill="#0A2051"' in html and 'fill="#DCE4FF"' in html
+    # Sinal: letreiro em pixels (tinta no claro, branco no escuro) e tarja laranja; pixels nítidos
+    assert 'fill="#0C0F16"' in html and 'fill="#FFFFFF"' in html and 'fill="#FF5A1F"' in html
+    assert html.count('shape-rendering="crispEdges"') == 2
     assert ':root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:' in html
-    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px;max-width:100%}" in html
-    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:34px}" in html  # celular: 85%
+    # alturas múltiplas de 20 (a grade do SVG): 3 px por unidade no desktop, 2 px no celular
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html
     assert "--ink:#1a2332;--paper:#fff;--bg:#f0f2f5;" in html  # neutros frios do layout original
     favicon = re.search(r'<link rel="icon" type="image/svg\+xml" href="([^"]+)"', html).group(1)
-    assert favicon.startswith("data:image/svg+xml,%3Csvg") and "prisma-tile" in favicon
+    assert favicon.startswith("data:image/svg+xml,%3Csvg") and "FF5A1F" in favicon and "crispEdges" in favicon
     assert "QI Journal" not in html
 
 
@@ -655,9 +657,21 @@ def test_logo_with_dark_variant_and_height(edition):
     cfg.brand.logo_svg = '<svg viewBox="0 0 10 2"><title id="t">Claro</title><path fill="#123456" d="M0 0h1"/></svg>'
     cfg.brand.logo_svg_dark = '<svg viewBox="0 0 10 2"><title id="t">Escuro</title><path fill="#FFFFFF" d="M0 0h1"/></svg>'
     cfg.brand.logo_height = 56
+    cfg.brand.logo_height_mobile = None  # padrão: 85% no celular
     html = render(edition, cfg)
     assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in html
     assert '<span class="lg lg-d"><svg viewBox="0 0 10 2"><title id="dk-t">Escuro</title>' in html
     assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:56px;max-width:100%}" in html
     assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:48px}" in html  # celular: 85%
     assert parse(html).ids["t"] == 1 and parse(html).ids["dk-t"] == 1
+
+
+def test_explicit_mobile_logo_height(edition):
+    cfg = default_config()
+    cfg.brand.logo_height, cfg.brand.logo_height_mobile = 60, 40
+    html = render(edition, cfg)
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html
+    cfg.brand.logo_height_mobile = 999  # fora da faixa: volta aos 85%
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:51px}" in render(edition, cfg)
+

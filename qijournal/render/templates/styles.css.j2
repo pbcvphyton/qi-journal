@@ -280,7 +280,7 @@ body.modal-open{overflow:hidden}
 
 /* Cobertura comparada: lado A à esquerda, neutros no meio, lado B à direita */
 :root{--cov-a:var(--qi);--cov-b:#C8631A;--cov-n:#C5CCD8}
-:root[data-theme="dark"]{--cov-a:#6F86FF;--cov-b:#FF8A5C;--cov-n:#3A4658}
+:root[data-theme="dark"]{--cov-a:#8FA0CC;--cov-a:color-mix(in srgb,var(--qi) 55%,#fff);--cov-b:#FF8A5C;--cov-n:#3A4658}
 .cov-bar{display:flex;gap:2px;height:8px;border-radius:4px;overflow:hidden;background:var(--rl)}
 .cov-bar span{display:block;height:100%;min-width:4px}
 .cov-a{background:var(--cov-a)}
@@ -376,7 +376,7 @@ body.modal-open .btt{visibility:hidden}
   .mast h1{font-size:36px}
   .mast h1.logo svg{height:92px}
   .mast h1.logo.mono svg{height:46px}
-  {% if brand.logo_height %}.mast h1.logo svg,.mast h1.logo.mono svg{height:{{ (brand.logo_height * 0.85)|round|int }}px}{% endif %}
+  {% if brand.logo_height %}.mast h1.logo svg,.mast h1.logo.mono svg{height:{{ brand.logo_height_mobile }}px}{% endif %}
   .mast-tools{top:12px;right:16px;left:16px;justify-content:center}
   .tool{height:26px;padding:0 10px}
   .wx{justify-content:flex-start;padding:6px 16px;gap:2px 20px;white-space:normal}

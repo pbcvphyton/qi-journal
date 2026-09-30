@@ -61,6 +61,7 @@ class BrandConfig:
     logo_svg: str | None = None  # conteúdo SVG já lido do arquivo (ou None)
     logo_svg_dark: str | None = None  # versão do logo para o modo escuro (sem ela: filtro de inversão)
     logo_height: int | None = None  # altura do logo no cabeçalho, em px (desktop)
+    logo_height_mobile: int | None = None  # no celular (padrão: 85% de logo_height)
     favicon_svg: str | None = None
     email_logo: dict[str, Any] | None = None  # {src, width, height}: imagem servida em base_url + src
     email_logo_dark: dict[str, Any] | None = None  # versão do modo escuro (mesmo formato)
@@ -217,6 +218,7 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
         logo_svg=_read_svg(root, brand_raw.get("logo_svg")),
         logo_svg_dark=_read_svg(root, brand_raw.get("logo_svg_dark")),
         logo_height=int(brand_raw["logo_height"]) if brand_raw.get("logo_height") else None,
+        logo_height_mobile=int(brand_raw["logo_height_mobile"]) if brand_raw.get("logo_height_mobile") else None,
         favicon_svg=_read_svg(root, brand_raw.get("favicon_svg")),
         email_logo=dict(brand_raw["email_logo"]) if brand_raw.get("email_logo") else None,
         email_logo_dark=dict(brand_raw["email_logo_dark"]) if brand_raw.get("email_logo_dark") else None,

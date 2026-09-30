@@ -116,21 +116,21 @@ def test_header_ticker_weather_editorial_and_briefing(rendered):
     assert '<td align="center" bgcolor="#ffffff" class="px hdr" style="padding:28px 20px 18px;background:#ffffff;' in html
     assert (
         '<img class="lg-l" src="https://pbcvphyton.github.io/qi-journal/assets/pbcv-tech-logo-email.png"'
-        ' width="260" height="38" alt="PBCV Tech"' in html
+        ' width="267" height="60" alt="PBCV Tech"' in html
     )
     assert (
         '<!--[if !mso]><!--><img class="lg-d" src="https://pbcvphyton.github.io/qi-journal/assets/'
-        'pbcv-tech-logo-email-dark.png" width="260" height="38" alt="" style="display:none;' in html
+        'pbcv-tech-logo-email-dark.png" width="267" height="60" alt="" style="display:none;' in html
     )
     assert ".hdr{background:#111827!important;" in html and ".lg-d{display:block!important;" in html
     assert 'text-transform:uppercase;color:#5f6b7e;" class="muted">Seu terminal financeiro diário</p>' in html
     assert 'Terça-feira, 29 de setembro de 2026&nbsp;· <span style="white-space:nowrap">05:07 BRT</span>' in html
     assert "#687487" not in html  # cinza antigo, abaixo de AA sobre #f8f9fb
     assert (
-        'Dólar <b style="color:#ffffff;font-weight:bold;">R$ 5,22</b> <span style="color:#2EDBEA;">+0,19%</span>'
+        'Dólar <b style="color:#ffffff;font-weight:bold;">R$ 5,22</b> <span style="color:#7FC8FF;">+0,19%</span>'
         in html
     )
-    assert '<span style="color:#FF5C8A;">-0,27%</span>' in html
+    assert '<span style="color:#FF5C9A;">-0,27%</span>' in html
     # cidade e "Amanhã" em grupos separados: no celular (360 px) a linha quebra em vez de estourar
     # dois grupos inquebráveis por cidade: no celular a linha quebra depois do "|" (nunca começa com ele)
     assert 'São Paulo</b> 19°C ↓19° ↑33° |</span> <span style="white-space:nowrap">Amanhã' in html
@@ -145,7 +145,7 @@ def test_lead_with_image_and_link(rendered, edition):
     lead = edition.story(LEAD_ID)
     lead_url = f"{PAGE}#s-{LEAD_ID}"
     assert f'<img src="{lead.image}" width="600" alt="{lead.headline}"' in html
-    assert f'<a href="{lead_url}" class="lnk" style="color:#1E36C8">Ler na edição &rarr;</a>' in html
+    assert f'<a href="{lead_url}" class="lnk" style="color:#394A7A">Ler na edição &rarr;</a>' in html
     assert linked_story_ids(html)[0] == LEAD_ID
 
 
@@ -224,7 +224,7 @@ def test_email_logo_falls_back_to_text(edition):
     assert "javascript:" not in html and "<img src=\"https://pbcvphyton" not in html
     # wordmark em marinho (sem a classe "q", que pintaria o PBCV de aqua ilegível no branco)
     assert (
-        '<span style="color:#0A2051;" class="ink">PBCV</span><span style="color:#0A2051;font-weight:900;" class="ink">'
+        '<span style="color:#1B2745;" class="ink">PBCV</span><span style="color:#1B2745;font-weight:900;" class="ink">'
         " Tech</span>" in html
     )
 
@@ -339,7 +339,7 @@ def test_coverage_line_in_html_and_text(edition):
         side_b="Destaca o risco fiscal",
     )
     _, html, text = render_email(ed, default_config())
-    assert '<td width="67%" height="6" bgcolor="#1E36C8"' in html and '<td width="33%" height="6" bgcolor="#C8631A"' in html
+    assert '<td width="67%" height="6" bgcolor="#394A7A"' in html and '<td width="33%" height="6" bgcolor="#C8631A"' in html
     assert "Pende para: Destaca o recorde · 2 de 3 veículos</b> · A maioria destacou o recorde." in html
     flat = " ".join(text.split())  # o texto puro quebra as linhas
     assert "Cobertura: Pende para: Destaca o recorde · 2 de 3 veículos. A maioria destacou o recorde." in flat
@@ -351,5 +351,5 @@ def test_dark_mode_keeps_each_section_color(rendered):
     # cada seção com a própria cor clareada no escuro (não um azul único para todas)
     assert re.search(r"\.sc-1\{color:#[0-9A-F]{6}!important;border-left-color:#[0-9A-F]{6}!important;\}", html)
     assert '<p class="sc sc-1" style=' in html
-    assert ".cv-a{background:#6F86FF!important;}" in html
+    assert ".cv-a{background:#929BB6!important;}" in html  # primária clareada para o fundo escuro
 
