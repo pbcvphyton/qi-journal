@@ -9,7 +9,7 @@ import pytest
 
 from qijournal import text
 from qijournal.render.email import render_email, story_url
-from tests.fixtures.render.helpers import LEAD_ID, MALICIOUS_ID, load_edition, parse, pbcv_config, qi_config
+from tests.fixtures.render.helpers import LEAD_ID, MALICIOUS_ID, load_edition, parse, pbcv_config, default_config
 
 BASE = "https://pbcvphyton.github.io/qi-journal/"
 PAGE = BASE + "edicoes/2026-09-29.html"  # links das matérias: cópia arquivada da edição
@@ -17,7 +17,7 @@ PAGE = BASE + "edicoes/2026-09-29.html"  # links das matérias: cópia arquivada
 
 @pytest.fixture(scope="module")
 def config():
-    return qi_config()
+    return default_config()
 
 
 @pytest.fixture(scope="module")
@@ -38,7 +38,7 @@ def linked_story_ids(html: str) -> list[str]:
 # ── assunto ──────────────────────────────────────────────────────────────────
 
 
-def expected_subject(edition, brand: str = "QI Journal") -> str:
+def expected_subject(edition, brand: str = "PBCV Tech") -> str:
     lead = text.truncate(edition.story(edition.lead).headline, 70)
     return f"{brand} · 29/09/2026: {lead}"
 
@@ -47,34 +47,34 @@ def test_default_subject(rendered, edition):
     """O assunto traz o gancho do dia (a manchete, até 70 caracteres)."""
     subject, _, _ = rendered
     assert subject == expected_subject(edition)
-    assert subject.startswith("QI Journal · 29/09/2026: Arrecadação federal bate recorde")
-    assert len(subject) <= len("QI Journal · 29/09/2026: ") + 71
+    assert subject.startswith("PBCV Tech · 29/09/2026: Arrecadação federal bate recorde")
+    assert len(subject) <= len("PBCV Tech · 29/09/2026: ") + 71
 
 
 def test_subject_without_lead_and_with_line_breaks(edition):
-    cfg = qi_config()
+    cfg = default_config()
     ed = copy.deepcopy(edition)
     ed.story(ed.lead).headline = "Linha um\nlinha dois"
-    assert render_email(ed, cfg)[0] == "QI Journal · 29/09/2026: Linha um linha dois"
+    assert render_email(ed, cfg)[0] == "PBCV Tech · 29/09/2026: Linha um linha dois"
     ed.lead = "nao-existe"
-    assert render_email(ed, cfg)[0] == "QI Journal · 29/09/2026: Terça-feira, 29 de setembro de 2026"
+    assert render_email(ed, cfg)[0] == "PBCV Tech · 29/09/2026: Terça-feira, 29 de setembro de 2026"
 
 
 def test_custom_subject_template_with_short_date(edition):
-    cfg = qi_config()
+    cfg = default_config()
     cfg.email.subject_template = "[{brand}] Edição de {date}"
-    assert render_email(edition, cfg)[0] == "[QI Journal] Edição de 29/09/2026"
+    assert render_email(edition, cfg)[0] == "[PBCV Tech] Edição de 29/09/2026"
 
 
 @pytest.mark.parametrize("template", ["{brand} {desconhecido}", "{0}", "{brand"])
 def test_invalid_subject_template_falls_back(edition, template):
-    cfg = qi_config()
+    cfg = default_config()
     cfg.email.subject_template = template
     assert render_email(edition, cfg)[0] == expected_subject(edition)
 
 
 def test_subject_has_no_line_breaks(edition):
-    cfg = qi_config()
+    cfg = default_config()
     cfg.email.subject_template = "{brand}\r\nBcc: alguem@example.com\n{date_label}"
     subject = render_email(edition, cfg)[0]
     assert "\n" not in subject and "\r" not in subject
@@ -112,13 +112,19 @@ def test_preheader_is_hidden_and_plain(rendered):
 
 def test_header_ticker_weather_editorial_and_briefing(rendered):
     _, html, _ = rendered
-    assert '<span style="color:#57D9FF;">Q</span>' in html
+    # Cabeçalho em bloco azul com o logo (PNG no GitHub Pages); tons do slogan/data misturados ao azul.
+    assert '<td align="center" bgcolor="#3322CC" class="px" style="padding:30px 20px 20px;background:#3322CC;' in html
+    assert (
+        '<img src="https://pbcvphyton.github.io/qi-journal/assets/pbcv-tech-logo-email.png" width="212" height="44"'
+        ' alt="PBCV Tech"' in html
+    )
+    assert 'text-transform:uppercase;color:#CEC9E6;">Seu terminal financeiro diário</p>' in html  # 80% sobre o azul
     assert "Terça-feira, 29 de setembro de 2026 · 05:07 BRT" in html
     assert (
-        'Dólar <b style="color:#ffffff;font-weight:bold;">R$ 5,22</b> <span style="color:#57D9FF;">+0,19%</span>'
+        'Dólar <b style="color:#ffffff;font-weight:bold;">R$ 5,22</b> <span style="color:#A59CFF;">+0,19%</span>'
         in html
     )
-    assert '<span style="color:#FF2F80;">-0,27%</span>' in html
+    assert '<span style="color:#FF8A5C;">-0,27%</span>' in html
     # cidade e "Amanhã" em grupos separados: no celular (360 px) a linha quebra em vez de estourar
     assert 'São Paulo</b> 19°C ↓19° ↑33°</span> <span style="white-space:nowrap">| Amanhã' in html
     assert "<strong>prêmio eleitoral</strong>" in html
@@ -130,7 +136,7 @@ def test_lead_with_image_and_link(rendered, edition):
     lead = edition.story(LEAD_ID)
     lead_url = f"{PAGE}#s-{LEAD_ID}"
     assert f'<img src="{lead.image}" width="600" alt="{lead.headline}"' in html
-    assert f'<a href="{lead_url}" class="lnk" style="color:#1C49A5">Ler na edição &rarr;</a>' in html
+    assert f'<a href="{lead_url}" class="lnk" style="color:#3322CC">Ler na edição &rarr;</a>' in html
     assert linked_story_ids(html)[0] == LEAD_ID
 
 
@@ -150,7 +156,7 @@ def test_stories_are_limited_prioritized_and_grouped(rendered, edition, config):
 
 
 def test_max_stories_zero_keeps_only_the_lead(edition):
-    cfg = qi_config()
+    cfg = default_config()
     cfg.email.max_stories = 0
     _, html, text = render_email(edition, cfg)
     assert linked_story_ids(html) == [LEAD_ID]
@@ -167,7 +173,7 @@ def test_cta_and_footer(rendered):
 
 
 def test_malicious_story_is_escaped_in_email(edition):
-    cfg = qi_config()
+    cfg = default_config()
     cfg.email.max_stories = 50
     _, html, text = render_email(edition, cfg)
     assert MALICIOUS_ID in linked_story_ids(html)
@@ -198,6 +204,16 @@ def test_pbcv_brand_email_uses_text_wordmark(edition):
     assert "<svg" not in html.lower()
     assert '<span style="color:#A3B4E0;">PBCV</span>' in html
     assert "background:#1B2745;" in html
+    assert "<img src=\"https://pbcvphyton.github.io/qi-journal/assets/" not in html  # sem logo de e-mail
+    assert 'class="px" style="padding:28px 20px 18px;border-bottom:3px solid #1B2745;"' in html  # cabeçalho no papel
+
+
+def test_email_logo_falls_back_to_text_on_masthead(edition):
+    cfg = default_config()
+    cfg.brand.email_logo = {"src": "javascript:alert(1)", "width": 212, "height": 44}
+    _, html, _ = render_email(edition, cfg)
+    assert "javascript:" not in html and "<img src=\"https://pbcvphyton" not in html
+    assert '<span style="color:#F5F3ED;">PBCV</span><span style="color:#F5F3ED;font-weight:900;"> Tech</span>' in html
 
 
 # ── texto puro ───────────────────────────────────────────────────────────────
@@ -207,7 +223,7 @@ def test_text_version_is_plain_and_complete(rendered, edition):
     _, html, text = rendered
     assert "**" not in text
     assert not re.search(r"</?(strong|a|p|b|span|div|br)\b", text)
-    assert text.startswith("QI JOURNAL\nTerça-feira, 29 de setembro de 2026 · 05:07 BRT\n")
+    assert text.startswith("PBCV TECH\nTerça-feira, 29 de setembro de 2026 · 05:07 BRT\n")
     for heading in ("MERCADOS", "CLIMA", "EDITORIAL", "EM 1 MINUTO", "MANCHETE", "BRASIL · ECONOMIA"):
         assert f"\n{heading}\n{'-' * len(heading)}\n" in text
     assert "prêmio eleitoral nos" in text
@@ -238,7 +254,7 @@ def test_story_url_encodes_unexpected_characters():
 
 def test_every_section_gets_at_least_one_story_in_the_email(edition):
     """Antes, Imobiliário e Tecnologia (além da manchete) ficavam de fora do e-mail."""
-    cfg = qi_config()
+    cfg = default_config()
     cfg.email.max_stories = 8
     _, html, _ = render_email(edition, cfg)
     ids = linked_story_ids(html)[1:]
@@ -251,7 +267,7 @@ def test_every_section_gets_at_least_one_story_in_the_email(edition):
 def test_email_is_slim_and_shows_at_most_three_sources(edition):
     from qijournal.models import SourceRef
 
-    cfg = qi_config()
+    cfg = default_config()
     inflated = copy.deepcopy(edition)
     for story in inflated.stories:
         story.sources = [SourceRef(name=f"Veículo {i}", url=f"https://v{i}.example.com/{story.id}") for i in range(10)]
@@ -266,7 +282,7 @@ def test_email_is_slim_and_shows_at_most_three_sources(edition):
 def test_email_budget_drops_stories_until_it_fits(edition, monkeypatch):
     from qijournal.render import email as email_module
 
-    cfg = qi_config()
+    cfg = default_config()
     monkeypatch.setattr(email_module, "MAX_EMAIL_BYTES", 20 * 1024)
     _, html, text = render_email(edition, cfg)
     assert len(html.encode("utf-8")) <= 20 * 1024

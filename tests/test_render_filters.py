@@ -248,3 +248,9 @@ def test_environment_autoescapes_and_exposes_filters():
 )
 def test_local_time_names_the_day_when_it_is_not_the_edition_day(iso, expected):
     assert filters.local_time(iso, "America/Sao_Paulo", "2026-09-29T08:07:00+00:00") == expected
+
+
+def test_blend_mixes_over_the_background():
+    assert filters.blend("#FFFFFF", "#000000", 0.5) == "#808080"
+    assert filters.blend("#F5F3ED", "#3322CC", 0.8) == "#CEC9E6"
+    assert filters.blend("#F5F3ED", "#3322CC", 2) == "#F5F3ED"  # alpha limitado a [0, 1]

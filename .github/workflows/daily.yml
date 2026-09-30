@@ -1,4 +1,4 @@
-# Edição diária do QI Journal: coleta, edita (IA ou automática), publica no
+# Edição diária do jornal PBCV Tech: coleta, edita (IA ou automática), publica no
 # GitHub Pages (commit em index.html, edicoes/ e data/) e, depois que o Pages
 # publicou, envia o e-mail por SMTP quando os segredos estiverem configurados.
 name: Edição diária

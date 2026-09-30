@@ -1,4 +1,4 @@
-# QI Journal
+# PBCV Tech — jornal diário
 
 Jornal financeiro diário em português, montado e publicado automaticamente todo
 dia de manhã: mercados, economia, direito e regulação, política, geopolítica,
@@ -241,14 +241,25 @@ Seções, palavras-chave, cotações do ticker, cidades do clima e limites da ed
 
 ## Trocar a marca
 
-Há duas marcas prontas: **QI Journal** (`qi`, padrão) e **PBCV Advogados**
-(`pbcv`, com logo próprio em `assets/`). Para trocar:
+Há duas marcas prontas: **PBCV Tech** (`tech`, padrão) e **PBCV Advogados**
+(`pbcv`), cada uma com logo próprio em `assets/`. Para trocar:
 
-- de forma permanente: em `config/site.yaml`, mude `brand: qi` para `brand: pbcv`; ou
+- de forma permanente: em `config/site.yaml`, mude `brand: tech` para `brand: pbcv`; ou
 - sem mexer no código: crie a variável **`QIJ_BRAND`** = `pbcv` em
   *Settings → Secrets and variables → Actions → Variables*.
 
 Cores, nome, slogan e logo de cada marca ficam em `config/site.yaml → brands`.
+Uma `QIJ_BRAND` com marca inexistente (como o antigo `qi`) cai na marca padrão.
+
+A marca PBCV Tech usa o logo "Quatro Formas" (projeto *PBCV Tech — Logo 2026*
+no Claude Design) e as cores dele: azul `#3322CC` (cabeçalho em bloco), tinta
+`#0E1016` (ticker e rodapé) e off-white `#F5F3ED` (logo e fundo da página).
+
+- `assets/pbcv-tech-logo.svg` — logo do cabeçalho, pintado com `currentColor`
+  (a cor vem de `colors.on_masthead`);
+- `assets/pbcv-tech-favicon.svg` — ícone (símbolo off-white sobre o azul);
+- `assets/pbcv-tech-logo-email.png` — logo do e-mail (clientes de e-mail não
+  exibem SVG), servido pelo GitHub Pages (`email_logo` em `site.yaml`).
 
 ---
 
@@ -259,7 +270,7 @@ Cores, nome, slogan e logo de cada marca ficam em `config/site.yaml → brands`.
 | `ANTHROPIC_API_KEY` | segredo | liga a edição por IA |
 | `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_TO` | segredos | envio do e-mail por SMTP |
 | `EMAIL_FROM`, `SMTP_HOST`, `SMTP_PORT` | segredos (opcionais) | ajustes do SMTP |
-| `QIJ_BRAND` | variável | marca (`qi` ou `pbcv`) |
+| `QIJ_BRAND` | variável | marca (`tech` ou `pbcv`) |
 | `QIJ_MODEL` | variável | modelo do Claude |
 
 Todos são opcionais: sem nenhum deles, o jornal é gerado no modo automático e

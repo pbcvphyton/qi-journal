@@ -1,25 +1,28 @@
-{#- Estilos da página (incluídos inline). Reproduz o layout original do QI Journal:
-    tokens --qi/--qn/--qc/--qr, papel central de 1120px, masthead, ticker navy,
+{#- Estilos da página (incluídos inline). Layout do jornal:
+    tokens --qi/--qn/--qc/--qr, papel central de 1120px, masthead, ticker na cor da tinta,
     faixa de clima, op-bar, hero 5fr/3fr, destaques numerados, abas, cards e modais.
-    As cores da marca vêm de config.brand.colors (já validadas em web.py). -#}
+    As cores da marca vêm de config.brand.colors (já validadas em web.py); os neutros
+    são quentes, em torno do off-white #F5F3ED e da tinta #0E1016 do logo PBCV Tech.
+    Com brand.masthead, o cabeçalho vira um bloco de cor com o logo em on_masthead. -#}
 :root{
   --qi:{{ brand.colors.primary }};--qn:{{ brand.colors.navy }};--qc:{{ brand.colors.accent }};--qr:{{ brand.colors.alert }};
   --up:{{ brand.colors.ticker_up }};--down:{{ brand.colors.ticker_down }};
   --qi-rgb:{{ brand.rgb.primary }};--qn-rgb:{{ brand.rgb.navy }};--qr-rgb:{{ brand.rgb.alert }};
-  --ink:#1a2332;--paper:#fff;--bg:#f0f2f5;--rule:#d0d5dd;--rl:#e4e7ec;
-  --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#687487;--faint:#6b778a;
-  --soft:#f8f9fb;--side:#fdfdfd;--hover:#fafbff;--hl:#e8ebf0;--op-a:#fafbff;--op-b:#f0f2f5;
-  --link:var(--qi);--text:#333d4d;
+  --ink:#0E1016;--paper:#fff;--bg:#F5F3ED;--rule:#DAD5CA;--rl:#EAE6DE;
+  --head:var(--qn);--body:#45413A;--muted:#5A564C;--mute2:#67625A;--faint:#6F6A60;
+  --soft:#FAF9F6;--side:#FDFCFA;--hover:#F8F7FF;--hl:#EFEDFB;--op-a:#FAF9F6;--op-b:#F5F3ED;
+  --link:var(--qi);--text:#36332D;
+  --fx-dot:var(--qi);--fx-line:var(--qc);
   --sf:'Noto Serif',Georgia,'Times New Roman',serif;
   --ss:'Noto Sans',Helvetica,Arial,sans-serif;
   --mn:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   color-scheme:light;
 }
 :root[data-theme="dark"]{
-  --ink:#e2e8f4;--paper:#111827;--bg:#0b0f17;--rule:#2d3748;--rl:#1f2937;
-  --head:#e8edf7;--body:#a9b4c6;--muted:#97a3b6;--mute2:#8a96a8;--faint:#7d8899;
-  --soft:#131c2d;--side:#0f1522;--hover:#1a2235;--hl:#1e2d47;--op-a:#1a2235;--op-b:#111827;
-  --link:#8fb0f5;--text:#c8d3e6;
+  --ink:#F5F3ED;--paper:#0E1016;--bg:#07080B;--rule:#2B2E38;--rl:#1D2029;
+  --head:#F5F3ED;--body:#B8B3A8;--muted:#A39E93;--mute2:#958F84;--faint:#8A8479;
+  --soft:#13151C;--side:#111318;--hover:#171A26;--hl:#1E2033;--op-a:#161827;--op-b:#0E1016;
+  --link:#A59CFF;--text:#D9D5CB;
   color-scheme:dark;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -52,10 +55,24 @@ button{font:inherit;color:inherit}
 :root[data-theme="dark"] .mast h1{color:var(--head)}
 .mast h1.logo{line-height:0}
 .mast h1.logo svg{display:block;height:116px;width:auto;margin:0 auto}
-:root[data-theme="dark"] .mast h1.logo svg{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+:root[data-theme="dark"] .mast h1.logo:not(.mono) svg{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+.mast h1.logo.mono svg{height:64px;color:var(--qn)}
+:root[data-theme="dark"] .mast h1.logo.mono svg{color:var(--head)}
 .mast-sub{font-family:var(--ss);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--mute2);margin-top:6px}
 .mast h1.logo+.mast-sub{margin-top:14px}
 .mast-date{font-family:var(--mn);font-size:10px;color:var(--faint);margin-top:8px;letter-spacing:1px}
+{% if brand.masthead %}
+/* Cabeçalho em bloco de cor (brand.masthead): logo, slogan, data e botões em on_masthead */
+.mast-wrap.solid{--mh:{{ brand.masthead }};--on-mh:{{ brand.on_masthead }};--on-mh-rgb:{{ brand.rgb.on_masthead }};--fx-dot:var(--on-mh);--fx-line:var(--on-mh);background:var(--mh);background:linear-gradient(135deg,color-mix(in srgb,var(--mh) 94%,#fff),color-mix(in srgb,var(--mh) 92%,#000))}
+:root[data-theme="dark"] .mast-wrap.solid{border-bottom-color:var(--qn);background:color-mix(in srgb,var(--mh) 82%,#000)}
+.mast-wrap.solid #mast-canvas{opacity:.1}
+.mast-wrap.solid .mast h1,.mast-wrap.solid .mast h1.logo svg{color:var(--on-mh)}
+.mast-wrap.solid .mast-sub{color:rgba(var(--on-mh-rgb),.8)}
+.mast-wrap.solid .mast-date{color:rgba(var(--on-mh-rgb),.72)}
+.mast-wrap.solid .tool{background:transparent;border-color:rgba(var(--on-mh-rgb),.4);color:var(--on-mh)}
+.mast-wrap.solid .tool:hover{border-color:var(--on-mh);background:rgba(var(--on-mh-rgb),.1)}
+.mast-wrap.solid :focus-visible{outline-color:var(--on-mh)}
+{% endif %}
 .mast-tools{position:absolute;top:14px;right:16px;z-index:3;display:flex;gap:6px}
 .tool{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border:1.5px solid var(--rule);border-radius:20px;background:var(--paper);font-family:var(--mn);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--mute2);cursor:pointer;transition:border-color .25s,color .25s}
 .tool:hover{border-color:var(--link);color:var(--link)}
@@ -66,7 +83,7 @@ button{font:inherit;color:inherit}
 
 /* Ticker de cotações */
 .tk{position:relative;background:var(--qn);font-family:var(--mn);font-size:10.5px;color:rgba(255,255,255,.62);overflow:hidden}
-:root[data-theme="dark"] .tk{background:#0a1430}
+:root[data-theme="dark"] .tk{background:#07080B}
 .tk-track{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;row-gap:3px;padding:8px 20px}
 .tk-i{white-space:nowrap}
 .tk-i+.tk-i::before,.tk.run .tk-i::before{content:"·";color:rgba(255,255,255,.3);margin:0 10px}
@@ -80,6 +97,7 @@ button{font:inherit;color:inherit}
 @keyframes tk-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .tk-pause{position:absolute;top:0;right:0;bottom:0;width:44px;padding-left:12px;border:none;background:linear-gradient(90deg,rgba(var(--qn-rgb),0),var(--qn) 45%);color:rgba(255,255,255,.75);font-size:10px;letter-spacing:-1px;cursor:pointer}
 .tk-pause:hover{color:#fff}
+:root[data-theme="dark"] .tk-pause{background:linear-gradient(90deg,rgba(7,8,11,0),#07080B 45%)}
 .tk-pause[hidden]{display:none}
 
 /* Faixa de clima */
@@ -109,7 +127,7 @@ button{font:inherit;color:inherit}
 .hero-l,.ss,.cl,.dst li{position:relative}
 .hero-l:has(.hit:focus-visible),.ss:has(.hit:focus-visible),.cl:has(.hit:focus-visible),.dst li:has(.hit:focus-visible){outline:2px solid var(--link);outline-offset:-3px}
 .cat{font-family:var(--ss);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:5px;color:var(--sc,var(--qi))}
-:root[data-theme="dark"] .cat,:root[data-theme="dark"] .mcat{color:#9fb3d9;color:color-mix(in srgb,var(--sc,var(--qi)) 50%,#fff)}
+:root[data-theme="dark"] .cat,:root[data-theme="dark"] .mcat{color:#B4ACFF;color:color-mix(in srgb,var(--sc,var(--qi)) 50%,#fff)}
 .meta{font-family:var(--mn);font-size:9px;color:var(--faint);margin-top:8px;text-transform:uppercase;letter-spacing:.5px;line-height:1.5}
 .meta>*+*::before{content:"·";margin:0 6px}
 figure[data-img]{overflow:hidden;border-radius:3px;background:var(--soft)}
@@ -222,12 +240,12 @@ body.modal-open{overflow:hidden}
 :root[data-theme="dark"] .mo{background:rgba(0,0,0,.6)}
 .mo.on,html:not(.js) .mo:target{display:flex;justify-content:center;align-items:flex-start}
 .ml{position:relative;width:100%;max-width:700px;padding:40px 44px;background:var(--paper);border-top:4px solid var(--sc,var(--qi));box-shadow:0 20px 60px rgba(var(--qn-rgb),.2);animation:ml-in .35s cubic-bezier(.2,.9,.3,1.15)}
-:root[data-theme="dark"] .ml{background:#161f31}
+:root[data-theme="dark"] .ml{background:#14161E}
 .ml:focus{outline:none}
 @keyframes ml-in{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
 /* O × acompanha a rolagem do modal (.mo é o contêiner que rola): matéria longa aberta pelo e-mail não o esconde. */
 .mc{position:sticky;top:8px;float:right;z-index:2;margin:-28px -30px 0 0;width:36px;height:36px;border:none;border-radius:50%;background:var(--paper);font-family:var(--ss);font-size:26px;line-height:1;color:var(--faint);cursor:pointer;transition:color .2s,background .2s}
-:root[data-theme="dark"] .mc{background:#161f31}
+:root[data-theme="dark"] .mc{background:#14161E}
 .mback{margin-top:22px;text-align:center}
 .mc2{padding:9px 18px;border:1.5px solid var(--rl);border-radius:20px;background:transparent;font-family:var(--ss);font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--link);cursor:pointer}
 .mc2:hover{border-color:var(--link)}
@@ -252,7 +270,7 @@ body.modal-open{overflow:hidden}
 
 /* Rodapé */
 .ft{background:var(--qn);padding:20px 28px;text-align:center;font-family:var(--mn);font-size:9.5px;letter-spacing:1.5px;line-height:1.8;color:rgba(255,255,255,.62);text-transform:uppercase}
-:root[data-theme="dark"] .ft{background:#0a1430}
+:root[data-theme="dark"] .ft{background:#07080B;border-top:1px solid var(--rl)}
 .ft strong{color:var(--qc)}
 .ft a{color:#fff;border-bottom:1px solid rgba(255,255,255,.3);transition:border-color .2s}
 .ft a:hover{border-bottom-color:var(--qc)}
@@ -266,7 +284,7 @@ body.modal-open{overflow:hidden}
 .src-list .st-parcial .dot{background:#F5B83D}
 .src-list .st-erro .dot{background:var(--qr)}
 .src-list .nf{color:rgba(255,255,255,.45)}
-.src-list em{font-style:normal;color:#ffb3cf}
+.src-list em{font-style:normal;color:#FFB59A}
 
 /* Voltar ao topo */
 .btt{position:fixed;right:24px;bottom:24px;z-index:998;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:none;border-radius:50%;background:var(--qi);color:#fff;cursor:pointer;box-shadow:0 4px 18px rgba(var(--qi-rgb),.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s,transform .3s,visibility .3s,background .3s}
@@ -296,6 +314,7 @@ body.modal-open .btt{visibility:hidden}
   .mast{padding:52px 16px 18px}
   .mast h1{font-size:36px}
   .mast h1.logo svg{height:92px}
+  .mast h1.logo.mono svg{height:46px}
   .mast-tools{top:12px;right:12px;left:12px;justify-content:flex-end}
   .tool{height:26px;padding:0 10px}
   .wx{justify-content:flex-start;padding:6px 16px;gap:2px 20px;white-space:normal}

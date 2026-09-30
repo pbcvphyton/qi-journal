@@ -188,7 +188,7 @@ def test_insufficient_data_publishes_nothing(
     assert editor.calls == [] and render.pages == []
     assert sorted(p.name for p in out.iterdir()) == ["index.html"]
     assert (out / "index.html").read_text(encoding="utf-8") == "edição anterior"
-    assert "::error title=QI Journal::Edição não publicada" in capsys.readouterr().out
+    assert "::error title=PBCV Tech::Edição não publicada" in capsys.readouterr().out
     assert "edição anterior continua no ar" in summary.read_text(encoding="utf-8")
 
 
@@ -335,8 +335,8 @@ def test_smtp_email_is_sent_and_recorded(tmp_path: Path, render: FakeRender, edi
     assert result.email_sent is True
     settings, subject, html, text = mailer.sent[0]
     assert settings.to == ["leitor@example.com"]
-    assert settings.sender_name == "QI Journal"
-    assert subject == "QI Journal — Terça-feira, 29 de setembro de 2026"
+    assert settings.sender_name == "PBCV Tech"
+    assert subject == "PBCV Tech — Terça-feira, 29 de setembro de 2026"
     assert html == (tmp_path / "edicoes" / "email.html").read_text(encoding="utf-8")
     assert text == (tmp_path / "edicoes" / "email.txt").read_text(encoding="utf-8")
     manifest = latest(tmp_path)
@@ -449,16 +449,23 @@ def test_step_summary_and_annotations(
     assert "| quebrada0 | XML inválido \\| linha 3 quebrada | https://quebrada0.example/rss |" in md
     assert "- Cotações indisponíveis:" in md
     out = capsys.readouterr().out
-    assert "::warning title=QI Journal::Cotações indisponíveis: usd" in out
+    assert "::warning title=PBCV Tech::Cotações indisponíveis: usd" in out
 
 
 def test_annotations_escape_newlines_and_percent(capsys: pytest.CaptureFixture[str]):
-    pipeline._annotate({"GITHUB_ACTIONS": "true"}, "warning", ["100% das fontes\nfalharam\r"])
-    assert capsys.readouterr().out == "::warning title=QI Journal::100%25 das fontes%0Afalharam%0D\n"
+    pipeline._annotate({"GITHUB_ACTIONS": "true"}, "warning", ["100% das fontes\nfalharam\r"], title="PBCV Tech")
+    assert capsys.readouterr().out == "::warning title=PBCV Tech::100%25 das fontes%0Afalharam%0D\n"
+
+
+def test_annotation_title_cannot_break_the_command(capsys: pytest.CaptureFixture[str]):
+    pipeline._annotate({"GITHUB_ACTIONS": "true"}, "error", ["falhou"], title="Marca: A, B\nC")
+    assert capsys.readouterr().out == "::error title=Marca  A  B C::falhou\n"
+    pipeline._annotate({"GITHUB_ACTIONS": "true"}, "error", ["falhou"], title=" :: ")
+    assert capsys.readouterr().out == "::error title=Edição diária::falhou\n"
 
 
 def test_no_annotations_outside_github_actions(capsys: pytest.CaptureFixture[str]):
-    pipeline._annotate({}, "warning", ["aviso"])
+    pipeline._annotate({}, "warning", ["aviso"], title="PBCV Tech")
     assert capsys.readouterr().out == ""
 
 

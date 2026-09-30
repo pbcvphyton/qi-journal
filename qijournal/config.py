@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
+import logging
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Mapping
 
 import yaml
+
+log = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -57,6 +60,7 @@ class BrandConfig:
     section_palette: list[str]
     logo_svg: str | None = None  # conteúdo SVG já lido do arquivo (ou None)
     favicon_svg: str | None = None
+    email_logo: dict[str, Any] | None = None  # {src, width, height}: imagem servida em base_url + src
 
 
 @dataclass
@@ -167,8 +171,14 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
     if not site.base_url.endswith("/"):
         site.base_url += "/"
 
-    brand_key = env.get("QIJ_BRAND") or site_raw.get("brand", "qi")
-    brand_raw = dict(site_raw["brands"][brand_key])
+    brands = site_raw["brands"]
+    default_brand = site_raw.get("brand") or next(iter(brands))
+    brand_key = env.get("QIJ_BRAND") or default_brand
+    if brand_key not in brands:
+        # Ex.: variável QIJ_BRAND=qi que sobrou da marca antiga no GitHub.
+        log.warning("Marca %r não existe em config/site.yaml; usando %r", brand_key, default_brand)
+        brand_key = default_brand
+    brand_raw = dict(brands[brand_key])
     brand = BrandConfig(
         key=brand_key,
         name=brand_raw["name"],
@@ -178,6 +188,7 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
         section_palette=list(brand_raw.get("section_palette") or ["#1C49A5"]),
         logo_svg=_read_svg(root, brand_raw.get("logo_svg")),
         favicon_svg=_read_svg(root, brand_raw.get("favicon_svg")),
+        email_logo=dict(brand_raw["email_logo"]) if brand_raw.get("email_logo") else None,
     )
 
     sections = []

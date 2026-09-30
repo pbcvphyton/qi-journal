@@ -24,13 +24,14 @@ from . import filters
 log = logging.getLogger(__name__)
 
 DEFAULT_COLORS = {
-    "primary": "#1C49A5",
-    "navy": "#0A2051",
-    "accent": "#57D9FF",
-    "alert": "#FF2F80",
-    "ticker_up": "#57D9FF",
-    "ticker_down": "#FF2F80",
+    "primary": "#3322CC",
+    "navy": "#0E1016",
+    "accent": "#8C80FF",
+    "alert": "#D14424",
+    "ticker_up": "#A59CFF",
+    "ticker_down": "#FF8A5C",
 }
+DEFAULT_ON_MASTHEAD = "#FFFFFF"
 RADAR_SIZE = 8
 RADAR_WIRE_SIZE = 12  # itens do Radar quando a edição traz notícias além das matérias
 LEAD_MORE_PARAGRAPHS = 2  # texto extra da manchete quando não há imagem (ou ela falha)
@@ -137,6 +138,13 @@ class SourceGroup:
         return "erro" if self.failed >= self.feeds else "parcial"
 
 
+@dataclass(frozen=True)
+class EmailLogo:
+    src: str  # URL absoluta (http/https)
+    width: int
+    height: int
+
+
 @dataclass
 class BrandView:
     name: str
@@ -146,6 +154,12 @@ class BrandView:
     favicon_uri: str
     colors: dict[str, str]
     rgb: dict[str, str]
+    # Cabeçalho em bloco de cor (None = cabeçalho no papel, com o logo na cor original).
+    masthead: str | None = None
+    on_masthead: str = DEFAULT_ON_MASTHEAD  # logo e textos sobre o bloco
+    # Logo pintado com currentColor: segue a cor do cabeçalho em vez do filtro de inversão do modo escuro.
+    logo_mono: bool = False
+    email_logo: EmailLogo | None = None
 
 
 @dataclass
@@ -193,15 +207,40 @@ def brand_view(config: Config) -> BrandView:
     favicon_svg = brand.favicon_svg or filters.initial_favicon(
         wordmark[0][0].strip() or brand.name, colors["navy"], colors["accent"]
     )
+    masthead = filters.safe_color(brand.colors.get("masthead"), "") or None
+    on_masthead = filters.safe_color(brand.colors.get("on_masthead"), DEFAULT_ON_MASTHEAD)
+    logo_svg = filters.clean_svg(brand.logo_svg)
+    rgb = {k: filters.rgb_triplet(v) for k, v in colors.items()}
+    rgb["on_masthead"] = filters.rgb_triplet(on_masthead)
     return BrandView(
         name=brand.name,
         wordmark=wordmark,
         tagline=brand.tagline,
-        logo_svg=filters.clean_svg(brand.logo_svg),
+        logo_svg=logo_svg,
         favicon_uri=filters.svg_data_uri(favicon_svg),
         colors=colors,
-        rgb={k: filters.rgb_triplet(v) for k, v in colors.items()},
+        rgb=rgb,
+        masthead=masthead,
+        on_masthead=on_masthead,
+        logo_mono=bool(logo_svg and "currentColor" in logo_svg),
+        email_logo=_email_logo(brand.email_logo, config.site.base_url),
     )
+
+
+def _email_logo(raw: dict[str, Any] | None, base_url: str) -> EmailLogo | None:
+    """Logo do e-mail com URL absoluta (``src`` relativo vira ``base_url + src``) e tamanho válido."""
+    if not raw:
+        return None
+    src = filters.safe_href(str(raw.get("src") or "")) or ""  # http(s) absoluto ou caminho relativo
+    url = filters.safe_url(src if filters.safe_url(src) else base_url + src.lstrip("/")) if src else None
+    try:
+        width, height = int(raw.get("width") or 0), int(raw.get("height") or 0)
+    except (TypeError, ValueError):
+        width = height = 0
+    if not url or not (0 < width <= 600 and 0 < height <= 200):
+        log.warning("Logo do e-mail ignorado (src, width ou height inválido): %r", raw)
+        return None
+    return EmailLogo(src=url, width=width, height=height)
 
 
 # ── matérias ─────────────────────────────────────────────────────────────────

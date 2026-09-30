@@ -196,6 +196,18 @@ def rgb_triplet(color: str) -> str:
     return ",".join(str(int(digits[i : i + 2], 16)) for i in (0, 2, 4))
 
 
+def blend(color: str, background: str, alpha: float) -> str:
+    """``color`` com opacidade ``alpha`` sobre ``background``, como hex opaco.
+
+    Para o e-mail, em que ``rgba()`` não é confiável em todos os clientes:
+    ``blend("#FFFFFF", "#000000", .5)`` → ``"#808080"``.
+    """
+    alpha = min(max(float(alpha), 0.0), 1.0)
+    fg = [int(c) for c in rgb_triplet(color).split(",")]
+    bg = [int(c) for c in rgb_triplet(background).split(",")]
+    return "#" + "".join(f"{round_half_up(f * alpha + b * (1 - alpha)):02X}" for f, b in zip(fg, bg))
+
+
 def clean_svg(svg: str | None) -> Markup | None:
     """SVG da marca (arquivo do repositório) pronto para ser embutido no HTML."""
     if not svg or "<svg" not in svg:
@@ -235,5 +247,6 @@ def environment() -> Environment:
         safe_url=safe_url,
         local_time=local_time,
         rel_age=rel_age,
+        blend=blend,
     )
     return env

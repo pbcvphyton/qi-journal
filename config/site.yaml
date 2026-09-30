@@ -1,4 +1,4 @@
-# Configuração geral do QI Journal.
+# Configuração geral do jornal (marca ativa: PBCV Tech).
 # Fontes de notícia ficam em config/sources.yaml.
 #
 # Várias chaves podem ser sobrescritas por variáveis de ambiente
@@ -11,24 +11,32 @@ site:
   timezone: "America/Sao_Paulo"
   archive_keep_days: 400        # edições (HTML + JSON) mais antigas são removidas
 
-# Marca ativa: "qi" (QI Journal) ou "pbcv" (PBCV Advogados).
-brand: qi
+# Marca ativa: "tech" (PBCV Tech) ou "pbcv" (PBCV Advogados). Um QIJ_BRAND com
+# marca que não existe aqui (ex.: o antigo "qi") cai nesta marca padrão.
+brand: tech
 
 brands:
-  qi:
-    name: "QI Journal"
-    wordmark: ["Q", "I", " JOURNAL"]   # "Q" usa a cor de destaque, como no layout original
+  tech:
+    name: "PBCV Tech"
+    wordmark: ["PBCV", "", " Tech"]   # só sem logo (texto do cabeçalho); "PBCV" usa a cor de destaque
     tagline: "Seu terminal financeiro diário"
-    logo_svg: null
-    favicon_svg: null
+    # Logo "Quatro Formas" (Claude Design, PBCV Tech — Logo 2026). Pintado com
+    # currentColor: a cor vem do cabeçalho (on_masthead), sem filtro no modo escuro.
+    logo_svg: "assets/pbcv-tech-logo.svg"
+    favicon_svg: "assets/pbcv-tech-favicon.svg"
+    # Logo do e-mail (PNG 3x, off-white com fundo transparente), servido pelo
+    # GitHub Pages em base_url + src. Clientes de e-mail não exibem SVG.
+    email_logo: {src: "assets/pbcv-tech-logo-email.png", width: 212, height: 44}
     colors:
-      primary: "#1C49A5"     # --qi
-      navy: "#0A2051"        # --qn
-      accent: "#57D9FF"      # --qc (alta no ticker)
-      alert: "#FF2F80"       # --qr (queda no ticker)
-      ticker_up: "#57D9FF"
-      ticker_down: "#FF2F80"
-    section_palette: ["#0A2051", "#133D94", "#1C49A5", "#2E6BD6", "#C90055", "#0F7C8C", "#6B3FA0"]
+      primary: "#3322CC"     # --qi · azul da marca
+      navy: "#0E1016"        # --qn · tinta (ticker, rodapé, títulos)
+      accent: "#8C80FF"      # --qc · lavanda (marcadores, destaques sobre a tinta)
+      alert: "#D14424"       # --qr · tijolo (radar ao vivo, fonte com erro)
+      ticker_up: "#A59CFF"
+      ticker_down: "#FF8A5C"
+      masthead: "#3322CC"    # cabeçalho em bloco azul, como no logo
+      on_masthead: "#F5F3ED" # logo, slogan e data sobre o azul
+    section_palette: ["#3322CC", "#1E6B52", "#7A5C1F", "#B23A1E", "#0F5F7A", "#7A2E6E", "#5C5346"]
   pbcv:
     name: "PBCV Advogados"
     wordmark: ["PBCV", "", " ADVOGADOS"]

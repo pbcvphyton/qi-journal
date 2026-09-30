@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{% block title %}{{ brand.name }}{% endblock %}</title>
 <meta name="description" content="{% block description %}{{ brand.tagline }}{% endblock %}">
-<meta name="theme-color" content="{{ brand.colors.navy }}">
-<meta name="generator" content="QI Journal 2.0">
+<meta name="theme-color" content="{{ brand.masthead or brand.colors.navy }}">
+<meta name="generator" content="{{ brand.name }} · qijournal 2.0">
 {% block meta %}{% endblock %}
 <link rel="icon" type="image/svg+xml" href="{{ brand.favicon_uri }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <div id="rdprog" aria-hidden="true"></div>
 <div class="paper">
-<header class="mast-wrap">
+<header class="mast-wrap{% if brand.masthead %} solid{% endif %}">
   <canvas id="mast-canvas" aria-hidden="true"></canvas>
   <div class="mast-tools">
     {% block tools %}{% endblock %}
@@ -35,7 +35,7 @@
     </button>
   </div>
   <div class="mast">
-    <h1{% if brand.logo_svg %} class="logo"{% endif %}><a href="{% block home_link %}./{% endblock %}">
+    <h1{% if brand.logo_svg %} class="logo{% if brand.logo_mono %} mono{% endif %}"{% endif %}><a href="{% block home_link %}./{% endblock %}">
       {%- if brand.logo_svg %}{{ brand.logo_svg }}{% else %}{% for part, cls in brand.wordmark %}<span class="{{ cls }}">{{ part }}</span>{% endfor %}{% endif -%}
     </a></h1>
     {% if brand.tagline %}
