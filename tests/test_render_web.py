@@ -201,8 +201,8 @@ def test_ticker_and_weather(page):
 
 
 def test_header_dateline_and_tools(page):
-    # hora e fuso inseparáveis: no celular a quebra cai antes do "·", nunca deixa "BRT" sozinho
-    assert 'Terça-feira, 29 de setembro de 2026 <span class="nw">· 05:07 BRT</span>' in page
+    # "·" colado na data e hora/fuso inseparáveis: no celular nenhuma linha começa com "·" nem fica só com "BRT"
+    assert 'Terça-feira, 29 de setembro de 2026&nbsp;· <span class="nw">05:07 BRT</span>' in page
     assert '<header class="mast-wrap">' in page  # cabeçalho claro, como no QI Journal
     assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in page
     assert '<title id="pbcv-tech-logo-title">PBCV Tech</title>' in page

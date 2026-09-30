@@ -124,7 +124,7 @@ def test_header_ticker_weather_editorial_and_briefing(rendered):
     )
     assert ".hdr{background:#111827!important;" in html and ".lg-d{display:block!important;" in html
     assert 'text-transform:uppercase;color:#5f6b7e;" class="muted">Seu terminal financeiro diário</p>' in html
-    assert 'Terça-feira, 29 de setembro de 2026 <span style="white-space:nowrap">· 05:07 BRT</span>' in html
+    assert 'Terça-feira, 29 de setembro de 2026&nbsp;· <span style="white-space:nowrap">05:07 BRT</span>' in html
     assert "#687487" not in html  # cinza antigo, abaixo de AA sobre #f8f9fb
     assert (
         'Dólar <b style="color:#ffffff;font-weight:bold;">R$ 5,22</b> <span style="color:#2EDBEA;">+0,19%</span>'
@@ -132,8 +132,8 @@ def test_header_ticker_weather_editorial_and_briefing(rendered):
     )
     assert '<span style="color:#FF5C8A;">-0,27%</span>' in html
     # cidade e "Amanhã" em grupos separados: no celular (360 px) a linha quebra em vez de estourar
-    # cada cidade (hoje + amanhã) inteira numa linha: nenhuma linha começa com "| Amanhã"
-    assert 'São Paulo</b> 19°C ↓19° ↑33° | Amanhã' in html
+    # dois grupos inquebráveis por cidade: no celular a linha quebra depois do "|" (nunca começa com ele)
+    assert 'São Paulo</b> 19°C ↓19° ↑33° |</span> <span style="white-space:nowrap">Amanhã' in html
     assert '<td class="px soft rule muted" align="center"' in html
     assert "<span style=\"color:#56627e;\"> · </span>" not in html  # ticker sem "·" pendurado nas quebras
     assert "<strong>prêmio eleitoral</strong>" in html
@@ -160,7 +160,7 @@ def test_stories_are_limited_prioritized_and_grouped(rendered, edition, config):
     order = [s.id for s in edition.sections]
     positions = [order.index(section_of[i]) for i in ids]
     assert positions == sorted(positions)
-    titles = re.findall(r'<p class="sc" style="margin:0;padding:2px 0 2px 10px;[^"]*">([^<]+)</p>', html)
+    titles = re.findall(r'<p class="sc sc-\d+" style="margin:0;padding:2px 0 2px 10px;[^"]*">([^<]+)</p>', html)
     assert len(titles) == len({section_of[i] for i in ids})
 
 
@@ -344,3 +344,12 @@ def test_coverage_line_in_html_and_text(edition):
     flat = " ".join(text.split())  # o texto puro quebra as linhas
     assert "Cobertura: Pende para: Destaca o recorde · 2 de 3 veículos. A maioria destacou o recorde." in flat
     assert parse(html).errors == []
+
+
+def test_dark_mode_keeps_each_section_color(rendered):
+    _, html, _ = rendered
+    # cada seção com a própria cor clareada no escuro (não um azul único para todas)
+    assert re.search(r"\.sc-1\{color:#[0-9A-F]{6}!important;border-left-color:#[0-9A-F]{6}!important;\}", html)
+    assert '<p class="sc sc-1" style=' in html
+    assert ".cv-a{background:#6F86FF!important;}" in html
+

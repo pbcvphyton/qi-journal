@@ -20,7 +20,7 @@
 {% if s.coverage %}
 {% set cv = s.coverage %}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0 0;"><tr>
-{%- for pct, color in [(cv.pct_a, c.primary), (cv.pct_n, "#C5CCD8"), (cv.pct_b, "#C8631A")] if pct %}<td width="{{ pct }}%" height="6" bgcolor="{{ color }}" style="height:6px;line-height:6px;font-size:1px;background:{{ color }};">&nbsp;</td>{% endfor -%}
+{%- for pct, color, cls in [(cv.pct_a, c.primary, "cv-a"), (cv.pct_n, "#C5CCD8", "cv-n"), (cv.pct_b, "#C8631A", "cv-b")] if pct %}<td width="{{ pct }}%" height="6" bgcolor="{{ color }}" class="{{ cls }}" style="height:6px;line-height:6px;font-size:1px;background:{{ color }};">&nbsp;</td>{% endfor -%}
 </tr></table>
 <p style="margin:5px 0 0;font:11px/16px {{ sans }};color:#5f6b7e" class="muted"><b style="color:#1a2332" class="ink">{{ cv.lean_label }}</b>{% if cv.conclusion %} · {{ cv.conclusion }}{% endif %}</p>
 {% endif %}
@@ -57,7 +57,12 @@
     .lg-l{display:none!important;}
     .lg-d{display:block!important;max-height:none!important;}
     .lead-rule{border-color:#4A66FF!important;}
-    .sc{border-left-color:#4A66FF!important;}
+    .cv-a{background:#6F86FF!important;}
+    .cv-n{background:#3A4658!important;}
+    .cv-b{background:#FF8A5C!important;}
+    {%- for section in sections %}
+    .sc-{{ loop.index }}{color:{{ section.color|blend("#ffffff", 0.5) }}!important;border-left-color:{{ section.color|blend("#ffffff", 0.5) }}!important;}
+    {%- endfor %}
   }
 </style>
 </head>
@@ -96,7 +101,7 @@
   {% if brand.tagline %}
   <p style="margin:12px 0 0;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#5f6b7e;" class="muted">{{ brand.tagline }}</p>
   {% endif %}
-  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:#5f6b7e;" class="muted">{{ v.date_label }}{% if v.time_label %} <span style="white-space:nowrap">· {{ v.time_label }} {{ v.tz_label }}</span>{% endif %}</p>
+  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:#5f6b7e;" class="muted">{{ v.date_label }}{% if v.time_label %}&nbsp;· <span style="white-space:nowrap">{{ v.time_label }} {{ v.tz_label }}</span>{% endif %}</p>
 </td></tr>
 {% else %}
 <tr><td align="center" class="px" style="padding:28px 20px 18px;border-bottom:3px solid {{ c.navy }};">
@@ -120,7 +125,7 @@
 {# Clima #}
 {% if v.weather %}
 <tr><td class="px soft rule muted" align="center" style="padding:7px 20px;background:#f8f9fb;border-bottom:1px solid #e4e7ec;font-family:{{ mono }};font-size:11px;line-height:17px;color:#5f6b7e;">
-  {%- for w in v.weather %}{% if not loop.first %}&nbsp;&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap">{{ w.now_emoji }} <b style="color:#1a2332" class="ink">{{ w.city }}</b> {{ w.now_temp }} ↓{{ w.today_min }} ↑{{ w.today_max }} | Amanhã {{ w.tomorrow_emoji }} ↓{{ w.tomorrow_min }} ↑{{ w.tomorrow_max }}</span>{% endfor -%}
+  {%- for w in v.weather %}{% if not loop.first %}&nbsp;&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap">{{ w.now_emoji }} <b style="color:#1a2332" class="ink">{{ w.city }}</b> {{ w.now_temp }} ↓{{ w.today_min }} ↑{{ w.today_max }} |</span> <span style="white-space:nowrap">Amanhã {{ w.tomorrow_emoji }} ↓{{ w.tomorrow_min }} ↑{{ w.tomorrow_max }}</span>{% endfor -%}
 </td></tr>
 {% endif %}
 
@@ -167,7 +172,7 @@
 {# Demais matérias, por seção #}
 {% for section in sections %}
 <tr><td class="px" style="padding:22px 20px 4px;">
-  <p class="sc" style="margin:0;padding:2px 0 2px 10px;border-left:4px solid {{ section.color }};font-family:{{ sans }};font-size:11px;line-height:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:{{ section.color }};">{{ section.title }}</p>
+  <p class="sc sc-{{ loop.index }}" style="margin:0;padding:2px 0 2px 10px;border-left:4px solid {{ section.color }};font-family:{{ sans }};font-size:11px;line-height:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:{{ section.color }};">{{ section.title }}</p>
 </td></tr>
 {% for s in section.stories %}
 <tr><td class="px rule" style="padding:12px 20px 14px{% if not loop.last %};border-bottom:1px solid #e4e7ec{% endif %}">
