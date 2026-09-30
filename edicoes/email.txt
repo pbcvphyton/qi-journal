@@ -1,184 +1,185 @@
 PBCV TECH
-Terça-feira, 29 de setembro de 2026 · 02:41 BRT
+Quarta-feira, 30 de setembro de 2026 · 06:21 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,22 (+0,19%) · Euro R$ 5,94 (+0,06%) · Yuan R$ 0,78 (+0,07%) ·
-Ibovespa 182.991 pts (-0,27%) · IFIX 3.737 pts (-0,12%) · S&P 500 7.684
-pts (-0,77%) · Brent US$ 100,03 (+2,25%) · Ouro US$ 4.158 (-0,24%) ·
-Bitcoin US$ 83.087 (-0,08%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
-2,18% · INCC 12m 6,61%
+Dólar R$ 5,20 (-0,01%) · Euro R$ 5,91 (+0,07%) · Yuan R$ 0,78 (-0,13%) ·
+Ibovespa 183.828 pts (+0,46%) · IFIX 3.741 pts (+0,09%) · S&P 500 7.671
+pts (-0,17%) · Brent US$ 97,36 (+1,25%) · Ouro US$ 4.221 (+0,98%) ·
+Bitcoin US$ 83.294 (-1,10%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
+3,35% · INCC 12m 6,61%
 
 CLIMA
 -----
-São Paulo: 19°C, nublado (mín. 19° / máx. 33°) · amanhã: garoa moderada,
-20° a 31°
-Montevidéu: 15°C, garoa fraca (mín. 14° / máx. 17°) · amanhã: nublado,
+São Paulo: 20°C, predominantemente limpo (mín. 19° / máx. 31°) · amanhã:
+pancadas de chuva fracas, 20° a 27°
+Montevidéu: 12°C, nublado (mín. 11° / máx. 13°) · amanhã: garoa fraca,
 11° a 13°
 
 EM 1 MINUTO
 -----------
-• Governo determina que preço abusivo de combustíveis pode levar a multa
-  de até R$ 500 milhões
-• Juros futuros sobem com pressão externa e pesquisas eleitorais
-• CNJ determina devolução ao Tesouro de mais R$ 2,36 bi em precatórios
-  irregulares
-• Lula sanciona lei de incentivo ao futebol feminino e diz que fim de
-  bets 'não traz prejuízo' ao esporte
-• Petróleo sobe com impasse nas negociações de cessar-fogo entre EUA e
-  Irã
+• BTG aprofunda presença na América Latina ao obter licença de banco no
+  Peru
+• Suprema Corte autoriza Trump a retomar deportação de imigrantes para
+  terceiros países
+• FT: Anthropic aponta ‘risco à humanidade’ em prospecto para IPO nos
+  EUA
+• Empresários do ramo imobiliário doam milhões nas eleições
+• Presidente do Barcelona questiona Data Fifa após lesão de Raphinha na
+  Seleção: “Não estamos felizes”
+
+COMO FOI COMPILADA
+------------------
+Edição automática (sem IA): as 1.806 notícias coletadas de 46 veículos
+foram agrupadas por títulos parecidos em 1.382 assuntos; as 24 matérias
+saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
+descartada: todas estão na lista completa do dia.
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#racional
+Todas as 1.806 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30-todas.html
 
 MANCHETE
 --------
-Fux acata pedido da defesa de Flávio e cassa decisão de Dino sobre Nossa
-Senhora Aparecida
-O ministro Luiz Fux, do Supremo Tribunal Federal (STF) suspendeu no fim
-da noite de segunda-feira (28) decisão do ministro Flávio Dino que havia
-cassado uma determinação do Tribunal Superior Eleitoral (TSE), por seu…
-Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Agência
-Brasil, CNN Brasil
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-fux-acata-pedido-da-defesa-de-flavio-e-cassa-dec
+Discussão nacional dá o tom em debate sem disputa real entre Tarcísio e
+Haddad
+Em um debate com pouco em jogo, já que a disputa eleitoral em São Paulo
+é uma das mais decididas do país, o encontro na TV Globo do governador
+Tarcísio de Freitas (Republicanos) e o ex-ministro da Fazenda Fernando…
+Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-discussao-nacional-da-o-tom-em-debate-sem-disput
 
 BRASIL · ECONOMIA
 -----------------
-• Dívida Pública Federal alcança R$ 9,293 trilhões em agosto
-  A Dívida Pública Federal (DPF) terminou agosto em R$ 9,293 trilhões,
-  conforme divulgado nesta segunda-feira (28) pelo Tesouro Nacional no
-  Relatório Mensal da Dívida.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-divida-publica-federal-alcanca-r-9-293-trilhoes
+• Inadimplência do consumidor nas operações de crédito atinge 8% em
+  agosto, novo recorde histórico
+  A inadimplência do consumidor pessoa física em operações de crédito
+  bancário, tema que dominou a campanha eleitoral neste ano, bateu novo
+  recorde em agosto, segundo o Banco Central (BC).
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Poder360, Agência
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-inadimplencia-do-consumidor-nas-operacoes-de-cre
 
-• Governo determina que preço abusivo de combustíveis pode levar a multa
-  de até R$ 500 milhões
-  BRASÍLIA - O governo Lula apresentou nesta segunda-feira, 28, um
-  balanço das medidas para conter a alta dos preços dos combustíveis em
-  decorrência do aumento da cotação internacional do barril de petróleo.
-  Fontes: Estadão, Folha de S.Paulo, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-governo-determina-que-preco-abusivo-de-combustiv
+• Caged: criação de emprego formal no Brasil surpreende com 165,8 mil
+  novas vagas em agosto
+  O mercado de trabalho brasileiro registrou a criação 165.827 postos de
+  trabalho com carteira assinada em agosto de 2026. O saldo positivo é
+  resultado de 2.294.563 admissões e 2.128.736 desligamentos.
+  Fontes: JOTA, Estadão, Folha de S.Paulo, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-caged-criacao-de-emprego-formal-no-brasil-surpre
 
-• Ações do Nubank despencam após rumores de eventual fusão com fintech
-  britânica
-  A ação do Nubank caiu 10,0% nesta segunda-feira (28) na Bolsa de
-  Valores de Nova York (Nyse), após notícias no fim de semana de que o
-  grupo brasileiro estaria negociando uma potencial fusão com a fintech
-  britânica Monzo.
-  Fontes: Valor Econômico, Folha de S.Paulo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-acoes-do-nubank-despencam-apos-rumores-de-eventu
+• Transações com Pix têm queda de 10% após proibição de bets
+  O número de transações de Pix caiu cerca de 10% nos últimos três dias,
+  após o governo publicar no fim da tarde de sexta-feira a medida
+  provisória (MP) proibindo as apostas esportivas on-line (bets).
+  Fontes: Valor Econômico, g1, Agência Brasil, Money Times, Suno
+  Notícias
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-transacoes-com-pix-tem-queda-de-10-apos-proibica
+
+• Desemprego fica em 5,3% no trimestre até agosto, mostra IBGE
+  A taxa de desemprego no país foi de 5,3% no trimestre encerrado em
+  agosto, o menor para o período em toda a série histórica.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil, Suno
+  Notícias
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-desemprego-fica-em-5-3-no-trimestre-ate-agosto-m
 
 MERCADOS & FINANÇAS
 -------------------
-• Dólar sobe a R$ 5,22 e Ibovespa cai com petróleo e eleição no foco
-  Os preços elevados do petróleo, diante de novos impasses entre Estados
-  Unidos e Irã sobre uma solução para o conflito no Oriente Médio,
-  pressionam as bolsas de Nova York e contribuem para a alta dos
-  rendimentos dos…
-  Fontes: Valor Econômico, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-dolar-sobe-a-r-5-22-e-ibovespa-cai-com-petroleo
+• BTG aprofunda presença na América Latina ao obter licença de banco no
+  Peru
+  O BTG Pactual informou que recebeu da Superintendência de Banca,
+  Seguros e AFP (SBS), órgão regulador do sistema financeiro do Peru, a
+  licença de funcionamento para operar como banco.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Bloomberg Línea
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-btg-aprofunda-presenca-na-america-latina-ao-obte
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Zanin manda Anatel garantir acesso gratuito a sites e aplicativos do
-  TSE
-  O ministro Cristiano Zanin, do Supremo Tribunal Federal (STF),
-  determinou que a Agência Nacional de Telecomunicações (Anatel) garanta
-  acesso gratuito ao site de checagem de notícias falsas do Tribunal
-  Superior Eleitoral…
-  Fontes: Valor Econômico, Conjur, JOTA, Estadão, g1, Agência Brasil,
-  CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-zanin-manda-anatel-garantir-acesso-gratuito-a-si
+• TSE vai analisar caso sobre Nossa Senhora
+  O presidente do Tribunal Superior Eleitoral (TSE), Kassio Nunes
+  Marques, marcou para hoje a análise da decisão do ministro André
+  Mendonça que restringiu publicações nas redes envolvendo Flávio
+  Bolsonaro (PL) e Nossa…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Money Times,
+  Agência Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-tse-vai-analisar-caso-sobre-nossa-senhora
 
-• AGU processa bets e pede R$ 1 bilhão por prejuízos à saúde da
-  população e ao SUS
-  A Advocacia-Geral da União (AGU) ajuizou nesta segunda-feira (28) uma
-  ação civil pública contra 17 operadores de apostas on-line por
-  prejuízos causados à saúde da população.
-  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo, InfoMoney,
-  g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo
-
-• Gilmar quer suspender análise sobre Alexandre de Moraes no caso Master
-  até identificação de outros ministros
-  O ministro Gilmar Mendes, do Supremo Tribunal Federal (STF), fez
-  ajustes e divulgou nesta segunda-feira (28) seu voto na questão de
-  ordem que discute o formato do julgamento que trata da possibilidade
-  de Alexandre de…
-  Fontes: Valor Econômico, Conjur, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-gilmar-quer-suspender-analise-sobre-alexandre-de
-
-• Ambipar obtém aval da Justiça dos EUA para centralizar recuperação
-  judicial no Brasil
-  A Ambipar informou que a Justiça dos Estados Unidos reconheceu sua
-  recuperação judicial no Brasil como o principal processo de
-  reestruturação do grupo e suspendeu o processo de “Chapter 11”, a
-  recuperação judicial…
-  Fontes: Valor Econômico, Folha de S.Paulo, Seu Dinheiro, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-ambipar-obtem-aval-da-justica-dos-eua-para-centr
+• Fachin, do STF, e Salomão, do STJ, apertam controle sobre precatórios
+  Os presidentes do Supremo Tribunal Federal (STF), Edson Fachin, e do
+  Superior Tribunal de Justiça (STJ), Luis Felipe Salomão, anunciaram
+  nesta terça-feira (29) medidas para ampliar o controle sobre
+  precatórios, em…
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-fachin-do-stf-e-salomao-do-stj-apertam-controle
 
 POLÍTICA
 --------
-• Quaest: 49% desaprovam governo Lula e 46% aprovam
-  Pesquisa Quaest divulgada nesta segunda-feira (28) mostra que 49% dos
-  eleitores desaprovam o governo Lula, enquanto 46% afirmaram aprová-lo.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Poder360, g1, Exame,
-  CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-quaest-49-desaprovam-governo-lula-e-46-aprovam
-
-• Ricardo Salles desiste de concorrer ao Senado em SP e apoia Derrite e
-  André do Prado
-  A seis dias do primeiro turno das eleições, o deputado federal e
-  candidato ao Senado Ricardo Salles (Novo-SP) anunciou nesta
-  segunda-feira (28) que desistiu de concorrer após uma reunião com o
-  governador e candidato à…
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-ricardo-salles-desiste-de-concorrer-ao-senado-em
+• Tarcísio e Eduardo Paes têm vantagem em disputas em SP e Rio, diz
+  Quaest
+  A Quaest divulgou na terça-feira (29) mais uma rodada de pesquisas
+  sobre a corrida eleitoral em São Paulo, Rio, Minas e Pernambuco, e
+  encomendadas pelo jornal O Globo e pela TV Globo.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-tarcisio-e-eduardo-paes-tem-vantagem-em-disputas
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Reino Unido investiga ação de Estado estrangeiro em plano contra base
-  aérea
-  A polícia britânica afirmou nesta segunda-feira que investiga se
-  pessoas que atuavam em nome de um Estado estrangeiro estiveram
-  envolvidas em um suposto plano para atacar uma base aérea usada pelos
-  Estados Unidos, mas…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, The New York
-  Times, The Guardian
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-reino-unido-investiga-acao-de-estado-estrangeiro
+• Suprema Corte autoriza Trump a retomar deportação de imigrantes para
+  terceiros países
+  A Suprema Corte dos EUA autorizou nesta terça-feira que o governo do
+  presidente Donald Trump retome a deportação de imigrantes para
+  terceiros países — ou seja, países que não sejam os de origem das
+  pessoas.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, The Guardian
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-suprema-corte-autoriza-trump-a-retomar-deportaca
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• OpenAI abandona lançamento de novo modelo de IA por preocupação com
-  segurança
-  A OpenAI cancelou o lançamento de seu modelo de inteligência
-  artificial de próxima geração devido a preocupações de segurança
-  levantadas por pesquisadores durante testes internos, em um dos sinais
-  mais claros, até agora…
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, g1, Financial
-  Times, The Guardian, The New York Times, BBC News, CNBC, Al Jazeera,
-  TechCrunch
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-openai-abandona-lancamento-de-novo-modelo-de-ia
-
-• Starship, da SpaceX, realiza 1º voo orbital, lança satélites e tem
-  missão encerrada antes do previsto
-  O foguete Starship de nova geração da SpaceX alcançou a órbita pela
-  primeira vez nesta segunda-feira (28), apesar de um de seus motores
-  ter sido desligado inesperadamente, superando um problema em pleno voo
-  para lançar…
-  Fontes: Valor Econômico, Brazil Journal, g1, Poder360, Financial
-  Times, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-starship-da-spacex-realiza-1o-voo-orbital-lanca
+• FT: Anthropic aponta ‘risco à humanidade’ em prospecto para IPO nos
+  EUA
+  A Anthropic fez um alerta formal aos investidores de que sua
+  tecnologia pode representar “riscos existenciais para a humanidade” em
+  seu prospecto de oferta pública inicial de ações (IPO), documento
+  muito aguardado, que…
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, NeoFeed, The Guardian
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-ft-anthropic-aponta-risco-a-humanidade-em-prospe
 
 IMOBILIÁRIO
 -----------
-• FII TRXF11 conclui venda de 15 imóveis por R$ 207,25 milhões; veja
-  lucro por cota
-  O fundo imobiliário TRXF11 (TRX Real Estate) concluiu a venda de um
-  portfólio com 15 imóveis por R$ 207,25 milhões ao BRC Renda Urbana
-  FII.
-  Fontes: InfoMoney, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-29.html#s-fii-trxf11-conclui-venda-de-15-imoveis-por-r-207
+• Empresários do ramo imobiliário doam milhões nas eleições
+  Empresários do setor do mercado imobiliário aparecem entre os maiores
+  doadores na corrida eleitoral de 2026, com quase R$ 10 milhões em PIX,
+  TED e cheques distribuídos para candidatos e partidos políticos.
+  Fontes: Estadão
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-empresarios-do-ramo-imobiliario-doam-milhoes-nas
+
+ESPORTE
+-------
+• Presidente do Barcelona questiona Data Fifa após lesão de Raphinha na
+  Seleção: “Não estamos felizes”
+  O presidente do Barcelona, Joan Laporta, questionou o calendário da
+  Data Fifa após Raphinha deixar o amistoso entre Brasil e Austrália com
+  dores na coxa direita, nesta terça-feira, em Brisbane.
+  Fontes: ge, Folha de S.Paulo, Placar, Gazeta Esportiva, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-presidente-do-barcelona-questiona-data-fifa-apos
+
+NATUREZA & MEIO AMBIENTE
+------------------------
+• Poluição por ozônio afeta quase 40% da população mundial em 2026
+  Quase 40% da população mundial está sendo submetida neste ano a uma
+  mistura perigosa de calor extremo e poluição que resulta em ozônio.
+  Fontes: Folha de S.Paulo, Estadão
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-poluicao-por-ozonio-afeta-quase-40-da-populacao
+
+CULTURA & VARIEDADES
+--------------------
+• De shows a animais, seguros avançam sobre novos nichos
+  Na década de 1990, quando Claudia Raia estava em cartaz com o
+  espetáculo musical “Não Fuja da Raia”, teve suas pernas seguradas em
+  R$ 1 milhão, com a panturrilha avaliada em R$ 500 mil.
+  Fontes: Valor Econômico
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-09-30.html#s-de-shows-a-animais-seguros-avancam-sobre-novos-n
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 02:41 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 06:21 (BRT) · Edição automática (sem IA)

@@ -324,7 +324,8 @@ body.modal-open{overflow:hidden}
 .cov-col li{font-family:var(--ss);font-size:12.5px;line-height:1.45;color:var(--body)}
 .cov-col a,.cov-col b{font-weight:700;color:var(--ink)}
 .cov-col a:hover{color:var(--link);text-decoration:underline}
-.cov-f{color:var(--muted)}
+.cov-col li p.cov-f{margin-top:2px;color:var(--muted)}
+.mcomp{margin-bottom:8px;font-family:var(--ss);font-size:12px;color:var(--muted)}
 .ml .mcov{margin-top:22px;padding:16px 18px;border:1px solid var(--rl);border-radius:4px;background:var(--soft)}
 .ml .mcov>h3{margin-bottom:10px;font-family:var(--mn);font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
 .cmp{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
@@ -335,6 +336,46 @@ body.modal-open{overflow:hidden}
 .cmp-i h3{margin-bottom:8px;font-size:17px;font-weight:700;line-height:1.3;color:var(--ink)}
 .cmp-i h3 a:hover{color:var(--link);text-decoration:underline}
 .cmp-t{font-weight:500;letter-spacing:.5px;color:var(--faint)}
+
+/* Racional da edição e lista completa do dia */
+.rat-strip{padding:9px 30px;border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
+.rat-strip span{color:var(--ink);font-weight:600}
+.rat-strip a{color:var(--link);font-weight:700;white-space:nowrap}
+.rat-strip a:hover{text-decoration:underline}
+.rat{padding:22px 30px 26px;border-top:2px solid var(--qn);background:var(--paper)}
+:root[data-theme="dark"] .rat{border-top-color:var(--qi)}
+.rat-sum{max-width:900px;font-family:var(--sf);font-size:16px;line-height:1.6;color:var(--ink)}
+.rat-blocks{list-style:none;counter-reset:blk;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px 24px;margin-top:14px}
+.rat-blocks li{counter-increment:blk;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-left:3px solid var(--qi);background:var(--soft);font-family:var(--ss);font-size:12.5px;line-height:1.45;color:var(--muted)}
+.rat-blocks li.off{border-left-color:var(--cov-n)}
+.rat-blocks b{color:var(--ink)}
+.rat-blocks b::before{content:counter(blk) ". ";font-family:var(--mn);font-weight:500;color:var(--faint)}
+.rat-note{max-width:900px;margin-top:14px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
+.todas{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+:root[data-theme="dark"] .todas{border-top-color:var(--qi)}
+.todas .kicker span{font-family:var(--mn);font-weight:500;letter-spacing:.5px;color:var(--faint)}
+.todas-note{max-width:900px;margin-bottom:10px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
+.todas-sec{border-top:1px solid var(--rl)}
+.todas-sec:last-child{border-bottom:1px solid var(--rl)}
+.todas-sec>summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:11px 0;cursor:pointer;font-family:var(--ss);font-size:14px;color:var(--ink)}
+.todas-sec>summary b{padding-left:9px;border-left:3px solid var(--sc)}
+.todas-sec>summary span{font-size:12px;color:var(--muted)}
+.idx{list-style:none;display:flex;flex-direction:column;gap:10px;padding:2px 0 16px 12px}
+.idx-h{font-family:var(--ss);font-size:13.5px;font-weight:700;line-height:1.4;color:var(--ink)}
+.idx-h a{color:var(--link)}
+.idx-h a:hover{text-decoration:underline}
+.idx-h em{margin-left:4px;padding:1px 6px;border-radius:3px;background:var(--soft);font-family:var(--mn);font-size:9.5px;font-style:normal;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--link)}
+.idx-h em.cmpd{color:var(--mute2)}
+.idx-h span{font-weight:500;color:var(--faint)}
+.idx-t ul{list-style:none;display:flex;flex-direction:column;gap:3px;margin-top:3px;padding-left:10px;border-left:1px solid var(--rl)}
+.idx-t li{font-family:var(--ss);font-size:12.5px;line-height:1.45;color:var(--body)}
+.idx-t li b{font-weight:600;color:var(--mute2)}
+.idx-t li a{color:var(--body)}
+.idx-t li a:hover{color:var(--link);text-decoration:underline}
+.idx-t time{font-family:var(--mn);font-size:10.5px;color:var(--faint)}
+.rat-all{margin-top:14px;font-family:var(--ss);font-size:13px;font-weight:700}
+.rat-all a{color:var(--link)}
+.rat-all a:hover{text-decoration:underline}
 
 /* Rodapé */
 .ft{background:var(--qn);padding:20px 28px;text-align:center;font-family:var(--mn);font-size:9.5px;letter-spacing:1.5px;line-height:1.8;color:rgba(255,255,255,.62);text-transform:uppercase}
@@ -422,6 +463,10 @@ body.modal-open .btt{visibility:hidden}
   .ft{padding:18px 16px}
   .arch{padding:18px 16px 28px}
   .cmp{padding:18px 16px 24px}
+  .rat-strip{padding:9px 16px}
+  .rat,.todas{padding:18px 16px 24px}
+  .rat-sum{font-size:15px}
+  .idx{padding-left:4px}
   .cmp-list{grid-template-columns:1fr}
   .ml .mcov{padding:14px}
   .cov-cols{grid-template-columns:1fr}
@@ -472,12 +517,13 @@ body.modal-open .btt{visibility:hidden}
   </div>
   <h3 class="arch-m">Setembro de 2026</h3>
   <ol class="arch-list">
+    <li><a href="2026-09-30.html"><time datetime="2026-09-30">Quarta-feira, 30 de setembro de 2026</time><span class="arch-t">Discussão nacional dá o tom em debate sem disputa real entre Tarcísio e Haddad</span></a></li>
     <li><a href="2026-09-29.html"><time datetime="2026-09-29">Terça-feira, 29 de setembro de 2026</time><span class="arch-t">Fux acata pedido da defesa de Flávio e cassa decisão de Dino sobre Nossa Senhora Aparecida</span></a></li>
   </ol>
 </section>
 </main>
 <footer class="ft">
-  <p><strong>PBCV Tech</strong> · 1 edição no arquivo</p>
+  <p><strong>PBCV Tech</strong> · 2 edições no arquivo</p>
   <p class="ft-links"><a href="../">Edição mais recente</a> · <a href="https://github.com/pbcvphyton/qi-journal" rel="noopener">Código-fonte</a></p>
 </footer>
 </div>
