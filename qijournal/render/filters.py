@@ -14,6 +14,7 @@ import re
 from datetime import datetime, timezone
 from functools import lru_cache
 from pathlib import Path
+from typing import Any
 from urllib.parse import quote, urlsplit
 from xml.sax.saxutils import escape as xml_escape
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -247,6 +248,14 @@ def initial_favicon(initial: str, background: str, foreground: str) -> str:
 
 
 @lru_cache(maxsize=1)
+def num(value: Any) -> str:
+    """Inteiro no padrão brasileiro: ``1078`` → ``"1.078"``."""
+    try:
+        return text.format_number_pt(int(value), 0)
+    except (TypeError, ValueError):
+        return str(value)
+
+
 def environment() -> Environment:
     """Ambiente Jinja2 compartilhado (autoescape sempre ligado)."""
     env = Environment(
@@ -263,5 +272,6 @@ def environment() -> Environment:
         local_time=local_time,
         rel_age=rel_age,
         blend=blend,
+        num=num,
     )
     return env

@@ -30,10 +30,10 @@ jobs:
   edition:
     runs-on: ubuntu-latest
     # Pior caso: coleta com retentativas (~6 min) + enriquecimento (~2 min) +
-    # edição por IA, limitada a llm.deadline_seconds (45 min): o Mistral (plano
-    # gratuito) faz ~10-15 chamadas espaçadas (agrupamento de todas as notícias,
-    # pauta, redação e cobertura comparada); o Claude, 2. Se a IA travar, ela
-    # desiste antes deste limite e a edição sai em modo automático.
+    # edição por IA, limitada a llm.deadline_seconds (35 min): no modo blocos,
+    # uma chamada por bloco de editoria + o fechamento (até 9); se uma IA
+    # estourar o limite, a seguinte da cadeia assume. Se nenhuma conseguir a
+    # tempo, a edição sai em modo automático.
     timeout-minutes: 55
     steps:
       - name: Baixar o repositório
@@ -55,11 +55,19 @@ jobs:
 
       - name: Gerar a edição
         env:
+          # Editores por IA, na ordem de llm.providers (config/site.yaml): cada um
+          # só entra com o seu segredo; quem estoura o limite passa ao seguinte.
+          AIMLAPI_KEY: ${{ secrets.AIMLAPI_KEY }}
+          SENSENOVA_API_KEY: ${{ secrets.SENSENOVA_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           QIJ_BRAND: ${{ vars.QIJ_BRAND }}
           QIJ_MODEL: ${{ vars.QIJ_MODEL }}
+          QIJ_AIML_MODEL: ${{ vars.QIJ_AIML_MODEL }}
+          QIJ_SENSENOVA_MODEL: ${{ vars.QIJ_SENSENOVA_MODEL }}
           QIJ_MISTRAL_MODEL: ${{ vars.QIJ_MISTRAL_MODEL }}
+          QIJ_KIMI_MODEL: ${{ vars.QIJ_KIMI_MODEL }}
           # Entradas do disparo manual (vazias no agendamento): passadas por
           # variável de ambiente, nunca interpoladas direto no script.
           INPUT_NO_LLM: ${{ inputs.no_llm }}

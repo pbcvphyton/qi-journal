@@ -1,4 +1,5 @@
-"""Testes do editor Mistral e da análise completa (agrupamento por assunto e cobertura comparada)."""
+"""Testes do cliente de API de chat (formato OpenAI) e da análise completa no modo "etapas"
+(agrupamento por assunto e cobertura comparada)."""
 
 from __future__ import annotations
 
@@ -11,13 +12,13 @@ import pytest
 
 from qijournal.config import load_config
 from qijournal.edit import coverage as cov
-from qijournal.edit import make_edition, mistral, topics
+from qijournal.edit import chatapi, make_edition, topics
 from qijournal.edit.cluster import rank_clusters
 from qijournal.edit.llm import LLMUnavailable
-from qijournal.edit.mistral import MistralBackend
+from qijournal.edit.chatapi import ChatBackend
 from qijournal.models import Coverage, CoverageOutlet, Edition, Story
 from tests.fixtures.editor.factory import NOW, make_article, sample_bundle
-from tests.fixtures.editor.mistral_fakes import KEY, FakeMistral, error, ok
+from tests.fixtures.editor.chat_fakes import KEY, FakeMistral, error, ok
 
 SCHEMA = {"type": "object", "properties": {"x": {"type": "integer"}}, "required": ["x"], "additionalProperties": False}
 
@@ -27,19 +28,27 @@ def base_config():
     return load_config(env={})
 
 
+def with_api(config, name, **changes):
+    """Cópia da configuração com ``llm.apis[name]`` alterado."""
+    apis = dict(config.llm.apis)
+    apis[name] = dataclasses.replace(apis[name], **changes)
+    return dataclasses.replace(config, llm=dataclasses.replace(config.llm, apis=apis))
+
+
 @pytest.fixture
 def config(base_config):
-    # sem intervalo entre requisições nos testes (em produção: plano gratuito)
-    return dataclasses.replace(base_config, llm=dataclasses.replace(base_config.llm, mistral_min_interval_seconds=0))
+    # Mistral no modo "etapas" e sem intervalo entre requisições nos testes
+    # (em produção: plano gratuito)
+    return with_api(base_config, "mistral", min_interval_seconds=0, mode="etapas")
 
 
 @pytest.fixture(autouse=True)
 def _no_wait(monkeypatch):
-    monkeypatch.setattr(mistral, "RETRY_WAIT_SECONDS", 0.0)
+    monkeypatch.setattr(chatapi, "RETRY_WAIT_SECONDS", 0.0)
 
 
-def backend(config, fake):
-    return MistralBackend(config, api_key=KEY, post=fake)
+def backend(config, fake, provider="mistral"):
+    return ChatBackend(provider, config, api_key=KEY, post=fake)
 
 
 def call(b, **kwargs):
@@ -70,7 +79,7 @@ def test_request_follows_the_chat_completions_contract(config):
 def test_missing_key_is_unavailable(config, monkeypatch):
     monkeypatch.delenv("MISTRAL_API_KEY", raising=False)
     with pytest.raises(LLMUnavailable, match="MISTRAL_API_KEY não definida"):
-        MistralBackend(config)
+        ChatBackend("mistral", config)
 
 
 @pytest.mark.parametrize(
@@ -92,7 +101,7 @@ def test_fatal_errors_never_leak_the_key(config, response, message):
 def test_transient_errors_are_retried(config, caplog):
     responses = [error(429, "limite", {"Retry-After": "0"}), error(503), ok({"x": 2})]
     fake = FakeMistral({"pauta": lambda body: responses})
-    with caplog.at_level(logging.WARNING, logger="qijournal.edit.mistral"):
+    with caplog.at_level(logging.WARNING, logger="qijournal.edit.chatapi"):
         assert call(backend(config, fake)) == {"x": 2}
     assert len(fake.requests) == 3 and "nova tentativa 2/3" in caplog.text
 
@@ -101,7 +110,7 @@ def test_transient_errors_give_up_after_the_retries(config):
     fake = FakeMistral({"pauta": lambda body: [error(500) for _ in range(10)]})
     with pytest.raises(LLMUnavailable, match=r"erro da API \(500\)"):
         call(backend(config, fake))
-    assert len(fake.requests) == mistral.MAX_RETRIES + 1
+    assert len(fake.requests) == config.llm.apis["mistral"].max_retries + 1
 
 
 def test_rejected_schema_falls_back_to_json_object(config):
@@ -142,16 +151,16 @@ def test_unusable_answers(config, response, message):
 
 
 def test_minimum_interval_between_requests(config, monkeypatch):
-    slow = dataclasses.replace(config, llm=dataclasses.replace(config.llm, mistral_min_interval_seconds=30))
+    slow = with_api(config, "mistral", min_interval_seconds=30)
     clock = [1000.0]
     sleeps: list[float] = []
-    monkeypatch.setattr(mistral.time, "monotonic", lambda: clock[0])
+    monkeypatch.setattr(chatapi.time, "monotonic", lambda: clock[0])
 
     def sleep(seconds):
         sleeps.append(seconds)
         clock[0] += seconds
 
-    monkeypatch.setattr(mistral.time, "sleep", sleep)
+    monkeypatch.setattr(chatapi.time, "sleep", sleep)
     b = backend(slow, FakeMistral({"pauta": ok({"x": 1})}))
     call(b)
     clock[0] += 10
@@ -165,7 +174,7 @@ def test_minimum_interval_between_requests(config, monkeypatch):
 def test_make_edition_uses_mistral_first_with_full_analysis(config, monkeypatch, caplog):
     monkeypatch.setenv("MISTRAL_API_KEY", KEY)
     fake = FakeMistral()
-    monkeypatch.setattr(mistral, "http_post", fake)
+    monkeypatch.setattr(chatapi, "http_post", fake)
     caplog.set_level(logging.INFO)
     edition = make_edition(sample_bundle(), config, now=NOW, enrich_fn=lambda articles: {})
     assert edition.mode == "ai" and edition.model == "mistral-large-2511"
@@ -184,7 +193,7 @@ def test_make_edition_uses_mistral_first_with_full_analysis(config, monkeypatch,
 def test_mistral_failure_falls_back_to_the_next_editor(config, monkeypatch, caplog):
     monkeypatch.setenv("MISTRAL_API_KEY", KEY)
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
-    monkeypatch.setattr(mistral, "http_post", FakeMistral({"pauta": error(401)}))
+    monkeypatch.setattr(chatapi, "http_post", FakeMistral({"pauta": error(401)}))
     caplog.set_level(logging.WARNING, logger="qijournal.edit")
     edition = make_edition(sample_bundle(), config, now=NOW)
     assert edition.mode == "heuristic"
@@ -201,7 +210,7 @@ def test_failed_writing_batch_uses_automatic_text(config, monkeypatch):
             return error(409, "falhou")
         return real(url, headers, body, timeout)
 
-    monkeypatch.setattr(mistral, "http_post", post)
+    monkeypatch.setattr(chatapi, "http_post", post)
     edition = make_edition(sample_bundle(), config, now=NOW, enrich_fn=lambda articles: {})
     assert edition.mode == "ai"
     written = [s for s in edition.stories if s.headline.startswith("Manchete redigida")]
@@ -210,7 +219,7 @@ def test_failed_writing_batch_uses_automatic_text(config, monkeypatch):
 
 def test_coverage_failure_keeps_the_edition(config, monkeypatch):
     monkeypatch.setenv("MISTRAL_API_KEY", KEY)
-    monkeypatch.setattr(mistral, "http_post", FakeMistral({"cobertura": error(409)}))
+    monkeypatch.setattr(chatapi, "http_post", FakeMistral({"cobertura": error(409)}))
     edition = make_edition(sample_bundle(), config, now=NOW, enrich_fn=lambda articles: {})
     assert edition.mode == "ai" and not any(s.coverage for s in edition.stories) and edition.compared == []
 
@@ -342,3 +351,21 @@ def test_coverage_round_trip_and_old_editions():
     assert edition.compared == [] and edition.stories[0].coverage is None
     edition.compared = [coverage]
     assert Edition.from_dict(json.loads(json.dumps(edition.to_dict()))).compared == [coverage]
+
+
+def test_request_timeout_never_passes_the_edition_deadline(config, monkeypatch):
+    clock = [1000.0]
+    monkeypatch.setattr(chatapi.time, "monotonic", lambda: clock[0])
+    timeouts = []
+    fake = FakeMistral({"pauta": ok({"x": 1})})
+
+    def post(url, headers, body, timeout):
+        timeouts.append(timeout)
+        return fake(url, headers, body, timeout)
+
+    b = backend(config, post)
+    call(b, deadline=clock[0] + 100)  # faltam 100 s: a espera não passa disso
+    call(b, deadline=clock[0] + 10_000)  # prazo folgado: a espera do provedor
+    assert timeouts == [100.0, float(config.llm.apis["mistral"].timeout_seconds)]
+    with pytest.raises(LLMUnavailable, match="sem tempo no prazo"):
+        call(b, deadline=clock[0] + 5)

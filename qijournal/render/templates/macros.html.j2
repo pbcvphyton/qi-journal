@@ -36,7 +36,7 @@
   <h4>{{ title }} <span>({{ outlets|length }})</span></h4>
   <ul>
     {% for o in outlets %}
-    <li>{% if o.url %}<a href="{{ o.url }}" target="_blank" rel="noopener noreferrer">{{ o.name }}<span class="sr-only"> (abre em nova aba)</span></a>{% else %}<b>{{ o.name }}</b>{% endif %}{% if o.framing %}<span class="cov-f"> — {{ o.framing }}</span>{% endif %}</li>
+    <li>{% if o.url %}<a href="{{ o.url }}" target="_blank" rel="noopener noreferrer">{{ o.name }}<span class="sr-only"> (abre em nova aba)</span></a>{% else %}<b>{{ o.name }}</b>{% endif %}{% if o.framing %}<p class="cov-f">{{ o.framing }}</p>{% endif %}</li>
     {% endfor %}
   </ul>
 </div>
@@ -54,7 +54,7 @@
   <p class="cov-c">{{ c.conclusion }}</p>
   {% endif %}
   <details class="cov-who"{% if open %} open{% endif %}>
-    <summary>Como cada veículo cobriu ({{ c.total }})</summary>
+    <summary>Análise por veículo: o foco de cada um e o lado que seguiu ({{ c.total }})</summary>
     <div class="cov-cols">
       {% if c.a %}{{ outlet_list(c.side_a, "ca", c.a) }}{% endif %}
       {% if c.b %}{{ outlet_list(c.side_b, "cb", c.b) }}{% endif %}
@@ -109,14 +109,15 @@
     </aside>
     {% endif %}
     {% if s.coverage %}
-    <section class="mcov" aria-label="Cobertura comparada">
-      <h3>Cobertura comparada</h3>
+    <section class="mcov" aria-label="Análise da cobertura">
+      <h3>Análise da cobertura</h3>
       {{ coverage(s.coverage, open=True) }}
     </section>
     {% endif %}
     {% if s.sources %}
     <div class="bb">
       <h3>Fontes</h3>
+      {% if s.compiled %}<p class="mcomp">{{ s.compiled }}</p>{% endif %}
       <ul>
         {% for src in s.sources %}
         <li>{% if src.url %}<a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.name }} <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>{% else %}<span>{{ src.name }}</span>{% endif %}</li>

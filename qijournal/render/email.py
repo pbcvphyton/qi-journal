@@ -187,6 +187,11 @@ def _render_text(view: EditionView, sections: list[EmailSection], footer: dict[s
         lines += _heading("Em 1 minuto")
         for item in view.briefing:
             lines += _wrap(filters.plain(item), "  ", first="• ")
+    if view.rationale:
+        lines += _heading("Como foi compilada") + _wrap(view.rationale.summary)
+        lines.append(f"Racional: {page}#racional")
+        if view.index_url:
+            lines.append(f"Todas as {filters.num(view.index_total)} notícias do dia: {view.index_url}")
     if view.lead:
         lead = view.lead
         lines += _heading("Manchete") + _wrap(lead.headline)

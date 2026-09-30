@@ -1,5 +1,6 @@
-# Fontes de notícia (RSS/Atom). Todas as URLs abaixo foram testadas a partir
-# de um runner do GitHub Actions em 29/09/2026. Para testar de novo:
+# Fontes de notícia (RSS/Atom). As URLs até a seção Internacional foram testadas
+# a partir de um runner do GitHub Actions em 29/09/2026; as de tribunais, esporte
+# e natureza entraram em 30/09/2026 sem teste. Para testar de novo:
 #   python -m qijournal check-sources
 #
 # Campos:
@@ -52,6 +53,20 @@ feeds:
   - {id: jota, name: "JOTA", url: "https://www.jota.info/feed", lang: pt, weight: 1.2, topics: [juridico]}
   - {id: conjur, name: "Conjur", url: "https://www.conjur.com.br/rss.xml", lang: pt, weight: 1.2, topics: [juridico]}
   - {id: agenciabrasil, name: "Agência Brasil", url: "https://agenciabrasil.ebc.com.br/rss/justica/feed.xml", lang: pt, weight: 0.8, topics: [juridico]}
+  # Tribunais e agências legislativas (acrescentados em 30/09/2026; sem teste a
+  # partir do Actions ainda: o STF, o TJMG e a Câmara podem barrar robôs ou IPs
+  # fora do Brasil — se falharem sempre, troque para enabled: false). TJSP, TJRJ,
+  # TJPR, TJRS e TRF1-5 não publicam RSS utilizável.
+  - {id: stf, name: "STF", url: "https://noticias.stf.jus.br/feed/", lang: pt, weight: 1.2, topics: [juridico]}
+  - {id: stj, name: "STJ", url: "https://res.stj.jus.br/hrestp-c-portalp/RSS.xml", lang: pt, weight: 1.2, topics: [juridico]}
+  - {id: tst, name: "TST", url: "https://www.tst.jus.br/noticias/-/asset_publisher/89D8/rss", lang: pt, weight: 1.2, topics: [juridico]}
+  - {id: tse, name: "TSE", url: "https://www.tse.jus.br/comunicacao/noticias/rss", lang: pt, weight: 1.2, topics: [juridico]}
+  - {id: cnj, name: "CNJ", url: "https://www.cnj.jus.br/feed/", lang: pt, weight: 1.2, topics: [juridico]}
+  - {id: tjdft, name: "TJDFT", url: "https://www.tjdft.jus.br/rss.xml", lang: pt, weight: 1.1, topics: [juridico]}
+  - {id: tjmg, name: "TJMG", url: "https://www.tjmg.jus.br/data/rss/noticiasTJMG.xml", lang: pt, weight: 1.1, topics: [juridico]}
+  - {id: trf6, name: "TRF6", url: "https://portal.trf6.jus.br/noticias/feed/", lang: pt, weight: 1.0, topics: [juridico]}
+  - {id: camara, name: "Agência Câmara", url: "https://www.camara.leg.br/noticias/rss/dinamico/DIREITO-E-JUSTICA", lang: pt, weight: 1.0, topics: [juridico]}
+  - {id: senado, name: "Agência Senado", url: "https://www12.senado.leg.br/noticias/rss", lang: pt, weight: 1.0, topics: [juridico]}
 
   # ── Imobiliário ────────────────────────────────────────────────────────
   - {id: infomoney, name: "InfoMoney", url: "https://www.infomoney.com.br/tudo-sobre/fundos-imobiliarios/feed/", lang: pt, weight: 1.0, topics: [imobiliario]}
@@ -86,3 +101,34 @@ feeds:
   - {id: aljazeera, name: "Al Jazeera", url: "https://www.aljazeera.com/xml/rss/all.xml", lang: en, weight: 0.8, topics: []}
   - {id: techcrunch, name: "TechCrunch", url: "https://techcrunch.com/feed/", lang: en, weight: 0.7, topics: [tecnologia]}
   - {id: elpais, name: "El País", url: "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada", lang: es, weight: 0.7, topics: [mundo]}
+
+  # ── Esporte (acrescentado em 30/09/2026) ───────────────────────────────
+  - {id: ge, name: "ge", url: "https://ge.globo.com/rss/ge/", lang: pt, weight: 1.2, topics: [esporte]}
+  - {id: folha, name: "Folha de S.Paulo", url: "https://feeds.folha.uol.com.br/esporte/rss091.xml", lang: pt, weight: 1.1, topics: [esporte]}
+  - {id: estadao, name: "Estadão", url: "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/esportes/", lang: pt, weight: 1.1, topics: [esporte]}
+  - {id: uol, name: "UOL", url: "https://rss.uol.com.br/feed/esporte.xml", lang: pt, weight: 1.0, topics: [esporte]}
+  - {id: gazetaesportiva, name: "Gazeta Esportiva", url: "https://www.gazetaesportiva.com/feed/", lang: pt, weight: 1.0, topics: [esporte]}
+  - {id: placar, name: "Placar", url: "https://placar.com.br/feed/", lang: pt, weight: 1.0, topics: [esporte]}
+  - {id: agenciabrasil, name: "Agência Brasil", url: "https://agenciabrasil.ebc.com.br/rss/esportes/feed.xml", lang: pt, weight: 0.8, topics: [esporte]}
+  - {id: cnnbrasil, name: "CNN Brasil", url: "https://www.cnnbrasil.com.br/esportes/feed/", lang: pt, weight: 1.0, topics: [esporte]}
+  - {id: trivela, name: "Trivela", url: "https://trivela.com.br/feed/", lang: pt, weight: 0.9, topics: [esporte]}
+  - {id: espnbrasil, name: "ESPN Brasil", url: "https://www.espn.com.br/espn/rss/news", lang: pt, weight: 1.1, topics: [esporte]}
+  - {id: maquinadoesporte, name: "Máquina do Esporte", url: "https://maquinadoesporte.com.br/feed/", lang: pt, weight: 0.8, topics: [esporte]}
+  - {id: bbcsport, name: "BBC Sport", url: "https://feeds.bbci.co.uk/sport/football/rss.xml", lang: en, weight: 0.9, topics: [esporte]}
+  - {id: espn, name: "ESPN", url: "https://www.espn.com/espn/rss/soccer/news", lang: en, weight: 0.9, topics: [esporte]}
+
+  # ── Natureza & meio ambiente (acrescentado em 30/09/2026) ──────────────
+  - {id: g1, name: "g1", url: "https://g1.globo.com/rss/g1/natureza/", lang: pt, weight: 1.1, topics: [natureza]}
+  - {id: folha, name: "Folha de S.Paulo", url: "https://feeds.folha.uol.com.br/ambiente/rss091.xml", lang: pt, weight: 1.1, topics: [natureza]}
+  - {id: estadao, name: "Estadão", url: "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/sustentabilidade/", lang: pt, weight: 1.1, topics: [natureza]}
+  - {id: umsoplaneta, name: "Um Só Planeta", url: "https://umsoplaneta.globo.com/rss/umsoplaneta/", lang: pt, weight: 1.0, topics: [natureza]}
+  - {id: oeco, name: "((o))eco", url: "https://oeco.org.br/feed/", lang: pt, weight: 1.0, topics: [natureza]}
+  - {id: mongabaybr, name: "Mongabay Brasil", url: "https://brasil.mongabay.com/feed/", lang: pt, weight: 1.0, topics: [natureza]}
+  - {id: agenciabrasil, name: "Agência Brasil", url: "https://agenciabrasil.ebc.com.br/rss/meio-ambiente/feed.xml", lang: pt, weight: 0.8, topics: [natureza]}
+  - {id: observatorioclima, name: "Observatório do Clima", url: "https://www.oc.eco.br/feed/", lang: pt, weight: 1.0, topics: [natureza]}
+  - {id: climainfo, name: "ClimaInfo", url: "https://climainfo.org.br/feed/", lang: pt, weight: 1.0, topics: [natureza]}
+  - {id: fapesp, name: "Agência FAPESP", url: "https://agencia.fapesp.br/rss/", lang: pt, weight: 0.8, topics: [natureza]}
+  - {id: camara, name: "Agência Câmara", url: "https://www.camara.leg.br/noticias/rss/dinamico/MEIO-AMBIENTE", lang: pt, weight: 0.8, topics: [natureza]}
+  - {id: guardian, name: "The Guardian", url: "https://www.theguardian.com/environment/rss", lang: en, weight: 0.9, topics: [natureza]}
+  - {id: bbc, name: "BBC News", url: "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml", lang: en, weight: 0.9, topics: [natureza]}
+  - {id: mongabay, name: "Mongabay", url: "https://news.mongabay.com/feed/", lang: en, weight: 0.8, topics: [natureza]}

@@ -18,7 +18,7 @@ from qijournal.edit.cluster import (
     rank_clusters,
     score_cluster,
 )
-from tests.fixtures.editor.factory import NOW, make_article, sample_articles
+from tests.fixtures.editor.factory import NOW, make_article, sample_articles, sample_sections
 
 
 @pytest.fixture(scope="module")
@@ -253,7 +253,7 @@ def test_rank_clusters_orders_by_score_and_classifies(config):
     assert by_key["stf-jota"].section == "juridico"
     assert by_key["fii-infomoney"].section == "imobiliario"
     assert by_key["semdata-guardian"].section == "mundo"
-    assert {c.section for c in clusters} == set(config.section_ids)
+    assert {c.section for c in clusters} == sample_sections(config)
     # "ao vivo" e títulos curtíssimos ficam para trás
     ranks = [c.key for c in clusters]
     assert ranks.index("aovivo-g1") > ranks.index("camara-poder")

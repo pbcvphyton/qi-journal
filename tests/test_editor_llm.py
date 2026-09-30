@@ -29,7 +29,7 @@ from qijournal.edit.llm import (
     select_schema,
     write_schema,
 )
-from tests.fixtures.editor.factory import NOW, sample_articles, sample_bundle
+from tests.fixtures.editor.factory import NOW, sample_articles, sample_bundle, sample_sections
 from tests.fixtures.editor.llm_fakes import (
     CANDIDATE_RE,
     CANONICAL_PICKS,
@@ -117,7 +117,7 @@ def test_edition_maps_short_ids_to_articles(config):
     assert edition.stats.llm_output_tokens == 200 + 3000
     assert edition.stats.articles_considered == len(sample_articles())
     assert edition.stats.sources_failed[0]["source_id"] == "bbc"
-    assert {s.id for s in edition.sections} == set(config.section_ids)
+    assert {s.id for s in edition.sections} == sample_sections(config)
 
 
 def test_selection_prompt_contents(config):
@@ -188,7 +188,7 @@ def test_max_candidates_limits_the_list(config):
     listed = set(short_ids(prompt))
     assert len(listed) == 12  # cada artigo uma vez
     # 1ª passada: 9 linhas (75%), uma por fato, com todas as seções; 2ª: mais fontes do Copom
-    assert {m.group(5) for m in lines[:9]} == set(config.section_ids)
+    assert {m.group(5) for m in lines[:9]} == sample_sections(config)
     assert {"copom-valor", "copom-folha", "copom-g1", "copom-estadao"} <= listed
     # linhas repetidas do mesmo fato não viram matérias duplicadas: 9 fatos, 9 matérias
     assert len(edition.stories) == 9
@@ -590,7 +590,8 @@ def test_schema_enums(config):
 
 
 def test_prompts_carry_the_editorial_rules():
-    for rule in ("MESMO fato", "últimas 24 horas", "Diversidade", "fofoca", "ao vivo", "lead", "importance"):
+    for rule in ("MESMO fato", "últimas 24 horas", "Diversidade", "STF, STJ", "esporte", "promocional", "ao vivo",
+                 "lista completa do dia", "lead", "importance"):
         assert rule in SELECT_SYSTEM
     for rule in (
         "SOMENTE informações presentes",

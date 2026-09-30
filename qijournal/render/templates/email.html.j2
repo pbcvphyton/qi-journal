@@ -151,6 +151,13 @@
 </td></tr>
 {% endif %}
 
+{# Racional da compilação: uma linha + links para o racional e a lista completa #}
+{% if v.rationale %}
+<tr><td class="px" style="padding:8px 20px 4px;">
+  <p class="mute" style="margin:0;font:12px/18px {{ sans }};color:#5f6b7e">{{ v.rationale.strip }} · <a href="{{ v.edition_url }}#racional" style="color:{{ c.primary }};font-weight:bold;text-decoration:none">Como foi compilada</a>{% if v.index_url %} · <a href="{{ v.index_url }}" style="color:{{ c.primary }};font-weight:bold;text-decoration:none">Todas as {{ v.index_total|num }} notícias</a>{% endif %}</p>
+</td></tr>
+{% endif %}
+
 {# Manchete #}
 {% if v.lead %}
 {% set s = v.lead %}

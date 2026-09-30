@@ -174,11 +174,13 @@ def test_valor_rss2_media_content_long_html_description() -> None:
     source = make_source()
     articles = parse("valor.xml", source)
     titles = [a.title for a in articles]
-    # item de 26/09 (velho) e item do Eu& (/eu-e/, excluído globalmente) ficam de fora
+    # item de 26/09 (velho) fica de fora; o do Eu& (/eu-e/) entra: nenhuma
+    # editoria é descartada (vai para Cultura & Variedades)
     assert titles == [
         "Brasil tem pouca tradição de aprender com o que deu errado, diz Malan",
         "Anthropic prevê que revolução da IA será mais profunda que industrialização e web",
         "AGU processa bets e pede R$ 1 bilhão por prejuízos à saúde da população e ao SUS",
+        "Os restaurantes que movimentam o Itaim neste mês",
     ]
     malan = articles[0]
     assert malan.published == "2026-09-29T01:29:25+00:00"
@@ -203,9 +205,10 @@ def test_valor_rss2_media_content_long_html_description() -> None:
 def test_folha_rss091_iso_8859_1_redirect_links() -> None:
     articles = parse("folha_mercado.xml", make_source(id="folha", name="Folha de S.Paulo",
                                                       url="https://feeds.folha.uol.com.br/mercado/rss091.xml"))
-    assert len(articles) == 4  # item de /esporte/ excluído
+    assert len(articles) == 5  # inclusive o item de /esporte/ (esporte entra na edição)
     assert all(a.url.startswith("https://www1.folha.uol.com.br/") for a in articles)
-    assert not any("redir.folha" in a.url or "/esporte/" in a.url for a in articles)
+    assert not any("redir.folha" in a.url for a in articles)
+    assert any("/esporte/" in a.url for a in articles)
     scooter = by_title(articles, "Scooter")
     assert scooter.title.endswith("usos urbano e rodoviário")  # acentos corretos (ISO-8859-1)
     assert scooter.published == "2026-09-29T02:00:00+00:00"  # 23:00 -0300 → UTC
@@ -247,9 +250,12 @@ def test_wordpress_infomoney_inline_images_and_boilerplate() -> None:
 
 def test_guardian_picks_widest_media_content_and_filters() -> None:
     articles = parse("guardian_world.xml", make_source(id="guardian", name="The Guardian", lang="en"))
-    # só a matéria recente de /world/: a de 27/09 é velha; /football/ e /lifeandstyle/ excluídas
+    # a de 27/09 é velha; /football/ e /lifeandstyle/ entram (Esporte e Cultura & Variedades)
     assert [a.title for a in articles] == [
-        "DRC politician beaten to death after radio appearance about Ebola outbreak"]
+        "DRC politician beaten to death after radio appearance about Ebola outbreak",
+        "Arsenal beat Newcastle to go top of the Premier League",
+        "Ten autumn recipes for a cosy weekend",
+    ]
     drc = articles[0]
     assert "width=460" in drc.image and "&amp;" not in drc.image
     assert "Continue reading" not in drc.summary
@@ -316,9 +322,17 @@ def test_atom_without_dates() -> None:
     assert toyota.summary.startswith("The carmaker will expand")
 
 
-def test_entertainment_and_sports_are_filtered() -> None:
-    articles = parse("cnnbrasil.xml", make_source(id="cnnbrasil", name="CNN Brasil", weight=0.7))
-    assert [a.title for a in articles] == ["Renegociação de dívidas de adimplentes é prorrogada até 26 de outubro"]
+def test_entertainment_and_sports_are_kept() -> None:
+    """Nenhuma editoria é descartada: entretenimento e esporte entram na coleta."""
+    articles = parse("cnnbrasil.xml", make_source(id="cnnbrasil", name="CNN Brasil", weight=0.7, topics=[]))
+    assert [a.title for a in articles] == [
+        "Ana Paula Renault confirma programa no GNT e explica por que saiu da Band",
+        "Ex-galã de “Malhação”, Ronny Kriwatt mostra filho em viagem",
+        "Flamengo anuncia renovação com técnico até 2028",
+        "Renegociação de dívidas de adimplentes é prorrogada até 26 de outubro",
+    ]
+    # feed geral (sem topics): a dica de seção sai do caminho da URL
+    assert [a.topics for a in articles] == [["variedades"], ["variedades"], ["esporte"], ["brasil"]]
 
 
 def test_edge_cases_feed() -> None:
@@ -397,7 +411,7 @@ def test_exclude_patterns_match_canonical_url_case_insensitive() -> None:
 
 def test_naive_now_is_treated_as_utc() -> None:
     articles = parse("valor.xml", now=NOW.replace(tzinfo=None))
-    assert len(articles) == 3
+    assert len(articles) == 4
 
 
 @pytest.mark.parametrize("name", ["broken.xml", "empty_channel.xml"])
@@ -461,9 +475,9 @@ def test_collect_feeds_statuses_and_isolated_failures() -> None:
 
     assert [s.url for s in statuses] == [s.url for s in sources]  # um status por URL, na ordem
     summary = {s.url: (s.ok, s.items, s.error) for s in statuses}
-    assert summary[sources[0].url] == (True, 3, None)
-    assert summary[sources[1].url] == (True, 3, None)
-    assert summary[sources[2].url] == (True, 4, None)
+    assert summary[sources[0].url] == (True, 4, None)
+    assert summary[sources[1].url] == (True, 4, None)
+    assert summary[sources[2].url] == (True, 5, None)
     assert summary[sources[3].url] == (False, 0, "HTTP 403")
     assert summary[sources[4].url] == (False, 0, "timeout")
     assert summary[sources[5].url] == (False, 0, "XML inválido")
@@ -474,9 +488,9 @@ def test_collect_feeds_statuses_and_isolated_failures() -> None:
     assert statuses[3].source_id == "wsj" and statuses[3].source_name == "WSJ"
 
     # artigos não são deduplicados entre feeds: o mesmo item aparece pelos dois feeds do Valor
-    assert len(articles) == 3 + 3 + 4
+    assert len(articles) == 4 + 4 + 5
     assert {a.feed_url for a in articles} == {sources[0].url, sources[1].url, sources[2].url}
-    assert len(dedupe_articles(articles)) == 3 + 4
+    assert len(dedupe_articles(articles)) == 4 + 5
     # parâmetros de rede enviados ao fetch
     assert all(kwargs == {"timeout": feeds.FEED_TIMEOUT, "retries": feeds.FEED_RETRIES} for _, kwargs in fetch.calls)
 
@@ -564,7 +578,7 @@ def test_malformed_entry_does_not_invalidate_feed(monkeypatch: pytest.MonkeyPatc
         return original(entry)
 
     monkeypatch.setattr(feeds, "_entry_image", flaky_image)
-    assert len(parse("valor.xml")) == 2
+    assert len(parse("valor.xml")) == 3
 
 
 def test_feed_with_all_items_filtered_is_ok_with_zero_items() -> None:
@@ -692,13 +706,15 @@ def test_abr_tracking_pixel_is_never_the_photo() -> None:
     assert feeds._first_html_image([styled]) == "https://ex.com/foto.jpg"
 
 
-def test_site_exclusions_cover_sponsored_service_and_sports_without_false_positives() -> None:
+def test_site_exclusions_cover_sponsored_and_service_but_keep_sports() -> None:
     config = load_config(env={})
     urls = {
         "https://neofeed.com.br/negocios/esporte-movimenta-bilhoes/": True,  # "/esporte" era falso positivo
         "https://ex.com/patrocinado/banco-x-lanca-conta": False,
         "https://g1.globo.com/loterias/noticia/mega-sena.ghtml": False,
-        "https://g1.globo.com/esporte/futebol/jogo.ghtml": False,
+        "https://g1.globo.com/esporte/futebol/jogo.ghtml": True,  # esporte entra (seção Esporte)
+        "https://g1.globo.com/pop-arte/noticia/show.ghtml": True,  # cultura entra (Cultura & Variedades)
+        "https://g1.globo.com/horoscopo/noticia/dia.ghtml": False,
         "https://www.bbc.com/news/videos/c1234": False,
         "https://g1.globo.com/economia/noticia/bbbrasil-fundo.ghtml": True,  # "/bbb" era falso positivo
     }

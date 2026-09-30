@@ -219,6 +219,15 @@ def is_sponsored(summary: str) -> bool:
 
 # Dica de seção pelo caminho da URL, para feeds gerais (capas) sem ``topics``.
 _URL_TOPICS = [
+    (re.compile(r"/(?:esportes?|futebol|sports?|football|soccer|formula-1|olimpiadas?)/"), "esporte"),
+    (re.compile(r"/(?:natureza|meio-ambiente|ambiente|environment|sustentabilidade|clima|climate)/"), "natureza"),
+    (
+        re.compile(
+            r"/(?:pop|pop-arte|celebridades|entretenimento|cultura|culture|novelas|bbb|lifeandstyle|fashion|"
+            r"style|tv-and-radio|casual|curiosidades|eu-e|receitas|ilustrada)/"
+        ),
+        "variedades",
+    ),
     (re.compile(r"/(?:internacional|mundo|world)/"), "mundo"),
     (re.compile(r"/(?:politica|eleicoes(?:-\d{4})?)/"), "politica"),
     (re.compile(r"/(?:legislacao|justica|juridico)/"), "juridico"),

@@ -1,7 +1,7 @@
-"""API da Mistral falsa para os testes do editor com análise completa.
+"""API de chat (formato OpenAI) falsa para os testes dos editores com análise completa.
 
 :class:`FakeMistral` faz o papel de ``post(url, headers, body, timeout)`` do
-``MistralBackend``: registra cada requisição e responde conforme a etapa (nome do
+``ChatBackend``: registra cada requisição e responde conforme a etapa (nome do
 JSON Schema em ``response_format``), lendo o prompt como faria o modelo.
 """
 
@@ -57,10 +57,74 @@ def canonical_coverage(user_text: str) -> dict[str, Any]:
     return {"topics": topics}
 
 
+GROUP_RE = re.compile(r'<grupo id="(c\d+)" secao="(\w+)">\n(.*?)</grupo>', re.S)
+GROUP_LINE_RE = re.compile(r"^- (.+?) \((\w+), ", re.M)
+ASK_RE = re.compile(r"Redija até (\d+) matérias(?: e compare até (\d+) outros assuntos)?")
+CANDIDATE_KEY_RE = re.compile(r"^\[(b\d+s\d+)\]", re.M)
+TOPIC_KEY_RE = re.compile(r"^\[(b\d+t\d+)\]", re.M)
+TARGET_RE = re.compile(r"Escolha até (\d+) matérias")
+
+
+def block_coverage(outlets: list[str]) -> dict[str, Any]:
+    """Análise canônica: 1º veículo no lado A, 2º no B, os demais neutros."""
+    stances = ["a", "b"] + ["neutro"] * max(0, len(outlets) - 2)
+    return {
+        "has_debate": len(outlets) >= 2,
+        "side_a": "Destaca o alívio" if len(outlets) >= 2 else "",
+        "side_b": "Destaca o risco" if len(outlets) >= 2 else "",
+        "outlets": [
+            {"outlet": name, "stance": stances[i], "framing": f"Interpretação do foco de {name}: prioriza o dado oficial."}
+            for i, name in enumerate(outlets)
+        ],
+        "conclusion": "A cobertura pendeu para o alívio.",
+    }
+
+
+def canonical_block(user_text: str) -> dict[str, Any]:
+    """Um bloco: cada grupo vira matéria, até o pedido; os seguintes com 2+ veículos, assuntos."""
+    groups = GROUP_RE.findall(user_text)
+    ask = ASK_RE.search(user_text)
+    max_stories = int(ask.group(1)) if ask else len(groups)
+    max_topics = int(ask.group(2) or 0) if ask else 0
+    stories, topics = [], []
+    for gid, section, body in groups:
+        outlets = list(dict.fromkeys(name for name, _ in GROUP_LINE_RE.findall(body)))
+        if len(stories) < max_stories:
+            stories.append(
+                {
+                    "groups": [gid],
+                    "section": section,
+                    "importance": 4 if not stories else 3,
+                    "headline": f"Manchete redigida {gid}",
+                    "dek": f"Linha fina da matéria {gid}.",
+                    "body": [f"Primeiro parágrafo {gid} com **número central**.", f"Segundo parágrafo {gid}."],
+                    "why_it_matters": f"Importa para o leitor ({gid}).",
+                    "coverage": block_coverage(outlets),
+                }
+            )
+        elif len(outlets) >= 2 and len(topics) < max_topics:
+            topics.append({"groups": [gid], "topic": f"Assunto {gid}", "coverage": block_coverage(outlets)})
+    return {"stories": stories, "topics": topics}
+
+
+def canonical_closing(user_text: str) -> dict[str, Any]:
+    keys = CANDIDATE_KEY_RE.findall(user_text)
+    target = TARGET_RE.search(user_text)
+    chosen = keys[: int(target.group(1))] if target else keys
+    return {
+        "duplicates": [],
+        "stories": chosen,
+        "lead": chosen[0] if chosen else "",
+        "editorial": "O dia combina **juros** estáveis e a compilação por editoria.",
+        "briefing": ["Fato um do dia.", "Fato dois do dia.", "Fato três do dia.", "Fato quatro do dia."],
+    }
+
+
 class FakeMistral:
     """``post`` falso; ``overrides[etapa]`` troca a resposta de uma etapa (resposta ou função)."""
 
-    def __init__(self, overrides: dict[str, Any] | None = None) -> None:
+    def __init__(self, overrides: dict[str, Any] | None = None, *, model: str = "mistral-large-2511") -> None:
+        self.model = model  # modelo informado nas respostas dos blocos e do fechamento
         self.requests: list[dict[str, Any]] = []
         self.headers: list[dict[str, str]] = []
         self.urls: list[str] = []
@@ -98,4 +162,8 @@ class FakeMistral:
             return ok(canonical_writing(keys), usage=(5000, 3000))
         if stage == "cobertura":
             return ok(canonical_coverage(user), usage=(2000, 800))
+        if stage == "bloco":
+            return ok(canonical_block(user), usage=(8000, 4000), model=self.model)
+        if stage == "fechamento":
+            return ok(canonical_closing(user), usage=(3000, 600), model=self.model)
         raise AssertionError(f"etapa inesperada: {stage}")

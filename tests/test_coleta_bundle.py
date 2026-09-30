@@ -75,9 +75,16 @@ def test_article_dates_relative_to_collection(bundle: Bundle) -> None:
     assert min(ages) < timedelta(hours=2) and max(ages) > timedelta(hours=20)
 
 
+# Seções criadas depois do bundle de exemplo (coleta de 29/09/2026, quando esporte
+# e entretenimento ainda eram descartados e não havia feeds de natureza).
+SECTIONS_AFTER_FIXTURE = {"esporte", "natureza", "variedades"}
+
+
 def test_all_sections_have_material(bundle: Bundle, config) -> None:
     """Cada seção tem artigos, seja pela dica de tópico da fonte, seja por palavras-chave."""
     for section in config.sections:
+        if section.id in SECTIONS_AFTER_FIXTURE:
+            continue
         keywords = [text.normalize(k) for k in section.keywords]
         hits = [
             a for a in bundle.articles
@@ -119,7 +126,10 @@ def test_weather_for_config_cities(bundle: Bundle, config) -> None:
 
 
 def test_source_statuses(bundle: Bundle, config) -> None:
-    assert [s.url for s in bundle.sources] == [s.url for s in config.sources]
+    # o bundle de exemplo tem os 64 feeds de 29/09/2026, na ordem da configuração
+    fixture_urls = [s.url for s in bundle.sources]
+    assert len(fixture_urls) == 64
+    assert fixture_urls == [s.url for s in config.sources if s.url in set(fixture_urls)]
     failed = [s for s in bundle.sources if not s.ok]
     assert 3 <= len(failed) <= 8
     assert all(s.error and s.items == 0 for s in failed)

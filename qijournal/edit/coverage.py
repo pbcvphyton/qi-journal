@@ -43,7 +43,7 @@ EXCERPT_CHARS_STORY = 700  # matérias da edição: texto da página, quando hou
 HINT_CHARS = 200
 TOPIC_MAX = 110
 SIDE_MAX = 90
-FRAMING_MAX = 160
+FRAMING_MAX = 320
 CONCLUSION_MAX = 360
 RESERVE_SECONDS = 60  # sem esse tempo no prazo, os lotes restantes são pulados
 
@@ -63,9 +63,11 @@ oposição"; "Vê alívio para o mercado" × "Vê pressão sobre os juros". Nada
 (esquerda, direita, governista, oposicionista) nem de adjetivos sobre os veículos. Deixe os dois \
 vazios quando has_debate for false.
 - outlets: exatamente um item para CADA veículo recebido (chaves v1, v2…), com stance "a", "b" ou \
-"neutro" e framing: uma frase curta (até 120 caracteres) dizendo o que aquele veículo destacou. \
-Use "neutro" quando o texto só relata o fato sem pender para um lado, quando pende pouco, ou \
-quando o trecho não permite dizer. Sem debate, todos ficam "neutro".
+"neutro" e framing: a interpretação do foco daquele veículo, em 1 ou 2 frases (até 280 \
+caracteres): o que ele priorizou, que enquadramento deu (tom, personagens, dados que destacou ou \
+deixou de lado em comparação com os outros veículos) e por que isso o põe no lado A, no lado B ou \
+neutro. Use "neutro" quando o texto só relata o fato sem pender para um lado, quando pende pouco, \
+ou quando o trecho não permite dizer. Sem debate, todos ficam "neutro".
 - conclusion: 1 ou 2 frases (até 280 caracteres) dizendo em que sentido a cobertura seguiu: qual \
 enfoque predominou, quantos veículos de cada lado e quem destoou. Sem debate, diga que a \
 cobertura convergiu e o que foi destacado.
@@ -85,7 +87,10 @@ def coverage_schema(keys: list[str]) -> dict[str, Any]:
         {
             "outlet": {"type": "string", "description": "Chave do veículo (v1, v2…)."},
             "stance": {"type": "string", "enum": list(STANCES), "description": "Lado: a, b ou neutro."},
-            "framing": {"type": "string", "description": "O que o veículo destacou (frase curta)."},
+            "framing": {
+                "type": "string",
+                "description": "Interpretação do foco do veículo, comparado aos outros (1-2 frases).",
+            },
         }
     )
     topic = _strict_object(
@@ -233,7 +238,9 @@ def parse_topic(item: Mapping[str, Any], topic: _Topic) -> Coverage:
     )
     if not coverage.conclusion:
         coverage.conclusion = fallback_conclusion(coverage)
+    coverage.article_ids = [a.id for outlet in topic.outlets for a in outlet.articles]
     if topic.cluster is not None:
+        coverage.article_ids = [a.id for a in topic.cluster.articles]
         primary = topic.cluster.primary
         dates = [parse_iso(a.published) for a in topic.cluster.articles]
         latest = max((d for d in dates if d is not None), default=None)
