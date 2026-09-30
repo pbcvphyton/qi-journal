@@ -35,8 +35,9 @@
     </button>
   </div>
   <div class="mast">
-    <h1{% if brand.logo_svg %} class="logo{% if brand.logo_mono %} mono{% endif %}"{% endif %}><a href="{% block home_link %}./{% endblock %}">
-      {%- if brand.logo_svg %}{{ brand.logo_svg }}{% else %}{% for part, cls in brand.wordmark %}<span class="{{ cls }}">{{ part }}</span>{% endfor %}{% endif -%}
+    <h1{% if brand.logo_svg %} class="logo{% if brand.logo_mono %} mono{% endif %}{% if brand.logo_svg_dark %} duo{% endif %}"{% endif %}><a href="{% block home_link %}./{% endblock %}">
+      {%- if brand.logo_svg and brand.logo_svg_dark %}<span class="lg lg-l">{{ brand.logo_svg }}</span><span class="lg lg-d">{{ brand.logo_svg_dark }}</span>
+      {%- elif brand.logo_svg %}{{ brand.logo_svg }}{% else %}{% for part, cls in brand.wordmark %}<span class="{{ cls }}">{{ part }}</span>{% endfor %}{% endif -%}
     </a></h1>
     {% if brand.tagline %}
     <p class="mast-sub">{{ brand.tagline }}</p>

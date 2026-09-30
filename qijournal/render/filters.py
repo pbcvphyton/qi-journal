@@ -208,6 +208,21 @@ def blend(color: str, background: str, alpha: float) -> str:
     return "#" + "".join(f"{round_half_up(f * alpha + b * (1 - alpha)):02X}" for f, b in zip(fg, bg))
 
 
+_SVG_ID = re.compile(r'\bid="([^"]+)"')
+
+
+def prefix_svg_ids(svg: str, prefix: str) -> str:
+    """Prefixa os ``id`` do SVG e as referências a eles (``url(#x)``, ``href="#x"``,
+    ``aria-labelledby``): dois SVGs embutidos na mesma página não colidem."""
+    ids = set(_SVG_ID.findall(svg))
+    if not ids:
+        return svg
+    pattern = re.compile(
+        r'(\bid="|url\(#|href="#|aria-labelledby=")(' + "|".join(re.escape(i) for i in sorted(ids, key=len, reverse=True)) + r')(?=["\)])'
+    )
+    return pattern.sub(lambda m: f"{m.group(1)}{prefix}{m.group(2)}", svg)
+
+
 def clean_svg(svg: str | None) -> Markup | None:
     """SVG da marca (arquivo do repositório) pronto para ser embutido no HTML."""
     if not svg or "<svg" not in svg:

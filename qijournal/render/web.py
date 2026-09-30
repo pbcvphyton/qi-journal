@@ -194,6 +194,8 @@ class BrandView:
     on_masthead: str = DEFAULT_ON_MASTHEAD  # logo e textos sobre o bloco
     # Logo pintado com currentColor: segue a cor do cabeçalho em vez do filtro de inversão do modo escuro.
     logo_mono: bool = False
+    logo_svg_dark: Markup | None = None  # versão própria para o modo escuro (ids prefixados)
+    logo_height: int | None = None  # altura do logo no cabeçalho (px, desktop)
     email_logo: EmailLogo | None = None
 
 
@@ -246,6 +248,8 @@ def brand_view(config: Config) -> BrandView:
     masthead = filters.safe_color(brand.colors.get("masthead"), "") or None
     on_masthead = filters.safe_color(brand.colors.get("on_masthead"), DEFAULT_ON_MASTHEAD)
     logo_svg = filters.clean_svg(brand.logo_svg)
+    logo_dark = filters.clean_svg(filters.prefix_svg_ids(brand.logo_svg_dark, "dk-")) if brand.logo_svg_dark else None
+    height = brand.logo_height if brand.logo_height and 16 <= brand.logo_height <= 200 else None
     rgb = {k: filters.rgb_triplet(v) for k, v in colors.items()}
     rgb["on_masthead"] = filters.rgb_triplet(on_masthead)
     return BrandView(
@@ -259,6 +263,8 @@ def brand_view(config: Config) -> BrandView:
         masthead=masthead,
         on_masthead=on_masthead,
         logo_mono=bool(logo_svg and "currentColor" in logo_svg),
+        logo_svg_dark=logo_dark if logo_svg else None,
+        logo_height=height,
         email_logo=_email_logo(brand.email_logo, config.site.base_url),
     )
 

@@ -380,7 +380,7 @@ def test_default_brand_masthead_logo_and_favicon(edition):
     assert ".mast-wrap.solid{--mh:#3322CC;--on-mh:#F5F3ED;--on-mh-rgb:245,243,237;" in html
     # Logo em currentColor: a cor vem do CSS, sem o filtro de inversão do modo escuro.
     assert '<g fill="currentColor">' in html
-    assert ':root[data-theme="dark"] .mast h1.logo:not(.mono) svg{filter:' in html
+    assert ':root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:' in html
     favicon = re.search(r'<link rel="icon" type="image/svg\+xml" href="([^"]+)"', html).group(1)
     assert favicon.startswith("data:image/svg+xml,%3Csvg") and "3322CC" in favicon
     assert "QI Journal" not in html
@@ -633,3 +633,16 @@ def test_coverage_on_cards_modal_and_compared_section(edition, config):
 def test_no_coverage_no_section(edition, config):
     page = render(edition, config)
     assert 'class="cmp"' not in page and 'class="cov ' not in page
+
+
+def test_logo_with_dark_variant_and_height(edition):
+    cfg = default_config()
+    cfg.brand.logo_svg = '<svg viewBox="0 0 10 2"><title id="t">Claro</title><path fill="#123456" d="M0 0h1"/></svg>'
+    cfg.brand.logo_svg_dark = '<svg viewBox="0 0 10 2"><title id="t">Escuro</title><path fill="#FFFFFF" d="M0 0h1"/></svg>'
+    cfg.brand.logo_height = 56
+    html = render(edition, cfg)
+    assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in html
+    assert '<span class="lg lg-d"><svg viewBox="0 0 10 2"><title id="dk-t">Escuro</title>' in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:56px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html  # celular: 72%
+    assert parse(html).ids["t"] == 1 and parse(html).ids["dk-t"] == 1

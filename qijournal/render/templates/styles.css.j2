@@ -55,7 +55,14 @@ button{font:inherit;color:inherit}
 :root[data-theme="dark"] .mast h1{color:var(--head)}
 .mast h1.logo{line-height:0}
 .mast h1.logo svg{display:block;height:116px;width:auto;margin:0 auto}
-:root[data-theme="dark"] .mast h1.logo:not(.mono) svg{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+:root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+/* Logo com versão própria para o modo escuro: troca de SVG em vez de filtro */
+.mast h1.logo .lg{display:block}
+.mast h1.logo .lg-d,:root[data-theme="dark"] .mast h1.logo .lg-l{display:none}
+:root[data-theme="dark"] .mast h1.logo .lg-d{display:block}
+{% if brand.logo_height %}
+.mast h1.logo svg,.mast h1.logo.mono svg{height:{{ brand.logo_height }}px;max-width:100%}
+{% endif %}
 .mast h1.logo.mono svg{height:64px;color:var(--qn)}
 :root[data-theme="dark"] .mast h1.logo.mono svg{color:var(--head)}
 .mast-sub{font-family:var(--ss);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--mute2);margin-top:6px}
@@ -362,6 +369,7 @@ body.modal-open .btt{visibility:hidden}
   .mast h1{font-size:36px}
   .mast h1.logo svg{height:92px}
   .mast h1.logo.mono svg{height:46px}
+  {% if brand.logo_height %}.mast h1.logo svg,.mast h1.logo.mono svg{height:{{ (brand.logo_height * 0.72)|round|int }}px}{% endif %}
   .mast-tools{top:12px;right:12px;left:12px;justify-content:flex-end}
   .tool{height:26px;padding:0 10px}
   .wx{justify-content:flex-start;padding:6px 16px;gap:2px 20px;white-space:normal}

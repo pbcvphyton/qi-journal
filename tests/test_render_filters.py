@@ -254,3 +254,14 @@ def test_blend_mixes_over_the_background():
     assert filters.blend("#FFFFFF", "#000000", 0.5) == "#808080"
     assert filters.blend("#F5F3ED", "#3322CC", 0.8) == "#CEC9E6"
     assert filters.blend("#F5F3ED", "#3322CC", 2) == "#F5F3ED"  # alpha limitado a [0, 1]
+
+
+def test_prefix_svg_ids_rewrites_ids_and_references():
+    svg = (
+        '<svg aria-labelledby="t"><title id="t">X</title><defs><linearGradient id="g"/></defs>'
+        '<path fill="url(#g)"/><use href="#g"/><text>id="g" solto</text></svg>'
+    )
+    out = filters.prefix_svg_ids(svg, "dk-")
+    assert 'aria-labelledby="dk-t"' in out and 'id="dk-t"' in out and 'id="dk-g"' in out
+    assert 'fill="url(#dk-g)"' in out and 'href="#dk-g"' in out
+    assert filters.prefix_svg_ids('<svg><path d="M0 0"/></svg>', "dk-") == '<svg><path d="M0 0"/></svg>'
