@@ -18,25 +18,27 @@ brand: tech
 brands:
   tech:
     name: "PBCV Tech"
-    wordmark: ["PBCV", "", " Tech"]   # só sem logo (texto do cabeçalho); "PBCV" usa a cor de destaque
+    wordmark: ["", "PBCV", " Tech"]   # só sem logo (texto do cabeçalho e alternativa do e-mail)
     tagline: "Seu terminal financeiro diário"
-    # Logo "Quatro Formas" (Claude Design, PBCV Tech — Logo 2026). Pintado com
-    # currentColor: a cor vem do cabeçalho (on_masthead), sem filtro no modo escuro.
+    # Logo "Luz Cruzada" (Claude Design, PBCV Tech — Logo 2026, direção 08): o
+    # prisma cobalto + aqua faz o papel do Q ciano do antigo QI Journal. O PBCV
+    # usa a tinta marinho da QI (#0A2051), a mesma do ticker. Cabeçalho claro,
+    # como na QI; no modo escuro entra a versão própria (sem filtro de inversão).
     logo_svg: "assets/pbcv-tech-logo.svg"
+    logo_svg_dark: "assets/pbcv-tech-logo-dark.svg"
+    logo_height: 44
     favicon_svg: "assets/pbcv-tech-favicon.svg"
-    # Logo do e-mail (PNG 3x, off-white com fundo transparente), servido pelo
-    # GitHub Pages em base_url + src. Clientes de e-mail não exibem SVG.
-    email_logo: {src: "assets/pbcv-tech-logo-email.png", width: 212, height: 44}
+    # Logo do e-mail (PNG 3x com fundo branco opaco, para não sumir no modo
+    # escuro dos clientes), servido pelo GitHub Pages em base_url + src.
+    email_logo: {src: "assets/pbcv-tech-logo-email.png", width: 260, height: 38}
     colors:
-      primary: "#3322CC"     # --qi · azul da marca
-      navy: "#0E1016"        # --qn · tinta (ticker, rodapé, títulos)
-      accent: "#8C80FF"      # --qc · lavanda (marcadores, destaques sobre a tinta)
-      alert: "#D14424"       # --qr · tijolo (radar ao vivo, fonte com erro)
-      ticker_up: "#A59CFF"
-      ticker_down: "#FF8A5C"
-      masthead: "#3322CC"    # cabeçalho em bloco azul, como no logo
-      on_masthead: "#F5F3ED" # logo, slogan e data sobre o azul
-    section_palette: ["#3322CC", "#1E6B52", "#7A5C1F", "#B23A1E", "#0F5F7A", "#7A2E6E", "#5C5346"]
+      primary: "#1E36C8"     # --qi · cobalto profundo do prisma (links, réguas, chapéus)
+      navy: "#0A2051"        # --qn · marinho da QI (ticker, rodapé, títulos)
+      accent: "#1FD1E1"      # --qc · aqua do prisma (marcadores; só decoração no fundo claro)
+      alert: "#D14424"       # --qr · radar ao vivo, fonte com erro
+      ticker_up: "#2EDBEA"
+      ticker_down: "#FF5C8A"
+    section_palette: ["#1E36C8", "#0F7C8C", "#1E6B52", "#2E6BD6", "#6B3FA0", "#C90055", "#0A2051"]
   pbcv:
     name: "PBCV Advogados"
     wordmark: ["PBCV", "", " ADVOGADOS"]

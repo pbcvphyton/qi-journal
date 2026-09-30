@@ -299,15 +299,23 @@ Há duas marcas prontas: **PBCV Tech** (`tech`, padrão) e **PBCV Advogados**
 Cores, nome, slogan e logo de cada marca ficam em `config/site.yaml → brands`.
 Uma `QIJ_BRAND` com marca inexistente (como o antigo `qi`) cai na marca padrão.
 
-A marca PBCV Tech usa o logo "Quatro Formas" (projeto *PBCV Tech — Logo 2026*
-no Claude Design) e as cores dele: azul `#3322CC` (cabeçalho em bloco), tinta
-`#0E1016` (ticker e rodapé) e off-white `#F5F3ED` (logo e fundo da página).
+A marca PBCV Tech usa o logo **Luz Cruzada** (direção 08 do projeto *PBCV Tech —
+Logo 2026* no Claude Design), escolhido entre as 17 direções por ser o mais
+próximo da estética do antigo QI Journal: cabeçalho claro, "PBCV" em sans larga
+no marinho da QI (`#0A2051`) e o prisma cobalto + aqua no papel do "Q" ciano. A
+paleta vem do prisma: cobalto `#1E36C8` (links e réguas), aqua `#1FD1E1`
+(marcadores) e altas/quedas do ticker em `#2EDBEA`/`#FF5C8A`, com os cinzas
+azulados do layout original.
 
-- `assets/pbcv-tech-logo.svg` — logo do cabeçalho, pintado com `currentColor`
-  (a cor vem de `colors.on_masthead`);
-- `assets/pbcv-tech-favicon.svg` — ícone (símbolo off-white sobre o azul);
-- `assets/pbcv-tech-logo-email.png` — logo do e-mail (clientes de e-mail não
-  exibem SVG), servido pelo GitHub Pages (`email_logo` em `site.yaml`).
+- `assets/pbcv-tech-logo.svg` e `assets/pbcv-tech-logo-dark.svg` — logo do
+  cabeçalho para os modos claro e escuro (`logo_svg` e `logo_svg_dark`; o site
+  troca de SVG, sem filtro de inversão). Altura em `logo_height`;
+- `assets/pbcv-tech-favicon.svg` — ícone (prisma sobre o marinho);
+- `assets/pbcv-tech-logo-email.png` — logo do e-mail (PNG com fundo branco;
+  clientes de e-mail não exibem SVG), servido pelo GitHub Pages (`email_logo`).
+
+Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
+`colors.on_masthead` (logo em `currentColor`).
 
 ---
 

@@ -32,7 +32,7 @@
   {
    "id": "brasil",
    "title": "Brasil · Economia",
-   "color": "#3322CC",
+   "color": "#1E36C8",
    "story_ids": [
     "divida-publica-federal-alcanca-r-9-293-trilhoes",
     "governo-determina-que-preco-abusivo-de-combustiv",
@@ -43,7 +43,7 @@
   {
    "id": "mercados",
    "title": "Mercados & Finanças",
-   "color": "#1E6B52",
+   "color": "#0F7C8C",
    "story_ids": [
     "dolar-sobe-a-r-5-22-e-ibovespa-cai-com-petroleo",
     "juros-futuros-sobem-com-pressao-externa-e-pesqui",
@@ -53,7 +53,7 @@
   {
    "id": "juridico",
    "title": "Jurídico & Regulação",
-   "color": "#7A5C1F",
+   "color": "#1E6B52",
    "story_ids": [
     "fux-acata-pedido-da-defesa-de-flavio-e-cassa-dec",
     "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
@@ -66,7 +66,7 @@
   {
    "id": "politica",
    "title": "Política",
-   "color": "#B23A1E",
+   "color": "#2E6BD6",
    "story_ids": [
     "quaest-49-desaprovam-governo-lula-e-46-aprovam",
     "ricardo-salles-desiste-de-concorrer-ao-senado-em",
@@ -76,7 +76,7 @@
   {
    "id": "mundo",
    "title": "Geopolítica & Mundo",
-   "color": "#0F5F7A",
+   "color": "#6B3FA0",
    "story_ids": [
     "reino-unido-investiga-acao-de-estado-estrangeiro",
     "petroleo-sobe-com-impasse-nas-negociacoes-de-ces"
@@ -85,7 +85,7 @@
   {
    "id": "tecnologia",
    "title": "Tecnologia & Negócios",
-   "color": "#7A2E6E",
+   "color": "#C90055",
    "story_ids": [
     "openai-abandona-lancamento-de-novo-modelo-de-ia",
     "anthropic-preve-em-prospecto-de-ipo-que-ia-pode",
@@ -96,7 +96,7 @@
   {
    "id": "imobiliario",
    "title": "Imobiliário",
-   "color": "#5C5346",
+   "color": "#0A2051",
    "story_ids": [
     "fii-trxf11-conclui-venda-de-15-imoveis-por-r-207",
     "fii-da-kinea-aprova-13a-emissao-e-oferta-pode-so"
@@ -172,7 +172,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/WP6DrcrbInywVmMgQcRBzsX7q4U=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/F/S/RP9KqHRBurncYkWDSePw/foto21pol-201-fux-a12.jpg",
    "published": "2026-09-29T03:46:20+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "quaest-49-desaprovam-governo-lula-e-46-aprovam",
@@ -240,7 +241,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/Ug9AJTShpK5bY_TpMVBaJGkN3u8=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/M/y/uxkvpcSfaaiaEzyI4fhA/lula-esfera3.jpg",
    "published": "2026-09-28T14:55:44+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "zanin-manda-anatel-garantir-acesso-gratuito-a-si",
@@ -293,7 +295,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/IX-AMSdKrVD-Q8y-UxHIqqkB0is=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/W/q/iw3R6wQeaim7padbxiKg/tse-novaurna.jpeg",
    "published": "2026-09-28T22:45:11+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "agu-processa-bets-e-pede-r-1-bilhao-por-prejuizo",
@@ -343,7 +346,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/CBQR3uSsPiC6CVzpj1dwA9j0vBo=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/O/9/8wslpCQ1mnyHToNj935w/agu.jpg",
    "published": "2026-09-28T22:23:12+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "divida-publica-federal-alcanca-r-9-293-trilhoes",
@@ -386,7 +390,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/EP8GdzVOPVMiI-O3uR2Czy8C60k=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/H/9/r2829xQYKrqflAwCcZYQ/55234659368-fa03bd6155-k.jpg",
    "published": "2026-09-28T17:55:21+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "openai-abandona-lancamento-de-novo-modelo-de-ia",
@@ -459,7 +464,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/9m0SeGoJOJSikmEcHDyYm7JmQds=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/s/I/0v7JnURFSWL6Rz3n6Rzw/pexels-tim-witzdam-1081250691-32021560.jpg",
    "published": "2026-09-28T23:31:28+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "ricardo-salles-desiste-de-concorrer-ao-senado-em",
@@ -507,7 +513,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/JGnc4vG5-1DYemLSF2IuXPXUUeg=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/r/1/GMT0hhSAGkigw3EBPNKA/107179682-pa-brasilia-df-04-06-2024-pec-das-drogas-deve-ser-votada-na-ccj-da-camara-entenda-a-prop.jpg",
    "published": "2026-09-28T14:57:08+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "reino-unido-investiga-acao-de-estado-estrangeiro",
@@ -567,7 +574,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/4Ah1g6TwmXFj-aakBfCdoft7qXI=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/i/U/wd0CaAQwyYUGnwbmXrIw/2026-09-28t062716z-271215523-rc26snacd1f4-rtrmadp-3-britain-usa-fairford.jpg",
    "published": "2026-09-28T16:16:21+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "starship-da-spacex-realiza-1o-voo-orbital-lanca",
@@ -617,7 +625,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/ZsIrKQN_dhc8Obk8fABHbr7Q2TE=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/i/R/V4QsewTzAdgdwbQ59KEw/2026-09-28t134225z-1967050912-rc2dsnakleq5-rtrmadp-3-space-spacex-starship.jpg",
    "published": "2026-09-28T14:56:26+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "dolar-sobe-a-r-5-22-e-ibovespa-cai-com-petroleo",
@@ -653,7 +662,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/18QvJ8onyuR5Eor9Lw9KbpxpGgU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/j/7/RvTZSYSEqcVMI0xY8AyQ/barril-de-petroleo-barris-jack-sue-drafahl-pexels.jpg",
    "published": "2026-09-28T20:45:38+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "gilmar-quer-suspender-analise-sobre-alexandre-de",
@@ -694,7 +704,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/MRt6mmmdjcmDCcLwsAd6fyN5Xwo=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/t/m/uDT7pCSbA3r4jd953EKw/55546886234-a75588d348-k.jpg",
    "published": "2026-09-28T22:02:48+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "ambipar-obtem-aval-da-justica-dos-eua-para-centr",
@@ -735,7 +746,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/JHWNQNOXFxHsep0dGmcnEOSI1Os=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/C/h/qr6pF4RFaiwr3SLLr4XQ/foto28emp-101-ambipar-b9.jpg",
    "published": "2026-09-28T20:55:26+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "anthropic-preve-em-prospecto-de-ipo-que-ia-pode",
@@ -784,7 +796,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/8J1BcupdvM7Yi3V0XhwyRj5ZxS0=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/D/y/IJlSv9QtG8L15bubLPfQ/ap26152607734335.jpg",
    "published": "2026-09-29T02:21:10+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "nvidia-aprova-limite-adicional-de-us-150-bilhoes",
@@ -837,7 +850,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/6qCNffgKl6bdSG8ZFHMW_VTvG_k=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/O/6/pb8IZZSRKBLbxW64XbPw/465770781.jpg",
    "published": "2026-09-28T12:00:11+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "governo-determina-que-preco-abusivo-de-combustiv",
@@ -872,7 +886,8 @@
    "why_it_matters": null,
    "image": "https://www.estadao.com.br/resizer/v2/KWCADUBSSBP35AO2GJXPGOI5GY.jpg?auth=0a5381a948e4c7fe163f7e06cec06cb09771ecb0a586a873ce60ce2e949a5b4d&smart=true&width=1000",
    "published": "2026-09-29T01:20:52+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "cnj-determina-devolucao-ao-tesouro-de-mais-r-2-3",
@@ -912,7 +927,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/4obVEkb5_dGD8P97QZKZ0gJj2cs=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/k/a/oLT7eWTIKzKACBBmoj9w/minsterio-da-fazenda.jpg",
    "published": "2026-09-28T21:39:04+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "mercado-eleva-projecoes-do-ipca-de-2026-para-4-9",
@@ -952,7 +968,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/-v2ZvUR1JRbJWl4hkKnVd6lcnkU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2024/X/K/Q53VSAQVSS6cTUFxNViA/ray-reyes-3xwrg7vv6ts-unsplash.jpg",
    "published": "2026-09-28T11:44:24+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "petroleo-sobe-com-impasse-nas-negociacoes-de-ces",
@@ -999,7 +1016,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/-ZxX8E8lB-Rl7nGyr23aWpwbXiA=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/u/f/JP3d71TLyzewe0ALkTIQ/2026-09-28t112810z-1429216555-rc25snahczm1-rtrmadp-3-iran-crisis-hormuz-1-.jpg",
    "published": "2026-09-29T02:39:50+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "lula-sanciona-lei-de-incentivo-ao-futebol-femini",
@@ -1042,7 +1060,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/OSDZc1sC9KMiJucGRdgm1mbeW6c=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/K/6/j3E846S8Cyr7tesTDB2Q/foto23pol-201-lula-a15.jpg",
    "published": "2026-09-28T17:43:48+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "acoes-do-nubank-despencam-apos-rumores-de-eventu",
@@ -1073,7 +1092,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/2Bg8jR87zLu-Jm4qPy28QfXj99c=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2020/H/d/lR2Yd6QAWCACex5mcz9w/nubank-escritorio-03.jpg",
    "published": "2026-09-28T15:29:29+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "juros-futuros-sobem-com-pressao-externa-e-pesqui",
@@ -1104,7 +1124,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/wfrMxwovx_MzscMf7Looiz641_0=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2022/J/m/3ygaGBSiy5GjtOpCH6yg/taxas-juros-percentual-karolina-grabowska-pexels.jpg",
    "published": "2026-09-28T20:17:21+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "ibovespa-cai-e-perde-os-183-mil-com-aversao-a-ri",
@@ -1134,7 +1155,8 @@
    "why_it_matters": null,
    "image": "https://s2-valor.glbimg.com/WybrGNijyXKRYeZ8OoPGFLjwI4s=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/K/C/YR9jSmTdeSaJpbSctuFA/439453216.jpg",
    "published": "2026-09-28T20:37:01+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "fii-trxf11-conclui-venda-de-15-imoveis-por-r-207",
@@ -1164,7 +1186,8 @@
    "why_it_matters": null,
    "image": "https://www.infomoney.com.br/wp-content/uploads/2026/03/pao-de-acucar.jpg",
    "published": "2026-09-28T20:21:02+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   },
   {
    "id": "fii-da-kinea-aprova-13a-emissao-e-oferta-pode-so",
@@ -1194,7 +1217,8 @@
    "why_it_matters": null,
    "image": "https://www.infomoney.com.br/wp-content/uploads/2025/12/daniel-dan-ZbMuzk8iJAI-unsplash.jpg",
    "published": "2026-09-28T17:43:42+00:00",
-   "lang": "pt"
+   "lang": "pt",
+   "coverage": null
   }
  ],
  "quotes": [
@@ -1470,5 +1494,6 @@
    "published": "2026-09-28T22:06:00+00:00",
    "section": "brasil"
   }
- ]
+ ],
+ "compared": []
 }

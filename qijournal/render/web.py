@@ -24,12 +24,12 @@ from . import filters
 log = logging.getLogger(__name__)
 
 DEFAULT_COLORS = {
-    "primary": "#3322CC",
-    "navy": "#0E1016",
-    "accent": "#8C80FF",
+    "primary": "#1E36C8",
+    "navy": "#0A2051",
+    "accent": "#1FD1E1",
     "alert": "#D14424",
-    "ticker_up": "#A59CFF",
-    "ticker_down": "#FF8A5C",
+    "ticker_up": "#2EDBEA",
+    "ticker_down": "#FF5C8A",
 }
 DEFAULT_ON_MASTHEAD = "#FFFFFF"
 RADAR_SIZE = 8

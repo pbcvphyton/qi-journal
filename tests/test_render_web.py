@@ -202,9 +202,10 @@ def test_ticker_and_weather(page):
 
 def test_header_dateline_and_tools(page):
     assert "Terça-feira, 29 de setembro de 2026 · 05:07 BRT" in page
-    assert '<header class="mast-wrap solid">' in page
-    assert '<h1 class="logo mono"><a href="./"><svg' in page
+    assert '<header class="mast-wrap">' in page  # cabeçalho claro, como no QI Journal
+    assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in page
     assert '<title id="pbcv-tech-logo-title">PBCV Tech</title>' in page
+    assert '<title id="dk-pbcv-tech-logo-title">PBCV Tech</title>' in page  # versão do modo escuro
     assert 'class="q"' not in page  # wordmark de texto não é usado quando há logo
     assert 'id="dmBtn"' in page and 'id="srchBtn"' in page and 'id="srchInput"' in page
     assert 'id="rdprog"' in page and 'id="btt"' in page
@@ -234,7 +235,7 @@ def test_heuristic_mode_label(edition, config):
 
 def test_archive_page_links(edition, config):
     html = render(edition, config, home_href="../", archive_href="./")
-    assert '<h1 class="logo mono"><a href="../">' in html
+    assert '<h1 class="logo duo"><a href="../">' in html
     assert '<a href="./">Edições anteriores</a>' in html
 
 
@@ -242,7 +243,7 @@ def test_unsafe_hrefs_fall_back_to_defaults(edition, config):
     html = render(edition, config, home_href="javascript:alert(1)", archive_href="//evil.example/")
     hrefs = parse(html).hrefs
     assert not [h for h in hrefs if h.startswith(("javascript:", "//"))]
-    assert '<h1 class="logo mono"><a href="./">' in html
+    assert '<h1 class="logo duo"><a href="./">' in html
     assert '<a href="edicoes/">Edições anteriores</a>' in html
 
 
@@ -309,7 +310,7 @@ def test_invalid_brand_color_is_replaced(edition):
     cfg.brand.colors["primary"] = "red;}</style><script>alert(1)</script>"
     html = render(edition, cfg)
     assert "<script>alert(1)" not in html
-    assert "--qi:#3322CC;" in html
+    assert "--qi:#1E36C8;" in html
 
 
 # ── view ─────────────────────────────────────────────────────────────────────
@@ -373,24 +374,36 @@ def test_pbcv_brand_renders_inline_logo(edition):
     assert '<meta name="theme-color" content="#1B2745">' in html
 
 
-def test_default_brand_masthead_logo_and_favicon(edition):
+def test_default_brand_logo_palette_and_favicon(edition):
     html = render(edition, default_config())
-    assert '<meta name="theme-color" content="#3322CC">' in html
+    assert '<meta name="theme-color" content="#0A2051">' in html
     assert '<meta name="generator" content="PBCV Tech · qijournal 2.0">' in html
-    assert ".mast-wrap.solid{--mh:#3322CC;--on-mh:#F5F3ED;--on-mh-rgb:245,243,237;" in html
-    # Logo em currentColor: a cor vem do CSS, sem o filtro de inversão do modo escuro.
-    assert '<g fill="currentColor">' in html
+    assert "--qi:#1E36C8;--qn:#0A2051;--qc:#1FD1E1;" in html
+    assert ".mast-wrap.solid{" not in html  # cabeçalho claro
+    # Luz Cruzada: PBCV na tinta marinho da QI; versão escura própria, sem filtro de inversão
+    assert 'fill="#0A2051"' in html and 'fill="#DCE4FF"' in html
     assert ':root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:' in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:44px;max-width:100%}" in html
+    assert "--ink:#1a2332;--paper:#fff;--bg:#f0f2f5;" in html  # neutros frios do layout original
     favicon = re.search(r'<link rel="icon" type="image/svg\+xml" href="([^"]+)"', html).group(1)
-    assert favicon.startswith("data:image/svg+xml,%3Csvg") and "3322CC" in favicon
+    assert favicon.startswith("data:image/svg+xml,%3Csvg") and "prisma-tile" in favicon
     assert "QI Journal" not in html
+
+
+def test_solid_masthead_is_still_supported(edition):
+    cfg = default_config()
+    cfg.brand.colors["masthead"] = "#3322CC"
+    cfg.brand.colors["on_masthead"] = "#F5F3ED"
+    html = render(edition, cfg)
+    assert '<header class="mast-wrap solid">' in html and '<meta name="theme-color" content="#3322CC">' in html
+    assert ".mast-wrap.solid{--mh:#3322CC;--on-mh:#F5F3ED;--on-mh-rgb:245,243,237;" in html
 
 
 def test_text_wordmark_without_logo(edition):
     cfg = default_config()
     cfg.brand.logo_svg = None
     html = render(edition, cfg)
-    assert '<h1><a href="./"><span class="q">PBCV</span><span class="journal"> Tech</span></a></h1>' in html
+    assert '<h1><a href="./"><span class="i">PBCV</span><span class="journal"> Tech</span></a></h1>' in html
 
 
 def test_invalid_masthead_color_keeps_paper_header(edition):
