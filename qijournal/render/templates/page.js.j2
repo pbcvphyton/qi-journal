@@ -61,9 +61,10 @@
     var LINK = 110, width = 0, height = 0, points = [], frame = 0, visible = true, colors = {};
 
     function readColors() {
-      var style = getComputedStyle(root);
-      colors.dot = style.getPropertyValue('--qi').trim() || '#1C49A5';
-      colors.line = style.getPropertyValue('--qc').trim() || '#57D9FF';
+      // --fx-* valem no próprio canvas: o cabeçalho em bloco de cor os redefine.
+      var style = getComputedStyle(canvas);
+      colors.dot = style.getPropertyValue('--fx-dot').trim() || '#394A7A';
+      colors.line = style.getPropertyValue('--fx-line').trim() || '#FF5A1F';
     }
     function resize() {
       var rect = canvas.getBoundingClientRect();

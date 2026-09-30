@@ -1,4 +1,4 @@
-# Edição diária do QI Journal: coleta, edita (IA ou automática), publica no
+# Edição diária do jornal PBCV Tech: coleta, edita (IA ou automática), publica no
 # GitHub Pages (commit em index.html, edicoes/ e data/) e, depois que o Pages
 # publicou, envia o e-mail por SMTP quando os segredos estiverem configurados.
 name: Edição diária
@@ -30,8 +30,10 @@ jobs:
   edition:
     runs-on: ubuntu-latest
     # Pior caso: coleta com retentativas (~6 min) + enriquecimento (~2 min) +
-    # 2 chamadas à IA (até 20 min cada, ver llm.timeout_seconds). Se a IA
-    # travar, o SDK desiste antes deste limite e a edição sai em modo automático.
+    # edição por IA, limitada a llm.deadline_seconds (45 min): o Mistral (plano
+    # gratuito) faz ~10-15 chamadas espaçadas (agrupamento de todas as notícias,
+    # pauta, redação e cobertura comparada); o Claude, 2. Se a IA travar, ela
+    # desiste antes deste limite e a edição sai em modo automático.
     timeout-minutes: 55
     steps:
       - name: Baixar o repositório
@@ -53,9 +55,11 @@ jobs:
 
       - name: Gerar a edição
         env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           QIJ_BRAND: ${{ vars.QIJ_BRAND }}
           QIJ_MODEL: ${{ vars.QIJ_MODEL }}
+          QIJ_MISTRAL_MODEL: ${{ vars.QIJ_MISTRAL_MODEL }}
           # Entradas do disparo manual (vazias no agendamento): passadas por
           # variável de ambiente, nunca interpoladas direto no script.
           INPUT_NO_LLM: ${{ inputs.no_llm }}

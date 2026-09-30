@@ -133,6 +133,14 @@ def _heading(title: str) -> list[str]:
     return ["", title, "-" * len(title)]
 
 
+def _coverage_lines(story: StoryView, indent: str = "") -> list[str]:
+    """"Cobertura: Pende para: … · 3 de 5 veículos. <conclusão>" (vazio sem cobertura comparada)."""
+    if not story.coverage:
+        return []
+    conclusion = f" {story.coverage.conclusion}" if story.coverage.conclusion else ""
+    return _wrap(f"Cobertura: {story.coverage.lean_label}.{conclusion}", indent)
+
+
 def _story_lines(story: StoryView, base_url: str, bullet: str) -> list[str]:
     indent = " " * len(bullet)
     lines = _wrap(story.headline, indent, first=bullet)
@@ -140,6 +148,7 @@ def _story_lines(story: StoryView, base_url: str, bullet: str) -> list[str]:
         lines += _wrap(story.dek, indent)
     if story.sources:
         lines += _wrap(f"Fontes: {', '.join(s.name for s in story.sources)}", indent)
+    lines += _coverage_lines(story, indent)
     lines.append(f"{indent}{story_url(base_url, story.id)}")
     return lines
 
@@ -185,6 +194,7 @@ def _render_text(view: EditionView, sections: list[EmailSection], footer: dict[s
             lines += _wrap(lead.dek)
         if lead.sources:
             lines += _wrap(f"Fontes: {', '.join(s.name for s in lead.sources)}")
+        lines += _coverage_lines(lead)
         lines.append(f"Ler na edição: {story_url(page, lead.id)}")
     for section in sections:
         lines += _heading(section.title)

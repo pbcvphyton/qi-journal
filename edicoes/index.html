@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QI Journal — Edições anteriores</title>
-<meta name="description" content="Arquivo com todas as edições do QI Journal.">
-<meta name="theme-color" content="#0A2051">
-<meta name="generator" content="QI Journal 2.0">
+<title>PBCV Tech — Edições anteriores</title>
+<meta name="description" content="Arquivo com todas as edições do PBCV Tech.">
+<meta name="theme-color" content="#1B2745">
+<meta name="generator" content="PBCV Tech · qijournal 2.0">
 <link rel="canonical" href="https://pbcvphyton.github.io/qi-journal/edicoes/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%230A2051%22/%3E%3Ctext x=%2232%22 y=%2245%22 font-family=%22Arial,Helvetica,sans-serif%22 font-size=%2240%22 font-weight=%22700%22 text-anchor=%22middle%22 fill=%22%2357D9FF%22%3EQ%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 width=%2264%22 height=%2264%22 shape-rendering=%22crispEdges%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%222%22 fill=%22%230C0F16%22/%3E%3Cpath fill=%22%23FFFFFF%22 d=%22M14 1V2H15V3H14V4H15V6H14V7H9V1ZM13 2H11V3H13ZM6 9V10H7V11H5V10H3V14H5V13H7V14H6V15H2V14H1V10H2V9ZM6 4V5H3V7H1V1H6V2H7V4ZM3 2V4H5V2ZM11 15V14H10V12H9V9H11V12H13V9H15V12H14V14H13V15ZM13 4H11V6H13Z%22/%3E%3Crect x=%227%22 y=%227%22 width=%222%22 height=%222%22 fill=%22%23FF5A1F%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;0,900;1,400&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
@@ -31,13 +31,14 @@
 })(document, window);</script>
 <style>
 :root{
-  --qi:#1C49A5;--qn:#0A2051;--qc:#57D9FF;--qr:#FF2F80;
-  --up:#57D9FF;--down:#FF2F80;
-  --qi-rgb:28,73,165;--qn-rgb:10,32,81;--qr-rgb:255,47,128;
+  --qi:#394A7A;--qn:#1B2745;--qc:#FF5A1F;--qr:#FF5A1F;
+  --up:#7FC8FF;--down:#FF5C9A;
+  --qi-rgb:57,74,122;--qn-rgb:27,39,69;--qr-rgb:255,90,31;
   --ink:#1a2332;--paper:#fff;--bg:#f0f2f5;--rule:#d0d5dd;--rl:#e4e7ec;
-  --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#687487;--faint:#6b778a;
+  --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#5f6b7e;--faint:#626e81;
   --soft:#f8f9fb;--side:#fdfdfd;--hover:#fafbff;--hl:#e8ebf0;--op-a:#fafbff;--op-b:#f0f2f5;
   --link:var(--qi);--text:#333d4d;
+  --fx-dot:var(--qi);--fx-line:var(--qc);
   --sf:'Noto Serif',Georgia,'Times New Roman',serif;
   --ss:'Noto Sans',Helvetica,Arial,sans-serif;
   --mn:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -60,7 +61,8 @@ button{font:inherit;color:inherit}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-9999px;top:8px;z-index:10000;padding:8px 14px;background:var(--paper);color:var(--link);font-family:var(--ss);font-size:13px;font-weight:700;border:2px solid var(--qi)}
 .skip:focus{left:16px}
-.paper{max-width:1120px;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(var(--qn-rgb),.08)}
+.paper{max-width:1120px;min-height:100vh;display:flex;flex-direction:column;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(var(--qn-rgb),.08)}
+.paper>main{flex:1}
 :root[data-theme="dark"] .paper{box-shadow:0 0 60px rgba(0,0,0,.5)}
 
 /* Barra de progresso de leitura */
@@ -80,10 +82,18 @@ button{font:inherit;color:inherit}
 :root[data-theme="dark"] .mast h1{color:var(--head)}
 .mast h1.logo{line-height:0}
 .mast h1.logo svg{display:block;height:116px;width:auto;margin:0 auto}
-:root[data-theme="dark"] .mast h1.logo svg{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+:root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+/* Logo com versão própria para o modo escuro: troca de SVG em vez de filtro */
+.mast h1.logo .lg{display:block}
+.mast h1.logo .lg-d,:root[data-theme="dark"] .mast h1.logo .lg-l{display:none}
+:root[data-theme="dark"] .mast h1.logo .lg-d{display:block}
+.mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}
+.mast h1.logo.mono svg{height:64px;color:var(--qn)}
+:root[data-theme="dark"] .mast h1.logo.mono svg{color:var(--head)}
 .mast-sub{font-family:var(--ss);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--mute2);margin-top:6px}
 .mast h1.logo+.mast-sub{margin-top:14px}
 .mast-date{font-family:var(--mn);font-size:10px;color:var(--faint);margin-top:8px;letter-spacing:1px}
+.mast-date .nw{white-space:nowrap}
 .mast-tools{position:absolute;top:14px;right:16px;z-index:3;display:flex;gap:6px}
 .tool{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border:1.5px solid var(--rule);border-radius:20px;background:var(--paper);font-family:var(--mn);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--mute2);cursor:pointer;transition:border-color .25s,color .25s}
 .tool:hover{border-color:var(--link);color:var(--link)}
@@ -108,6 +118,7 @@ button{font:inherit;color:inherit}
 @keyframes tk-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .tk-pause{position:absolute;top:0;right:0;bottom:0;width:44px;padding-left:12px;border:none;background:linear-gradient(90deg,rgba(var(--qn-rgb),0),var(--qn) 45%);color:rgba(255,255,255,.75);font-size:10px;letter-spacing:-1px;cursor:pointer}
 .tk-pause:hover{color:#fff}
+:root[data-theme="dark"] .tk-pause{background:linear-gradient(90deg,rgba(10,20,48,0),#0a1430 45%)}
 .tk-pause[hidden]{display:none}
 
 /* Faixa de clima */
@@ -164,7 +175,7 @@ figure.img-fail{display:none}
 .hero-r .ss:last-child{border-bottom:none}
 .hero-r .ss:hover{background:var(--hover)}
 .hero-r .ss h3{font-size:16px;font-weight:700;line-height:1.24;margin-bottom:6px;color:var(--ink)}
-.hero-r .ss p:not(.cat):not(.meta){font-family:var(--ss);font-size:12px;color:var(--muted);line-height:1.5}
+.hero-r .ss>p:not(.cat):not(.meta){font-family:var(--ss);font-size:12px;color:var(--muted);line-height:1.5}
 
 /* Destaques numerados */
 .dst{padding:14px 30px 16px;background:linear-gradient(135deg,var(--soft),var(--paper));border-bottom:1px solid var(--rl)}
@@ -278,6 +289,53 @@ body.modal-open{overflow:hidden}
 .ml .bb a:hover{color:var(--qr);text-decoration:underline}
 .ml .mtime{margin-top:16px;font-family:var(--mn);font-size:10px;color:var(--faint);letter-spacing:.5px}
 
+/* Cobertura comparada: lado A à esquerda, neutros no meio, lado B à direita */
+:root{--cov-a:var(--qi);--cov-b:#C8631A;--cov-n:#C5CCD8}
+:root[data-theme="dark"]{--cov-a:#8FA0CC;--cov-a:color-mix(in srgb,var(--qi) 55%,#fff);--cov-b:#FF8A5C;--cov-n:#3A4658}
+.cov-bar{display:flex;gap:2px;height:8px;border-radius:4px;overflow:hidden;background:var(--rl)}
+.cov-bar span{display:block;height:100%;min-width:4px}
+.cov-a{background:var(--cov-a)}
+.cov-n{background:var(--cov-n)}
+.cov-b{background:var(--cov-b)}
+.cov.mini{margin-top:10px}
+.cov.mini .cov-bar{height:5px}
+.cov-lean{margin-top:5px;font-family:var(--mn);font-size:9px;letter-spacing:.3px;line-height:1.45;color:var(--mute2)}
+.cov-lean::before,.cov-sa::before,.cov-sb::after{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--cov-n)}
+.cov-lean::before{margin-right:6px}
+.lean-a .cov-lean::before,.cov-sa::before{background:var(--cov-a)}
+.lean-b .cov-lean::before,.cov-sb::after{background:var(--cov-b)}
+.lean-equilibrio .cov-lean::before{background:linear-gradient(90deg,var(--cov-a) 50%,var(--cov-b) 50%)}
+.cov.full .cov-lean{font-size:10px;font-weight:600;color:var(--ink)}
+.cov-scale{display:flex;justify-content:space-between;gap:16px;margin-bottom:6px;font-family:var(--ss);font-size:11.5px;font-weight:600;line-height:1.35;color:var(--ink)}
+.cov-sa::before{margin-right:6px}
+.cov-sb{text-align:right}
+.cov-sb::after{margin-left:6px}
+.cov-scale b{font-family:var(--mn);font-weight:600;color:var(--mute2)}
+.cov-c{margin-top:8px;font-family:var(--sf);font-size:14.5px;font-style:italic;line-height:1.55;color:var(--ink)}
+.cov-who{margin-top:10px}
+.cov-who summary{cursor:pointer;font-family:var(--ss);font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--link)}
+.cov-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;margin-top:10px}
+.cov-col.cn:only-child,.cov-col.cn:nth-child(3){grid-column:1/-1}
+.cov-col h4{margin-bottom:6px;padding-bottom:4px;border-bottom:2px solid var(--cov-n);font-family:var(--ss);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mute2)}
+.cov-col.ca h4{border-bottom-color:var(--cov-a)}
+.cov-col.cb h4{border-bottom-color:var(--cov-b)}
+.cov-col h4 span{font-family:var(--mn);font-weight:500}
+.cov-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.cov-col li{font-family:var(--ss);font-size:12.5px;line-height:1.45;color:var(--body)}
+.cov-col a,.cov-col b{font-weight:700;color:var(--ink)}
+.cov-col a:hover{color:var(--link);text-decoration:underline}
+.cov-f{color:var(--muted)}
+.ml .mcov{margin-top:22px;padding:16px 18px;border:1px solid var(--rl);border-radius:4px;background:var(--soft)}
+.ml .mcov>h3{margin-bottom:10px;font-family:var(--mn);font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
+.cmp{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+:root[data-theme="dark"] .cmp{border-top-color:var(--qi)}
+.cmp-note{max-width:860px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
+.cmp-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin-top:6px}
+.cmp-i{padding:16px 0;border-bottom:1px solid var(--rl)}
+.cmp-i h3{margin-bottom:8px;font-size:17px;font-weight:700;line-height:1.3;color:var(--ink)}
+.cmp-i h3 a:hover{color:var(--link);text-decoration:underline}
+.cmp-t{font-weight:500;letter-spacing:.5px;color:var(--faint)}
+
 /* Rodapé */
 .ft{background:var(--qn);padding:20px 28px;text-align:center;font-family:var(--mn);font-size:9.5px;letter-spacing:1.5px;line-height:1.8;color:rgba(255,255,255,.62);text-transform:uppercase}
 :root[data-theme="dark"] .ft{background:#0a1430}
@@ -319,12 +377,17 @@ body.modal-open .btt{visibility:hidden}
 .badge{flex-shrink:0;padding:1px 6px;border:1px solid var(--rule);border-radius:10px;font-family:var(--mn);font-size:8.5px;letter-spacing:1px;color:var(--faint)}
 .arch-empty{padding:30px 0;font-family:var(--ss);color:var(--muted)}
 
+/* Tablet: os botões do canto ainda ficam na mesma linha; o logo desce para não ficar sob eles */
+@media (max-width:880px){
+  .mast{padding-top:52px}
+}
 @media (max-width:760px){
   .paper{box-shadow:none}
   .mast{padding:52px 16px 18px}
   .mast h1{font-size:36px}
   .mast h1.logo svg{height:92px}
-  .mast-tools{top:12px;right:12px;left:12px;justify-content:flex-end}
+  .mast h1.logo.mono svg{height:46px}
+.mast h1.logo svg,.mast h1.logo.mono svg{height:40px}  .mast-tools{top:12px;right:16px;left:16px;justify-content:center}
   .tool{height:26px;padding:0 10px}
   .wx{justify-content:flex-start;padding:6px 16px;gap:2px 20px;white-space:normal}
   .wx p{white-space:normal}
@@ -358,11 +421,16 @@ body.modal-open .btt{visibility:hidden}
   .mc{margin:-20px -8px 0 0}
   .ft{padding:18px 16px}
   .arch{padding:18px 16px 28px}
+  .cmp{padding:18px 16px 24px}
+  .cmp-list{grid-template-columns:1fr}
+  .ml .mcov{padding:14px}
+  .cov-cols{grid-template-columns:1fr}
   .arch-list a{flex-direction:column;gap:2px}
   .arch-list time{flex:none}
   .btt{right:16px;bottom:16px}
 }
 @media (max-width:420px){
+  .mast-date{letter-spacing:.4px}
   .mast h1{font-size:32px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -391,7 +459,7 @@ body.modal-open .btt{visibility:hidden}
     </button>
   </div>
   <div class="mast">
-    <h1><a href="../"><span class="q">Q</span><span class="i">I</span><span class="journal"> JOURNAL</span></a></h1>
+    <h1 class="logo duo"><a href="../"><span class="lg lg-l"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 89 20" width="890" height="200" shape-rendering="crispEdges" role="img" aria-labelledby="pbcv-tech-logo-title"><title id="pbcv-tech-logo-title">PBCV Tech</title><path fill="#0C0F16" d="M13 8H12V9H11V10H4V16H0V0H11V1H12V2H13ZM58 0H62V6H61V8H60V10H59V12H58V14H57V16H53V14H52V12H51V10H50V8H49V6H48V0H52V6H53V8H54V10H56V8H57V6H58ZM28 8H29V14H28V15H27V16H15V0H26V1H27V2H28ZM34 16V15H33V14H32V2H33V1H34V0H44V1H45V2H46V5H42V3H36V13H42V11H46V14H45V15H44V16ZM19 13H25V9H19ZM4 3V7H9V3ZM19 3V6H24V3Z"/><rect x="66" y="9" width="19" height="7" fill="#FF5A1F"/><path fill="#0C0F16" d="M71.5 10V11H70V15H69V11H67.5V10ZM82.5 11.5V12H83V15H82V12H81V15H80V10H81V11.5ZM77 14.5H78V14H79V14.5H78.5V15H76.5V14.5H76V12H76.5V11.5H78.5V12H79V12.5H78V12H77ZM72.5 14.5H72V12H72.5V11.5H74.5V12H75V13.5H73V14.5H75V15H72.5ZM74 12H73V13H74Z"/></svg></span><span class="lg lg-d"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 89 20" width="890" height="200" shape-rendering="crispEdges" role="img" aria-labelledby="dk-pbcv-tech-logo-title"><title id="dk-pbcv-tech-logo-title">PBCV Tech</title><path fill="#FFFFFF" d="M13 8H12V9H11V10H4V16H0V0H11V1H12V2H13ZM58 0H62V6H61V8H60V10H59V12H58V14H57V16H53V14H52V12H51V10H50V8H49V6H48V0H52V6H53V8H54V10H56V8H57V6H58ZM28 8H29V14H28V15H27V16H15V0H26V1H27V2H28ZM34 16V15H33V14H32V2H33V1H34V0H44V1H45V2H46V5H42V3H36V13H42V11H46V14H45V15H44V16ZM19 13H25V9H19ZM4 3V7H9V3ZM19 3V6H24V3Z"/><rect x="66" y="9" width="19" height="7" fill="#FF5A1F"/><path fill="#0C0F16" d="M71.5 10V11H70V15H69V11H67.5V10ZM82.5 11.5V12H83V15H82V12H81V15H80V10H81V11.5ZM77 14.5H78V14H79V14.5H78.5V15H76.5V14.5H76V12H76.5V11.5H78.5V12H79V12.5H78V12H77ZM72.5 14.5H72V12H72.5V11.5H74.5V12H75V13.5H73V14.5H75V15H72.5ZM74 12H73V13H74Z"/></svg></span></a></h1>
     <p class="mast-sub">Seu terminal financeiro diário</p>
     <p class="mast-date">Arquivo de edições</p>
   </div>
@@ -409,7 +477,7 @@ body.modal-open .btt{visibility:hidden}
 </section>
 </main>
 <footer class="ft">
-  <p><strong>QI Journal</strong> · 1 edição no arquivo</p>
+  <p><strong>PBCV Tech</strong> · 1 edição no arquivo</p>
   <p class="ft-links"><a href="../">Edição mais recente</a> · <a href="https://github.com/pbcvphyton/qi-journal" rel="noopener">Código-fonte</a></p>
 </footer>
 </div>
@@ -475,9 +543,10 @@ body.modal-open .btt{visibility:hidden}
     var LINK = 110, width = 0, height = 0, points = [], frame = 0, visible = true, colors = {};
 
     function readColors() {
-      var style = getComputedStyle(root);
-      colors.dot = style.getPropertyValue('--qi').trim() || '#1C49A5';
-      colors.line = style.getPropertyValue('--qc').trim() || '#57D9FF';
+      // --fx-* valem no próprio canvas: o cabeçalho em bloco de cor os redefine.
+      var style = getComputedStyle(canvas);
+      colors.dot = style.getPropertyValue('--fx-dot').trim() || '#394A7A';
+      colors.line = style.getPropertyValue('--fx-line').trim() || '#FF5A1F';
     }
     function resize() {
       var rect = canvas.getBoundingClientRect();

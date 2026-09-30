@@ -167,7 +167,7 @@ def test_send_email_sends_published_files(monkeypatch: pytest.MonkeyPatch, confi
 
     assert main(["send-email", "--dir", str(published)], config) == 0
 
-    assert sent == [("QI Journal — Terça-feira, 29 de setembro de 2026", "<html>e-mail 2026-09-29</html>")]
+    assert sent == [("PBCV Tech — Terça-feira, 29 de setembro de 2026", "<html>e-mail 2026-09-29</html>")]
     latest = json.loads((published / "edicoes" / "latest.json").read_text(encoding="utf-8"))
     assert latest["email_sent"] is True and latest["email_channel"] == "smtp"
 

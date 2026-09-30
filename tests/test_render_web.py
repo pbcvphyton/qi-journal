@@ -16,14 +16,14 @@ from tests.fixtures.render.helpers import (
     load_edition,
     parse,
     pbcv_config,
-    qi_config,
+    default_config,
     visible_text,
 )
 
 
 @pytest.fixture(scope="module")
 def config():
-    return qi_config()
+    return default_config()
 
 
 @pytest.fixture(scope="module")
@@ -39,7 +39,7 @@ def page(edition, config):
 def render(edition, config=None, **kwargs):
     kwargs.setdefault("home_href", "./")
     kwargs.setdefault("archive_href", "edicoes/")
-    return render_edition_page(edition, config or qi_config(), **kwargs)
+    return render_edition_page(edition, config or default_config(), **kwargs)
 
 
 # ── documento ────────────────────────────────────────────────────────────────
@@ -48,7 +48,7 @@ def render(edition, config=None, **kwargs):
 def test_document_basics(page):
     assert page.startswith("<!DOCTYPE html>")
     assert '<html lang="pt-BR"' in page
-    assert "<title>QI Journal — Terça-feira, 29 de setembro de 2026</title>" in page
+    assert "<title>PBCV Tech — Terça-feira, 29 de setembro de 2026</title>" in page
     assert '<meta name="viewport" content="width=device-width,initial-scale=1">' in page
     assert len(page.encode("utf-8")) < 250 * 1024
 
@@ -74,7 +74,7 @@ def test_page_is_self_contained(page):
 def test_meta_and_open_graph(page, edition):
     lead = edition.story(LEAD_ID)
     assert f'<meta property="og:image" content="{lead.image}">' in page
-    assert '<meta property="og:title" content="QI Journal — Terça-feira, 29 de setembro de 2026">' in page
+    assert '<meta property="og:title" content="PBCV Tech — Terça-feira, 29 de setembro de 2026">' in page
     description = re.search(r'<meta name="description" content="([^"]*)"', page).group(1)
     assert description.startswith("A cinco dias do primeiro turno, o mercado embute prêmio eleitoral")
     assert re.search(r'<meta property="og:description" content="A cinco dias', page)
@@ -201,8 +201,13 @@ def test_ticker_and_weather(page):
 
 
 def test_header_dateline_and_tools(page):
-    assert "Terça-feira, 29 de setembro de 2026 · 05:07 BRT" in page
-    assert '<span class="q">Q</span><span class="i">I</span><span class="journal"> JOURNAL</span>' in page
+    # "·" colado na data e hora/fuso inseparáveis: no celular nenhuma linha começa com "·" nem fica só com "BRT"
+    assert 'Terça-feira, 29 de setembro de 2026&nbsp;· <span class="nw">05:07 BRT</span>' in page
+    assert '<header class="mast-wrap">' in page  # cabeçalho claro, como no QI Journal
+    assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in page
+    assert '<title id="pbcv-tech-logo-title">PBCV Tech</title>' in page
+    assert '<title id="dk-pbcv-tech-logo-title">PBCV Tech</title>' in page  # versão do modo escuro
+    assert 'class="q"' not in page  # wordmark de texto não é usado quando há logo
     assert 'id="dmBtn"' in page and 'id="srchBtn"' in page and 'id="srchInput"' in page
     assert 'id="rdprog"' in page and 'id="btt"' in page
 
@@ -231,7 +236,7 @@ def test_heuristic_mode_label(edition, config):
 
 def test_archive_page_links(edition, config):
     html = render(edition, config, home_href="../", archive_href="./")
-    assert '<h1><a href="../">' in html
+    assert '<h1 class="logo duo"><a href="../">' in html
     assert '<a href="./">Edições anteriores</a>' in html
 
 
@@ -239,7 +244,7 @@ def test_unsafe_hrefs_fall_back_to_defaults(edition, config):
     html = render(edition, config, home_href="javascript:alert(1)", archive_href="//evil.example/")
     hrefs = parse(html).hrefs
     assert not [h for h in hrefs if h.startswith(("javascript:", "//"))]
-    assert '<h1><a href="./">' in html
+    assert '<h1 class="logo duo"><a href="./">' in html
     assert '<a href="edicoes/">Edições anteriores</a>' in html
 
 
@@ -302,11 +307,11 @@ def test_edition_without_stories_still_renders(edition, config):
 
 
 def test_invalid_brand_color_is_replaced(edition):
-    cfg = qi_config()
+    cfg = default_config()
     cfg.brand.colors["primary"] = "red;}</style><script>alert(1)</script>"
     html = render(edition, cfg)
     assert "<script>alert(1)" not in html
-    assert "--qi:#1C49A5;" in html
+    assert "--qi:#394A7A;" in html
 
 
 # ── view ─────────────────────────────────────────────────────────────────────
@@ -365,6 +370,52 @@ def test_pbcv_brand_renders_inline_logo(edition):
     assert "Boletim diário · Mercados, Negócios e Direito" in html
     structure = parse(html)
     assert structure.errors == [] and structure.stack == []
+    # Sem brand.masthead: cabeçalho no papel e logo invertido por filtro no modo escuro.
+    assert '<header class="mast-wrap">' in html and ".mast-wrap.solid{" not in html
+    assert '<meta name="theme-color" content="#1B2745">' in html
+
+
+def test_default_brand_logo_palette_and_favicon(edition):
+    html = render(edition, default_config())
+    assert '<meta name="theme-color" content="#1B2745">' in html
+    assert '<meta name="generator" content="PBCV Tech · qijournal 2.0">' in html
+    assert "--qi:#394A7A;--qn:#1B2745;--qc:#FF5A1F;" in html
+    assert ".mast-wrap.solid{" not in html  # cabeçalho claro
+    # Sinal: letreiro em pixels (tinta no claro, branco no escuro) e tarja laranja; pixels nítidos
+    assert 'fill="#0C0F16"' in html and 'fill="#FFFFFF"' in html and 'fill="#FF5A1F"' in html
+    assert html.count('shape-rendering="crispEdges"') == 2
+    assert ':root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:' in html
+    # alturas múltiplas de 20 (a grade do SVG): 3 px por unidade no desktop, 2 px no celular
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html
+    assert "--ink:#1a2332;--paper:#fff;--bg:#f0f2f5;" in html  # neutros frios do layout original
+    favicon = re.search(r'<link rel="icon" type="image/svg\+xml" href="([^"]+)"', html).group(1)
+    assert favicon.startswith("data:image/svg+xml,%3Csvg") and "FF5A1F" in favicon and "crispEdges" in favicon
+    assert "QI Journal" not in html
+
+
+def test_solid_masthead_is_still_supported(edition):
+    cfg = default_config()
+    cfg.brand.colors["masthead"] = "#3322CC"
+    cfg.brand.colors["on_masthead"] = "#F5F3ED"
+    html = render(edition, cfg)
+    assert '<header class="mast-wrap solid">' in html and '<meta name="theme-color" content="#3322CC">' in html
+    assert ".mast-wrap.solid{--mh:#3322CC;--on-mh:#F5F3ED;--on-mh-rgb:245,243,237;" in html
+
+
+def test_text_wordmark_without_logo(edition):
+    cfg = default_config()
+    cfg.brand.logo_svg = None
+    html = render(edition, cfg)
+    assert '<h1><a href="./"><span class="i">PBCV</span><span class="journal"> Tech</span></a></h1>' in html
+
+
+def test_invalid_masthead_color_keeps_paper_header(edition):
+    cfg = default_config()
+    cfg.brand.colors["masthead"] = "blue;}</style><script>alert(1)</script>"
+    html = render(edition, cfg)
+    assert "<script>alert(1)" not in html
+    assert '<header class="mast-wrap">' in html and ".mast-wrap.solid{" not in html
 
 
 # ── arquivo ──────────────────────────────────────────────────────────────────
@@ -404,7 +455,7 @@ def test_archive_index_groups_by_month(config):
     assert "javascript:" not in html
     assert '<a class="arch-home" href="../">' in html
     assert "3 edições no arquivo" in html
-    assert "<title>QI Journal — Edições anteriores</title>" in html
+    assert "<title>PBCV Tech — Edições anteriores</title>" in html
     structure = parse(html)
     assert structure.errors == [] and all(re.search(r"\w", t) for _, t in structure.headings)
 
@@ -446,7 +497,7 @@ def test_modal_hides_dek_already_contained_in_body(edition):
     page_html = render(ed)
     assert 'class="mdek"' not in _modal(page_html, lead.id)
     assert 'class="mdek"' in _modal(page_html, other.id)
-    view = build_view(ed, qi_config())
+    view = build_view(ed, default_config())
     assert view.lead.dek_in_body and not next(s for s in view.stories if s.id == other.id).dek_in_body
 
 
@@ -455,7 +506,7 @@ def test_lead_extra_paragraphs_only_for_missing_image(edition):
     lead = ed.story(ed.lead)
     lead.dek = "Linha fina própria."
     lead.body = ["Primeiro parágrafo.", "Segundo **parágrafo**.", "Terceiro parágrafo.", "Quarto parágrafo."]
-    view = build_view(ed, qi_config())
+    view = build_view(ed, default_config())
     assert view.lead_excerpt == "Primeiro parágrafo."
     assert view.lead_more == ["Segundo **parágrafo**.", "Terceiro parágrafo."]
     page_html = render(ed)
@@ -533,3 +584,94 @@ def test_modal_opened_from_the_email_link_can_go_back_to_the_edition(page):
 def test_desktop_tabs_fit_without_hiding_sections(page, config):
     assert "@media (min-width:900px){.tab-btn{padding:12px 11px;letter-spacing:.8px}" in page
     assert next(s.title for s in config.sections if s.id == "imobiliario") == "Imobiliário"
+
+
+def test_unknown_brand_falls_back_to_the_default(caplog):
+    # Ex.: variável QIJ_BRAND=qi que sobrou da marca antiga no GitHub.
+    from qijournal.config import load_config
+
+    with caplog.at_level("WARNING", logger="qijournal.config"):
+        cfg = load_config(env={"QIJ_BRAND": "qi"})
+    assert cfg.brand.key == "tech" and cfg.brand.name == "PBCV Tech"
+    assert "Marca 'qi' não existe" in caplog.text
+
+
+# ── cobertura comparada ──────────────────────────────────────────────────────
+
+
+def _coverage(stances, *, sides=("Destaca o alívio", "Destaca o risco"), **extra):
+    from qijournal.models import Coverage, CoverageOutlet
+
+    outlets = [
+        CoverageOutlet(name=f"Veículo {i}", stance=st, framing=f"Enfoque {i}", url=f"https://v{i}.example/n")
+        for i, st in enumerate(stances)
+    ]
+    return Coverage(
+        topic="Assunto do dia", conclusion="A cobertura pendeu para o alívio.", outlets=outlets,
+        side_a=sides[0], side_b=sides[1], **extra,
+    )
+
+
+def test_coverage_view_meter_grows_toward_the_side_with_more_outlets():
+    from qijournal.render.web import coverage_view
+
+    view = coverage_view(_coverage(["a", "a", "a", "b", "neutro", "neutro", "a"]))
+    assert (view.pct_a, view.pct_n, view.pct_b) == (57, 29, 14) and view.lean == "a"
+    assert view.lean_label == "Pende para: Destaca o alívio · 4 de 7 veículos"
+    assert view.aria == "Destaca o alívio: 4 veículos; neutros: 2; Destaca o risco: 1 veículo"
+    tie = coverage_view(_coverage(["a", "b"]))
+    assert tie.lean == "equilibrio" and tie.lean_label == "Equilíbrio: 1 × 1 de 2 veículos"
+    flat = coverage_view(_coverage(["a", "b", "neutro"], sides=("", "")))  # sem debate: todos neutros
+    assert flat.lean == "convergente" and (flat.pct_a, flat.pct_n, flat.pct_b) == (0, 100, 0)
+    assert flat.lean_label == "Sem divergência entre os 3 veículos"
+    assert coverage_view(None) is None
+
+
+def test_coverage_on_cards_modal_and_compared_section(edition, config):
+    ed = copy.deepcopy(edition)
+    ed.story(LEAD_ID).coverage = _coverage(["a", "a", "b"])
+    card_story = next(s for s in ed.stories if s.id not in (ed.lead, *ed.secondary))
+    card_story.coverage = _coverage(["b", "b", "a"])
+    ed.compared = [_coverage(["a", "neutro"], section="mercados", url="javascript:alert(1)", published=ed.generated_at)]
+    page = render(ed, config)
+    assert page.count('<div class="cov mini lean-a"') == 2  # manchete + card dela na aba da seção
+    assert page.count('<div class="cov mini lean-b"') == 1  # card
+    modal = re.search(rf'<div class="mo" id="s-{LEAD_ID}".*?</article>\s*</div>', page, re.S).group(0)
+    assert '<section class="mcov" aria-label="Cobertura comparada">' in modal
+    assert '<details class="cov-who" open>' in modal
+    assert '<span class="cov-a" style="width:67%"></span><span class="cov-b" style="width:33%"></span>' in modal
+    assert "A cobertura pendeu para o alívio." in modal
+    section = re.search(r'<section class="cmp" id="cobertura".*?</section>', page, re.S).group(0)
+    assert "<h3>Assunto do dia</h3>" in section  # URL insegura: título sem link
+    assert "Mercados &amp; Finanças" in section and "javascript:" not in page
+    assert parse(page).errors == []
+
+
+def test_no_coverage_no_section(edition, config):
+    page = render(edition, config)
+    assert 'class="cmp"' not in page and 'class="cov ' not in page
+
+
+def test_logo_with_dark_variant_and_height(edition):
+    cfg = default_config()
+    cfg.brand.logo_svg = '<svg viewBox="0 0 10 2"><title id="t">Claro</title><path fill="#123456" d="M0 0h1"/></svg>'
+    cfg.brand.logo_svg_dark = '<svg viewBox="0 0 10 2"><title id="t">Escuro</title><path fill="#FFFFFF" d="M0 0h1"/></svg>'
+    cfg.brand.logo_height = 56
+    cfg.brand.logo_height_mobile = None  # padrão: 85% no celular
+    html = render(edition, cfg)
+    assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in html
+    assert '<span class="lg lg-d"><svg viewBox="0 0 10 2"><title id="dk-t">Escuro</title>' in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:56px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:48px}" in html  # celular: 85%
+    assert parse(html).ids["t"] == 1 and parse(html).ids["dk-t"] == 1
+
+
+def test_explicit_mobile_logo_height(edition):
+    cfg = default_config()
+    cfg.brand.logo_height, cfg.brand.logo_height_mobile = 60, 40
+    html = render(edition, cfg)
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html
+    cfg.brand.logo_height_mobile = 999  # fora da faixa: volta aos 85%
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:51px}" in render(edition, cfg)
+

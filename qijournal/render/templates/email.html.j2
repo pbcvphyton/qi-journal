@@ -8,12 +8,23 @@
 {#- Fontes: até 3 nomes (só o primeiro com link) e "+N"; a edição tem todos os links. -#}
 {% macro sources_line(s) -%}
 {% if s.sources %}
-<p style="margin:6px 0 0;font:11px/16px {{ sans }};color:#687487" class="muted">
-{%- for src in s.sources[:3] %}{% if not loop.first %} · {% endif %}{% if loop.first and src.url %}<a href="{{ src.url }}" style="color:#687487" class="muted">{{ src.name }}</a>{% else %}{{ src.name }}{% endif %}{% endfor %}{% if s.sources|length > 3 %} · +{{ s.sources|length - 3 }}{% endif -%}
+<p style="margin:6px 0 0;font:11px/16px {{ sans }};color:#5f6b7e" class="muted">
+{%- for src in s.sources[:3] %}{% if not loop.first %} · {% endif %}{% if loop.first and src.url %}<a href="{{ src.url }}" style="color:#5f6b7e" class="muted">{{ src.name }}</a>{% else %}{{ src.name }}{% endif %}{% endfor %}{% if s.sources|length > 3 %} · +{{ s.sources|length - 3 }}{% endif -%}
 </p>
 {% endif %}
 {%- endmacro %}
 {% macro lang(s) -%}{% if s.lang %} lang="{{ s.lang }}"{% endif %}{%- endmacro %}
+{#- Cobertura comparada: barra (tabela, funciona em qualquer cliente) que cresce
+    para o lado com mais veículos, o lado predominante e a conclusão. -#}
+{% macro coverage_line(s) -%}
+{% if s.coverage %}
+{% set cv = s.coverage %}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0 0;"><tr>
+{%- for pct, color, cls in [(cv.pct_a, c.primary, "cv-a"), (cv.pct_n, "#C5CCD8", "cv-n"), (cv.pct_b, "#C8631A", "cv-b")] if pct %}<td width="{{ pct }}%" height="6" bgcolor="{{ color }}" class="{{ cls }}" style="height:6px;line-height:6px;font-size:1px;background:{{ color }};">&nbsp;</td>{% endfor -%}
+</tr></table>
+<p style="margin:5px 0 0;font:11px/16px {{ sans }};color:#5f6b7e" class="muted"><b style="color:#1a2332" class="ink">{{ cv.lean_label }}</b>{% if cv.conclusion %} · {{ cv.conclusion }}{% endif %}</p>
+{% endif %}
+{%- endmacro %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -42,6 +53,16 @@
     .muted{color:#a9b4c6!important;}
     .soft{background:#131c2d!important;}
     .rule{border-color:#2d3748!important;}
+    .hdr{background:#111827!important;border-bottom-color:{{ c.primary }}!important;}
+    .lg-l{display:none!important;}
+    .lg-d{display:block!important;max-height:none!important;}
+    .lead-rule{border-color:{{ c.primary|blend("#ffffff", 0.55) }}!important;}
+    .cv-a{background:{{ c.primary|blend("#ffffff", 0.55) }}!important;}
+    .cv-n{background:#3A4658!important;}
+    .cv-b{background:#FF8A5C!important;}
+    {%- for section in sections %}
+    .sc-{{ loop.index }}{color:{{ section.color|blend("#ffffff", 0.5) }}!important;border-left-color:{{ section.color|blend("#ffffff", 0.5) }}!important;}
+    {%- endfor %}
   }
 </style>
 </head>
@@ -51,28 +72,60 @@
 <tr><td align="center" style="padding:24px 10px;">
 <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" class="wrap card" style="width:640px;max-width:640px;background:#ffffff;">
 
-{# Cabeçalho #}
+{# Cabeçalho: bloco na cor da marca (brand.masthead) ou no papel (com o logo em
+   PNG, se houver). E-mail não exibe SVG; com imagens bloqueadas, vale o alt. #}
+{% if brand.masthead %}
+{% set mh, on = brand.masthead, brand.on_masthead %}
+<tr><td align="center" bgcolor="{{ mh }}" class="px" style="padding:30px 20px 20px;background:{{ mh }};border-bottom:3px solid {{ c.navy }};">
+  {% if brand.email_logo %}
+  <img src="{{ brand.email_logo.src }}" width="{{ brand.email_logo.width }}" height="{{ brand.email_logo.height }}" alt="{{ brand.name }}" style="display:block;margin:0 auto;width:{{ brand.email_logo.width }}px;max-width:100%;height:auto;border:0;font-family:{{ sans }};font-size:30px;line-height:40px;font-weight:bold;color:{{ on }};">
+  {% else %}
+  <p style="margin:0;font-family:{{ sans }};font-size:34px;line-height:40px;font-weight:bold;letter-spacing:-1px;color:{{ on }};">
+    {%- for part, cls in brand.wordmark %}<span style="color:{{ on }};{% if cls == 'journal' %}font-weight:900;{% endif %}">{{ part }}</span>{% endfor -%}
+  </p>
+  {% endif %}
+  {% if brand.tagline %}
+  <p style="margin:12px 0 0;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:{{ on|blend(mh, 0.8) }};">{{ brand.tagline }}</p>
+  {% endif %}
+  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:{{ on|blend(mh, 0.72) }};">{{ v.date_label }}{% if v.time_label %} · {{ v.time_label }} {{ v.tz_label }}{% endif %}</p>
+</td></tr>
+{% elif brand.email_logo %}
+{#- Logo colorido sobre fundo branco explícito (PNG opaco): no modo escuro dos
+    clientes a faixa continua branca e o logo legível. -#}
+<tr><td align="center" bgcolor="#ffffff" class="px hdr" style="padding:28px 20px 18px;background:#ffffff;border-bottom:3px solid {{ c.navy }};">
+  <img class="lg-l" src="{{ brand.email_logo.src }}" width="{{ brand.email_logo.width }}" height="{{ brand.email_logo.height }}" alt="{{ brand.name }}" style="display:block;margin:0 auto;width:{{ brand.email_logo.width }}px;max-width:100%;height:auto;border:0;background:#ffffff;font-family:{{ sans }};font-size:28px;line-height:36px;font-weight:bold;color:{{ c.navy }};">
+  {% if brand.email_logo_dark %}
+  {#- Versão escura: escondida por padrão (e no Outlook); o CSS do modo escuro a mostra no lugar da clara. -#}
+  <!--[if !mso]><!--><img class="lg-d" src="{{ brand.email_logo_dark.src }}" width="{{ brand.email_logo_dark.width }}" height="{{ brand.email_logo_dark.height }}" alt="" style="display:none;max-height:0;overflow:hidden;mso-hide:all;margin:0 auto;width:{{ brand.email_logo_dark.width }}px;max-width:100%;height:auto;border:0;"><!--<![endif]-->
+  {% endif %}
+  {% if brand.tagline %}
+  <p style="margin:12px 0 0;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#5f6b7e;" class="muted">{{ brand.tagline }}</p>
+  {% endif %}
+  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:#5f6b7e;" class="muted">{{ v.date_label }}{% if v.time_label %}&nbsp;· <span style="white-space:nowrap">{{ v.time_label }} {{ v.tz_label }}</span>{% endif %}</p>
+</td></tr>
+{% else %}
 <tr><td align="center" class="px" style="padding:28px 20px 18px;border-bottom:3px solid {{ c.navy }};">
   <p style="margin:0;font-family:{{ sans }};font-size:34px;line-height:40px;font-weight:bold;letter-spacing:-1px;color:{{ c.navy }};" class="ink">
     {%- for part, cls in brand.wordmark %}<span style="color:{{ c.accent if cls == 'q' else c.navy }};{% if cls == 'journal' %}font-weight:900;{% endif %}"{% if cls != 'q' %} class="ink"{% endif %}>{{ part }}</span>{% endfor -%}
   </p>
   {% if brand.tagline %}
-  <p style="margin:6px 0 0;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#687487;" class="muted">{{ brand.tagline }}</p>
+  <p style="margin:6px 0 0;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#5f6b7e;" class="muted">{{ brand.tagline }}</p>
   {% endif %}
-  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:#687487;" class="muted">{{ v.date_label }}{% if v.time_label %} · {{ v.time_label }} {{ v.tz_label }}{% endif %}</p>
+  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:#5f6b7e;" class="muted">{{ v.date_label }}{% if v.time_label %} · {{ v.time_label }} {{ v.tz_label }}{% endif %}</p>
 </td></tr>
+{% endif %}
 
 {# Cotações #}
 {% if v.quotes %}
 <tr><td class="px" align="center" style="padding:10px 20px;background:{{ c.navy }};font-family:{{ mono }};font-size:11px;line-height:19px;color:#b9c2d6;">
-  {%- for q in v.quotes %}{% if not loop.first %}<span style="color:#56627e;"> · </span>{% endif %}<span style="white-space:nowrap;">{{ q.label }} <b style="color:#ffffff;font-weight:bold;">{{ q.display }}</b>{% if q.change %} <span style="color:{{ c.ticker_up if q.css == 'u' else c.ticker_down if q.css == 'd' else '#b9c2d6' }};">{{ q.change }}</span>{% endif %}</span>{% endfor -%}
+  {%- for q in v.quotes %}{% if not loop.first %}&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap;">{{ q.label }} <b style="color:#ffffff;font-weight:bold;">{{ q.display }}</b>{% if q.change %} <span style="color:{{ c.ticker_up if q.css == 'u' else c.ticker_down if q.css == 'd' else '#b9c2d6' }};">{{ q.change }}</span>{% endif %}</span>{% endfor -%}
 </td></tr>
 {% endif %}
 
 {# Clima #}
 {% if v.weather %}
-<tr><td class="px soft rule" align="center" style="padding:7px 20px;background:#f8f9fb;border-bottom:1px solid #e4e7ec;font-family:{{ mono }};font-size:11px;line-height:17px;color:#687487;">
-  {%- for w in v.weather %}{% if not loop.first %}&nbsp;&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap">{{ w.now_emoji }} <b style="color:#1a2332" class="ink">{{ w.city }}</b> {{ w.now_temp }} ↓{{ w.today_min }} ↑{{ w.today_max }}</span> <span style="white-space:nowrap">| Amanhã {{ w.tomorrow_emoji }} ↓{{ w.tomorrow_min }} ↑{{ w.tomorrow_max }}</span>{% endfor -%}
+<tr><td class="px soft rule muted" align="center" style="padding:7px 20px;background:#f8f9fb;border-bottom:1px solid #e4e7ec;font-family:{{ mono }};font-size:11px;line-height:17px;color:#5f6b7e;">
+  {%- for w in v.weather %}{% if not loop.first %}&nbsp;&nbsp;&nbsp; {% endif %}<span style="white-space:nowrap">{{ w.now_emoji }} <b style="color:#1a2332" class="ink">{{ w.city }}</b> {{ w.now_temp }} ↓{{ w.today_min }} ↑{{ w.today_max }} |</span> <span style="white-space:nowrap">Amanhã {{ w.tomorrow_emoji }} ↓{{ w.tomorrow_min }} ↑{{ w.tomorrow_max }}</span>{% endfor -%}
 </td></tr>
 {% endif %}
 
@@ -101,16 +154,17 @@
 {# Manchete #}
 {% if v.lead %}
 {% set s = v.lead %}
-<tr><td class="px" style="padding:22px 20px 24px;border-bottom:2px solid {{ c.navy }};">
+<tr><td class="px lead-rule" style="padding:22px 20px 24px;border-bottom:2px solid {{ c.navy }};">
   <p class="sc" style="margin:0 0 6px;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;color:{{ s.color }};">{{ s.section_title }}</p>
   <h1 class="hl" style="margin:0 0 10px;font:bold 28px/34px {{ serif }};color:{{ c.navy }}"{{ lang(s) }}><a href="{{ story_url(s) }}" class="ink" style="color:{{ c.navy }};text-decoration:none">{{ s.headline }}</a></h1>
   {% if s.dek %}
   <p class="muted" style="margin:0 0 14px;font:15px/23px {{ sans }};color:#4a5568"{{ lang(s) }}>{{ s.dek }}</p>
   {% endif %}
   {% if s.image %}
-  <a href="{{ story_url(s) }}" style="text-decoration:none"><img src="{{ s.image }}" width="600" alt="{{ s.headline }}" style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0 0 12px;background:#e4e7ec;font:12px {{ sans }};color:#687487"></a>
+  <a href="{{ story_url(s) }}" style="text-decoration:none"><img src="{{ s.image }}" width="600" alt="{{ s.headline }}" style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0 0 12px;background:#e4e7ec;font:12px {{ sans }};color:#5f6b7e"></a>
   {% endif %}
   {{ sources_line(s) }}
+  {{ coverage_line(s) }}
   <p style="margin:12px 0 0;font:bold 13px/18px {{ sans }}"><a href="{{ story_url(s) }}" class="lnk" style="color:{{ c.primary }}">Ler na edição &rarr;</a></p>
 </td></tr>
 {% endif %}
@@ -118,7 +172,7 @@
 {# Demais matérias, por seção #}
 {% for section in sections %}
 <tr><td class="px" style="padding:22px 20px 4px;">
-  <p class="sc" style="margin:0;padding:2px 0 2px 10px;border-left:4px solid {{ section.color }};font-family:{{ sans }};font-size:11px;line-height:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:{{ section.color }};">{{ section.title }}</p>
+  <p class="sc sc-{{ loop.index }}" style="margin:0;padding:2px 0 2px 10px;border-left:4px solid {{ section.color }};font-family:{{ sans }};font-size:11px;line-height:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:{{ section.color }};">{{ section.title }}</p>
 </td></tr>
 {% for s in section.stories %}
 <tr><td class="px rule" style="padding:12px 20px 14px{% if not loop.last %};border-bottom:1px solid #e4e7ec{% endif %}">
@@ -127,6 +181,7 @@
   <p class="muted" style="margin:0;font:14px/21px {{ sans }};color:#4a5568"{{ lang(s) }}>{{ s.dek }}</p>
   {% endif %}
   {{ sources_line(s) }}
+  {{ coverage_line(s) }}
 </td></tr>
 {% endfor %}
 {% endfor %}

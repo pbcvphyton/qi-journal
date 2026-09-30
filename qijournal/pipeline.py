@@ -582,7 +582,8 @@ def _quality_warnings(
             )
     if use_llm and config.llm.enabled and edition.mode != "ai":
         warnings.append(
-            "Edição gerada sem IA (modo automático): verifique o segredo ANTHROPIC_API_KEY e o log da etapa"
+            "Edição gerada sem IA (modo automático): verifique os segredos MISTRAL_API_KEY / ANTHROPIC_API_KEY "
+            "e o log da etapa"
         )
     failed = [s for s in bundle.sources if not s.ok]
     if bundle.sources and len(failed) / len(bundle.sources) >= FAILED_FEEDS_WARNING_RATIO:
@@ -673,12 +674,13 @@ def _escape_command(message: str) -> str:
     return message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
 
 
-def _annotate(env: Mapping[str, str], level: str, messages: list[str]) -> None:
+def _annotate(env: Mapping[str, str], level: str, messages: list[str], *, title: str) -> None:
     """Emite ``::warning::``/``::error::`` para o GitHub Actions exibir no resumo da execução."""
     if (env.get("GITHUB_ACTIONS") or "").strip().lower() != "true":
         return
+    title = re.sub(r"[,:\r\n]", " ", title).strip() or "Edição diária"  # vírgula e ":" delimitam o comando
     for message in messages:
-        sys.stdout.write(f"::{level} title=QI Journal::{_escape_command(message)}\n")
+        sys.stdout.write(f"::{level} title={title}::{_escape_command(message)}\n")
     sys.stdout.flush()
 
 
@@ -748,7 +750,7 @@ def run(
         check_minimums(bundle, config)
     except InsufficientData as exc:
         log.error("Edição não publicada — %s. A edição anterior continua no ar.", exc)
-        _annotate(env, "error", [f"Edição não publicada: {exc}"])
+        _annotate(env, "error", [f"Edição não publicada: {exc}"], title=config.brand.name)
         _append_step_summary(
             env,
             f"### ⚠️ {config.brand.name}: edição não publicada\n\nMotivo: {exc}. A edição anterior continua no ar.\n",
@@ -801,6 +803,6 @@ def run(
     )
     for warning in warnings:
         log.warning("%s", warning)
-    _annotate(env, "warning", warnings)
+    _annotate(env, "warning", warnings, title=config.brand.name)
     _append_step_summary(env, _run_summary_markdown(result, config))
     return result

@@ -1,20 +1,25 @@
 """Edição do jornal: transforma o :class:`~qijournal.models.Bundle` coletado em uma
 :class:`~qijournal.models.Edition`.
 
-:func:`make_edition` tenta a edição por IA (Claude) e, se ela estiver desligada
-ou falhar, cai para a edição automática (heurística), que sempre funciona.
+:func:`make_edition` tenta os editores por IA na ordem de ``llm.providers``
+(Mistral, com a análise completa, e Claude) e, se nenhum estiver disponível ou
+todos falharem, cai para a edição automática (heurística), que sempre funciona.
 """
 
 from __future__ import annotations
 
 import logging
 import os
+import time
+from collections.abc import Callable
 from datetime import datetime
 from typing import TYPE_CHECKING, Any
 
 from qijournal.config import Config
 from qijournal.edit.heuristic import build_heuristic_edition, choose_clusters
-from qijournal.edit.llm import EnrichFn, LLMUnavailable, build_llm_edition
+from qijournal.edit.llm import ClaudeBackend, EnrichFn, LLMUnavailable, _make_client, build_llm_edition
+from qijournal.edit.mistral import API_KEY_ENV as MISTRAL_KEY_ENV
+from qijournal.edit.mistral import MistralBackend
 from qijournal.models import Article, Bundle, Edition
 
 if TYPE_CHECKING:
@@ -45,19 +50,42 @@ class _CachedEnricher:
         return {a.id: self._cache[a.id] for a in articles if a.id in self._cache}
 
 
-def _llm_skip_reason(config: Config, use_llm: bool, client: Any) -> tuple[str, int] | None:
-    """Motivo (e nível de log) para nem tentar a IA, ou ``None`` se ela deve ser tentada.
-
-    Desligar a IA de propósito é informativo; faltar a chave com a IA ligada
-    merece aviso (provavelmente o segredo não foi configurado).
-    """
+def _llm_skip_reason(config: Config, use_llm: bool) -> tuple[str, int] | None:
+    """Motivo (e nível de log) para nem tentar a IA, ou ``None`` se ela deve ser tentada."""
     if not use_llm:
         return "desligada nesta execução (--no-llm)", logging.INFO
     if not config.llm.enabled:
         return "desligada na configuração", logging.INFO
-    if client is None and not os.environ.get("ANTHROPIC_API_KEY", "").strip():
-        return "ANTHROPIC_API_KEY não definida", logging.WARNING
     return None
+
+
+BackendFactory = Callable[[], Any]
+
+
+def _backends(config: Config, client: Any) -> tuple[list[tuple[str, BackendFactory]], list[str]]:
+    """Editores disponíveis, na ordem de ``llm.providers``, e os motivos dos que ficaram de fora.
+
+    Um ``client`` (SDK da Anthropic ou objeto compatível, nos testes) dispensa a
+    chave do Claude. Provedor desconhecido na configuração é ignorado com aviso.
+    """
+    available: list[tuple[str, BackendFactory]] = []
+    missing: list[str] = []
+    for provider in config.llm.providers:
+        if provider == "mistral":
+            if os.environ.get(MISTRAL_KEY_ENV, "").strip():
+                available.append((provider, lambda: MistralBackend(config)))
+            else:
+                missing.append(f"{MISTRAL_KEY_ENV} não definida")
+        elif provider == "claude":
+            if client is not None or os.environ.get("ANTHROPIC_API_KEY", "").strip():
+                available.append(
+                    (provider, lambda: ClaudeBackend(client if client is not None else _make_client(config), config))
+                )
+            else:
+                missing.append("ANTHROPIC_API_KEY não definida")
+        else:
+            log.warning("Editor por IA desconhecido em llm.providers: %r (use mistral ou claude)", provider)
+    return available, missing
 
 
 def _heuristic_page_info(
@@ -82,24 +110,34 @@ def make_edition(
 ) -> Edition:
     """Monta a edição do dia.
 
-    Tenta :func:`build_llm_edition` quando ``use_llm``, a IA está habilitada na
-    configuração e há ``client`` ou ``ANTHROPIC_API_KEY``. Em
+    Quando ``use_llm`` e a IA está habilitada, tenta :func:`build_llm_edition`
+    com cada editor disponível, na ordem de ``llm.providers``: Mistral (com
+    ``MISTRAL_API_KEY``) e Claude (com ``client`` ou ``ANTHROPIC_API_KEY``). Em
     :class:`LLMUnavailable` (ou qualquer erro inesperado, registrado com
-    traceback) cai para :func:`build_heuristic_edition`, à qual passa o
-    enriquecimento das páginas quando ``enrich_fn`` é fornecido. As
-    estatísticas da edição (fontes, artigos, tokens) vêm preenchidas pelos
+    traceback) passa ao próximo e, por fim, a :func:`build_heuristic_edition`,
+    à qual passa o enriquecimento das páginas quando ``enrich_fn`` é fornecido.
+    As estatísticas da edição (fontes, artigos, tokens) vêm preenchidas pelos
     próprios editores.
     """
     enricher = _CachedEnricher(enrich_fn) if enrich_fn is not None else None
 
-    skip = _llm_skip_reason(config, use_llm, client)
+    skip = _llm_skip_reason(config, use_llm)
     if skip is None:
-        try:
-            return build_llm_edition(bundle, config, now=now, client=client, enrich_fn=enricher)
-        except LLMUnavailable as exc:
-            log.warning("Edição por IA indisponível (%s); usando a edição automática", exc)
-        except Exception:
-            log.exception("Erro inesperado na edição por IA; usando a edição automática")
+        backends, missing = _backends(config, client)
+        # Prazo único: o editor seguinte só usa o tempo que sobrou (o job tem limite).
+        deadline = time.monotonic() + max(0, config.llm.deadline_seconds)
+        for position, (provider, factory) in enumerate(backends):
+            following = "tentando o próximo editor" if position + 1 < len(backends) else "usando a edição automática"
+            try:
+                return build_llm_edition(
+                    bundle, config, now=now, enrich_fn=enricher, backend=factory(), deadline=deadline
+                )
+            except LLMUnavailable as exc:
+                log.warning("Edição por IA (%s) indisponível (%s); %s", provider, exc, following)
+            except Exception:
+                log.exception("Erro inesperado na edição por IA (%s); %s", provider, following)
+        if not backends:
+            log.warning("Edição por IA não utilizada: %s; usando a edição automática", "; ".join(missing))
     else:
         reason, level = skip
         log.log(level, "Edição por IA não utilizada: %s; usando a edição automática", reason)

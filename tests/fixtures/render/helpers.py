@@ -24,7 +24,7 @@ def load_edition() -> Edition:
     return Edition.from_dict(json.loads(FIXTURE.read_text(encoding="utf-8")))
 
 
-def qi_config() -> Config:
+def default_config() -> Config:
     """Configuração do repositório com a marca padrão, ignorando o ambiente do processo."""
     return load_config(env={})
 

@@ -1,4 +1,4 @@
-"""Linha de comando do QI Journal: ``python -m qijournal <comando>``.
+"""Linha de comando do jornal (PBCV Tech): ``python -m qijournal <comando>``.
 
 Comandos:
 
@@ -209,7 +209,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser(
         prog="python -m qijournal",
-        description="QI Journal — jornal financeiro diário gerado automaticamente.",
+        description="PBCV Tech — jornal financeiro diário gerado automaticamente.",
         epilog="Códigos de saída: 0 sucesso; 1 erro; 2 dados insuficientes ou argumentos inválidos.",
     )
     commands = parser.add_subparsers(dest="command", required=True, metavar="comando")

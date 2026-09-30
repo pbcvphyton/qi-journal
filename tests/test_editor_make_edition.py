@@ -50,7 +50,7 @@ def test_falls_back_to_heuristic_on_llm_unavailable(config, caplog):
     assert edition.mode == "heuristic" and edition.model is None
     warnings = [r for r in caplog.records if r.levelno == logging.WARNING and r.name == "qijournal.edit"]
     assert len(warnings) == 1
-    assert "Edição por IA indisponível" in warnings[0].getMessage()
+    assert "Edição por IA (claude) indisponível" in warnings[0].getMessage()
     assert "429" in warnings[0].getMessage()
 
 
