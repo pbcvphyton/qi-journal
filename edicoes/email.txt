@@ -1,197 +1,190 @@
 PBCV TECH
-Quinta-feira, 1 de outubro de 2026 · 12:24 BRT
+Sexta-feira, 2 de outubro de 2026 · 11:42 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,22 (+1,13%) · Euro R$ 5,88 (+0,38%) · Yuan R$ 0,78 (+1,06%) ·
-Ibovespa 184.925 pts (-0,76%) · IFIX 3.740 pts (-0,41%) · S&P 500 7.637
-pts (-0,19%) · Brent US$ 101,65 (+3,69%) · Ouro US$ 4.184 (-0,05%) ·
-Bitcoin US$ 84.172 (+0,10%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
+Dólar R$ 5,22 (-0,04%) · Euro R$ 5,89 (+0,21%) · Yuan R$ 0,78 (-0,04%) ·
+Ibovespa 186.699 pts (-0,27%) · IFIX 3.765 pts (+0,23%) · S&P 500 7.754
+pts (+1,14%) · Brent US$ 99,07 (-3,17%) · Ouro US$ 4.201 (-0,03%) ·
+Bitcoin US$ 86.007 (+2,36%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
 3,35% · INCC 12m 6,61%
 
 CLIMA
 -----
-São Paulo: 25°C, trovoadas com granizo fraco (mín. 19° / máx. 26°) ·
-amanhã: garoa moderada, 15° a 19°
-Montevidéu: 11°C, nublado (mín. 11° / máx. 13°) · amanhã: garoa fraca,
-11° a 12°
+São Paulo: 18°C, garoa fraca (mín. 15° / máx. 18°) · amanhã: pancadas de
+chuva fracas, 15° a 24°
+Montevidéu: 12°C, céu limpo (mín. 11° / máx. 12°) · amanhã: garoa fraca,
+10° a 15°
 
 EM 1 MINUTO
 -----------
-• Confiança empresarial recua 1,2 ponto em setembro, para 89,3 pontos,
-  informa FGV
-• Defesa de Bolsonaro pede liberdade do ex-presidente com base em sessão
-  sobre Moraes
-• Governo Trump empenha US$ 1 milhão para projeto que acusa STF de
-  censura e excesso judicial, diz jornal
-• Agentes de IA tentaram invadir site do governo canadense, diz empresa
-  de pesquisa
-• Financiamento imobiliário com recursos da poupança cresce 46,6% em
-  agosto, diz Abecip
+• Inflação na zona do euro atinge 3,8% ao ano em setembro puxada por
+  energia
+• Eurozone borrowing costs surge in global bond rout
+• Mendonça determina que redes revisem remoção de publicações sobre
+  Nossa Senhora
+• Indústria tem perda acumulada de 3,1% em quatro meses encerrados em
+  agosto, diz IBGE
+• MRV&Co fecha venda de imóveis da Luggo em operação de R$ 166 milhões
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.829 notícias coletadas de 46 veículos
-foram agrupadas por títulos parecidos em 1.401 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.810 notícias coletadas de 45 veículos
+foram agrupadas por títulos parecidos em 1.380 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#racional
-Todas as 1.829 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#racional
+Todas as 1.810 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02-todas.html
 
 MANCHETE
 --------
-TSE limita alcance de decisões de Mendonça sobre Nossa Senhora Aparecida
-O Tribunal Superior Eleitoral (TSE) decidiu nesta quarta-feira (30)
-restringir o alcance das decisões do ministro André Mendonça que
-determinavam a remoção de posts nas redes sociais sobre Nossa Senhora
-Aparecida.
-Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Poder360,
-Agência Brasil
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-tse-limita-alcance-de-decisoes-de-mendonca-sobre
+Petrobras faz nova descoberta de petróleo em águas ultraprofundas na
+Margem Equatorial
+A Petrobras anunciou nesta sexta-feira (2) que fez nova descoberta de
+petróleo no bloco FZA-M-59, localizado em águas ultra profundas da costa
+do Estado do Amapá, na região conhecida como Margem Equatorial.
+Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência Brasil,
+Poder360, Seu Dinheiro, CNN Brasil
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-petrobras-faz-nova-descoberta-de-petroleo-em-agu
 
 BRASIL · ECONOMIA
 -----------------
-• Ações do Nubank têm forte alta após empresa negar possível transação
-  com fintech britânica
-  Após suas ações terem caído 10% na segunda-feira por causa de rumores
-  sobre uma possível compra da fintech britânica Monzo, o Nubank negou
-  que esteja buscando essa transação.
-  Fontes: Valor Econômico, Folha de S.Paulo, Seu Dinheiro
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-acoes-do-nubank-tem-forte-alta-apos-empresa-nega
+• Inflação na zona do euro atinge 3,8% ao ano em setembro puxada por
+  energia
+  A inflação na zona do euro subiu para o seu nível mais alto em três
+  anos no mês passado, impulsionada pela aceleração dos preços da
+  energia, embora um salto recente nos rendimentos dos títulos do
+  governo possa deixar o…
+  Fontes: Valor Econômico, Folha de S.Paulo, El País
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-inflacao-na-zona-do-euro-atinge-3-8-ao-ano-em-se
 
 MERCADOS & FINANÇAS
 -------------------
-• Australiana Lynas vai comprar Meteoric, que tem projeto de terras
-  raras em MG
-  A mineradora australiana Lynas Rare Earths comprará a também
-  australiana Meteoric Resources, proprietária de projeto de terras
-  raras em fase pré-operacional em Poços de Caldas (MG), em negócio
-  avaliado em R$ 3,4 bilhões.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, InfoMoney, g1, CNN
-  Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-australiana-lynas-vai-comprar-meteoric-que-tem-p
-
-• Ibovespa sobe mais de 2% com cenário eleitoral no radar, em dia de
-  ajuste de carteiras
-  O Ibovespa ampliou os ganhos e foi às máximas durante a tarde,
-  voltando a se aproximar os 188 mil pontos, em um dia marcado pelo
-  ajuste de carteiras devido ao fim do mês.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil, Exame,
-  CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-ibovespa-sobe-mais-de-2-com-cenario-eleitoral-no
-
-• Bolsa Família de outubro de 2026 paga valor maior; veja calendário e
-  tabela atualizada
-  As famílias participantes do programa Bolsa Família começam a receber
-  o benefício de outubro a partir do próximo dia 19.
-  Fontes: Valor Econômico, g1, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-bolsa-familia-de-outubro-de-2026-paga-valor-maio
-
-• Beneficiário do Bolsa Família tem peso maior em vaga formal, vê estudo
-  Beneficiários do Bolsa Família, programa de transferência de renda do
-  governo federal, representavam 85% do saldo positivo de empregos
-  formais [diferença entre admissões e demissões] no mercado de
-  trabalho, entre…
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-beneficiario-do-bolsa-familia-tem-peso-maior-em
-
-• Produção de petróleo do Brasil bate recorde pelo 3º mês consecutivo em
-  agosto
-  RIO DE ⁠JANEIRO, 1 Out (Reuters) – ⁠A produção de petróleo ‌do Brasil
-  somou um recorde de 4,615 ‌milhões de barris por dia (bpd) em agosto,
-  alta de 2,6% ante julho e de ⁠18,4% ‌na comparação com ⁠o mesmo mês do
-  ano…
-  Fontes: InfoMoney, g1, Agência Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-producao-de-petroleo-do-brasil-bate-recorde-pelo
+• Agenda de empresas: Claro conclui aquisição da Desktop; Fleury compra
+  laboratório por R$ 55 milhões
+  A Claro Brasil concluiu a aquisição do controle da Desktop, por um
+  valor total de aproximadamente R$ 1,75 bilhão.
+  Fontes: Valor Econômico, Bloomberg Línea, Seu Dinheiro
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-agenda-de-empresas-claro-conclui-aquisicao-da-de
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Após acordo com estados americanos, juíza libera compra da Warner pela
-  Paramount
-  Uma juíza dos EUA emitiu uma decisão nesta quarta-feira (30)
-  permitindo que a Paramount conclua a aquisição da Warner Bros.,
-  encerrando um impasse de meses em torno da transação de US$ 110
-  bilhões.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Poder360, CNN
-  Brasil, The New York Times, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-apos-acordo-com-estados-americanos-juiza-libera
+• Ministra do TSE proíbe Globo de exibir cadeira vazia de Lula em debate
+  A ministra do Tribunal Superior Eleitoral (TSE) Estela Aranha decidiu
+  nesta quinta-feira (1º) que a TV Globo não poderá exibir a cadeira
+  vazia do presidente Luiz Inácio Lula da Silva (PT) no debate
+  presidencial que…
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-ministra-do-tse-proibe-globo-de-exibir-cadeira-v
 
 POLÍTICA
 --------
-• Rodrigo Pacheco toma posse como ministro do TCU nesta quarta-feira
-  O ex-presidente do Senado Rodrigo Pacheco (PSD-MG) tomou posse nesta
-  quarta-feira (30) como ministro do Tribunal de Contas da União (TCU),
-  mas não participou da primeira sessão do plenário da Corte após
-  assumir o cargo.
-  Fontes: Valor Econômico, STJ, g1, Agência Senado, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-rodrigo-pacheco-toma-posse-como-ministro-do-tcu
+• TV Globo cancela debate após STF e TSE mudarem regras
+  A TV Globo cancelou o debate com candidatos à Presidência que seria
+  feito ontem, cerca de uma hora antes do horário previsto para o
+  início.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1,
+  Poder360, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-tv-globo-cancela-debate-apos-stf-e-tse-mudarem-r
+
+• Fachin nega pedido para afastar Dino de ações sobre Flávio Bolsonaro
+  O presidente do Supremo Tribunal Federal, ministro Edson Fachin,
+  rejeitou pedido para afastar o ministro Flávio Dino do julgamento de
+  processos contra o senador e candidato a presidente Flávio Bolsonaro
+  (PL).
+  Fontes: Conjur, JOTA, Valor Econômico, Folha de S.Paulo, g1, Agência
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-fachin-nega-pedido-para-afastar-dino-de-acoes-so
+
+• Gilmar Mendes determina que TV Globo inclua Renan Santos no debate
+  O ministro Gilmar Mendes, do Supremo Tribunal Federal (STF),
+  determinou que a TV Globo inclua o candidato do Missão, Renan Santos,
+  no debate que será promovido na noite desta quinta-feira (1º).
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão,
+  CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-gilmar-mendes-determina-que-tv-globo-inclua-rena
 
 GEOPOLÍTICA & MUNDO
 -------------------
+• EUA e Austrália suspendem atendimento na embaixada e em consulados do
+  Brasil
+  Os serviços consulares na embaixada e nos consulados dos Estados
+  Unidos e Austrália no Brasil serão suspensos nesta sexta-feira devido
+  a questões de segurança, conforme comunicado do governo dos EUA, que
+  não informou o…
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Poder360, g1, Agência
+  Brasil, Exame, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-eua-e-australia-suspendem-atendimento-na-embaixa
+
+• Netanyahu diz que copiloto que atacou avião passou por ‘doutrinação
+  islâmica radical’
+  O primeiro-ministro israelense, Benjamin Netanyahu, afirmou nesta
+  quinta-feira que o copiloto que esfaqueou o comandante de um avião da
+  Flydubai em uma aparente tentativa de derrubar a aeronave a caminho de
+  Israel havia…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, The Wall
+  Street Journal, The New York Times, The Guardian, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-netanyahu-diz-que-copiloto-que-atacou-aviao-pass
+
 • Mulher no corredor da morte sobrevive a duas injeções letais nos EUA
   Christa Pike, uma mulher condenada à morte no Tennessee pelo
   assassinato de uma colega de escola há 30 anos, foi levada ao hospital
   depois de sobreviver a duas tentativas de execução por injeção letal
   na noite de…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Exame, CNN
-  Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-mulher-no-corredor-da-morte-sobrevive-a-duas-inj
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-mulher-no-corredor-da-morte-sobrevive-a-duas-inj
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Pix por aproximação deixa de ter teto diário de R$ 500 a partir desta
-  quinta-feira
-  Na modalidade, o consumidor realiza o pagamento aproximando o celular
-  da “maquininha”, por meio do aplicativo de seu banco ou de uma
-  carteira digital.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil, Suno
-  Notícias, Seu Dinheiro
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-pix-por-aproximacao-deixa-de-ter-teto-diario-de
+• Embraer entrega 66 aeronaves no 3º trimestre, alta de 6% e recorde
+  para o período
+  A Embraer entregou 66 aeronaves no terceiro trimestre deste ano,
+  volume 6% superior ao entregue no mesmo período do ano anterior e 2%
+  maior do que o registrado no segundo trimestre de 2026.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Exame, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-embraer-entrega-66-aeronaves-no-3o-trimestre-alt
 
 IMOBILIÁRIO
 -----------
-• Financiamento imobiliário com recursos da poupança cresce 46,6% em
-  agosto, diz Abecip
-  Os financiamentos imobiliários com recursos das cadernetas do Sistema
-  Brasileiro de Poupança e Empréstimo (SBPE) alcançaram R$ 16,97 bilhões
-  em agosto, com crescimento anual de 46,6%, segundo a Associação
-  Brasileira das…
-  Fontes: Valor Econômico, Folha de S.Paulo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-financiamento-imobiliario-com-recursos-da-poupan
+• MRV&Co fecha venda de imóveis da Luggo em operação de R$ 166 milhões
+  A MRV&Co informou nesta quinta-feira (1) que a Luggo, sua divisão de
+  residenciais exclusivos para locação, concluiu a venda das sociedades
+  proprietárias de três empreendimentos para o fundo de investimento
+  imobiliário…
+  Fontes: Valor Econômico, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-mrv-co-fecha-venda-de-imoveis-da-luggo-em-operac
 
 ESPORTE
 -------
-• Rafael Leão usará camisa 7 de Cristiano Ronaldo no próximo jogo de
-  Portugal; entenda
-  Jorge Jesus fala das decisões sobre Cristiano Ronaldo: "O treinador
-  tem que decidir" Cristiano Ronaldo abandonou a concentração de
-  Portugal após atrito com Jorge Jesus, mas a camisa 7 não ficará sem
-  dono.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar,
-  Agência Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-rafael-leao-usara-camisa-7-de-cristiano-ronaldo
+• Manchester City apresenta recurso contra veredito por violar regras
+  financeiras da Premier League
+  Premier League e Manchester City: entenda quais podem ser as punições
+  do City
+  Fontes: ge, Estadão, Gazeta Esportiva, UOL, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-manchester-city-apresenta-recurso-contra-veredit
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Divergência marca propostas de presidenciáveis para crise do clima
-  Os planos ambientais dos principais candidatos à presidência mencionam
-  a preocupação com a mudança do clima, embora de maneira profundamente
-  desigual e até divergente.
-  Fontes: Valor Econômico
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-divergencia-marca-propostas-de-presidenciaveis-p
+• Suíça perdeu 20% de suas geleiras em cinco anos, diz pesquisa
+  A Suíça perdeu quase 20% de suas geleiras em apenas cinco anos, em uma
+  rápida transformação da paisagem alpina que cientistas atribuem ao
+  aumento das temperaturas, mostrou uma pesquisa anual de monitoramento,
+  feita por…
+  Fontes: Valor Econômico, Folha de S.Paulo, ClimaInfo
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-suica-perdeu-20-de-suas-geleiras-em-cinco-anos-d
 
 CULTURA & VARIEDADES
 --------------------
-• Adryana, Daniel ou Maíra: enquete mostra quem será eliminado de 'A
-  Fazenda 18' nesta quinta
-  A "Fazenda 18" chegou à segunda roça da edição. Nesta quinta-feira,
-  1º, o público escolhe quem vai deixar Itapecerica da Serra e perder a
-  chance de ganhar os R$ 2 milhões.
-  Fontes: Exame, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-01.html#s-adryana-daniel-ou-maira-enquete-mostra-quem-sera
+• Chinamaxxing: como a China se tornou referência para uma nova geração
+  de brasileiros
+  Em agosto, a Universidade Estadual Paulista (Unesp) passou a oferecer
+  o primeiro curso de graduação em Língua e Cultura Chinesas do Brasil.
+  Fontes: Valor Econômico
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-02.html#s-chinamaxxing-como-a-china-se-tornou-referencia-p
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 12:24 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 11:42 (BRT) · Edição automática (sem IA)
