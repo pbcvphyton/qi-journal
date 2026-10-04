@@ -1,195 +1,185 @@
 PBCV TECH
-Sábado, 3 de outubro de 2026 · 10:19 BRT
+Domingo, 4 de outubro de 2026 · 10:54 BRT
 
 MERCADOS
 --------
 Dólar R$ 5,22 (0,00%) · Euro R$ 5,87 (-0,10%) · Yuan R$ 0,78 (-0,20%) ·
 Ibovespa 192.115 pts (+2,63%) · IFIX 3.772 pts (+0,43%) · S&P 500 7.723
 pts (+0,73%) · Brent US$ 102,25 (-0,06%) · Ouro US$ 4.162 (-0,95%) ·
-Bitcoin US$ 84.804 (-2,04%)
+Bitcoin US$ 85.254 (+0,47%)
 
 CLIMA
 -----
-São Paulo: 20°C, nublado (mín. 15° / máx. 25°) · amanhã: trovoadas, 17°
-a 25°
-Montevidéu: 11°C, pancadas de chuva moderadas (mín. 11° / máx. 14°) ·
-amanhã: nublado, 12° a 15°
+São Paulo: 26°C, garoa fraca (mín. 17° / máx. 26°) · amanhã: trovoadas,
+17° a 28°
+Montevidéu: 14°C, céu limpo (mín. 13° / máx. 17°) · amanhã: nublado, 12°
+a 17°
 
 EM 1 MINUTO
 -----------
-• Embraer entrega 66 aeronaves no 3º trimestre, alta de 6% e recorde
-  para o período
-• Que horas começa a votação nas eleições 2026? Veja o horário
-• Ações da Nvidia batem recorde e valor da empresa fica próximo de US$ 6
-  trilhões
-• GARE11, MXRF11 e HGBS11 pagam dividendos em outubro; confira os
-  valores
-• Enchentes no sudeste da Espanha matam mulher de 102 anos e deixam 90
-  pessoas resgatadas
+• Análise: Poderes têm até 2028 para evitar dívida recorde
+• Agenda de mercados: IPCA e ata do Fed são destaque
+• Ministra Cármen Lúcia vota em Belo Horizonte
+• Mercado informal já fornece a maioria das doses de GLP-1 no Brasil
+• More Hong Kong homes sell at a loss despite signs prices have
+  bottomed: agents
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.567 notícias coletadas de 42 veículos
-foram agrupadas por títulos parecidos em 1.176 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.211 notícias coletadas de 38 veículos
+foram agrupadas por títulos parecidos em 794 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#racional
-Todas as 1.567 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#racional
+Todas as 1.211 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04-todas.html
 
 MANCHETE
 --------
-Paramount vai mudar de nome para Skydance após conclusão da fusão com
-Warner
-A Paramount Skydance Corp. mudará seu nome para Skydance assim que
-adquirir a Warner Bros. Discovery Inc.
-Fontes: Valor Econômico, Folha de S.Paulo, g1, Poder360, The New York
-Times, CNBC, TechCrunch
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-paramount-vai-mudar-de-nome-para-skydance-apos-c
+Presidente do TSE suspende decisão de ministro e Deltan Dallagnol segue
+candidato
+O presidente do Tribunal Superior Eleioral (TSE), ministro Kassio Nunes
+Marques, suspendeu a decisão de sábado do ministro Floriano de Azevedo
+Marques e determinou que Deltan Dallagnol (NOVO) permaneça com o
+registro…
+Fontes: Valor Econômico, JOTA, Conjur, Folha de S.Paulo, InfoMoney,
+Estadão, g1, Money Times, Exame
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-presidente-do-tse-suspende-decisao-de-ministro-e
 
 BRASIL · ECONOMIA
 -----------------
-• Embraer entrega 66 aeronaves no 3º trimestre, alta de 6% e recorde
-  para o período
-  A Embraer entregou 66 aeronaves no terceiro trimestre deste ano,
-  volume 6% superior ao entregue no mesmo período do ano anterior e 2%
-  maior do que o registrado no segundo trimestre de 2026.
-  Fontes: Valor Econômico, Folha de S.Paulo, Agência Brasil, Suno
-  Notícias
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-embraer-entrega-66-aeronaves-no-3o-trimestre-alt
+• Análise: Poderes têm até 2028 para evitar dívida recorde
+  Presidente da República, deputados federais e senadores que tomarem
+  posse em 2027, junto com o Poder Judiciário, terão aproximadamente um
+  ano para evitar que a dívida pública do Brasil alcance o patamar
+  recorde…
+  Fontes: Valor Econômico
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-analise-poderes-tem-ate-2028-para-evitar-divida
 
 MERCADOS & FINANÇAS
 -------------------
-• ANP aprova delimitação de novas áreas de petróleo na Margem Equatorial
-  A diretoria da Agência Nacional do Petróleo, Gás Natural e
-  Biocombustíveis (ANP) aprovou, nesta sexta-feira (2), a delimitação de
-  501 novos blocos de petróleo nas cinco bacias da Margem Equatorial.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência
-  Brasil, Suno Notícias
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-anp-aprova-delimitacao-de-novas-areas-de-petrole
-
-• Ibovespa supera 192 mil pontos, maior nível desde abril, antes do 1º
-  turno
-  Às vésperas do 1º turno das eleições, o Ibovespa adotou um desempenho
-  bastante volátil nesta sexta-feira.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Suno Notícias, Seu
-  Dinheiro
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-ibovespa-supera-192-mil-pontos-maior-nivel-desde
+• Suspeita de bomba fecha estação Higienópolis-Mackenzie do metrô em São
+  Paulo
+  A estação Higienópolis-Mackenzie, da linha 4-Amarela do metrô de São
+  Paulo, foi fechada na noite deste sábado, 3, após uma suspeita
+  envolvendo um objeto deixado próximo à linha de bloqueio.
+  Fontes: InfoMoney, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-suspeita-de-bomba-fecha-estacao-higienopolis-mac
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• AGU pede que STF declare lei das bets inconstitucional por proteção
-  insuficiente a apostadores
-  A Advocacia-Geral da União (AGU) pediu nesta sexta-feira (2) que o
-  Supremo Tribunal Federal (STF) declare inconstitucional dispositivos
-  das leis que instituíram e regulamentaram a exploração das apostas de
-  quota fixa no…
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, InfoMoney, g1,
-  Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-agu-pede-que-stf-declare-lei-das-bets-inconstitu
-
-• Ministro do TSE determina que votos em Garotinho sejam considerados
-  ‘nulos’
-  O ministro Floriano de Azevedo Marques, do Tribunal Superior Eleitoral
-  (TSE), revogou nesta sexta-feira (2) liminar que permitia ao
-  ex-governador Anthony Garotinho (Republicanos) manter a candidatura ao
-  governo do…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Money Times,
-  Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-ministro-do-tse-determina-que-votos-em-garotinho
+• Flamengo pede em liminar que STF suspenda MP das bets até
+  segunda-feira
+  O clube de futebol Flamengo entrou com uma liminar, na tarde deste
+  sábado, 3, no Supremo Tribunal Federal (STF) pedindo para os ministros
+  derrubarem a Medida Provisória editada pelo presidente Luiz Inácio
+  Lula da Silva…
+  Fontes: Valor Econômico, Conjur, Estadão
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-flamengo-pede-em-liminar-que-stf-suspenda-mp-das
 
 POLÍTICA
 --------
-• Lula e Flávio encerram campanha com foco no Sudeste e ao lado dos
-  candidatos ao governo em SP
-  No último dia de campanha antes do primeiro turno, os dois candidatos
-  mais bem colocados nas pesquisas farão agendas em São Paulo, o maior
-  colégio eleitoral do país, neste sábado (3).
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Poder360, g1, Exame,
-  CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-lula-e-flavio-encerram-campanha-com-foco-no-sude
+• Romeu Zema vota em Araxá e diz que vai continuar a luta
+  Candidato à Presidência da República e ex-governador de Minas Gerais,
+  Romeu Zema (Novo) chegou para votar por volta das 9h deste domingo na
+  Escola Estadual Delfim Moreira, no centro de Araxá (MG), na região do
+  Triângulo…
+  Fontes: Valor Econômico, InfoMoney, Estadão, Poder360, Exame, CNN
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-romeu-zema-vota-em-araxa-e-diz-que-vai-continuar
 
-• Lula agradece Alcolumbre por pautar PEC sobre fim da escala 6x1
-  O presidente Luiz Inácio Lula da Silva (PT), candidato à reeleição,
-  agradeceu nesta sexta-feira (2) ao presidente do Senado, Davi
-  Alcolumbre (União-AP), por ter incluído o fim da escala 6x1 na pauta
-  da Casa na próxima…
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Agência Senado,
-  g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-lula-agradece-alcolumbre-por-pautar-pec-sobre-fi
+• Quem tem prioridade para votar nas Eleições de 2026?
+  Mais de 158 milhões de brasileiros devem ir às urnas neste domingo
+  (04) para votar nas Eleições de 2026, o que pode causar algumas filas
+  nos locais de votação.
+  Fontes: Valor Econômico, JOTA, g1, Agência Brasil, Exame, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-quem-tem-prioridade-para-votar-nas-eleicoes-de-2
+
+• Eleições 2026: siga as últimas notícias sobre a votação e os
+  candidatos neste domingo
+  Para votar no 1º turno das Eleições 2026, que acontecem neste domingo
+  (4), o eleitor precisa apresentar em sua seção eleitoral apenas um
+  documento oficial com foto ou o aplicativo e-Título.
+  Fontes: Valor Econômico, JOTA, g1, Agência Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-eleicoes-2026-siga-as-ultimas-noticias-sobre-a-v
+
+• Douglas Ruas afirma que decisão de anular votos dados a Garotinho é
+  'manobra' para favorecer Paes
+  O candidato ao governo do Rio de Janeiro pelo PL, Douglas Ruas, chegou
+  por volta das 9 horas à seção de votação na Tijuca para acompanhar o
+  voto de Flávio Bolsonaro, candidato à Presidência da República.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-douglas-ruas-afirma-que-decisao-de-anular-votos
+
+• Brasil vai hoje às urnas na eleição mais acirrada da história
+  Mais de 158 milhões de eleitores estão aptos a ir às urnas neste
+  domingo, primeiro turno das eleições presidenciais mais acirradas da
+  história.
+  Fontes: Valor Econômico, Folha de S.Paulo, Poder360, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-brasil-vai-hoje-as-urnas-na-eleicao-mais-acirrad
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Emirados Árabes ameaçam reduzir investimentos no Reino Unido em caso
-  de punição grave ao Manchester City
-  Premier League e Manchester City: entenda quais podem ser as punições
-  do City
-  Fontes: ge, Folha de S.Paulo, Estadão, Placar, g1, Financial Times,
-  The New York Times, The Wall Street Journal, The Guardian, BBC News,
-  CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-emirados-arabes-ameacam-reduzir-investimentos-no
-
-• Sobrevivente de execução no Tennessee respira por aparelho
-  Condenada à morte no Tennessee pelo assassinato de uma colega de
-  escola há 30 anos, Christa Pike continua inconsciente, intubada e
-  recebendo assistência respiratória por meio de um aparelho após a
-  tentativa fracassada…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, The Guardian,
-  BBC News
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-sobrevivente-de-execucao-no-tennessee-respira-po
+• Copiloto da Flydubai usou machado contra piloto em tentativa de ataque
+  terrorista, dizem Emirados Árabes
+  O copiloto do voo FZ1073 da Flydubai, que tinha Israel como destino,
+  tentou realizar um “ataque terrorista” com um machado durante o voo,
+  afirmou, neste sábado (3), o procurador-geral dos Emirados Árabes
+  Unidos.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, The New York
+  Times, Financial Times, The Guardian, BBC News, CNBC
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-copiloto-da-flydubai-usou-machado-contra-piloto
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Ações da Nvidia batem recorde e valor da empresa fica próximo de US$ 6
-  trilhões
-  As ações da fabricante de chips Nvidia bateram recorde nesta
-  sexta-feira, 2, no valor das negociações na bolsa Nasdaq durante o
-  dia, ao subirem 3% e levarem a companhia a se aproximar do valor total
-  de US$ 6 trilhões.
-  Fontes: Estadão, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-acoes-da-nvidia-batem-recorde-e-valor-da-empresa
+• Mercado informal já fornece a maioria das doses de GLP-1 no Brasil
+  O mercado informal passou a responder pela maior parte do consumo de
+  medicamentos à base de GLP-1 no Brasil. .
+  Fontes: Valor Econômico
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-mercado-informal-ja-fornece-a-maioria-das-doses
 
 IMOBILIÁRIO
 -----------
-• GARE11, MXRF11 e HGBS11 pagam dividendos em outubro; confira os
-  valores
-  Diversos fundos imobiliários anunciaram novos rendimentos aos cotistas
-  para outubro, com pagamentos programados ao longo das próximas
-  semanas.
-  Fontes: InfoMoney, Suno Notícias
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-gare11-mxrf11-e-hgbs11-pagam-dividendos-em-outub
+• More Hong Kong homes sell at a loss despite signs prices have
+  bottomed: agents
+  Despite signs that Hong Kong property prices could have bottomed out
+  and begun rebounding in August, market sources said at least 100
+  secondary residential homes were sold at a loss in September, up from
+  at least 81 the…
+  Fontes: South China Morning Post
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-more-hong-kong-homes-sell-at-a-loss-despite-sign
 
 ESPORTE
 -------
-• Verstappen e Hamilton repetem grid de decisão em 2021 e dominam 1ª
-  fila pela 14ª vez
-  Quase cinco anos após o fim antológico da temporada 2021, Max
-  Verstappen e Lewis Hamilton voltam a ocupar as mesmas posições na
-  frente do grid.
-  Fontes: ge, Estadão, Gazeta Esportiva, UOL, CNN Brasil, Al Jazeera
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-verstappen-e-hamilton-repetem-grid-de-decisao-em
+• São Paulo empata com Corinthians e conquista Brasileiro Feminino de
+  2026
+  O São Paulo é o mais novo campeão do Brasileirão feminino.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar,
+  Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-sao-paulo-empata-com-corinthians-e-conquista-bra
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Enchentes no sudeste da Espanha matam mulher de 102 anos e deixam 90
-  pessoas resgatadas
-  Homem caminha entre destroços após enchentes provocadas por fortes
-  chuvas em Madrigueras, na Espanha, em 3 de outubro de 2026. — Foto:
-  REUTERS/Eva Manez
-  Fontes: g1, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-enchentes-no-sudeste-da-espanha-matam-mulher-de
+• 'O gado está morrendo de sede e fome': O impacto devastador do El Niño
+  no Corredor Seco da América Central
+  Juan Estanislao Muñoz está acostumado com secas intensas. Mas ele
+  garante que a seca atual não tem precedentes. "Tenho 61 anos e nunca,
+  na minha vida, vi uma seca como esta", afirma ele.
+  Fontes: Folha de S.Paulo, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-o-gado-esta-morrendo-de-sede-e-fome-o-impacto-de
 
 CULTURA & VARIEDADES
 --------------------
-• Famílias russas e ucranianas escolhem Paraty para criar os filhos e
-  viver longe da guerra
-  Quando a russa Lucy Maratkanova e o marido, Nico Zharov, desembarcaram
-  no Brasil com a filha Amélia, dez anos atrás, só tinham decidido que o
-  novo membro da família nasceria brasileiro.
-  Fontes: Valor Econômico
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-03.html#s-familias-russas-e-ucranianas-escolhem-paraty-par
+• "Hoje o presidente pagou": atletas do Santa Cruz vibram com acesso à
+  Série B e pagamento de atrasados
+  O acesso do Santa Cruz à Série B foi consolidado neste sábado, no
+  empate por 1 a 1 com o Maringá, na Arena de Pernambuco, pelo
+  quadrangular da Série C. E a tradicional coletiva de imprensa após os
+  jogos foi trocada por…
+  Fontes: ge, Estadão, Gazeta Esportiva, Placar, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-04.html#s-hoje-o-presidente-pagou-atletas-do-santa-cruz-vi
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 10:19 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 10:54 (BRT) · Edição automática (sem IA)
