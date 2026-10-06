@@ -1,150 +1,148 @@
 PBCV TECH
-Segunda-feira, 5 de outubro de 2026 · 14:06 BRT
+Terça-feira, 6 de outubro de 2026 · 12:04 BRT
 
 MERCADOS
 --------
-Dólar R$ 4,99 (-4,42%) · Euro R$ 5,59 (-4,77%) · Yuan R$ 0,74 (-4,21%) ·
-Ibovespa 207.950 pts (+8,25%) · IFIX 3.815 pts (+1,15%) · S&P 500 7.768
-pts (+0,59%) · Brent US$ 100,72 (-1,50%) · Ouro US$ 4.160 (-0,06%) ·
-Bitcoin US$ 85.249 (-0,06%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
+Dólar R$ 4,97 (-0,40%) · Euro R$ 5,60 (-0,05%) · Yuan R$ 0,74 (-0,39%) ·
+Ibovespa 204.961 pts (-0,94%) · IFIX 3.872 pts (+1,29%) · S&P 500 7.834
+pts (+0,78%) · Brent US$ 98,25 (-2,06%) · Ouro US$ 4.184 (+0,67%) ·
+Bitcoin US$ 86.603 (+1,59%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
 3,35% · INCC 12m 6,61%
 
 CLIMA
 -----
-São Paulo: 22°C, nublado (mín. 17° / máx. 22°) · amanhã: pancadas de
-chuva fortes, 16° a 26°
-Montevidéu: 18°C, nublado (mín. 12° / máx. 18°) · amanhã: nublado, 12° a
-17°
+São Paulo: 25°C, nublado (mín. 16° / máx. 25°) · amanhã: garoa moderada,
+18° a 26°
+Montevidéu: 17°C, parcialmente nublado (mín. 12° / máx. 17°) · amanhã:
+trovoadas, 14° a 17°
 
 EM 1 MINUTO
 -----------
-• Mercado eleva estimativa do IPCA de 2026 para alta de 5,01%, mostra
-  Focus
-• Justiça nega liminar do Vasco para levar jogo contra o Boca Juniors
-  para o Maracanã
-• Trump confunde Brasil com Índia ao comentar eleição presidencial
-• Huawei e Qualcomm fecham acordo de patentes que abrange 5G, computação
-  e IA
+• Balança comercial dos EUA tem déficit maior do que o estimado em
+  agosto
+• Bolsas de NY sobem com queda dos juros e do petróleo; Nasdaq renova
+  recorde
+• Quem não votou no primeiro turno pode votar no segundo?
+• Coreia do Sul confirma invasão a sete bancos com possível uso de
+  agentes de IA
 • FII GARE11 compra complexo logístico frigorificado por R$ 155,9
   milhões no RS
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.512 notícias coletadas de 42 veículos
-foram agrupadas por títulos parecidos em 1.079 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.721 notícias coletadas de 45 veículos
+foram agrupadas por títulos parecidos em 1.289 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#racional
-Todas as 1.512 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#racional
+Todas as 1.721 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06-todas.html
 
 MANCHETE
 --------
-Smart Fit assina contrato para adquirir até 20% do capital da Buddha Spa
-por até R$ 32 milhões
-A Smart Fit celebrou, no domingo (4), contrato com o grupo Buddha Spa
-para adquirir até 20% do capital social e votante da rede de spas.
-Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Bloomberg Línea, g1,
-Seu Dinheiro
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-smart-fit-assina-contrato-para-adquirir-ate-20-d
+Paramount conclui aquisição da Warner por US$ 81 bi e cria gigante
+global de mídia
+A Paramount concluiu nesta terça-feira, 6, a aquisição da Warner Bros.
+Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Money Times,
+Exame, Financial Times, The New York Times, The Guardian, BBC News,
+CNBC, TechCrunch
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-paramount-conclui-aquisicao-da-warner-por-us-81
 
 BRASIL · ECONOMIA
 -----------------
-• Mercado eleva estimativa do IPCA de 2026 para alta de 5,01%, mostra
-  Focus
-  A mediana das projeções dos economistas do mercado para a inflação
-  oficial brasileira em 2026 subiu pela terceira semana seguida, de
-  4,99% para 5,01%, de acordo com o relatório Focus, do Banco Central
-  (BC), divulgado…
-  Fontes: Valor Econômico, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-mercado-eleva-estimativa-do-ipca-de-2026-para-al
+• ABBC anuncia ex-diretor do Banco Central como novo CEO
+  O economista e ex-diretor do Banco Central Renato Gomes é o novo CEO
+  da Associação Brasileira de Bancos (ABBC). O anúncio foi feito na
+  manhã desta terça-feira durante reunião do conselho de administração
+  da entidade.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-abbc-anuncia-ex-diretor-do-banco-central-como-no
+
+• Vendas de veículos novos têm o melhor setembro da série história, diz
+  Fenabrave
+  As vendas de veículos novos continuam em ritmo acelerado, como
+  resultado, principalmente pela demanda aquecida no segmento de
+  automóveis.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-vendas-de-veiculos-novos-tem-o-melhor-setembro-d
 
 MERCADOS & FINANÇAS
 -------------------
-• Ibovespa sobe até 9% e vai a inéditos 209 mil pontos com favoritismo
-  de Flávio; dólar derrete para abaixo de R$ 5
-  As bolsas de Nova York operam em alta, em sua maioria, diante da queda
-  nos preços do petróleo e com os investidores atentos ao mercado de
-  renda fixa, onde a taxa do título de longo de 30 anos sobe.
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Money Times,
-  Suno Notícias, Seu Dinheiro
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-ibovespa-sobe-ate-9-e-vai-a-ineditos-209-mil-pon
+• Estoques de petróleo podem levar 2 anos para serem recompostos, diz
+  Aramco
+  O diretor-presidente da Saudi Aramco, Amin Nasser, afirmou que os
+  estoques globais de petróleo foram fortemente reduzidos pelo conflito
+  no Oriente Médio e podem levar até dois anos para serem recompostos,
+  mesmo depois…
+  Fontes: Valor Econômico, Folha de S.Paulo, Poder360
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-estoques-de-petroleo-podem-levar-2-anos-para-ser
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Justiça nega liminar do Vasco para levar jogo contra o Boca Juniors
-  para o Maracanã
-  João Almirante: "Consórcio Maracanã negar o direito do Vasco é agir
-  contra o edital"
-  Fontes: ge, Gazeta Esportiva
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-justica-nega-liminar-do-vasco-para-levar-jogo-co
+• AGU se manifesta a favor de MP do governo Lula que proibiu bets no
+  Brasil
+  A Advocacia-Geral da União (AGU) se manifestou no Supremo Tribunal
+  Federal (STF) a favor da medida provisória do governo Luiz Inácio Lula
+  da Silva (PT) que proibiu as bets no Brasil.
+  Fontes: JOTA, Folha de S.Paulo, g1, Poder360, Exame, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-agu-se-manifesta-a-favor-de-mp-do-governo-lula-q
+
+• Moraes autoriza 'Débora do Batom' a cumprir pena em regime semiaberto
+  O ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes
+  autorizou nesta segunda-feira (6) que a cabeleireira Débora Rodrigues
+  dos Santos, conhecida como "Débora do Batom", cumpra o restante da
+  pena em regime…
+  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão, g1,
+  Poder360, Agência Brasil, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-moraes-autoriza-debora-do-batom-a-cumprir-pena-e
 
 POLÍTICA
 --------
-• Eleições 2026: Flávio Bolsonaro e Lula vão ao segundo turno
-  Renan Santos, que concorreu à Presidência pelo Missão, manteve a
-  posição de não declarar apoio a nenhum dos candidatos que disputarão o
-  segundo turno - Flávio Bolsonaro (PL) e Lula (PT) -, mas afirmou que
-  Flávio "já é o…
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, Agência
-  Senado, g1, Suno Notícias
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-eleicoes-2026-flavio-bolsonaro-e-lula-vao-ao-seg
+• Nunes Marques quer julgar anulação da pena de Bolsonaro depois do
+  segundo turno
+  O ministro Kassio Nunes Marques, do Supremo Tribunal Federal (STF),
+  pretende liberar para julgamento depois do segundo turno das eleições
+  o processo em que o ex-presidente Jair Bolsonaro pede a suspensão da
+  condenação a…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-nunes-marques-quer-julgar-anulacao-da-pena-de-bo
 
-• Ibovespa futuro dispara quase 8% após vantagem de Flávio
-  O Ibovespa deve abrir em forte alta nesta segunda-feira, como mostra o
-  índice futuro, que dispara antes da abertura dos negócios.
-  Fontes: Valor Econômico, Folha de S.Paulo, NeoFeed, Money Times, Seu
-  Dinheiro
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-ibovespa-futuro-dispara-quase-8-apos-vantagem-de
+• Ibovespa encerra acima dos 206 mil pontos pela 1ª vez na história com
+  Flávio à frente de Lula no 1 º turno
+  O favoritismo de Flávio Bolsonaro (PL) para vencer o segundo turno da
+  eleição presidencial provocou uma reação expressiva nos ativos
+  domésticos nesta segunda-feira.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, NeoFeed
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-ibovespa-encerra-acima-dos-206-mil-pontos-pela-1
 
-• Premiê da Espanha convoca eleições antecipadas em meio a impasse no
-  Parlamento
-  O primeiro-ministro da Espanha, Pedro Sánchez, convocou nesta
-  segunda-feira eleições antecipadas para 29 de novembro, numa tentativa
-  de fortalecer seu mandato depois que um Parlamento fragmentado
-  rejeitou na semana…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Financial
-  Times, The New York Times, The Wall Street Journal, BBC News, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-premie-da-espanha-convoca-eleicoes-antecipadas-e
-
-• Lula se reúne com campanha na segunda-feira para definir mudanças na
-  estratégia do 2º turno
-  O presidente e candidato à reeleição Luiz Inácio Lula da Silva (PT) se
-  reunirá na segunda-feira (5) com sua equipe de campanha em Brasília
-  para traçar uma nova estratégia para disputar o segundo turno.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-lula-se-reune-com-campanha-na-segunda-feira-para
-
-• Eduardo Braide é eleito governador do Maranhão
-  O ex-prefeito de São Luís Eduardo Braide (PSD) será o novo governador
-  do Maranhão pelos próximos quatro anos. Ele conquistou 54,03% dos
-  votos válidos no primeiro turno, realizado neste domingo (4/10).
-  Fontes: JOTA, Folha de S.Paulo, Agência Senado, g1, Agência Brasil,
-  CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-eduardo-braide-e-eleito-governador-do-maranhao
+• PL elege maior bancada na Câmara desde 1990
+  O PL saiu da eleição com a maior bancada da Câmara - a exemplo do que
+  ocorreu no Senado. Foram 121 deputados eleitos, um crescimento de 23
+  cadeiras em relação aos 98 integrantes atuais.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-pl-elege-maior-bancada-na-camara-desde-1990
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Rivais dos houthis, forças do governo do Iêmen avançam sobre Bab
-  el-Mandeb
-  Forças do governo iemenita apoiadas pela Arábia Saudita tomaram
-  posições estratégicas no estreito de Bab el-Mandeb nesta
-  segunda-feira, disseram fontes militares e do governo, enquanto
-  tentavam reverter os avanços…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, The Guardian, BBC
-  News, Al Jazeera
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-rivais-dos-houthis-forcas-do-governo-do-iemen-av
+• Sibéria impõe quarentena após morte de funcionária de instituto de
+  pesquisa da peste negra
+  Uma funcionária de laboratório em um instituto de pesquisa sobre a
+  peste negra na Sibéria adoeceu e faleceu em circunstâncias não
+  reveladas, levando as autoridades a colocarem dezenas de pessoas em
+  quarentena e fazendo…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
+  The Guardian, BBC News, CNBC, Al Jazeera
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-siberia-impoe-quarentena-apos-morte-de-funcionar
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Trump nomeia chefe de inteligência como ‘czar’ da IA ​​para liderar
-  força-tarefa
-  O presidente dos Estados Unidos, Donald Trump, disse neste domingo que
-  nomeou o Diretor de Inteligência Nacional, Jay Clayton, como o “czar”
-  da inteligência artificial (IA) ​​da administração, encarregando-o de…
-  Fontes: Valor Econômico, Folha de S.Paulo, The Wall Street Journal,
-  The Guardian, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-trump-nomeia-chefe-de-inteligencia-como-czar-da
+• Coreia do Sul confirma invasão a sete bancos com possível uso de
+  agentes de IA
+  Seul |Financial Times O presidente da Coreia do Sul, Lee Jae Myung,
+  afirmou nesta terça-feira (6) que há indícios de que modelos de IA
+  foram usados em ataques cibernéticos contra bancos, em meio à
+  crescente preocupação…
+  Fontes: Folha de S.Paulo, g1, Estadão, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-coreia-do-sul-confirma-invasao-a-sete-bancos-com
 
 IMOBILIÁRIO
 -----------
@@ -153,41 +151,41 @@ IMOBILIÁRIO
   O fundo imobiliário GARE11 (Guardian Real Estate) concluiu a aquisição
   do Complexo Logístico Nova Santa Rita, em Nova Santa Rita, na região
   metropolitana de Porto Alegre (RS), por R$ 155,9 milhões.
-  Fontes: InfoMoney, Money Times, Suno Notícias
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-fii-gare11-compra-complexo-logistico-frigorifica
+  Fontes: InfoMoney, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-fii-gare11-compra-complexo-logistico-frigorifica
 
 ESPORTE
 -------
-• ‘Cristiano Ronaldo volta quando quiser à seleção’, diz Jorge Jesus
-  Jorge Jesus procurou reduzir a temperatura da crise com Cristiano
-  Ronaldo depois da vitória de Portugal por 2 a 1 sobre a Noruega, neste
-  domingo, no Estádio do Dragão.
-  Fontes: Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, Trivela
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-cristiano-ronaldo-volta-quando-quiser-a-selecao
+• Fifa permitiu que goleiro da RD Congo jogasse a Copa do Mundo de forma
+  irregular, diz jornal
+  Paredão congolês! Colômbia sofreu para fazer gol em Lionel Mpasi A
+  Fifa enfrenta um novo escândalo de conformidade jurídica relacionado à
+  Copa do Mundo de 2026.
+  Fontes: ge, Estadão, Gazeta Esportiva, Placar, UOL
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-fifa-permitiu-que-goleiro-da-rd-congo-jogasse-a
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Vinte anos depois de Uma Verdade Inconveniente, Al Gore vê 2026 como
-  possível ponto de virada climático
-  Vinte anos depois de Uma Verdade Inconveniente (An Inconvenient Truth)
-  levar o alerta sobre as mudanças climáticas a um público global, Al
-  Gore voltou a Nova York com uma avaliação que pende ora a preocupação
-  e ora a…
-  Fontes: Um Só Planeta
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-vinte-anos-depois-de-uma-verdade-inconveniente-a
+• ‘O risco é que aumente número de negacionistas sobre mudanças
+  climáticas’
+  Estamos em um momento em que há um risco muito grande de manutenção ou
+  de aumento do número de políticos eleitos negacionistas em relação às
+  mudanças climáticas.
+  Fontes: Valor Econômico
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-o-risco-e-que-aumente-numero-de-negacionistas-so
 
 CULTURA & VARIEDADES
 --------------------
-• Vendas de veículos novos têm o melhor setembro da série história, diz
-  Fenabrave
-  As vendas de veículos novos continuam em ritmo acelerado, como
-  resultado, principalmente pela demanda aquecida no segmento de
-  automóveis.
-  Fontes: Valor Econômico, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-05.html#s-vendas-de-veiculos-novos-tem-o-melhor-setembro-d
+• Receita leiloa esmeraldas, iPhones e veículos em São Paulo; veja
+  prazos e como participar
+  A Receita Federal em São Paulo recebe até sexta-feira (9), às 21h,
+  propostas para um leilão com mercadorias abandonadas, entregues ao
+  fisco ou confiscadas pela União.
+  Fontes: Folha de S.Paulo, Poder360
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-receita-leiloa-esmeraldas-iphones-e-veiculos-em
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 14:06 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 12:04 (BRT) · Edição automática (sem IA)
