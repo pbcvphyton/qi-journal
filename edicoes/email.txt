@@ -1,191 +1,189 @@
 PBCV TECH
-Terça-feira, 6 de outubro de 2026 · 12:04 BRT
+Quarta-feira, 7 de outubro de 2026 · 12:30 BRT
 
 MERCADOS
 --------
-Dólar R$ 4,97 (-0,40%) · Euro R$ 5,60 (-0,05%) · Yuan R$ 0,74 (-0,39%) ·
-Ibovespa 204.961 pts (-0,94%) · IFIX 3.872 pts (+1,29%) · S&P 500 7.834
-pts (+0,78%) · Brent US$ 98,25 (-2,06%) · Ouro US$ 4.184 (+0,67%) ·
-Bitcoin US$ 86.603 (+1,59%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
-3,35% · INCC 12m 6,61%
+Dólar R$ 5,00 (+0,53%) · Euro R$ 5,59 (-0,18%) · Yuan R$ 0,75 (+0,47%) ·
+Ibovespa 204.990 pts (-0,41%) · IFIX 3.952 pts (+1,11%) · S&P 500 7.777
+pts (-0,54%) · Brent US$ 101,79 (+1,20%) · Ouro US$ 4.129 (-1,39%) ·
+Bitcoin US$ 83.071 (-3,07%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
+3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 25°C, nublado (mín. 16° / máx. 25°) · amanhã: garoa moderada,
-18° a 26°
-Montevidéu: 17°C, parcialmente nublado (mín. 12° / máx. 17°) · amanhã:
-trovoadas, 14° a 17°
+São Paulo: 24°C, garoa moderada (mín. 16° / máx. 25°) · amanhã: garoa
+fraca, 15° a 28°
+Montevidéu: 17°C, nublado (mín. 15° / máx. 17°) · amanhã: trovoadas, 15°
+a 16°
 
 EM 1 MINUTO
 -----------
-• Balança comercial dos EUA tem déficit maior do que o estimado em
-  agosto
-• Bolsas de NY sobem com queda dos juros e do petróleo; Nasdaq renova
-  recorde
-• Quem não votou no primeiro turno pode votar no segundo?
-• Coreia do Sul confirma invasão a sete bancos com possível uso de
-  agentes de IA
-• FII GARE11 compra complexo logístico frigorificado por R$ 155,9
-  milhões no RS
+• IGP-DI sobe 1,50% em setembro e acumula 3,80% em 12 meses, informa FGV
+• Ibovespa cai e dólar e juros futuros longos sobem com exterior
+  negativo e eleição no radar
+• OEA cita preocupação com desinformação e interferência externa na
+  eleição brasileira
+• SpaceX quer levantar US$ 40 bi para comprar chips da Nvidia e expandir
+  infraestrutura de IA
+• BB coloca 75 imóveis à venda e pretende oferecer até 800 antes do fim
+  do ano
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.721 notícias coletadas de 45 veículos
-foram agrupadas por títulos parecidos em 1.289 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.781 notícias coletadas de 44 veículos
+foram agrupadas por títulos parecidos em 1.355 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#racional
-Todas as 1.721 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#racional
+Todas as 1.781 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07-todas.html
 
 MANCHETE
 --------
-Paramount conclui aquisição da Warner por US$ 81 bi e cria gigante
-global de mídia
-A Paramount concluiu nesta terça-feira, 6, a aquisição da Warner Bros.
-Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Money Times,
-Exame, Financial Times, The New York Times, The Guardian, BBC News,
-CNBC, TechCrunch
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-paramount-conclui-aquisicao-da-warner-por-us-81
+Resultado do leilão das áreas do pré-sal foi um sucesso, diz PPSA
+O resultado do leilão de áreas do pré-sal, nesta quarta-feira (7), foi
+um sucesso, na avaliação da Pré-Sal Petróleo (PPSA), com a negociação de
+sete das 13 áreas colocadas em negociação.
+Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Poder360,
+g1, Agência Brasil, Money Times, Exame, CNN Brasil
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-resultado-do-leilao-das-areas-do-pre-sal-foi-um
 
 BRASIL · ECONOMIA
 -----------------
-• ABBC anuncia ex-diretor do Banco Central como novo CEO
-  O economista e ex-diretor do Banco Central Renato Gomes é o novo CEO
-  da Associação Brasileira de Bancos (ABBC). O anúncio foi feito na
-  manhã desta terça-feira durante reunião do conselho de administração
-  da entidade.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-abbc-anuncia-ex-diretor-do-banco-central-como-no
-
-• Vendas de veículos novos têm o melhor setembro da série história, diz
-  Fenabrave
-  As vendas de veículos novos continuam em ritmo acelerado, como
-  resultado, principalmente pela demanda aquecida no segmento de
-  automóveis.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-vendas-de-veiculos-novos-tem-o-melhor-setembro-d
+• Superávit da balança comercial brasileira avança 146% em setembro;
+  exportações aos EUA sobem 32%
+  A balança comercial brasileira registrou superávit de US$ 7,7 bilhões
+  em setembro.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-superavit-da-balanca-comercial-brasileira-avanca
 
 MERCADOS & FINANÇAS
 -------------------
-• Estoques de petróleo podem levar 2 anos para serem recompostos, diz
-  Aramco
-  O diretor-presidente da Saudi Aramco, Amin Nasser, afirmou que os
-  estoques globais de petróleo foram fortemente reduzidos pelo conflito
-  no Oriente Médio e podem levar até dois anos para serem recompostos,
-  mesmo depois…
-  Fontes: Valor Econômico, Folha de S.Paulo, Poder360
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-estoques-de-petroleo-podem-levar-2-anos-para-ser
+• Paramount conclui aquisição da Warner por US$ 81 bi e cria gigante
+  global de mídia
+  A Paramount Skydance concluiu nesta terça-feira (6) a aquisição da
+  Warner Bros. Discovery por US$ 110 bilhões, criando uma das maiores
+  empresas de entretenimento do mundo.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, The New York
+  Times, The Guardian, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-paramount-conclui-aquisicao-da-warner-por-us-81
+
+• S&P 500 e Nasdaq renovam recordes com apoio de recuo nos juros e nos
+  preços do petróleo
+  Os principais índices de ações de Nova York tiveram alta nesta
+  terça-feira, com o S&P 500 e o Nasdaq renovando seus recordes de
+  fechamento, apoiados por um alívio nos preços do petróleo e nos
+  rendimentos dos Treasuries.
+  Fontes: Valor Econômico, Financial Times, The Wall Street Journal, The
+  New York Times, The Guardian
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-s-p-500-e-nasdaq-renovam-recordes-com-apoio-de-r
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• AGU se manifesta a favor de MP do governo Lula que proibiu bets no
+• TSE marca julgamento do caso Garotinho que pode mudar eleição no Rio
+  O Tribunal Superior Eleitoral (TSE) decidirá, na quinta-feira (8), se
+  o ex-governador Anthony Garotinho (Republicanos) pode desistir de um
+  recurso apresentado à corte em que questionava o indeferimento de sua…
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Agência
   Brasil
-  A Advocacia-Geral da União (AGU) se manifestou no Supremo Tribunal
-  Federal (STF) a favor da medida provisória do governo Luiz Inácio Lula
-  da Silva (PT) que proibiu as bets no Brasil.
-  Fontes: JOTA, Folha de S.Paulo, g1, Poder360, Exame, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-agu-se-manifesta-a-favor-de-mp-do-governo-lula-q
-
-• Moraes autoriza 'Débora do Batom' a cumprir pena em regime semiaberto
-  O ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes
-  autorizou nesta segunda-feira (6) que a cabeleireira Débora Rodrigues
-  dos Santos, conhecida como "Débora do Batom", cumpra o restante da
-  pena em regime…
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão, g1,
-  Poder360, Agência Brasil, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-moraes-autoriza-debora-do-batom-a-cumprir-pena-e
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-tse-marca-julgamento-do-caso-garotinho-que-pode
 
 POLÍTICA
 --------
-• Nunes Marques quer julgar anulação da pena de Bolsonaro depois do
-  segundo turno
-  O ministro Kassio Nunes Marques, do Supremo Tribunal Federal (STF),
-  pretende liberar para julgamento depois do segundo turno das eleições
-  o processo em que o ex-presidente Jair Bolsonaro pede a suspensão da
-  condenação a…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-nunes-marques-quer-julgar-anulacao-da-pena-de-bo
+• Flávio Bolsonaro recebe apoios e fala em ‘mudar a Constituição’
+  O candidato do PL à Presidência da República, Flávio Bolsonaro,
+  recebeu na terça-feira (6) o apoio oficial de Ronaldo Caiado (PSD)
+  para o segundo turno da corrida pelo Palácio do Planalto.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1,
+  Poder360, Money Times, Agência Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-flavio-bolsonaro-recebe-apoios-e-fala-em-mudar-a
 
-• Ibovespa encerra acima dos 206 mil pontos pela 1ª vez na história com
-  Flávio à frente de Lula no 1 º turno
-  O favoritismo de Flávio Bolsonaro (PL) para vencer o segundo turno da
-  eleição presidencial provocou uma reação expressiva nos ativos
-  domésticos nesta segunda-feira.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, NeoFeed
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-ibovespa-encerra-acima-dos-206-mil-pontos-pela-1
+• Lula desafia Flávio e diz que 'máscara vai cair' com votação da 6x1
+  Após ter sido chamado de "oportunista" pelo senador Flávio Bolsonaro
+  (PL-RJ), o presidente Luiz Inácio Lula da Silva (PT), candidato à
+  reeleição, elevou o tom e disse que a votação do fim da escala 6x1
+  será um "teste"…
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Agência
+  Senado, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-lula-desafia-flavio-e-diz-que-mascara-vai-cair-c
 
-• PL elege maior bancada na Câmara desde 1990
-  O PL saiu da eleição com a maior bancada da Câmara - a exemplo do que
-  ocorreu no Senado. Foram 121 deputados eleitos, um crescimento de 23
-  cadeiras em relação aos 98 integrantes atuais.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-pl-elege-maior-bancada-na-camara-desde-1990
+• PGR se manifesta favoravelmente à visita de Flávio Bolsonaro ao pai na
+  prisão
+  O procurador-geral da República (PGR), Paulo Gonet, se manifestou a
+  favor do pedido feito pela defesa de Jair Bolsonaro para que ele possa
+  receber visitas de seu filho Flávio Bolsonaro,candidato à presidência
+  da…
+  Fontes: JOTA, Valor Econômico, Folha de S.Paulo, g1, Agência Brasil,
+  CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-pgr-se-manifesta-favoravelmente-a-visita-de-flav
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Sibéria impõe quarentena após morte de funcionária de instituto de
-  pesquisa da peste negra
-  Uma funcionária de laboratório em um instituto de pesquisa sobre a
-  peste negra na Sibéria adoeceu e faleceu em circunstâncias não
-  reveladas, levando as autoridades a colocarem dezenas de pessoas em
-  quarentena e fazendo…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
-  The Guardian, BBC News, CNBC, Al Jazeera
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-siberia-impoe-quarentena-apos-morte-de-funcionar
+• Rússia descarta risco de epidemia em caso suspeito de peste pneumônica
+  A agência de vigilância sanitária da Rússia, Rospotrebnadzor, afirmou
+  nesta quarta-feira que não há risco de uma epidemia na Sibéria após a
+  morte de uma funcionária de um instituto de pesquisa sobre peste na
+  região…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Exame, The New
+  York Times, The Wall Street Journal, Financial Times, BBC News, CNBC,
+  Mongabay
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-russia-descarta-risco-de-epidemia-em-caso-suspei
+
+• No adeus à Argentina, Messi encerra sua jornada do herói
+  E aí, de repente, nunca mais Messi.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-no-adeus-a-argentina-messi-encerra-sua-jornada-d
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Coreia do Sul confirma invasão a sete bancos com possível uso de
-  agentes de IA
-  Seul |Financial Times O presidente da Coreia do Sul, Lee Jae Myung,
-  afirmou nesta terça-feira (6) que há indícios de que modelos de IA
-  foram usados em ataques cibernéticos contra bancos, em meio à
-  crescente preocupação…
-  Fontes: Folha de S.Paulo, g1, Estadão, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-coreia-do-sul-confirma-invasao-a-sete-bancos-com
+• SpaceX quer levantar US$ 40 bi para comprar chips da Nvidia e expandir
+  infraestrutura de IA
+  A SpaceX e a Nvidia estão prestes a estreitar ainda mais seus laços, à
+  medida que a companhia de exploração espacial e inteligência
+  artificial de Elon Musk se prepara para investir dezenas de bilhões de
+  dólares em…
+  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, NeoFeed,
+  Financial Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-spacex-quer-levantar-us-40-bi-para-comprar-chips
 
 IMOBILIÁRIO
 -----------
-• FII GARE11 compra complexo logístico frigorificado por R$ 155,9
-  milhões no RS
-  O fundo imobiliário GARE11 (Guardian Real Estate) concluiu a aquisição
-  do Complexo Logístico Nova Santa Rita, em Nova Santa Rita, na região
-  metropolitana de Porto Alegre (RS), por R$ 155,9 milhões.
-  Fontes: InfoMoney, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-fii-gare11-compra-complexo-logistico-frigorifica
+• BB coloca 75 imóveis à venda e pretende oferecer até 800 antes do fim
+  do ano
+  O Banco do Brasil colocou à venda 75 imóveis próprios em todas as
+  regiões do País, no âmbito da campanha “Aceita BB”, que permite a
+  qualquer pessoa comprar propriedades sem a necessidade de valor mínimo
+  de lance de…
+  Fontes: Estadão
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-bb-coloca-75-imoveis-a-venda-e-pretende-oferecer
 
 ESPORTE
 -------
-• Fifa permitiu que goleiro da RD Congo jogasse a Copa do Mundo de forma
-  irregular, diz jornal
-  Paredão congolês! Colômbia sofreu para fazer gol em Lionel Mpasi A
-  Fifa enfrenta um novo escândalo de conformidade jurídica relacionado à
-  Copa do Mundo de 2026.
-  Fontes: ge, Estadão, Gazeta Esportiva, Placar, UOL
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-fifa-permitiu-que-goleiro-da-rd-congo-jogasse-a
+• Jorge Jesus diz que leu comunicado de Cristiano Ronaldo: "Agora, como
+  faço todo dia, vou trabalhar"
+  Cristiano Ronaldo se manifesta sobre episódio com Jorge Jesus
+  Fontes: ge, Estadão, Gazeta Esportiva, Placar, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-jorge-jesus-diz-que-leu-comunicado-de-cristiano
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• ‘O risco é que aumente número de negacionistas sobre mudanças
-  climáticas’
-  Estamos em um momento em que há um risco muito grande de manutenção ou
-  de aumento do número de políticos eleitos negacionistas em relação às
-  mudanças climáticas.
-  Fontes: Valor Econômico
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-o-risco-e-que-aumente-numero-de-negacionistas-so
+• Perfil do Congresso será conservador como sempre foi
+  O Congresso Nacional eleito para os próximos quatro anos não será mais
+  nem menos conservador do que sempre foi se olharmos o perfil geral
+  pela predominância de representação do centro à direita.
+  Fontes: Folha de S.Paulo, ((o))eco, ClimaInfo
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-perfil-do-congresso-sera-conservador-como-sempre
 
 CULTURA & VARIEDADES
 --------------------
-• Receita leiloa esmeraldas, iPhones e veículos em São Paulo; veja
-  prazos e como participar
-  A Receita Federal em São Paulo recebe até sexta-feira (9), às 21h,
-  propostas para um leilão com mercadorias abandonadas, entregues ao
-  fisco ou confiscadas pela União.
-  Fontes: Folha de S.Paulo, Poder360
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-06.html#s-receita-leiloa-esmeraldas-iphones-e-veiculos-em
+• Da Série A do Brasileiro à Série B estadual: como o Joinville
+  despencou em 11 anos
+  Em novembro de 2014, a Arena Joinville recebeu a festa de um campeão
+  brasileiro.
+  Fontes: ge
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-da-serie-a-do-brasileiro-a-serie-b-estadual-como
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 12:04 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 12:30 (BRT) · Edição automática (sem IA)
