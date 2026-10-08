@@ -1,189 +1,189 @@
 PBCV TECH
-Quarta-feira, 7 de outubro de 2026 · 12:30 BRT
+Quinta-feira, 8 de outubro de 2026 · 12:32 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,00 (+0,53%) · Euro R$ 5,59 (-0,18%) · Yuan R$ 0,75 (+0,47%) ·
-Ibovespa 204.990 pts (-0,41%) · IFIX 3.952 pts (+1,11%) · S&P 500 7.777
-pts (-0,54%) · Brent US$ 101,79 (+1,20%) · Ouro US$ 4.129 (-1,39%) ·
-Bitcoin US$ 83.071 (-3,07%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
+Dólar R$ 5,01 (-0,28%) · Euro R$ 5,61 (-0,22%) · Yuan R$ 0,75 (-0,26%) ·
+Ibovespa 206.192 pts (+0,93%) · IFIX 3.934 pts (-0,53%) · S&P 500 7.774
+pts (-0,36%) · Brent US$ 105,44 (+5,23%) · Ouro US$ 4.140 (-0,01%) ·
+Bitcoin US$ 81.317 (-2,52%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 24°C, garoa moderada (mín. 16° / máx. 25°) · amanhã: garoa
-fraca, 15° a 28°
-Montevidéu: 17°C, nublado (mín. 15° / máx. 17°) · amanhã: trovoadas, 15°
-a 16°
+São Paulo: 28°C, céu limpo (mín. 16° / máx. 29°) · amanhã: trovoadas,
+18° a 30°
+Montevidéu: 16°C, nublado (mín. 14° / máx. 17°) · amanhã: nublado, 14° a
+14°
 
 EM 1 MINUTO
 -----------
-• IGP-DI sobe 1,50% em setembro e acumula 3,80% em 12 meses, informa FGV
-• Ibovespa cai e dólar e juros futuros longos sobem com exterior
-  negativo e eleição no radar
-• OEA cita preocupação com desinformação e interferência externa na
-  eleição brasileira
-• SpaceX quer levantar US$ 40 bi para comprar chips da Nvidia e expandir
-  infraestrutura de IA
-• BB coloca 75 imóveis à venda e pretende oferecer até 800 antes do fim
-  do ano
+• Galípolo relata à PF reuniões tensas e 'com palavrões' com servidores
+  do BC suspeitos de favorecer o Master
+• Plano de recuperação extrajudicial do GPA é homologado
+• Na Espanha, morre idosa símbolo da crise de moradia
+• Microsoft e Nvidia apresentarão nesta quarta-feira novo laptop
+  centrado em IA; por que isso importa
+• Incêndio na UFPE causou prejuízo estimado em R$ 100 milhões, diz
+  reitor
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.781 notícias coletadas de 44 veículos
-foram agrupadas por títulos parecidos em 1.355 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.785 notícias coletadas de 46 veículos
+foram agrupadas por títulos parecidos em 1.387 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#racional
-Todas as 1.781 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#racional
+Todas as 1.785 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08-todas.html
 
 MANCHETE
 --------
-Resultado do leilão das áreas do pré-sal foi um sucesso, diz PPSA
-O resultado do leilão de áreas do pré-sal, nesta quarta-feira (7), foi
-um sucesso, na avaliação da Pré-Sal Petróleo (PPSA), com a negociação de
-sete das 13 áreas colocadas em negociação.
-Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Poder360,
-g1, Agência Brasil, Money Times, Exame, CNN Brasil
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-resultado-do-leilao-das-areas-do-pre-sal-foi-um
+TSE tem maioria para anular votos de Garotinho e abre caminho para
+vitória de Douglas Ruas no RJ; assista
+O Tribunal Superior Eleitoral (TSE) decidiu anular os votos recebidos
+por Anthony Garotinho (Republicanos) no primeiro turno das eleições ao
+governo do Rio de Janeiro.
+Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, Poder360, g1,
+Exame, Agência Brasil, CNN Brasil
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-tse-tem-maioria-para-anular-votos-de-garotinho-e
 
 BRASIL · ECONOMIA
 -----------------
-• Superávit da balança comercial brasileira avança 146% em setembro;
-  exportações aos EUA sobem 32%
-  A balança comercial brasileira registrou superávit de US$ 7,7 bilhões
-  em setembro.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-superavit-da-balanca-comercial-brasileira-avanca
+• Daniella Marques fala em acabar com o split payment da reforma
+  tributária
+  Caso eleito, o senador Flávio Bolsonaro (PL) vai acabar com o 'split
+  payment 'da reforma tributária, disse a porta-voz da campanha para
+  temas econômicos, Daniella Marques, em entrevista ao canal do
+  jornalista Claudio…
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-daniella-marques-fala-em-acabar-com-o-split-paym
 
 MERCADOS & FINANÇAS
 -------------------
-• Paramount conclui aquisição da Warner por US$ 81 bi e cria gigante
-  global de mídia
-  A Paramount Skydance concluiu nesta terça-feira (6) a aquisição da
-  Warner Bros. Discovery por US$ 110 bilhões, criando uma das maiores
-  empresas de entretenimento do mundo.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, The New York
-  Times, The Guardian, BBC News
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-paramount-conclui-aquisicao-da-warner-por-us-81
+• Latam Brasil recebe primeiro Embraer E2; grupo espera outros 11 nesse
+  ano
+  A Latam Brasil recebeu, nesta quinta-feira, o primeiro E195-E2 de um
+  amplo pedido feito pela companhia aérea em 2025.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Poder360, Suno
+  Notícias, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-latam-brasil-recebe-primeiro-embraer-e2-grupo-es
 
-• S&P 500 e Nasdaq renovam recordes com apoio de recuo nos juros e nos
-  preços do petróleo
-  Os principais índices de ações de Nova York tiveram alta nesta
-  terça-feira, com o S&P 500 e o Nasdaq renovando seus recordes de
-  fechamento, apoiados por um alívio nos preços do petróleo e nos
-  rendimentos dos Treasuries.
-  Fontes: Valor Econômico, Financial Times, The Wall Street Journal, The
-  New York Times, The Guardian
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-s-p-500-e-nasdaq-renovam-recordes-com-apoio-de-r
+• Ibovespa sobe, juros futuros caem e dólar ronda estabilidade com
+  otimismo eleitoral
+  A disparada dos preços do petróleo e a alta dos rendimentos dos
+  Treasuries podem pressionar os ativos domésticos nesta quinta-feira.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Exame, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-ibovespa-sobe-juros-futuros-caem-e-dolar-ronda-e
+
+• Shake Shack chega ao Brasil em 2027 e prevê 40 restaurantes
+  A rede americana de hambúrgueres Shake Shack vai entrar no mercado
+  brasileiro em 2027, em parceria com a Bold Hospitality Company, grupo
+  responsável pelas operações de Outback, Abbraccio e Aussie no país.
+  Fontes: Valor Econômico, Brazil Journal, Folha de S.Paulo, g1,
+  Bloomberg Línea
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-shake-shack-chega-ao-brasil-em-2027-e-preve-40-r
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• TSE marca julgamento do caso Garotinho que pode mudar eleição no Rio
-  O Tribunal Superior Eleitoral (TSE) decidirá, na quinta-feira (8), se
-  o ex-governador Anthony Garotinho (Republicanos) pode desistir de um
-  recurso apresentado à corte em que questionava o indeferimento de sua…
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Agência
+• STF exclui créditos de ICMS do cálculo do PIS e da Cofins
+  O Supremo Tribunal Federal (STF) decidiu nesta quarta-feira que os
+  créditos presumidos de ICMS não devem integrar a base de cálculo do
+  PIS e da Cofins.
+  Fontes: Valor Econômico, JOTA, STJ, Folha de S.Paulo, g1, Agência
   Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-tse-marca-julgamento-do-caso-garotinho-que-pode
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-stf-exclui-creditos-de-icms-do-calculo-do-pis-e
+
+• Christa Pike acordou ‘nervosa e confusa’, dizem advogados
+  Christa Pike, a detenta de 50 anos condenada à morte por um
+  assassinato cometido em 1995, acordou “nervosa e confusa” nesta semana
+  no hospital em Nashville para o qual foi removida após ter sobrevivido
+  a duas injeções…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, The Guardian,
+  BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-christa-pike-acordou-nervosa-e-confusa-dizem-adv
 
 POLÍTICA
 --------
-• Flávio Bolsonaro recebe apoios e fala em ‘mudar a Constituição’
-  O candidato do PL à Presidência da República, Flávio Bolsonaro,
-  recebeu na terça-feira (6) o apoio oficial de Ronaldo Caiado (PSD)
-  para o segundo turno da corrida pelo Palácio do Planalto.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1,
-  Poder360, Money Times, Agência Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-flavio-bolsonaro-recebe-apoios-e-fala-em-mudar-a
-
-• Lula desafia Flávio e diz que 'máscara vai cair' com votação da 6x1
-  Após ter sido chamado de "oportunista" pelo senador Flávio Bolsonaro
-  (PL-RJ), o presidente Luiz Inácio Lula da Silva (PT), candidato à
-  reeleição, elevou o tom e disse que a votação do fim da escala 6x1
-  será um "teste"…
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Agência
+• Alcolumbre sinaliza votação da PEC do fim da escala 6×1 na próxima
+  semana
+  O presidente do Senado, Davi Alcolumbre (União-AP), indicou que
+  colocará em votação a PEC do fim da escala 6×1 na próxima semana, após
+  o encerramento das sessões de discussão da matéria.
+  Fontes: JOTA, Valor Econômico, Estadão, Folha de S.Paulo, Agência
   Senado, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-lula-desafia-flavio-e-diz-que-mascara-vai-cair-c
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-alcolumbre-sinaliza-votacao-da-pec-do-fim-da-esc
 
-• PGR se manifesta favoravelmente à visita de Flávio Bolsonaro ao pai na
-  prisão
-  O procurador-geral da República (PGR), Paulo Gonet, se manifestou a
-  favor do pedido feito pela defesa de Jair Bolsonaro para que ele possa
-  receber visitas de seu filho Flávio Bolsonaro,candidato à presidência
-  da…
-  Fontes: JOTA, Valor Econômico, Folha de S.Paulo, g1, Agência Brasil,
-  CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-pgr-se-manifesta-favoravelmente-a-visita-de-flav
+• Cleitinho confirma apoio a Flávio Bolsonaro no 2º turno
+  O senador e governador eleito de Minas Gerais, Cleitinho Azevedo,
+  disse a jornalistas que vai apoiar o candidato à Presidência da
+  República Flávio Bolsonaro (PL) no segundo turno.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-cleitinho-confirma-apoio-a-flavio-bolsonaro-no-2
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Rússia descarta risco de epidemia em caso suspeito de peste pneumônica
-  A agência de vigilância sanitária da Rússia, Rospotrebnadzor, afirmou
-  nesta quarta-feira que não há risco de uma epidemia na Sibéria após a
-  morte de uma funcionária de um instituto de pesquisa sobre peste na
-  região…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Exame, The New
-  York Times, The Wall Street Journal, Financial Times, BBC News, CNBC,
-  Mongabay
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-russia-descarta-risco-de-epidemia-em-caso-suspei
-
-• No adeus à Argentina, Messi encerra sua jornada do herói
-  E aí, de repente, nunca mais Messi.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-no-adeus-a-argentina-messi-encerra-sua-jornada-d
+• Síria avalia ajudar Arábia Saudita na guerra contra houthis após
+  ataques a aeroportos
+  A Síria poderá enviar tropas para ajudar a Arábia Saudita a combater
+  os houthis do Iêmen, disseram uma autoridade americana e uma
+  autoridade da Defesa síria à Reuters.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, CNN Brasil, The
+  New York Times, The Wall Street Journal, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-siria-avalia-ajudar-arabia-saudita-na-guerra-con
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• SpaceX quer levantar US$ 40 bi para comprar chips da Nvidia e expandir
-  infraestrutura de IA
-  A SpaceX e a Nvidia estão prestes a estreitar ainda mais seus laços, à
-  medida que a companhia de exploração espacial e inteligência
-  artificial de Elon Musk se prepara para investir dezenas de bilhões de
-  dólares em…
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, NeoFeed,
-  Financial Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-spacex-quer-levantar-us-40-bi-para-comprar-chips
+• Microsoft e Nvidia apresentarão nesta quarta-feira novo laptop
+  centrado em IA; por que isso importa
+  A Microsoft e a Nvidia divulgarão mais detalhes sobre um novo laptop
+  muito aguardado durante um evento às 14h (horário de Brasília) desta
+  quarta-feira (7).
+  Fontes: Valor Econômico, Folha de S.Paulo, CNBC, TechCrunch
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-microsoft-e-nvidia-apresentarao-nesta-quarta-fei
 
 IMOBILIÁRIO
 -----------
-• BB coloca 75 imóveis à venda e pretende oferecer até 800 antes do fim
-  do ano
-  O Banco do Brasil colocou à venda 75 imóveis próprios em todas as
-  regiões do País, no âmbito da campanha “Aceita BB”, que permite a
-  qualquer pessoa comprar propriedades sem a necessidade de valor mínimo
-  de lance de…
-  Fontes: Estadão
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-bb-coloca-75-imoveis-a-venda-e-pretende-oferecer
+• Incêndio na UFPE causou prejuízo estimado em R$ 100 milhões, diz
+  reitor
+  O incêndio que atingiu um prédio da UFPE (Universidade Federal de
+  Pernambuco), no Recife, provocou um prejuízo estimado em R$ 100
+  milhões, segundo o reitor da instituição, Alfredo Macedo Gomes.
+  Fontes: CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-incendio-na-ufpe-causou-prejuizo-estimado-em-r-1
 
 ESPORTE
 -------
-• Jorge Jesus diz que leu comunicado de Cristiano Ronaldo: "Agora, como
-  faço todo dia, vou trabalhar"
-  Cristiano Ronaldo se manifesta sobre episódio com Jorge Jesus
-  Fontes: ge, Estadão, Gazeta Esportiva, Placar, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-jorge-jesus-diz-que-leu-comunicado-de-cristiano
+• Corinthians demite Fernando Diniz após sétima derrota seguida com time
+  na beira do rebaixamento
+  Chegou ao fim a curta passagem do Fernando Diniz pelo Corinthians.
+  Fontes: Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-corinthians-demite-fernando-diniz-apos-setima-de
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Perfil do Congresso será conservador como sempre foi
-  O Congresso Nacional eleito para os próximos quatro anos não será mais
-  nem menos conservador do que sempre foi se olharmos o perfil geral
-  pela predominância de representação do centro à direita.
-  Fontes: Folha de S.Paulo, ((o))eco, ClimaInfo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-perfil-do-congresso-sera-conservador-como-sempre
+• Cerrado perdeu quase 14 milhões de hectares de vegetação nas margens
+  de rios desde 1985
+  Perda concentrou-se nas bacias do Alto Tocantins e Araguaia e
+  representam mais de um quarto de toda vegetação nativa perdida no
+  bioma, aponta levantamento do MapBiomas
+  Fontes: ((o))eco, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-cerrado-perdeu-quase-14-milhoes-de-hectares-de-v
 
 CULTURA & VARIEDADES
 --------------------
-• Da Série A do Brasileiro à Série B estadual: como o Joinville
-  despencou em 11 anos
-  Em novembro de 2014, a Arena Joinville recebeu a festa de um campeão
-  brasileiro.
-  Fontes: ge
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-07.html#s-da-serie-a-do-brasileiro-a-serie-b-estadual-como
+• Escritora canadense Anne Carson ganha Nobel de Literatura de 2026
+  A poeta e escritora canadense Anne Carson ganhou o Prêmio Nobel de
+  Literatura de 2026 “por sua obra ousada e inventiva que, em diálogo
+  lúdico com a tradição clássica, criou novas formas para a literatura
+  contemporânea”…
+  Fontes: Valor Econômico, Seu Dinheiro, CNN Brasil, The Wall Street
+  Journal, The Guardian, Al Jazeera
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-08.html#s-escritora-canadense-anne-carson-ganha-nobel-de-l
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 12:30 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 12:32 (BRT) · Edição automática (sem IA)
