@@ -5,11 +5,18 @@ name: Edição diária
 
 on:
   schedule:
-    - cron: "7 8 * * *" # 05:07 em Brasília (UTC-3, sem horário de verão)
-    # Reservas: o GitHub pode atrasar ou descartar um agendamento em horário de
-    # pico. Se a edição do dia já saiu, estas execuções terminam em segundos.
-    - cron: "37 9 * * *" # 06:37 em Brasília
-    - cron: "7 11 * * *" # 08:07 em Brasília
+    # De hora em hora (minuto 7). O GitHub atrasa os agendamentos deste
+    # repositório em várias horas (em out/2026, o das 05:07 chegava entre 10h e
+    # 14h), então não dá para depender de um horário só: a primeira execução que
+    # chegar a partir das 05:00 (Brasília) gera a edição do dia; as que chegam
+    # antes disso ou depois que a edição saiu terminam em segundos (job check).
+    # Com o atraso de ~7 h, a das 22:07 da véspera chega por volta das 05:07.
+    - cron: "7 * * * *"
+  repository_dispatch:
+    # Disparo externo, sem depender da fila de agendamentos do GitHub: a rotina
+    # do e-mail o usa quando a edição do dia ainda não saiu (POST
+    # /repos/pbcvphyton/qi-journal/dispatches com event_type "edicao").
+    types: [edicao]
   push:
     # Mudou este workflow na main: gera a edição do dia se ela ainda não saiu.
     branches: [main]
@@ -36,8 +43,9 @@ concurrency:
 
 jobs:
   check:
-    # Agendamentos de reserva e push: só seguem se a edição de hoje ainda não
-    # foi publicada. O disparo manual sempre gera (refaz a edição do dia).
+    # Agendamentos, disparo externo e push: só seguem se a edição de hoje ainda
+    # não foi publicada (e, no agendamento, a partir das 05:00 em Brasília). O
+    # disparo manual sempre gera (refaz a edição do dia).
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -56,9 +64,13 @@ jobs:
           EVENT: ${{ github.event_name }}
         run: |
           today=$(TZ=America/Sao_Paulo date +%F)
+          hour=$(TZ=America/Sao_Paulo date +%-H)
           published=$(python3 -c 'import json; print(json.load(open("edicoes/latest.json")).get("date", ""))' 2>/dev/null || true)
           if [ "$EVENT" != "workflow_dispatch" ] && [ "$published" = "$today" ]; then
             echo "Edição de $today já publicada; nada a fazer nesta execução ($EVENT)."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          elif [ "$EVENT" = "schedule" ] && [ "$hour" -lt 5 ]; then
+            echo "Ainda não são 05:00 em Brasília; a edição de $today sai na primeira execução a partir desse horário."
             echo "run=false" >> "$GITHUB_OUTPUT"
           else
             echo "Última edição publicada: ${published:-nenhuma}; gerando a de $today."
