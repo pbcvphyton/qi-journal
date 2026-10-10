@@ -1,190 +1,196 @@
 PBCV TECH
-Sexta-feira, 9 de outubro de 2026 · 07:02 BRT
+Sábado, 10 de outubro de 2026 · 05:25 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,01 (-0,11%) · Euro R$ 5,63 (+0,06%) · Yuan R$ 0,75 (+0,22%) ·
-Ibovespa 206.220 pts (+0,94%) · IFIX 3.950 pts (-0,14%) · S&P 500 7.765
-pts (-0,47%) · Brent US$ 102,91 (-1,31%) · Ouro US$ 4.212 (+1,33%) ·
-Bitcoin US$ 82.581 (-0,09%) · Selic 13,75% · IPCA 12m 4,22% · IGP-M 12m
+Dólar R$ 4,99 (-0,50%) · Euro R$ 5,58 (-0,75%) · Yuan R$ 0,75 (-0,27%) ·
+Ibovespa 209.067 pts (+1,38%) · IFIX 3.989 pts (+0,98%) · S&P 500 7.812
+pts (+0,59%) · Brent US$ 104,72 (+0,42%) · Ouro US$ 4.216 (+1,43%) ·
+Bitcoin US$ 82.792 (+0,21%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 20°C, nublado (mín. 19° / máx. 31°) · amanhã: trovoadas, 18°
-a 31°
-Montevidéu: 13°C, nublado (mín. 13° / máx. 14°) · amanhã: garoa fraca,
-13° a 14°
+São Paulo: 18°C, garoa fraca (mín. 18° / máx. 29°) · amanhã: trovoadas
+com granizo fraco, 19° a 27°
+Montevidéu: 13°C, garoa moderada (mín. 13° / máx. 14°) · amanhã: garoa
+fraca, 13° a 13°
 
 EM 1 MINUTO
 -----------
-• Liquidante segue R$ 840 milhões do Master que viraram mansões de
-  Vorcaro em Aspen e Miami
-• FT: Starbucks avaliou compra da Chipotle em operação que seria a maior
-  no setor de restaurantes
-• STF volta a julgar correção de depósitos judiciais
-• Durigan: Compromisso do governo é enviar MP do Imposto Seletivo depois
-  das eleições
-• Governo Trump restringe Microsoft e outras big techs de contratar
-  estrangeiros via green card
+• Governo zera tributos federais sobre a gasolina e cria subsídio extra
+  para diesel importado
+• Justiça Federal suspende decisão que autorizava funcionamento de bet
+  apesar de MP proibitiva
+• Ana Elisa denuncia ataque digital coordenado à Polícia Federal
+• Após crítica de Mamdani, Imigração dos EUA defende ação violenta
+  contra homem em carro com criança
+• IA da Anthropic envia denúncia falsa de homicídio a site de polícia
+  nos EUA
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.758 notícias coletadas de 44 veículos
-foram agrupadas por títulos parecidos em 1.335 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.521 notícias coletadas de 43 veículos
+foram agrupadas por títulos parecidos em 1.161 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#racional
-Todas as 1.758 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#racional
+Todas as 1.521 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10-todas.html
 
 MANCHETE
 --------
-Zanin nega recurso de Paes contra decisão do TSE que anulou votos de
-Garotinho
-O ministro Cristiano Zanin, do Supremo Tribunal Federal (STF), rejeitou
-o recurso apresentado pela coligação do candidato ao governo do Rio
-Eduardo Paes (PSD) contra a decisão do Tribunal Superior Eleitoral (TSE)
-que…
-Fontes: Valor Econômico, Conjur, JOTA, Folha de S.Paulo, Estadão,
-Agência Senado, g1, Agência Brasil
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-zanin-nega-recurso-de-paes-contra-decisao-do-tse
+Fachin nega acesso imediato de Fux a inquérito das 'fake news'
+O presidente do Supremo Tribunal Federal (STF), Edson Fachin, negou
+nesta sexta-feira (9) o acesso integral e imediato ao inquérito das
+"fake news" ao ministro Luiz Fux.
+Fontes: Valor Econômico, Conjur, JOTA, Folha de S.Paulo, Estadão, g1,
+Agência Brasil, Exame, CNN Brasil
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-fachin-nega-acesso-imediato-de-fux-a-inquerito-d
 
 BRASIL · ECONOMIA
 -----------------
-• O que é split payment e por que Flávio Bolsonaro quer acabar com ele?
-  O sistema de split payment, introduzido pela reforma tributária e que
-  ainda não está operando, foi criticado nesta terça-feira (06), pela
-  porta-voz para temas econômicos da campanha de Flávio Bolsonaro (PL),
-  Daniella…
-  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo, g1, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-o-que-e-split-payment-e-por-que-flavio-bolsonaro
+• IPCA de setembro teria subido 0,52% e não 0,82% sem energia elétrica,
+  mostra IBGE
+  A inflação oficial brasileira, medida pelo Índice Nacional de Preços
+  ao Consumidor Amplo (IPCA), foi de 0,82% em setembro, mas, sem a
+  energia elétrica residencial, que ficou 7,98% mais cara no período,
+  teria sido 0,52%.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-ipca-de-setembro-teria-subido-0-52-e-nao-0-82-se
 
 MERCADOS & FINANÇAS
 -------------------
-• Bolsas sobem na Ásia e petróleo recua
-  Os futuros do S&P 500 avançavam 0,5%, enquanto os futuros do Nasdaq
-  100 subiam 0,9% na manhã desta sexta-feira (9). Parte da razão da alta
-  vem de otimismo com Inteligência Artificial (IA).
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-bolsas-sobem-na-asia-e-petroleo-recua
+• Ibovespa bate novo recorde de fechamento e dólar volta a ficar abaixo
+  de R$ 5 com eleição no foco
+  Os principais índices de ações europeus deram uma trégua nas perdas
+  recentes e terminaram o dia em alta nesta sexta-feira, com apoio de um
+  alívio nos preços do petróleo e nos rendimentos dos títulos de dívida
+  pública de…
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Suno Notícias, Money
+  Times, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-ibovespa-bate-novo-recorde-de-fechamento-e-dolar
+
+• Trump cria comitê para investigar diretora do Fed após Suprema Corte
+  ter barrado demissão
+  O presidente americano, Donald Trump, criou um comitê para investigar
+  Lisa Cook, poucos meses depois de a Suprema Corte ter rejeitado as
+  tentativas do presidente de demitir a diretora do Federal Reserve
+  (Fed, o banco…
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, The New York
+  Times, The Guardian, CNBC
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-trump-cria-comite-para-investigar-diretora-do-fe
+
+• CSN assina acordo para vender a alemã SWT à espanhola Bipadosa
+  A Companhia Siderúrgica Nacional (CSN) anunciou nesta sexta-feira (9)
+  a celebração de um termo vinculante com a Bipadosa, controladora do
+  grupo industrial siderúrgico espanhol Megasa, em conjunto com a CSN
+  Steel, sua…
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Money
+  Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-csn-assina-acordo-para-vender-a-alema-swt-a-espa
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• STF volta a julgar correção de depósitos judiciais
-  O Supremo Tribunal Federal (STF) voltou a julgar se os bancos devem
-  incluir os expurgos inflacionários no cálculo da correção monetária
-  aplicada sobre valores de depósitos judiciais.
-  Fontes: Valor Econômico, Conjur, Folha de S.Paulo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-stf-volta-a-julgar-correcao-de-depositos-judicia
+• TSE suspende site que oferece criptomoeda a quem divulgar conteúdo a
+  favor de voto em Flávio Bolsonaro
+  O Tribunal Superior Eleitoral (TSE) determinou a suspensão de um site
+  que vende criptomoedas e oferece tokens a quem participar de uma
+  campanha que divulgue uma "comunidade" que defende o voto em Flávio
+  Bolsonaro (PL).
+  Fontes: Valor Econômico, Folha de S.Paulo, Poder360, g1, Agência
+  Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-tse-suspende-site-que-oferece-criptomoeda-a-quem
 
 POLÍTICA
 --------
-• Flávio tem 49% dos votos e Lula, 45%, diz Datafolha
-  Na primeira pesquisa do Datafolha para o 2º turno, o senador Flávio
-  Bolsonaro (PL) aparece na frente com 49% das intenções de voto,
-  enquanto o presidente Luiz Inácio Lula da Silva (PT) registra 45%.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Imobi
-  Report, Seu Dinheiro, Exame, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-flavio-tem-49-dos-votos-e-lula-45-diz-datafolha
-
-• Ordem do STF para que Eduardo Bolsonaro comece a cumprir pena ‘vai dar
-  em nada’, diz Flávio
-  O candidato à Presidência Flávio Bolsonaro (PL-RJ) afirmou nesta
-  quinta-feira (8) que a determinação para que o ex-deputado federal
-  Eduardo Bolsonaro (PL-SP) comece a cumprir a pena de 4 anos e dois
-  meses em regime…
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Money
-  Times, Seu Dinheiro, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-ordem-do-stf-para-que-eduardo-bolsonaro-comece-a
-
-• Senado encerra terceira das cinco sessões de debate sobre o fim da
-  escala 6x1
-  O Senado encerrou hoje a terceira das cinco sessões de debates sobre a
-  Proposta de Emenda à Constituição (PEC) que acaba com a jornada de
-  trabalho 6x1.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Agência Senado,
-  g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-senado-encerra-terceira-das-cinco-sessoes-de-deb
-
-• Augusto Cury anuncia apoio a Flávio Bolsonaro no segundo turno
-  O candidato escritor Augusto Cury (Avante), que concorreu à
-  Presidência da República no primeiro turno, declarou apoio ao senador
-  Flávio Bolsonaro (PL).
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-augusto-cury-anuncia-apoio-a-flavio-bolsonaro-no
+• Alcolumbre pauta para quarta-feira votação da PEC do fim da escala 6x1
+  O presidente do Senado, Davi Alcolumbre (União-AP), pautou para
+  quarta-feira (15), em plenário, a votação da proposta de emenda à
+  Constituição (PEC) que coloca fim à escala de trabalho 6x1.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Agência Senado,
+  g1, Agência Brasil, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-alcolumbre-pauta-para-quarta-feira-votacao-da-pe
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Jurista Navi Pillay recebe o Prêmio Nobel da Paz
-  A jurista sul-africana Navanethem “Navi” Pillay, de 85 anos, foi
-  anunciada vencedora do Prêmio Nobel da Paz nesta sexta-feira (9).
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Poder360,
-  Exame, CNN Brasil, Financial Times, The New York Times, The Wall
-  Street Journal, The Guardian, CNBC, Al Jazeera
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-jurista-navi-pillay-recebe-o-premio-nobel-da-paz
+• Zelensky diz que venda de diesel da Rússia aos EUA é ‘investimento na
+  guerra’
+  O presidente da Ucrânia, Volodymyr Zelensky, criticou o acordo nesta
+  sexta-feira entre EUA e Rússia que permitirá a Moscou fornecer diesel
+  a Washington.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Financial Times,
+  The Wall Street Journal, The Guardian, South China Morning Post, BBC
+  News, CNBC
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-zelensky-diz-que-venda-de-diesel-da-russia-aos-e
 
-• Síria avalia ajudar Arábia Saudita na guerra contra houthis após
-  ataques a aeroportos
-  A Síria poderá enviar tropas para ajudar a Arábia Saudita a combater
-  os houthis do Iêmen, disseram uma autoridade americana e uma
-  autoridade da Defesa síria à Reuters.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, The New York
-  Times, Financial Times, The Guardian
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-siria-avalia-ajudar-arabia-saudita-na-guerra-con
+• Piloto da Flydubai se inspirou no 11 de Setembro ao planejar atentado
+  contra Israel, diz procurador dos Emirados Árabes Unidos
+  O copiloto da Flydubai que tentou tomar o controle do voo entre Dubai
+  e Tel Aviv planejou um ataque suicida em Israel inspirado nos
+  atentados de 11 de setembro de 2001 nos Estados Unidos.
+  Fontes: Folha de S.Paulo, Estadão, g1, Poder360, The New York Times,
+  The Wall Street Journal, Financial Times, The Guardian
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-piloto-da-flydubai-se-inspirou-no-11-de-setembro
+
+• EUA impõem sanções ao Tribunal Penal Internacional horas após ex-juíza
+  ganhar Nobel da Paz
+  O governo do presidente dos Estados Unidos, Donald Trump, impôs
+  sanções ao Tribunal Penal Internacional (TPI) nesta sexta-feira (9),
+  horas depois de uma de suas ex-juízas ganhar o Prêmio Nobel da Paz,
+  colocando…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-eua-impoem-sancoes-ao-tribunal-penal-internacion
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Governo Trump restringe Microsoft e outras big techs de contratar
-  estrangeiros via green card
-  O governo de Donald Trump suspendeu nesta quinta-feira (8) alguns
-  pedidos de green card feitos pela Microsoft, Adobe e outras big techs
-  e abriu investigações sobre nove universidades de elite, ampliando uma
-  ofensiva…
-  Fontes: Folha de S.Paulo, Estadão, g1, Seu Dinheiro, The Guardian,
-  CNBC, TechCrunch
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-governo-trump-restringe-microsoft-e-outras-big-t
+• IA da Anthropic envia denúncia falsa de homicídio a site de polícia
+  nos EUA
+  Um modelo de inteligência artificial da Anthropic enviou uma denúncia
+  falsa de homicídio por meio do site da polícia da cidade americana da
+  Filadélfia, informou o departamento.
+  Fontes: Valor Econômico, Al Jazeera, TechCrunch
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-ia-da-anthropic-envia-denuncia-falsa-de-homicidi
 
 IMOBILIÁRIO
 -----------
-• FII BTLG11 aprova 17ª emissão e pode captar até R$ 1,2 bilhão para
-  novas aquisições
-  O fundo imobiliário BTLG11 (BTG Pactual Logística) aprovou sua 17ª
-  emissão de cotas, em uma oferta que prevê inicialmente a captação de
-  aproximadamente R$ 800 milhões, mas que poderá alcançar cerca de R$
-  1,2 bilhão caso…
-  Fontes: InfoMoney, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-fii-btlg11-aprova-17a-emissao-e-pode-captar-ate
+• Eztec tem alta de 53% nos lançamentos e vendas estáveis no 3º tri
+  A incorporadora Eztec, especializada em imóveis de médio padrão,
+  realizou três lançamentos no terceiro trimestre, que somaram um valor
+  geral de venda (VGV) potencial de R$ 726,5 milhões, crescimento de
+  52,9% sobre o…
+  Fontes: Valor Econômico, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-eztec-tem-alta-de-53-nos-lancamentos-e-vendas-es
 
 ESPORTE
 -------
-• Análise: Santos leva um "nó" do Flamengo, mas Neymar entra para
-  garantir empate na Vila
-  Santos 2 x 2 Flamengo | melhores momentos | 29ª rodada | Brasileirão
-  2026 O Santos ampliou sua sequência de invencibilidade no Campeonato
-  Brasileiro na última quinta-feira, na Vila Belmiro.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-analise-santos-leva-um-no-do-flamengo-mas-neymar
+• Fã de Diniz e de Brasfoot: quem é William Batista, interino que
+  comandará o Corinthians no Dérbi
+  O treinador do sub-20 do Corinthians, William Batista, comandará o
+  time principal no clássico contra o Palmeiras, sucedendo o técnico que
+  considera uma referência para a própria carreira.
+  Fontes: ge, Estadão, Gazeta Esportiva, Placar
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-fa-de-diniz-e-de-brasfoot-quem-e-william-batista
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Governo arrecada R$ 3,5 bi em leilões da ANP
-  Os dois leilões de áreas de petróleo promovidos na quarta-feira (7)
-  pela Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP)
-  resultaram em 56 blocos negociados - de um total de 326 - e em uma
-  arrecadação…
-  Fontes: Valor Econômico, ClimaInfo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-governo-arrecada-r-3-5-bi-em-leiloes-da-anp
+• Terremoto de magnitude 7,7 atinge Panamá e provoca alerta de tsunami
+  Um forte terremoto de magnitude 7,7 atingiu a região próxima à costa
+  sul do Panamá nesta sexta-feira (9), a uma profundidade de 12
+  quilômetros, segundo o Serviço Geológico dos Estados Unidos (USGS).
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil, CNN Brasil, The New York Times, The Guardian, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-terremoto-de-magnitude-7-7-atinge-panama-e-provo
 
 CULTURA & VARIEDADES
 --------------------
-• Por que as artes marciais vêm conquistando praticantes da geração 60+
-  Aos 75 anos, a professora Fumie Nishida caminha, em seu espaço, com a
-  serenidade de quem parece medir o ambiente pela respiração dos alunos.
-  Fontes: Valor Econômico
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-09.html#s-por-que-as-artes-marciais-vem-conquistando-prati
+• Paintings Stolen From Renoir Museum Are Recovered, Authorities Say
+  Officials also said that six suspects had been arrested in the
+  robbery, which targeted a museum in southern France last month.
+  Fontes: The New York Times, BBC News, Al Jazeera
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-paintings-stolen-from-renoir-museum-are-recovere
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 07:02 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 05:25 (BRT) · Edição automática (sem IA)
