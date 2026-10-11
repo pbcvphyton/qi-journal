@@ -1,196 +1,191 @@
 PBCV TECH
-Sábado, 10 de outubro de 2026 · 05:25 BRT
+Domingo, 11 de outubro de 2026 · 06:55 BRT
 
 MERCADOS
 --------
-Dólar R$ 4,99 (-0,50%) · Euro R$ 5,58 (-0,75%) · Yuan R$ 0,75 (-0,27%) ·
+Dólar R$ 4,98 (-0,79%) · Euro R$ 5,58 (-0,75%) · Yuan R$ 0,74 (-0,48%) ·
 Ibovespa 209.067 pts (+1,38%) · IFIX 3.989 pts (+0,98%) · S&P 500 7.812
 pts (+0,59%) · Brent US$ 104,72 (+0,42%) · Ouro US$ 4.216 (+1,43%) ·
-Bitcoin US$ 82.792 (+0,21%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Bitcoin US$ 82.951 (+0,20%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 18°C, garoa fraca (mín. 18° / máx. 29°) · amanhã: trovoadas
-com granizo fraco, 19° a 27°
-Montevidéu: 13°C, garoa moderada (mín. 13° / máx. 14°) · amanhã: garoa
-fraca, 13° a 13°
+São Paulo: 19°C, nublado (mín. 18° / máx. 27°) · amanhã: pancadas de
+chuva moderadas, 18° a 27°
+Montevidéu: 13°C, parcialmente nublado (mín. 13° / máx. 13°) · amanhã:
+garoa fraca, 13° a 15°
 
 EM 1 MINUTO
 -----------
-• Governo zera tributos federais sobre a gasolina e cria subsídio extra
-  para diesel importado
-• Justiça Federal suspende decisão que autorizava funcionamento de bet
-  apesar de MP proibitiva
-• Ana Elisa denuncia ataque digital coordenado à Polícia Federal
-• Após crítica de Mamdani, Imigração dos EUA defende ação violenta
-  contra homem em carro com criança
-• IA da Anthropic envia denúncia falsa de homicídio a site de polícia
-  nos EUA
+• Vulnerabilidade financeira das famílias aumenta em 22 das 27 unidades
+  da federação, diz FGV Ibre
+• O peão tatuado que virou o grude do Brasil
+• FT: Emissão de dívida para financiar IA desacelera em meio à cautela
+  dos investidores com o endividamento do setor
+• O “Barsi dos FIIs”: conheça a trajetória do empresário Sidney Angulo
+• Análise: Maringá corrige rota com solução caseira e atinge novo
+  patamar com acesso à Série B
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.521 notícias coletadas de 43 veículos
-foram agrupadas por títulos parecidos em 1.161 assuntos; as 24 matérias
+Edição automática (sem IA): as 969 notícias coletadas de 35 veículos
+foram agrupadas por títulos parecidos em 764 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#racional
-Todas as 1.521 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#racional
+Todas as 969 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11-todas.html
 
 MANCHETE
 --------
-Fachin nega acesso imediato de Fux a inquérito das 'fake news'
-O presidente do Supremo Tribunal Federal (STF), Edson Fachin, negou
-nesta sexta-feira (9) o acesso integral e imediato ao inquérito das
-"fake news" ao ministro Luiz Fux.
-Fontes: Valor Econômico, Conjur, JOTA, Folha de S.Paulo, Estadão, g1,
-Agência Brasil, Exame, CNN Brasil
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-fachin-nega-acesso-imediato-de-fux-a-inquerito-d
+Ao menos 12 pessoas morrem e 309 ficam feridas em ataque dos houthis a
+aeroporto na Arábia Saudita
+Ao menos 12 pessoas foram mortas e 309 ficaram feridas em um ataque
+neste sábado (10) contra o aeroporto internacional de Riad, na Arábia
+Saudita, segundo as autoridades de aviação civil sauditas.
+Fontes: Folha de S.Paulo, Estadão, g1, Exame, CNN Brasil, Financial
+Times, The New York Times, The Wall Street Journal, The Guardian, Al
+Jazeera
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ao-menos-12-pessoas-morrem-e-309-ficam-feridas-e
 
 BRASIL · ECONOMIA
 -----------------
-• IPCA de setembro teria subido 0,52% e não 0,82% sem energia elétrica,
-  mostra IBGE
-  A inflação oficial brasileira, medida pelo Índice Nacional de Preços
-  ao Consumidor Amplo (IPCA), foi de 0,82% em setembro, mas, sem a
-  energia elétrica residencial, que ficou 7,98% mais cara no período,
-  teria sido 0,52%.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-ipca-de-setembro-teria-subido-0-52-e-nao-0-82-se
+• Vulnerabilidade financeira das famílias aumenta em 22 das 27 unidades
+  da federação, diz FGV Ibre
+  A vulnerabilidade financeira das famílias piorou entre o primeiro e o
+  segundo trimestres deste ano, em 22 das 27 unidades da federação, de
+  acordo com a FGV Ibre.
+  Fontes: Estadão
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-vulnerabilidade-financeira-das-familias-aumenta
 
 MERCADOS & FINANÇAS
 -------------------
-• Ibovespa bate novo recorde de fechamento e dólar volta a ficar abaixo
-  de R$ 5 com eleição no foco
-  Os principais índices de ações europeus deram uma trégua nas perdas
-  recentes e terminaram o dia em alta nesta sexta-feira, com apoio de um
-  alívio nos preços do petróleo e nos rendimentos dos títulos de dívida
-  pública de…
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Suno Notícias, Money
-  Times, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-ibovespa-bate-novo-recorde-de-fechamento-e-dolar
-
-• Trump cria comitê para investigar diretora do Fed após Suprema Corte
-  ter barrado demissão
-  O presidente americano, Donald Trump, criou um comitê para investigar
-  Lisa Cook, poucos meses depois de a Suprema Corte ter rejeitado as
-  tentativas do presidente de demitir a diretora do Federal Reserve
-  (Fed, o banco…
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, The New York
-  Times, The Guardian, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-trump-cria-comite-para-investigar-diretora-do-fe
-
-• CSN assina acordo para vender a alemã SWT à espanhola Bipadosa
-  A Companhia Siderúrgica Nacional (CSN) anunciou nesta sexta-feira (9)
-  a celebração de um termo vinculante com a Bipadosa, controladora do
-  grupo industrial siderúrgico espanhol Megasa, em conjunto com a CSN
-  Steel, sua…
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Money
-  Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-csn-assina-acordo-para-vender-a-alema-swt-a-espa
+• O peão tatuado que virou o grude do Brasil
+  “Piiiii… ão…. todo tatuadaaaaado!” Esteja onde estiver, você
+  certamente já escutou essa canção.
+  Fontes: Brazil Journal
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-o-peao-tatuado-que-virou-o-grude-do-brasil
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• TSE suspende site que oferece criptomoeda a quem divulgar conteúdo a
-  favor de voto em Flávio Bolsonaro
-  O Tribunal Superior Eleitoral (TSE) determinou a suspensão de um site
-  que vende criptomoedas e oferece tokens a quem participar de uma
-  campanha que divulgue uma "comunidade" que defende o voto em Flávio
-  Bolsonaro (PL).
-  Fontes: Valor Econômico, Folha de S.Paulo, Poder360, g1, Agência
-  Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-tse-suspende-site-que-oferece-criptomoeda-a-quem
+• Justiça italiana marca novo julgamento sobre extradição de ex-deputada
+  Carla Zambelli
+  A Justiça italiana marcou para 29 de outubro uma nova audiência para
+  reanalisar o pedido de extradição da ex-deputada Carla Zambelli
+  (PL-SP).
+  Fontes: Valor Econômico, Estadão, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-justica-italiana-marca-novo-julgamento-sobre-ext
 
 POLÍTICA
 --------
-• Alcolumbre pauta para quarta-feira votação da PEC do fim da escala 6x1
-  O presidente do Senado, Davi Alcolumbre (União-AP), pautou para
-  quarta-feira (15), em plenário, a votação da proposta de emenda à
-  Constituição (PEC) que coloca fim à escala de trabalho 6x1.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Agência Senado,
-  g1, Agência Brasil, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-alcolumbre-pauta-para-quarta-feira-votacao-da-pe
+• Ministro do TSE derruba vídeo do vice de Flávio sobre suposto
+  financiamento de Vorcaro a filme de Lula
+  O ministro do Tribunal Superior Eleitoral (TSE) Marco Aurelio Bellizze
+  determinou, neste sábado (10), que o candidato a vice-presidente na
+  chapa de Flávio Bolsonaro (PL), o deputado federal Alfredo Gaspar
+  (PL-AL)…
+  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão, g1, CNN
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ministro-do-tse-derruba-video-do-vice-de-flavio
+
+• Eleito governador do Rio, Douglas Ruas diz que segurança pública será
+  prioridade
+  Em sua primeira entrevista após ser declarado eleito governador do Rio
+  de Janeiro no primeiro turno, Douglas Ruas (PL) afirmou ao RJ2, neste
+  sábado (10), que a segurança pública será a principal prioridade de
+  seu…
+  Fontes: Valor Econômico, Conjur, Folha de S.Paulo, Estadão, Agência
+  Brasil, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-eleito-governador-do-rio-douglas-ruas-diz-que-se
+
+• Ratinho Jr declara apoio a Flávio Bolsonaro no 2º turno
+  O governador do Paraná, Ratinho Jr (PSD), declarou, neste sábado (10),
+  apoio ao candidato à Presidência Flávio Bolsonaro (PL).
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ratinho-jr-declara-apoio-a-flavio-bolsonaro-no-2
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Zelensky diz que venda de diesel da Rússia aos EUA é ‘investimento na
-  guerra’
-  O presidente da Ucrânia, Volodymyr Zelensky, criticou o acordo nesta
-  sexta-feira entre EUA e Rússia que permitirá a Moscou fornecer diesel
-  a Washington.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Financial Times,
-  The Wall Street Journal, The Guardian, South China Morning Post, BBC
-  News, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-zelensky-diz-que-venda-de-diesel-da-russia-aos-e
+• Trump pede que Zelensky pare de atacar refinarias russas e defende
+  novo líder na Ucrânia
+  O presidente dos Estados Unidos, Donald Trump, pediu neste sábado uma
+  nova liderança na Ucrânia, criticando duramente o presidente ucraniano
+  Volodymyr Zelensky e exortando o líder de Kiev a parar de atacar
+  refinarias de…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Exame, CNN
+  Brasil, The Wall Street Journal, The Guardian, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-trump-pede-que-zelensky-pare-de-atacar-refinaria
 
-• Piloto da Flydubai se inspirou no 11 de Setembro ao planejar atentado
-  contra Israel, diz procurador dos Emirados Árabes Unidos
-  O copiloto da Flydubai que tentou tomar o controle do voo entre Dubai
-  e Tel Aviv planejou um ataque suicida em Israel inspirado nos
-  atentados de 11 de setembro de 2001 nos Estados Unidos.
-  Fontes: Folha de S.Paulo, Estadão, g1, Poder360, The New York Times,
-  The Wall Street Journal, Financial Times, The Guardian
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-piloto-da-flydubai-se-inspirou-no-11-de-setembro
-
-• EUA impõem sanções ao Tribunal Penal Internacional horas após ex-juíza
-  ganhar Nobel da Paz
-  O governo do presidente dos Estados Unidos, Donald Trump, impôs
-  sanções ao Tribunal Penal Internacional (TPI) nesta sexta-feira (9),
-  horas depois de uma de suas ex-juízas ganhar o Prêmio Nobel da Paz,
-  colocando…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-eua-impoem-sancoes-ao-tribunal-penal-internacion
+• Brasil vence a Argentina em amistoso no Beira-Rio
+  A seleção feminina de futebol vai a campo neste sábado (10), a partir
+  de 16h30 (horário de Brasília), para o primeiro de dois amistosos
+  contra a Argentina.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar,
+  Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-brasil-vence-a-argentina-em-amistoso-no-beira-ri
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• IA da Anthropic envia denúncia falsa de homicídio a site de polícia
-  nos EUA
-  Um modelo de inteligência artificial da Anthropic enviou uma denúncia
-  falsa de homicídio por meio do site da polícia da cidade americana da
-  Filadélfia, informou o departamento.
-  Fontes: Valor Econômico, Al Jazeera, TechCrunch
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-ia-da-anthropic-envia-denuncia-falsa-de-homicidi
+• FT: Emissão de dívida para financiar IA desacelera em meio à cautela
+  dos investidores com o endividamento do setor
+  O volume de novas dívidas captadas por empresas de tecnologia para
+  ajudar a financiar os investimentos de alto custo em inteligência
+  artificial (IA) caiu acentuadamente no mês passado, à medida que os
+  investidores…
+  Fontes: Valor Econômico, Folha de S.Paulo
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ft-emissao-de-divida-para-financiar-ia-desaceler
 
 IMOBILIÁRIO
 -----------
-• Eztec tem alta de 53% nos lançamentos e vendas estáveis no 3º tri
-  A incorporadora Eztec, especializada em imóveis de médio padrão,
-  realizou três lançamentos no terceiro trimestre, que somaram um valor
-  geral de venda (VGV) potencial de R$ 726,5 milhões, crescimento de
-  52,9% sobre o…
-  Fontes: Valor Econômico, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-eztec-tem-alta-de-53-nos-lancamentos-e-vendas-es
+• O “Barsi dos FIIs”: conheça a trajetória do empresário Sidney Angulo
+  Sidney Angulo, já considerado uma espécie de “Barsi dos FIIs”, chegou
+  aos fundos imobiliários por um caminho diferente da maioria dos
+  investidores.
+  Fontes: InfoMoney
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-o-barsi-dos-fiis-conheca-a-trajetoria-do-empresa
 
 ESPORTE
 -------
-• Fã de Diniz e de Brasfoot: quem é William Batista, interino que
-  comandará o Corinthians no Dérbi
-  O treinador do sub-20 do Corinthians, William Batista, comandará o
-  time principal no clássico contra o Palmeiras, sucedendo o técnico que
-  considera uma referência para a própria carreira.
-  Fontes: ge, Estadão, Gazeta Esportiva, Placar
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-fa-de-diniz-e-de-brasfoot-quem-e-william-batista
+• Atuações do São Paulo: Lucas volta bem, e Calleri decide no Morumbis;
+  dê suas notas
+  Muito pouco exigido pelo ataque do Vitória, mas poderia ter saído do
+  gol em um cruzamento no primeiro tempo que assustou a defesa do São
+  Paulo. Fez uma defesaça nos acréscimos que evitou o empate.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-atuacoes-do-sao-paulo-lucas-volta-bem-e-calleri
+
+• Real Madrid sofre, mas vence Villarreal em jogo com gol anulado e
+  expulsão de Vini Jr.
+  O Real Madrid recebeu o Villarreal no Santiago Bernabéu neste sábado
+  (10), em jogo válido pela 8ª rodada de LaLiga. Os Blancos venceram por
+  1 a 0, com gol de Yan Diomandé e protagonismo misto de Vinícius
+  Junior.
+  Fontes: ge, Estadão, Gazeta Esportiva, Placar, Trivela
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-real-madrid-sofre-mas-vence-villarreal-em-jogo-c
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Terremoto de magnitude 7,7 atinge Panamá e provoca alerta de tsunami
-  Um forte terremoto de magnitude 7,7 atingiu a região próxima à costa
-  sul do Panamá nesta sexta-feira (9), a uma profundidade de 12
-  quilômetros, segundo o Serviço Geológico dos Estados Unidos (USGS).
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, CNN Brasil, The New York Times, The Guardian, BBC News
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-terremoto-de-magnitude-7-7-atinge-panama-e-provo
+• Furacão Isaias deixa 2 mortos e milhares sem energia elétrica nos EUA
+  Duas pessoas morreram e cerca de 800 mil moradores da Flórida, do
+  Alabama e da Geórgia ficaram sem energia elétrica depois que o furacão
+  Isaias atingiu o continente na madrugada deste sábado,
+  enfraquecendo-se e se…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-furacao-isaias-deixa-2-mortos-e-milhares-sem-ene
 
 CULTURA & VARIEDADES
 --------------------
-• Paintings Stolen From Renoir Museum Are Recovered, Authorities Say
-  Officials also said that six suspects had been arrested in the
-  robbery, which targeted a museum in southern France last month.
-  Fontes: The New York Times, BBC News, Al Jazeera
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-10.html#s-paintings-stolen-from-renoir-museum-are-recovere
+• Análise: Maringá corrige rota com solução caseira e atinge novo
+  patamar com acesso à Série B
+  Veja os gols de Maringá 2 x 0 Floresta no Estádio Willie Davids O
+  Maringá alcançou a maior conquista em 16 anos de clube e está na Série
+  B do Brasileiro.
+  Fontes: ge, Gazeta Esportiva, Placar, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-analise-maringa-corrige-rota-com-solucao-caseira
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 05:25 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 06:55 (BRT) · Edição automática (sem IA)
