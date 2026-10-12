@@ -1,0 +1,63 @@
+{#- Peças do Termômetro de Viés Editorial (edição e aba Analítico Político).
+    Cores: verde-azulado para a esquerda, âmbar para a direita e cinza no
+    equilíbrio (classes ef/em/el/eq/dl/dm/df; mx = misto, hachurado). -#}
+
+{#- Escala de −100 a +100 com as faixas, o intervalo de 95% e o ponto da média (g: GaugeView). -#}
+{% macro gauge(g, small=False) -%}
+<div class="tg{% if small %} sm{% endif %}" role="img" aria-label="{{ g.aria }}">
+  <div class="tg-track">
+    <div class="tg-bands">{% for f in g.faixas %}<span class="tg-f t-{{ f.classe }}" style="left:{{ f.left }}%;width:{{ f.width }}%" title="{{ f.rotulo }}"></span>{% endfor %}</div>
+    <span class="tg-zero"></span>
+    {%- if g.ic_left is not none %}<span class="tg-ic" style="left:{{ g.ic_left }}%;width:{{ g.ic_width }}%"></span>{% endif -%}
+    <span class="tg-dot" style="left:{{ g.pct }}%"></span>
+  </div>
+  {%- if not small %}
+  <div class="tg-axis" aria-hidden="true"><span>Esquerda · &minus;100</span><span>0</span><span>+100 · Direita</span></div>
+  {%- endif %}
+</div>
+{%- endmacro %}
+
+{#- Quantos textos em cada rótulo (d: DistribuicaoView). -#}
+{% macro dist(d) -%}
+<div class="td">
+  <div class="td-bar" role="img" aria-label="{{ d.aria }}">
+    {%- for s in d.segmentos %}<span class="t-{{ s.classe }}" style="width:{{ s.pct }}%" title="{{ s.rotulo }}: {{ s.n }}"></span>{% endfor -%}
+  </div>
+  <ul class="td-leg">
+    {%- for s in d.segmentos %}<li><i class="t-{{ s.classe }}" aria-hidden="true"></i>{{ s.rotulo }} <b>{{ s.n }}</b></li>{% endfor -%}
+  </ul>
+</div>
+{%- endmacro %}
+
+{#- Um texto analisado (a: AnaliseView). -#}
+{% macro analise(a) -%}
+<li class="ta">
+  <div class="ta-hd">
+    <span class="ta-v"><i class="sw t-{{ a.classe }}" aria-hidden="true"></i>{{ a.valor }}</span>
+    <div class="ta-tx">
+      <p class="ta-src"><b>{{ a.veiculo }}</b> · {{ a.editoria }} · {{ a.data }}{% if a.selo %} · <em>{{ a.selo }}</em>{% endif %}</p>
+      <p class="ta-t">{% if a.url %}<a href="{{ a.url }}" target="_blank" rel="noopener noreferrer">{{ a.titulo }}<span class="sr-only"> (abre a fonte em nova aba)</span></a>{% else %}{{ a.titulo }}{% endif %}</p>
+    </div>
+  </div>
+  {% if a.pct is not none %}
+  <div class="ta-scale" aria-hidden="true"><span class="tg-zero"></span><span class="ta-dot t-{{ a.classe }}" style="left:{{ a.pct }}%"></span></div>
+  {% endif %}
+  <p class="ta-r"><b>{{ a.rotulo }}</b>{% if a.confianca %} · confiança {{ a.confianca }}{% endif %}{% if a.q != "—" %} · apuração {{ a.q }} ({{ a.q_rotulo }}){% endif %}{% if a.eixos %} · {{ a.eixos }}{% endif %}</p>
+  {% if a.resumo %}<p class="ta-sum">{{ a.resumo }}</p>{% endif %}
+  {% if a.evidencias %}
+  <details class="ta-ev">
+    <summary>Sinais que pontuaram ({{ a.evidencias|length }})</summary>
+    <ol>
+      {% for e in a.evidencias %}
+      <li><b>{{ e.id }} · {{ e.criterio }}</b> <span class="ta-dir">{{ e.direcao }} · {{ e.contribuicao }}</span><q>{{ e.citacao }}</q>{% if e.explicacao %}<span class="ta-ex">{{ e.explicacao }}</span>{% endif %}</li>
+      {% endfor %}
+    </ol>
+  </details>
+  {% endif %}
+</li>
+{%- endmacro %}
+
+{#- Um texto analisado, em uma linha (lista de todo o histórico na aba Analítico Político). -#}
+{% macro linha(a) -%}
+<li class="tl"><span class="ta-v"><i class="sw t-{{ a.classe }}" aria-hidden="true"></i>{{ a.valor }}</span><span class="tl-d">{{ a.data }}</span><span class="tl-tx"><b>{{ a.veiculo }}</b> · {% if a.url %}<a href="{{ a.url }}" target="_blank" rel="noopener noreferrer">{{ a.titulo }}<span class="sr-only"> (abre a fonte em nova aba)</span></a>{% else %}{{ a.titulo }}{% endif %}</span><span class="tl-r">{{ a.rotulo }}{% if a.selo %} · {{ a.selo }}{% endif %}{% if a.q != "—" %} · apuração {{ a.q }}{% endif %}</span></li>
+{%- endmacro %}

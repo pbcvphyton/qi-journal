@@ -26,8 +26,10 @@ class FakeEditor:
         self.tokens = tokens
         self.edition_kwargs = edition_kwargs
 
-    def __call__(self, bundle: Bundle, config, *, now, use_llm, client, enrich_fn):
-        self.calls.append(dict(bundle=bundle, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn))
+    def __call__(self, bundle: Bundle, config, *, now, use_llm, client, enrich_fn, termometro=None):
+        self.calls.append(
+            dict(bundle=bundle, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn, termometro=termometro)
+        )
         stats = EditionStats(
             sources_total=len(bundle.sources),
             sources_ok=sum(1 for s in bundle.sources if s.ok),
@@ -558,9 +560,11 @@ def test_offline_run_reapplies_the_current_cleaning_rules(
 class EnrichingEditor(FakeEditor):
     """Editor falso que consulta o enriquecimento de dois artigos, como o real."""
 
-    def __call__(self, bundle: Bundle, config, *, now, use_llm, client, enrich_fn):
+    def __call__(self, bundle: Bundle, config, *, now, use_llm, client, enrich_fn, termometro=None):
         self.pages = enrich_fn(bundle.articles[:2])
-        return super().__call__(bundle, config, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn)
+        return super().__call__(
+            bundle, config, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn, termometro=termometro
+        )
 
 
 def test_enriched_pages_are_saved_and_replayed_offline(

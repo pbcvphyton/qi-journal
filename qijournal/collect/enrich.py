@@ -70,6 +70,7 @@ class PageInfo:
     image: str | None = None
     description: str | None = None
     text: str | None = None  # até 3000 chars de corpo da matéria
+    author: str | None = None  # autoria declarada na página (JSON-LD ou metatag), para o termômetro
 
     def is_empty(self) -> bool:
         return not (self.image or self.description or self.text)
@@ -235,6 +236,40 @@ class _LdArticle:
     body: str | None = None
     description: str | None = None
     image: str | None = None
+    author: str | None = None
+
+
+AUTHOR_MAX_CHARS = 120
+
+
+def _ld_author(value: Any, index: dict[str, dict[str, Any]], depth: int = 0) -> list[str]:
+    """Nomes de autor de um valor JSON-LD (string, ``Person``/``Organization``, lista ou ``@id``)."""
+    if depth > 4 or value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list):
+        return [name for item in value for name in _ld_author(item, index, depth + 1)]
+    if isinstance(value, dict):
+        name = value.get("name")
+        if isinstance(name, str) and name.strip():
+            return [name]
+        ref = value.get("@id")
+        if isinstance(ref, str) and ref in index and index[ref] is not value:
+            return _ld_author(index[ref], index, depth + 1)
+    return []
+
+
+def _clean_author(names: list[str]) -> str | None:
+    """Nomes limpos e únicos, sem endereços nem perfis (@usuário)."""
+    seen: list[str] = []
+    for name in names:
+        name = " ".join(text.html_to_text(str(name)).split()).strip(" ,;")
+        if not name or name.startswith("@") or re.search(r"https?://|www\.", name, re.I):
+            continue
+        if name.lower() not in (n.lower() for n in seen):
+            seen.append(name)
+    return text.truncate(", ".join(seen), AUTHOR_MAX_CHARS) if seen else None
 
 
 def _jsonld_article(blocks: list[str]) -> _LdArticle:
@@ -252,6 +287,7 @@ def _jsonld_article(blocks: list[str]) -> _LdArticle:
         body=body if isinstance(body, str) else None,
         description=description if isinstance(description, str) else None,
         image=image,
+        author=_clean_author(_ld_author(best.get("author"), index)),
     )
 
 
@@ -359,7 +395,10 @@ def parse_page(page_html: str, base_url: str | None = None) -> PageInfo:
         [meta.get("og:description"), meta.get("description"), meta.get("twitter:description"), ld.description]
     )
     body = _clean_body(ld.body) or _paragraph_body(parser.article_paragraphs or parser.main_paragraphs)
-    return PageInfo(image=image, description=description, text=body)
+    author = ld.author or _clean_author(
+        [meta[key] for key in ("author", "article:author", "parsely-author", "dc.creator") if meta.get(key)]
+    )
+    return PageInfo(image=image, description=description, text=body, author=author)
 
 
 def _looks_like_html(response: net.Response) -> bool:

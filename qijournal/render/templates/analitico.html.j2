@@ -1,0 +1,175 @@
+{#- Aba "Analítico Político": todo o histórico do termômetro.
+    Variáveis: a (AnaliticoView), brand, home_href, archive_href, base_url, repo_url. -#}
+{% extends "layout.html.j2" %}
+{% import "termometro.html.j2" as tm %}
+
+{% block title %}{{ brand.name }} — Analítico Político{% endblock %}
+{% block description %}Todo o histórico do Termômetro de Viés Editorial: média, tendência, desvio, rankings por veículo e editoria e cada texto analisado.{% endblock %}
+{% block meta %}
+<link rel="canonical" href="{{ base_url }}edicoes/analitico.html">
+{% endblock %}
+{% block home_link %}{{ home_href }}{% endblock %}
+{% block dateline %}Analítico Político{% if a.atualizado %}&nbsp;· <span class="nw">atualizado em {{ a.atualizado }}</span>{% endif %}{% endblock %}
+
+{% block tools %}
+    <a class="tool" href="{{ archive_href }}" title="Edições anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Edições</span></a>
+{% endblock %}
+
+{% block content %}
+<section class="an" id="analitico" aria-labelledby="an-h">
+  <div class="arch-top">
+    <h2 class="kicker" id="an-h">Analítico Político</h2>
+    <a class="arch-home" href="{{ home_href }}">&larr; Edição mais recente</a>
+  </div>
+  <p class="an-intro">{{ a.intro }}</p>
+
+  {% if not a.vazio %}
+  <div class="an-blk">
+    <h3 class="an-h" id="an-onde">Onde estamos</h3>
+    <p class="term-sum">{{ a.resumo }}{% if a.gauge and a.gauge.ic %} <span>(intervalo de 95%: {{ a.gauge.ic }})</span>{% endif %}</p>
+    {% if a.gauge %}{{ tm.gauge(a.gauge) }}{% endif %}
+    {% if a.distribuicao %}{{ tm.dist(a.distribuicao) }}{% endif %}
+    <ul class="an-tiles">
+      {% for t in a.tiles %}
+      <li><span class="an-tl">{{ t.rotulo }}</span><b>{{ t.valor }}</b>{% if t.detalhe %}<span class="an-td">{{ t.detalhe }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="an-blk">
+    <h3 class="an-h" id="an-indo">Para onde estamos indo</h3>
+    <ul class="an-reads">
+      {% for r in a.leituras %}
+      <li class="rd-{{ r.classe }}"><span class="an-tl">{{ r.titulo }}</span><b>{{ r.leitura }}</b><p>{{ r.texto }}</p></li>
+      {% endfor %}
+    </ul>
+    {% if a.puxadores %}
+    <div class="an-pux">
+      {% for titulo, itens in a.puxadores %}
+      <div class="an-tbl-wrap">
+        <table class="an-tbl">
+          <caption>Quem puxou a mudança · {{ titulo }}</caption>
+          <thead><tr><th scope="col">Grupo</th><th scope="col">Contribuição</th><th scope="col">Inclinação</th><th scope="col">Pauta</th><th scope="col">No grupo</th></tr></thead>
+          <tbody>
+            {% for p in itens %}
+            <tr><th scope="row">{{ p.nome }}</th><td>{{ p.contribuicao }}</td><td>{{ p.inclinacao }}</td><td>{{ p.pauta }}</td><td class="an-l">{{ p.leitura }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="an-blk">
+    <h3 class="an-h" id="an-series">Semana a semana</h3>
+    {% if a.series_msg %}<p class="term-note">{{ a.series_msg }}</p>{% endif %}
+    {% for s in a.series %}
+    <figure class="ts">
+      <figcaption>{{ s.titulo }}</figcaption>
+      <div class="ts-plot" role="img" aria-label="{{ s.aria }}">
+        {% for top, rot in s.grade %}<span class="ts-g" style="top:{{ top }}%"><i>{{ rot }}</i></span>{% endfor %}
+        {% if s.zero is not none %}<span class="ts-g ts-z" style="top:{{ s.zero }}%"></span>{% endif %}
+        <svg class="ts-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+          <path class="ts-band" d="{{ s.faixa }}"/>
+          <path class="ts-line" d="{{ s.linha }}" vector-effect="non-scaling-stroke"/>
+        </svg>
+        {% for p in s.pontos %}<span class="ts-pt" style="left:{{ p.left }}%;top:{{ p.top }}%" title="{{ p.title }}"></span>{% endfor %}
+      </div>
+      <div class="ts-x" aria-hidden="true">{% for left, rot in s.eixo_x %}<span style="left:{{ left }}%">{{ rot }}</span>{% endfor %}</div>
+    </figure>
+    {% endfor %}
+  </div>
+
+  {% for r in a.rankings %}
+  <div class="an-blk">
+    <h3 class="an-h" id="an-rk-{{ loop.index }}">Ranking · {{ r.titulo }}</h3>
+    {% if r.itens %}
+    <ol class="rk">
+      {% for i in r.itens %}
+      <li class="rk-i" title="{{ i.title }}">
+        <span class="rk-n">{{ i.nome }}</span>
+        <span class="rk-p" aria-hidden="true"><span class="rk-z" style="left:{{ r.zero }}%"></span>{% if i.ic_left is not none %}<span class="rk-ic" style="left:{{ i.ic_left }}%;width:{{ i.ic_width }}%"></span>{% endif %}<span class="rk-d" style="left:{{ i.pct }}%"><i class="t-{{ i.classe }}"></i></span></span>
+        <span class="rk-v"><b>{{ i.valor }}</b> {{ i.rotulo }}<span class="rk-x">{{ i.detalhe }}</span></span>
+      </li>
+      {% endfor %}
+    </ol>
+    <div class="rk-axis" aria-hidden="true"><span class="rk-n"></span><span class="rk-p">{% for left, rot in r.escala %}<i style="left:{{ left }}%">{{ rot }}</i>{% endfor %}</span><span class="rk-v"></span></div>
+    {% endif %}
+    {% if r.fora %}<p class="term-note">{{ r.fora }}</p>{% elif not r.itens %}<p class="term-note">Sem grupos no ranking ainda.</p>{% endif %}
+  </div>
+  {% endfor %}
+
+  <div class="an-blk">
+    <h3 class="an-h" id="an-q">Qualidade da apuração · Veículos</h3>
+    {% if a.qualidade %}
+    <ol class="qb">
+      {% for q in a.qualidade %}
+      <li><span class="rk-n">{{ q.nome }}</span><span class="qb-bar" aria-hidden="true"><span style="width:{{ q.pct }}%"></span></span><span class="rk-v"><b>{{ q.valor }}</b> {{ q.rotulo }}<span class="rk-x">{{ q.detalhe }}</span></span></li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p class="term-note">{{ a.qualidade_fora }}</p>
+    {% endif %}
+  </div>
+
+  {% if a.eixos %}
+  <div class="an-blk">
+    <h3 class="an-h" id="an-eixos">Por eixo</h3>
+    <div class="an-tbl-wrap">
+      <table class="an-tbl">
+        <thead><tr><th scope="col">Eixo</th><th scope="col">Textos</th><th scope="col">Com T</th><th scope="col">T médio</th><th scope="col">Rótulo</th><th scope="col">Qualidade</th></tr></thead>
+        <tbody>
+          {% for e in a.eixos %}
+          <tr><th scope="row">{{ e.nome }}</th><td>{{ e.textos }}</td><td>{{ e.validas }}</td><td><i class="sw t-{{ e.classe }}" aria-hidden="true"></i>{{ e.valor }}</td><td class="an-l">{{ e.rotulo }}</td><td>{{ e.q }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="an-blk">
+    <h3 class="an-h" id="an-dias">Dia a dia</h3>
+    <div class="an-tbl-wrap">
+      <table class="an-tbl">
+        <thead><tr><th scope="col">Publicação</th><th scope="col">Textos</th><th scope="col">Notícias com T</th><th scope="col">T médio</th><th scope="col">Rótulo</th><th scope="col">Qualidade</th></tr></thead>
+        <tbody>
+          {% for d in a.dias %}
+          <tr><th scope="row">{% if d.href %}<a href="{{ d.href }}">{{ d.nome }}</a>{% else %}{{ d.nome }}{% endif %}</th><td>{{ d.textos }}</td><td>{{ d.validas }}</td><td><i class="sw t-{{ d.classe }}" aria-hidden="true"></i>{{ d.valor }}</td><td class="an-l">{{ d.rotulo }}</td><td>{{ d.q }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="an-blk">
+    <h3 class="an-h" id="an-todas">Todas as análises</h3>
+    <p class="term-note">Uma linha por texto, do mais recente para o mais antigo; o resumo do cálculo e os sinais de cada texto ficam no Termômetro do dia da edição.</p>
+    {% for m in a.meses %}
+    <details class="term-det"{% if m.aberto %} open{% endif %}>
+      <summary>{{ m.rotulo }}</summary>
+      <ol class="tl-list">
+        {% for x in m.analises %}
+        {{ tm.linha(x) }}
+        {% endfor %}
+      </ol>
+    </details>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="an-blk">
+    <h3 class="an-h" id="an-metodo">Método</h3>
+    {% for p in a.metodo %}<p class="term-note">{{ p }}</p>{% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer class="ft">
+  <p><strong>{{ brand.name }}</strong> · Analítico Político · cálculo v{{ a.versao }}{% if a.periodo %} · {{ a.periodo }}{% endif %}</p>
+  <p class="ft-links"><a href="{{ home_href }}">Edição mais recente</a> · <a href="{{ archive_href }}">Edições anteriores</a>{% if repo_url %} · <a href="{{ repo_url }}" rel="noopener">Código-fonte</a>{% endif %}</p>
+</footer>
+{% endblock %}

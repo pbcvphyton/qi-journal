@@ -251,6 +251,27 @@ class LLMConfig:
 
 
 @dataclass
+class TermometroConfig:
+    """Termômetro de Viés Editorial (qijournal/termometro): análise, pela cadeia de
+    IAs, dos textos compilados na edição e aba "Analítico Político" com todo o
+    histórico. Só aparece nas marcas de ``marcas``."""
+
+    enabled: bool = True
+    marcas: list[str] = field(default_factory=lambda: ["tech"])
+    # Ordem de prioridade das seções (as de fora não são analisadas). Os textos
+    # saem em rodízio pelas matérias: o 1º veículo de cada uma, depois o 2º…
+    secoes: list[str] = field(
+        default_factory=lambda: ["politica", "juridico", "brasil", "mundo", "mercados", "natureza", "tecnologia", "imobiliario"]
+    )
+    idiomas: list[str] = field(default_factory=lambda: ["pt"])
+    max_textos: int = 20  # análises novas por edição (textos já analisados são reaproveitados)
+    max_paginas: int = 60  # páginas originais consultadas atrás de texto suficiente
+    textos_por_chamada: int = 4
+    max_chamadas: int = 6  # teto de chamadas à IA por edição (contando novas tentativas na cadeia)
+    deadline_seconds: int = 480  # prazo da análise, depois da edição (soma-se ao da edição no job)
+
+
+@dataclass
 class CityConfig:
     name: str
     lat: float
@@ -277,6 +298,7 @@ class Config:
     edition: EditionConfig
     llm: LLMConfig
     email: EmailConfig
+    termometro: TermometroConfig = field(default_factory=TermometroConfig)
 
     def section(self, section_id: str) -> SectionConfig:
         for s in self.sections:
@@ -287,6 +309,11 @@ class Config:
     @property
     def section_ids(self) -> list[str]:
         return [s.id for s in self.sections]
+
+    @property
+    def termometro_ativo(self) -> bool:
+        """Termômetro e aba Analítico Político ligados para a marca ativa."""
+        return self.termometro.enabled and self.brand.key in self.termometro.marcas
 
 
 def _truthy(value: str | None) -> bool:
@@ -378,6 +405,10 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
     if env.get("EMAIL_TO"):
         email.to = [e.strip() for e in env["EMAIL_TO"].split(",") if e.strip()]
 
+    termometro = TermometroConfig(**(site_raw.get("termometro") or {}))
+    if _truthy(env.get("QIJ_NO_TERMOMETRO")):
+        termometro.enabled = False
+
     return Config(
         root=root,
         site=site,
@@ -389,4 +420,5 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
         edition=edition,
         llm=llm,
         email=email,
+        termometro=termometro,
     )

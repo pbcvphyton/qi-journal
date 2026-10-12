@@ -20,6 +20,7 @@ from ..collect.market import format_change
 from ..config import Config
 from ..models import Coverage, Edition, Quote, Rationale, Story
 from . import filters
+from .termometro import ANALITICO_PAGINA, TermometroDiaView, termometro_dia_view
 
 log = logging.getLogger(__name__)
 
@@ -253,6 +254,7 @@ class BrandView:
     logo_height_mobile: int | None = None  # no celular (px)
     email_logo: EmailLogo | None = None
     email_logo_dark: EmailLogo | None = None  # só com email_logo
+    termometro: bool = False  # marca com Termômetro de Viés (estilos do bloco do dia e da aba Analítico Político)
 
 
 @dataclass
@@ -288,6 +290,9 @@ class EditionView:
     rationale: RationaleView | None = None  # racional da compilação (vazio em edições antigas)
     index: list[IndexSectionView] = field(default_factory=list)  # todas as notícias do dia, por seção
     index_url: str = ""  # página com todas as notícias do dia (edicoes/AAAA-MM-DD-todas.html)
+    # Termômetro do dia (marca com termômetro, quando ele rodou na edição); o link
+    # da aba "Analítico Político" sai em termometro.analitico_href.
+    termometro: TermometroDiaView | None = None
 
     @property
     def index_total(self) -> int:
@@ -334,6 +339,7 @@ def brand_view(config: Config) -> BrandView:
         logo_height_mobile=mobile if height else None,
         email_logo=(email_logo := _email_logo(brand.email_logo, config.site.base_url)),
         email_logo_dark=_email_logo(brand.email_logo_dark, config.site.base_url) if email_logo else None,
+        termometro=config.termometro_ativo,
     )
 
 
@@ -850,6 +856,7 @@ def build_view(edition: Edition, config: Config, *, archive: bool = False) -> Ed
         rationale=_rationale_view(edition),
         index=_index_view(edition, lookup, default_color, tz, by_id),
         index_url=f"{base_url}edicoes/{index_page_name(edition.date)}" if edition.index else "",
+        termometro=termometro_dia_view(edition.termometro) if config.termometro_ativo else None,
     )
 
 
@@ -864,6 +871,9 @@ def render_edition_page(
     ``is_archive``: cópia de ``edicoes/`` (sem idade relativa congelada).
     """
     view = build_view(edition, config, archive=is_archive)
+    if view.termometro is not None:  # a aba fica em edicoes/, ao lado das edições anteriores
+        archive = filters.safe_href(archive_href) or "edicoes/"
+        view.termometro.analitico_href = filters.safe_href(f"{archive.rstrip('/')}/{ANALITICO_PAGINA}") or ""
     template = filters.environment().get_template("edition.html.j2")
     html = template.render(
         v=view,

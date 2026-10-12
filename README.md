@@ -32,8 +32,13 @@ Nada precisa ser feito à mão: o GitHub gera a edição sozinho a partir das
         │      Se uma IA estourar o limite, a seguinte assume (AIML → SenseNova →
         │      Mistral → Kimi → Claude). Sem IA: edição automática.
         ▼
+  2b. Termômetro ── (PBCV Tech) os textos compilados nas matérias passam pelo
+        │      Termômetro de Viés Editorial v1.1: a mesma cadeia de IAs aponta os
+        │      sinais com citação literal e o cálculo de referência dá o T de cada um
+        ▼
   3. Páginas ── capa (index.html), cópia no arquivo (edicoes/), todas as notícias
-        │      do dia (edicoes/AAAA-MM-DD-todas.html), e-mail em HTML e texto
+        │      do dia (edicoes/AAAA-MM-DD-todas.html), aba Analítico Político
+        │      (edicoes/analitico.html), e-mail em HTML e texto
         │
         ▼
   4. Commit no repositório ──► GitHub Pages publica o site
@@ -64,6 +69,7 @@ Garantias importantes:
 | Arquivo (edições anteriores) | <https://pbcvphyton.github.io/qi-journal/edicoes/> |
 | Uma edição específica | `https://pbcvphyton.github.io/qi-journal/edicoes/AAAA-MM-DD.html` |
 | Todas as notícias de um dia | `https://pbcvphyton.github.io/qi-journal/edicoes/AAAA-MM-DD-todas.html` |
+| Analítico Político (todo o histórico do termômetro) | <https://pbcvphyton.github.io/qi-journal/edicoes/analitico.html> |
 
 Cada matéria tem endereço próprio (`…#s-<id>`). Os links do e-mail apontam para a
 cópia arquivada (`edicoes/AAAA-MM-DD.html#s-<id>`), que continua válida depois que a
@@ -151,6 +157,63 @@ matéria, na janela da matéria (com a conclusão e a **análise por veículo**)
 seção **Cobertura comparada**, com os demais assuntos do dia. No e-mail, cada
 matéria ganha a barra e a conclusão. A análise usa só o que os veículos
 publicaram; quando o trecho não permite dizer, o veículo fica como neutro.
+
+### Termômetro de Viés Editorial e Analítico Político (só PBCV Tech)
+
+Depois da edição, os textos compilados nas matérias do dia passam pelo
+**Termômetro de Viés Editorial, versão 1.1** — a especificação em
+`termometro-referencia-v1.3`, que é o pilar desta parte. Ele é **estritamente
+adicional**: a análise da cobertura acima continua igual, e o termômetro aparece
+**depois** dela, no fim da edição, e na aba **Analítico Político** (botão
+*Analítico* no cabeçalho, ao lado de *Edições* e *Buscar*). A marca PBCV
+Advogados não tem nada disso (`termometro.marcas` em `config/site.yaml`).
+
+Como cada texto é analisado:
+
+1. **Texto**: das matérias da edição (política, jurídico, economia, mundo,
+   mercados, natureza, tecnologia e imobiliário, nessa prioridade; esporte e
+   variedades ficam de fora), um veículo de cada matéria por vez. O texto segue o
+   formato da especificação: `P0` = título, `P1` = linha fina e o corpo extraído da
+   página original (até 3.000 caracteres; o pedido avisa quando foi cortado). Texto
+   com menos de 150 palavras não vai à IA (seria inconclusivo). Só português.
+2. **IA**: o pré-processamento da referência (`preparar`: falas diretas entre
+   aspas e termos do dicionário) vai no pedido; a mesma cadeia de IAs da edição
+   (o que a edição já gastou do limite de cada uma continua contando) devolve a
+   saída no formato v1.1 (triagem, atores, fontes, enquadramento, evidências com
+   citação literal, teste de inversão e qualidade), 4 textos por chamada, até 20
+   textos e 6 chamadas por edição (`termometro` em `config/site.yaml`).
+3. **Cálculo**: cada saída é validada contra `config/saida_modelo.schema.json` e
+   passa pelo cálculo de referência **sem nenhuma alteração**
+   (`qijournal/termometro/referencia.py`, cópia literal): ele confere cada citação
+   no texto, aplica a regra da voz, os pesos dos 11 critérios e dá **T** (−100 a
+   +100), o rótulo, a confiança e a **qualidade da apuração Q** (0 a 100).
+
+No fim da edição, o **Termômetro do dia** resume as notícias analisadas: a média
+de T com o intervalo de 95% numa escala de −100 a +100, quantos textos ficaram em
+cada rótulo, a qualidade média e, abrindo, cada texto com o resumo do cálculo e os
+sinais que pontuaram (citação, critério e contribuição). Opinião fica à parte.
+
+A aba **Analítico Político** (`edicoes/analitico.html`) agrega **todo o
+histórico** (`qijournal/termometro/agregacao.py`, conferida pelos testes da
+seção 14.7 da especificação): onde estamos (média geral), para onde estamos indo
+(tendência mensal de T e de Q, a janela recente comparada ao histórico e quem
+puxou a mudança, por editoria e por veículo), as séries semanais, os rankings
+por veículo e por editoria (T ajustado e qualidade, mínimo de 30 notícias), os
+recortes por eixo, a tabela de cada dia e a lista de todas as análises.
+
+- **Histórico**: as análises de cada dia ficam em `data/termometro/AAAA-MM-DD.json`
+  e **nunca são apagadas** (a limpeza do arquivo de edições não toca nessa pasta).
+  Um texto já analisado não volta à IA: é reaproveitado e conta uma vez só.
+- **Dicionário e âncoras**: `config/lexico.yaml` (vocabulário codificado; hoje com
+  os termos do caso de referência) e `config/atores.yaml` (campo fixo de partidos e
+  grupos; vazio — sem âncora, a IA usa a filiação e a posição que o texto informa).
+- **Precisa de IA**: sem nenhum segredo de IA configurado, a edição sai com
+  "Sem análise nesta edição: nenhuma IA disponível nesta execução".
+- **Desligar** sem mexer no código: variável `QIJ_NO_TERMOMETRO` = `1` no GitHub
+  (*Settings → Secrets and variables → Actions → Variables*).
+- **Testes da especificação**: `tests/termometro/` guarda os scripts e casos como
+  vieram (`testes.py`, `testes_ranking.py`); `tests/test_termometro_especificacao.py`
+  roda os dois e exige `FALHAS: nenhuma`.
 
 ### Racional da edição e lista completa do dia
 
@@ -364,6 +427,7 @@ Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 | `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_TO` | segredos | envio do e-mail por SMTP |
 | `EMAIL_FROM`, `SMTP_HOST`, `SMTP_PORT` | segredos (opcionais) | ajustes do SMTP |
 | `QIJ_BRAND` | variável | marca (`tech` ou `pbcv`) |
+| `QIJ_NO_TERMOMETRO` | variável | `1` desliga o Termômetro de Viés e a aba Analítico Político |
 | `QIJ_MODEL` | variável | modelo do Claude |
 | `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` | variáveis | modelo de cada editor (padrões na tabela de editores acima) |
 
@@ -411,17 +475,25 @@ qijournal/                código do jornal
                           cadeia de editores; blocks.py = compilação por
                           editoria; topics.py e coverage.py = modo etapas;
                           index.py = todas as notícias do dia) e modo automático
-  render/                 páginas HTML e e-mail (modelos em render/templates/)
+  render/                 páginas HTML e e-mail (modelos em render/templates/;
+                          termometro.py e analitico.py = termômetro do dia e aba
+                          Analítico Político)
+  termometro/             Termômetro de Viés: referencia.py (cálculo, cópia literal
+                          da especificação), agregacao.py (aba analítica),
+                          analise.py (textos → IA → cálculo) e historico.py
   deliver/smtp.py         envio do e-mail por SMTP
   pipeline.py             orquestra coleta → edição → páginas → e-mail
   __main__.py             comandos (python -m qijournal …)
 config/site.yaml          marca, seções, cotações, clima, limites da edição
 config/sources.yaml       fontes de notícia
+config/saida_modelo.schema.json, lexico.yaml, atores.yaml  termômetro (formato da
+                          saída da IA, dicionário e âncoras de campo)
 assets/                   logos e ícones das marcas
 index.html                edição do dia (gerado automaticamente)
 edicoes/                  arquivo de edições, todas as notícias de cada dia,
                           e-mail e latest.json (gerado)
-data/                     cada edição em JSON (gerado)
+data/                     cada edição em JSON e, em data/termometro/, as análises
+                          do termômetro de cada dia, guardadas para sempre (gerado)
 tests/                    testes automáticos
 .github/workflows/        daily.yml (edição diária) e ci.yml (testes)
 ```

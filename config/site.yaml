@@ -2,7 +2,7 @@
 # Fontes de notícia ficam em config/sources.yaml.
 #
 # Várias chaves podem ser sobrescritas por variáveis de ambiente
-# (útil no GitHub Actions): QIJ_BRAND, QIJ_BASE_URL, QIJ_MODEL, QIJ_EFFORT,
+# (útil no GitHub Actions): QIJ_BRAND, QIJ_BASE_URL, QIJ_MODEL, QIJ_EFFORT, QIJ_NO_TERMOMETRO=1,
 # QIJ_NO_LLM=1, EMAIL_TO (lista separada por vírgulas).
 
 site:
@@ -218,6 +218,28 @@ llm:
   # modelo trabalha); nos outros, apis.<nome>.timeout_seconds. Novas
   # tentativas só começam se couberem em deadline_seconds.
   timeout_seconds: 300
+
+# Termômetro de Viés Editorial (v1.1) — só na marca PBCV Tech. Depois da edição,
+# a cadeia de IAs (llm.providers) analisa os textos compilados nas matérias do
+# dia (título, linha fina e corpo extraído da página original) no formato da
+# especificação; o cálculo determinístico (qijournal/termometro/referencia.py)
+# confere cada citação no texto e dá o T de cada um (−100 esquerda a +100
+# direita) e a qualidade da apuração (Q, 0 a 100). O resumo do dia sai no fim
+# da edição e todo o histórico (data/termometro/, nunca apagado) vai para a aba
+# "Analítico Político" (edicoes/analitico.html). Dicionário: config/lexico.yaml;
+# âncoras de atores: config/atores.yaml; formato da saída da IA:
+# config/saida_modelo.schema.json. Desligar sem mexer aqui: QIJ_NO_TERMOMETRO=1.
+termometro:
+  enabled: true
+  marcas: [tech]
+  # Prioridade das seções; as de fora (esporte, variedades) não são analisadas.
+  secoes: [politica, juridico, brasil, mundo, mercados, natureza, tecnologia, imobiliario]
+  idiomas: [pt]               # o dicionário e as regras de texto são do português
+  max_textos: 20              # análises novas por edição; textos já analisados são reaproveitados
+  max_paginas: 60             # páginas originais consultadas atrás de corpo suficiente (150+ palavras)
+  textos_por_chamada: 4
+  max_chamadas: 6             # teto de chamadas à IA por edição (a AIML gratuita tem 10 por hora no total)
+  deadline_seconds: 480       # prazo da análise depois da edição (cabe no timeout do daily.yml)
 
 # Cotações e indicadores do ticker, na ordem de exibição.
 # provider: yahoo (símbolo do Yahoo Finance), coingecko (id da moeda),

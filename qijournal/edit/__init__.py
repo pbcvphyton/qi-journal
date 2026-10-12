@@ -13,6 +13,7 @@ import logging
 import os
 import time
 from collections.abc import Callable
+from dataclasses import dataclass, field
 from datetime import datetime
 from typing import TYPE_CHECKING, Any
 
@@ -23,11 +24,12 @@ from qijournal.edit.chain import BackendChain
 from qijournal.edit.chatapi import ChatBackend
 from qijournal.edit.llm import ClaudeBackend, EnrichFn, LLMUnavailable, _make_client, build_llm_edition
 from qijournal.models import Article, Bundle, Edition
+from qijournal.termometro.analise import analisar_edicao, registro_do_dia
 
 if TYPE_CHECKING:
     from qijournal.collect.enrich import PageInfo
 
-__all__ = ["LLMUnavailable", "build_heuristic_edition", "build_llm_edition", "make_edition"]
+__all__ = ["ContextoTermometro", "LLMUnavailable", "build_heuristic_edition", "build_llm_edition", "make_edition"]
 
 log = logging.getLogger(__name__)
 
@@ -111,14 +113,51 @@ def make_edition(
     use_llm: bool = True,
     client: Any = None,
     enrich_fn: EnrichFn | None = None,
+    termometro: ContextoTermometro | None = None,
 ) -> Edition:
     """Monta a edição do dia (:func:`_make_edition`) e acrescenta a lista completa
-    do dia (nenhuma notícia fica de fora) e o racional da compilação."""
-    edition = _make_edition(bundle, config, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn)
+    do dia (nenhuma notícia fica de fora) e o racional da compilação.
+
+    Com ``termometro`` (o pipeline passa quando o termômetro está ligado para a
+    marca), os textos compilados passam depois pelo Termômetro de Viés
+    (:func:`qijournal.termometro.analise.analisar_edicao`), com a mesma cadeia de
+    IAs da edição: o que a edição já gastou do limite de cada IA continua contando."""
+    enricher = _CachedEnricher(enrich_fn) if enrich_fn is not None else None
+    backends: list[Any] = []
+    edition = _make_edition(bundle, config, now=now, use_llm=use_llm, client=client, enricher=enricher, backends=backends)
     edition.index = build_index(bundle, config, edition, now=now)
     if edition.rationale is None:
         edition.rationale = heuristic_rationale(bundle, edition.index)
+    if termometro is not None:
+        edition.termometro = _termometro(edition, bundle, config, backends=backends, enricher=enricher, contexto=termometro)
     return edition
+
+
+@dataclass
+class ContextoTermometro:
+    """O que o termômetro precisa saber do histórico: análises já feitas, por id do
+    artigo (reaproveitadas em vez de pedir de novo à IA)."""
+
+    anteriores: dict[str, dict[str, Any]] = field(default_factory=dict)
+
+
+def _termometro(
+    edition: Edition,
+    bundle: Bundle,
+    config: Config,
+    *,
+    backends: list[Any],
+    enricher: _CachedEnricher | None,
+    contexto: ContextoTermometro,
+) -> dict[str, Any]:
+    """Termômetro da edição; um erro inesperado não derruba a edição (sai sem análise)."""
+    vivos = [b for b in backends if not getattr(b, "exhausted", False)]
+    chain = BackendChain(vivos) if vivos else None
+    try:
+        return analisar_edicao(edition, bundle, config, backend=chain, enrich_fn=enricher, anteriores=contexto.anteriores)
+    except Exception:
+        log.exception("Termômetro: erro inesperado; a edição sai sem a análise do dia")
+        return registro_do_dia(edition.date, [], motivo="erro inesperado na análise")
 
 
 def _make_edition(
@@ -128,7 +167,8 @@ def _make_edition(
     now: datetime,
     use_llm: bool = True,
     client: Any = None,
-    enrich_fn: EnrichFn | None = None,
+    enricher: _CachedEnricher | None = None,
+    backends: list[Any] | None = None,
 ) -> Edition:
     """Monta a edição do dia.
 
@@ -139,16 +179,16 @@ def _make_edition(
     ``client`` ou ``ANTHROPIC_API_KEY``). Em
     :class:`LLMUnavailable` (ou qualquer erro inesperado, registrado com
     traceback) passa ao próximo e, por fim, a :func:`build_heuristic_edition`,
-    à qual passa o enriquecimento das páginas quando ``enrich_fn`` é fornecido.
+    à qual passa o enriquecimento das páginas quando ``enricher`` é fornecido.
     As estatísticas da edição (fontes, artigos, tokens) vêm preenchidas pelos
-    próprios editores.
+    próprios editores. Os editores preparados ficam em ``backends`` (quem chama
+    reaproveita a cadeia, com o consumo de cada um).
     """
-    enricher = _CachedEnricher(enrich_fn) if enrich_fn is not None else None
+    backends = [] if backends is None else backends
 
     skip = _llm_skip_reason(config, use_llm)
     if skip is None:
         factories, missing = _backends(config, client)
-        backends: list[Any] = []
         for provider, factory in factories:
             try:
                 backends.append(factory())

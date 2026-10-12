@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Termômetro de Viés Editorial: saída do modelo (formato v1.1)",
+  "description": "Uma análise por texto. O cálculo (qijournal/termometro/referencia.py) só roda sobre saídas válidas por este schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["triagem", "atores", "fontes", "enquadramento", "evidencias", "teste_inversao", "qualidade"],
+  "properties": {
+    "triagem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relevancia_politica", "genero", "eixos", "justificativa"],
+      "properties": {
+        "relevancia_politica": {"type": "string", "enum": ["alta", "media", "baixa", "nenhuma"],
+                                "description": "Dimensão político-ideológica do texto; 'nenhuma' = não se aplica."},
+        "genero": {"type": "string", "enum": ["noticia", "entrevista", "analise", "opiniao", "editorial"]},
+        "eixos": {"type": "array", "items": {"type": "string", "enum": ["economico", "costumes", "seguranca", "instituicoes", "geral"]}},
+        "justificativa": {"type": "string"}
+      }
+    },
+    "atores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "nome", "campo", "justificativa"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^A[0-9]+$"},
+          "nome": {"type": "string"},
+          "campo": {"type": "string", "enum": ["esquerda", "centro_esquerda", "centro", "centro_direita", "direita", "indefinido"]},
+          "justificativa": {"type": "string"}
+        }
+      }
+    },
+    "fontes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "rotulo_no_texto", "campo", "anonima", "vinculo_informado", "falas"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^F[0-9]+$"},
+          "rotulo_no_texto": {"type": "string"},
+          "campo": {"type": "string", "enum": ["esquerda", "centro_esquerda", "centro", "centro_direita", "direita", "indefinido"]},
+          "anonima": {"type": "boolean"},
+          "vinculo_informado": {"type": "boolean"},
+          "falas": {"type": "array", "items": {"type": "string", "pattern": "^Q[0-9]+$"}}
+        }
+      }
+    },
+    "enquadramento": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problema", "causa", "vitima", "culpado", "solucao", "motor_moral"],
+      "properties": {
+        "problema": {"type": "string"},
+        "causa": {"type": "string"},
+        "vitima": {"type": "string"},
+        "culpado": {"type": "string"},
+        "solucao": {"type": "string"},
+        "motor_moral": {"type": "string"}
+      }
+    },
+    "evidencias": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["criterio", "citacao", "paragrafo", "eixo", "ator_favorecido", "ator_desfavorecido",
+                     "direcao", "intensidade", "certeza", "explicacao", "ressalva"],
+        "properties": {
+          "criterio": {"type": "string", "enum": ["VERBOS", "ROTULOS", "FONTES", "AGENCIA", "HIERARQUIA", "ADJETIVOS",
+                                                  "LEXICO", "NUMEROS", "OMISSAO", "ENQUADRAMENTO", "HUMANIZACAO"]},
+          "citacao": {"type": "string"},
+          "paragrafo": {"type": "string", "pattern": "^P[0-9]+$"},
+          "eixo": {"type": "string", "enum": ["economico", "costumes", "seguranca", "instituicoes", "geral"]},
+          "ator_favorecido": {"type": ["string", "null"]},
+          "ator_desfavorecido": {"type": ["string", "null"]},
+          "direcao": {"type": "string", "enum": ["esquerda", "equilibrio", "direita"]},
+          "intensidade": {"type": "integer", "minimum": 1, "maximum": 3},
+          "certeza": {"type": "number", "minimum": 0, "maximum": 1},
+          "explicacao": {"type": "string"},
+          "ressalva": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "teste_inversao": {"type": "string"},
+    "qualidade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["titulo_sustentado", "contraponto", "numeros_contextualizados", "documento_primario",
+                   "incerteza_declarada", "opiniao_separada"],
+      "properties": {
+        "titulo_sustentado": {"type": "string", "enum": ["sim", "nao", "nao_se_aplica"]},
+        "contraponto": {"type": "string", "enum": ["sim", "nao", "nao_se_aplica"]},
+        "numeros_contextualizados": {"type": "string", "enum": ["sim", "nao", "nao_se_aplica"]},
+        "documento_primario": {"type": "string", "enum": ["sim", "nao", "nao_se_aplica"]},
+        "incerteza_declarada": {"type": "string", "enum": ["sim", "nao", "nao_se_aplica"]},
+        "opiniao_separada": {"type": "string", "enum": ["sim", "nao", "nao_se_aplica"]}
+      }
+    }
+  }
+}

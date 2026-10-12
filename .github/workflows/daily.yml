@@ -85,8 +85,9 @@ jobs:
     # edição por IA, limitada a llm.deadline_seconds (35 min): no modo blocos,
     # uma chamada por bloco de editoria + o fechamento (até 9); se uma IA
     # estourar o limite, a seguinte da cadeia assume. Se nenhuma conseguir a
-    # tempo, a edição sai em modo automático.
-    timeout-minutes: 55
+    # tempo, a edição sai em modo automático. Depois, o termômetro de viés
+    # (termometro.deadline_seconds: 8 min) analisa os textos compilados.
+    timeout-minutes: 65
     steps:
       - name: Baixar o repositório
         uses: actions/checkout@v5
@@ -115,6 +116,7 @@ jobs:
           MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           QIJ_BRAND: ${{ vars.QIJ_BRAND }}
+          QIJ_NO_TERMOMETRO: ${{ vars.QIJ_NO_TERMOMETRO }}
           QIJ_MODEL: ${{ vars.QIJ_MODEL }}
           QIJ_AIML_MODEL: ${{ vars.QIJ_AIML_MODEL }}
           QIJ_SENSENOVA_MODEL: ${{ vars.QIJ_SENSENOVA_MODEL }}

@@ -8,7 +8,9 @@ Layout publicado (raiz do GitHub Pages)::
     edicoes/index.html         índice do arquivo
     edicoes/latest.json        manifesto da última edição (usado pela rotina de e-mail)
     edicoes/email.html|.txt    e-mail da última edição
+    edicoes/analitico.html     aba "Analítico Político": todo o histórico do termômetro (marca com termômetro)
     data/AAAA-MM-DD.json       edição em JSON (``Edition.to_dict``)
+    data/termometro/AAAA-MM-DD.json  análises do termômetro feitas no dia (nunca apagadas)
     build/bundle-AAAA-MM-DD.json   coleta crua (fora do git; artefato do Actions)
     build/pages-AAAA-MM-DD.json    páginas enriquecidas (reproduz o enriquecimento no ``render --bundle``)
 
@@ -42,11 +44,13 @@ from qijournal.collect.weather import collect_weather
 from qijournal.config import Config
 from qijournal.deliver.smtp import EmailDeliveryError, SMTPSettings, smtp_settings_from_env
 from qijournal.deliver.smtp import send_email as deliver_email
-from qijournal.edit import make_edition
+from qijournal.edit import ContextoTermometro, make_edition
 from qijournal.models import Article, Bundle, Edition
 from qijournal.net import Fetcher
+from qijournal.render.analitico import ANALITICO_PAGINA, render_analitico_page
 from qijournal.render.email import render_email
 from qijournal.render.web import index_page_name, render_archive_index, render_edition_page, render_index_page
+from qijournal.termometro import historico
 
 log = logging.getLogger(__name__)
 
@@ -283,6 +287,9 @@ def pages_path_for(bundle_path: Path) -> Path:
 
 def save_pages(pages: Mapping[str, PageInfo], path: Path) -> Path:
     data = {article_id: asdict(info) if not isinstance(info, dict) else info for article_id, info in pages.items()}
+    for info in data.values():  # autoria só quando a página a declara (arquivos antigos não têm a chave)
+        if isinstance(info, dict) and info.get("author") is None:
+            info.pop("author", None)
     return _write_json(Path(path), data)
 
 
@@ -295,7 +302,10 @@ def load_pages(path: Path) -> dict[str, PageInfo]:
         data = _read_json(path)
         return {
             str(article_id): PageInfo(
-                image=info.get("image"), description=info.get("description"), text=info.get("text")
+                image=info.get("image"),
+                description=info.get("description"),
+                text=info.get("text"),
+                author=info.get("author"),
             )
             for article_id, info in data.items()
             if isinstance(info, dict)
@@ -480,6 +490,32 @@ def publish(
     kept_days = sorted((d for d in pages if not is_expired(d)), reverse=True)
     entries = [_archive_entry(day, data_dir, edition) for day in kept_days]
 
+    # Termômetro: as análises feitas hoje entram no registro do dia (que nunca
+    # expira) e a aba "Analítico Político" é refeita com todo o histórico.
+    termometro_dia: dict[str, Any] | None = None
+    analitico_page: str | None = None
+    if config.termometro_ativo:
+        registros = historico.carregar_registros(data_dir)
+        if edition.termometro is not None:
+            existente = next((r for r in registros if r.get("data") == edition.date), None)
+            termometro_dia = historico.mesclar_dia(existente, edition.termometro)
+            if termometro_dia is not None:
+                registros = sorted(
+                    [r for r in registros if r.get("data") != edition.date] + [termometro_dia],
+                    key=lambda r: str(r.get("data") or ""),
+                )
+                paths["termometro"] = historico.caminho_do_dia(data_dir, edition.date)
+        if edition.termometro is not None or any(historico.tem_analises(r) for r in registros):
+            analitico_page = render_analitico_page(
+                registros,
+                config,
+                home_href="../",
+                archive_href="./",
+                edition_date=edition.date,
+                edicoes=[day.isoformat() for day in kept_days],
+            )
+            paths["analitico"] = archive_dir / ANALITICO_PAGINA
+
     # Renderiza tudo antes de escrever.
     home_page = render_edition_page(edition, config, home_href="./", archive_href=f"{ARCHIVE_DIR}/")
     archived_page = render_edition_page(edition, config, home_href="../", archive_href="./", is_archive=True)
@@ -498,6 +534,8 @@ def publish(
             manifest[key] = previous.get(key)
 
     _write_json(paths["data"], edition.to_dict())
+    if termometro_dia is not None:
+        _write_json(paths["termometro"], termometro_dia)
     write_atomic(paths["edition"], archived_page)
     if all_news_page is not None:
         write_atomic(paths["all_news"], all_news_page)
@@ -509,6 +547,8 @@ def publish(
         path.unlink(missing_ok=True)
     if expired:
         log.info("Arquivo: %d arquivo(s) de edições anteriores a %s removido(s)", len(expired), cutoff)
+    if analitico_page is not None:
+        write_atomic(paths["analitico"], analitico_page)
     write_atomic(paths["archive"], archive_index)
     _write_json(paths["latest"], manifest)
     write_atomic(paths["index"], home_page)
@@ -642,6 +682,17 @@ def _mode_label(edition: Edition) -> str:
     return f"IA ({edition.model})" if edition.mode == "ai" else "Automática (sem IA)"
 
 
+def _termometro_label(registro: Mapping[str, Any]) -> str:
+    analises = registro.get("analises") or []
+    novas = sum(1 for a in analises if isinstance(a, dict) and a.get("analisado_em") == registro.get("data"))
+    if not analises:
+        return f"sem análise ({registro.get('motivo') or 'nenhum texto'})"
+    label = f"{len(analises)} texto(s) analisado(s), {novas} nova(s)"
+    if registro.get("provedor"):
+        label += f" · {registro['provedor']}"
+    return label
+
+
 def _run_summary_markdown(result: RunResult, config: Config) -> str:
     edition = result.edition
     stats = edition.stats
@@ -660,6 +711,8 @@ def _run_summary_markdown(result: RunResult, config: Config) -> str:
         lines.append(
             f"| Tokens (entrada / saída) | {_fmt_int(stats.llm_input_tokens)} / {_fmt_int(stats.llm_output_tokens)} |"
         )
+    if edition.termometro is not None:
+        lines.append(f"| Termômetro | {_cell(_termometro_label(edition.termometro))} |")
     lines += [
         f"| E-mail (SMTP) | {'enviado' if result.email_sent else 'não enviado'} |",
         "",
@@ -787,7 +840,13 @@ def run(
         )
         raise
 
-    edition = make_edition(bundle, config, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn)
+    termometro = None
+    if config.termometro_ativo:  # análises já feitas são reaproveitadas, não pedidas de novo à IA
+        anteriores = historico.todas_as_analises(historico.carregar_registros(out_dir / DATA_DIR))
+        termometro = ContextoTermometro(anteriores={a["id"]: a for a in anteriores})
+    edition = make_edition(
+        bundle, config, now=now, use_llm=use_llm, client=client, enrich_fn=enrich_fn, termometro=termometro
+    )
     if recorder is not None and pages_path is not None:
         try:
             outputs["pages"] = save_pages(recorder.pages, pages_path)

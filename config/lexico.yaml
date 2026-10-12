@@ -1,0 +1,18 @@
+# Termômetro de Viés Editorial (v1.1): dicionário de vocabulário codificado.
+#
+# Cada termo tem o campo político a que costuma servir quando aparece na voz da
+# redação (fora de aspas). Antes da chamada à IA, o texto é varrido por estas
+# variantes (sem diferenciar maiúsculas e acentos, palavra inteira) e os
+# achados vão no pedido como candidatos. No cálculo, uma evidência LEXICO com
+# termo daqui tem a certeza limitada por teto_certeza e a direção corrigida para
+# a do dicionário (com certeza pela metade) quando a IA indicar a oposta.
+#
+# Campos: termo, variantes, direcao (esquerda | direita | contextual), eixo
+# (economico | costumes | seguranca | instituicoes | geral), alternativa
+# (redação descritiva sugerida) e teto_certeza (0 a 1; padrão 1).
+# Os termos abaixo são os do caso de referência da especificação.
+termos:
+  - {termo: desmonte, variantes: [desmonte, sucateamento], direcao: esquerda, eixo: economico, alternativa: "redução de R$ X no orçamento de Y", teto_certeza: 1.0}
+  - {termo: rombo, variantes: [rombo], direcao: direita, eixo: economico, alternativa: "déficit de R$ X (Y% do PIB)", teto_certeza: 0.5}
+  - {termo: retrocesso, variantes: [retrocesso, "na contramão da história"], direcao: esquerda, eixo: costumes, alternativa: "mudança ou revogação de X", teto_certeza: 1.0}
+  - {termo: gastança, variantes: [gastança, farra], direcao: direita, eixo: economico, alternativa: "despesa de R$ X", teto_certeza: 1.0}

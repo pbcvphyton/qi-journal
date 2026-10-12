@@ -1,0 +1,73 @@
+{
+  "descricao": "Texto ficticio, criado para teste. Cidade, pessoas, partidos e numeros sao inventados. Formato da saida do modelo: v1.1.",
+  "meta": {
+    "veiculo": "Diario Ficticio",
+    "secao": "Cidades",
+    "autor": "Autor Ficticio",
+    "data": "2026-10-09"
+  },
+  "paragrafos": {
+    "P0": "Prefeitura de Porto Sereno promove desmonte do Mesa Solidária e deixa 4 mil famílias sem refeição",
+    "P1": "Corte de 38% no orçamento do programa atinge sobretudo mães solo da periferia; especialistas alertam para alta da fome na cidade",
+    "P2": "Mãe de três filhos, Joana Ribeiro, 34, chegou às 6h ao restaurante comunitário do Jardim Esperança na segunda-feira (5) e encontrou a porta fechada. “Era a única refeição garantida das crianças”, contou, com a voz embargada. A unidade é uma das quatro desativadas desde o início do mês.",
+    "P3": "Em entrevista coletiva na sexta-feira (9), o prefeito Carlos Menezes (PLO) alegou que o corte é necessário para cobrir “o rombo deixado pela gestão anterior”. Ele não apresentou números que sustentem a afirmação.",
+    "P4": "Segundo a economista Marina Teles, da Rede de Pesquisa em Segurança Alimentar, o corte é um “retrocesso civilizatório”. “Quem paga a conta do ajuste é sempre o mais pobre”, explicou.",
+    "P5": "Enquanto corta a comida dos pobres, a gestão Menezes destinou R$ 18 milhões à reforma da praça central, obra que beneficia a região mais rica da cidade.",
+    "P6": "A gestão anterior, do Partido da Frente Social (PFS), havia ampliado o programa em 2024, ano eleitoral. O vereador Paulo Antunes (PFS) esclareceu que a ampliação foi financiada com recursos do fundo municipal de combate à pobreza.",
+    "P7": "Dados da Secretaria de Assistência Social mostram que o número de refeições servidas caiu de 9.800 para 6.100 por dia entre janeiro e setembro. O programa custou R$ 47 milhões em 2025, segundo o Portal da Transparência do município.",
+    "P8": "Para a vereadora Lúcia Prado (PLO), aliada do prefeito, a medida é “responsabilidade fiscal”. “Ninguém gosta de cortar, mas a cidade não pode gastar o que não tem”, disse.",
+    "P9": "Moradores do Jardim Esperança organizam um ato em frente à prefeitura na próxima segunda-feira. “Não vamos aceitar o desmonte”, afirmou a líder comunitária Rosa Lima."
+  },
+  "lexico": [
+    {"termo": "desmonte", "variantes": ["desmonte", "sucateamento"], "direcao": "esquerda", "eixo": "economico", "alternativa": "redução de R$ X no orçamento de Y", "teto_certeza": 1.0},
+    {"termo": "rombo", "variantes": ["rombo"], "direcao": "direita", "eixo": "economico", "alternativa": "déficit de R$ X (Y% do PIB)", "teto_certeza": 0.5},
+    {"termo": "retrocesso", "variantes": ["retrocesso", "na contramão da história"], "direcao": "esquerda", "eixo": "costumes", "alternativa": "mudança ou revogação de X", "teto_certeza": 1.0},
+    {"termo": "gastança", "variantes": ["gastança", "farra"], "direcao": "direita", "eixo": "economico", "alternativa": "despesa de R$ X", "teto_certeza": 1.0}
+  ],
+  "saida_modelo": {
+    "triagem": {"relevancia_politica": "alta", "genero": "noticia", "eixos": ["economico"], "justificativa": "Corte em programa social municipal, com disputa entre partidos."},
+    "atores": [
+      {"id": "A1", "nome": "Prefeitura de Porto Sereno (gestão Menezes)", "campo": "direita", "justificativa": "Gestão do PLO (âncora: direita)."},
+      {"id": "A2", "nome": "Carlos Menezes", "campo": "direita", "justificativa": "Prefeito pelo PLO."},
+      {"id": "A3", "nome": "PLO", "campo": "direita", "justificativa": "Âncora em config/atores.yaml."},
+      {"id": "A4", "nome": "PFS", "campo": "esquerda", "justificativa": "Âncora em config/atores.yaml."},
+      {"id": "A5", "nome": "Paulo Antunes", "campo": "esquerda", "justificativa": "Vereador do PFS."},
+      {"id": "A6", "nome": "Lúcia Prado", "campo": "direita", "justificativa": "Vereadora do PLO."},
+      {"id": "A7", "nome": "Marina Teles", "campo": "esquerda", "justificativa": "Defende no texto a posição contrária ao corte."},
+      {"id": "A8", "nome": "Joana Ribeiro", "campo": "indefinido", "justificativa": "Beneficiária; não defende posição política."},
+      {"id": "A9", "nome": "Rosa Lima", "campo": "esquerda", "justificativa": "Liderança contrária ao corte."}
+    ],
+    "fontes": [
+      {"id": "F1", "rotulo_no_texto": "especialistas", "campo": "esquerda", "anonima": true, "vinculo_informado": false, "falas": []},
+      {"id": "F2", "rotulo_no_texto": "Mãe de três filhos, Joana Ribeiro, 34", "campo": "indefinido", "anonima": false, "vinculo_informado": true, "falas": ["Q1"]},
+      {"id": "F3", "rotulo_no_texto": "o prefeito Carlos Menezes (PLO)", "campo": "direita", "anonima": false, "vinculo_informado": true, "falas": ["Q2"]},
+      {"id": "F4", "rotulo_no_texto": "a economista Marina Teles, da Rede de Pesquisa em Segurança Alimentar", "campo": "esquerda", "anonima": false, "vinculo_informado": true, "falas": ["Q3", "Q4"]},
+      {"id": "F5", "rotulo_no_texto": "O vereador Paulo Antunes (PFS)", "campo": "esquerda", "anonima": false, "vinculo_informado": true, "falas": []},
+      {"id": "F6", "rotulo_no_texto": "a vereadora Lúcia Prado (PLO), aliada do prefeito", "campo": "direita", "anonima": false, "vinculo_informado": true, "falas": ["Q5", "Q6"]},
+      {"id": "F7", "rotulo_no_texto": "a líder comunitária Rosa Lima", "campo": "esquerda", "anonima": false, "vinculo_informado": true, "falas": ["Q7"]}
+    ],
+    "enquadramento": {"problema": "Corte no orçamento do programa de refeições Mesa Solidária.", "causa": "Escolha de prioridades da gestão Menezes (P5).", "vitima": "Famílias pobres da periferia, em especial mães solo (P1, P2).", "culpado": "O prefeito Carlos Menezes e sua gestão.", "solucao": "Implícita: recompor o programa; mobilização dos moradores (P9).", "motor_moral": "cuidado_igualdade"},
+    "evidencias": [
+      {"criterio": "LEXICO", "citacao": "desmonte", "paragrafo": "P0", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 2, "certeza": 0.9, "explicacao": "Termo do campo de esquerda no título, na voz da redação; alternativa descritiva: redução de R$ X no orçamento.", "ressalva": null},
+      {"criterio": "HIERARQUIA", "citacao": "deixa 4 mil famílias sem refeição", "paragrafo": "P0", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A1", "direcao": "esquerda", "intensidade": 3, "certeza": 0.8, "explicacao": "O título afirma que 4 mil famílias ficaram sem refeição; o corpo não traz esse número (P7 fala em 3.700 refeições diárias a menos).", "ressalva": null},
+      {"criterio": "FONTES", "citacao": "especialistas alertam para alta da fome", "paragrafo": "P1", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A1", "direcao": "esquerda", "intensidade": 2, "certeza": 0.7, "explicacao": "Especialistas sem nome e sem vínculo sustentam a tese do título.", "ressalva": null},
+      {"criterio": "VERBOS", "citacao": "alertam", "paragrafo": "P1", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A1", "direcao": "esquerda", "intensidade": 1, "certeza": 0.7, "explicacao": "Verbo de endosso para a fala dos especialistas.", "ressalva": null},
+      {"criterio": "HUMANIZACAO", "citacao": "Mãe de três filhos, Joana Ribeiro, 34", "paragrafo": "P2", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 2, "certeza": 0.9, "explicacao": "Abre com personagem de grupo vulnerável, com nome, idade e família; a prefeitura aparece sem rosto.", "ressalva": null},
+      {"criterio": "VERBOS", "citacao": "alegou", "paragrafo": "P3", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A2", "direcao": "esquerda", "intensidade": 2, "certeza": 0.9, "explicacao": "Verbo que rebaixa a fala do prefeito; as fontes contrárias ao corte recebem 'explicou' e 'esclareceu'.", "ressalva": null},
+      {"criterio": "LEXICO", "citacao": "rombo", "paragrafo": "P3", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": null, "direcao": "direita", "intensidade": 1, "certeza": 0.5, "explicacao": "Erro simulado: o termo está na fala do prefeito, entre aspas.", "ressalva": null},
+      {"criterio": "ROTULOS", "citacao": "Ele não apresentou números que sustentem a afirmação", "paragrafo": "P3", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A2", "direcao": "esquerda", "intensidade": 2, "certeza": 0.7, "explicacao": "'Sem provas' aplicado ao prefeito; a fala do vereador do PFS (P6) não recebe a mesma cobrança.", "ressalva": "Correto se ele de fato não apresentou dados; o sinal é a cobrança desigual."},
+      {"criterio": "VERBOS", "citacao": "explicou", "paragrafo": "P4", "eixo": "economico", "ator_favorecido": "A7", "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 2, "certeza": 0.8, "explicacao": "Verbo de endosso para a fonte contrária ao corte.", "ressalva": null},
+      {"criterio": "ENQUADRAMENTO", "citacao": "Enquanto corta a comida dos pobres, a gestão Menezes destinou R$ 18 milhões à reforma da praça central", "paragrafo": "P5", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 3, "certeza": 0.9, "explicacao": "Contraponto moral pobres × obra na região rica, na voz da redação; o problema vira escolha moral, sem discutir custos.", "ressalva": null},
+      {"criterio": "ADJETIVOS", "citacao": "obra que beneficia a região mais rica da cidade", "paragrafo": "P5", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 1, "certeza": 0.6, "explicacao": "Afirmação avaliativa sem dado que a sustente.", "ressalva": null},
+      {"criterio": "ADJETIVOS", "citacao": "corta a merenda dos pobres", "paragrafo": "P5", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 2, "certeza": 0.7, "explicacao": "Erro simulado: citação parafraseada, que não existe no texto.", "ressalva": null},
+      {"criterio": "ROTULOS", "citacao": "havia ampliado o programa em 2024, ano eleitoral", "paragrafo": "P6", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A4", "direcao": "direita", "intensidade": 1, "certeza": 0.6, "explicacao": "A menção ao ano eleitoral insinua motivação eleitoral da gestão anterior, sem dado que a sustente.", "ressalva": null},
+      {"criterio": "VERBOS", "citacao": "esclareceu", "paragrafo": "P6", "eixo": "economico", "ator_favorecido": "A5", "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 2, "certeza": 0.8, "explicacao": "Verbo que dá a fala do vereador do PFS como verdade.", "ressalva": null},
+      {"criterio": "OMISSAO", "citacao": "o rombo deixado pela gestão anterior", "paragrafo": "P3", "eixo": "economico", "ator_favorecido": "A4", "ator_desfavorecido": null, "direcao": "esquerda", "intensidade": 2, "certeza": 0.7, "explicacao": "A reportagem não confere se houve déficit herdado nem informa o resultado fiscal do município.", "ressalva": null},
+      {"criterio": "NUMEROS", "citacao": "caiu de 9.800 para 6.100 por dia entre janeiro e setembro", "paragrafo": "P7", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": null, "direcao": "equilibrio", "intensidade": 2, "certeza": 0.9, "explicacao": "Dado oficial com fonte, base e período.", "ressalva": null},
+      {"criterio": "ROTULOS", "citacao": "aliada do prefeito", "paragrafo": "P8", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A6", "direcao": "esquerda", "intensidade": 1, "certeza": 0.6, "explicacao": "A fonte favorável ao corte é apresentada pelo vínculo político; a contrária, pela profissão.", "ressalva": "O vínculo é verdadeiro; o sinal é a assimetria."},
+      {"criterio": "FONTES", "citacao": "Não vamos aceitar o desmonte", "paragrafo": "P9", "eixo": "economico", "ator_favorecido": null, "ator_desfavorecido": "A1", "direcao": "esquerda", "intensidade": 2, "certeza": 0.8, "explicacao": "Quatro fontes contrárias ao corte e duas favoráveis; a última palavra fica com o lado contrário.", "ressalva": null}
+    ],
+    "teste_inversao": "Se uma gestão do PFS cortasse um programa defendido pelo PLO, o título provavelmente não diria 'desmonte', o prefeito não 'alegaria' e a abertura não seria um personagem do lado prejudicado. Verbo, título e abertura mudam com o campo de quem cortou.",
+    "qualidade": {"titulo_sustentado": "nao", "contraponto": "sim", "numeros_contextualizados": "sim", "documento_primario": "nao", "incerteza_declarada": "nao", "opiniao_separada": "nao"}
+  }
+}

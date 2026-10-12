@@ -204,7 +204,9 @@ def page_info_for_leads(articles):
 def config(monkeypatch: pytest.MonkeyPatch):
     for key in ("ANTHROPIC_API_KEY", "SMTP_USER", "SMTP_PASSWORD", "EMAIL_TO", "GITHUB_ACTIONS", "QIJ_NO_LLM"):
         monkeypatch.delenv(key, raising=False)
-    return load_config(env={})
+    config = load_config(env={})
+    config.termometro.enabled = False  # só o caminho da edição (o termômetro tem testes próprios)
+    return config
 
 
 def _run(config, out: Path, client, **kw) -> pipeline.RunResult:
