@@ -1,191 +1,191 @@
 PBCV TECH
-Domingo, 11 de outubro de 2026 · 06:55 BRT
+Segunda-feira, 12 de outubro de 2026 · 06:06 BRT
 
 MERCADOS
 --------
-Dólar R$ 4,98 (-0,79%) · Euro R$ 5,58 (-0,75%) · Yuan R$ 0,74 (-0,48%) ·
+Dólar R$ 4,98 (-0,29%) · Euro R$ 5,58 (-0,09%) · Yuan R$ 0,74 (-0,07%) ·
 Ibovespa 209.067 pts (+1,38%) · IFIX 3.989 pts (+0,98%) · S&P 500 7.812
-pts (+0,59%) · Brent US$ 104,72 (+0,42%) · Ouro US$ 4.216 (+1,43%) ·
-Bitcoin US$ 82.951 (+0,20%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+pts (+0,59%) · Brent US$ 105,46 (+0,71%) · Ouro US$ 4.198 (-0,43%) ·
+Bitcoin US$ 83.473 (+0,62%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 19°C, nublado (mín. 18° / máx. 27°) · amanhã: pancadas de
-chuva moderadas, 18° a 27°
-Montevidéu: 13°C, parcialmente nublado (mín. 13° / máx. 13°) · amanhã:
-garoa fraca, 13° a 15°
+São Paulo: 18°C, nublado (mín. 17° / máx. 24°) · amanhã: trovoadas com
+granizo fraco, 17° a 28°
+Montevidéu: 13°C, nublado (mín. 13° / máx. 14°) · amanhã: garoa fraca,
+14° a 15°
 
 EM 1 MINUTO
 -----------
-• Vulnerabilidade financeira das famílias aumenta em 22 das 27 unidades
-  da federação, diz FGV Ibre
-• O peão tatuado que virou o grude do Brasil
-• FT: Emissão de dívida para financiar IA desacelera em meio à cautela
-  dos investidores com o endividamento do setor
-• O “Barsi dos FIIs”: conheça a trajetória do empresário Sidney Angulo
-• Análise: Maringá corrige rota com solução caseira e atinge novo
-  patamar com acesso à Série B
+• Cimed investe R$ 80 mi em marca de beleza sul-coreana e amplia
+  portfólio para competir com multinacionais
+• Temporada de balanços nos EUA terá régua mais alta e menos surpresas,
+  diz XP
+• A armadilha fiscal do Réveillon
+• Dia das Crianças: menores de idade representam 8,5% do público nos
+  estádios, revela pesquisa
+• New vs old: why new-builds are far outselling used homes in Hong Kong
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 969 notícias coletadas de 35 veículos
-foram agrupadas por títulos parecidos em 764 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.011 notícias coletadas de 36 veículos
+foram agrupadas por títulos parecidos em 786 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#racional
-Todas as 969 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#racional
+Todas as 1.011 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12-todas.html
 
 MANCHETE
 --------
-Ao menos 12 pessoas morrem e 309 ficam feridas em ataque dos houthis a
-aeroporto na Arábia Saudita
-Ao menos 12 pessoas foram mortas e 309 ficaram feridas em um ataque
-neste sábado (10) contra o aeroporto internacional de Riad, na Arábia
-Saudita, segundo as autoridades de aviação civil sauditas.
-Fontes: Folha de S.Paulo, Estadão, g1, Exame, CNN Brasil, Financial
-Times, The New York Times, The Wall Street Journal, The Guardian, Al
+Paquistão condena ataque dos houthis ao aeroporto de Riad
+O Paquistão está em contato com as autoridades da Arábia Saudita um dia
+após um ataque ao aeroporto internacional de Riad, realizado pelos
+houthis — grupo apoiado pelo Irã —, que deixou 12 mortos e mais de 300
+feridos.
+Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
+Financial Times, The New York Times, The Guardian, BBC News, CNBC, Al
 Jazeera
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ao-menos-12-pessoas-morrem-e-309-ficam-feridas-e
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-paquistao-condena-ataque-dos-houthis-ao-aeroport
 
 BRASIL · ECONOMIA
 -----------------
-• Vulnerabilidade financeira das famílias aumenta em 22 das 27 unidades
-  da federação, diz FGV Ibre
-  A vulnerabilidade financeira das famílias piorou entre o primeiro e o
-  segundo trimestres deste ano, em 22 das 27 unidades da federação, de
-  acordo com a FGV Ibre.
-  Fontes: Estadão
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-vulnerabilidade-financeira-das-familias-aumenta
+• Agenda de mercados: inflação nos EUA e dados de atividade no Brasil
+  são destaque
+  Indicadores econômicos importantes no Brasil, nos Estados Unidos e na
+  China serão acompanhados de perto pelos participantes do mercado na
+  semana de 12 a 16 de outubro.
+  Fontes: Valor Econômico, Money Times, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-agenda-de-mercados-inflacao-nos-eua-e-dados-de-a
 
 MERCADOS & FINANÇAS
 -------------------
-• O peão tatuado que virou o grude do Brasil
-  “Piiiii… ão…. todo tatuadaaaaado!” Esteja onde estiver, você
-  certamente já escutou essa canção.
-  Fontes: Brazil Journal
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-o-peao-tatuado-que-virou-o-grude-do-brasil
+• Veja o que abre e fecha no feriado de 12 de outubro em São Paulo
+  No dia 12 de outubro, o Brasil comemora o dia de Nossa Senhora
+  Aparecida, a padroeira do país. A data é um feriado nacional e, com
+  isso, o horário de funcionamento de diversos serviços de São Paulo
+  será alterado.
+  Fontes: Valor Econômico, Money Times, Seu Dinheiro
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-veja-o-que-abre-e-fecha-no-feriado-de-12-de-outu
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Justiça italiana marca novo julgamento sobre extradição de ex-deputada
-  Carla Zambelli
-  A Justiça italiana marcou para 29 de outubro uma nova audiência para
-  reanalisar o pedido de extradição da ex-deputada Carla Zambelli
-  (PL-SP).
-  Fontes: Valor Econômico, Estadão, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-justica-italiana-marca-novo-julgamento-sobre-ext
+• A armadilha fiscal do Réveillon
+  Uma indústria emite nota fiscal em 26 de dezembro de 2026. A
+  mercadoria só sai do galpão em 5 de janeiro de 2027. PIS/Cofins ou
+  CBS?
+  Fontes: JOTA
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-a-armadilha-fiscal-do-reveillon
 
 POLÍTICA
 --------
-• Ministro do TSE derruba vídeo do vice de Flávio sobre suposto
-  financiamento de Vorcaro a filme de Lula
-  O ministro do Tribunal Superior Eleitoral (TSE) Marco Aurelio Bellizze
-  determinou, neste sábado (10), que o candidato a vice-presidente na
-  chapa de Flávio Bolsonaro (PL), o deputado federal Alfredo Gaspar
-  (PL-AL)…
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão, g1, CNN
-  Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ministro-do-tse-derruba-video-do-vice-de-flavio
+• Relator no TSE derruba decisão de Nunes Marques e mantém canal de
+  Whatsapp 'Exército do Lula' no ar
+  O corregedor do Tribunal Superior Eleitoral, ministro Ricardo Villas
+  Bôas Cueva, determinou neste domingo (11) que o canal "Exército do
+  Lula" volte ao ar, derrubando uma decisão de mais cedo do presidente
+  da Corte…
+  Fontes: Valor Econômico, Conjur, Folha de S.Paulo, Estadão, g1,
+  Agência Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-relator-no-tse-derruba-decisao-de-nunes-marques
 
-• Eleito governador do Rio, Douglas Ruas diz que segurança pública será
-  prioridade
-  Em sua primeira entrevista após ser declarado eleito governador do Rio
-  de Janeiro no primeiro turno, Douglas Ruas (PL) afirmou ao RJ2, neste
-  sábado (10), que a segurança pública será a principal prioridade de
-  seu…
-  Fontes: Valor Econômico, Conjur, Folha de S.Paulo, Estadão, Agência
-  Brasil, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-eleito-governador-do-rio-douglas-ruas-diz-que-se
+• Campanha de Flávio Bolsonaro pede investigação de diretor da PF por
+  entrevista no primeiro turno
+  A campanha de Flávio Bolsonaro (PL) apresentou neste domingo (11) ao
+  Tribunal Superior Eleitoral (TSE) uma noticia-crime contra o
+  diretor-geral da Policia Federal, Andrei Rodrigues, por ele ter
+  indicado durante uma…
+  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-campanha-de-flavio-bolsonaro-pede-investigacao-d
 
-• Ratinho Jr declara apoio a Flávio Bolsonaro no 2º turno
-  O governador do Paraná, Ratinho Jr (PSD), declarou, neste sábado (10),
-  apoio ao candidato à Presidência Flávio Bolsonaro (PL).
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ratinho-jr-declara-apoio-a-flavio-bolsonaro-no-2
+• Flávio, Tarcísio e Nunes reúnem prefeitos e vereadores em SP para
+  impulsionar campanha
+  O candidato à Presidência pelo PL, Flávio Bolsonaro, reuniu aliados
+  políticos neste domingo (11) em São Paulo para ampliar a mobilização
+  da campanha de segundo turno contra o presidente Luiz Inácio Lula da
+  Silva (PT).
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-flavio-tarcisio-e-nunes-reunem-prefeitos-e-verea
+
+• Lula diz que votação do PEC do fim da escala 6x1 antes do segundo
+  turno está ‘conversada’ com Alcolumbre
+  O presidente Luiz Inácio Lula da Silva (PT) disse que a votação da PEC
+  do fim da escala 6x1 antes do segundo turno das eleições está
+  combinada com o presidente do Senado, Davi Alcolumbre, e cobrou uma
+  posição da…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-lula-diz-que-votacao-do-pec-do-fim-da-escala-6x1
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Trump pede que Zelensky pare de atacar refinarias russas e defende
-  novo líder na Ucrânia
-  O presidente dos Estados Unidos, Donald Trump, pediu neste sábado uma
-  nova liderança na Ucrânia, criticando duramente o presidente ucraniano
-  Volodymyr Zelensky e exortando o líder de Kiev a parar de atacar
-  refinarias de…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Exame, CNN
-  Brasil, The Wall Street Journal, The Guardian, BBC News
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-trump-pede-que-zelensky-pare-de-atacar-refinaria
+• Acordo de Trump com Rússia sobre diesel pode ser ilegal, diz senador
+  republicano
+  O senador republicano Thom Tillis afirmou, neste domingo, que o acordo
+  do presidente americano Donald Trump com a Rússia para o fornecimento
+  de diesel pode ser ilegal e colocar vidas americanas em risco,
+  engrossando as…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Financial
+  Times, The Wall Street Journal, The Guardian, BBC News, CNBC
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-acordo-de-trump-com-russia-sobre-diesel-pode-ser
 
-• Brasil vence a Argentina em amistoso no Beira-Rio
-  A seleção feminina de futebol vai a campo neste sábado (10), a partir
-  de 16h30 (horário de Brasília), para o primeiro de dois amistosos
-  contra a Argentina.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar,
-  Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-brasil-vence-a-argentina-em-amistoso-no-beira-ri
+• Papa Leão passará por cirurgia para retirar nódulo no pulmão
+  O papa Leão disse neste domingo que médicos detectaram uma pequena
+  lesão em seu pulmão durante um exame de rotina recente e que ele vai
+  passar por uma cirurgia nesta semana para removê-la — o primeiro susto
+  com a saúde…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-papa-leao-passara-por-cirurgia-para-retirar-nodu
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• FT: Emissão de dívida para financiar IA desacelera em meio à cautela
-  dos investidores com o endividamento do setor
-  O volume de novas dívidas captadas por empresas de tecnologia para
-  ajudar a financiar os investimentos de alto custo em inteligência
-  artificial (IA) caiu acentuadamente no mês passado, à medida que os
-  investidores…
-  Fontes: Valor Econômico, Folha de S.Paulo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-ft-emissao-de-divida-para-financiar-ia-desaceler
+• Dia das Crianças: menores de idade representam 8,5% do público nos
+  estádios, revela pesquisa
+  CEO da Imply explica a tecnologia de reconhecimento facial nos
+  estádios
+  Fontes: ge, Poder360
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-dia-das-criancas-menores-de-idade-representam-8
 
 IMOBILIÁRIO
 -----------
-• O “Barsi dos FIIs”: conheça a trajetória do empresário Sidney Angulo
-  Sidney Angulo, já considerado uma espécie de “Barsi dos FIIs”, chegou
-  aos fundos imobiliários por um caminho diferente da maioria dos
-  investidores.
-  Fontes: InfoMoney
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-o-barsi-dos-fiis-conheca-a-trajetoria-do-empresa
+• New vs old: why new-builds are far outselling used homes in Hong Kong
+  A clear divide has opened up in Hong Kong’s property market in recent
+  months: sales of new-build homes have surged, but the recovery in the
+  secondary market has remained far more modest.
+  Fontes: South China Morning Post
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-new-vs-old-why-new-builds-are-far-outselling-use
 
 ESPORTE
 -------
-• Atuações do São Paulo: Lucas volta bem, e Calleri decide no Morumbis;
-  dê suas notas
-  Muito pouco exigido pelo ataque do Vitória, mas poderia ter saído do
-  gol em um cruzamento no primeiro tempo que assustou a defesa do São
-  Paulo. Fez uma defesaça nos acréscimos que evitou o empate.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
-  Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-atuacoes-do-sao-paulo-lucas-volta-bem-e-calleri
-
-• Real Madrid sofre, mas vence Villarreal em jogo com gol anulado e
-  expulsão de Vini Jr.
-  O Real Madrid recebeu o Villarreal no Santiago Bernabéu neste sábado
-  (10), em jogo válido pela 8ª rodada de LaLiga. Os Blancos venceram por
-  1 a 0, com gol de Yan Diomandé e protagonismo misto de Vinícius
-  Junior.
-  Fontes: ge, Estadão, Gazeta Esportiva, Placar, Trivela
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-real-madrid-sofre-mas-vence-villarreal-em-jogo-c
+• Flamengo vence o Fluminense e mantém a liderança do Brasileirão
+  Os protestos dos clubes contra a Medida Provisória do Governo Federal
+  que proibiu a atuação de casas de apostas no Brasil continuam nesta
+  30ª rodada do Brasileirão.
+  Fontes: ge, Estadão, InfoMoney, Gazeta Esportiva, Placar, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-flamengo-vence-o-fluminense-e-mantem-a-lideranca
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Furacão Isaias deixa 2 mortos e milhares sem energia elétrica nos EUA
-  Duas pessoas morreram e cerca de 800 mil moradores da Flórida, do
-  Alabama e da Geórgia ficaram sem energia elétrica depois que o furacão
-  Isaias atingiu o continente na madrugada deste sábado,
-  enfraquecendo-se e se…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-furacao-isaias-deixa-2-mortos-e-milhares-sem-ene
+• FAB envia aviões para ajudar no combate a queimadas no Amazonas
+  A FAB (Força Aérea Brasileira) vai enviar dois aviões para ajudar no
+  combate aos incêndios florestais que atingem as regiões de Manaus,
+  Itacoatiara e Parintins, no estado do Amazonas.
+  Fontes: Valor Econômico, Folha de S.Paulo, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-fab-envia-avioes-para-ajudar-no-combate-a-queima
 
 CULTURA & VARIEDADES
 --------------------
-• Análise: Maringá corrige rota com solução caseira e atinge novo
-  patamar com acesso à Série B
-  Veja os gols de Maringá 2 x 0 Floresta no Estádio Willie Davids O
-  Maringá alcançou a maior conquista em 16 anos de clube e está na Série
-  B do Brasileiro.
-  Fontes: ge, Gazeta Esportiva, Placar, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-11.html#s-analise-maringa-corrige-rota-com-solucao-caseira
+• Com ‘A leste do Éden’, Netflix revisita um dos maiores clássicos da
+  literatura americana
+  Publicado em 1952, “A leste do Éden” é a grande saga familiar de John
+  Steinbeck: um romance épico que atravessa duas gerações de uma família
+  do Vale de Salinas, na Califórnia, e que, em muitos aspectos, remete à
+  sua…
+  Fontes: Valor Econômico
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-com-a-leste-do-eden-netflix-revisita-um-dos-maio
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 06:55 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 06:06 (BRT) · Edição automática (sem IA)
