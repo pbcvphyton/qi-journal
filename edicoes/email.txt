@@ -1,191 +1,192 @@
 PBCV TECH
-Segunda-feira, 12 de outubro de 2026 · 06:06 BRT
+Terça-feira, 13 de outubro de 2026 · 06:20 BRT
 
 MERCADOS
 --------
-Dólar R$ 4,98 (-0,29%) · Euro R$ 5,58 (-0,09%) · Yuan R$ 0,74 (-0,07%) ·
-Ibovespa 209.067 pts (+1,38%) · IFIX 3.989 pts (+0,98%) · S&P 500 7.812
-pts (+0,59%) · Brent US$ 105,46 (+0,71%) · Ouro US$ 4.198 (-0,43%) ·
-Bitcoin US$ 83.473 (+0,62%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Dólar R$ 4,98 (0,00%) · Euro R$ 5,57 (+0,22%) · Yuan R$ 0,74 (-0,02%) ·
+Ibovespa 209.067 pts (+1,38%) · IFIX 3.989 pts (+0,98%) · S&P 500 7.807
+pts (-0,06%) · Brent US$ 105,02 (-1,53%) · Ouro US$ 4.212 (+0,52%) ·
+Bitcoin US$ 83.408 (-0,07%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 18°C, nublado (mín. 17° / máx. 24°) · amanhã: trovoadas com
-granizo fraco, 17° a 28°
-Montevidéu: 13°C, nublado (mín. 13° / máx. 14°) · amanhã: garoa fraca,
-14° a 15°
+São Paulo: 17°C, nevoeiro (mín. 17° / máx. 28°) · amanhã: trovoadas, 18°
+a 28°
+Montevidéu: 14°C, parcialmente nublado (mín. 14° / máx. 15°) · amanhã:
+garoa fraca, 14° a 15°
 
 EM 1 MINUTO
 -----------
-• Cimed investe R$ 80 mi em marca de beleza sul-coreana e amplia
-  portfólio para competir com multinacionais
-• Temporada de balanços nos EUA terá régua mais alta e menos surpresas,
-  diz XP
-• A armadilha fiscal do Réveillon
-• Dia das Crianças: menores de idade representam 8,5% do público nos
-  estádios, revela pesquisa
-• New vs old: why new-builds are far outselling used homes in Hong Kong
+• Varejo cresce 6,3% no 3º trimestre, indica Stone
+• Bolsas abrem mistas em NY em pregão de menor liquidez por conta de
+  feriado nos EUA
+• Estados vivem onda de regulação para receber data centers
+• Netimóveis inaugura primeira unidade nos EUA em parceria com a Elite
+  International Realty
+• Incêndios na Amazônia podem ser criminosos, afirma Capobianco
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.011 notícias coletadas de 36 veículos
-foram agrupadas por títulos parecidos em 786 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.282 notícias coletadas de 40 veículos
+foram agrupadas por títulos parecidos em 993 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#racional
-Todas as 1.011 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#racional
+Todas as 1.282 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13-todas.html
 
 MANCHETE
 --------
-Paquistão condena ataque dos houthis ao aeroporto de Riad
-O Paquistão está em contato com as autoridades da Arábia Saudita um dia
-após um ataque ao aeroporto internacional de Riad, realizado pelos
-houthis — grupo apoiado pelo Irã —, que deixou 12 mortos e mais de 300
-feridos.
-Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
-Financial Times, The New York Times, The Guardian, BBC News, CNBC, Al
-Jazeera
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-paquistao-condena-ataque-dos-houthis-ao-aeroport
+Robert Hall e Michael Woodford vencem Nobel de Economia 2026 por estudos
+sobre estabilização econômica
+Os economistas americanos Robert Hall e Michael Woodford ganharam nesta
+segunda-feira o Prêmio Nobel de Economia de 2026 por décadas de trabalho
+no desenvolvimento de modelos construídos a partir de fundamentos…
+Fontes: Valor Econômico, Estadão, Brazil Journal, Folha de S.Paulo, g1,
+The New York Times, The Guardian, El País
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-robert-hall-e-michael-woodford-vencem-nobel-de-e
 
 BRASIL · ECONOMIA
 -----------------
-• Agenda de mercados: inflação nos EUA e dados de atividade no Brasil
-  são destaque
-  Indicadores econômicos importantes no Brasil, nos Estados Unidos e na
-  China serão acompanhados de perto pelos participantes do mercado na
-  semana de 12 a 16 de outubro.
-  Fontes: Valor Econômico, Money Times, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-agenda-de-mercados-inflacao-nos-eua-e-dados-de-a
+• Varejo cresce 6,3% no 3º trimestre, indica Stone
+  As vendas do comércio encerraram o terceiro trimestre com alta de 6,3%
+  na comparação anual, segundo o Índice do Varejo Stone (IVS),
+  antecipado ao Valor.
+  Fontes: Valor Econômico, InfoMoney
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-varejo-cresce-6-3-no-3o-trimestre-indica-stone
 
 MERCADOS & FINANÇAS
 -------------------
-• Veja o que abre e fecha no feriado de 12 de outubro em São Paulo
-  No dia 12 de outubro, o Brasil comemora o dia de Nossa Senhora
-  Aparecida, a padroeira do país. A data é um feriado nacional e, com
-  isso, o horário de funcionamento de diversos serviços de São Paulo
-  será alterado.
-  Fontes: Valor Econômico, Money Times, Seu Dinheiro
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-veja-o-que-abre-e-fecha-no-feriado-de-12-de-outu
+• Bolsas abrem mistas em NY em pregão de menor liquidez por conta de
+  feriado nos EUA
+  Em dia de menor liquidez nos mercados americanos, por conta do feriado
+  do Dia de Colombo, os principais índices de ações de Nova York abriram
+  em direções opostas, nesta segunda-feira (12).
+  Fontes: Valor Econômico, Money Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-bolsas-abrem-mistas-em-ny-em-pregao-de-menor-liq
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• A armadilha fiscal do Réveillon
-  Uma indústria emite nota fiscal em 26 de dezembro de 2026. A
-  mercadoria só sai do galpão em 5 de janeiro de 2027. PIS/Cofins ou
-  CBS?
-  Fontes: JOTA
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-a-armadilha-fiscal-do-reveillon
+• Estados vivem onda de regulação para receber data centers
+  A expansão dos investimentos em data centers no Brasil começa a
+  provocar uma reação regulatória nos Estados, com propostas que vão da
+  concessão de incentivos locais a novas exigências sobre uso de água,
+  licenciamento…
+  Fontes: Valor Econômico
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-estados-vivem-onda-de-regulacao-para-receber-dat
 
 POLÍTICA
 --------
-• Relator no TSE derruba decisão de Nunes Marques e mantém canal de
-  Whatsapp 'Exército do Lula' no ar
-  O corregedor do Tribunal Superior Eleitoral, ministro Ricardo Villas
-  Bôas Cueva, determinou neste domingo (11) que o canal "Exército do
-  Lula" volte ao ar, derrubando uma decisão de mais cedo do presidente
-  da Corte…
-  Fontes: Valor Econômico, Conjur, Folha de S.Paulo, Estadão, g1,
-  Agência Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-relator-no-tse-derruba-decisao-de-nunes-marques
+• TSE manda Flávio remover vídeo que associa usuários de drogas no Chile
+  a ato de Lula em SP
+  O Tribunal Superior Eleitoral (TSE) determinou que a campanha do
+  senador Flávio Bolsonaro (PL) remova um vídeo que associa falsamente o
+  ato do presidente Luiz Inácio Lula da Silva (PT) em São Paulo no
+  domingo (11) ao…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Money Times,
+  Exame, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-tse-manda-flavio-remover-video-que-associa-usuar
 
-• Campanha de Flávio Bolsonaro pede investigação de diretor da PF por
-  entrevista no primeiro turno
-  A campanha de Flávio Bolsonaro (PL) apresentou neste domingo (11) ao
-  Tribunal Superior Eleitoral (TSE) uma noticia-crime contra o
-  diretor-geral da Policia Federal, Andrei Rodrigues, por ele ter
-  indicado durante uma…
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-campanha-de-flavio-bolsonaro-pede-investigacao-d
+• Flávio comemora decisão de Moraes e diz que visitará Jair Bolsonaro
+  nesta terça-feira
+  O candidato do PL à Presidência da República, Flávio Bolsonaro,
+  comemorou, nesta segunda-feira (12), a decisão do ministro do Supremo
+  Tribunal Federal (STF) Alexandre de Moraes, que o autorizou a retomar
+  as visitas ao…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-flavio-comemora-decisao-de-moraes-e-diz-que-visi
 
-• Flávio, Tarcísio e Nunes reúnem prefeitos e vereadores em SP para
-  impulsionar campanha
-  O candidato à Presidência pelo PL, Flávio Bolsonaro, reuniu aliados
-  políticos neste domingo (11) em São Paulo para ampliar a mobilização
-  da campanha de segundo turno contra o presidente Luiz Inácio Lula da
-  Silva (PT).
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-flavio-tarcisio-e-nunes-reunem-prefeitos-e-verea
+• Apoiadores ocupam quarteirões da Praia de Copacabana (RJ) em ato sem
+  Lula no Rio
+  Apoiadores do presidente Luiz Inácio Lula da Silva (PT) ocupavam
+  vários quarteirões da Avenida Atlântica, em Copacabana, na Zona Sul do
+  Rio, nesta segunda-feira (12).
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Agência Brasil,
+  Money Times, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-apoiadores-ocupam-quarteiroes-da-praia-de-copaca
 
-• Lula diz que votação do PEC do fim da escala 6x1 antes do segundo
-  turno está ‘conversada’ com Alcolumbre
-  O presidente Luiz Inácio Lula da Silva (PT) disse que a votação da PEC
-  do fim da escala 6x1 antes do segundo turno das eleições está
-  combinada com o presidente do Senado, Davi Alcolumbre, e cobrou uma
-  posição da…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-lula-diz-que-votacao-do-pec-do-fim-da-escala-6x1
+• Nova pesquisa Datafolha mede se voto em Lula e Flávio Bolsonaro no 2º
+  turno é por apoio ou rejeição
+  O Datafolha vai divulgar na quinta-feira (15) uma nova pesquisa sobre
+  o segundo turno das eleições 2026 entre Flávio Bolsonaro (PL) e Lula
+  (PT).
+  Fontes: Valor Econômico, Estadão, g1, Money Times, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-nova-pesquisa-datafolha-mede-se-voto-em-lula-e-f
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Acordo de Trump com Rússia sobre diesel pode ser ilegal, diz senador
-  republicano
-  O senador republicano Thom Tillis afirmou, neste domingo, que o acordo
-  do presidente americano Donald Trump com a Rússia para o fornecimento
-  de diesel pode ser ilegal e colocar vidas americanas em risco,
-  engrossando as…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Financial
-  Times, The Wall Street Journal, The Guardian, BBC News, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-acordo-de-trump-com-russia-sobre-diesel-pode-ser
+• Trump defende acordo para comprar diesel da Rússia após críticas de
+  republicanos e democratas
+  O presidente dos Estados Unidos, Donald Trump, defendeu nesta
+  segunda-feira um acordo que fechou com a Rússia para o fornecimento de
+  diesel, enquanto parlamentares democratas e republicanos reclamaram
+  que o entendimento…
+  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, CNN Brasil,
+  Financial Times, The New York Times, The Wall Street Journal, South
+  China Morning Post
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-trump-defende-acordo-para-comprar-diesel-da-russ
 
-• Papa Leão passará por cirurgia para retirar nódulo no pulmão
-  O papa Leão disse neste domingo que médicos detectaram uma pequena
-  lesão em seu pulmão durante um exame de rotina recente e que ele vai
-  passar por uma cirurgia nesta semana para removê-la — o primeiro susto
-  com a saúde…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, Money Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-papa-leao-passara-por-cirurgia-para-retirar-nodu
+• Papa Leão será internado na terça-feira para cirurgia de retirada de
+  nódulo no pulmão
+  O papa Leão XIV será internado na terça-feira para passar por uma
+  cirurgia de retirada de um pequeno nódulo encontrado em um de seus
+  pulmões, informou o Vaticano.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-papa-leao-sera-internado-na-terca-feira-para-cir
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Dia das Crianças: menores de idade representam 8,5% do público nos
-  estádios, revela pesquisa
-  CEO da Imply explica a tecnologia de reconhecimento facial nos
-  estádios
-  Fontes: ge, Poder360
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-dia-das-criancas-menores-de-idade-representam-8
+• IA sustenta crescimento global de 3%, mas traz grandes transformações,
+  diz FMI
+  Os fortes investimentos em infraestrutura de inteligência artificial
+  (IA) estão sustentando o crescimento da economia global em torno de
+  3%, com grandes benefícios para a Ásia, mas também anunciam um
+  "tsunami em câmera…
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Poder360, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-ia-sustenta-crescimento-global-de-3-mas-traz-gra
 
 IMOBILIÁRIO
 -----------
-• New vs old: why new-builds are far outselling used homes in Hong Kong
-  A clear divide has opened up in Hong Kong’s property market in recent
-  months: sales of new-build homes have surged, but the recovery in the
-  secondary market has remained far more modest.
-  Fontes: South China Morning Post
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-new-vs-old-why-new-builds-are-far-outselling-use
+• Netimóveis inaugura primeira unidade nos EUA em parceria com a Elite
+  International Realty
+  A Netimóveis dá um passo histórico em sua expansão internacional com a
+  inauguração de sua primeira unidade nos Estados Unidos, em parceria
+  com a Elite International Realty, consultoria imobiliária
+  internacional fundada…
+  Fontes: Imobi Report
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-netimoveis-inaugura-primeira-unidade-nos-eua-em
 
 ESPORTE
 -------
-• Flamengo vence o Fluminense e mantém a liderança do Brasileirão
-  Os protestos dos clubes contra a Medida Provisória do Governo Federal
-  que proibiu a atuação de casas de apostas no Brasil continuam nesta
-  30ª rodada do Brasileirão.
-  Fontes: ge, Estadão, InfoMoney, Gazeta Esportiva, Placar, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-flamengo-vence-o-fluminense-e-mantem-a-lideranca
+• Bragantino vence Ferroviária na Fonte e abre vantagem nas quartas da
+  Copa do Brasil
+  O Red Bull Bragantino conquistou uma vitória importante fora de casa
+  pela Copa do Brasil Feminina.
+  Fontes: ge, Folha de S.Paulo, Gazeta Esportiva, Placar, Agência Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-bragantino-vence-ferroviaria-na-fonte-e-abre-van
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• FAB envia aviões para ajudar no combate a queimadas no Amazonas
-  A FAB (Força Aérea Brasileira) vai enviar dois aviões para ajudar no
-  combate aos incêndios florestais que atingem as regiões de Manaus,
-  Itacoatiara e Parintins, no estado do Amazonas.
+• Incêndios na Amazônia podem ser criminosos, afirma Capobianco
+  Após sobrevoar as áreas atingidas por incêndios florestais no
+  Amazonas, no domingo, o ministro do Meio Ambiente e Mudança do Clima,
+  João Paulo Capobianco, disse que a situação é mais grave do que
+  imaginava e que os…
   Fontes: Valor Econômico, Folha de S.Paulo, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-fab-envia-avioes-para-ajudar-no-combate-a-queima
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-incendios-na-amazonia-podem-ser-criminosos-afirm
 
 CULTURA & VARIEDADES
 --------------------
-• Com ‘A leste do Éden’, Netflix revisita um dos maiores clássicos da
-  literatura americana
-  Publicado em 1952, “A leste do Éden” é a grande saga familiar de John
-  Steinbeck: um romance épico que atravessa duas gerações de uma família
-  do Vale de Salinas, na Califórnia, e que, em muitos aspectos, remete à
-  sua…
-  Fontes: Valor Econômico
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-12.html#s-com-a-leste-do-eden-netflix-revisita-um-dos-maio
+• Ator RJ Mitte, de 'Breaking Bad', morre aos 34 anos
+  O ator norte-americano RJ Mitte, conhecido por interpretar Walter
+  White Jr. na série aclamada pela crítica Breaking Bad, morreu aos 34
+  anos nesta segunda-feira, 12.
+  Fontes: Exame, The Guardian, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html#s-ator-rj-mitte-de-breaking-bad-morre-aos-34-anos
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 06:06 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 06:20 (BRT) · Edição automática (sem IA)

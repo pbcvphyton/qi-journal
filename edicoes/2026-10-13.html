@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PBCV Tech — Terça-feira, 13 de outubro de 2026</title>
+<meta name="description" content="Os economistas americanos Robert Hall e Michael Woodford ganharam nesta segunda-feira o Prêmio Nobel de Economia de 2026 por décadas de trabalho no desenvolvimento de modelos construídos a partir de…">
+<meta name="theme-color" content="#1B2745">
+<meta name="generator" content="PBCV Tech · qijournal 2.0">
+<link rel="canonical" href="https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="PBCV Tech">
+<meta property="og:title" content="PBCV Tech — Terça-feira, 13 de outubro de 2026">
+<meta property="og:description" content="Os economistas americanos Robert Hall e Michael Woodford ganharam nesta segunda-feira o Prêmio Nobel de Economia de 2026 por décadas de trabalho no desenvolvimento de modelos construídos a partir de…">
+<meta property="og:url" content="https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13.html">
+<meta property="og:image" content="https://s2-valor.glbimg.com/0UlEda2sbKr01CuHUJovEK5Oybw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/1/X/FhqqFdSkAL1rZjfvnz1Q/2026-10-12t100644z-1568632658-rc2l1oa4s84m-rtrmadp-3-nobel-prize-economics.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 width=%2264%22 height=%2264%22 shape-rendering=%22crispEdges%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%222%22 fill=%22%230C0F16%22/%3E%3Cpath fill=%22%23FFFFFF%22 d=%22M14 1V2H15V3H14V4H15V6H14V7H9V1ZM13 2H11V3H13ZM6 9V10H7V11H5V10H3V14H5V13H7V14H6V15H2V14H1V10H2V9ZM6 4V5H3V7H1V1H6V2H7V4ZM3 2V4H5V2ZM11 15V14H10V12H9V9H11V12H13V9H15V12H14V14H13V15ZM13 4H11V6H13Z%22/%3E%3Crect x=%227%22 y=%227%22 width=%222%22 height=%222%22 fill=%22%23FF5A1F%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;0,900;1,400&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<script>
+(function (d, w) {
+  var root = d.documentElement, theme = null;
+  root.classList.add('js');
+  try { theme = w.localStorage.getItem('qij-theme'); } catch (e) { theme = null; }
+  if (theme !== 'dark' && theme !== 'light') {
+    theme = w.matchMedia && w.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  root.setAttribute('data-theme', theme);
+  d.addEventListener('error', function (event) {
+    var el = event.target;
+    if (el && el.tagName === 'IMG') {
+      var figure = el.closest('[data-img]');
+      if (figure) figure.classList.add('img-fail');
+    }
+  }, true);
+})(document, window);</script>
+<style>
+:root{
+  --qi:#394A7A;--qn:#1B2745;--qc:#FF5A1F;--qr:#FF5A1F;
+  --up:#7FC8FF;--down:#FF5C9A;
+  --qi-rgb:57,74,122;--qn-rgb:27,39,69;--qr-rgb:255,90,31;
+  --ink:#1a2332;--paper:#fff;--bg:#f0f2f5;--rule:#d0d5dd;--rl:#e4e7ec;
+  --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#5f6b7e;--faint:#626e81;
+  --soft:#f8f9fb;--side:#fdfdfd;--hover:#fafbff;--hl:#e8ebf0;--op-a:#fafbff;--op-b:#f0f2f5;
+  --link:var(--qi);--text:#333d4d;
+  --fx-dot:var(--qi);--fx-line:var(--qc);
+  --sf:'Noto Serif',Georgia,'Times New Roman',serif;
+  --ss:'Noto Sans',Helvetica,Arial,sans-serif;
+  --mn:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --ink:#e2e8f4;--paper:#111827;--bg:#0b0f17;--rule:#2d3748;--rl:#1f2937;
+  --head:#e8edf7;--body:#a9b4c6;--muted:#97a3b6;--mute2:#8a96a8;--faint:#7d8899;
+  --soft:#131c2d;--side:#0f1522;--hover:#1a2235;--hl:#1e2d47;--op-a:#1a2235;--op-b:#111827;
+  --link:#8fb0f5;--text:#c8d3e6;
+  color-scheme:dark;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sf);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.4}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:8px;z-index:10000;padding:8px 14px;background:var(--paper);color:var(--link);font-family:var(--ss);font-size:13px;font-weight:700;border:2px solid var(--qi)}
+.skip:focus{left:16px}
+.paper{max-width:1120px;min-height:100vh;display:flex;flex-direction:column;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(var(--qn-rgb),.08)}
+.paper>main{flex:1}
+:root[data-theme="dark"] .paper{box-shadow:0 0 60px rgba(0,0,0,.5)}
+
+/* Barra de progresso de leitura */
+#rdprog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--qc);transform:scaleX(0);transform-origin:0 50%;z-index:9999;pointer-events:none}
+
+/* Cabeçalho */
+.mast-wrap{position:relative;overflow:hidden;background:var(--paper);border-bottom:3px solid var(--qn)}
+:root[data-theme="dark"] .mast-wrap{border-bottom-color:var(--qi)}
+#mast-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.07;pointer-events:none}
+:root[data-theme="dark"] #mast-canvas{opacity:.09}
+.mast{position:relative;z-index:2;text-align:center;padding:28px 40px 22px}
+.mast h1{font-family:var(--ss);font-size:48px;font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--qn)}
+.mast h1 a{display:inline-block}
+.mast h1:focus{outline:none}
+.mast h1 .q{color:var(--qc)}
+.mast h1 .journal{font-weight:900;margin-left:4px}
+:root[data-theme="dark"] .mast h1{color:var(--head)}
+.mast h1.logo{line-height:0}
+.mast h1.logo svg{display:block;height:116px;width:auto;margin:0 auto}
+:root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+/* Logo com versão própria para o modo escuro: troca de SVG em vez de filtro */
+.mast h1.logo .lg{display:block}
+.mast h1.logo .lg-d,:root[data-theme="dark"] .mast h1.logo .lg-l{display:none}
+:root[data-theme="dark"] .mast h1.logo .lg-d{display:block}
+.mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}
+.mast h1.logo.mono svg{height:64px;color:var(--qn)}
+:root[data-theme="dark"] .mast h1.logo.mono svg{color:var(--head)}
+.mast-sub{font-family:var(--ss);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--mute2);margin-top:6px}
+.mast h1.logo+.mast-sub{margin-top:14px}
+.mast-date{font-family:var(--mn);font-size:10px;color:var(--faint);margin-top:8px;letter-spacing:1px}
+.mast-date .nw{white-space:nowrap}
+.mast-tools{position:absolute;top:14px;right:16px;z-index:3;display:flex;gap:6px}
+.tool{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border:1.5px solid var(--rule);border-radius:20px;background:var(--paper);font-family:var(--mn);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--mute2);cursor:pointer;transition:border-color .25s,color .25s}
+.tool:hover{border-color:var(--link);color:var(--link)}
+.tool svg{width:13px;height:13px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tool .i-sun{display:none}
+:root[data-theme="dark"] .tool .i-sun{display:block}
+:root[data-theme="dark"] .tool .i-moon{display:none}
+
+/* Ticker de cotações */
+.tk{position:relative;background:var(--qn);font-family:var(--mn);font-size:10.5px;color:rgba(255,255,255,.62);overflow:hidden}
+:root[data-theme="dark"] .tk{background:#0a1430}
+.tk-track{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;row-gap:3px;padding:8px 20px}
+.tk-i{white-space:nowrap}
+.tk-i+.tk-i::before,.tk.run .tk-i::before{content:"·";color:rgba(255,255,255,.3);margin:0 10px}
+.tk-i b{color:#fff;font-weight:500;margin-left:2px}
+.tk .u{color:var(--up)}
+.tk .d{color:var(--down)}
+.tk .f{color:rgba(255,255,255,.62)}
+.tk.run .tk-rail{display:flex;width:max-content;animation:tk-scroll var(--tk-dur,60s) linear infinite}
+.tk.run .tk-track{flex-wrap:nowrap;justify-content:flex-start;padding:8px 0}
+.tk.run:hover .tk-rail,.tk.run:focus-within .tk-rail,.tk.paused .tk-rail{animation-play-state:paused}
+@keyframes tk-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk-pause{position:absolute;top:0;right:0;bottom:0;width:44px;padding-left:12px;border:none;background:linear-gradient(90deg,rgba(var(--qn-rgb),0),var(--qn) 45%);color:rgba(255,255,255,.75);font-size:10px;letter-spacing:-1px;cursor:pointer}
+.tk-pause:hover{color:#fff}
+:root[data-theme="dark"] .tk-pause{background:linear-gradient(90deg,rgba(10,20,48,0),#0a1430 45%)}
+.tk-pause[hidden]{display:none}
+
+/* Faixa de clima */
+.wx{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 28px;padding:6px 20px;background:var(--soft);font-family:var(--mn);font-size:10px;color:var(--mute2);border-bottom:1px solid var(--rl)}
+.wx p{white-space:nowrap}
+.wx strong{color:var(--ink);font-weight:600;margin:0 6px 0 4px}
+.wx .sep{color:var(--rule);margin:0 6px}
+
+/* Editorial do dia */
+.op-bar{padding:18px 32px;background:linear-gradient(135deg,var(--op-a),var(--op-b));border-bottom:1px solid var(--rl);font-size:15px;font-style:italic;color:var(--body);line-height:1.7;text-align:center}
+.op-bar p{max-width:880px;margin:0 auto}
+.op-bar strong{color:var(--ink)}
+
+/* Rótulo de seção (Em 1 minuto, Destaques…) */
+.kicker{font-family:var(--ss);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--link);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--qi)}
+
+/* Em 1 minuto */
+.brief{padding:16px 30px 18px;border-bottom:1px solid var(--rl)}
+.brief ul{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 32px}
+.brief li{position:relative;padding-left:16px;font-family:var(--ss);font-size:13px;line-height:1.5;color:var(--body)}
+.brief li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:1px;background:var(--qc)}
+.brief strong{color:var(--ink)}
+
+/* Área clicável: o link do título cobre o bloco inteiro */
+.hit::after{content:"";position:absolute;inset:0;z-index:1}
+.hit:focus-visible{outline:none}
+.hero-l,.ss,.cl,.dst li{position:relative}
+.hero-l:has(.hit:focus-visible),.ss:has(.hit:focus-visible),.cl:has(.hit:focus-visible),.dst li:has(.hit:focus-visible){outline:2px solid var(--link);outline-offset:-3px}
+.cat{font-family:var(--ss);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:5px;color:var(--sc,var(--qi))}
+:root[data-theme="dark"] .cat,:root[data-theme="dark"] .mcat{color:#9fb3d9;color:color-mix(in srgb,var(--sc,var(--qi)) 50%,#fff)}
+.meta{font-family:var(--mn);font-size:9px;color:var(--faint);margin-top:8px;text-transform:uppercase;letter-spacing:.5px;line-height:1.5}
+.meta>*+*::before{content:"·";margin:0 6px}
+figure[data-img]{overflow:hidden;border-radius:3px;background:var(--soft)}
+figure[data-img] img{width:100%;height:100%;object-fit:cover}
+figure.img-fail{display:none}
+:root[data-theme="dark"] figure[data-img] img{filter:brightness(.9)}
+
+/* Manchete + chamadas */
+.hero{display:grid;grid-template-columns:5fr 3fr;border-bottom:2px solid var(--qn)}
+.hero.solo{grid-template-columns:1fr}
+.hero-l{padding:26px 30px;border-right:1px solid var(--rule);cursor:pointer;transition:background .3s}
+.hero.solo .hero-l{border-right:none}
+.hero-l:hover{background:var(--hover)}
+.hero-l h2{font-size:clamp(22px,3.2vw,34px);font-weight:900;line-height:1.12;margin-bottom:14px;letter-spacing:-.5px;color:var(--head)}
+.hero-l .dek{font-family:var(--ss);font-size:15px;color:var(--body);line-height:1.6;margin-bottom:16px}
+.hero-l .hi{height:260px;margin-bottom:16px}
+.hero-l .sub{font-family:var(--ss);font-size:13.5px;color:var(--body);line-height:1.65;margin-bottom:10px}
+.hero-l .sub strong{color:var(--ink)}
+.hero-l .more{display:none}
+.hero-l:not(:has(.hi)) .more,.hero-l:has(.hi.img-fail) .more{display:block}
+.hero-l .rd{font-family:var(--ss);font-size:10px;color:var(--link);font-weight:700;letter-spacing:.5px;margin-top:12px}
+.hero-r{display:flex;flex-direction:column}
+.hero-r .ss{flex:1;padding:18px 22px;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .3s;display:flex;flex-direction:column;justify-content:center}
+.hero-r .ss:last-child{border-bottom:none}
+.hero-r .ss:hover{background:var(--hover)}
+.hero-r .ss h3{font-size:16px;font-weight:700;line-height:1.24;margin-bottom:6px;color:var(--ink)}
+.hero-r .ss>p:not(.cat):not(.meta){font-family:var(--ss);font-size:12px;color:var(--muted);line-height:1.5}
+
+/* Destaques numerados */
+.dst{padding:14px 30px 16px;background:linear-gradient(135deg,var(--soft),var(--paper));border-bottom:1px solid var(--rl)}
+.dst ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.dst li{counter-increment:t;display:flex;gap:10px;padding:9px 12px 9px 0;border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:13px;line-height:1.4;border-radius:3px;cursor:pointer;transition:background .2s}
+.dst li:hover{background:var(--hl)}
+.dst li::before{content:counter(t);font-family:var(--sf);font-size:22px;font-weight:900;color:var(--link);min-width:20px;line-height:1}
+.dst li:nth-child(odd){border-right:1px solid var(--rl)}
+.dst li:nth-child(even){padding-left:12px}
+.dst li:last-child:nth-child(odd){grid-column:1/-1;border-right:none}
+.dst li>div{min-width:0}
+.dst .dst-cat{display:block;margin-top:3px;font-family:var(--mn);font-size:8.5px;text-transform:uppercase;letter-spacing:1px;color:var(--faint)}
+
+/* Busca */
+.srch{display:flex;align-items:center;gap:12px;padding:10px 30px;background:var(--paper);border-top:2px solid var(--qn)}
+.srch-label{font-family:var(--mn);font-size:9.5px;letter-spacing:1px;color:var(--faint);text-transform:uppercase;flex-shrink:0}
+.srch-input{flex:1;min-width:0;max-width:420px;height:34px;padding:0 16px;border:1.5px solid var(--rl);border-radius:20px;font-family:var(--ss);font-size:13px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.srch-input:focus{border-color:var(--qi);box-shadow:0 0 0 3px rgba(var(--qi-rgb),.15)}
+.srch-input::placeholder{color:var(--faint)}
+.srch-count{margin-left:auto;font-family:var(--mn);font-size:9.5px;color:var(--link);flex-shrink:0}
+.no-res{padding:40px 22px;text-align:center;font-family:var(--ss);font-size:14px;color:var(--muted)}
+.no-res[hidden]{display:none}
+
+/* Abas por seção */
+.tabs-bar{display:flex;overflow-x:auto;background:var(--soft);border-top:1px solid var(--rl);border-bottom:2px solid var(--rl);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;margin-bottom:-2px;padding:12px 18px;border:none;border-bottom:3px solid var(--sc,var(--qi));background:transparent;font-family:var(--ss);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;white-space:nowrap;color:var(--mute2);cursor:pointer;transition:background .25s,color .25s}
+.tab-btn:hover{color:var(--ink);background:var(--paper)}
+.tab-btn[aria-selected="true"]{color:var(--ink);background:var(--paper)}
+.tab-btn .n{margin-left:4px;font-family:var(--mn);font-size:9px;font-weight:500;letter-spacing:0;color:var(--faint)}
+.tab-btn:focus-visible{outline-offset:-3px}
+@media (min-width:900px){.tab-btn{padding:12px 11px;letter-spacing:.8px}.tabs-bar{flex-wrap:wrap}}
+.tabs-wrap.searching .tab-btn[aria-selected="true"]{color:var(--mute2);background:transparent}
+.tabs-nav{position:relative}
+.tabs-arrow{position:absolute;top:0;bottom:2px;z-index:2;width:40px;border:none;font-family:var(--ss);font-size:22px;line-height:1;color:var(--ink);cursor:pointer}
+.tabs-arrow.prev{left:0;padding-right:12px;background:linear-gradient(90deg,var(--soft) 55%,transparent)}
+.tabs-arrow.next{right:0;padding-left:12px;background:linear-gradient(270deg,var(--soft) 55%,transparent)}
+.tabs-arrow:hover{color:var(--link)}
+.tabs-arrow[hidden]{display:none}
+:root[data-theme="dark"] .tab-btn{border-bottom-color:color-mix(in srgb,var(--sc,var(--qi)) 60%,#fff)}
+.tab-layout{display:flex;align-items:stretch}
+.tab-main{flex:7;min-width:0;border-right:1px solid var(--rl)}
+.tab-side{flex:3;min-width:0;position:relative;min-height:460px;background:var(--side)}
+.pane-hd{display:none;padding:16px 22px 8px;font-family:var(--ss);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--sc,var(--qi));border-bottom:2px solid var(--sc,var(--qi))}
+:root[data-theme="dark"] .pane-hd{color:color-mix(in srgb,var(--sc,var(--qi)) 50%,#fff)}
+.js .tab-pane{display:none}
+.js .tab-pane.active,.js .tabs-wrap.searching .tab-pane{display:block}
+.js .tabs-wrap.searching .tab-pane.empty{display:none}
+.tabs-wrap.all .pane-hd,.tabs-wrap.searching .pane-hd,html:not(.js) .pane-hd{display:block}
+html:not(.js) .tabs-bar{display:none}
+.tabs-wrap.searching .cl.is-hidden{display:none}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:hidden;padding-bottom:1px}
+.cl{padding:18px 22px;background:var(--paper);box-shadow:1px 0 0 var(--rl),0 1px 0 var(--rl);cursor:pointer;transition:background .35s cubic-bezier(.23,1,.32,1),transform .35s cubic-bezier(.23,1,.32,1),box-shadow .35s cubic-bezier(.23,1,.32,1)}
+.tabs-wrap:not(.searching) .cl:last-child:nth-child(odd){grid-column:1/-1}
+.cl:hover{background:var(--hover);transform:translateY(-2px);box-shadow:1px 0 0 var(--rl),0 1px 0 var(--rl),0 8px 30px rgba(var(--qi-rgb),.08);z-index:5}
+:root[data-theme="dark"] .cl:hover{box-shadow:1px 0 0 var(--rl),0 1px 0 var(--rl),0 8px 30px rgba(0,0,0,.3)}
+.cl .ci{height:140px;margin-bottom:10px}
+.tabs-wrap:not(.searching) .cl:last-child:nth-child(odd) .ci{height:200px}
+.cl h3{font-size:16px;font-weight:700;line-height:1.24;margin-bottom:8px;color:var(--ink)}
+.cl .dk{font-family:var(--ss);font-size:12.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Radar (coluna lateral) */
+/* O radar acompanha a altura da coluna principal e rola por dentro quando não cabe. */
+.radar{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:24px 20px}
+.radar-hd{display:flex;align-items:center;gap:8px;margin-bottom:18px;padding-bottom:8px;border-bottom:2px solid var(--qn);font-family:var(--ss);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--head)}
+:root[data-theme="dark"] .radar-hd{border-bottom-color:var(--qi)}
+.radar-hd::before{content:"";width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--qr);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(var(--qr-rgb),.4)}70%{box-shadow:0 0 0 5px rgba(var(--qr-rgb),0)}100%{box-shadow:0 0 0 0 rgba(var(--qr-rgb),0)}}
+.radar-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.radar-list li{padding-bottom:14px;border-bottom:1px dashed var(--rl)}
+.radar-list li:last-child{padding-bottom:0;border-bottom:none}
+.radar-item{display:block;transition:opacity .2s}
+.radar-item:hover{opacity:.65}
+.radar-item .tm{font-family:var(--mn);font-size:9.5px;font-weight:600;color:var(--link)}
+.radar-item .src{margin-left:6px;font-family:var(--ss);font-size:9px;font-weight:700;text-transform:uppercase;color:var(--mute2)}
+.radar-item .tt{display:block;margin-top:5px;font-family:var(--sf);font-size:13.5px;font-weight:600;line-height:1.35;color:var(--ink)}
+
+/* Modal da matéria */
+body.modal-open{overflow:hidden}
+.mo{display:none;position:fixed;inset:0;z-index:1000;overflow-y:auto;overscroll-behavior:contain;padding:40px 20px;background:rgba(var(--qn-rgb),.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+:root[data-theme="dark"] .mo{background:rgba(0,0,0,.6)}
+.mo.on,html:not(.js) .mo:target{display:flex;justify-content:center;align-items:flex-start}
+.ml{position:relative;width:100%;max-width:700px;padding:40px 44px;background:var(--paper);border-top:4px solid var(--sc,var(--qi));box-shadow:0 20px 60px rgba(var(--qn-rgb),.2);animation:ml-in .35s cubic-bezier(.2,.9,.3,1.15)}
+:root[data-theme="dark"] .ml{background:#161f31}
+.ml:focus{outline:none}
+@keyframes ml-in{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
+/* O × acompanha a rolagem do modal (.mo é o contêiner que rola): matéria longa aberta pelo e-mail não o esconde. */
+.mc{position:sticky;top:8px;float:right;z-index:2;margin:-28px -30px 0 0;width:36px;height:36px;border:none;border-radius:50%;background:var(--paper);font-family:var(--ss);font-size:26px;line-height:1;color:var(--faint);cursor:pointer;transition:color .2s,background .2s}
+:root[data-theme="dark"] .mc{background:#161f31}
+.mback{margin-top:22px;text-align:center}
+.mc2{padding:9px 18px;border:1.5px solid var(--rl);border-radius:20px;background:transparent;font-family:var(--ss);font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--link);cursor:pointer}
+.mc2:hover{border-color:var(--link)}
+.mc:hover{color:var(--ink);background:var(--soft)}
+.ml .mcat{font-family:var(--ss);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:8px;color:var(--sc,var(--qi))}
+.ml h2{padding-right:24px;font-size:26px;font-weight:900;line-height:1.2;margin-bottom:12px;color:var(--head)}
+.ml .mdek{font-family:var(--ss);font-size:15px;line-height:1.6;color:var(--body)}
+.ml .mhd{padding-bottom:14px;margin-bottom:20px;border-bottom:2px solid var(--qi)}
+.ml .mi{margin-bottom:20px;max-height:380px}
+.ml .bt p{font-family:var(--ss);font-size:15px;line-height:1.8;color:var(--text)}
+.ml .bt p+p{margin-top:14px}
+.ml .bt strong{color:var(--ink)}
+.ml .why{margin-top:22px;padding:14px 18px;background:var(--soft);border-left:3px solid var(--qc)}
+.ml .why h3,.ml .bb h3{font-family:var(--mn);font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.ml .why p{font-family:var(--sf);font-size:15px;font-style:italic;line-height:1.6;color:var(--ink)}
+.ml .bb{margin-top:24px;padding-top:14px;border-top:1px solid var(--rl)}
+.ml .bb ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+.ml .bb a,.ml .bb span{font-family:var(--mn);font-size:11.5px;color:var(--link)}
+.ml .bb span{color:var(--muted)}
+.ml .bb a:hover{color:var(--qr);text-decoration:underline}
+.ml .mtime{margin-top:16px;font-family:var(--mn);font-size:10px;color:var(--faint);letter-spacing:.5px}
+
+/* Cobertura comparada: lado A à esquerda, neutros no meio, lado B à direita */
+:root{--cov-a:var(--qi);--cov-b:#C8631A;--cov-n:#C5CCD8}
+:root[data-theme="dark"]{--cov-a:#8FA0CC;--cov-a:color-mix(in srgb,var(--qi) 55%,#fff);--cov-b:#FF8A5C;--cov-n:#3A4658}
+.cov-bar{display:flex;gap:2px;height:8px;border-radius:4px;overflow:hidden;background:var(--rl)}
+.cov-bar span{display:block;height:100%;min-width:4px}
+.cov-a{background:var(--cov-a)}
+.cov-n{background:var(--cov-n)}
+.cov-b{background:var(--cov-b)}
+.cov.mini{margin-top:10px}
+.cov.mini .cov-bar{height:5px}
+.cov-lean{margin-top:5px;font-family:var(--mn);font-size:9px;letter-spacing:.3px;line-height:1.45;color:var(--mute2)}
+.cov-lean::before,.cov-sa::before,.cov-sb::after{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--cov-n)}
+.cov-lean::before{margin-right:6px}
+.lean-a .cov-lean::before,.cov-sa::before{background:var(--cov-a)}
+.lean-b .cov-lean::before,.cov-sb::after{background:var(--cov-b)}
+.lean-equilibrio .cov-lean::before{background:linear-gradient(90deg,var(--cov-a) 50%,var(--cov-b) 50%)}
+.cov.full .cov-lean{font-size:10px;font-weight:600;color:var(--ink)}
+.cov-scale{display:flex;justify-content:space-between;gap:16px;margin-bottom:6px;font-family:var(--ss);font-size:11.5px;font-weight:600;line-height:1.35;color:var(--ink)}
+.cov-sa::before{margin-right:6px}
+.cov-sb{text-align:right}
+.cov-sb::after{margin-left:6px}
+.cov-scale b{font-family:var(--mn);font-weight:600;color:var(--mute2)}
+.cov-c{margin-top:8px;font-family:var(--sf);font-size:14.5px;font-style:italic;line-height:1.55;color:var(--ink)}
+.cov-who{margin-top:10px}
+.cov-who summary{cursor:pointer;font-family:var(--ss);font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--link)}
+.cov-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;margin-top:10px}
+.cov-col.cn:only-child,.cov-col.cn:nth-child(3){grid-column:1/-1}
+.cov-col h4{margin-bottom:6px;padding-bottom:4px;border-bottom:2px solid var(--cov-n);font-family:var(--ss);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mute2)}
+.cov-col.ca h4{border-bottom-color:var(--cov-a)}
+.cov-col.cb h4{border-bottom-color:var(--cov-b)}
+.cov-col h4 span{font-family:var(--mn);font-weight:500}
+.cov-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.cov-col li{font-family:var(--ss);font-size:12.5px;line-height:1.45;color:var(--body)}
+.cov-col a,.cov-col b{font-weight:700;color:var(--ink)}
+.cov-col a:hover{color:var(--link);text-decoration:underline}
+.cov-col li p.cov-f{margin-top:2px;color:var(--muted)}
+.mcomp{margin-bottom:8px;font-family:var(--ss);font-size:12px;color:var(--muted)}
+.ml .mcov{margin-top:22px;padding:16px 18px;border:1px solid var(--rl);border-radius:4px;background:var(--soft)}
+.ml .mcov>h3{margin-bottom:10px;font-family:var(--mn);font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
+.cmp{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+:root[data-theme="dark"] .cmp{border-top-color:var(--qi)}
+.cmp-note{max-width:860px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
+.cmp-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin-top:6px}
+.cmp-i{padding:16px 0;border-bottom:1px solid var(--rl)}
+.cmp-i h3{margin-bottom:8px;font-size:17px;font-weight:700;line-height:1.3;color:var(--ink)}
+.cmp-i h3 a:hover{color:var(--link);text-decoration:underline}
+.cmp-t{font-weight:500;letter-spacing:.5px;color:var(--faint)}
+
+/* Racional da edição e lista completa do dia */
+.rat-strip{padding:9px 30px;border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
+.rat-strip span{color:var(--ink);font-weight:600}
+.rat-strip a{color:var(--link);font-weight:700;white-space:nowrap}
+.rat-strip a:hover{text-decoration:underline}
+.rat{padding:22px 30px 26px;border-top:2px solid var(--qn);background:var(--paper)}
+:root[data-theme="dark"] .rat{border-top-color:var(--qi)}
+.rat-sum{max-width:900px;font-family:var(--sf);font-size:16px;line-height:1.6;color:var(--ink)}
+.rat-blocks{list-style:none;counter-reset:blk;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px 24px;margin-top:14px}
+.rat-blocks li{counter-increment:blk;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-left:3px solid var(--qi);background:var(--soft);font-family:var(--ss);font-size:12.5px;line-height:1.45;color:var(--muted)}
+.rat-blocks li.off{border-left-color:var(--cov-n)}
+.rat-blocks b{color:var(--ink)}
+.rat-blocks b::before{content:counter(blk) ". ";font-family:var(--mn);font-weight:500;color:var(--faint)}
+.rat-note{max-width:900px;margin-top:14px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
+.todas{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+:root[data-theme="dark"] .todas{border-top-color:var(--qi)}
+.todas .kicker span{font-family:var(--mn);font-weight:500;letter-spacing:.5px;color:var(--faint)}
+.todas-note{max-width:900px;margin-bottom:10px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
+.todas-sec{border-top:1px solid var(--rl)}
+.todas-sec:last-child{border-bottom:1px solid var(--rl)}
+.todas-sec>summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:11px 0;cursor:pointer;font-family:var(--ss);font-size:14px;color:var(--ink)}
+.todas-sec>summary b{padding-left:9px;border-left:3px solid var(--sc)}
+.todas-sec>summary span{font-size:12px;color:var(--muted)}
+.idx{list-style:none;display:flex;flex-direction:column;gap:10px;padding:2px 0 16px 12px}
+.idx-h{font-family:var(--ss);font-size:13.5px;font-weight:700;line-height:1.4;color:var(--ink)}
+.idx-h a{color:var(--link)}
+.idx-h a:hover{text-decoration:underline}
+.idx-h em{margin-left:4px;padding:1px 6px;border-radius:3px;background:var(--soft);font-family:var(--mn);font-size:9.5px;font-style:normal;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--link)}
+.idx-h em.cmpd{color:var(--mute2)}
+.idx-h span{font-weight:500;color:var(--faint)}
+.idx-t ul{list-style:none;display:flex;flex-direction:column;gap:3px;margin-top:3px;padding-left:10px;border-left:1px solid var(--rl)}
+.idx-t li{font-family:var(--ss);font-size:12.5px;line-height:1.45;color:var(--body)}
+.idx-t li b{font-weight:600;color:var(--mute2)}
+.idx-t li a{color:var(--body)}
+.idx-t li a:hover{color:var(--link);text-decoration:underline}
+.idx-t time{font-family:var(--mn);font-size:10.5px;color:var(--faint)}
+.rat-all{margin-top:14px;font-family:var(--ss);font-size:13px;font-weight:700}
+.rat-all a{color:var(--link)}
+.rat-all a:hover{text-decoration:underline}
+
+/* Rodapé */
+.ft{background:var(--qn);padding:20px 28px;text-align:center;font-family:var(--mn);font-size:9.5px;letter-spacing:1.5px;line-height:1.8;color:rgba(255,255,255,.62);text-transform:uppercase}
+:root[data-theme="dark"] .ft{background:#0a1430}
+.ft strong{color:var(--qc)}
+.ft a{color:#fff;border-bottom:1px solid rgba(255,255,255,.3);transition:border-color .2s}
+.ft a:hover{border-bottom-color:var(--qc)}
+.ft-links{margin-top:6px}
+.ft details{max-width:960px;margin:14px auto 0;text-align:left}
+.ft summary{cursor:pointer;text-align:center;color:rgba(255,255,255,.8)}
+.ft summary:hover{color:#fff}
+.src-list{list-style:none;margin-top:12px;columns:3 220px;column-gap:28px;text-transform:none;letter-spacing:.2px;font-size:10.5px}
+.src-list li{break-inside:avoid;padding:2px 0 2px 14px;position:relative}
+.src-list .dot{position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--qc)}
+.src-list .st-parcial .dot{background:#F5B83D}
+.src-list .st-erro .dot{background:var(--qr)}
+.src-list .nf{color:rgba(255,255,255,.45)}
+.src-list em{font-style:normal;color:#ffb3cf}
+
+/* Voltar ao topo */
+.btt{position:fixed;right:24px;bottom:24px;z-index:998;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:none;border-radius:50%;background:var(--qi);color:#fff;cursor:pointer;box-shadow:0 4px 18px rgba(var(--qi-rgb),.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s,transform .3s,visibility .3s,background .3s}
+.btt.show{opacity:1;visibility:visible;transform:none}
+.btt:hover{background:var(--qn)}
+.btt svg{width:18px;height:18px;fill:currentColor}
+body.modal-open .btt{visibility:hidden}
+
+/* Arquivo de edições */
+.arch{padding:24px 30px 36px;min-height:40vh}
+.arch-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.arch-top .kicker{flex:1}
+.arch-home{font-family:var(--ss);font-size:12px;font-weight:700;color:var(--link)}
+.arch-home:hover{text-decoration:underline}
+.arch-m{margin:22px 0 4px;font-family:var(--ss);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--head)}
+.arch-list{list-style:none}
+.arch-list li{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rl)}
+.arch-list a{flex:1;display:flex;gap:18px;align-items:baseline;padding:11px 8px 11px 0;min-width:0;transition:background .2s}
+.arch-list a:hover{background:var(--hover)}
+.arch-list time{flex:0 0 250px;font-family:var(--mn);font-size:11px;color:var(--mute2)}
+.arch-t{font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
+.badge{flex-shrink:0;padding:1px 6px;border:1px solid var(--rule);border-radius:10px;font-family:var(--mn);font-size:8.5px;letter-spacing:1px;color:var(--faint)}
+.arch-empty{padding:30px 0;font-family:var(--ss);color:var(--muted)}
+
+/* Tablet: os botões do canto ainda ficam na mesma linha; o logo desce para não ficar sob eles */
+@media (max-width:880px){
+  .mast{padding-top:52px}
+}
+@media (max-width:760px){
+  .paper{box-shadow:none}
+  .mast{padding:52px 16px 18px}
+  .mast h1{font-size:36px}
+  .mast h1.logo svg{height:92px}
+  .mast h1.logo.mono svg{height:46px}
+.mast h1.logo svg,.mast h1.logo.mono svg{height:40px}  .mast-tools{top:12px;right:16px;left:16px;justify-content:center}
+  .tool{height:26px;padding:0 10px}
+  .wx{justify-content:flex-start;padding:6px 16px;gap:2px 20px;white-space:normal}
+  .wx p{white-space:normal}
+  .op-bar{padding:16px 16px;font-size:14.5px}
+  .brief{padding:14px 16px 16px}
+  .brief ul{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
+  .hero-l{padding:20px 16px;border-right:none;border-bottom:1px solid var(--rule)}
+  .hero-l .hi{height:200px}
+  .hero-r .ss{padding:16px}
+  .dst{padding:14px 16px}
+  .dst ol{grid-template-columns:1fr}
+  .dst li,.dst li:nth-child(even){padding:9px 0}
+  .dst li:nth-child(odd){border-right:none}
+  .srch{padding:10px 16px}
+  .srch-label{display:none}
+  .srch-input{max-width:none}
+  .tab-btn{padding:12px 14px}
+  .tab-layout{flex-direction:column}
+  .tab-main{border-right:none}
+  .cards{grid-template-columns:1fr}
+  .cl{padding:16px}
+  .cl .ci,.tabs-wrap:not(.searching) .cl:last-child:nth-child(odd) .ci{height:180px}
+  .pane-hd{padding:14px 16px 8px}
+  .tab-side{border-top:2px solid var(--rl)}
+  .tab-side{min-height:0}
+  .radar{position:static;overflow:visible;padding:20px 16px}
+  .mo{padding:0}
+  .ml{min-height:100%;padding:28px 18px 32px;border-top-width:4px}
+  .ml h2{font-size:22px}
+  .mc{margin:-20px -8px 0 0}
+  .ft{padding:18px 16px}
+  .arch{padding:18px 16px 28px}
+  .cmp{padding:18px 16px 24px}
+  .rat-strip{padding:9px 16px}
+  .rat,.todas{padding:18px 16px 24px}
+  .rat-sum{font-size:15px}
+  .idx{padding-left:4px}
+  .cmp-list{grid-template-columns:1fr}
+  .ml .mcov{padding:14px}
+  .cov-cols{grid-template-columns:1fr}
+  .arch-list a{flex-direction:column;gap:2px}
+  .arch-list time{flex:none}
+  .btt{right:16px;bottom:16px}
+}
+@media (max-width:420px){
+  .mast-date{letter-spacing:.4px}
+  .mast h1{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .cl:hover{transform:none}
+}
+@media print{
+  body{background:#fff}
+  #rdprog,#mast-canvas,.mast-tools,.tk-pause,.srch,.tabs-bar,.tab-side,.btt,.modals{display:none!important}
+  .paper{box-shadow:none;max-width:none}
+  .js .tab-pane,.pane-hd{display:block!important}
+  .tk.run .tk-rail{animation:none}
+}</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div id="rdprog" aria-hidden="true"></div>
+<div class="paper">
+<header class="mast-wrap">
+  <canvas id="mast-canvas" aria-hidden="true"></canvas>
+  <div class="mast-tools">
+    <a class="tool" href="./" title="Edições anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Edições</span></a>
+    <button class="tool" type="button" id="srchBtn" aria-controls="srchInput" title="Buscar (atalho: /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Buscar</span></button>
+    <button class="tool" type="button" id="dmBtn">
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <span class="lbl">Escuro</span>
+    </button>
+  </div>
+  <div class="mast">
+    <h1 class="logo duo"><a href="../"><span class="lg lg-l"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 89 20" width="890" height="200" shape-rendering="crispEdges" role="img" aria-labelledby="pbcv-tech-logo-title"><title id="pbcv-tech-logo-title">PBCV Tech</title><path fill="#0C0F16" d="M13 8H12V9H11V10H4V16H0V0H11V1H12V2H13ZM58 0H62V6H61V8H60V10H59V12H58V14H57V16H53V14H52V12H51V10H50V8H49V6H48V0H52V6H53V8H54V10H56V8H57V6H58ZM28 8H29V14H28V15H27V16H15V0H26V1H27V2H28ZM34 16V15H33V14H32V2H33V1H34V0H44V1H45V2H46V5H42V3H36V13H42V11H46V14H45V15H44V16ZM19 13H25V9H19ZM4 3V7H9V3ZM19 3V6H24V3Z"/><rect x="66" y="9" width="19" height="7" fill="#FF5A1F"/><path fill="#0C0F16" d="M71.5 10V11H70V15H69V11H67.5V10ZM82.5 11.5V12H83V15H82V12H81V15H80V10H81V11.5ZM77 14.5H78V14H79V14.5H78.5V15H76.5V14.5H76V12H76.5V11.5H78.5V12H79V12.5H78V12H77ZM72.5 14.5H72V12H72.5V11.5H74.5V12H75V13.5H73V14.5H75V15H72.5ZM74 12H73V13H74Z"/></svg></span><span class="lg lg-d"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 89 20" width="890" height="200" shape-rendering="crispEdges" role="img" aria-labelledby="dk-pbcv-tech-logo-title"><title id="dk-pbcv-tech-logo-title">PBCV Tech</title><path fill="#FFFFFF" d="M13 8H12V9H11V10H4V16H0V0H11V1H12V2H13ZM58 0H62V6H61V8H60V10H59V12H58V14H57V16H53V14H52V12H51V10H50V8H49V6H48V0H52V6H53V8H54V10H56V8H57V6H58ZM28 8H29V14H28V15H27V16H15V0H26V1H27V2H28ZM34 16V15H33V14H32V2H33V1H34V0H44V1H45V2H46V5H42V3H36V13H42V11H46V14H45V15H44V16ZM19 13H25V9H19ZM4 3V7H9V3ZM19 3V6H24V3Z"/><rect x="66" y="9" width="19" height="7" fill="#FF5A1F"/><path fill="#0C0F16" d="M71.5 10V11H70V15H69V11H67.5V10ZM82.5 11.5V12H83V15H82V12H81V15H80V10H81V11.5ZM77 14.5H78V14H79V14.5H78.5V15H76.5V14.5H76V12H76.5V11.5H78.5V12H79V12.5H78V12H77ZM72.5 14.5H72V12H72.5V11.5H74.5V12H75V13.5H73V14.5H75V15H72.5ZM74 12H73V13H74Z"/></svg></span></a></h1>
+    <p class="mast-sub">Seu terminal financeiro diário</p>
+    <p class="mast-date">Terça-feira, 13 de outubro de 2026&nbsp;· <span class="nw">06:20 BRT</span></p>
+  </div>
+</header>
+<main id="conteudo">
+<section class="tk" aria-label="Cotações e indicadores">
+  <div class="tk-rail">
+    <ul class="tk-track">
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-13">Dólar <b>R$ 4,98</b> <span class="f">0,00%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-13">Euro <b>R$ 5,57</b> <span class="u">+0,22%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-13">Yuan <b>R$ 0,74</b> <span class="d">-0,02%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-09">Ibovespa <b>209.067 pts</b> <span class="u">+1,38%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-09">IFIX <b>3.989 pts</b> <span class="u">+0,98%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-12">S&amp;P 500 <b>7.807 pts</b> <span class="d">-0,06%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-13">Brent <b>US$ 105,02</b> <span class="d">-1,53%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-13">Ouro <b>US$ 4.212</b> <span class="u">+0,52%</span></li>
+      <li class="tk-i" title="Yahoo Finance · ref. 2026-10-13">Bitcoin <b>US$ 83.408</b> <span class="d">-0,07%</span></li>
+      <li class="tk-i" title="Banco Central (SGS) · ref. 2026-10-13">Selic <b>13,75%</b></li>
+      <li class="tk-i" title="Banco Central (SGS) · ref. 2026-09">IPCA 12m <b>4,58%</b></li>
+      <li class="tk-i" title="Banco Central (SGS) · ref. 2026-09">IGP-M 12m <b>3,35%</b></li>
+      <li class="tk-i" title="Banco Central (SGS) · ref. 2026-09">INCC 12m <b>6,66%</b></li>
+    </ul>
+  </div>
+  <button class="tk-pause" type="button" aria-label="Pausar rolagem das cotações" hidden>&#10074;&#10074;</button>
+</section>
+
+<section class="wx" aria-label="Clima">
+  <p><span role="img" aria-label="Nevoeiro" title="Nevoeiro">🌫️</span><strong>São Paulo</strong>17°C <span aria-hidden="true">↓</span><span class="sr-only">mínima </span>17° <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>28°<span class="sep" aria-hidden="true">|</span>Amanhã <span role="img" aria-label="Trovoadas" title="Trovoadas">⛈️</span> <span aria-hidden="true">↓</span><span class="sr-only">mínima </span>18° <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>28°</p>
+  <p><span role="img" aria-label="Parcialmente nublado" title="Parcialmente nublado">⛅</span><strong>Montevidéu</strong>14°C <span aria-hidden="true">↓</span><span class="sr-only">mínima </span>14° <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>15°<span class="sep" aria-hidden="true">|</span>Amanhã <span role="img" aria-label="Garoa fraca" title="Garoa fraca">🌦️</span> <span aria-hidden="true">↓</span><span class="sr-only">mínima </span>14° <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>15°</p>
+</section>
+
+
+<section class="brief" aria-labelledby="brief-h">
+  <h2 class="kicker" id="brief-h">Em 1 minuto</h2>
+  <ul>
+    <li>Varejo cresce 6,3% no 3º trimestre, indica Stone</li>
+    <li>Bolsas abrem mistas em NY em pregão de menor liquidez por conta de feriado nos EUA</li>
+    <li>Estados vivem onda de regulação para receber data centers</li>
+    <li>Netimóveis inaugura primeira unidade nos EUA em parceria com a Elite International Realty</li>
+    <li>Incêndios na Amazônia podem ser criminosos, afirma Capobianco</li>
+  </ul>
+</section>
+
+<p class="rat-strip"><span>Compilada de 1.282 notícias de 40 veículos · 993 assuntos · sem IA</span> <a href="#racional">Como foi compilada</a> · <a href="https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13-todas.html">Todas as 1.282 notícias</a></p>
+
+<section class="hero" aria-label="Manchete">
+  <article class="hero-l" style="--sc:#2E6BD6">
+    <p class="cat">Mercados &amp; Finanças</p>
+    <h2><a class="hit" href="#s-robert-hall-e-michael-woodford-vencem-nobel-de-e">Robert Hall e Michael Woodford vencem Nobel de Economia 2026 por estudos sobre estabilização econômica</a></h2>
+    <p class="dek">Os economistas americanos Robert Hall e Michael Woodford ganharam nesta segunda-feira o Prêmio Nobel de Economia de 2026 por décadas de trabalho no desenvolvimento de modelos construídos a partir de fundamentos…</p>
+    <figure class="hi" data-img><img src="https://s2-valor.glbimg.com/0UlEda2sbKr01CuHUJovEK5Oybw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/1/X/FhqqFdSkAL1rZjfvnz1Q/2026-10-12t100644z-1568632658-rc2l1oa4s84m-rtrmadp-3-nobel-prize-economics.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <p class="sub">&#34;Graças a eles, estamos mais bem preparados para lidar com choques na economia, como crises energéticas ou mudanças repentinas no consumo das famílias&#34;, afirmou John Hassler, presidente do Comitê do Prêmio de Ciências Econômicas, em comunicado.</p>
+    <p class="sub more">A prestigiosa premiação, oficialmente conhecida como Prêmio de Ciências Econômicas do Banco da Suécia em Memória de Alfred Nobel, é a última a ser anunciada neste ano e tem um valor de 12 milhões de coroas suecas (US$ 1,2 milhão).</p>
+    <p class="meta"><span>Valor Econômico · Estadão · Brazil Journal · Folha de S.Paulo · g1 · The New York Times · The Guardian · El País</span></p>
+
+    <p class="rd" aria-hidden="true">Ler matéria completa →</p>
+  </article>
+  <div class="hero-r">
+    <article class="ss" style="--sc:#C90055">
+      <p class="cat">Política</p>
+      <h3><a class="hit" href="#s-tse-manda-flavio-remover-video-que-associa-usuar">TSE manda Flávio remover vídeo que associa usuários de drogas no Chile a ato de Lula em SP</a></h3>
+      <p>O Tribunal Superior Eleitoral (TSE) determinou que a campanha do senador Flávio Bolsonaro (PL) remova um vídeo que associa falsamente o ato do presidente Luiz Inácio Lula da Silva (PT) em São Paulo no domingo (11) ao…</p>
+      <p class="meta"><span>Valor Econômico · Folha de S.Paulo · Estadão · g1 · Money Times · Exame · CNN Brasil</span></p>
+
+    </article>
+    <article class="ss" style="--sc:#C2410C">
+      <p class="cat">Tecnologia &amp; Negócios</p>
+      <h3><a class="hit" href="#s-ia-sustenta-crescimento-global-de-3-mas-traz-gra">IA sustenta crescimento global de 3%, mas traz grandes transformações, diz FMI</a></h3>
+      <p>Os fortes investimentos em infraestrutura de inteligência artificial (IA) estão sustentando o crescimento da economia global em torno de 3%, com grandes benefícios para a Ásia, mas também anunciam um &#34;tsunami em câmera…</p>
+      <p class="meta"><span>Valor Econômico · Folha de S.Paulo · g1 · Poder360 · CNN Brasil</span></p>
+
+    </article>
+    <article class="ss" style="--sc:#0F7C8C">
+      <p class="cat">Geopolítica &amp; Mundo</p>
+      <h3><a class="hit" href="#s-trump-defende-acordo-para-comprar-diesel-da-russ">Trump defende acordo para comprar diesel da Rússia após críticas de republicanos e democratas</a></h3>
+      <p>O presidente dos Estados Unidos, Donald Trump, defendeu nesta segunda-feira um acordo que fechou com a Rússia para o fornecimento de diesel, enquanto parlamentares democratas e republicanos reclamaram que o entendimento…</p>
+      <p class="meta"><span>Valor Econômico · Folha de S.Paulo · InfoMoney · CNN Brasil · Financial Times · The New York Times · The Wall Street Journal · South China Morning Post</span></p>
+
+    </article>
+  </div>
+</section>
+
+<section class="dst" aria-labelledby="dst-h">
+  <h2 class="kicker" id="dst-h">Destaques</h2>
+  <ol>
+    <li><div><a class="hit" href="#s-flavio-comemora-decisao-de-moraes-e-diz-que-visi">Flávio comemora decisão de Moraes e diz que visitará Jair Bolsonaro nesta terça-feira</a><span class="dst-cat">Política</span></div></li>
+    <li><div><a class="hit" href="#s-apoiadores-ocupam-quarteiroes-da-praia-de-copaca">Apoiadores ocupam quarteirões da Praia de Copacabana (RJ) em ato sem Lula no Rio</a><span class="dst-cat">Política</span></div></li>
+    <li><div><a class="hit" href="#s-nova-pesquisa-datafolha-mede-se-voto-em-lula-e-f">Nova pesquisa Datafolha mede se voto em Lula e Flávio Bolsonaro no 2º turno é por apoio ou rejeição</a><span class="dst-cat">Política</span></div></li>
+    <li><div><a class="hit" href="#s-papa-leao-sera-internado-na-terca-feira-para-cir">Papa Leão será internado na terça-feira para cirurgia de retirada de nódulo no pulmão</a><span class="dst-cat">Geopolítica &amp; Mundo</span></div></li>
+    <li><div><a class="hit" href="#s-programa-eleitoral-de-flavio-bolsonaro-homenagei">Programa eleitoral de Flávio Bolsonaro homenageia Nossa Senhora Aparecida, mas vai ao ar sem áudio</a><span class="dst-cat">Política</span></div></li>
+    <li><div><a class="hit" href="#s-propaganda-de-flavio-bolsonaro-na-tv-e-transmiti">Propaganda de Flávio Bolsonaro na TV é transmitida sem som e candidato reclama</a><span class="dst-cat">Política</span></div></li>
+    <li><div><a class="hit" href="#s-bragantino-vence-ferroviaria-na-fonte-e-abre-van">Bragantino vence Ferroviária na Fonte e abre vantagem nas quartas da Copa do Brasil</a><span class="dst-cat">Esporte</span></div></li>
+    <li><div><a class="hit" href="#s-meta-alcancou-rivais-em-ia-e-nao-vai-desacelerar">Meta alcançou rivais em IA e não vai desacelerar, diz CEO</a><span class="dst-cat">Tecnologia &amp; Negócios</span></div></li>
+  </ol>
+</section>
+
+<section class="tabs-wrap" id="editorias" aria-label="Matérias por seção">
+  <div class="srch" role="search">
+    <label class="srch-label" for="srchInput">Buscar</label>
+    <input class="srch-input" id="srchInput" type="search" placeholder="Pesquisar nas matérias do dia…" autocomplete="off" spellcheck="false" aria-keyshortcuts="/">
+    <span class="srch-count" id="srchCount" role="status" aria-live="polite"></span>
+  </div>
+  <div class="tabs-nav">
+  <button class="tabs-arrow prev" type="button" tabindex="-1" aria-hidden="true" hidden>&#8249;</button>
+  <div class="tabs-bar" role="tablist" aria-label="Seções">
+    <button class="tab-btn" type="button" role="tab" id="tab-brasil" data-tab="brasil" aria-controls="pane-brasil" aria-selected="true" tabindex="0" style="--sc:#1B2745">Brasil · Economia<span class="n">4</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-mercados" data-tab="mercados" aria-controls="pane-mercados" aria-selected="false" tabindex="-1" style="--sc:#2E6BD6">Mercados &amp; Finanças<span class="n">3</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-juridico" data-tab="juridico" aria-controls="pane-juridico" aria-selected="false" tabindex="-1" style="--sc:#394A7A">Jurídico &amp; Regulação<span class="n">2</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-politica" data-tab="politica" aria-controls="pane-politica" aria-selected="false" tabindex="-1" style="--sc:#C90055">Política<span class="n">6</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-mundo" data-tab="mundo" aria-controls="pane-mundo" aria-selected="false" tabindex="-1" style="--sc:#0F7C8C">Geopolítica &amp; Mundo<span class="n">2</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-tecnologia" data-tab="tecnologia" aria-controls="pane-tecnologia" aria-selected="false" tabindex="-1" style="--sc:#C2410C">Tecnologia &amp; Negócios<span class="n">2</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-imobiliario" data-tab="imobiliario" aria-controls="pane-imobiliario" aria-selected="false" tabindex="-1" style="--sc:#6B3FA0">Imobiliário<span class="n">2</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-esporte" data-tab="esporte" aria-controls="pane-esporte" aria-selected="false" tabindex="-1" style="--sc:#B45309">Esporte<span class="n">1</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-natureza" data-tab="natureza" aria-controls="pane-natureza" aria-selected="false" tabindex="-1" style="--sc:#2F7D32">Natureza &amp; Meio Ambiente<span class="n">1</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-variedades" data-tab="variedades" aria-controls="pane-variedades" aria-selected="false" tabindex="-1" style="--sc:#4B5563">Cultura &amp; Variedades<span class="n">1</span></button>
+    <button class="tab-btn" type="button" role="tab" id="tab-all" data-tab="all" aria-controls="panes" aria-selected="false" tabindex="-1" style="--sc:#394A7A">Todas<span class="n">24</span></button>
+  </div>
+  <button class="tabs-arrow next" type="button" tabindex="-1" aria-hidden="true" hidden>&#8250;</button>
+  </div>
+  <div class="tab-layout">
+    <div class="tab-main" id="panes">
+      <div class="tab-pane active" id="pane-brasil" role="tabpanel" aria-labelledby="tab-brasil" style="--sc:#1B2745">
+        <h2 class="pane-hd">Brasil · Economia</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#1B2745">
+  <p class="cat">Brasil · Economia</p>
+  <figure class="ci" data-img><img src="https://s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/public/fb_marca.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-varejo-cresce-6-3-no-3o-trimestre-indica-stone">Varejo cresce 6,3% no 3º trimestre, indica Stone</a></h3>
+  <p class="dk">As vendas do comércio encerraram o terceiro trimestre com alta de 6,3% na comparação anual, segundo o Índice do Varejo Stone (IVS), antecipado ao Valor.</p>
+  <p class="meta"><span>Valor Econômico · InfoMoney</span></p>
+
+</article>
+          <article class="cl" style="--sc:#1B2745">
+  <p class="cat">Brasil · Economia</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/GJTlROxHsbLCmNx3xddq1Hm3o_Y=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/2/V/aQOPm1RSGAuX97C5gGyw/silvana-tenreyro-nova-economista-chefe-do-fmi-rep-facultad-de-ciencias-economicas-de-tucuman.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-fmi-aponta-resiliencia-notavel-da-economia-globa">FMI aponta ‘resiliência notável’ da economia global, mas alerta para riscos associados a dívidas e inflação</a></h3>
+  <p class="dk">A economia global tem demonstrado uma resiliência notável diante do pior choque energético em décadas.</p>
+  <p class="meta"><span>Valor Econômico · Financial Times · The Guardian</span></p>
+
+</article>
+          <article class="cl" style="--sc:#1B2745">
+  <p class="cat">Brasil · Economia</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/OXgmr3Kn5XetKrgtm_2jp8NmXQM=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/F/8/sxIrSpSR2cUAOvbMeh6A/foto13bra-101-previd-a4.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-presidente-eleito-tera-de-encarar-desafio-de-nov">Presidente eleito terá de encarar desafio de nova reforma da previdência</a></h3>
+  <p class="dk">Menos de dez anos após a última reforma da previdência, o próximo presidente assumirá com o tema mais uma vez em destaque para garantir a sustentabilidade do sistema de aposentadorias no Brasil, apontam especialistas.</p>
+  <p class="meta"><span>Valor Econômico</span></p>
+
+</article>
+          <article class="cl" style="--sc:#1B2745">
+  <p class="cat">Brasil · Economia</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/TQ_CAxa5v_uv3TvpDKFd3_ABxu8=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/B/q/T7A6v2R5CSMTQzycMhMQ/nobeleconomia.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-teorias-de-premiados-com-nobel-de-economia-foram">Teorias de premiados com Nobel de Economia foram debatidas por articulistas do Valor</a></h3>
+  <p class="dk">As ideias do acadêmico Michael Woodford, que recebeu nesta segunda-feira (12) o Prêmio Nobel de Economia de 2026, juntamente com Robert Hall, foram debatidas por diversos economistas e articulistas nas páginas do Valor.</p>
+  <p class="meta"><span>Valor Econômico</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-mercados" role="tabpanel" aria-labelledby="tab-mercados" style="--sc:#2E6BD6">
+        <h2 class="pane-hd">Mercados &amp; Finanças</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#2E6BD6">
+  <p class="cat">Mercados &amp; Finanças</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/0UlEda2sbKr01CuHUJovEK5Oybw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/1/X/FhqqFdSkAL1rZjfvnz1Q/2026-10-12t100644z-1568632658-rc2l1oa4s84m-rtrmadp-3-nobel-prize-economics.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-robert-hall-e-michael-woodford-vencem-nobel-de-e">Robert Hall e Michael Woodford vencem Nobel de Economia 2026 por estudos sobre estabilização econômica</a></h3>
+  <p class="dk">Os economistas americanos Robert Hall e Michael Woodford ganharam nesta segunda-feira o Prêmio Nobel de Economia de 2026 por décadas de trabalho no desenvolvimento de modelos construídos a partir de fundamentos…</p>
+  <p class="meta"><span>Valor Econômico · Estadão · Brazil Journal · Folha de S.Paulo · g1 · The New York Times · The Guardian · El País</span></p>
+
+</article>
+          <article class="cl" style="--sc:#2E6BD6">
+  <p class="cat">Mercados &amp; Finanças</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/Jpr4zeSe02UR4rEcDgJEs9Y22ps=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/0/O/DafOnkQvi5qdnLhdTQxQ/447366174.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-bolsas-abrem-mistas-em-ny-em-pregao-de-menor-liq">Bolsas abrem mistas em NY em pregão de menor liquidez por conta de feriado nos EUA</a></h3>
+  <p class="dk">Em dia de menor liquidez nos mercados americanos, por conta do feriado do Dia de Colombo, os principais índices de ações de Nova York abriram em direções opostas, nesta segunda-feira (12).</p>
+  <p class="meta"><span>Valor Econômico · Money Times</span></p>
+
+</article>
+          <article class="cl" style="--sc:#2E6BD6">
+  <p class="cat">Mercados &amp; Finanças</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/AA6OUsJJLf1T1LDLMhUuK1Vye9U=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/v/c/78J7nVRIihSCoNCVTpAg/arte13fin-101-guru-c6.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-a-reinvencao-dos-gurus-dos-multimercados">A reinvenção dos ‘gurus’ dos multimercados</a></h3>
+  <p class="dk">Os multimercados sofreram um baque estrutural e vivenciam uma transformação que atinge até aqueles considerados os inventores da indústria de “hedge funds” no Brasil.</p>
+  <p class="meta"><span>Valor Econômico</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-juridico" role="tabpanel" aria-labelledby="tab-juridico" style="--sc:#394A7A">
+        <h2 class="pane-hd">Jurídico &amp; Regulação</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#394A7A">
+  <p class="cat">Jurídico &amp; Regulação</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/cDU0wYWMY-x-kyci0Gg6yCHdCKw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/2/5/YQQ2GNRsiLMNBTKhQONQ/foto13bra-101-dfdata-a2.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-estados-vivem-onda-de-regulacao-para-receber-dat">Estados vivem onda de regulação para receber data centers</a></h3>
+  <p class="dk">A expansão dos investimentos em data centers no Brasil começa a provocar uma reação regulatória nos Estados, com propostas que vão da concessão de incentivos locais a novas exigências sobre uso de água, licenciamento…</p>
+  <p class="meta"><span>Valor Econômico</span></p>
+
+</article>
+          <article class="cl" style="--sc:#394A7A">
+  <p class="cat">Jurídico &amp; Regulação</p>
+  <figure class="ci" data-img><img src="https://res.stj.jus.br/sites/portalp/SiteAssets/imagens/internas_noticias/Portal%20interna%2011102026.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-stj-e-cfj-lamentam-partida-do-advogado-nelson-ma">STJ e CFJ lamentam partida do advogado Nelson Martins</a></h3>
+  <p class="dk">Em nome do Tribunal e do Conselho, o presidente do Superior Tribunal de Justiça (STJ) e do Conselho da Justiça Federal (CJF), ministro Luis Felipe Salomão, lamenta o falecimento do advogado Nelson Martins, pai do…</p>
+  <p class="meta"><span>STJ · Folha de S.Paulo</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-politica" role="tabpanel" aria-labelledby="tab-politica" style="--sc:#C90055">
+        <h2 class="pane-hd">Política</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#C90055">
+  <p class="cat">Política</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/eMKS9UP2Vnub3ZnD4qmurGRhxFw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/J/l/Nlsn8mTZqCdSNBRj5ZTg/foto16pol-211-flavio-a13.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-tse-manda-flavio-remover-video-que-associa-usuar">TSE manda Flávio remover vídeo que associa usuários de drogas no Chile a ato de Lula em SP</a></h3>
+  <p class="dk">O Tribunal Superior Eleitoral (TSE) determinou que a campanha do senador Flávio Bolsonaro (PL) remova um vídeo que associa falsamente o ato do presidente Luiz Inácio Lula da Silva (PT) em São Paulo no domingo (11) ao…</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · Estadão · g1 · Money Times · Exame · CNN Brasil</span></p>
+
+</article>
+          <article class="cl" style="--sc:#C90055">
+  <p class="cat">Política</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/XZ6uiWTXl3B8DQ57EGhIs_-Au_k=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/q/P/jMJ49pRUGC7nTONPyNPw/foto18pol-201-flavio-a6.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-flavio-comemora-decisao-de-moraes-e-diz-que-visi">Flávio comemora decisão de Moraes e diz que visitará Jair Bolsonaro nesta terça-feira</a></h3>
+  <p class="dk">O candidato do PL à Presidência da República, Flávio Bolsonaro, comemorou, nesta segunda-feira (12), a decisão do ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes, que o autorizou a retomar as visitas ao…</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · Estadão · g1 · Agência Brasil · CNN Brasil</span></p>
+
+</article>
+          <article class="cl" style="--sc:#C90055">
+  <p class="cat">Política</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/hsElbdRmKJmw8aWxlJIw02XKmJM=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/I/N/s6QDTmRlK24WGbQzcdog/ato-promovido-por-apoiadores-do-presidente-lula-na-praia-de-copacabana-nesta-segunda-12-de-outubro-de-2026-gabriel-de-paiva-gencia-o-globo.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-apoiadores-ocupam-quarteiroes-da-praia-de-copaca">Apoiadores ocupam quarteirões da Praia de Copacabana (RJ) em ato sem Lula no Rio</a></h3>
+  <p class="dk">Apoiadores do presidente Luiz Inácio Lula da Silva (PT) ocupavam vários quarteirões da Avenida Atlântica, em Copacabana, na Zona Sul do Rio, nesta segunda-feira (12).</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · Estadão · Agência Brasil · Money Times · Exame</span></p>
+
+</article>
+          <article class="cl" style="--sc:#C90055">
+  <p class="cat">Política</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/dYj_Qo6Jj1ckISVYzO9EoymJDUY=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/t/f/4gqZAlRn2FQU68NGqtAw/montagem-1791566155665.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-nova-pesquisa-datafolha-mede-se-voto-em-lula-e-f">Nova pesquisa Datafolha mede se voto em Lula e Flávio Bolsonaro no 2º turno é por apoio ou rejeição</a></h3>
+  <p class="dk">O Datafolha vai divulgar na quinta-feira (15) uma nova pesquisa sobre o segundo turno das eleições 2026 entre Flávio Bolsonaro (PL) e Lula (PT).</p>
+  <p class="meta"><span>Valor Econômico · Estadão · g1 · Money Times · Exame</span></p>
+
+</article>
+          <article class="cl" style="--sc:#C90055">
+  <p class="cat">Política</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/pjwPHpwgGZiJZTgHvqeBmz_uNnE=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/z/Y/RuktTaTj2fqwNBBZYqdA/montagem-2.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-programa-eleitoral-de-flavio-bolsonaro-homenagei">Programa eleitoral de Flávio Bolsonaro homenageia Nossa Senhora Aparecida, mas vai ao ar sem áudio</a></h3>
+  <p class="dk">O programa eleitoral do candidato à Presidência Flávio Bolsonaro (PL) foi ao com uma homenagem a Nossa Senhora Aparecida, padroeira do Brasil, cuja data é celebrada nesta segunda-feira (12).</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · g1 · Agência Brasil</span></p>
+
+</article>
+          <article class="cl" style="--sc:#C90055">
+  <p class="cat">Política</p>
+  <figure class="ci" data-img><img src="https://f.i.uol.com.br/fotografia/2026/10/12/17918259316acd180beaa7a_1791825931_3x2_rt.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-propaganda-de-flavio-bolsonaro-na-tv-e-transmiti">Propaganda de Flávio Bolsonaro na TV é transmitida sem som e candidato reclama</a></h3>
+  <p class="dk">A propaganda eleitoral gratuita de Flávio Bolsonaro (PL) foi transmitida sem som em parte das emissoras de TV nesta segunda-feira (12).</p>
+  <p class="meta"><span>Folha de S.Paulo · Estadão · Exame · CNN Brasil</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-mundo" role="tabpanel" aria-labelledby="tab-mundo" style="--sc:#0F7C8C">
+        <h2 class="pane-hd">Geopolítica &amp; Mundo</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#0F7C8C">
+  <p class="cat">Geopolítica &amp; Mundo</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/lBxodIUJvsR3WkhfmIW2zdEHAxU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/l/v/eC0CCyT5qFQ1mANsAPmg/2026-10-08t191952z-1479423146-rc26zna5rr8v-rtrmadp-3-usa-trump.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-trump-defende-acordo-para-comprar-diesel-da-russ">Trump defende acordo para comprar diesel da Rússia após críticas de republicanos e democratas</a></h3>
+  <p class="dk">O presidente dos Estados Unidos, Donald Trump, defendeu nesta segunda-feira um acordo que fechou com a Rússia para o fornecimento de diesel, enquanto parlamentares democratas e republicanos reclamaram que o entendimento…</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · InfoMoney · CNN Brasil · Financial Times · The New York Times · The Wall Street Journal · South China Morning Post</span></p>
+
+</article>
+          <article class="cl" style="--sc:#0F7C8C">
+  <p class="cat">Geopolítica &amp; Mundo</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/b3y4XcclXmTb0CIpoPKcFdvDWws=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/B/S/0GAyMRTUWw6vHJR6crJQ/2026-05-25t105722z-1756592236-rc2aglaq2y3k-rtrmadp-3-pope-encyclical-presentation.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-papa-leao-sera-internado-na-terca-feira-para-cir">Papa Leão será internado na terça-feira para cirurgia de retirada de nódulo no pulmão</a></h3>
+  <p class="dk">O papa Leão XIV será internado na terça-feira para passar por uma cirurgia de retirada de um pequeno nódulo encontrado em um de seus pulmões, informou o Vaticano.</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · Estadão · g1 · CNN Brasil</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-tecnologia" role="tabpanel" aria-labelledby="tab-tecnologia" style="--sc:#C2410C">
+        <h2 class="pane-hd">Tecnologia &amp; Negócios</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#C2410C">
+  <p class="cat">Tecnologia &amp; Negócios</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/Ok6SKs0Or1jGPlLeuofcxmkD8Ck=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/3/M/58vSkQSDu06thAbNxlFg/2026-10-12t033457z-1779123271-rc2f1oas8r1x-rtrmadp-3-imf-worldbank-1-.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-ia-sustenta-crescimento-global-de-3-mas-traz-gra">IA sustenta crescimento global de 3%, mas traz grandes transformações, diz FMI</a></h3>
+  <p class="dk">Os fortes investimentos em infraestrutura de inteligência artificial (IA) estão sustentando o crescimento da economia global em torno de 3%, com grandes benefícios para a Ásia, mas também anunciam um &#34;tsunami em câmera…</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · g1 · Poder360 · CNN Brasil</span></p>
+
+</article>
+          <article class="cl" style="--sc:#C2410C">
+  <p class="cat">Tecnologia &amp; Negócios</p>
+  <figure class="ci" data-img><img src="https://s2-valor.glbimg.com/bPyj8hep7OtMH7ZdMtBItq_a10w=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/K/e/Xn5nEMTvS7MZ5276aABQ/foto13emp-101-meta-b5.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-meta-alcancou-rivais-em-ia-e-nao-vai-desacelerar">Meta alcançou rivais em IA e não vai desacelerar, diz CEO</a></h3>
+  <p class="dk">A Meta alcançou seus rivais na “fronteira” da inteligência artificial, disse seu CEO, Mark Zuckerberg, comprometendo-se a realizar novos e vultosos investimentos para desafiar a Anthropic e a OpenAI.</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · NeoFeed</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-imobiliario" role="tabpanel" aria-labelledby="tab-imobiliario" style="--sc:#6B3FA0">
+        <h2 class="pane-hd">Imobiliário</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#6B3FA0">
+  <p class="cat">Imobiliário</p>
+  <figure class="ci" data-img><img src="https://imobireport.com.br/app/uploads/2026/10/Netimoveis-inaugura-primeira-unidade-nos-EUA-em-parceria-com-a-Elite-International-Realty-scaled.jpeg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-netimoveis-inaugura-primeira-unidade-nos-eua-em">Netimóveis inaugura primeira unidade nos EUA em parceria com a Elite International Realty</a></h3>
+  <p class="dk">A Netimóveis dá um passo histórico em sua expansão internacional com a inauguração de sua primeira unidade nos Estados Unidos, em parceria com a Elite International Realty, consultoria imobiliária internacional fundada…</p>
+  <p class="meta"><span>Imobi Report</span></p>
+
+</article>
+          <article class="cl" style="--sc:#6B3FA0">
+  <p class="cat">Imobiliário</p>
+  <figure class="ci" data-img><img src="https://www.estadao.com.br/resizer/v2/XLLTAZ7AIVCYNNHFSVXZA7LIAU.jpg?auth=c03404ff04dcdf999a977abe464ea272364a6c48c0fc22777cf1ced9d3d80446&amp;smart=true&amp;width=1000" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-preco-do-aluguel-de-escritorio-bate-recorde-com">Preço do aluguel de escritório bate recorde com volta do home office</a></h3>
+  <p class="dk">O valor do aluguel de escritórios está batendo recorde na cidade de São Paulo. O quadro resulta do aumento da procura por espaços comerciais devido à redução do home office, que se popularizou na pandemia.</p>
+  <p class="meta"><span>Estadão</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-esporte" role="tabpanel" aria-labelledby="tab-esporte" style="--sc:#B45309">
+        <h2 class="pane-hd">Esporte</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#B45309">
+  <p class="cat">Esporte</p>
+  <figure class="ci" data-img><img src="https://s3.glbimg.com/v1/AUTH_378ee63fe83141e69caddd838034e850/static/preview-share-min.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-bragantino-vence-ferroviaria-na-fonte-e-abre-van">Bragantino vence Ferroviária na Fonte e abre vantagem nas quartas da Copa do Brasil</a></h3>
+  <p class="dk">O Red Bull Bragantino conquistou uma vitória importante fora de casa pela Copa do Brasil Feminina.</p>
+  <p class="meta"><span>ge · Folha de S.Paulo · Gazeta Esportiva · Placar · Agência Brasil</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-natureza" role="tabpanel" aria-labelledby="tab-natureza" style="--sc:#2F7D32">
+        <h2 class="pane-hd">Natureza &amp; Meio Ambiente</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#2F7D32">
+  <p class="cat">Natureza &amp; Meio Ambiente</p>
+  <figure class="ci" data-img><img src="https://s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/public/fb_marca.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-incendios-na-amazonia-podem-ser-criminosos-afirm">Incêndios na Amazônia podem ser criminosos, afirma Capobianco</a></h3>
+  <p class="dk">Após sobrevoar as áreas atingidas por incêndios florestais no Amazonas, no domingo, o ministro do Meio Ambiente e Mudança do Clima, João Paulo Capobianco, disse que a situação é mais grave do que imaginava e que os…</p>
+  <p class="meta"><span>Valor Econômico · Folha de S.Paulo · Agência Brasil</span></p>
+
+</article>
+        </div>
+      </div>
+      <div class="tab-pane" id="pane-variedades" role="tabpanel" aria-labelledby="tab-variedades" style="--sc:#4B5563">
+        <h2 class="pane-hd">Cultura &amp; Variedades</h2>
+        <div class="cards">
+          <article class="cl" style="--sc:#4B5563">
+  <p class="cat">Cultura &amp; Variedades</p>
+  <figure class="ci" data-img><img src="https://classic.exame.com/wp-content/uploads/2026/10/TCDBRBA_EC119.webp" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+  <h3><a class="hit" href="#s-ator-rj-mitte-de-breaking-bad-morre-aos-34-anos">Ator RJ Mitte, de &#39;Breaking Bad&#39;, morre aos 34 anos</a></h3>
+  <p class="dk">O ator norte-americano RJ Mitte, conhecido por interpretar Walter White Jr. na série aclamada pela crítica Breaking Bad, morreu aos 34 anos nesta segunda-feira, 12.</p>
+  <p class="meta"><span>Exame · The Guardian · BBC News</span></p>
+
+</article>
+        </div>
+      </div>
+      <p class="no-res" id="noRes" hidden>Nenhuma matéria encontrada para esta busca.</p>
+    </div>
+    <aside class="tab-side" aria-labelledby="radar-h">
+      <div class="radar">
+        <h2 class="radar-hd" id="radar-h">Radar de Notícias</h2>
+        <ol class="radar-list">
+          <li><a class="radar-item" href="https://www.infomoney.com.br/mercados/futuros-de-ny-operam-mistos-acompanhando-queda-de-chips-e-balancos-nos-eua/" target="_blank" rel="noopener noreferrer"><span class="tm">06:19</span><span class="src">InfoMoney</span><span class="tt">Futuros de NY operam mistos acompanhando queda de chips e balanços nos EUA</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.bloomberglinea.com.br/negocios/com-softbank-como-socio-madeiramadeira-expande-operacao-logistica-apos-dobrar-receita/" target="_blank" rel="noopener noreferrer"><span class="tm">06:00</span><span class="src">Bloomberg Línea</span><span class="tt">Com SoftBank como sócio, MadeiraMadeira expande operação logística após dobrar receita</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://valor.globo.com/carreira/noticia/2026/10/13/terca-feira-e-dia-de-escritorio-aponta-pesquisa.ghtml" target="_blank" rel="noopener noreferrer"><span class="tm">06:00</span><span class="src">Valor Econômico</span><span class="tt">Terça-feira é ‘dia de escritório’, aponta pesquisa</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.infomoney.com.br/onde-investir/gestores-veem-risco-e-oportunidade-na-possivel-tributacao-de-debentures-isentas/" target="_blank" rel="noopener noreferrer"><span class="tm">06:00</span><span class="src">InfoMoney</span><span class="tt">Gestores veem risco e oportunidade na possível tributação de debêntures isentas</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.infomoney.com.br/mercados/bolsa-dispara-e-dolar-cai-464-o-que-esperar-dos-mercados/" target="_blank" rel="noopener noreferrer"><span class="tm">06:00</span><span class="src">InfoMoney</span><span class="tt">Bolsa dispara e dólar cai 4,64%; o que esperar dos mercados?</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://c-level.folha.uol.com.br/infraestrutura/2026/10/discussao-da-anatel-sobre-faixa-de-6-ghz-opoe-operadoras-de-telefonia-e-provedores-de-internet.shtml" target="_blank" rel="noopener noreferrer"><span class="tm">06:00</span><span class="src">Folha de S.Paulo</span><span class="tt">Discussão da Anatel sobre faixa de 6 GHz opõe operadoras de telefonia e provedores de internet</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.jota.info/opiniao-e-analise/colunas/deixe-dados-falarem/a-dificil-arte-de-instalar-uma-turbina-em-uma-carroca" target="_blank" rel="noopener noreferrer"><span class="tm">05:30</span><span class="src">JOTA</span><span class="tt">A difícil arte de instalar uma turbina em uma carroça</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.estadao.com.br/economia/petroleo-na-margem-equatorial-pode-abrir-nova-fronteira-para-fornecedores-de-bens-e-servicos/" target="_blank" rel="noopener noreferrer"><span class="tm">05:30</span><span class="src">Estadão</span><span class="tt">Petróleo na Margem Equatorial pode abrir nova fronteira para fornecedores de bens e serviços</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.jota.info/opiniao-e-analise/colunas/direito-dos-grupos-vulneraveis/overkill-em-casos-de-feminicidio-parte-1" target="_blank" rel="noopener noreferrer"><span class="tm">05:10</span><span class="src">JOTA</span><span class="tt">Overkill em casos de feminicídio – parte 1</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.jota.info/opiniao-e-analise/artigos/e-chegada-a-hora-de-uma-advocacia-publica-autonoma" target="_blank" rel="noopener noreferrer"><span class="tm">05:00</span><span class="src">JOTA</span><span class="tt">É chegada a hora de uma Advocacia Pública autônoma</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://www.jota.info/opiniao-e-analise/colunas/juizo-de-valor/violencia-processual-de-genero-quando-o-processo-fere" target="_blank" rel="noopener noreferrer"><span class="tm">05:00</span><span class="src">JOTA</span><span class="tt">Violência processual de gênero: quando o processo fere</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+          <li><a class="radar-item" href="https://valor.globo.com/opiniao/coluna/recompor-aprendizagem-em-escala-e-possivel.ghtml" target="_blank" rel="noopener noreferrer"><span class="tm">05:00</span><span class="src">Valor Econômico</span><span class="tt">Recompor aprendizagem em escala é possível</span><span class="sr-only"> (abre a fonte em nova aba)</span></a></li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="rat" id="racional" aria-labelledby="rat-h">
+  <h2 class="kicker" id="rat-h">Racional da edição</h2>
+  <p class="rat-sum">Edição automática (sem IA): as 1.282 notícias coletadas de 40 veículos foram agrupadas por títulos parecidos em 993 assuntos; as 24 matérias saíram por relevância, frescor e número de veículos. Nenhuma notícia foi descartada: todas estão na lista completa do dia.</p>
+  <p class="rat-all"><a href="https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-13-todas.html">Ver todas as 1.282 notícias do dia, por editoria e assunto &rarr;</a></p>
+  <p class="rat-note">Na análise de cada assunto, a IA define os dois enfoques do debate, interpreta o foco de cada veículo (o que priorizou, o enquadramento e o que deixou de lado em relação aos outros) e diz para que lado cada um seguiu. A barra cresce para o lado com mais veículos. A análise usa só os títulos e trechos publicados.</p>
+</section>
+
+
+</main>
+<footer class="ft">
+  <p><strong>PBCV Tech</strong> · 101 fontes consultadas · Edição automática (sem IA) · Terça-feira, 13 de outubro de 2026</p>
+  <p class="ft-links"><a href="./">Edições anteriores</a> · <a href="https://github.com/pbcvphyton/qi-journal" rel="noopener">Código-fonte</a></p>
+  <details>
+    <summary>Status das fontes · 90 de 101 feeds ok</summary>
+    <ul class="src-list">
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Valor Econômico <span class="nf">(7 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Folha de S.Paulo <span class="nf">(6 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Estadão <span class="nf">(5 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>g1 <span class="nf">(5 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>InfoMoney <span class="nf">(2 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Bloomberg Línea<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>NeoFeed<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Brazil Journal<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Poder360<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Agência Brasil <span class="nf">(6 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Exame<span class="sr-only"> — ok</span></li>
+      <li class="st-parcial"><span class="dot" aria-hidden="true"></span>CNN Brasil <span class="nf">(2 feeds)</span>: <em>HTTP 404</em><span class="sr-only"> — parcial</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Money Times <span class="nf">(2 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Seu Dinheiro<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Suno Notícias<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>JOTA<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Conjur<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>STF<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>STJ<span class="sr-only"> — ok</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>TST: <em>resposta vazia</em><span class="sr-only"> — erro</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>TSE: <em>HTTP 403</em><span class="sr-only"> — erro</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>CNJ: <em>XML inválido</em><span class="sr-only"> — erro</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>TJDFT: <em>0 itens</em><span class="sr-only"> — erro</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>TJMG: <em>HTTP 403</em><span class="sr-only"> — erro</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>TRF6: <em>timeout</em><span class="sr-only"> — erro</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Agência Câmara <span class="nf">(2 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Agência Senado<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Imobi Report<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Secovi-SP<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>CNBC <span class="nf">(4 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>South China Morning Post <span class="nf">(4 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Financial Times <span class="nf">(3 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>The Wall Street Journal <span class="nf">(2 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>MarketWatch<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>The New York Times <span class="nf">(4 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>The Guardian <span class="nf">(4 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>BBC News <span class="nf">(3 feeds)</span><span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Al Jazeera<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>TechCrunch<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>El País<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>ge<span class="sr-only"> — ok</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>UOL: <em>0 itens</em><span class="sr-only"> — erro</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Gazeta Esportiva<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Placar<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Trivela<span class="sr-only"> — ok</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>ESPN Brasil: <em>resposta vazia</em><span class="sr-only"> — erro</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Máquina do Esporte<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>BBC Sport<span class="sr-only"> — ok</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>ESPN: <em>resposta vazia</em><span class="sr-only"> — erro</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Um Só Planeta<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>((o))eco<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Mongabay Brasil<span class="sr-only"> — ok</span></li>
+      <li class="st-erro"><span class="dot" aria-hidden="true"></span>Observatório do Clima: <em>HTTP 403</em><span class="sr-only"> — erro</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>ClimaInfo<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Agência FAPESP<span class="sr-only"> — ok</span></li>
+      <li class="st-ok"><span class="dot" aria-hidden="true"></span>Mongabay<span class="sr-only"> — ok</span></li>
+    </ul>
+  </details>
+</footer>
+</div>
+<div class="modals">
+<div class="mo" id="s-varejo-cresce-6-3-no-3o-trimestre-indica-stone" role="dialog" aria-modal="true" aria-labelledby="t-varejo-cresce-6-3-no-3o-trimestre-indica-stone" style="--sc:#1B2745">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Brasil · Economia</p>
+      <h2 id="t-varejo-cresce-6-3-no-3o-trimestre-indica-stone">Varejo cresce 6,3% no 3º trimestre, indica Stone</h2>
+      <p class="mdek">As vendas do comércio encerraram o terceiro trimestre com alta de 6,3% na comparação anual, segundo o Índice do Varejo Stone (IVS), antecipado ao Valor.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/public/fb_marca.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>No comparativo com o segundo trimestre, o comércio teve crescimento de 1,6%. No acumulado de nove meses do ano, o comércio registrou crescimento de 4,7% em relação a igual período de 2025.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 2 notícias de 2 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/brasil/noticia/2026/10/13/varejo-cresce-63-no-3o-trimestre-indica-stone.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.infomoney.com.br/economia/varejo-encerra-3o-trimestre-com-alta-de-63-na-comparacao-anual-diz-stone/" target="_blank" rel="noopener noreferrer">InfoMoney <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T08:00:00+00:00">05:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-fmi-aponta-resiliencia-notavel-da-economia-globa" role="dialog" aria-modal="true" aria-labelledby="t-fmi-aponta-resiliencia-notavel-da-economia-globa" style="--sc:#1B2745">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Brasil · Economia</p>
+      <h2 id="t-fmi-aponta-resiliencia-notavel-da-economia-globa">FMI aponta ‘resiliência notável’ da economia global, mas alerta para riscos associados a dívidas e inflação</h2>
+      <p class="mdek">A economia global tem demonstrado uma resiliência notável diante do pior choque energético em décadas.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/GJTlROxHsbLCmNx3xddq1Hm3o_Y=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/2/V/aQOPm1RSGAuX97C5gGyw/silvana-tenreyro-nova-economista-chefe-do-fmi-rep-facultad-de-ciencias-economicas-de-tucuman.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>No entanto, se os custos de financiamento e a inflação não forem contidos, paira a ameaça de uma desaceleração acentuada, afirmou o Fundo Monetário Internacional (FMI). Em seu mais recente relatório Perspectiva Econômica Mundial, o FMI manteve sua previsão base de crescimento global em 3,1% para este ano. Embora o índice seja inferior aos 3,5% projetados para 2025, ainda representa um resultado relativamente sólido, considerando a turbulência no mercado de energia desencadeada pela guerra no Oriente Médio.</p>
+      <p>Nesse cenário — fundamentado em premissas como a normalização gradual dos fluxos de energia —, a economia dos EUA cresceria 2,3% tanto em 2026 quanto em 2027, mantendo-se estável em relação ao ano passado graças ao consumo privado, à política fiscal e aos investimentos em tecnologia.</p>
+      <p>As projeções para a zona do euro e o Reino Unido também permanecem, em grande parte, estáveis. A inflação global (índice geral) deve atingir 4,7% este ano — mesmo patamar previsto pelo FMI em julho, mas acima dos 4,1% registrados no ano passado.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 3 notícias de 3 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/mundo/noticia/2026/10/12/fmi-aponta-resilincia-notvel-da-economia-global-mas-alerta-para-riscos-associados-a-dvidas-e-inflao.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.ft.com/content/e0457dd5-8e75-4803-8ce8-6651157d2229" target="_blank" rel="noopener noreferrer">Financial Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.theguardian.com/business/2026/oct/13/imf-global-economy-world-economic-outlook-uk-gdp-forecast-2026" target="_blank" rel="noopener noreferrer">The Guardian <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T02:37:17+00:00">ontem, 23:37</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-presidente-eleito-tera-de-encarar-desafio-de-nov" role="dialog" aria-modal="true" aria-labelledby="t-presidente-eleito-tera-de-encarar-desafio-de-nov" style="--sc:#1B2745">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Brasil · Economia</p>
+      <h2 id="t-presidente-eleito-tera-de-encarar-desafio-de-nov">Presidente eleito terá de encarar desafio de nova reforma da previdência</h2>
+      <p class="mdek">Menos de dez anos após a última reforma da previdência, o próximo presidente assumirá com o tema mais uma vez em destaque para garantir a sustentabilidade do sistema de aposentadorias no Brasil, apontam especialistas.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/OXgmr3Kn5XetKrgtm_2jp8NmXQM=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/F/8/sxIrSpSR2cUAOvbMeh6A/foto13bra-101-previd-a4.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>O envelhecimento populacional se soma ao desafio mais amplo da situação fiscal do país, em que quase metade das despesas primárias totais já vem hoje de aposentadorias, pensões e benefícios sociais.</p>
+      <p>Com a piora em curso na relação entre contribuições e benefícios, os candidatos à Presidência da República terão que decidir se assumem a liderança de uma mudança tradicionalmente impopular nas regras previdenciárias, como o aumento da idade mínima para aposentadoria, ou se vão recorrer a alternativas como estímulos à formalização, aumento de arrecadação ou maior transferência de recursos do Orçamento.</p>
+      <p>A proporção entre o número de contribuintes e o de benefícios pagos pelo Instituto Nacional do Seguro Social (INSS), que hoje é de 1,8, deve ser de um para um em 2054 e de apenas 0,6 em 2085, aponta estimativa do pesquisador do Instituto de Pesquisa Econômica Aplicada (Ipea) e especialista em previdência Social Rogério Nagamine Costanzi. Significa que hoje para cada 1,8 contribuinte existe um benefício pago, e essa relação vai piorar se nada for feito.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 2 notícias de 1 veículo</p>      <ul>
+        <li><a href="https://valor.globo.com/brasil/noticia/2026/10/13/presidente-eleito-tera-de-encarar-desafio-de-nova-reforma-da-previdencia.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T08:00:00+00:00">05:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-teorias-de-premiados-com-nobel-de-economia-foram" role="dialog" aria-modal="true" aria-labelledby="t-teorias-de-premiados-com-nobel-de-economia-foram" style="--sc:#1B2745">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Brasil · Economia</p>
+      <h2 id="t-teorias-de-premiados-com-nobel-de-economia-foram">Teorias de premiados com Nobel de Economia foram debatidas por articulistas do Valor</h2>
+      <p class="mdek">As ideias do acadêmico Michael Woodford, que recebeu nesta segunda-feira (12) o Prêmio Nobel de Economia de 2026, juntamente com Robert Hall, foram debatidas por diversos economistas e articulistas nas páginas do Valor.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/TQ_CAxa5v_uv3TvpDKFd3_ABxu8=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/B/q/T7A6v2R5CSMTQzycMhMQ/nobeleconomia.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Em janeiro deste ano, Joaquim Levy, ex-secretário do Tesouro Nacional (2003-2006) e ex-ministro da Fazenda (2015), publicou artigo em que cita os modelos novo-Keynesianos defendidos por Woodford. “Decorre deles que a política monetária ótima envolve o banco central guiar expectativas através de atuação e comunicação críveis, baseadas na trajetória prevista da inflação. Essa base teórica reforçou a disseminação dos regimes de metas de inflação que chegaram ao Brasil em 1999”, afirma Levy.</p>
+      <p>Segundo o ex-ministro, os modelos novo-Keynesianos de equilíbrio geral dinâmico, que incorporavam a linguagem das expectativas racionais e davam proeminência aos juros para o controle da inflação, foram surgindo no debate econômico.</p>
+      <p>“Nos novos modelos, como o de Woodford em ‘Juros e Preços’ [seu livro, de 2003], com expectativas racionais, concorrência imperfeita e rigidez de preços, a inflação era determinada pelos juros, enquanto a moeda tornava-se variável endógena. Dada a aversão ao risco dos consumidores nesses modelos, a volatilidade apenas atrapalhava, implicando que políticas monetárias discricionárias e imprevisíveis seriam prejudiciais e ineficazes”, escreveu.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 2 notícias de 1 veículo</p>      <ul>
+        <li><a href="https://valor.globo.com/mundo/noticia/2026/10/12/teorias-de-premiados-com-nobel-de-economia-foram-debatidas-por-articulistas-do-valor.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T23:14:23+00:00">ontem, 20:14</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-robert-hall-e-michael-woodford-vencem-nobel-de-e" role="dialog" aria-modal="true" aria-labelledby="t-robert-hall-e-michael-woodford-vencem-nobel-de-e" style="--sc:#2E6BD6">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Mercados &amp; Finanças</p>
+      <h2 id="t-robert-hall-e-michael-woodford-vencem-nobel-de-e">Robert Hall e Michael Woodford vencem Nobel de Economia 2026 por estudos sobre estabilização econômica</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/0UlEda2sbKr01CuHUJovEK5Oybw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/1/X/FhqqFdSkAL1rZjfvnz1Q/2026-10-12t100644z-1568632658-rc2l1oa4s84m-rtrmadp-3-nobel-prize-economics.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Os economistas americanos Robert Hall e Michael Woodford ganharam nesta segunda-feira o Prêmio Nobel de Economia de 2026 por décadas de trabalho no desenvolvimento de modelos construídos a partir de fundamentos microeconômicos, atualmente utilizados por bancos centrais e governos em todo o mundo para estabilizar as economias.</p>
+      <p>&#34;Graças a eles, estamos mais bem preparados para lidar com choques na economia, como crises energéticas ou mudanças repentinas no consumo das famílias&#34;, afirmou John Hassler, presidente do Comitê do Prêmio de Ciências Econômicas, em comunicado.</p>
+      <p>A prestigiosa premiação, oficialmente conhecida como Prêmio de Ciências Econômicas do Banco da Suécia em Memória de Alfred Nobel, é a última a ser anunciada neste ano e tem um valor de 12 milhões de coroas suecas (US$ 1,2 milhão).</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 11 notícias de 8 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/mundo/noticia/2026/10/12/robert-hall-e-michael-woodford-vencem-prmio-nobel-de-economia-de-2026.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.estadao.com.br/economia/premio-nobel-economia-2026/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://braziljournal.com/como-estabilizar-uma-economia-os-vencedores-do-nobel-tem-a-formula" target="_blank" rel="noopener noreferrer">Brazil Journal <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/mercado/2026/10/quem-sao-robert-e-hall-e-michael-woodford-vencedores-do-nobel-de-economia-2026.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://g1.globo.com/economia/noticia/2026/10/12/nobel-de-economia-2026-vai-para-robert-e-hall-e-michael-woodford.ghtml" target="_blank" rel="noopener noreferrer">g1 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.nytimes.com/2026/10/12/business/nobel-prize-economics.html" target="_blank" rel="noopener noreferrer">The New York Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.theguardian.com/world/2026/oct/12/nobel-prize-for-economics-hall-woodford-new-keynesian-models" target="_blank" rel="noopener noreferrer">The Guardian <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://elpais.com/economia/2026-10-12/premio-nobel-de-economia-2026-en-directo-para.html" target="_blank" rel="noopener noreferrer">El País <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T09:59:25+00:00">ontem, 06:59</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-bolsas-abrem-mistas-em-ny-em-pregao-de-menor-liq" role="dialog" aria-modal="true" aria-labelledby="t-bolsas-abrem-mistas-em-ny-em-pregao-de-menor-liq" style="--sc:#2E6BD6">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Mercados &amp; Finanças</p>
+      <h2 id="t-bolsas-abrem-mistas-em-ny-em-pregao-de-menor-liq">Bolsas abrem mistas em NY em pregão de menor liquidez por conta de feriado nos EUA</h2>
+      <p class="mdek">Em dia de menor liquidez nos mercados americanos, por conta do feriado do Dia de Colombo, os principais índices de ações de Nova York abriram em direções opostas, nesta segunda-feira (12).</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/Jpr4zeSe02UR4rEcDgJEs9Y22ps=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/0/O/DafOnkQvi5qdnLhdTQxQ/447366174.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Enquanto investidores aguardam o início da temporada de balanços do terceiro trimestre, que pode confirmar ou não o otimismo com o setor de tecnologia, a agenda do pregão é praticamente esvaziada, com exceção de um discurso da presidente da distrital do Federal Reserve (Fed) de Cleveland, Beth Hammack. O mercado de títulos americano está fechado.</p>
+      <p>Por volta das 10h35 (de Brasília), o índice Dow Jones subia 0,34%, aos 51.835,05 pontos, enquanto o S&amp;P 500 operava perto da estabilidade (+0,05%), aos 7.815,67 pontos, e o Nasdaq apresentava queda de 0,17%, aos 27.322,277 pontos. Entre os destaques, o setor de energia liderava as altas, acumulando uma valorização de 1,43%, em linha com o avanço dos preços do petróleo PELA manhã. Por outro lado, tecnologia (-0,4%) apresentava a maior queda, com peso de fabricantes de chips e semicondutores, como a Micron Technology (-4,79%), SanDisk (-4,86%), Intel (-2,78%) e a AMD (-2,38%).</p>
+      <p>Os preços do petróleo apresentam firme valorização PELA manhã, com o contrato mais líquido do Brent, usado como a referência mundial, sendo negociado a US$ 106,82 no horário citado acima, contribuindo para pressionar o desempenho das bolsas.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 3 notícias de 2 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/financas/noticia/2026/10/12/bolsas-abrem-mistas-em-ny-em-pregao-de-menor-liquidez-por-conta-de-feriado-nos-eua.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.moneytimes.com.br/bolsas-da-asia-fecham-mistas-kospi-tomba-mais-de-5-apos-interrupcao-do-pregao-fets/" target="_blank" rel="noopener noreferrer">Money Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T14:09:30+00:00">ontem, 11:09</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-a-reinvencao-dos-gurus-dos-multimercados" role="dialog" aria-modal="true" aria-labelledby="t-a-reinvencao-dos-gurus-dos-multimercados" style="--sc:#2E6BD6">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Mercados &amp; Finanças</p>
+      <h2 id="t-a-reinvencao-dos-gurus-dos-multimercados">A reinvenção dos ‘gurus’ dos multimercados</h2>
+      <p class="mdek">Os multimercados sofreram um baque estrutural e vivenciam uma transformação que atinge até aqueles considerados os inventores da indústria de “hedge funds” no Brasil.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/AA6OUsJJLf1T1LDLMhUuK1Vye9U=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/v/c/78J7nVRIihSCoNCVTpAg/arte13fin-101-guru-c6.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>No deslocamento de recursos gigante que se viu na inversão do ciclo monetário desde 2022, o trio formado por Luis Stuhlberger, da Verde , Rogério Xavier, da SPX, e André Jakurski, da JGP, viu o patrimônio das suas gestoras encolher nas estratégias macro.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 2 notícias de 1 veículo</p>      <ul>
+        <li><a href="https://valor.globo.com/financas/noticia/2026/10/13/a-reinvencao-dos-gurus-dos-multimercados.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T08:00:00+00:00">05:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-estados-vivem-onda-de-regulacao-para-receber-dat" role="dialog" aria-modal="true" aria-labelledby="t-estados-vivem-onda-de-regulacao-para-receber-dat" style="--sc:#394A7A">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Jurídico &amp; Regulação</p>
+      <h2 id="t-estados-vivem-onda-de-regulacao-para-receber-dat">Estados vivem onda de regulação para receber data centers</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/cDU0wYWMY-x-kyci0Gg6yCHdCKw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/2/5/YQQ2GNRsiLMNBTKhQONQ/foto13bra-101-dfdata-a2.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>A expansão dos investimentos em data centers no Brasil começa a provocar uma reação regulatória nos Estados, com propostas que vão da concessão de incentivos locais a novas exigências sobre uso de água, licenciamento ambiental e transparência.</p>
+      <p>Dos 16 projetos apresentados nas assembleias estaduais em 2026, oito criam restrições ou ônus aos empreendimentos. As propostas favoráveis eram maioria no ano passado, segundo levantamento da Innova Assuntos Públicos obtido com exclusividade pelo Valor.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 2 notícias de 1 veículo</p>      <ul>
+        <li><a href="https://valor.globo.com/brasil/noticia/2026/10/13/estados-vivem-onda-de-regulacao-para-receber-data-centers.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T08:00:00+00:00">05:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-stj-e-cfj-lamentam-partida-do-advogado-nelson-ma" role="dialog" aria-modal="true" aria-labelledby="t-stj-e-cfj-lamentam-partida-do-advogado-nelson-ma" style="--sc:#394A7A">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Jurídico &amp; Regulação</p>
+      <h2 id="t-stj-e-cfj-lamentam-partida-do-advogado-nelson-ma">STJ e CFJ lamentam partida do advogado Nelson Martins</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://res.stj.jus.br/sites/portalp/SiteAssets/imagens/internas_noticias/Portal%20interna%2011102026.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Em nome do Tribunal e do Conselho, o presidente do Superior Tribunal de Justiça (STJ) e do Conselho da Justiça Federal (CJF), ministro Luis Felipe Salomão, lamenta o falecimento do advogado Nelson Martins, pai do ministro Cristiano Zanin, e manifesta os mais sinceros sentimentos aos amigos e familiares. O pesar de todas e todos neste momento de luto, com a certeza de que o legado – sempre presente nos filhos e netos – será eterno.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 2 notícias de 2 veículos</p>      <ul>
+        <li><a href="https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2026/11102026-STJ-e-CFJ-lamentam-partida-do-advogado-Nelson-Martins.aspx" target="_blank" rel="noopener noreferrer">STJ <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/poder/2026/10/morre-aos-90-anos-o-advogado-nelson-martins-pai-do-ministro-cristiano-zanin.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-tse-manda-flavio-remover-video-que-associa-usuar" role="dialog" aria-modal="true" aria-labelledby="t-tse-manda-flavio-remover-video-que-associa-usuar" style="--sc:#C90055">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Política</p>
+      <h2 id="t-tse-manda-flavio-remover-video-que-associa-usuar">TSE manda Flávio remover vídeo que associa usuários de drogas no Chile a ato de Lula em SP</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/eMKS9UP2Vnub3ZnD4qmurGRhxFw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/J/l/Nlsn8mTZqCdSNBRj5ZTg/foto16pol-211-flavio-a13.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>O Tribunal Superior Eleitoral (TSE) determinou que a campanha do senador Flávio Bolsonaro (PL) remova um vídeo que associa falsamente o ato do presidente Luiz Inácio Lula da Silva (PT) em São Paulo no domingo (11) ao uso de drogas. A determinação vale para outros bolsonaristas que compartilharam a postagem, como o deputado Nikolas Ferreira (PL-MG) e o senador eleito Carlos Bolsonaro (PL-SC), irmão do candidato.</p>
+      <p>As imagens mostram uma mulher de vermelho usando drogas. Segundo documentos reunidos pelo PT, o vídeo já circulava no X pelo menos um dia antes do ato, no sábado (10), &#34;e foi gravado aparentemente no Chile&#34;, diz o partido, em nota.</p>
+      <p>Na decisão, o Marco Aurélio Bellizze diz que a divulgação do vídeo &#34;pode caracterizar grave manipulação por descontextualização&#34;. &#34;Essa forma de apresentação falsa e manipulada dos fatos, mesclando acontecimentos reais e situações que de fato não ocorreram é extremamente deletéria&#34;, diz o magistrado. &#34;A gravidade é acentuada, em tese, quando a imagem é combinada com afirmações generalizantes sobre consumo de drogas e com apelo eleitoral explícito.&#34;</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 8 notícias de 7 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/12/tse-manda-flvio-remover-vdeo-que-associa-usurios-de-drogas-no-chile-a-ato-de-lula-em-sp.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/blogs/brasilia-hoje/2026/10/tse-manda-flavio-e-aliados-removerem-video-falso-sobre-uso-de-cocaina-por-menina-em-ato-pro-lula.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.estadao.com.br/politica/eleicoes/tse-manda-flavio-carlos-bolsonaro-e-marcal-removerem-video-falso-sobre-drogas-em-ato-do-pt-em-sp/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://g1.globo.com/politica/noticia/2026/10/12/tse-manda-flavio-bolsonaro-apagar-video-enganoso-sobre-manifestacao-pro-lula-na-paulista.ghtml" target="_blank" rel="noopener noreferrer">g1 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.moneytimes.com.br/tse-manda-flavio-carlos-e-marcal-removerem-video-falso-sobre-drogas-em-ato-do-pt-em-sp-fets/" target="_blank" rel="noopener noreferrer">Money Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://exame.com/brasil/tse-manda-flavio-bolsonaro-e-aliados-removerem-video-falso-sobre-drogas-em-ato-de-lula/" target="_blank" rel="noopener noreferrer">Exame <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.cnnbrasil.com.br/eleicoes/tse-manda-flavio-remover-video-fake-de-consumo-de-drogas-em-ato-pro-lula/" target="_blank" rel="noopener noreferrer">CNN Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T23:55:03+00:00">ontem, 20:55</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-flavio-comemora-decisao-de-moraes-e-diz-que-visi" role="dialog" aria-modal="true" aria-labelledby="t-flavio-comemora-decisao-de-moraes-e-diz-que-visi" style="--sc:#C90055">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Política</p>
+      <h2 id="t-flavio-comemora-decisao-de-moraes-e-diz-que-visi">Flávio comemora decisão de Moraes e diz que visitará Jair Bolsonaro nesta terça-feira</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/XZ6uiWTXl3B8DQ57EGhIs_-Au_k=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/q/P/jMJ49pRUGC7nTONPyNPw/foto18pol-201-flavio-a6.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>O candidato do PL à Presidência da República, Flávio Bolsonaro, comemorou, nesta segunda-feira (12), a decisão do ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes, que o autorizou a retomar as visitas ao pai, o ex-presidente Jair Bolsonaro. Condenado por tentativa de golpe de Estado, Bolsonaro cumpre prisão domiciliar em Brasília.</p>
+      <p>Segundo o senador, a primeira visita, de 30 minutos, ocorrerá nesta terça-feira (13). A declaração foi dada a jornalistas após Flávio participar de uma missa na Catedral de Brasília, no feriado de Nossa Senhora Aparecida.</p>
+      <p>A agenda religiosa de Flávio ocorreu após circularem, nas redes sociais, no primeiro das eleições, acusações de que o candidato do PL teria a intenção de retirar o título de Padroeira do Brasil de Nossa Senhora Aparecida, ao que ele rebateu.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 9 notícias de 6 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/12/flavio-comemora-decisao-de-moraes-e-diz-que-visitara-jair-bolsonaro-nesta-terca-feira.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/poder/2026/10/moraes-autoriza-flavio-bolsonaro-a-retomar-visitas-ao-pai-e-mantem-veto-a-declaracoes-politicas.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.estadao.com.br/politica/eleicoes/flavio-comemora-decisao-de-moraes-e-diz-que-vai-visitar-jair-bolsonaro-nesta-terca-feira/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/12/moraes-autoriza-retomada-de-visitas-de-flavio-ao-ex-presidente-jair-bolsonaro.ghtml" target="_blank" rel="noopener noreferrer">g1 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/moraes-autoriza-flavio-bolsonaro-visitar-o-pai-preso-em-casa" target="_blank" rel="noopener noreferrer">Agência Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.cnnbrasil.com.br/eleicoes/flavio-retoma-visitas-a-jair-bolsonaro-e-lula-faz-anuncio-para-meis/" target="_blank" rel="noopener noreferrer">CNN Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T16:33:37+00:00">ontem, 13:33</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-apoiadores-ocupam-quarteiroes-da-praia-de-copaca" role="dialog" aria-modal="true" aria-labelledby="t-apoiadores-ocupam-quarteiroes-da-praia-de-copaca" style="--sc:#C90055">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Política</p>
+      <h2 id="t-apoiadores-ocupam-quarteiroes-da-praia-de-copaca">Apoiadores ocupam quarteirões da Praia de Copacabana (RJ) em ato sem Lula no Rio</h2>
+      <p class="mdek">Apoiadores do presidente Luiz Inácio Lula da Silva (PT) ocupavam vários quarteirões da Avenida Atlântica, em Copacabana, na Zona Sul do Rio, nesta segunda-feira (12).</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/hsElbdRmKJmw8aWxlJIw02XKmJM=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/I/N/s6QDTmRlK24WGbQzcdog/ato-promovido-por-apoiadores-do-presidente-lula-na-praia-de-copacabana-nesta-segunda-12-de-outubro-de-2026-gabriel-de-paiva-gencia-o-globo.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Entre os puxadores do movimento na capital fluminense estavam a deputada federal Benedita da Silva, que concorreu ao Senado na chapa do petista, mas não se elegeu, e Jandira Feghali (PCdoB), reeleita para a Câmara Federal.</p>
+      <p>O candidato à reeleição pelo PT ficou em Brasília para participar de celebrações do Dia de Nossa Senhora Aparecida, entre elas uma missa restrita na capela do Palácio da Alvorada, em Brasília. Aliados do petista ficaram responsáveis por representá-lo na passeata carioca.</p>
+      <p>Majoritariamente com roupas vermelhas, os apoiadores levaram bandeiras de apoio a Lula e cartazes críticos ao adversário no segundo turno, o senador Flávio Bolsonaro (PL). Boa parte dos participantes utilizava adesivos com o nome e o número do candidato e gritavam palavras de ordem em defesa da soberania — uma das bandeiras da campanha, que acusa os Estados Unidos de tentarem intervir no pleito brasileiro em favor da candidatura oponente.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 6 notícias de 6 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/12/apoiadores-ocupam-quarteiroes-da-praia-de-copacabana-rj-em-ato-sem-lula-no-rio.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/poder/2026/10/rio-tem-ato-de-apoiadores-de-lula-em-copacabana-durante-feriado-nacional.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.estadao.com.br/politica/eleicoes/apoiadores-realizam-ato-pro-lula-em-copacabana-sem-a-presenca-do-presidente/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/milhares-de-pessoas-lotam-orla-de-copacabana-em-apoio-lula" target="_blank" rel="noopener noreferrer">Agência Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.moneytimes.com.br/mesmo-sem-lula-apoiadores-do-presidente-no-rio-de-janeiro-realizam-ato-em-copacabana/" target="_blank" rel="noopener noreferrer">Money Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://exame.com/brasil/apoiadores-de-lula-ocupam-quarteiroes-em-copacabana-durante-ato/" target="_blank" rel="noopener noreferrer">Exame <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T18:00:36+00:00">ontem, 15:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-nova-pesquisa-datafolha-mede-se-voto-em-lula-e-f" role="dialog" aria-modal="true" aria-labelledby="t-nova-pesquisa-datafolha-mede-se-voto-em-lula-e-f" style="--sc:#C90055">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Política</p>
+      <h2 id="t-nova-pesquisa-datafolha-mede-se-voto-em-lula-e-f">Nova pesquisa Datafolha mede se voto em Lula e Flávio Bolsonaro no 2º turno é por apoio ou rejeição</h2>
+      <p class="mdek">O Datafolha vai divulgar na quinta-feira (15) uma nova pesquisa sobre o segundo turno das eleições 2026 entre Flávio Bolsonaro (PL) e Lula (PT).</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/dYj_Qo6Jj1ckISVYzO9EoymJDUY=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/t/f/4gqZAlRn2FQU68NGqtAw/montagem-1791566155665.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Os resultados do levantamento serão divulgados uma semana depois da primeira rodada do instituto no segundo turno, em que os dois candidatos apareceram em empate técnico. Além da intenção de voto estimulada, o Datafolha também fará uma pergunta espontânea sobre a disputa presidencial. O instituto perguntará ainda os motivos do voto em cada candidato e, no caso dos eleitores que declaram voto branco ou nulo, as razões para essa escolha. O questionário também mede se o voto já está totalmente decidido ou se ainda pode mudar até o dia da eleição.</p>
+      <p>A pesquisa também medirá rejeição aos dois candidatos e perguntará se o voto declarado no segundo turno ocorre principalmente porque o eleitor considera o escolhido o melhor candidato ou porque quer derrotar o adversário.</p>
+      <p>Além disso, um dos blocos da pesquisa busca mapear o comportamento eleitoral anterior dos entrevistados. O questionário pergunta se o eleitor votou no primeiro turno de 2026 e em quem votou para presidente, além de recuperar o voto declarado no segundo turno de 2022. A pesquisa também pergunta em que ponto o entrevistado se coloca em uma escala de 1 a 5, em que 1 é “bolsonarista” e 5 é “petista”, e se ele ou alguém da casa recebe Bolsa Família.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 9 notícias de 5 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/12/nova-pesquisa-datafolha-mede-se-voto-em-lula-e-flavio-bolsonaro-no-2o-turno-e-por-apoio-ou-rejeicao.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.estadao.com.br/politica/eleicoes/duas-novas-pesquisas-de-voto-presidencial-do-2-turno-saem-nos-proximos-dias-veja-as-datas-npr/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://g1.globo.com/df/distrito-federal/eleicoes/2026/noticia/2026/10/12/quaest-df-presidente-segundo-turno-12-outubro.ghtml" target="_blank" rel="noopener noreferrer">g1 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.moneytimes.com.br/quaest-no-df-flavio-bolsonaro-tem-50-e-lula-40-no-2o-turno-fets/" target="_blank" rel="noopener noreferrer">Money Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://exame.com/brasil/pesquisa-para-presidente-flavio-bolsonaro-tem-52-e-lula-48-diz-btg-nexus/" target="_blank" rel="noopener noreferrer">Exame <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T12:12:03+00:00">ontem, 09:12</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-programa-eleitoral-de-flavio-bolsonaro-homenagei" role="dialog" aria-modal="true" aria-labelledby="t-programa-eleitoral-de-flavio-bolsonaro-homenagei" style="--sc:#C90055">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Política</p>
+      <h2 id="t-programa-eleitoral-de-flavio-bolsonaro-homenagei">Programa eleitoral de Flávio Bolsonaro homenageia Nossa Senhora Aparecida, mas vai ao ar sem áudio</h2>
+      <p class="mdek">O programa eleitoral do candidato à Presidência Flávio Bolsonaro (PL) foi ao com uma homenagem a Nossa Senhora Aparecida, padroeira do Brasil, cuja data é celebrada nesta segunda-feira (12).</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/pjwPHpwgGZiJZTgHvqeBmz_uNnE=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/z/Y/RuktTaTj2fqwNBBZYqdA/montagem-2.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>O programa também contou com a participação do escritor Augusto Cury, que disputou a Presidência e foi derrotado no primeiro turno. O programa do candidato do PL foi ao ar sem áudio, o que o motivou a criticar o Tribunal Superior Eleitoral (TSE), que alegou ter havido uma falha técnica por parte das empresas de mídia que são responsáveis pela transmissão. As empresas admitiram a falha. O programa poderá ser reexibido, segundo o TSE.</p>
+      <p>Na abertura, a peça fez referência à data como um momento para o Brasil lembrar de sua padroeira e reconhecer a fé de seu povo. Na última semana da campanha para o 1º turno das eleições de 2026, Nossa Senhora Aparecida foi alçada ao centro do debate político nacional.</p>
+      <p>Publicações atribuíram a Flávio a intenção de retirar da Santa o título de Padroeira do Brasil, informação negada pelo candidato, mas que provocou reações de adversários, da Conferência Nacional dos Bispos do Brasil (CNBB) e da Justiça.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 10 notícias de 4 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/noticia/2026/10/12/programa-eleitoral-de-flvio-bolsonaro-homenageia-nossa-senhora-aparecida-mas-vai-ao-ar-sem-udio.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/poder/2026/10/flavio-participa-de-missa-de-nossa-senhora-e-diz-que-vai-visitar-bolsonaro-nesta-terca.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://g1.globo.com/politica/noticia/2026/10/12/dia-de-nossa-senhora-lula-e-flavio-vao-a-missa-em-brasilia-alckmin-publica-video-rumo-a-aparecida.ghtml" target="_blank" rel="noopener noreferrer">g1 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-defende-respeito-religioes-no-dia-de-nossa-senhora-aparecida" target="_blank" rel="noopener noreferrer">Agência Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T02:14:33+00:00">ontem, 23:14</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-propaganda-de-flavio-bolsonaro-na-tv-e-transmiti" role="dialog" aria-modal="true" aria-labelledby="t-propaganda-de-flavio-bolsonaro-na-tv-e-transmiti" style="--sc:#C90055">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Política</p>
+      <h2 id="t-propaganda-de-flavio-bolsonaro-na-tv-e-transmiti">Propaganda de Flávio Bolsonaro na TV é transmitida sem som e candidato reclama</h2>
+      <p class="mdek">A propaganda eleitoral gratuita de Flávio Bolsonaro (PL) foi transmitida sem som em parte das emissoras de TV nesta segunda-feira (12).</p>
+    </header>
+    <figure class="mi" data-img><img src="https://f.i.uol.com.br/fotografia/2026/10/12/17918259316acd180beaa7a_1791825931_3x2_rt.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Antes de haver alguma explicação sobre a origem do ocorrido, o candidato gravou um vídeo supondo que alguém tentou calá-lo e criticando o caso. &#34;O meu programa eleitoral foi transmitido sem som. É isso mesmo, mudo. O meu programa foi transmitido sem som. O do Lula tava com som, tudo OK, mas o meu, transmitido sem som. Você acredita em coincidência? Cara, não. Não acredito. Não existe coincidência&#34;, afirmou.</p>
+      <p>&#34;Eles acham que vão calar minha voz. Não vão calar, não vão conseguir, não adianta. Isso não acontece por acaso, né?&#34;, questionou Flávio. Sua equipe divulgou a íntegra do programa, com o vídeo, em redes sociais.</p>
+      <p>A responsabilidade pela retransmissão das peças publicitárias das campanhas é do Pool de Mídia das Eleições 2026, uma estrutura montada pelas próprias emissoras no 5º andar da sede do tribunal, em Brasília, em parceria com o órgão.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 6 notícias de 4 veículos</p>      <ul>
+        <li><a href="https://www1.folha.uol.com.br/poder/2026/10/propaganda-de-flavio-bolsonaro-na-tv-e-transmitida-sem-som-e-candidato-reclama.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.estadao.com.br/politica/eleicoes/propaganda-eleitoral-de-flavio-na-tv-e-transmitida-sem-som/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://exame.com/brasil/flavio-bolsonaro-reclama-de-propaganda-sem-audio-na-tv-e-cobra-esclarecimentos/" target="_blank" rel="noopener noreferrer">Exame <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.cnnbrasil.com.br/eleicoes/o-que-sabemos-sobre-a-propaganda-de-flavio-que-foi-exibida-sem-audio/" target="_blank" rel="noopener noreferrer">CNN Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T17:35:00+00:00">ontem, 14:35</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-trump-defende-acordo-para-comprar-diesel-da-russ" role="dialog" aria-modal="true" aria-labelledby="t-trump-defende-acordo-para-comprar-diesel-da-russ" style="--sc:#0F7C8C">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Geopolítica &amp; Mundo</p>
+      <h2 id="t-trump-defende-acordo-para-comprar-diesel-da-russ">Trump defende acordo para comprar diesel da Rússia após críticas de republicanos e democratas</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/lBxodIUJvsR3WkhfmIW2zdEHAxU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/l/v/eC0CCyT5qFQ1mANsAPmg/2026-10-08t191952z-1479423146-rc26zna5rr8v-rtrmadp-3-usa-trump.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>O presidente dos Estados Unidos, Donald Trump, defendeu nesta segunda-feira um acordo que fechou com a Rússia para o fornecimento de diesel, enquanto parlamentares democratas e republicanos reclamaram que o entendimento parece violar uma lei americana que proíbe a importação de energia russa até que Moscou encerre sua agressão contra a Ucrânia.</p>
+      <p>Trump afirmou que está tomando medidas para reduzir os elevados preços dos combustíveis, que ameaçam as chances dos republicanos nas eleições legislativas de meio de mandato, marcadas para 3 de novembro. Os preços dispararam desde que ele iniciou uma guerra contra o Irã, há sete meses, mas o presidente atribui aos ataques ucranianos contra refinarias russas um dos principais fatores por trás da alta.</p>
+      <p>&#34;Tomei a decisão certa para o povo americano — SEMPRE, OS ESTADOS UNIDOS EM PRIMEIRO LUGAR! &#34;, escreveu Trump em uma publicação nas redes sociais. Trump afirmou na sexta-feira que a Rússia havia concordado em fornecer diesel aos mercados globais, e seu governo suspendeu temporariamente as sanções americanas sobre os combustíveis russos, destinadas a privar Moscou de receitas para financiar sua guerra contra a Ucrânia.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 9 notícias de 8 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/mundo/noticia/2026/10/12/trump-defende-acordo-para-comprar-diesel-da-rssia-aps-crticas-de-republicanos-e-democratas.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/mercado/2026/10/trump-enfrenta-resistencia-de-republicanos-a-acordo-sobre-diesel-com-a-russia.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.infomoney.com.br/business/global/apos-acordo-sobre-diesel-russo-trump-enfrenta-nova-crise-em-relacao-a-ucrania/" target="_blank" rel="noopener noreferrer">InfoMoney <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.cnnbrasil.com.br/internacional/acordo-trump-putin-sobre-diesel-e-irrisorio-diz-especialista/" target="_blank" rel="noopener noreferrer">CNN Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.ft.com/content/5bc438a0-26b7-4893-9d62-1f45d2963eef" target="_blank" rel="noopener noreferrer">Financial Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.nytimes.com/2026/10/12/world/europe/russia-ukraine-war-us-diesel-deal-negotiations.html" target="_blank" rel="noopener noreferrer">The New York Times <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.wsj.com/business/energy-oil/why-trumps-diesel-supply-deal-with-russia-wont-ease-fuel-prices-much-a8b0b3f5" target="_blank" rel="noopener noreferrer">The Wall Street Journal <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.scmp.com/news/china/diplomacy/article/3370620/why-china-likely-be-cautious-about-recent-trump-putin-diesel-deal" target="_blank" rel="noopener noreferrer">South China Morning Post <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T17:11:50+00:00">ontem, 14:11</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-papa-leao-sera-internado-na-terca-feira-para-cir" role="dialog" aria-modal="true" aria-labelledby="t-papa-leao-sera-internado-na-terca-feira-para-cir" style="--sc:#0F7C8C">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Geopolítica &amp; Mundo</p>
+      <h2 id="t-papa-leao-sera-internado-na-terca-feira-para-cir">Papa Leão será internado na terça-feira para cirurgia de retirada de nódulo no pulmão</h2>
+      <p class="mdek">O papa Leão XIV será internado na terça-feira para passar por uma cirurgia de retirada de um pequeno nódulo encontrado em um de seus pulmões, informou o Vaticano.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/b3y4XcclXmTb0CIpoPKcFdvDWws=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/B/S/0GAyMRTUWw6vHJR6crJQ/2026-05-25t105722z-1756592236-rc2aglaq2y3k-rtrmadp-3-pope-encyclical-presentation.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>O pontífice manteve sua agenda intensa nesta segunda-feira, realizando sete reuniões previamente agendadas durante a manhã. Leão XIV, de 71 anos, afirmou no domingo que o pequeno nódulo havia sido identificado durante um exame recente, estava &#34;bem delimitado&#34; e havia sido detectado precocemente. Antes da internação, o papa cancelou todos os seus compromissos públicos de terça-feira até 20 de outubro.</p>
+      <p>O nódulo foi encontrado durante um exame de rotina, informou a assessoria de imprensa do Vaticano a jornalistas nesta segunda-feira, antes de confirmar que o papa deverá ser internado no fim da manhã de terça-feira, antes da cirurgia.</p>
+      <p>O comunicado habitual sobre a agenda diária do papa, divulgado nesta segunda-feira, informou que ele se reuniu naquela manhã com bispos em visita ao Vaticano, vindos da Argentina, da Nicarágua e dos Estados Unidos, entre outros países.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 11 notícias de 5 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/mundo/noticia/2026/10/12/papa-leo-mantm-agenda-intensa-antes-de-cirurgia-para-retirar-ndulo-do-pulmo.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/mundo/2026/10/vaticano-diz-que-leao-14-sera-internado-na-terca-13-para-retirar-nodulo-do-pulmao.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.estadao.com.br/internacional/papa-leao-xiv-sera-internado-na-terca-para-retirar-nodulo-no-pulmao-npr/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://g1.globo.com/mundo/noticia/2026/10/13/papa-leao-xiv-sera-internado-nesta-terca-para-operacao-de-retirada-de-nodulo-no-pulmao.ghtml" target="_blank" rel="noopener noreferrer">g1 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.cnnbrasil.com.br/internacional/papa-leao-xiv-deve-ser-internado-para-cirurgia-nesta-terca-feira-13/" target="_blank" rel="noopener noreferrer">CNN Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T11:54:48+00:00">ontem, 08:54</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-ia-sustenta-crescimento-global-de-3-mas-traz-gra" role="dialog" aria-modal="true" aria-labelledby="t-ia-sustenta-crescimento-global-de-3-mas-traz-gra" style="--sc:#C2410C">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Tecnologia &amp; Negócios</p>
+      <h2 id="t-ia-sustenta-crescimento-global-de-3-mas-traz-gra">IA sustenta crescimento global de 3%, mas traz grandes transformações, diz FMI</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/Ok6SKs0Or1jGPlLeuofcxmkD8Ck=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/3/M/58vSkQSDu06thAbNxlFg/2026-10-12t033457z-1779123271-rc2f1oas8r1x-rtrmadp-3-imf-worldbank-1-.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Os fortes investimentos em infraestrutura de inteligência artificial (IA) estão sustentando o crescimento da economia global em torno de 3%, com grandes benefícios para a Ásia, mas também anunciam um &#34;tsunami em câmera lenta&#34; que poderá provocar profundas transformações nos mercados de trabalho, na tributação e na educação. As afirmações foram feitas nesta segunda-feira pela diretora-gerente do Fundo Monetário Internacional (FMI), Kristalina Georgieva.</p>
+      <p>A chefe do FMI acrescentou que o boom de investimentos em IA já está provocando um &#34;choque de demanda, um choque de investimentos&#34; que poderá elevar o crescimento das economias avançadas da Ásia entre 0,5 e 1 ponto percentual e o das economias emergentes asiáticas entre 0,2 e 0,8 ponto percentual, afirmou.</p>
+      <p>&#34;Inteligência artificial, goste-se ou não, ela já está aqui&#34;, disse Georgieva. &#34;Essa aceleração é o que está mantendo a economia mundial crescendo em torno de 3%, apesar de estarmos sendo prejudicados pelo choque na oferta de energia&#34;, afirmou diante de centenas de participantes no primeiro dia das reuniões do FMI e do Banco Mundial, que se estendem por uma semana na capital tailandesa.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 6 notícias de 5 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/mundo/noticia/2026/10/12/ia-sustenta-crescimento-global-de-3percent-mas-traz-grandes-transformacoes-diz-fmi.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/mercado/2026/10/fmi-reduz-projecao-de-crescimento-do-brasil-mas-eleva-a-da-economia-global.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://g1.globo.com/economia/noticia/2026/10/13/fmi-eleva-projecao-para-economia-global-mas-ve-ganho-concentrado-com-a-ia.ghtml" target="_blank" rel="noopener noreferrer">g1 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.poder360.com.br/poder-economia/fmi-reduz-previsao-de-crescimento-do-brasil-para-22-em-2026/" target="_blank" rel="noopener noreferrer">Poder360 <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.cnnbrasil.com.br/economia/fmi-reduz-projecao-do-pib-do-brasil-da-china-e-eleva-da-economia-global/" target="_blank" rel="noopener noreferrer">CNN Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T13:04:00+00:00">ontem, 10:04</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-meta-alcancou-rivais-em-ia-e-nao-vai-desacelerar" role="dialog" aria-modal="true" aria-labelledby="t-meta-alcancou-rivais-em-ia-e-nao-vai-desacelerar" style="--sc:#C2410C">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Tecnologia &amp; Negócios</p>
+      <h2 id="t-meta-alcancou-rivais-em-ia-e-nao-vai-desacelerar">Meta alcançou rivais em IA e não vai desacelerar, diz CEO</h2>
+      <p class="mdek">A Meta alcançou seus rivais na “fronteira” da inteligência artificial, disse seu CEO, Mark Zuckerberg, comprometendo-se a realizar novos e vultosos investimentos para desafiar a Anthropic e a OpenAI.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s2-valor.glbimg.com/bPyj8hep7OtMH7ZdMtBItq_a10w=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/K/e/Xn5nEMTvS7MZ5276aABQ/foto13emp-101-meta-b5.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Ao mesmo tempo, o executivo rejeita apelos para desacelerar o desenvolvimento dessa tecnologia poderosa.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 4 notícias de 3 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/empresas/noticia/2026/10/13/meta-alcancou-rivais-em-ia-e-nao-vai-desacelerar-diz-ceo.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://c-level.folha.uol.com.br/ia/2026/10/mark-zuckerberg-afirma-que-meta-alcancou-fronteira-da-ia-e-descarta-pisar-no-freio.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://neofeed.com.br/inovacao/zuckerberg-diz-ter-alcancado-rivais-na-corrida-da-ia-e-prepara-nova-ofensiva-bilionaria/" target="_blank" rel="noopener noreferrer">NeoFeed <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T08:00:00+00:00">05:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-netimoveis-inaugura-primeira-unidade-nos-eua-em" role="dialog" aria-modal="true" aria-labelledby="t-netimoveis-inaugura-primeira-unidade-nos-eua-em" style="--sc:#6B3FA0">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Imobiliário</p>
+      <h2 id="t-netimoveis-inaugura-primeira-unidade-nos-eua-em">Netimóveis inaugura primeira unidade nos EUA em parceria com a Elite International Realty</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://imobireport.com.br/app/uploads/2026/10/Netimoveis-inaugura-primeira-unidade-nos-EUA-em-parceria-com-a-Elite-International-Realty-scaled.jpeg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>A Netimóveis dá um passo histórico em sua expansão internacional com a inauguração de sua primeira unidade nos Estados Unidos, em parceria com a Elite International Realty, consultoria imobiliária internacional fundada por brasileiros e com 30 anos de atuação no mercado da Flórida. A empresa passa a integrar oficialmente a rede como Elite Realty Netimóveis Member. A parceria é resultado de um processo de anos de negociação, planejamento e estruturação da operação entre Brasil e Estados Unidos.</p>
+      <p>Com a nova unidade, a Netimóveis passa a contar, pela primeira vez, com uma empresa imobiliária associada à sua rede no mercado americano, enquanto a Elite amplia sua conexão com uma das principais redes imobiliárias do Brasil. “Nós estamos dando um passo histórico, que é a inauguração da unidade Netimóveis nos Estados Unidos. Depois de anos de muita negociação, planejamento e construção minuciosa dessa operação entre o Brasil e os EUA, temos o imenso prazer de anunciar que a imobiliária Elite International Realty passa a fazer parte da nossa rede.</p>
+      <p>A partir de agora, ela integrará o grupo como Elite Realty Netimóveis Member”, afirma Rodrigo Capanema, COO, diretor comercial e de expansão da Netimóveis. Para Daniel Ickowicz, CEO e diretor de vendas da Elite International Realty, a parceria representa uma aproximação estratégica entre a experiência da empresa no mercado americano e a presença da Netimóveis entre os brasileiros. “Para a Elite, essa parceria representa uma conexão muito importante com o mercado imobiliário brasileiro.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+      <ul>
+        <li><a href="https://imobireport.com.br/imobiliario/netimoveis-inaugura-primeira-unidade-nos-eua-em-parceria-com-a-elite-international-realty/" target="_blank" rel="noopener noreferrer">Imobi Report <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T08:00:00+00:00">05:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-preco-do-aluguel-de-escritorio-bate-recorde-com" role="dialog" aria-modal="true" aria-labelledby="t-preco-do-aluguel-de-escritorio-bate-recorde-com" style="--sc:#6B3FA0">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Imobiliário</p>
+      <h2 id="t-preco-do-aluguel-de-escritorio-bate-recorde-com">Preço do aluguel de escritório bate recorde com volta do home office</h2>
+      <p class="mdek">O valor do aluguel de escritórios está batendo recorde na cidade de São Paulo. O quadro resulta do aumento da procura por espaços comerciais devido à redução do home office, que se popularizou na pandemia.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://www.estadao.com.br/resizer/v2/XLLTAZ7AIVCYNNHFSVXZA7LIAU.jpg?auth=c03404ff04dcdf999a977abe464ea272364a6c48c0fc22777cf1ced9d3d80446&amp;smart=true&amp;width=1000" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Agora, cada vez mais empresas têm voltado ao expediente presencial. Há também empresas expandindo as suas atividades, o que demanda espaço extra para suas equipes. Levantamento da consultoria imobiliária Binswanger Brazil mostrou que o preço médio anunciado para o aluguel nos edifícios de alto padrão chegou ao recorde de R$ 144 por metro quadrado no terceiro trimestre. Esse valor equivale a um aumento de 16% em um ano (estava em R$ 124/m² no mesmo período de 2025) e de 23% em dois anos (R$ 117/m²).</p>
+      <p>Paralelamente, a quantidade de espaços vagos nesses prédios diminuiu, chegando a 12,9% no terceiro trimestre, contra 15,1% há um ano e 20,8% há dois anos. “O aumento no preço do aluguel é reflexo da queda na vacância geral do mercado. A oferta e a demanda estão fazendo os preços se recuperarem”, disse a sócia-diretora da Binswanger Brazil, Simone Santos.</p>
+      <p>O diretor de Ativos e Produtos do Grupo Binswanger, Paulo Izuka, observou que o aumento do aluguel nos escritórios está se disseminando por todas as regiões da capital paulista. “Há cerca de dois anos, o preço começou a subir nas regiões mais centralizadas, como Itaim, Juscelino Kubitschek e Faria Lima, onde a procura é maior. O preço médio do aluguel ali está na faixa de R$ 320/m². Em alguns prédios mais…</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+      <ul>
+        <li><a href="https://www.estadao.com.br/economia/coluna-da-broad/preco-do-aluguel-de-escritorio-bate-recorde-com-volta-do-home-office/" target="_blank" rel="noopener noreferrer">Estadão <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T01:00:00+00:00">ontem, 22:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-bragantino-vence-ferroviaria-na-fonte-e-abre-van" role="dialog" aria-modal="true" aria-labelledby="t-bragantino-vence-ferroviaria-na-fonte-e-abre-van" style="--sc:#B45309">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Esporte</p>
+      <h2 id="t-bragantino-vence-ferroviaria-na-fonte-e-abre-van">Bragantino vence Ferroviária na Fonte e abre vantagem nas quartas da Copa do Brasil</h2>
+      <p class="mdek">O Red Bull Bragantino conquistou uma vitória importante fora de casa pela Copa do Brasil Feminina.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://s3.glbimg.com/v1/AUTH_378ee63fe83141e69caddd838034e850/static/preview-share-min.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Na noite desta segunda-feira (12), o Massa Bruta venceu a Ferroviária por 2 a 0 na Arena da Fonte Luminosa, em Araraquara (SP), no jogo de ida do confronto que abriu as quartas de final da competição.</p>
+      <p>A partida de volta será na terça-feira que vem (20), às 18h (horário de Brasília), no Estádio Cícero de Souza Marques, em Bragança Paulista (SP). As Guerreiras Grenás precisam vencer por três ou mais gols de diferença no tempo normal para virar o duelo e passarem de fase. O Braga se classifica às semifinais em caso de empate ou até mesmo se perder por um gol de saldo.</p>
+      <p>A primeira boa chance do jogo foi das Bragantinas. Aos 17 minutos do primeiro tempo, a zagueira Camila Ambrósio completou de cabeça o escanteio da esquerda. A bola foi por cima do gol, rente ao poste superior.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 5 notícias de 5 veículos</p>      <ul>
+        <li><a href="https://ge.globo.com/sp/ribeirao-preto-e-regiao/futebol/futebol-feminino/copa-do-brasil-feminina/jogo/12-10-2026/ferroviaria-bragantino.ghtml" target="_blank" rel="noopener noreferrer">ge <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/esporte/2026/10/bragantino-vence-ferroviaria-e-sai-na-frente-nas-quartas-da-copa-do-brasil-feminina.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.gazetaesportiva.com/times/bragantino/red-bull-bragantino-vence-ferroviaria-quartas-copa-do-brasil-feminina/" target="_blank" rel="noopener noreferrer">Gazeta Esportiva <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://placar.com/futebol-feminino/bragantino-quebra-invencibilidade-em-araraquara-e-tem-vantagem-nas-quartas/" target="_blank" rel="noopener noreferrer">Placar <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/copa-do-brasil-bragantino-abre-vantagem-sobre-ferroviaria-nas-quartas" target="_blank" rel="noopener noreferrer">Agência Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T23:26:34+00:00">ontem, 20:26</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-incendios-na-amazonia-podem-ser-criminosos-afirm" role="dialog" aria-modal="true" aria-labelledby="t-incendios-na-amazonia-podem-ser-criminosos-afirm" style="--sc:#2F7D32">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Natureza &amp; Meio Ambiente</p>
+      <h2 id="t-incendios-na-amazonia-podem-ser-criminosos-afirm">Incêndios na Amazônia podem ser criminosos, afirma Capobianco</h2>
+    </header>
+    <figure class="mi" data-img><img src="https://s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/public/fb_marca.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>Após sobrevoar as áreas atingidas por incêndios florestais no Amazonas, no domingo, o ministro do Meio Ambiente e Mudança do Clima, João Paulo Capobianco, disse que a situação é mais grave do que imaginava e que os indícios apontam que as queimadas são criminosas.</p>
+      <p>A região vive uma crise com aumento de focos de incêndio entre setembro e outubro, atingindo principalmente a Região Metropolitana de Manaus.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 3 notícias de 3 veículos</p>      <ul>
+        <li><a href="https://valor.globo.com/brasil/noticia/2026/10/13/incendios-na-amazonia-podem-ser-criminosos-afirma-capobianco.ghtml" target="_blank" rel="noopener noreferrer">Valor Econômico <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www1.folha.uol.com.br/ambiente/2026/10/ministro-diz-que-incendios-no-amazonas-indicam-acao-criminosa.shtml" target="_blank" rel="noopener noreferrer">Folha de S.Paulo <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/amazonas-tem-540-focos-de-incendio-nas-ultimas-48-horas" target="_blank" rel="noopener noreferrer">Agência Brasil <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-13T08:00:00+00:00">05:00</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+<div class="mo" id="s-ator-rj-mitte-de-breaking-bad-morre-aos-34-anos" role="dialog" aria-modal="true" aria-labelledby="t-ator-rj-mitte-de-breaking-bad-morre-aos-34-anos" style="--sc:#4B5563">
+  <article class="ml" tabindex="-1">
+    <button class="mc" type="button" aria-label="Fechar matéria">&times;</button>
+    <header class="mhd">
+      <p class="mcat">Cultura &amp; Variedades</p>
+      <h2 id="t-ator-rj-mitte-de-breaking-bad-morre-aos-34-anos">Ator RJ Mitte, de &#39;Breaking Bad&#39;, morre aos 34 anos</h2>
+      <p class="mdek">O ator norte-americano RJ Mitte, conhecido por interpretar Walter White Jr. na série aclamada pela crítica Breaking Bad, morreu aos 34 anos nesta segunda-feira, 12.</p>
+    </header>
+    <figure class="mi" data-img><img src="https://classic.exame.com/wp-content/uploads/2026/10/TCDBRBA_EC119.webp" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>
+    <div class="bt">
+      <p>A informação foi confirmada por seus representantes à revista estadunidense Variety e à imprensa dos Estados Unidos.</p>
+    </div>
+    <div class="bb">
+      <h3>Fontes</h3>
+<p class="mcomp">Compilada de 3 notícias de 3 veículos</p>      <ul>
+        <li><a href="https://exame.com/pop/ator-rj-mitte-de-breaking-bad-morre-aos-34-anos/" target="_blank" rel="noopener noreferrer">Exame <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.theguardian.com/culture/2026/oct/12/rj-mitte-breaking-bad-actor-death" target="_blank" rel="noopener noreferrer">The Guardian <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+        <li><a href="https://www.bbc.co.uk/news/articles/cmn045en7d88o" target="_blank" rel="noopener noreferrer">BBC News <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+      </ul>
+    </div>
+    <p class="mtime" lang="pt-BR">Publicado: <time datetime="2026-10-12T18:06:29+00:00">ontem, 15:06</time> BRT</p>
+    <p class="mback" lang="pt-BR"><button class="mc2" type="button">&larr; Voltar à edição</button></p>
+  </article>
+</div>
+</div>
+<button class="btt" id="btt" type="button" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5.5 4.5 13l1.4 1.4 5.1-5.1V20h2V9.3l5.1 5.1 1.4-1.4z"/></svg></button>
+<script>
+(function () {
+  'use strict';
+  var d = document, w = window, root = d.documentElement;
+  var THEME_KEY = 'qij-theme';
+  var noMedia = { matches: false, addEventListener: function () {} };
+  function media(query) { return w.matchMedia ? w.matchMedia(query) : noMedia; }
+  var reduceMotion = media('(prefers-reduced-motion: reduce)');
+  var prefersDark = media('(prefers-color-scheme: dark)');
+
+  function storageGet(key) {
+    try { return w.localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function storageSet(key, value) {
+    try { w.localStorage.setItem(key, value); } catch (e) { /* armazenamento indisponível (modo privado) */ }
+  }
+  function onMediaChange(query, handler) {
+    if (query.addEventListener) query.addEventListener('change', handler);
+  }
+  function onResize(handler) {
+    var timer = 0;
+    w.addEventListener('resize', function () {
+      clearTimeout(timer);
+      timer = setTimeout(handler, 150);
+    });
+  }
+  function smooth() { return reduceMotion.matches ? 'auto' : 'smooth'; }
+
+  /* ── Tema claro/escuro ─────────────────────────────────────────────── */
+  var themeListeners = [];
+  function setupTheme() {
+    var button = d.getElementById('dmBtn');
+    var label = button && button.querySelector('.lbl');
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      if (label) label.textContent = theme === 'dark' ? 'Claro' : 'Escuro';
+      if (button) button.title = theme === 'dark' ? 'Mudar para o modo claro' : 'Mudar para o modo escuro';
+      themeListeners.forEach(function (fn) { fn(theme); });
+    }
+    apply(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+    if (button) {
+      button.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        storageSet(THEME_KEY, next);
+        apply(next);
+      });
+    }
+    onMediaChange(prefersDark, function (event) {
+      var saved = storageGet(THEME_KEY);
+      if (saved !== 'dark' && saved !== 'light') apply(event.matches ? 'dark' : 'light');
+    });
+  }
+
+  /* ── Cabeçalho: rede de partículas em canvas 2D (bem sutil) ────────── */
+  function setupCanvas() {
+    var canvas = d.getElementById('mast-canvas');
+    var ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (!ctx) return;
+    var LINK = 110, width = 0, height = 0, points = [], frame = 0, visible = true, colors = {};
+
+    function readColors() {
+      // --fx-* valem no próprio canvas: o cabeçalho em bloco de cor os redefine.
+      var style = getComputedStyle(canvas);
+      colors.dot = style.getPropertyValue('--fx-dot').trim() || '#394A7A';
+      colors.line = style.getPropertyValue('--fx-line').trim() || '#FF5A1F';
+    }
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      var ratio = Math.min(w.devicePixelRatio || 1, 2);
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      var count = Math.round(Math.min(90, Math.max(24, (width * height) / 2600)));
+      points = [];
+      for (var i = 0; i < count; i++) {
+        points.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.25
+        });
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = colors.line;
+      for (var i = 0; i < points.length; i++) {
+        for (var j = i + 1; j < points.length; j++) {
+          var dx = points[i].x - points[j].x, dy = points[i].y - points[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < LINK) {
+            ctx.globalAlpha = 1 - dist / LINK;
+            ctx.beginPath();
+            ctx.moveTo(points[i].x, points[i].y);
+            ctx.lineTo(points[j].x, points[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = colors.dot;
+      points.forEach(function (p) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+    function step() {
+      frame = 0;
+      points.forEach(function (p) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+      });
+      draw();
+      schedule();
+    }
+    function schedule() {
+      if (!frame && visible && !d.hidden && !reduceMotion.matches) frame = w.requestAnimationFrame(step);
+    }
+    function stop() {
+      if (frame) w.cancelAnimationFrame(frame);
+      frame = 0;
+    }
+    readColors();
+    resize();
+    draw();
+    schedule();
+    onResize(function () { resize(); draw(); });
+    themeListeners.push(function () { readColors(); draw(); });
+    onMediaChange(reduceMotion, function () { stop(); schedule(); });
+    d.addEventListener('visibilitychange', function () { stop(); schedule(); });
+    if ('IntersectionObserver' in w) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        stop();
+        schedule();
+      }).observe(canvas);
+    }
+  }
+
+  /* ── Ticker: rolagem contínua só quando não cabe numa linha ─────────── */
+  function setupTicker() {
+    var tk = d.querySelector('.tk');
+    if (!tk) return;
+    var rail = tk.querySelector('.tk-rail'), track = tk.querySelector('.tk-track'), pause = tk.querySelector('.tk-pause');
+    var clone = null;
+    function layout() {
+      if (clone) { clone.remove(); clone = null; }
+      tk.classList.remove('run');
+      if (pause) pause.hidden = true;
+      if (reduceMotion.matches) return;
+      tk.classList.add('run');
+      if (track.scrollWidth <= tk.clientWidth) {
+        tk.classList.remove('run');
+        return;
+      }
+      clone = track.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      rail.appendChild(clone);
+      tk.style.setProperty('--tk-dur', Math.max(20, Math.round(track.scrollWidth / 45)) + 's');
+      if (pause) pause.hidden = false;
+    }
+    if (pause) {
+      pause.addEventListener('click', function () {
+        var paused = tk.classList.toggle('paused');
+        pause.setAttribute('aria-label', paused ? 'Retomar rolagem das cotações' : 'Pausar rolagem das cotações');
+        pause.textContent = paused ? '▶' : '❚❚';
+      });
+    }
+    layout();
+    onResize(layout);
+    onMediaChange(reduceMotion, layout);
+  }
+
+  /* ── Abas por seção ────────────────────────────────────────────────── */
+  function setupTabs() {
+    var wrap = d.querySelector('.tabs-wrap');
+    if (!wrap) return null;
+    var tabs = Array.prototype.slice.call(wrap.querySelectorAll('[role="tab"]'));
+    var panes = Array.prototype.slice.call(wrap.querySelectorAll('.tab-pane'));
+    var bar = wrap.querySelector('.tabs-bar');
+    var api = { wrap: wrap, onSelect: null };
+
+    function reveal(tab) {
+      var left = tab.offsetLeft, right = left + tab.offsetWidth;
+      if (left < bar.scrollLeft) bar.scrollLeft = left - 16;
+      else if (right > bar.scrollLeft + bar.clientWidth) bar.scrollLeft = right - bar.clientWidth + 16;
+    }
+    function select(tab, focus) {
+      var key = tab.getAttribute('data-tab');
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+      });
+      wrap.classList.toggle('all', key === 'all');
+      panes.forEach(function (p) { p.classList.toggle('active', key === 'all' || p.id === 'pane-' + key); });
+      if (focus) tab.focus();
+      reveal(tab);
+    }
+    setupTabArrows(bar);
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        if (api.onSelect) api.onSelect();
+        select(tab, false);
+      });
+    });
+    bar.addEventListener('keydown', function (event) {
+      var index = tabs.indexOf(d.activeElement);
+      if (index < 0) return;
+      var next = null;
+      if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
+      else if (event.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
+      else if (event.key === 'Home') next = tabs[0];
+      else if (event.key === 'End') next = tabs[tabs.length - 1];
+      if (!next) return;
+      event.preventDefault();
+      if (api.onSelect) api.onSelect();
+      select(next, true);
+    });
+    return api;
+  }
+
+  /* Setas de rolagem quando as abas não cabem numa linha (atalho para o mouse). */
+  function setupTabArrows(bar) {
+    var nav = bar.parentNode;
+    var prev = nav.querySelector('.tabs-arrow.prev'), next = nav.querySelector('.tabs-arrow.next');
+    if (!prev || !next) return;
+    function update() {
+      prev.hidden = bar.scrollLeft <= 2;
+      next.hidden = bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2;
+    }
+    function scrollBy(direction) {
+      bar.scrollBy({ left: direction * bar.clientWidth * 0.6, behavior: smooth() });
+    }
+    prev.addEventListener('click', function () { scrollBy(-1); });
+    next.addEventListener('click', function () { scrollBy(1); });
+    bar.addEventListener('scroll', update, { passive: true });
+    onResize(update);
+    update();
+  }
+
+  /* ── Busca em tempo real (sem acento e sem diferenciar maiúsculas) ─── */
+  var modalIsOpen = function () { return false; };
+  function setupSearch(tabsApi) {
+    var input = d.getElementById('srchInput');
+    if (!input || !tabsApi) return;
+    var wrap = tabsApi.wrap;
+    var count = d.getElementById('srchCount'), none = d.getElementById('noRes');
+    var panes = Array.prototype.slice.call(wrap.querySelectorAll('.tab-pane'));
+    function norm(value) {
+      return value.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    }
+    var cards = Array.prototype.slice.call(wrap.querySelectorAll('.cl'));
+    cards.forEach(function (card) { card.searchText = norm(card.textContent.replace(/\s+/g, ' ')); });
+
+    function run() {
+      var terms = norm(input.value).split(/\s+/).filter(Boolean);
+      var total = 0;
+      wrap.classList.toggle('searching', terms.length > 0);
+      panes.forEach(function (pane) {
+        var shown = 0;
+        Array.prototype.forEach.call(pane.querySelectorAll('.cl'), function (card) {
+          var match = terms.every(function (t) { return card.searchText.indexOf(t) !== -1; });
+          card.classList.toggle('is-hidden', !match);
+          if (match) shown++;
+        });
+        pane.classList.toggle('empty', shown === 0);
+        total += shown;
+      });
+      if (count) count.textContent = terms.length ? (total === 1 ? '1 matéria' : total + ' matérias') : '';
+      if (none) none.hidden = !terms.length || total > 0;
+    }
+    function clear() {
+      if (!input.value) return;
+      input.value = '';
+      run();
+    }
+    function focusSearch() {
+      input.scrollIntoView({ block: 'center', behavior: smooth() });
+      input.focus({ preventScroll: true });
+    }
+    tabsApi.onSelect = clear;
+    input.addEventListener('input', run);
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && input.value) {
+        event.preventDefault();
+        clear();
+      }
+    });
+    var button = d.getElementById('srchBtn');
+    if (button) button.addEventListener('click', focusSearch);
+    d.addEventListener('keydown', function (event) {
+      var target = event.target;
+      var typing = target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName));
+      if (event.key === '/' && !typing && !event.ctrlKey && !event.metaKey && !event.altKey && !modalIsOpen()) {
+        event.preventDefault();
+        focusSearch();
+      }
+    });
+    if (input.value) run();
+  }
+
+  /* ── Modais das matérias (#s-<id>) ─────────────────────────────────── */
+  function setupModals() {
+    var modals = d.querySelectorAll('.mo');
+    if (!modals.length) return;
+    var paper = d.querySelector('.paper');
+    var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    var current = null, lastFocus = null, trigger = null, pushed = false;
+
+    function find(hash) {
+      if (!hash || hash.indexOf('#s-') !== 0) return null;
+      var id;
+      try { id = decodeURIComponent(hash.slice(1)); } catch (e) { return null; }
+      var el = d.getElementById(id);
+      return el && el.classList.contains('mo') ? el : null;
+    }
+    function open(modal) {
+      if (current === modal) return;
+      if (current) current.classList.remove('on');
+      else lastFocus = trigger || d.activeElement;
+      trigger = null;
+      current = modal;
+      modal.classList.add('on');
+      modal.scrollTop = 0;
+      d.body.classList.add('modal-open');
+      if (paper) paper.inert = true;
+      var box = modal.querySelector('.ml');
+      (box || modal).focus({ preventScroll: true });
+    }
+    function close() {
+      if (!current) return;
+      var modal = current;
+      current = null;
+      modal.classList.remove('on');
+      d.body.classList.remove('modal-open');
+      if (paper) paper.inert = false;
+      if (w.location.hash === '#' + modal.id) {
+        // Aberto por um link desta página: voltar no histórico; aberto por URL: só limpar a âncora.
+        if (pushed) w.history.back();
+        else if (w.history.replaceState) w.history.replaceState(null, '', w.location.pathname + w.location.search);
+      }
+      pushed = false;
+      if (lastFocus && lastFocus.focus && d.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+      lastFocus = null;
+    }
+    function sync() {
+      var modal = find(w.location.hash);
+      if (modal) open(modal);
+      else close();
+    }
+    modalIsOpen = function () { return current !== null; };
+
+    d.addEventListener('click', function (event) {
+      var link = event.target.closest ? event.target.closest('a[href^="#s-"]') : null;
+      if (link && find(link.getAttribute('href'))) {
+        pushed = true;
+        trigger = link;
+      }
+    });
+    Array.prototype.forEach.call(modals, function (modal) {
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal || (event.target.closest && event.target.closest('.mc,.mc2'))) close();
+      });
+    });
+    d.addEventListener('keydown', function (event) {
+      if (!current) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        close();
+      } else if (event.key === 'Tab') {
+        var items = Array.prototype.filter.call(current.querySelectorAll(FOCUSABLE), function (el) {
+          return el.offsetParent !== null;
+        });
+        if (!items.length) return;
+        var first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && (d.activeElement === first || !current.contains(d.activeElement))) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && d.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+    w.addEventListener('hashchange', sync);
+    // Aberto pelo link do e-mail (…/AAAA-MM-DD.html#s-id): uma entrada da edição
+    // entra no histórico antes da matéria, para o "voltar" do sistema fechar o
+    // modal e cair na edição (em vez de sair do site).
+    var initial = find(w.location.hash);
+    if (initial && w.history.pushState && w.history.replaceState) {
+      w.history.replaceState(null, '', w.location.pathname + w.location.search);
+      w.history.pushState(null, '', '#' + initial.id);
+      pushed = true;
+    }
+    sync();
+    // O Chromium limpa o foco depois da navegação por âncora: devolve o foco ao
+    // diálogo quando a página termina de carregar (leitor de tela anuncia a matéria).
+    w.addEventListener('load', function () {
+      if (current) (current.querySelector('.ml') || current).focus({ preventScroll: true });
+    });
+  }
+
+  /* ── Idade relativa ("há 3 h") recalculada na hora da leitura ───────── */
+  function setupAges() {
+    var now = Date.now();
+    Array.prototype.forEach.call(d.querySelectorAll('time[data-age]'), function (el) {
+      var then = Date.parse(el.getAttribute('datetime') || '');
+      if (isNaN(then)) return;
+      var minutes = Math.floor((now - then) / 60000), label;
+      if (minutes < 1) label = 'agora';
+      else if (minutes < 60) label = 'há ' + minutes + ' min';
+      else if (minutes < 24 * 60) label = 'há ' + Math.floor(minutes / 60) + ' h';
+      else if (minutes < 48 * 60) label = 'ontem';
+      else {
+        var day = new Date(then);
+        label = ('0' + day.getDate()).slice(-2) + '/' + ('0' + (day.getMonth() + 1)).slice(-2);
+      }
+      el.textContent = label;
+    });
+  }
+
+  /* ── Progresso de leitura e voltar ao topo ─────────────────────────── */
+  function setupScroll() {
+    var progress = d.getElementById('rdprog'), top = d.getElementById('btt');
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var y = w.pageYOffset || root.scrollTop;
+      var max = root.scrollHeight - w.innerHeight;
+      if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+      if (top) top.classList.toggle('show', y > 400);
+    }
+    w.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        w.requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    if (top) {
+      top.addEventListener('click', function () {
+        w.scrollTo({ top: 0, behavior: smooth() });
+        var skipTarget = d.querySelector('.mast h1');
+        if (skipTarget) {
+          skipTarget.setAttribute('tabindex', '-1');
+          skipTarget.focus({ preventScroll: true });
+        }
+      });
+    }
+    update();
+  }
+
+  setupTheme();
+  setupCanvas();
+  setupTicker();
+  setupSearch(setupTabs());
+  setupAges();
+  setupModals();
+  setupScroll();
+})();</script>
+</body>
+</html>
