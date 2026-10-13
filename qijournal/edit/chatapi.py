@@ -36,6 +36,7 @@ from typing import Any
 from qijournal import text
 from qijournal.config import ApiConfig, Config
 from qijournal.edit.llm import LLMUnavailable, _Usage
+from qijournal.net import USER_AGENT
 
 log = logging.getLogger(__name__)
 
@@ -214,6 +215,9 @@ class ChatBackend:
             "Authorization": f"Bearer {self._key}",
             "Content-Type": "application/json",
             "Accept": "application/json",
+            # Sem User-Agent o urllib se apresenta como "Python-urllib/3.x", que o Cloudflare
+            # da AIML recusa com 403 ("blocked access based on your browser's signature").
+            "User-Agent": USER_AGENT,
         }
 
     def _wait_slot(self, label: str, deadline: float | None) -> None:

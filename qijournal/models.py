@@ -15,6 +15,7 @@ Convenções:
 
 from __future__ import annotations
 
+import copy
 from dataclasses import asdict, dataclass, field, fields
 from typing import Any
 
@@ -401,6 +402,10 @@ class Edition:
     # assunto); vazios em edições antigas.
     rationale: Rationale | None = None
     index: list[IndexTopic] = field(default_factory=list)
+    # Termômetro de Viés Editorial do dia (qijournal.termometro.analise.registro_do_dia):
+    # as análises dos textos compilados e os dados da execução; None quando o
+    # termômetro não rodou (marca sem termômetro, edições antigas).
+    termometro: dict[str, Any] | None = None
 
     def story(self, story_id: str) -> Story:
         for s in self.stories:
@@ -429,6 +434,7 @@ class Edition:
             "compared": [c.to_dict() for c in self.compared],
             "rationale": self.rationale.to_dict() if self.rationale else None,
             "index": [t.to_dict() for t in self.index],
+            "termometro": copy.deepcopy(self.termometro) if self.termometro is not None else None,
         }
 
     @classmethod
@@ -453,4 +459,5 @@ class Edition:
             compared=[Coverage.from_dict(c) for c in data.get("compared") or [] if isinstance(c, dict)],
             rationale=Rationale.from_dict(data["rationale"]) if isinstance(data.get("rationale"), dict) else None,
             index=[IndexTopic.from_dict(t) for t in data.get("index") or [] if isinstance(t, dict)],
+            termometro=copy.deepcopy(data["termometro"]) if isinstance(data.get("termometro"), dict) else None,
         )

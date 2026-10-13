@@ -1,6 +1,7 @@
 {#- Página da edição. Variáveis: v (EditionView), brand, home_href, archive_href. -#}
 {% extends "layout.html.j2" %}
 {% import "macros.html.j2" as m %}
+{% import "termometro.html.j2" as tm %}
 
 {% block title %}{{ brand.name }} — {{ v.date_label }}{% endblock %}
 {% block description %}{{ v.description }}{% endblock %}
@@ -25,6 +26,9 @@
 
 {% block tools %}
     <a class="tool" href="{{ archive_href }}" title="Edições anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Edições</span></a>
+    {% if v.termometro and v.termometro.analitico_href %}
+    <a class="tool tool-an" href="{{ v.termometro.analitico_href }}" title="Analítico Político: todo o histórico do termômetro" aria-label="Analítico Político"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V7M16 16v-8M21 16V4"/></svg><span>Analítico</span></a>
+    {% endif %}
     {% if v.sections %}
     <button class="tool" type="button" id="srchBtn" aria-controls="srchInput" title="Buscar (atalho: /)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Buscar</span></button>
     {% endif %}
@@ -209,6 +213,33 @@
     </li>
     {% endfor %}
   </ol>
+</section>
+{% endif %}
+
+{% if v.termometro %}
+{% set t = v.termometro %}
+<section class="term" id="termometro" aria-labelledby="term-h">
+  <div class="arch-top">
+    <h2 class="kicker" id="term-h">Termômetro do dia</h2>
+    {% if t.analitico_href %}<a class="arch-home" href="{{ t.analitico_href }}">Analítico Político &rarr;</a>{% endif %}
+  </div>
+  {% if t.vazio %}
+  <p class="term-note">Sem análise nesta edição: {{ t.motivo }}.</p>
+  {% else %}
+  <p class="term-sum">{{ t.resumo }}{% if t.gauge and t.gauge.ic %} <span>(intervalo de 95%: {{ t.gauge.ic }})</span>{% endif %}</p>
+  {% if t.gauge %}{{ tm.gauge(t.gauge) }}{% endif %}
+  {% if t.distribuicao %}{{ tm.dist(t.distribuicao) }}{% endif %}
+  <p class="term-meta">{{ t.meta|join(" · ") }}</p>
+  <details class="term-det">
+    <summary>Cada texto analisado ({{ t.analises|length }})</summary>
+    <ol class="ta-list">
+      {% for a in t.analises %}
+      {{ tm.analise(a) }}
+      {% endfor %}
+    </ol>
+  </details>
+  {% endif %}
+  <p class="term-note">Termômetro de Viés Editorial (v1.1): a IA aponta, em cada texto compilado, sinais de tratamento desigual com a citação literal; o cálculo confere cada citação no texto e dá T de &minus;100 (esquerda) a +100 (direita). Mede o tratamento dado pelo texto, não a veracidade dos fatos; opinião fica à parte.</p>
 </section>
 {% endif %}
 

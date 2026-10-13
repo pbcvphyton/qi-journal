@@ -1,0 +1,11 @@
+# Termômetro de Viés Editorial (v1.1): âncoras de campo político.
+#
+# A IA classifica cada ator e cada fonte de um texto como esquerda,
+# centro_esquerda, centro, centro_direita, direita ou indefinido. Uma âncora
+# fixa o campo de um partido, governo ou grupo, para que a classificação seja
+# a mesma em todos os textos e em todos os dias. Sem âncora, a IA usa a
+# filiação e a posição que o próprio texto informa e explica a escolha. As
+# âncoras vão no pedido de cada análise.
+#
+# Formato: - {nome: "Partido X", siglas: [PX], campo: esquerda}
+ancoras: []

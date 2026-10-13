@@ -122,6 +122,38 @@ class ApiConfig:
 
 
 DEFAULT_APIS: dict[str, dict[str, Any]] = {
+    # Plano gratuito do Google AI Studio (só modelos Flash/Flash-Lite), pelo endpoint
+    # compatível com a OpenAI. Limites por minuto (pedidos e tokens) e por dia: chamadas
+    # espaçadas e no máximo 2 simultâneas para não estourar os tokens por minuto.
+    # Mesma configuração do jornal TSA Tech (pbcvphyton/pbcvphyton-tsa-tech).
+    "gemini": {
+        "key_env": "GEMINI_API_KEY",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "model": "gemini-flash-latest",
+        "max_tokens": 32000,
+        "context_tokens": 1000000,
+        "parallel": 2,
+        "min_interval_seconds": 15,
+        # 503 "high demand" é comum no Flash: mais tentativas (10, 20, 30, 40 s) e
+        # teto folgado (o plano grátis permite centenas de pedidos por dia).
+        "max_retries": 4,
+        "max_requests": 40,
+        "timeout_seconds": 600,
+    },
+    # Mesma chave do Gemini, outro modelo (Flash-Lite): fila e cota próprias. Entra
+    # quando o Flash está sobrecarregado e refaz o mesmo bloco.
+    "gemini_lite": {
+        "key_env": "GEMINI_API_KEY",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "model": "gemini-flash-lite-latest",
+        "max_tokens": 32000,
+        "context_tokens": 1000000,
+        "parallel": 2,
+        "min_interval_seconds": 10,
+        "max_retries": 4,
+        "max_requests": 40,
+        "timeout_seconds": 600,
+    },
     # Plano gratuito: todos os modelos (inclusive GPT-5.5), 10 requisições por hora.
     "aiml": {
         "key_env": "AIMLAPI_KEY",
@@ -211,7 +243,9 @@ class LLMConfig:
     # Editores por IA, na ordem de tentativa. Cada um só entra com a sua chave
     # (ver apis e ANTHROPIC_API_KEY); se falhar, tenta o próximo e, por fim, a
     # edição automática.
-    providers: list[str] = field(default_factory=lambda: ["aiml", "sensenova", "mistral", "kimi", "claude"])
+    providers: list[str] = field(
+        default_factory=lambda: ["gemini", "gemini_lite", "aiml", "sensenova", "mistral", "kimi", "claude"]
+    )
     apis: dict[str, ApiConfig] = field(default_factory=lambda: _api_configs(None))
     # ── Modo "blocos" ──
     # Todas as notícias do dia divididas por editoria (block_groups: seções
@@ -251,6 +285,27 @@ class LLMConfig:
 
 
 @dataclass
+class TermometroConfig:
+    """Termômetro de Viés Editorial (qijournal/termometro): análise, pela cadeia de
+    IAs, dos textos compilados na edição e aba "Analítico Político" com todo o
+    histórico. Só aparece nas marcas de ``marcas``."""
+
+    enabled: bool = True
+    marcas: list[str] = field(default_factory=lambda: ["tech"])
+    # Ordem de prioridade das seções (as de fora não são analisadas). Os textos
+    # saem em rodízio pelas matérias: o 1º veículo de cada uma, depois o 2º…
+    secoes: list[str] = field(
+        default_factory=lambda: ["politica", "juridico", "brasil", "mundo", "mercados", "natureza", "tecnologia", "imobiliario"]
+    )
+    idiomas: list[str] = field(default_factory=lambda: ["pt"])
+    max_textos: int = 20  # análises novas por edição (textos já analisados são reaproveitados)
+    max_paginas: int = 60  # páginas originais consultadas atrás de texto suficiente
+    textos_por_chamada: int = 4
+    max_chamadas: int = 6  # teto de chamadas à IA por edição (contando novas tentativas na cadeia)
+    deadline_seconds: int = 480  # prazo da análise, depois da edição (soma-se ao da edição no job)
+
+
+@dataclass
 class CityConfig:
     name: str
     lat: float
@@ -277,6 +332,7 @@ class Config:
     edition: EditionConfig
     llm: LLMConfig
     email: EmailConfig
+    termometro: TermometroConfig = field(default_factory=TermometroConfig)
 
     def section(self, section_id: str) -> SectionConfig:
         for s in self.sections:
@@ -287,6 +343,11 @@ class Config:
     @property
     def section_ids(self) -> list[str]:
         return [s.id for s in self.sections]
+
+    @property
+    def termometro_ativo(self) -> bool:
+        """Termômetro e aba Analítico Político ligados para a marca ativa."""
+        return self.termometro.enabled and self.brand.key in self.termometro.marcas
 
 
 def _truthy(value: str | None) -> bool:
@@ -378,6 +439,10 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
     if env.get("EMAIL_TO"):
         email.to = [e.strip() for e in env["EMAIL_TO"].split(",") if e.strip()]
 
+    termometro = TermometroConfig(**(site_raw.get("termometro") or {}))
+    if _truthy(env.get("QIJ_NO_TERMOMETRO")):
+        termometro.enabled = False
+
     return Config(
         root=root,
         site=site,
@@ -389,4 +454,5 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
         edition=edition,
         llm=llm,
         email=email,
+        termometro=termometro,
     )

@@ -29,11 +29,17 @@ Nada precisa ser feito à mão: o GitHub gera a edição sozinho a partir das
         │      Imobiliário, Mundo & Natureza, Esporte/Cultura); em cada bloco a IA
         │      une o que é o mesmo assunto, interpreta o foco de cada veículo e o
         │      lado que ele seguiu, e redige; o fechamento escolhe as matérias.
-        │      Se uma IA estourar o limite, a seguinte assume (AIML → SenseNova →
-        │      Mistral → Kimi → Claude). Sem IA: edição automática.
+        │      Se uma IA estourar o limite, a seguinte assume (Gemini → Gemini
+        │      Flash-Lite → AIML → SenseNova → Mistral → Kimi → Claude). Sem IA:
+        │      edição automática.
+        ▼
+  2b. Termômetro ── (PBCV Tech) os textos compilados nas matérias passam pelo
+        │      Termômetro de Viés Editorial v1.1: a mesma cadeia de IAs aponta os
+        │      sinais com citação literal e o cálculo de referência dá o T de cada um
         ▼
   3. Páginas ── capa (index.html), cópia no arquivo (edicoes/), todas as notícias
-        │      do dia (edicoes/AAAA-MM-DD-todas.html), e-mail em HTML e texto
+        │      do dia (edicoes/AAAA-MM-DD-todas.html), aba Analítico Político
+        │      (edicoes/analitico.html), e-mail em HTML e texto
         │
         ▼
   4. Commit no repositório ──► GitHub Pages publica o site
@@ -64,6 +70,7 @@ Garantias importantes:
 | Arquivo (edições anteriores) | <https://pbcvphyton.github.io/qi-journal/edicoes/> |
 | Uma edição específica | `https://pbcvphyton.github.io/qi-journal/edicoes/AAAA-MM-DD.html` |
 | Todas as notícias de um dia | `https://pbcvphyton.github.io/qi-journal/edicoes/AAAA-MM-DD-todas.html` |
+| Analítico Político (todo o histórico do termômetro) | <https://pbcvphyton.github.io/qi-journal/edicoes/analitico.html> |
 
 Cada matéria tem endereço próprio (`…#s-<id>`). Os links do e-mail apontam para a
 cópia arquivada (`edicoes/AAAA-MM-DD.html#s-<id>`), que continua válida depois que a
@@ -83,11 +90,19 @@ Os editores por IA ficam numa **cadeia**, na ordem de `llm.providers` em
 
 | Ordem | Editor | Segredo | Custo e limite |
 |---|---|---|---|
-| 1 | [AIML API](https://aimlapi.com/) (`openai/gpt-5-5`) | `AIMLAPI_KEY` | grátis; 10 requisições por hora |
-| 2 | [SenseNova](https://platform.sensenova.ai/) (`sensenova-6.8-flash-lite`) | `SENSENOVA_API_KEY` | grátis (beta); 1.500 requisições a cada 5 horas |
-| 3 | [Mistral](https://mistral.ai/) (`mistral-large-latest`) | `MISTRAL_API_KEY` | grátis (*Experiment*); poucas requisições por minuto |
-| 4 | [Kimi](https://platform.kimi.ai/) (`kimi-k3`) | `MOONSHOT_API_KEY` | pago (recarga mínima de US$ 1) |
-| 5 | [Claude](https://www.anthropic.com/) (`claude-opus-5-5`) | `ANTHROPIC_API_KEY` | pago |
+| 1 | [Gemini](https://aistudio.google.com/) (`gemini-flash-latest`) | `GEMINI_API_KEY` | grátis (Google AI Studio, modelos Flash); limites por minuto e por dia |
+| 1b | Gemini Flash-Lite (`gemini-flash-lite-latest`) | `GEMINI_API_KEY` (a mesma) | grátis; refaz a chamada quando o Flash está sobrecarregado (503) |
+| 2 | [AIML API](https://aimlapi.com/) (`openai/gpt-5-5`) | `AIMLAPI_KEY` | grátis; 10 requisições por hora |
+| 3 | [SenseNova](https://platform.sensenova.ai/) (`sensenova-6.8-flash-lite`) | `SENSENOVA_API_KEY` | grátis (beta); 1.500 requisições a cada 5 horas |
+| 4 | [Mistral](https://mistral.ai/) (`mistral-large-latest`) | `MISTRAL_API_KEY` | grátis (*Experiment*); poucas requisições por minuto |
+| 5 | [Kimi](https://platform.kimi.ai/) (`kimi-k3`) | `MOONSHOT_API_KEY` | pago (recarga mínima de US$ 1) |
+| 6 | [Claude](https://www.anthropic.com/) (`claude-opus-5-5`) | `ANTHROPIC_API_KEY` | pago |
+
+O Gemini é o mesmo do jornal **TSA Tech** (`pbcvphyton/pbcvphyton-tsa-tech`), que
+já sai com IA por ele: basta cadastrar aqui o segredo `GEMINI_API_KEY` com a
+mesma chave (o GitHub não deixa um repositório ler o segredo de outro). Com a
+mesma chave, os dois jornais dividem os limites diários do plano grátis do
+Google; uma chave de outro projeto do Google AI Studio tem limites próprios.
 
 **Quando uma IA estoura o limite, a seguinte assume**, chamada a chamada, até
 toda a demanda ser compilada: se o editor da vez esgotar o teto de requisições
@@ -101,8 +116,9 @@ Para ativar um editor: crie a chave no site dele e, no GitHub, *Settings →
 Secrets and variables → Actions → New repository secret*, com o nome da tabela
 e a chave como valor. **Nunca** coloque a chave no código ou em arquivos do
 repositório (ele é público). O modelo de cada um pode ser trocado pela variável
-`QIJ_<NOME>_MODEL` (aba *Variables*): `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`,
-`QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` e `QIJ_MODEL` (Claude). Os limites de cada
+`QIJ_<NOME>_MODEL` (aba *Variables*): `QIJ_GEMINI_MODEL`, `QIJ_GEMINI_LITE_MODEL`,
+`QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` e
+`QIJ_MODEL` (Claude). Os limites de cada
 um (janela de contexto, saída máxima, teto de requisições, chamadas simultâneas)
 ficam em `llm.apis` no `config/site.yaml`, com os padrões em
 `qijournal/config.py` (`DEFAULT_APIS`).
@@ -151,6 +167,64 @@ matéria, na janela da matéria (com a conclusão e a **análise por veículo**)
 seção **Cobertura comparada**, com os demais assuntos do dia. No e-mail, cada
 matéria ganha a barra e a conclusão. A análise usa só o que os veículos
 publicaram; quando o trecho não permite dizer, o veículo fica como neutro.
+
+### Termômetro de Viés Editorial e Analítico Político (só PBCV Tech)
+
+Depois da edição, os textos compilados nas matérias do dia passam pelo
+**Termômetro de Viés Editorial, versão 1.1** — a especificação em
+`termometro-referencia-v1.3`, que é o pilar desta parte. Ele é **estritamente
+adicional**: a análise da cobertura acima continua igual, e o termômetro aparece
+**depois** dela, no fim da edição, e na aba **Analítico Político** (botão
+*Analítico* no cabeçalho, ao lado de *Edições* e *Buscar*). A marca PBCV
+Advogados não tem nada disso (`termometro.marcas` em `config/site.yaml`).
+
+Como cada texto é analisado:
+
+1. **Texto**: das matérias da edição (política, jurídico, economia, mundo,
+   mercados, natureza, tecnologia e imobiliário, nessa prioridade; esporte e
+   variedades ficam de fora), um veículo de cada matéria por vez. O texto segue o
+   formato da especificação: `P0` = título, `P1` = linha fina e o corpo extraído da
+   página original (até 8.000 caracteres, com as falas curtas; o pedido avisa quando foi cortado). Texto
+   com menos de 150 palavras não vai à IA (seria inconclusivo). Só português.
+2. **IA**: o pré-processamento da referência (`preparar`: falas diretas entre
+   aspas e termos do dicionário) vai no pedido; a mesma cadeia de IAs da edição
+   (o que a edição já gastou do limite de cada uma continua contando) devolve a
+   saída no formato v1.1 (triagem, atores, fontes, enquadramento, evidências com
+   citação literal, teste de inversão e qualidade), 4 textos por chamada, até 20
+   textos e 6 chamadas por edição (`termometro` em `config/site.yaml`).
+3. **Cálculo**: cada saída é validada contra `config/saida_modelo.schema.json` e
+   passa pelo cálculo de referência **sem nenhuma alteração**
+   (`qijournal/termometro/referencia.py`, cópia literal): ele confere cada citação
+   no texto, aplica a regra da voz, os pesos dos 11 critérios e dá **T** (−100 a
+   +100), o rótulo, a confiança e a **qualidade da apuração Q** (0 a 100).
+
+No fim da edição, o **Termômetro do dia** resume as notícias analisadas: a média
+de T com o intervalo de 95% numa escala de −100 a +100, quantos textos ficaram em
+cada rótulo, a qualidade média e, abrindo, cada texto com o resumo do cálculo e os
+sinais que pontuaram (citação, critério e contribuição). Opinião fica à parte.
+
+A aba **Analítico Político** (`edicoes/analitico.html`) agrega **todo o
+histórico** (`qijournal/termometro/agregacao.py`, conferida pelos testes da
+seção 14.7 da especificação): onde estamos (média geral), para onde estamos indo
+(tendência mensal de T e de Q, a janela recente comparada ao histórico e quem
+puxou a mudança, por editoria e por veículo), as séries semanais, os rankings
+por veículo e por editoria (T ajustado e qualidade, mínimo de 30 notícias), os
+recortes por eixo, a tabela de cada dia e a lista de todas as análises.
+
+- **Histórico**: as análises de cada dia ficam em `data/termometro/AAAA-MM-DD.json`
+  e **nunca são apagadas** (a limpeza do arquivo de edições não toca nessa pasta).
+  Um texto já analisado não volta à IA: é reaproveitado e conta uma vez só.
+- **Dicionário e âncoras**: `config/lexico.yaml` (vocabulário codificado; hoje com
+  os termos do caso de referência) e `config/atores.yaml` (campo fixo de partidos e
+  grupos; vazio — sem âncora, a IA usa a filiação e a posição que o texto informa).
+- **Precisa de IA**: sem nenhum segredo de IA configurado (o mais simples é o
+  `GEMINI_API_KEY`, o mesmo do TSA Tech), a edição sai com "Sem análise nesta
+  edição: nenhuma IA disponível nesta execução".
+- **Desligar** sem mexer no código: variável `QIJ_NO_TERMOMETRO` = `1` no GitHub
+  (*Settings → Secrets and variables → Actions → Variables*).
+- **Testes da especificação**: `tests/termometro/` guarda os scripts e casos como
+  vieram (`testes.py`, `testes_ranking.py`); `tests/test_termometro_especificacao.py`
+  roda os dois e exige `FALHAS: nenhuma`.
 
 ### Racional da edição e lista completa do dia
 
@@ -356,16 +430,18 @@ Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 
 | Nome | Tipo | Para quê |
 |---|---|---|
-| `AIMLAPI_KEY` | segredo | editor 1 da cadeia (AIML, grátis) |
-| `SENSENOVA_API_KEY` | segredo | editor 2 (SenseNova, grátis) |
-| `MISTRAL_API_KEY` | segredo | editor 3 (Mistral, grátis) |
-| `MOONSHOT_API_KEY` | segredo | editor 4 (Kimi, pago) |
-| `ANTHROPIC_API_KEY` | segredo | editor 5 (Claude, pago) |
+| `GEMINI_API_KEY` | segredo | editor 1 da cadeia (Gemini Flash e Flash-Lite, grátis; a mesma chave do TSA Tech) |
+| `AIMLAPI_KEY` | segredo | editor 2 (AIML, grátis) |
+| `SENSENOVA_API_KEY` | segredo | editor 3 (SenseNova, grátis) |
+| `MISTRAL_API_KEY` | segredo | editor 4 (Mistral, grátis) |
+| `MOONSHOT_API_KEY` | segredo | editor 5 (Kimi, pago) |
+| `ANTHROPIC_API_KEY` | segredo | editor 6 (Claude, pago) |
 | `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_TO` | segredos | envio do e-mail por SMTP |
 | `EMAIL_FROM`, `SMTP_HOST`, `SMTP_PORT` | segredos (opcionais) | ajustes do SMTP |
 | `QIJ_BRAND` | variável | marca (`tech` ou `pbcv`) |
+| `QIJ_NO_TERMOMETRO` | variável | `1` desliga o Termômetro de Viés e a aba Analítico Político |
 | `QIJ_MODEL` | variável | modelo do Claude |
-| `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` | variáveis | modelo de cada editor (padrões na tabela de editores acima) |
+| `QIJ_GEMINI_MODEL`, `QIJ_GEMINI_LITE_MODEL`, `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` | variáveis | modelo de cada editor (padrões na tabela de editores acima) |
 
 Todos são opcionais: sem nenhum deles, o jornal é gerado no modo automático e
 publicado normalmente.
@@ -411,17 +487,25 @@ qijournal/                código do jornal
                           cadeia de editores; blocks.py = compilação por
                           editoria; topics.py e coverage.py = modo etapas;
                           index.py = todas as notícias do dia) e modo automático
-  render/                 páginas HTML e e-mail (modelos em render/templates/)
+  render/                 páginas HTML e e-mail (modelos em render/templates/;
+                          termometro.py e analitico.py = termômetro do dia e aba
+                          Analítico Político)
+  termometro/             Termômetro de Viés: referencia.py (cálculo, cópia literal
+                          da especificação), agregacao.py (aba analítica),
+                          analise.py (textos → IA → cálculo) e historico.py
   deliver/smtp.py         envio do e-mail por SMTP
   pipeline.py             orquestra coleta → edição → páginas → e-mail
   __main__.py             comandos (python -m qijournal …)
 config/site.yaml          marca, seções, cotações, clima, limites da edição
 config/sources.yaml       fontes de notícia
+config/saida_modelo.schema.json, lexico.yaml, atores.yaml  termômetro (formato da
+                          saída da IA, dicionário e âncoras de campo)
 assets/                   logos e ícones das marcas
 index.html                edição do dia (gerado automaticamente)
 edicoes/                  arquivo de edições, todas as notícias de cada dia,
                           e-mail e latest.json (gerado)
-data/                     cada edição em JSON (gerado)
+data/                     cada edição em JSON e, em data/termometro/, as análises
+                          do termômetro de cada dia, guardadas para sempre (gerado)
 tests/                    testes automáticos
 .github/workflows/        daily.yml (edição diária) e ci.yml (testes)
 ```

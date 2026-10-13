@@ -30,6 +30,10 @@ log = logging.getLogger(__name__)
 TEXT_MAX_CHARS = 3000
 DESCRIPTION_MAX_CHARS = 1000
 MIN_PARAGRAPH_CHARS = 60
+# Corpo para o Termômetro de Viés: mais longo e com os parágrafos curtos (falas,
+# "procurado, o ministério não respondeu"), que o texto da edição descarta.
+CORPO_MAX_CHARS = 8000
+CORPO_MIN_PARAGRAPH_CHARS = 25
 MIN_BODY_CHARS = 120
 PAGE_MAX_BYTES = 5_000_000
 HTML_MAX_CHARS = 3_000_000
@@ -70,6 +74,8 @@ class PageInfo:
     image: str | None = None
     description: str | None = None
     text: str | None = None  # até 3000 chars de corpo da matéria
+    author: str | None = None  # autoria declarada na página (JSON-LD ou metatag), para o termômetro
+    corpo: str | None = None  # até 8000 chars, com parágrafos curtos, para o termômetro
 
     def is_empty(self) -> bool:
         return not (self.image or self.description or self.text)
@@ -235,6 +241,40 @@ class _LdArticle:
     body: str | None = None
     description: str | None = None
     image: str | None = None
+    author: str | None = None
+
+
+AUTHOR_MAX_CHARS = 120
+
+
+def _ld_author(value: Any, index: dict[str, dict[str, Any]], depth: int = 0) -> list[str]:
+    """Nomes de autor de um valor JSON-LD (string, ``Person``/``Organization``, lista ou ``@id``)."""
+    if depth > 4 or value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list):
+        return [name for item in value for name in _ld_author(item, index, depth + 1)]
+    if isinstance(value, dict):
+        name = value.get("name")
+        if isinstance(name, str) and name.strip():
+            return [name]
+        ref = value.get("@id")
+        if isinstance(ref, str) and ref in index and index[ref] is not value:
+            return _ld_author(index[ref], index, depth + 1)
+    return []
+
+
+def _clean_author(names: list[str]) -> str | None:
+    """Nomes limpos e únicos, sem endereços nem perfis (@usuário)."""
+    seen: list[str] = []
+    for name in names:
+        name = " ".join(text.html_to_text(str(name)).split()).strip(" ,;")
+        if not name or name.startswith("@") or re.search(r"https?://|www\.", name, re.I):
+            continue
+        if name.lower() not in (n.lower() for n in seen):
+            seen.append(name)
+    return text.truncate(", ".join(seen), AUTHOR_MAX_CHARS) if seen else None
 
 
 def _jsonld_article(blocks: list[str]) -> _LdArticle:
@@ -252,6 +292,7 @@ def _jsonld_article(blocks: list[str]) -> _LdArticle:
         body=body if isinstance(body, str) else None,
         description=description if isinstance(description, str) else None,
         image=image,
+        author=_clean_author(_ld_author(best.get("author"), index)),
     )
 
 
@@ -278,7 +319,7 @@ def _drop_related(paragraphs: list[str]) -> list[str]:
     return out
 
 
-def _clean_body(value: str | None) -> str | None:
+def _clean_body(value: str | None, max_chars: int = TEXT_MAX_CHARS) -> str | None:
     """Texto do corpo sem parágrafos de paywall nem "Leia também"; ``None`` se sobrar pouco."""
     if not value:
         return None
@@ -287,21 +328,23 @@ def _clean_body(value: str | None) -> str | None:
     body = strip_boilerplate("\n".join(paragraphs))
     if len(body) < MIN_BODY_CHARS:
         return None
-    return text.truncate(body, TEXT_MAX_CHARS)
+    return text.truncate(body, max_chars)
 
 
-def _paragraph_body(paragraphs: list[str]) -> str | None:
+def _paragraph_body(
+    paragraphs: list[str], min_chars: int = MIN_PARAGRAPH_CHARS, max_chars: int = TEXT_MAX_CHARS
+) -> str | None:
     """Junta parágrafos longos (≥ 60 chars, sem paywall) até ~3000 caracteres."""
     selected: list[str] = []
     total = 0
     for paragraph in _drop_related(paragraphs):
-        if len(paragraph) < MIN_PARAGRAPH_CHARS or _is_paywall(paragraph):
+        if len(paragraph) < min_chars or _is_paywall(paragraph):
             continue
         selected.append(paragraph)
         total += len(paragraph) + 1
-        if total >= TEXT_MAX_CHARS:
+        if total >= max_chars:
             break
-    return _clean_body("\n".join(selected))
+    return _clean_body("\n".join(selected), max_chars)
 
 
 def _pick_image(candidates: list[str | None], base_url: str | None) -> str | None:
@@ -358,8 +401,17 @@ def parse_page(page_html: str, base_url: str | None = None) -> PageInfo:
     description = _pick_description(
         [meta.get("og:description"), meta.get("description"), meta.get("twitter:description"), ld.description]
     )
-    body = _clean_body(ld.body) or _paragraph_body(parser.article_paragraphs or parser.main_paragraphs)
-    return PageInfo(image=image, description=description, text=body)
+    paragraphs = parser.article_paragraphs or parser.main_paragraphs
+    body = _clean_body(ld.body) or _paragraph_body(paragraphs)
+    corpo = None
+    if body:  # o corpo do termômetro só existe onde a edição também achou o texto
+        corpo = _clean_body(ld.body, CORPO_MAX_CHARS) or _paragraph_body(
+            paragraphs, CORPO_MIN_PARAGRAPH_CHARS, CORPO_MAX_CHARS
+        )
+    author = ld.author or _clean_author(
+        [meta[key] for key in ("author", "article:author", "parsely-author", "dc.creator") if meta.get(key)]
+    )
+    return PageInfo(image=image, description=description, text=body, author=author, corpo=corpo)
 
 
 def _looks_like_html(response: net.Response) -> bool:
