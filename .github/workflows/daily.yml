@@ -110,6 +110,7 @@ jobs:
         env:
           # Editores por IA, na ordem de llm.providers (config/site.yaml): cada um
           # só entra com o seu segredo; quem estoura o limite passa ao seguinte.
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           AIMLAPI_KEY: ${{ secrets.AIMLAPI_KEY }}
           SENSENOVA_API_KEY: ${{ secrets.SENSENOVA_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
@@ -118,6 +119,8 @@ jobs:
           QIJ_BRAND: ${{ vars.QIJ_BRAND }}
           QIJ_NO_TERMOMETRO: ${{ vars.QIJ_NO_TERMOMETRO }}
           QIJ_MODEL: ${{ vars.QIJ_MODEL }}
+          QIJ_GEMINI_MODEL: ${{ vars.QIJ_GEMINI_MODEL }}
+          QIJ_GEMINI_LITE_MODEL: ${{ vars.QIJ_GEMINI_LITE_MODEL }}
           QIJ_AIML_MODEL: ${{ vars.QIJ_AIML_MODEL }}
           QIJ_SENSENOVA_MODEL: ${{ vars.QIJ_SENSENOVA_MODEL }}
           QIJ_MISTRAL_MODEL: ${{ vars.QIJ_MISTRAL_MODEL }}

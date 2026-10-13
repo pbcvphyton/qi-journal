@@ -30,6 +30,10 @@ log = logging.getLogger(__name__)
 TEXT_MAX_CHARS = 3000
 DESCRIPTION_MAX_CHARS = 1000
 MIN_PARAGRAPH_CHARS = 60
+# Corpo para o Termômetro de Viés: mais longo e com os parágrafos curtos (falas,
+# "procurado, o ministério não respondeu"), que o texto da edição descarta.
+CORPO_MAX_CHARS = 8000
+CORPO_MIN_PARAGRAPH_CHARS = 25
 MIN_BODY_CHARS = 120
 PAGE_MAX_BYTES = 5_000_000
 HTML_MAX_CHARS = 3_000_000
@@ -71,6 +75,7 @@ class PageInfo:
     description: str | None = None
     text: str | None = None  # até 3000 chars de corpo da matéria
     author: str | None = None  # autoria declarada na página (JSON-LD ou metatag), para o termômetro
+    corpo: str | None = None  # até 8000 chars, com parágrafos curtos, para o termômetro
 
     def is_empty(self) -> bool:
         return not (self.image or self.description or self.text)
@@ -314,7 +319,7 @@ def _drop_related(paragraphs: list[str]) -> list[str]:
     return out
 
 
-def _clean_body(value: str | None) -> str | None:
+def _clean_body(value: str | None, max_chars: int = TEXT_MAX_CHARS) -> str | None:
     """Texto do corpo sem parágrafos de paywall nem "Leia também"; ``None`` se sobrar pouco."""
     if not value:
         return None
@@ -323,21 +328,23 @@ def _clean_body(value: str | None) -> str | None:
     body = strip_boilerplate("\n".join(paragraphs))
     if len(body) < MIN_BODY_CHARS:
         return None
-    return text.truncate(body, TEXT_MAX_CHARS)
+    return text.truncate(body, max_chars)
 
 
-def _paragraph_body(paragraphs: list[str]) -> str | None:
+def _paragraph_body(
+    paragraphs: list[str], min_chars: int = MIN_PARAGRAPH_CHARS, max_chars: int = TEXT_MAX_CHARS
+) -> str | None:
     """Junta parágrafos longos (≥ 60 chars, sem paywall) até ~3000 caracteres."""
     selected: list[str] = []
     total = 0
     for paragraph in _drop_related(paragraphs):
-        if len(paragraph) < MIN_PARAGRAPH_CHARS or _is_paywall(paragraph):
+        if len(paragraph) < min_chars or _is_paywall(paragraph):
             continue
         selected.append(paragraph)
         total += len(paragraph) + 1
-        if total >= TEXT_MAX_CHARS:
+        if total >= max_chars:
             break
-    return _clean_body("\n".join(selected))
+    return _clean_body("\n".join(selected), max_chars)
 
 
 def _pick_image(candidates: list[str | None], base_url: str | None) -> str | None:
@@ -394,11 +401,17 @@ def parse_page(page_html: str, base_url: str | None = None) -> PageInfo:
     description = _pick_description(
         [meta.get("og:description"), meta.get("description"), meta.get("twitter:description"), ld.description]
     )
-    body = _clean_body(ld.body) or _paragraph_body(parser.article_paragraphs or parser.main_paragraphs)
+    paragraphs = parser.article_paragraphs or parser.main_paragraphs
+    body = _clean_body(ld.body) or _paragraph_body(paragraphs)
+    corpo = None
+    if body:  # o corpo do termômetro só existe onde a edição também achou o texto
+        corpo = _clean_body(ld.body, CORPO_MAX_CHARS) or _paragraph_body(
+            paragraphs, CORPO_MIN_PARAGRAPH_CHARS, CORPO_MAX_CHARS
+        )
     author = ld.author or _clean_author(
         [meta[key] for key in ("author", "article:author", "parsely-author", "dc.creator") if meta.get(key)]
     )
-    return PageInfo(image=image, description=description, text=body, author=author)
+    return PageInfo(image=image, description=description, text=body, author=author, corpo=corpo)
 
 
 def _looks_like_html(response: net.Response) -> bool:

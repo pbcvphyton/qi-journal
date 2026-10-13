@@ -29,8 +29,9 @@ Nada precisa ser feito à mão: o GitHub gera a edição sozinho a partir das
         │      Imobiliário, Mundo & Natureza, Esporte/Cultura); em cada bloco a IA
         │      une o que é o mesmo assunto, interpreta o foco de cada veículo e o
         │      lado que ele seguiu, e redige; o fechamento escolhe as matérias.
-        │      Se uma IA estourar o limite, a seguinte assume (AIML → SenseNova →
-        │      Mistral → Kimi → Claude). Sem IA: edição automática.
+        │      Se uma IA estourar o limite, a seguinte assume (Gemini → Gemini
+        │      Flash-Lite → AIML → SenseNova → Mistral → Kimi → Claude). Sem IA:
+        │      edição automática.
         ▼
   2b. Termômetro ── (PBCV Tech) os textos compilados nas matérias passam pelo
         │      Termômetro de Viés Editorial v1.1: a mesma cadeia de IAs aponta os
@@ -89,11 +90,19 @@ Os editores por IA ficam numa **cadeia**, na ordem de `llm.providers` em
 
 | Ordem | Editor | Segredo | Custo e limite |
 |---|---|---|---|
-| 1 | [AIML API](https://aimlapi.com/) (`openai/gpt-5-5`) | `AIMLAPI_KEY` | grátis; 10 requisições por hora |
-| 2 | [SenseNova](https://platform.sensenova.ai/) (`sensenova-6.8-flash-lite`) | `SENSENOVA_API_KEY` | grátis (beta); 1.500 requisições a cada 5 horas |
-| 3 | [Mistral](https://mistral.ai/) (`mistral-large-latest`) | `MISTRAL_API_KEY` | grátis (*Experiment*); poucas requisições por minuto |
-| 4 | [Kimi](https://platform.kimi.ai/) (`kimi-k3`) | `MOONSHOT_API_KEY` | pago (recarga mínima de US$ 1) |
-| 5 | [Claude](https://www.anthropic.com/) (`claude-opus-5-5`) | `ANTHROPIC_API_KEY` | pago |
+| 1 | [Gemini](https://aistudio.google.com/) (`gemini-flash-latest`) | `GEMINI_API_KEY` | grátis (Google AI Studio, modelos Flash); limites por minuto e por dia |
+| 1b | Gemini Flash-Lite (`gemini-flash-lite-latest`) | `GEMINI_API_KEY` (a mesma) | grátis; refaz a chamada quando o Flash está sobrecarregado (503) |
+| 2 | [AIML API](https://aimlapi.com/) (`openai/gpt-5-5`) | `AIMLAPI_KEY` | grátis; 10 requisições por hora |
+| 3 | [SenseNova](https://platform.sensenova.ai/) (`sensenova-6.8-flash-lite`) | `SENSENOVA_API_KEY` | grátis (beta); 1.500 requisições a cada 5 horas |
+| 4 | [Mistral](https://mistral.ai/) (`mistral-large-latest`) | `MISTRAL_API_KEY` | grátis (*Experiment*); poucas requisições por minuto |
+| 5 | [Kimi](https://platform.kimi.ai/) (`kimi-k3`) | `MOONSHOT_API_KEY` | pago (recarga mínima de US$ 1) |
+| 6 | [Claude](https://www.anthropic.com/) (`claude-opus-5-5`) | `ANTHROPIC_API_KEY` | pago |
+
+O Gemini é o mesmo do jornal **TSA Tech** (`pbcvphyton/pbcvphyton-tsa-tech`), que
+já sai com IA por ele: basta cadastrar aqui o segredo `GEMINI_API_KEY` com a
+mesma chave (o GitHub não deixa um repositório ler o segredo de outro). Com a
+mesma chave, os dois jornais dividem os limites diários do plano grátis do
+Google; uma chave de outro projeto do Google AI Studio tem limites próprios.
 
 **Quando uma IA estoura o limite, a seguinte assume**, chamada a chamada, até
 toda a demanda ser compilada: se o editor da vez esgotar o teto de requisições
@@ -107,8 +116,9 @@ Para ativar um editor: crie a chave no site dele e, no GitHub, *Settings →
 Secrets and variables → Actions → New repository secret*, com o nome da tabela
 e a chave como valor. **Nunca** coloque a chave no código ou em arquivos do
 repositório (ele é público). O modelo de cada um pode ser trocado pela variável
-`QIJ_<NOME>_MODEL` (aba *Variables*): `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`,
-`QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` e `QIJ_MODEL` (Claude). Os limites de cada
+`QIJ_<NOME>_MODEL` (aba *Variables*): `QIJ_GEMINI_MODEL`, `QIJ_GEMINI_LITE_MODEL`,
+`QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` e
+`QIJ_MODEL` (Claude). Os limites de cada
 um (janela de contexto, saída máxima, teto de requisições, chamadas simultâneas)
 ficam em `llm.apis` no `config/site.yaml`, com os padrões em
 `qijournal/config.py` (`DEFAULT_APIS`).
@@ -174,7 +184,7 @@ Como cada texto é analisado:
    mercados, natureza, tecnologia e imobiliário, nessa prioridade; esporte e
    variedades ficam de fora), um veículo de cada matéria por vez. O texto segue o
    formato da especificação: `P0` = título, `P1` = linha fina e o corpo extraído da
-   página original (até 3.000 caracteres; o pedido avisa quando foi cortado). Texto
+   página original (até 8.000 caracteres, com as falas curtas; o pedido avisa quando foi cortado). Texto
    com menos de 150 palavras não vai à IA (seria inconclusivo). Só português.
 2. **IA**: o pré-processamento da referência (`preparar`: falas diretas entre
    aspas e termos do dicionário) vai no pedido; a mesma cadeia de IAs da edição
@@ -207,8 +217,9 @@ recortes por eixo, a tabela de cada dia e a lista de todas as análises.
 - **Dicionário e âncoras**: `config/lexico.yaml` (vocabulário codificado; hoje com
   os termos do caso de referência) e `config/atores.yaml` (campo fixo de partidos e
   grupos; vazio — sem âncora, a IA usa a filiação e a posição que o texto informa).
-- **Precisa de IA**: sem nenhum segredo de IA configurado, a edição sai com
-  "Sem análise nesta edição: nenhuma IA disponível nesta execução".
+- **Precisa de IA**: sem nenhum segredo de IA configurado (o mais simples é o
+  `GEMINI_API_KEY`, o mesmo do TSA Tech), a edição sai com "Sem análise nesta
+  edição: nenhuma IA disponível nesta execução".
 - **Desligar** sem mexer no código: variável `QIJ_NO_TERMOMETRO` = `1` no GitHub
   (*Settings → Secrets and variables → Actions → Variables*).
 - **Testes da especificação**: `tests/termometro/` guarda os scripts e casos como
@@ -419,17 +430,18 @@ Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 
 | Nome | Tipo | Para quê |
 |---|---|---|
-| `AIMLAPI_KEY` | segredo | editor 1 da cadeia (AIML, grátis) |
-| `SENSENOVA_API_KEY` | segredo | editor 2 (SenseNova, grátis) |
-| `MISTRAL_API_KEY` | segredo | editor 3 (Mistral, grátis) |
-| `MOONSHOT_API_KEY` | segredo | editor 4 (Kimi, pago) |
-| `ANTHROPIC_API_KEY` | segredo | editor 5 (Claude, pago) |
+| `GEMINI_API_KEY` | segredo | editor 1 da cadeia (Gemini Flash e Flash-Lite, grátis; a mesma chave do TSA Tech) |
+| `AIMLAPI_KEY` | segredo | editor 2 (AIML, grátis) |
+| `SENSENOVA_API_KEY` | segredo | editor 3 (SenseNova, grátis) |
+| `MISTRAL_API_KEY` | segredo | editor 4 (Mistral, grátis) |
+| `MOONSHOT_API_KEY` | segredo | editor 5 (Kimi, pago) |
+| `ANTHROPIC_API_KEY` | segredo | editor 6 (Claude, pago) |
 | `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_TO` | segredos | envio do e-mail por SMTP |
 | `EMAIL_FROM`, `SMTP_HOST`, `SMTP_PORT` | segredos (opcionais) | ajustes do SMTP |
 | `QIJ_BRAND` | variável | marca (`tech` ou `pbcv`) |
 | `QIJ_NO_TERMOMETRO` | variável | `1` desliga o Termômetro de Viés e a aba Analítico Político |
 | `QIJ_MODEL` | variável | modelo do Claude |
-| `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` | variáveis | modelo de cada editor (padrões na tabela de editores acima) |
+| `QIJ_GEMINI_MODEL`, `QIJ_GEMINI_LITE_MODEL`, `QIJ_AIML_MODEL`, `QIJ_SENSENOVA_MODEL`, `QIJ_MISTRAL_MODEL`, `QIJ_KIMI_MODEL` | variáveis | modelo de cada editor (padrões na tabela de editores acima) |
 
 Todos são opcionais: sem nenhum deles, o jornal é gerado no modo automático e
 publicado normalmente.

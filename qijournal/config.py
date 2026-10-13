@@ -122,6 +122,38 @@ class ApiConfig:
 
 
 DEFAULT_APIS: dict[str, dict[str, Any]] = {
+    # Plano gratuito do Google AI Studio (só modelos Flash/Flash-Lite), pelo endpoint
+    # compatível com a OpenAI. Limites por minuto (pedidos e tokens) e por dia: chamadas
+    # espaçadas e no máximo 2 simultâneas para não estourar os tokens por minuto.
+    # Mesma configuração do jornal TSA Tech (pbcvphyton/pbcvphyton-tsa-tech).
+    "gemini": {
+        "key_env": "GEMINI_API_KEY",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "model": "gemini-flash-latest",
+        "max_tokens": 32000,
+        "context_tokens": 1000000,
+        "parallel": 2,
+        "min_interval_seconds": 15,
+        # 503 "high demand" é comum no Flash: mais tentativas (10, 20, 30, 40 s) e
+        # teto folgado (o plano grátis permite centenas de pedidos por dia).
+        "max_retries": 4,
+        "max_requests": 40,
+        "timeout_seconds": 600,
+    },
+    # Mesma chave do Gemini, outro modelo (Flash-Lite): fila e cota próprias. Entra
+    # quando o Flash está sobrecarregado e refaz o mesmo bloco.
+    "gemini_lite": {
+        "key_env": "GEMINI_API_KEY",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "model": "gemini-flash-lite-latest",
+        "max_tokens": 32000,
+        "context_tokens": 1000000,
+        "parallel": 2,
+        "min_interval_seconds": 10,
+        "max_retries": 4,
+        "max_requests": 40,
+        "timeout_seconds": 600,
+    },
     # Plano gratuito: todos os modelos (inclusive GPT-5.5), 10 requisições por hora.
     "aiml": {
         "key_env": "AIMLAPI_KEY",
@@ -211,7 +243,9 @@ class LLMConfig:
     # Editores por IA, na ordem de tentativa. Cada um só entra com a sua chave
     # (ver apis e ANTHROPIC_API_KEY); se falhar, tenta o próximo e, por fim, a
     # edição automática.
-    providers: list[str] = field(default_factory=lambda: ["aiml", "sensenova", "mistral", "kimi", "claude"])
+    providers: list[str] = field(
+        default_factory=lambda: ["gemini", "gemini_lite", "aiml", "sensenova", "mistral", "kimi", "claude"]
+    )
     apis: dict[str, ApiConfig] = field(default_factory=lambda: _api_configs(None))
     # ── Modo "blocos" ──
     # Todas as notícias do dia divididas por editoria (block_groups: seções

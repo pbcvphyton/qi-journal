@@ -287,9 +287,10 @@ def pages_path_for(bundle_path: Path) -> Path:
 
 def save_pages(pages: Mapping[str, PageInfo], path: Path) -> Path:
     data = {article_id: asdict(info) if not isinstance(info, dict) else info for article_id, info in pages.items()}
-    for info in data.values():  # autoria só quando a página a declara (arquivos antigos não têm a chave)
-        if isinstance(info, dict) and info.get("author") is None:
-            info.pop("author", None)
+    for info in data.values():  # campos do termômetro só quando existem (arquivos antigos não têm as chaves)
+        for key in ("author", "corpo"):
+            if isinstance(info, dict) and info.get(key) is None:
+                info.pop(key, None)
     return _write_json(Path(path), data)
 
 
@@ -306,6 +307,7 @@ def load_pages(path: Path) -> dict[str, PageInfo]:
                 description=info.get("description"),
                 text=info.get("text"),
                 author=info.get("author"),
+                corpo=info.get("corpo"),
             )
             for article_id, info in data.items()
             if isinstance(info, dict)
@@ -651,7 +653,7 @@ def _quality_warnings(
             )
     if use_llm and config.llm.enabled and edition.mode != "ai":
         warnings.append(
-            "Edição gerada sem IA (modo automático): verifique os segredos AIMLAPI_KEY / SENSENOVA_API_KEY / "
+            "Edição gerada sem IA (modo automático): verifique os segredos GEMINI_API_KEY / AIMLAPI_KEY / SENSENOVA_API_KEY / "
             "MISTRAL_API_KEY / MOONSHOT_API_KEY / ANTHROPIC_API_KEY "
             "e o log da etapa"
         )
@@ -684,7 +686,7 @@ def _mode_label(edition: Edition) -> str:
 
 def _termometro_label(registro: Mapping[str, Any]) -> str:
     analises = registro.get("analises") or []
-    novas = sum(1 for a in analises if isinstance(a, dict) and a.get("analisado_em") == registro.get("data"))
+    novas = int(registro.get("novas") or 0)
     if not analises:
         return f"sem análise ({registro.get('motivo') or 'nenhum texto'})"
     label = f"{len(analises)} texto(s) analisado(s), {novas} nova(s)"

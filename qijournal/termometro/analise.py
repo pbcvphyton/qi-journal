@@ -356,6 +356,7 @@ class Texto:
     linha_fina: bool
     cortado: bool
     palavras: int
+    data_publicacao: str = ""  # dia da agregação: a data declarada ou, sem ela, a da edição
     chave: str = ""  # T1, T2… dentro do lote
 
 
@@ -379,7 +380,9 @@ def _dividir_paragrafo(paragrafo: str) -> list[str]:
 
 
 def _corpo(info: PageInfo | None) -> tuple[list[str], bool]:
-    bruto = (getattr(info, "text", None) or "").strip()
+    """Parágrafos do corpo: o corpo próprio do termômetro (mais longo e com os
+    parágrafos curtos) ou, em páginas salvas antes dele, o texto da edição."""
+    bruto = (getattr(info, "corpo", None) or getattr(info, "text", None) or "").strip()
     if not bruto:
         return [], False
     cortado = bruto.endswith("…")
@@ -405,7 +408,8 @@ def _linha_fina(article: Article, info: PageInfo | None, corpo: list[str]) -> st
     return ""
 
 
-def _data_local(published: str | None, tz: ZoneInfo, padrao: str) -> str:
+def _data_local(published: str | None, tz: ZoneInfo) -> str | None:
+    """Data de publicação declarada, no fuso do jornal (``None`` sem data válida)."""
     if published:
         try:
             momento = datetime.fromisoformat(published.strip())
@@ -414,7 +418,7 @@ def _data_local(published: str | None, tz: ZoneInfo, padrao: str) -> str:
             return momento.astimezone(tz).date().isoformat()
         except ValueError:
             pass
-    return padrao
+    return None
 
 
 def montar_texto(
@@ -428,11 +432,12 @@ def montar_texto(
     # slug não conta ("governo-defende-artigo-da-reforma" é notícia).
     diretorios = (urlparse(article.url).path or "").rstrip("/").split("/")[1:-1]
     secao = "Opinião" if any(_OPINIAO_URL.search(d) for d in diretorios) else editoria
+    declarada = _data_local(article.published, tz)
     meta = {
         "veiculo": article.source_name,
         "secao": secao,
         "autor": getattr(info, "author", None),  # autoria declarada na página original
-        "data": _data_local(article.published, tz, data_edicao),
+        "data": declarada,  # só a data que o texto declara conta para a qualidade (autoria_data)
     }
     return Texto(
         artigo=article,
@@ -443,6 +448,7 @@ def montar_texto(
         meta=meta,
         linha_fina=bool(linha_fina),
         cortado=cortado,
+        data_publicacao=declarada or data_edicao,
         palavras=contar_palavras(" ".join(paragrafos.values())),
     )
 
@@ -485,7 +491,7 @@ def _uma_linha(valor: str) -> str:
 
 def bloco_do_texto(t: Texto, lexico: list[dict[str, Any]]) -> str:
     prep = preparar(t.paragrafos, lexico)
-    cabecalho = f'<texto id="{t.chave}">\nVeículo: {_uma_linha(t.meta["veiculo"])} · Seção: {t.meta["secao"]} · Data: {t.meta["data"]}'
+    cabecalho = f'<texto id="{t.chave}">\nVeículo: {_uma_linha(t.meta["veiculo"])} · Seção: {t.meta["secao"]} · Data: {t.meta["data"] or "não informada"}'
     linhas = [cabecalho]
     linhas.append(
         "P0 é o título; P1 é a linha fina." if t.linha_fina else "P0 é o título; não há linha fina (o corpo começa em P1)."
@@ -559,7 +565,7 @@ def registro_da_analise(t: Texto, r: Mapping[str, Any], data_edicao: str) -> dic
         "editoria": t.editoria,
         "secao": t.secao,
         "materia": t.materia,
-        "data_publicacao": t.meta["data"],
+        "data_publicacao": t.data_publicacao,
         "analisado_em": data_edicao,
         "versao_calculo": r["versao_calculo"],
         "selo": r.get("selo"),
@@ -598,8 +604,11 @@ def registro_do_dia(
     falhas: int = 0,
     chamadas: int = 0,
     tokens: Mapping[str, int] | None = None,
+    novas: int = 0,
     gerado_em: str | None = None,
 ) -> dict[str, Any]:
+    """Registro do termômetro de uma execução (vai em ``Edition.termometro``):
+    as análises dos textos da edição (novas e reaproveitadas) e os dados da execução."""
     return {
         "versao_calculo": VERSAO,
         "data": data,
@@ -612,6 +621,7 @@ def registro_do_dia(
         "falhas": falhas,
         "chamadas": chamadas,
         "tokens": dict(tokens) if tokens else None,
+        "novas": novas,
         "motivo": motivo,
     }
 
@@ -694,6 +704,9 @@ def selecionar_textos(
                 curtos += 1
                 continue
             novos.append(texto)
+    for article, _story in fila[posicao:]:  # o teto de textos novos não tira da edição o que já foi analisado
+        if _reaproveitavel(anteriores.get(article.id)):
+            reaproveitadas.append(dict(anteriores[article.id]))
     return novos, reaproveitadas, posicao, curtos
 
 
@@ -841,6 +854,7 @@ def analisar_edicao(
         falhas=falhas,
         chamadas=len(lotes),
         tokens=tokens,
+        novas=len(novas),
         **comum,
     )
 

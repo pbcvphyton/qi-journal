@@ -67,26 +67,42 @@ def tem_analises(registro: Mapping[str, Any] | None) -> bool:
     return bool(registro and registro.get("analises"))
 
 
+EXECUCAO = ("gerado_em", "provedor", "modelo", "candidatos", "textos_curtos", "falhas", "chamadas", "tokens")
+
+
 def mesclar_dia(existente: Mapping[str, Any] | None, novo: Mapping[str, Any]) -> dict[str, Any] | None:
     """O registro do dia a gravar, ou ``None`` se não há análise nova a guardar.
 
-    Entram só as análises feitas no dia (``analisado_em`` = data do registro):
-    as de execuções anteriores do mesmo dia continuam, e uma nova análise do
-    mesmo texto substitui a anterior. Uma execução sem análise nova (sem IA,
-    por exemplo) não cria o arquivo nem apaga o que o dia já tinha."""
+    Entram só as análises feitas no dia (``analisado_em`` = data do registro) que o
+    arquivo ainda não tem, ou que mudaram: as de execuções anteriores do mesmo dia
+    continuam, e uma nova análise do mesmo texto substitui a anterior. Uma
+    execução sem análise nova (sem IA, por exemplo, que só reaproveita) não cria
+    nem reescreve o arquivo. Cada execução que trouxe análise nova fica em
+    ``execucoes`` (quem analisou, com que modelo, quantas chamadas e tokens)."""
     data = str(novo.get("data") or "")
-    feitas = [a for a in novo.get("analises") or [] if isinstance(a, dict) and a.get("analisado_em") == data]
+    antigas = {
+        a["id"]: a for a in (existente or {}).get("analises") or [] if isinstance(a, dict) and a.get("id")
+    }
+    feitas = [
+        a
+        for a in novo.get("analises") or []
+        if isinstance(a, dict) and a.get("id") and a.get("analisado_em") == data and antigas.get(a["id"]) != a
+    ]
     if not feitas:
         return None
-    por_id: dict[str, dict[str, Any]] = {}
-    for analise in (existente or {}).get("analises") or []:
-        if isinstance(analise, dict) and analise.get("id"):
-            por_id[analise["id"]] = analise
+    por_id = dict(antigas)
     for analise in feitas:
         por_id[analise["id"]] = analise
-    registro = dict(novo)
-    registro["analises"] = list(por_id.values())
-    return registro
+    execucoes = list((existente or {}).get("execucoes") or [])
+    if existente is not None and not execucoes and antigas:  # registro sem a lista: a execução anterior entra nela
+        execucoes.append({**{k: existente.get(k) for k in EXECUCAO}, "analises": list(antigas)})
+    execucoes.append({**{k: novo.get(k) for k in EXECUCAO}, "analises": [a["id"] for a in feitas]})
+    return {
+        "versao_calculo": novo.get("versao_calculo") or (existente or {}).get("versao_calculo"),
+        "data": data,
+        "analises": list(por_id.values()),
+        "execucoes": execucoes,
+    }
 
 
 def todas_as_analises(registros: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:

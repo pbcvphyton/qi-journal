@@ -18,6 +18,7 @@ cálculo (a agregação filtra por versão).
 from __future__ import annotations
 
 import logging
+from collections import Counter
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from datetime import date
@@ -520,11 +521,18 @@ def analitico_view(
             eixos.append(_linha_tabela(nome, s))
 
     disponiveis = set(edicoes)
+    # Os textos publicados num dia aparecem no Termômetro do dia da edição em que
+    # foram analisados (em geral a do dia seguinte): o link vai para essa edição.
+    edicao_do_dia: dict[str, Counter[str]] = {}
+    for a in analises:
+        if a.get("analisado_em") in disponiveis:
+            edicao_do_dia.setdefault(a["data_publicacao"][:10], Counter())[a["analisado_em"]] += 1
     dias = []
     for dia in sorted({l["dia"] for l in linhas}, reverse=True):
         s = agregacao.resumo(linhas, dia, dia)
         s_tudo = agregacao.resumo(linhas, dia, dia, incluir_opiniao=True)
-        linha = _linha_tabela(_data_label(dia), s, f"{dia}.html#termometro" if dia in disponiveis else None)
+        edicao = edicao_do_dia[dia].most_common(1)[0][0] if dia in edicao_do_dia else None
+        linha = _linha_tabela(_data_label(dia), s, f"{edicao}.html#termometro" if edicao else None)
         linha.textos = s_tudo["n_total"]
         dias.append(linha)
 

@@ -467,3 +467,90 @@ def test_pipeline_ponta_a_ponta_com_reaproveitamento(tmp_path, monkeypatch):
     assert primeiros <= segunda and enviados == len(segunda - primeiros)
     dia = json.loads(result.outputs["termometro"].read_text(encoding="utf-8"))
     assert {a["id"] for a in dia["analises"]} == segunda
+
+
+# ── achados da revisão ───────────────────────────────────────────────────────
+
+
+def test_corpo_do_termometro_guarda_falas_curtas_sem_mudar_o_texto_da_edicao():
+    from qijournal.collect.enrich import parse_page
+
+    longo = "O governo anunciou um corte relevante no orçamento do programa social nesta segunda-feira. " * 2
+    html = (
+        "<html><body><article>"
+        f"<p>{longo}</p><p>“É um absurdo”, disse o líder da oposição.</p>"
+        f"<p>{longo}</p><p>Procurado, o ministério não respondeu.</p>"
+        "</article></body></html>"
+    )
+    info = parse_page(html)
+    assert "absurdo" not in info.text and "não respondeu" not in info.text  # a edição continua igual
+    assert "“É um absurdo”, disse o líder da oposição." in info.corpo and "não respondeu" in info.corpo
+    a = artigo(5)
+    t = analise.montar_texto(a, materia("m", "politica", [a.id]), info, editoria="Política", tz=__import__("zoneinfo").ZoneInfo("UTC"), data_edicao=DATA)
+    from qijournal.termometro.referencia import extrair_falas
+
+    assert [q["texto"] for q in extrair_falas(t.paragrafos)] == ["É um absurdo"]
+
+
+def test_corpo_e_autor_ficam_no_arquivo_de_paginas_e_voltam_iguais(tmp_path):
+    pagina = PageInfo(image=None, description="d", text="t", author="Fulana", corpo="corpo longo")
+    caminho = pipeline.save_pages({"a": pagina, "b": PageInfo(text="só texto")}, tmp_path / "pages.json")
+    dados = json.loads(caminho.read_text(encoding="utf-8"))
+    assert dados["b"] == {"image": None, "description": None, "text": "só texto"}  # sem chaves vazias
+    assert pipeline.load_pages(caminho) == {"a": pagina, "b": PageInfo(text="só texto")}
+
+
+def test_sem_data_declarada_a_qualidade_nao_ganha_autoria_e_data():
+    a = artigo(6)
+    a.published = None
+    info = PageInfo(description="Linha fina.", text=CORPO, author="Fulana")
+    t = analise.montar_texto(a, materia("m", "politica", [a.id]), info, editoria="Política", tz=__import__("zoneinfo").ZoneInfo("UTC"), data_edicao=DATA)
+    assert t.meta["data"] is None and t.data_publicacao == DATA
+    r = calcular(saida_valida(t.paragrafos), t.paragrafos, (), t.meta)
+    itens = {i["item"]: i["valor"] for i in r["qualidade_apuracao"]["itens"]}
+    assert itens["autoria_data"] == "nao"
+    assert analise.registro_da_analise(t, r, DATA)["data_publicacao"] == DATA
+
+
+def test_reexecucao_que_so_reaproveita_nao_reescreve_o_dia(tmp_path, config):
+    feitas = [_analise("a", DATA), _analise("b", DATA)]
+    primeira = analise.registro_do_dia(DATA, feitas, provedor="falsa", modelo="m1", chamadas=1, novas=2)
+    edition = pipeline_edition(DATA)
+    edition.termometro = primeira
+    _publicar(edition, config, tmp_path)
+    caminho = tmp_path / "data" / "termometro" / f"{DATA}.json"
+    antes = caminho.read_bytes()
+    edition.termometro = analise.registro_do_dia(DATA, [dict(a) for a in feitas], motivo=None)  # só reaproveitadas
+    paths = _publicar(edition, config, tmp_path)
+    assert "termometro" not in paths and caminho.read_bytes() == antes
+    dia = json.loads(antes)
+    assert dia["execucoes"] == [
+        {"gerado_em": primeira["gerado_em"], "provedor": "falsa", "modelo": "m1", "candidatos": 0, "textos_curtos": 0,
+         "falhas": 0, "chamadas": 1, "tokens": None, "analises": ["a", "b"]}
+    ]
+    # uma execução que traz análise nova entra na lista, sem apagar a anterior
+    edition.termometro = analise.registro_do_dia(DATA, feitas + [_analise("c", DATA)], provedor="outra", novas=1)
+    _publicar(edition, config, tmp_path)
+    dia = json.loads(caminho.read_text(encoding="utf-8"))
+    assert [e["provedor"] for e in dia["execucoes"]] == ["falsa", "outra"] and dia["execucoes"][1]["analises"] == ["c"]
+    assert sorted(a["id"] for a in dia["analises"]) == ["a", "b", "c"]
+
+
+def test_teto_de_textos_novos_nao_tira_da_edicao_o_que_ja_foi_analisado(config):
+    edition, bundle = cenario(n_materias=2, por_materia=3)
+    config.termometro = dataclasses.replace(config.termometro, max_textos=1)
+    fila = [a for a, _ in analise.candidatos(edition, bundle, config)]
+    anteriores = {fila[-1].id: _analise(fila[-1].id, DATA, analisado_em="2026-09-28")}
+    registro = analise.analisar_edicao(edition, bundle, config, backend=Falsa(), enrich_fn=paginas, anteriores=anteriores)
+    ids = [a["id"] for a in registro["analises"]]
+    assert fila[-1].id in ids and registro["novas"] == 1 and len(ids) == 2
+
+
+def test_dia_a_dia_leva_a_edicao_em_que_os_textos_foram_analisados(config):
+    registros = [
+        {"data": "2026-10-12", "analises": [_analise("a", "2026-10-11", analisado_em="2026-10-12")]},
+        {"data": "2026-10-11", "analises": [_analise("b", "2026-10-10", analisado_em="2026-10-11")]},
+    ]
+    html = render_analitico_page(registros, config, home_href="../", archive_href="./", edicoes=["2026-10-11", "2026-10-12"])
+    linhas = re.findall(r'<a href="(\d{4}-\d{2}-\d{2})\.html#termometro">(\d{2}/\d{2}/\d{4})</a>', html)
+    assert linhas == [("2026-10-12", "11/10/2026"), ("2026-10-11", "10/10/2026")]
