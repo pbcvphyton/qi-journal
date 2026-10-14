@@ -1,194 +1,199 @@
 PBCV TECH
-Quarta-feira, 14 de outubro de 2026 · 09:06 BRT
+Quarta-feira, 14 de outubro de 2026 · 20:46 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,02 (+0,20%) · Euro R$ 5,62 (0,00%) · Yuan R$ 0,75 (+0,01%) ·
-Ibovespa 206.888 pts (-1,04%) · IFIX 3.951 pts (-0,94%) · S&P 500 7.805
-pts (-0,02%) · Brent US$ 106,33 (+0,61%) · Ouro US$ 4.160 (-0,41%) ·
-Bitcoin US$ 83.558 (+0,36%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Dólar R$ 5,05 (+0,35%) · Euro R$ 5,64 (+0,45%) · Yuan R$ 0,75 (+0,14%) ·
+Ibovespa 206.506 pts (-0,18%) · IFIX 3.954 pts (+0,07%) · S&P 500 7.719
+pts (-1,11%) · Brent US$ 105,63 (-0,41%) · Ouro US$ 4.123 (+0,38%) ·
+Bitcoin US$ 81.514 (-1,91%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 24°C, predominantemente limpo (mín. 18° / máx. 29°) · amanhã:
-trovoadas, 18° a 26°
-Montevidéu: 15°C, predominantemente limpo (mín. 15° / máx. 15°) ·
-amanhã: garoa fraca, 14° a 15°
+São Paulo: 20°C, nublado (mín. 18° / máx. 27°) · amanhã: trovoadas, 18°
+a 27°
+Montevidéu: 15°C, nublado (mín. 15° / máx. 15°) · amanhã: garoa fraca,
+15° a 15°
 
 EM 1 MINUTO
 -----------
-• Petrobras recebe R$ 2,8 bi em novas parcelas de subsídios para
-  combustíveis
-• Dólar avança ante o real com realização de lucros e atenção às
-  eleições
-• Sentença determina exclusão do IBS e CBS do cálculo do ICMS
-• TSE estabelece limites para associações de Lula e Flávio ao crime
-  organizado
-• Autoridades procuram hackers que assumiram controle de refrigeradores
-  do Carrefour e Intermarché na França
+• TCU estima em até R$ 3,06 bi pagamentos indevidos de seguro-defeso em
+  2024
+• Dólar hoje avança após dados mais fortes de inflação nos EUA
+• Trump diz que começará exploração em grande escala de petróleo e gás
+  na ‘nossa Groenlândia’
+• México exige que plataformas digitais protejam menores de conteúdo
+  violento e sexual
+• Responsabilidade dos bancos nos financiamentos de empreendimentos
+  imobiliários
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.757 notícias coletadas de 45 veículos
-foram agrupadas por títulos parecidos em 1.326 assuntos; as 24 matérias
+Edição automática (sem IA): as 1.795 notícias coletadas de 45 veículos
+foram agrupadas por títulos parecidos em 1.298 assuntos; as 24 matérias
 saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
 descartada: todas estão na lista completa do dia.
 Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#racional
-Todas as 1.757 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14-todas.html
+Todas as 1.795 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14-todas.html
 
 MANCHETE
 --------
-Manhã no mercado: Inflação nos EUA, votação do fim da escala 6x1 e
-pesquisa eleitoral concentram atenções
-A atenção dos investidores deve se dividir nesta quarta-feira entre os
-dados de inflação dos Estados Unidos e o quadro eleitoral no Brasil.
-Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo, g1, Agência
-Senado, Exame, Agência Brasil, CNN Brasil
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-manha-no-mercado-inflacao-nos-eua-votacao-do-fim
+Por 461 a 4, Câmara aprova projeto de lei que perdoa dívida do MEI e
+aumenta limite de faturamento
+A Câmara dos Deputados aprovou, nesta quarta-feira (14), projeto de lei
+do governo que propõe o perdão para cerca de 3,6 milhões de
+microempreendedores inscritos na dívida ativa da União a partir de 2027
+e aumentam o…
+Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão, g1,
+Poder360, Seu Dinheiro, Agência Brasil, Money Times, Exame, CNN Brasil
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-por-461-a-4-camara-aprova-projeto-de-lei-que-per
 
 BRASIL · ECONOMIA
 -----------------
-• Acordo entre Mercosul e UE eleva em 30% exportações brasileiras desde
-  maio, diz Elias Rosa
-  O ministro do Desenvolvimento, Indústria, Comércio e Serviços (MDIC),
-  Márcio Elias Rosa, afirmou nesta terça-feira (13) que o acordo entre
-  Mercosul e União Europeia já resultou em um aumento de 30,7% das
-  exportações…
-  Fontes: Valor Econômico, Folha de S.Paulo, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-acordo-entre-mercosul-e-ue-eleva-em-30-exportaco
+• TCU estima em até R$ 3,06 bi pagamentos indevidos de seguro-defeso em
+  2024
+  O Tribunal de Contas da União (TCU) estima que até R$ 3,06 bilhões do
+  seguro-defeso podem ter sido pagos indevidamente em 2024.
+  Fontes: Valor Econômico, Estadão
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-tcu-estima-em-ate-r-3-06-bi-pagamentos-indevidos
 
 MERCADOS & FINANÇAS
 -------------------
-• BofA profits drop 17% after $1.2bn money laundering fine
-  Third largest fine in US treasury’s history, due to failure to report
-  suspicious activity, may affect third-quarter earnings
-  Fontes: Financial Times, The New York Times, The Wall Street Journal,
-  The Guardian, BBC News, CNBC
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-bofa-profits-drop-17-after-1-2bn-money-launderin
+• Houthis ameaçam novos ataques a aeroportos e instalações de petróleo
+  da Arábia Saudita
+  Os houthis do Iêmen prometeram nesta quarta-feira (14) continuar
+  atacando aeroportos e instalações petrolíferas da Arábia Saudita, um
+  dia depois de uma ofensiva que, segundo fontes, causou danos extensos
+  à sede da…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Financial Times,
+  The Wall Street Journal, The New York Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-houthis-ameacam-novos-ataques-a-aeroportos-e-ins
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Fachin diz a diretor da PF que órgão só pode investigar ministros com
-  aval do STF
-  Em quase duas horas de conversa nesta terça-feira (13/10), o
-  presidente do Supremo Tribunal Federal (STF), Edson Fachin, disse ao
-  diretor-geral da Polícia Federal, Andrei Rodrigues, que eventual
-  investigação envolvendo…
-  Fontes: JOTA, Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-fachin-diz-a-diretor-da-pf-que-orgao-so-pode-inv
+• STF exclui expurgos de correção de depósito judicial
+  O Supremo Tribunal Federal (STF) decidiu que os bancos não precisam
+  incluir os expurgos inflacionários no cálculo da correção monetária
+  devida sobre valores de depósitos judiciais. O placar foi de sete
+  votos a dois.
+  Fontes: Valor Econômico, Conjur, JOTA, Estadão, Folha de S.Paulo
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-stf-exclui-expurgos-de-correcao-de-deposito-judi
+
+• Lufthansa vence disputa e levará 44,9% da portuguesa TAP, por US$ 1,3
+  bilhão
+  O governo de Portugal anunciou, nesta quarta-feira (14), a escolha da
+  proposta da Lufthansa para o processo de privatização da TAP. Pelos
+  termos colocados, o grupo pagará US$ 1,3 bilhão por 44,9% da companhia
+  aérea.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Financial
+  Times
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-lufthansa-vence-disputa-e-levara-44-9-da-portugu
 
 POLÍTICA
 --------
-• Campanha de Lula se reúne com líderes partidários para reforçar
-  comunicação regional no 2º turno
-  A campanha do presidente Luiz Inácio Lula da Silva (PT) reuniu nesta
-  terça-feira (13) presidentes e lideranças de partidos que o apoiam
-  para traçar estratégias de crescimento no segundo turno, em um hotel
-  em Brasília.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1,
-  Poder360, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-campanha-de-lula-se-reune-com-lideres-partidario
+• PT comemora rejeição maior de Flávio e queda na desaprovação de Lula
+  na pesquisa Quaest
+  A campanha do presidente Luiz Inácio Lula da Silva (PT) comemorou o
+  resultado da primeira pesquisa Quaest do segundo turno, divulgada
+  nesta quarta-feira (14).
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão,
+  g1, Seu Dinheiro, Money Times, Exame, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-pt-comemora-rejeicao-maior-de-flavio-e-queda-na
 
-• Flávio Bolsonaro diz que não irá participar de debate da Band; Lula
-  confirma presença
-  O candidato à Presidência Flávio Bolsonaro (PL) afirmou nesta
-  terça-feira (13/10) que “não está previsto” participar do primeiro
-  debate presidencial do segundo turno, organizado pela Band no domingo
-  (18/10), às 20h.
-  Fontes: JOTA, Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão,
-  g1, Exame, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-flavio-bolsonaro-diz-que-nao-ira-participar-de-d
+• Campanhas de Lula e Flávio chegam a acordo para reduzir judicialização
+  e cobram tratamento igualitário de 'big techs'
+  As campanhas do presidente Luiz Inácio Lula da Silva (PT) e do
+  candidato à Presidência Flávio Bolsonaro (PL) fecharam um acordo nesta
+  quarta-feira (14) para diminuir a judicialização na reta final da
+  eleição.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-campanhas-de-lula-e-flavio-chegam-a-acordo-para
 
-• Lula, enfim, tenta tirar votos de Flávio ao anunciar pacotes para MEIs
-  Ao anunciar perdão de dívidas, Pix de R$ 5 mil e aumento do limite
-  para o enquadramento de Microempreendedores individuais (MEI), o
-  presidente Luiz Inácio Lula da Silva (PT) resolveu fazer um aceno ao
-  eleitorado do…
-  Fontes: Valor Econômico, JOTA, Estadão, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-lula-enfim-tenta-tirar-votos-de-flavio-ao-anunci
+• Campanha de Lula pede que TSE aplique mesma regra de suspensão
+  temporária a canal ‘Tropa do Flávio’
+  A campanha do presidente Luiz Inácio Lula da Silva (PT) pediu nesta
+  quarta-feira (14) que o Tribunal Superior Eleitoral (TSE) também
+  suspenda por 48 horas o canal “Tropa do Flávio”, como foi feito com a
+  lista de…
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-campanha-de-lula-pede-que-tse-aplique-mesma-regr
 
-• Lula deve lançar cartas a evangélicos e católicos ao longo dessa
-  semana
-  A doze dias do segundo turno da eleição, o presidente do Partido dos
-  Trabalhadores (PT), Edinho Silva, afirmou que o presidente Luiz Inácio
-  Lula da Silva deve divulgar, ao longo da semana, duas cartas de cunho
-  religioso…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-lula-deve-lancar-cartas-a-evangelicos-e-catolico
+• Campanha de Lula questiona no TSE alcance das publicações de Nikolas e
+  IA da Meta
+  Além de apresentar ao Tribunal Superior Eleitoral (TSE) uma
+  manifestação em que questiona um suposto enviesamento da ferramenta de
+  inteligência artificial (IA) da Meta no WhatsApp, acusando-a de
+  favorecer a candidatura…
+  Fontes: Valor Econômico, Conjur, g1, Agência Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-campanha-de-lula-questiona-no-tse-alcance-das-pu
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Houthis do Iêmen atacam sede da Aramco, estatal de petróleo da Arábia
-  Saudita
-  A sede da estatal petrolífera saudita Saudi Aramco, na cidade de
-  Dhahran, no leste da Arábia Saudita, foi alvo de um ataque na noite de
-  terça-feira (13), que provocou um incêndio de pequenas proporções,
-  segundo o…
-  Fontes: Valor Econômico, InfoMoney, g1, CNN Brasil, Financial Times,
-  The Wall Street Journal, The New York Times, The Guardian, South China
-  Morning Post, BBC News, Al Jazeera
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-houthis-do-iemen-atacam-sede-da-aramco-estatal-d
-
-• Papa Leão XIV tem parte do pulmão retirada para extirpar tumor
-  O papa Leão XIV submeteu-se nesta terça-feira a uma cirurgia na qual
-  foi retirada a parte inferior do pulmão direito para extirpar um tumor
-  cancerígeno.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-papa-leao-xiv-tem-parte-do-pulmao-retirada-para
+• Papa Leão XIV se recupera bem após cirurgia para retirada de tumor no
+  pulmão
+  A recuperação do papa Leão XIV após a cirurgia realizada ontem está
+  progredindo conforme o esperado, e ele já começou a caminhar pelo
+  quarto do hospital e a se alimentar normalmente, informou o Vaticano
+  nesta…
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil, CNN Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-papa-leao-xiv-se-recupera-bem-apos-cirurgia-para
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Autoridades procuram hackers que assumiram controle de refrigeradores
-  do Carrefour e Intermarché na França
-  Investigadores franceses tentam identificar os hackers que assumiram o
-  controle de unidades de refrigeração em centenas de supermercados do
-  país.
-  Fontes: Valor Econômico, Folha de S.Paulo, CNN Brasil, The New York
-  Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-autoridades-procuram-hackers-que-assumiram-contr
+• Apple atinge valor de mercado de US$ 5 trilhões
+  A Apple juntou-se à Nvidia no clube de valor de mercado de US$ 5
+  trilhões nesta quarta-feira, 14 contrariando uma tendência geral de
+  baixa do restante do mercado.
+  Fontes: Valor Econômico, g1, InfoMoney, Seu Dinheiro, Exame, CNN
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-apple-atinge-valor-de-mercado-de-us-5-trilhoes
 
 IMOBILIÁRIO
 -----------
-• Emissão de CRI e CRA cai pela metade em dois anos
-  As emissões de Certificados de Recebíveis Imobiliários (CRIs) e
-  Certificados de Recebíveis do Agronegócio (CRAs) encolheram quase pela
-  metade em dois anos e, com isso, perderam espaço no mercado de
-  capitais.
-  Fontes: Valor Econômico
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-emissao-de-cri-e-cra-cai-pela-metade-em-dois-ano
+• Responsabilidade dos bancos nos financiamentos de empreendimentos
+  imobiliários
+  É sabido que, na sociedade pós-moderna, é comum a existência de redes
+  de contratos em que se torna comum o braço do financiamento na
+  aquisição de bens e produtos.
+  Fontes: Conjur
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-responsabilidade-dos-bancos-nos-financiamentos-d
 
 ESPORTE
 -------
-• Novo técnico do Corinthians, Seedorf chega a São Paulo e evita a
-  imprensa no aeroporto
-  "Vamos, Corinthians, vamos lá", diz Seedorf ao desembarcar no Brasil
-  Novo treinador do Corinthians, o holandês Clarence Seedorf chegou a
-  São Paulo na manhã desta quarta-feira.
-  Fontes: ge, Estadão, Gazeta Esportiva, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-novo-tecnico-do-corinthians-seedorf-chega-a-sao
+• Intervenções e conversas com o grupo: como foi o primeiro treino de
+  Seedorf no Corinthians
+  Seedorf é bastante participativo em primeiro dia de treino como
+  técnico do Corinthians O primeiro dia de trabalho de Clarence Seedorf
+  no Corinthians foi agitado.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
+  Brasil
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-intervencoes-e-conversas-com-o-grupo-como-foi-o
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Invasores atacam terra indígena na Amazônia, ameaçando povo isolado
-  Em meados de agosto, cerca de 200 pessoas invadiram a Terra Indígena
-  Ituna/Itatá, no Pará, arrombando portões da Funai, retirando placas e
-  montando acampamentos.
-  Fontes: Mongabay Brasil, ClimaInfo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-invasores-atacam-terra-indigena-na-amazonia-amea
+• Chuva forte alaga túnel do Anhangabaú e coloca São Paulo em estado de
+  atenção
+  A cidade de São Paulo entrou em estado de atenção para alagamentos
+  devido à chuva que atinge a cidade na tarde desta quarta-feira (14).
+  Fontes: Valor Econômico, Poder360, Agência Brasil, Exame
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-chuva-forte-alaga-tunel-do-anhangabau-e-coloca-s
 
 CULTURA & VARIEDADES
 --------------------
-• Netflix passa a negociar licenciamento de produtos direto no Brasil
-  A Netflix anunciou nesta terça-feira (13) que, a partir de 2027,
-  passará a operar diretamente o licenciamento de seus produtos no
-  Brasil.
-  Fontes: Valor Econômico, Folha de S.Paulo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-netflix-passa-a-negociar-licenciamento-de-produt
+• Netflix corta cerca de mil vagas em maior rodada de demissões desde
+  2022, diz jornal
+  A Netflix está cortando cerca de 6% de sua força de trabalho, ou
+  aproximadamente 1.000 postos de trabalho, em sua maior rodada de
+  demissões desde 2022, informou o jornal The Wall Street Journal nesta
+  quarta-feira (14)…
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, BBC News
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-netflix-corta-cerca-de-mil-vagas-em-maior-rodada
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 09:06 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 20:46 (BRT) · Edição automática (sem IA)
