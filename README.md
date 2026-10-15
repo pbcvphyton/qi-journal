@@ -1,4 +1,4 @@
-# PBCV Tech — jornal diário
+# Triangula — jornal diário
 
 Jornal diário em português, montado e publicado automaticamente todo dia de
 manhã: mercados, economia, direito e regulação (STF, STJ, TJs…), política,
@@ -33,7 +33,7 @@ Nada precisa ser feito à mão: o GitHub gera a edição sozinho a partir das
         │      Flash-Lite → AIML → SenseNova → Mistral → Kimi → Claude). Sem IA:
         │      edição automática.
         ▼
-  2b. Termômetro ── (PBCV Tech) os textos compilados nas matérias passam pelo
+  2b. Termômetro ── (Triangula) os textos compilados nas matérias passam pelo
         │      Termômetro de Viés Editorial v1.1: a mesma cadeia de IAs aponta os
         │      sinais com citação literal e o cálculo de referência dá o T de cada um
         ▼
@@ -168,7 +168,7 @@ seção **Cobertura comparada**, com os demais assuntos do dia. No e-mail, cada
 matéria ganha a barra e a conclusão. A análise usa só o que os veículos
 publicaram; quando o trecho não permite dizer, o veículo fica como neutro.
 
-### Termômetro de Viés Editorial e Analítico Político (só PBCV Tech)
+### Termômetro de Viés Editorial e Analítico Político (só Triangula)
 
 Depois da edição, os textos compilados nas matérias do dia passam pelo
 **Termômetro de Viés Editorial, versão 1.1** — a especificação em
@@ -392,7 +392,7 @@ Seções, palavras-chave, cotações do ticker, cidades do clima e limites da ed
 
 ## Trocar a marca
 
-Há duas marcas prontas: **PBCV Tech** (`tech`, padrão) e **PBCV Advogados**
+Há duas marcas prontas: **Triangula** (`tech`, padrão; antes PBCV Tech) e **PBCV Advogados**
 (`pbcv`), cada uma com logo próprio em `assets/`. Para trocar:
 
 - de forma permanente: em `config/site.yaml`, mude `brand: tech` para `brand: pbcv`; ou
@@ -402,24 +402,26 @@ Há duas marcas prontas: **PBCV Tech** (`tech`, padrão) e **PBCV Advogados**
 Cores, nome, slogan e logo de cada marca ficam em `config/site.yaml → brands`.
 Uma `QIJ_BRAND` com marca inexistente (como o antigo `qi`) cai na marca padrão.
 
-A marca PBCV Tech usa o logo **Sinal** (direção 06 do projeto *PBCV Tech — Logo
-2026* no Claude Design): letreiro próprio em grade de pixels e a tarja laranja
-"Tech", num cabeçalho claro como o do antigo QI Journal. A paleta vem do quadro
-do Sinal: marinho `#1B2745` (ticker, rodapé, títulos), ardósia `#394A7A` (links e
+A marca Triangula (até out/2026, PBCV Tech) usa um logo em pixel art na mesma
+grade do antigo **Sinal**: o símbolo de três fontes (nós nos vértices de um
+triângulo) com o fato laranja no centro e o letreiro TRIANGULA, num cabeçalho
+claro como o do antigo QI Journal. A chave da marca continua `tech` (o
+termômetro depende dela). A paleta vem do quadro do Sinal: marinho `#1B2745` (ticker, rodapé, títulos), ardósia `#394A7A` (links e
 réguas), laranja de sinal `#FF5A1F` (destaques; só decoração no fundo branco) e
 altas/quedas do ticker em `#7FC8FF`/`#FF5C9A`, com os cinzas azulados do layout
 original.
 
-- `assets/pbcv-tech-logo.svg` e `assets/pbcv-tech-logo-dark.svg` — logo do
+- `assets/triangula-logo.svg` e `assets/triangula-logo-dark.svg` — logo do
   cabeçalho para os modos claro e escuro (`logo_svg` e `logo_svg_dark`; o site
   troca de SVG, sem filtro de inversão). Por ser pixel art, as alturas
   (`logo_height: 60`, `logo_height_mobile: 40`) são múltiplas de 20, a grade do
   SVG, para os pixels ficarem nítidos;
-- `assets/pbcv-tech-favicon.svg` — o símbolo de 16 × 16 do quadro;
-- `assets/pbcv-tech-logo-email.png` e `…-email-dark.png` — logo do e-mail
+- `assets/triangula-favicon.svg` — o símbolo de 16 × 16;
+- `assets/triangula-logo-email.png` e `…-email-dark.png` — logo do e-mail
   (clientes de e-mail não exibem SVG), servidos pelo GitHub Pages
   (`email_logo`/`email_logo_dark`); a versão escura entra pelo CSS do modo
-  escuro de clientes como o Apple Mail.
+  escuro de clientes como o Apple Mail. Os `pbcv-tech-*` antigos ficam no
+  repositório porque os e-mails já enviados apontam para eles.
 
 Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 `colors.on_masthead` (logo em `currentColor`).

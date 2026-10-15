@@ -38,7 +38,7 @@ def linked_story_ids(html: str) -> list[str]:
 # ── assunto ──────────────────────────────────────────────────────────────────
 
 
-def expected_subject(edition, brand: str = "PBCV Tech") -> str:
+def expected_subject(edition, brand: str = "Triangula") -> str:
     lead = text.truncate(edition.story(edition.lead).headline, 70)
     return f"{brand} · 29/09/2026: {lead}"
 
@@ -47,23 +47,23 @@ def test_default_subject(rendered, edition):
     """O assunto traz o gancho do dia (a manchete, até 70 caracteres)."""
     subject, _, _ = rendered
     assert subject == expected_subject(edition)
-    assert subject.startswith("PBCV Tech · 29/09/2026: Arrecadação federal bate recorde")
-    assert len(subject) <= len("PBCV Tech · 29/09/2026: ") + 71
+    assert subject.startswith("Triangula · 29/09/2026: Arrecadação federal bate recorde")
+    assert len(subject) <= len("Triangula · 29/09/2026: ") + 71
 
 
 def test_subject_without_lead_and_with_line_breaks(edition):
     cfg = default_config()
     ed = copy.deepcopy(edition)
     ed.story(ed.lead).headline = "Linha um\nlinha dois"
-    assert render_email(ed, cfg)[0] == "PBCV Tech · 29/09/2026: Linha um linha dois"
+    assert render_email(ed, cfg)[0] == "Triangula · 29/09/2026: Linha um linha dois"
     ed.lead = "nao-existe"
-    assert render_email(ed, cfg)[0] == "PBCV Tech · 29/09/2026: Terça-feira, 29 de setembro de 2026"
+    assert render_email(ed, cfg)[0] == "Triangula · 29/09/2026: Terça-feira, 29 de setembro de 2026"
 
 
 def test_custom_subject_template_with_short_date(edition):
     cfg = default_config()
     cfg.email.subject_template = "[{brand}] Edição de {date}"
-    assert render_email(edition, cfg)[0] == "[PBCV Tech] Edição de 29/09/2026"
+    assert render_email(edition, cfg)[0] == "[Triangula] Edição de 29/09/2026"
 
 
 @pytest.mark.parametrize("template", ["{brand} {desconhecido}", "{0}", "{brand"])
@@ -115,12 +115,12 @@ def test_header_ticker_weather_editorial_and_briefing(rendered):
     # Cabeçalho claro: logo em PNG (GitHub Pages) numa célula branca; no modo escuro (CSS) troca pela versão escura.
     assert '<td align="center" bgcolor="#ffffff" class="px hdr" style="padding:28px 20px 18px;background:#ffffff;' in html
     assert (
-        '<img class="lg-l" src="https://pbcvphyton.github.io/qi-journal/assets/pbcv-tech-logo-email.png"'
-        ' width="267" height="60" alt="PBCV Tech"' in html
+        '<img class="lg-l" src="https://pbcvphyton.github.io/qi-journal/assets/triangula-logo-email.png"'
+        ' width="366" height="60" alt="Triangula"' in html
     )
     assert (
         '<!--[if !mso]><!--><img class="lg-d" src="https://pbcvphyton.github.io/qi-journal/assets/'
-        'pbcv-tech-logo-email-dark.png" width="267" height="60" alt="" style="display:none;' in html
+        'triangula-logo-email-dark.png" width="366" height="60" alt="" style="display:none;' in html
     )
     assert ".hdr{background:#111827!important;" in html and ".lg-d{display:block!important;" in html
     assert 'text-transform:uppercase;color:#5f6b7e;" class="muted">Seu terminal financeiro diário</p>' in html
@@ -222,11 +222,8 @@ def test_email_logo_falls_back_to_text(edition):
     cfg.brand.email_logo = {"src": "javascript:alert(1)", "width": 212, "height": 44}
     _, html, _ = render_email(edition, cfg)
     assert "javascript:" not in html and "<img src=\"https://pbcvphyton" not in html
-    # wordmark em marinho (sem a classe "q", que pintaria o PBCV de aqua ilegível no branco)
-    assert (
-        '<span style="color:#1B2745;" class="ink">PBCV</span><span style="color:#1B2745;font-weight:900;" class="ink">'
-        " Tech</span>" in html
-    )
+    # wordmark em marinho (sem a classe "q", que pintaria o nome de aqua ilegível no branco)
+    assert '<span style="color:#1B2745;font-weight:900;" class="ink">Triangula</span>' in html
 
 
 def test_solid_masthead_email_uses_blended_tones(edition):
@@ -245,7 +242,7 @@ def test_text_version_is_plain_and_complete(rendered, edition):
     _, html, text = rendered
     assert "**" not in text
     assert not re.search(r"</?(strong|a|p|b|span|div|br)\b", text)
-    assert text.startswith("PBCV TECH\nTerça-feira, 29 de setembro de 2026 · 05:07 BRT\n")
+    assert text.startswith("TRIANGULA\nTerça-feira, 29 de setembro de 2026 · 05:07 BRT\n")
     for heading in ("MERCADOS", "CLIMA", "EDITORIAL", "EM 1 MINUTO", "MANCHETE", "BRASIL · ECONOMIA"):
         assert f"\n{heading}\n{'-' * len(heading)}\n" in text
     assert "prêmio eleitoral nos" in text

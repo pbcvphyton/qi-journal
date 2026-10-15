@@ -1,4 +1,4 @@
-# Configuração geral do jornal (marca ativa: PBCV Tech).
+# Configuração geral do jornal (marca ativa: Triangula, ex-PBCV Tech).
 # Fontes de notícia ficam em config/sources.yaml.
 #
 # Várias chaves podem ser sobrescritas por variáveis de ambiente
@@ -11,31 +11,33 @@ site:
   timezone: "America/Sao_Paulo"
   archive_keep_days: 400        # edições (HTML + JSON) mais antigas são removidas
 
-# Marca ativa: "tech" (PBCV Tech) ou "pbcv" (PBCV Advogados). Um QIJ_BRAND com
-# marca que não existe aqui (ex.: o antigo "qi") cai nesta marca padrão.
+# Marca ativa: "tech" (Triangula, ex-PBCV Tech; a chave segue "tech", da qual o
+# termômetro depende) ou "pbcv" (PBCV Advogados). Um QIJ_BRAND com marca que
+# não existe aqui (ex.: o antigo "qi") cai nesta marca padrão.
 brand: tech
 
 brands:
   tech:
-    name: "PBCV Tech"
-    wordmark: ["", "PBCV", " Tech"]   # só sem logo (texto do cabeçalho e alternativa do e-mail)
+    name: "Triangula"
+    wordmark: ["", "", "Triangula"]   # só sem logo (texto do cabeçalho e alternativa do e-mail)
     tagline: "Seu terminal financeiro diário"
-    # Logo "Sinal" (Claude Design, PBCV Tech — Logo 2026, direção 06): letreiro
-    # próprio em grade de pixels de 16 e a tarja laranja "Tech". Cabeçalho claro,
-    # como no QI Journal; no modo escuro entra a versão própria (letras brancas).
+    # Logo Triangula (out/2026, sucessor do "Sinal" do PBCV Tech): na mesma grade
+    # de pixels de 16, o símbolo de três fontes (nós nos vértices) com o fato
+    # laranja no centro e o letreiro TRIANGULA. Cabeçalho claro; no modo escuro
+    # entra a versão própria (letras brancas). Os arquivos pbcv-tech-* ficam no
+    # repositório porque os e-mails já enviados apontam para eles.
     # Pixel art: altura múltipla de 20 (a grade do SVG) para os pixels ficarem
-    # nítidos — 60 px = 3 px por unidade (o tamanho do quadro do Claude Design
-    # para o cabeçalho do jornal); no celular, 40 px = 2 px por unidade.
-    logo_svg: "assets/pbcv-tech-logo.svg"
-    logo_svg_dark: "assets/pbcv-tech-logo-dark.svg"
+    # nítidos — 60 px = 3 px por unidade; no celular, 40 px = 2 px por unidade.
+    logo_svg: "assets/triangula-logo.svg"
+    logo_svg_dark: "assets/triangula-logo-dark.svg"
     logo_height: 60
     logo_height_mobile: 40
-    favicon_svg: "assets/pbcv-tech-favicon.svg"
+    favicon_svg: "assets/triangula-favicon.svg"
     # Logo do e-mail (PNG 3x com fundo opaco), servido pelo GitHub Pages em base_url + src.
-    email_logo: {src: "assets/pbcv-tech-logo-email.png", width: 267, height: 60}
+    email_logo: {src: "assets/triangula-logo-email.png", width: 366, height: 60}
     # Versão escura, trocada pelo CSS do modo escuro (Apple Mail, iOS…); quem
     # ignora o CSS (Gmail, Outlook) fica com a clara na faixa branca.
-    email_logo_dark: {src: "assets/pbcv-tech-logo-email-dark.png", width: 267, height: 60}
+    email_logo_dark: {src: "assets/triangula-logo-email-dark.png", width: 366, height: 60}
     # Paleta do quadro "Sinal": marinho e ardósia frios, com o laranja de sinal
     # como destaque; altas e quedas do ticker como no cabeçalho de jornal do quadro.
     colors:
@@ -225,7 +227,7 @@ llm:
   # tentativas só começam se couberem em deadline_seconds.
   timeout_seconds: 300
 
-# Termômetro de Viés Editorial (v1.1) — só na marca PBCV Tech. Depois da edição,
+# Termômetro de Viés Editorial (v1.1) — só na marca Triangula. Depois da edição,
 # a cadeia de IAs (llm.providers) analisa os textos compilados nas matérias do
 # dia (título, linha fina e corpo extraído da página original) no formato da
 # especificação; o cálculo determinístico (qijournal/termometro/referencia.py)

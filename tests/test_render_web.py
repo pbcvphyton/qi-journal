@@ -48,7 +48,7 @@ def render(edition, config=None, **kwargs):
 def test_document_basics(page):
     assert page.startswith("<!DOCTYPE html>")
     assert '<html lang="pt-BR"' in page
-    assert "<title>PBCV Tech — Terça-feira, 29 de setembro de 2026</title>" in page
+    assert "<title>Triangula — Terça-feira, 29 de setembro de 2026</title>" in page
     assert '<meta name="viewport" content="width=device-width,initial-scale=1">' in page
     assert len(page.encode("utf-8")) < 250 * 1024
 
@@ -74,7 +74,7 @@ def test_page_is_self_contained(page):
 def test_meta_and_open_graph(page, edition):
     lead = edition.story(LEAD_ID)
     assert f'<meta property="og:image" content="{lead.image}">' in page
-    assert '<meta property="og:title" content="PBCV Tech — Terça-feira, 29 de setembro de 2026">' in page
+    assert '<meta property="og:title" content="Triangula — Terça-feira, 29 de setembro de 2026">' in page
     description = re.search(r'<meta name="description" content="([^"]*)"', page).group(1)
     assert description.startswith("A cinco dias do primeiro turno, o mercado embute prêmio eleitoral")
     assert re.search(r'<meta property="og:description" content="A cinco dias', page)
@@ -205,8 +205,8 @@ def test_header_dateline_and_tools(page):
     assert 'Terça-feira, 29 de setembro de 2026&nbsp;· <span class="nw">05:07 BRT</span>' in page
     assert '<header class="mast-wrap">' in page  # cabeçalho claro, como no QI Journal
     assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in page
-    assert '<title id="pbcv-tech-logo-title">PBCV Tech</title>' in page
-    assert '<title id="dk-pbcv-tech-logo-title">PBCV Tech</title>' in page  # versão do modo escuro
+    assert '<title id="triangula-logo-title">Triangula</title>' in page
+    assert '<title id="dk-triangula-logo-title">Triangula</title>' in page  # versão do modo escuro
     assert 'class="q"' not in page  # wordmark de texto não é usado quando há logo
     assert 'id="dmBtn"' in page and 'id="srchBtn"' in page and 'id="srchInput"' in page
     assert 'id="rdprog"' in page and 'id="btt"' in page
@@ -378,7 +378,7 @@ def test_pbcv_brand_renders_inline_logo(edition):
 def test_default_brand_logo_palette_and_favicon(edition):
     html = render(edition, default_config())
     assert '<meta name="theme-color" content="#1B2745">' in html
-    assert '<meta name="generator" content="PBCV Tech · qijournal 2.0">' in html
+    assert '<meta name="generator" content="Triangula · qijournal 2.0">' in html
     assert "--qi:#394A7A;--qn:#1B2745;--qc:#FF5A1F;" in html
     assert ".mast-wrap.solid{" not in html  # cabeçalho claro
     # Sinal: letreiro em pixels (tinta no claro, branco no escuro) e tarja laranja; pixels nítidos
@@ -407,7 +407,7 @@ def test_text_wordmark_without_logo(edition):
     cfg = default_config()
     cfg.brand.logo_svg = None
     html = render(edition, cfg)
-    assert '<h1><a href="./"><span class="i">PBCV</span><span class="journal"> Tech</span></a></h1>' in html
+    assert '<h1><a href="./"><span class="journal">Triangula</span></a></h1>' in html
 
 
 def test_invalid_masthead_color_keeps_paper_header(edition):
@@ -455,7 +455,7 @@ def test_archive_index_groups_by_month(config):
     assert "javascript:" not in html
     assert '<a class="arch-home" href="../">' in html
     assert "3 edições no arquivo" in html
-    assert "<title>PBCV Tech — Edições anteriores</title>" in html
+    assert "<title>Triangula — Edições anteriores</title>" in html
     structure = parse(html)
     assert structure.errors == [] and all(re.search(r"\w", t) for _, t in structure.headings)
 
@@ -592,7 +592,7 @@ def test_unknown_brand_falls_back_to_the_default(caplog):
 
     with caplog.at_level("WARNING", logger="qijournal.config"):
         cfg = load_config(env={"QIJ_BRAND": "qi"})
-    assert cfg.brand.key == "tech" and cfg.brand.name == "PBCV Tech"
+    assert cfg.brand.key == "tech" and cfg.brand.name == "Triangula"
     assert "Marca 'qi' não existe" in caplog.text
 
 
