@@ -1,251 +1,258 @@
-PBCV TECH
-Quarta-feira, 14 de outubro de 2026 · 21:04 BRT
+TRIANGULA
+Quinta-feira, 15 de outubro de 2026 · 06:55 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,05 (+0,35%) · Euro R$ 5,64 (+0,45%) · Yuan R$ 0,75 (+0,14%) ·
+Dólar R$ 5,03 (0,00%) · Euro R$ 5,65 (+0,63%) · Yuan R$ 0,75 (+0,03%) ·
 Ibovespa 206.506 pts (-0,18%) · IFIX 3.954 pts (+0,07%) · S&P 500 7.719
-pts (-1,11%) · Brent US$ 105,65 (-0,39%) · Ouro US$ 4.130 (+0,53%) ·
-Bitcoin US$ 81.695 (-1,98%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+pts (-1,11%) · Brent US$ 103,93 (-2,01%) · Ouro US$ 4.178 (+1,71%) ·
+Bitcoin US$ 81.198 (-2,36%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 20°C, nublado (mín. 18° / máx. 27°) · amanhã: trovoadas, 18°
-a 27°
-Montevidéu: 15°C, nublado (mín. 15° / máx. 15°) · amanhã: garoa fraca,
-15° a 15°
+São Paulo: 18°C, parcialmente nublado (mín. 17° / máx. 26°) · amanhã:
+pancadas de chuva moderadas, 18° a 25°
+Montevidéu: 15°C, nublado (mín. 14° / máx. 15°) · amanhã: garoa
+moderada, 13° a 15°
 
 EDITORIAL
 ---------
-O Congresso Nacional avança em pautas de forte apelo econômico e social
-ao aprovar o perdão de dívidas para microempreendedores e abrir a
-votação da PEC sobre a jornada 6x1. No cenário externo e de negócios, a
-aceleração da inflação norte-americana impõe cautela aos mercados,
-enquanto Petrobras e Apple alcançam novos recordes em valor de mercado.
+A aprovação no Senado da PEC que extingue a escala 6x1 e reduz a jornada
+de trabalho semanal para 40 horas marca uma inflexão de forte impacto
+econômico no Brasil, dividindo empregadores e trabalhadores enquanto o
+cenário eleitoral segue acirrado. No exterior, a reaceleração da
+inflação nos Estados Unidos a 3,7% impõe cautela generalizada aos
+mercados globais, penalizando ações de tecnologia e elevando os juros
+futuros. Ao mesmo tempo, ataques contra a infraestrutura de petróleo no
+Oriente Médio e tensões no Estreito de Ormuz voltam a pressionar custos
+logísticos e energéticos.
 
 EM 1 MINUTO
 -----------
-• MEIs: Câmara aprova projeto que extingue dívidas tributárias inscritas
-  na dívida ativa e eleva teto de faturamento para R$ 140 mil.
-• Escala 6x1: Senado abre deliberação da PEC que reduz a jornada máxima
-  para 40 horas semanais e extingue o modelo 6x1.
-• Eleições: Pesquisa Quaest aponta empate técnico no segundo turno, com
-  Flávio Bolsonaro marcando 46% das intenções contra 44% de Lula.
-• Inflação nos EUA: Índice ao consumidor sobe para 3,7% em setembro e
-  eleva rendimentos dos Treasuries, penalizando bolsas globais.
-• Petrobras: Estatal bate máxima histórica e atinge R$ 800 bilhões em
-  valor de mercado, impulsionada por pré-sal e alta do petróleo.
-• São Paulo: Chuvas torrenciais alagam vias centrais, transbordam lagos
-  do Ibirapuera e deixam uma pessoa morta na Brasilândia.
+• Fim da escala 6x1: Senado aprovou por 75 votos a 1 a PEC que reduz a
+  jornada máxima para 40 horas semanais sem corte salarial; texto vai a
+  promulgação.
+• Eleição presidencial: Pesquisa Quaest aponta empate técnico no segundo
+  turno, com Flávio Bolsonaro marcando 46% das intenções de voto contra
+  44% de Lula.
+• Inflação americana: Avanço do índice de preços para 3,7% em setembro
+  nos EUA reforçou apostas de aperto monetário e derrubou ações globais
+  de tecnologia.
+• Depósitos judiciais: STF formou maioria para livrar bancos do
+  pagamento de expurgos inflacionários de planos econômicos em recursos
+  sob custódia da Justiça.
+• Marca histórica: A Apple fechou o pregão avaliada em US$ 5 trilhões e
+  se juntou à Nvidia no patamar inédito, contrariando o pessimismo de
+  Wall Street.
+• Choque no petróleo: Ofensiva com mísseis dos houthis atingiu a sede
+  corporativa da Saudi Aramco e reacendeu alertas do FMI sobre choques
+  de oferta global.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.790 notícias coletadas de 45 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 1.100 assuntos,
+A IA leu as 1.775 notícias coletadas de 45 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.167 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 104 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+seguiu em 97 assuntos e escolheu as 24 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#racional
-Todas as 1.790 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#racional
+Todas as 1.775 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15-todas.html
 
 MANCHETE
 --------
-Câmara aprova perdão de dívidas de MEIs e ampliação do teto de
-faturamento
-Projeto aprovado por 461 votos a 4 extingue passivos inscritos na dívida
-ativa e eleva o limite de enquadramento da categoria para R$ 140 mil.
-Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão, g1,
-Poder360, Seu Dinheiro, Agência Brasil, Money Times, Exame, CNN Brasil
-Cobertura: Pende para: Foca nos parâmetros fiscais e regras de dívida
-para MEIs · 10 de 12 veículos. A maior parte dos veículos enfatizou os
-dados fiscais e os novos limites da categoria, enquanto Estadão e Folha
-destacaram o peso político e eleitoral da votação para a campanha de
-Lula.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-camara-aprova-perdao-de-dividas-de-meis-e-amplia
-
-BRASIL · ECONOMIA
------------------
-• Gol suspende rotas e abre licença não remunerada após disparada no
-  combustível
-  Querosene de aviação dobra de preço e atinge 40% dos custos da
-  empresa, afetando voos domésticos e trechos para a Flórida.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, InfoMoney, g1
-  Cobertura: Pende para: Foca no cancelamento de trechos e impacto ao
-  passageiro · 4 de 5 veículos. A maior parte da mídia destacou o
-  impacto prático sobre as viagens internacionais de passageiros,
-  enquanto o noticiário financeiro deu ênfase às medidas trabalhistas de
-  contingência tomadas junto à tripulação.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-gol-suspende-rotas-e-abre-licenca-nao-remunerada
+Senado aprova PEC que acaba com a escala 6x1 e reduz jornada semanal
+para 40 horas
+Proposta de Emenda à Constituição segue para promulgação após placar de
+75 a 1; oposição liberou a bancada e Flávio Bolsonaro votou a favor.
+Fontes: Valor Econômico, Conjur, JOTA, Estadão, Folha de S.Paulo,
+NeoFeed, Agência Senado, g1, Agência Brasil, Seu Dinheiro, Exame, CNN
+Brasil
+Cobertura: Pende para: Alerta para pressa eleitoral e impacto na
+produtividade · 3 de 12 veículos. A cobertura se dividiu entre os
+impactos econômicos e críticas empresariais à pressa eleitoral, de um
+lado, e a celebração governista pelo avanço social e trabalhista, de
+outro.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-senado-aprova-pec-que-acaba-com-a-escala-6x1-e-r
 
 MERCADOS & FINANÇAS
 -------------------
-• Inflação nos EUA acelera para 3,7% e pressiona bolsas em Nova York e o
-  Ibovespa
-  Índice de preços ao consumidor norte-americano acima do esperado
-  impulsiona os Treasuries e o dólar, enquanto ações de tecnologia e
-  bolsas globais recuam com perspectiva de juros elevados.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Money Times, Exame, The
-  Wall Street Journal, The New York Times, CNBC, The Guardian, BBC News
-  Cobertura: Pende para: Foco na volatilidade doméstica e efeito
-  eleitoral · 4 de 6 veículos. A imprensa internacional concentrou-se no
-  risco de aperto dos juros e no recuo das big techs, enquanto veículos
-  brasileiros destacaram a oscilação do Ibovespa com o cenário
-  eleitoral.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-inflacao-nos-eua-acelera-para-3-7-e-pressiona-bo
+• Inflação dos EUA acelera a 3,7% e deflagra liquidação de ações de
+  tecnologia no mundo
+  Avanço do índice de preços reforça apostas de alta de juros pelo
+  Federal Reserve e derruba bolsas em Nova York e na Ásia.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Financial Times, The
+  Wall Street Journal, The New York Times, The Guardian, BBC News, CNBC
+  Cobertura: Sem divergência entre os 9 veículos. A imprensa nacional e
+  internacional convergiu ao associar a reaceleração do CPI americano à
+  perspectiva de juros elevados e ao forte ajuste no setor de
+  tecnologia.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-inflacao-dos-eua-acelera-a-3-7-e-deflagra-liquid
 
-• Petrobras atinge R$ 800 bilhões em valor de mercado com alta do
-  petróleo e preço-alvo elevado pelo BofA
-  Estatal registra patamar histórico em bolsa impulsionada por produção
-  robusta no pré-sal e novos acordos bilionários.
-  Fontes: Money Times, Seu Dinheiro, Suno Notícias
+• Ibovespa recua e dólar vai a R$ 5,03 sob impacto de juros externos e
+  cautela eleitoral
+  Inflação acima do esperado nos Estados Unidos e espera por pesquisas
+  eleitorais para a Presidência ditam o ritmo dos negócios no Brasil.
+  Fontes: Valor Econômico, Folha de S.Paulo, Suno Notícias
   Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
-  plenamente na exposição dos dados positivos, sem divergências factuais
-  sobre os ganhos de valuation da empresa e suas perspectivas
-  operacionais.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-petrobras-atinge-r-800-bilhoes-em-valor-de-merca
+  ao relatar o dia de cautela mista, com juros americanos e pesquisas
+  eleitorais determinando oscilações contidas no câmbio e na bolsa.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-ibovespa-recua-e-dolar-vai-a-r-5-03-sob-impacto
 
-• Houthis atacam sede da Saudi Aramco e ameaçam instalações petrolíferas
-  na Arábia Saudita
-  Ofensiva com drones e mísseis atingiu escritórios de executivos da
-  estatal saudita em Dhahran e impulsionou os preços do petróleo no
-  mercado internacional.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Financial Times,
-  The Wall Street Journal, The New York Times
-  Cobertura: Pende para: Ressalta danos graves e risco de escalada
-  militar · 5 de 6 veículos. A maioria dos veículos enfatizou o alcance
-  inédito dos estragos aos escritórios executivos da petroleira,
-  confrontando as tentativas do governo saudita de minimizar o
-  incidente.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-houthis-atacam-sede-da-saudi-aramco-e-ameacam-in
+• Houthis atacam sede da Saudi Aramco e elevam temor sobre oferta global
+  de petróleo
+  Ofensiva com mísseis e drones atingiu escritórios corporativos na
+  Arábia Saudita e motivou alertas do FMI sobre choques econômicos
+  prolongados.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, CNN Brasil,
+  Financial Times, The New York Times, The Wall Street Journal, CNBC
+  Cobertura: Sem divergência entre os 8 veículos. A cobertura relatou de
+  forma unânime a gravidade do ataque contra o coração corporativo da
+  petroleira saudita e seus reflexos imediatos sobre a oferta de
+  energia.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-houthis-atacam-sede-da-saudi-aramco-e-elevam-tem
+
+• Lufthansa vence disputa e compra 44,9% da TAP por até US$ 1,3 bilhão
+  Governo de Portugal escolhe proposta do grupo alemão em detrimento da
+  Air France-KLM para privatizar aérea.
+  Fontes: Valor Econômico, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
+  na exposição factual dos valores e das condições da privatização,
+  sublinhando a vitória alemã sobre a Air France-KLM.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-lufthansa-vence-disputa-e-compra-44-9-da-tap-por
+
+• Câmara rejeita parecer de resolução bancária que abria margem para FGC
+  socorrer BRB
+  Dispositivo acrescentado pelo relator Marcelo Queiroz é barrado em
+  plenário e presidente da Casa encerra votação.
+  Fontes: Valor Econômico, Estadão
+  Cobertura: Sem divergência entre os 2 veículos. Ambos os veículos
+  convergiram no registro de que a inclusão de regra para favorecer o
+  BRB foi o motivo determinante da rejeição do texto em plenário.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-camara-rejeita-parecer-de-resolucao-bancaria-que
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• STF decide que depósitos judiciais não devem ter correção por expurgos
-  inflacionários
-  Supremo define por 7 votos a 2 que bancos só precisam aplicar os
-  índices legais da época e protege valores já levantados em juízo.
-  Fontes: Valor Econômico, Conjur, JOTA, Estadão, Folha de S.Paulo
-  Cobertura: Sem divergência entre os 5 veículos. Houve alinhamento
-  factual entre todos os veículos, que reportaram o placar de 7 a 2 a
-  favor dos bancos e a fundamentação estritamente legal dos depósitos.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-stf-decide-que-depositos-judiciais-nao-devem-ter
+• TCU suspende aprovação de contas do Banco Central até avaliar conduta
+  no Banco Master
+  Tribunal de Contas da União condiciona regularidade da gestão da
+  autarquia em 2025 ao término de apurações sobre eventual morosidade.
+  Fontes: Valor Econômico, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura tratou a
+  intervenção do TCU com foco factual estrito na pendência dos processos
+  de auditoria sobre o Master.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-tcu-suspende-aprovacao-de-contas-do-banco-centra
+
+• STF decide que bancos não devem pagar expurgos inflacionários em
+  depósitos judiciais
+  Por 7 votos a 2, corte veda incidência de índices dos planos Bresser,
+  Verão e Collor sobre recursos em juízo e pacifica milhares de
+  disputas.
+  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 4 veículos. Os veículos
+  convergiram integralmente nos aspectos técnicos da decisão,
+  ressaltando o alívio aos bancos e a modulação adotada.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-stf-decide-que-bancos-nao-devem-pagar-expurgos-i
 
 POLÍTICA
 --------
-• Senado inicia deliberação da PEC que extingue a jornada de trabalho
-  6x1
-  Proposta prevê redução da carga máxima semanal de 44 para 40 horas e
-  mobiliza articulação do governo para votação em dois turnos.
-  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo, NeoFeed,
-  Agência Senado, g1, Agência Brasil
-  Cobertura: Pende para: Foca na tramitação legislativa e direitos dos
-  trabalhadores · 5 de 8 veículos. A maioria dos órgãos noticiosos
-  concentrou-se no andamento parlamentar e nos requisitos de votação,
-  mas Folha, Estadão e NeoFeed frisaram as repercussões eleitorais e os
-  temores empresariais.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-senado-inicia-deliberacao-da-pec-que-extingue-a
+• Quaest aponta empate técnico entre Flávio Bolsonaro, com 46%, e Lula,
+  com 44%
+  Primeira sondagem do instituto para o segundo turno mostra disputa
+  acirrada, com 51% a 49% nos votos válidos e alta taxa de cristalização
+  das opções do eleitorado.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Seu
+  Dinheiro
+  Cobertura: Sem divergência entre os 6 veículos. A imprensa tratou os
+  dados de forma uniforme e factual, destacando a divisão do país, a
+  margem estreita e a rigidez do eleitorado.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-quaest-aponta-empate-tecnico-entre-flavio-bolson
 
-• Quaest aponta empate técnico entre Flávio Bolsonaro e Lula no segundo
-  turno
-  Levantamento mostra o senador do PL com 46% das intenções de voto
-  contra 44% do petista, que confirmou presença no primeiro debate
-  televisivo.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão,
-  g1, Seu Dinheiro, Money Times, Exame, CNN Brasil
-  Cobertura: Sem divergência entre os 10 veículos. A cobertura convergiu
-  amplamente na apresentação do empate técnico verificado pela Quaest e
-  na confirmação do embate presencial entre Lula e Flávio no debate de
-  domingo.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-quaest-aponta-empate-tecnico-entre-flavio-bolson
-
-• CCJ do Senado aprova PEC da Segurança Pública e texto segue para o
-  plenário
-  Texto reforça combate a facções e integração federativa, enquanto a
-  oposição articula emenda para incluir a redução da maioridade penal na
-  apreciação final.
-  Fontes: Valor Econômico, JOTA, Agência Senado, g1, CNN Brasil
-  Cobertura: Equilíbrio: 2 × 2 de 5 veículos. A maior parte dos veículos
-  tratou o avanço da matéria como trunfo da base governista, enquanto
-  reportagens complementares detalharam a tentativa da oposição de
-  polarizar a votação com a maioridade penal.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-ccj-do-senado-aprova-pec-da-seguranca-publica-e
+• Câmara aprova por 461 a 4 projeto que perdoa dívidas e amplia teto do
+  MEI
+  Texto relatado pelo PT beneficia 3,6 milhões de microempreendedores
+  inadimplentes e segue para votação acelerada no Senado.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Seu Dinheiro,
+  Agência Brasil
+  Cobertura: Pende para: Enfatiza a manobra eleitoral a dias do segundo
+  turno · 3 de 6 veículos. A imprensa geral e econômica enfatizou o
+  caráter eleitoreiro e a urgência da votação antes do pleito de 25 de
+  outubro, enquanto veículos de serviço e estatais ressaltaram os
+  critérios técnicos e os benefícios diretos aos MEIs.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-camara-aprova-por-461-a-4-projeto-que-perdoa-div
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Restrições na Starlink travam drones da Ucrânia e ampliam atrito com
-  Washington
-  Militares ucranianos enfrentam falhas operacionais após limitações de
-  velocidade no serviço de satélite em meio a cobranças dos EUA.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Financial
-  Times, The Wall Street Journal, The Guardian, BBC News, CNBC, The New
-  York Times
-  Cobertura: Pende para: Enfatiza o impacto militar e a vulnerabilidade
-  da Ucrânia · 6 de 10 veículos. A cobertura internacional dividiu-se
-  entre relatos do colapso tático no campo de batalha e análises sobre o
-  uso do serviço via satélite como ferramenta de coerção política dos
-  EUA.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-restricoes-na-starlink-travam-drones-da-ucrania
+• Ucrânia retoma ataques a refinarias russas e expõe atrito com
+  Washington após restrições ao Starlink
+  Volodymyr Zelensky diz que encerrou cessar-fogo unilateral após cortes
+  em inteligência e limitações operacionais atribuídas à Casa Branca.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
+  Financial Times, The New York Times, The Wall Street Journal, The
+  Guardian, BBC News, CNBC
+  Cobertura: Pende para: Foca a vulnerabilidade militar e o racha com
+  Washington · 7 de 11 veículos. Parte expressiva dos veículos tratou o
+  colapso militar e o bloqueio do Starlink como sinal de isolamento de
+  Kiev, enquanto publicações econômicas e agências focaram a resposta
+  armada ucraniana contra refinarias russas.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-ucrania-retoma-ataques-a-refinarias-russas-e-exp
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Apple fecha avaliada em US$ 5 trilhões e acompanha Nvidia em patamar
-  recorde
-  Ações da fabricante do iPhone subiram 0,5% nesta quarta-feira,
-  consolidando a companhia como a segunda mais valiosa do mundo.
-  Fontes: Valor Econômico, g1, InfoMoney, Seu Dinheiro, Exame, CNN
-  Brasil
-  Cobertura: Sem divergência entre os 6 veículos. A cobertura foi
-  unânime ao registrar o marco financeiro e o fato de a Apple integrar
-  agora, ao lado da Nvidia, o grupo de empresas negociadas a US$ 5
-  trilhões no fechamento.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-apple-fecha-avaliada-em-us-5-trilhoes-e-acompanh
+• Apple fecha pregão avaliada em US$ 5 trilhões e amplia marca histórica
+  Fabricante do iPhone avança 0,5%, junta-se à Nvidia no patamar inédito
+  e contraria pregão negativo no mercado global.
+  Fontes: Valor Econômico, g1, Seu Dinheiro
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura tratou o
+  recorde da Apple com enfoque factual unificado, ressaltando o
+  ineditismo do fechamento acima de US$ 5 trilhões e a companhia da
+  Nvidia nesse patamar.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-apple-fecha-pregao-avaliada-em-us-5-trilhoes-e-a
 
 ESPORTE
 -------
-• Seedorf é apresentado no Corinthians e comanda primeiro treino para
-  evitar rebaixamento
-  Técnico holandês de 50 anos assume o cargo após sequência de oito
-  derrotas da equipe no Campeonato Brasileiro.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
-  Brasil
-  Cobertura: Equilíbrio: 2 × 2 de 6 veículos. A maior parte dos veículos
-  esportivos centrou a cobertura no impacto prático e tático do primeiro
-  treino, enquanto a cobertura política de jornais generalistas
-  enfatizou as fragilidades do processo decisório e a inatividade do
-  treinador.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-seedorf-e-apresentado-no-corinthians-e-comanda-p
+• Palmeiras vence o Fluminense por 2 a 1 no Maracanã e abre vantagem na
+  semifinal da Libertadores
+  Com gols de Flaco López e Marlon Freitas, equipe paulista larga na
+  frente, mas sofre gol de Wesley Natã nos acréscimos.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar,
+  Agência Brasil, CNN Brasil
+  Cobertura: Sem divergência entre os 7 veículos. A cobertura
+  jornalística convergiu amplamente na constatação de que o Palmeiras
+  foi letal e eficiente diante de um Fluminense que dominou a posse de
+  bola mas pecou na finalização.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-palmeiras-vence-o-fluminense-por-2-a-1-no-maraca
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Chuvas torrenciais inundam São Paulo, deixam um morto e causam caos no
-  trânsito
-  Temporal alaga túnel do Anhangabaú, transborda lagos no Ibirapuera,
-  provoca deslizamento fatal na Brasilândia e suspende o rodízio
-  municipal.
-  Fontes: Valor Econômico, Poder360, Agência Brasil, Exame, CNN Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura de todos
-  os veículos foi estritamente convergente e factual, registrando
-  estragos urbanos, caos viário e uma vítima fatal.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-chuvas-torrenciais-inundam-sao-paulo-deixam-um-m
+• Forte chuva alaga Túnel do Anhangabaú e deixa um morto na zona norte
+  de São Paulo
+  Temporal na capital paulista gerou 17 pontos de alagamento, três
+  desabamentos e levou a Defesa Civil e o CGE a decretarem estado de
+  atenção.
+  Fontes: Valor Econômico, Agência Brasil
+  Cobertura: Sem divergência entre os 2 veículos. Os relatos coincidiram
+  na dimensão dos estragos causados pelo temporal na capital, com a
+  Agência Brasil enfatizando os danos humanos e o Valor a mobilidade
+  urbana.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-forte-chuva-alaga-tunel-do-anhangabau-e-deixa-um
 
 CULTURA & VARIEDADES
 --------------------
-• Netflix demite cerca de 1.000 funcionários no maior corte de vagas
-  desde 2022
-  Redução atinge aproximadamente 6% do quadro global e afeta áreas de
-  produto, tecnologia, recursos humanos e jurídico.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, BBC News, CNBC,
-  TechCrunch, The New York Times, Financial Times
-  Cobertura: Sem divergência entre os 6 veículos. A cobertura converge
-  sem divergências factuais sobre o tamanho das demissões (cerca de
-  1.000 profissionais, ou 6%) e os motivos ligados à saturação e
-  consolidação do mercado de streaming.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-netflix-demite-cerca-de-1-000-funcionarios-no-ma
+• Netflix anuncia corte de cerca de 1.000 funcionários em sua maior
+  rodada de demissões desde 2022
+  Gigante do streaming reduz cerca de 6% de sua força global de trabalho
+  para enfrentar intensa concorrência no mercado de mídia.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, BBC News, The New York
+  Times, CNBC
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura
+  jornalística convergiu ao reportar os cortes estruturais na gigante do
+  streaming e os desafios mercadológicos enfrentados pela companhia.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-netflix-anuncia-corte-de-cerca-de-1-000-funciona
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 21:04 (BRT) · Edição gerada por IA
-(gemini-flash-latest)
+Gerado automaticamente em 06:55 (BRT) · Edição gerada por IA
+(gemini-flash-latest + gemini-flash-lite-latest)

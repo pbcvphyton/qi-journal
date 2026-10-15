@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PBCV Tech — Analítico Político</title>
+<title>Triangula — Analítico Político</title>
 <meta name="description" content="Todo o histórico do Termômetro de Viés Editorial: média, tendência, desvio, rankings por veículo e editoria e cada texto analisado.">
-<meta name="theme-color" content="#1B2745">
-<meta name="generator" content="PBCV Tech · qijournal 2.0">
+<meta name="theme-color" content="#273351">
+<meta name="generator" content="Triangula · qijournal 2.0">
 <link rel="canonical" href="https://pbcvphyton.github.io/qi-journal/edicoes/analitico.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 width=%2264%22 height=%2264%22 shape-rendering=%22crispEdges%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%222%22 fill=%22%230C0F16%22/%3E%3Cpath fill=%22%23FFFFFF%22 d=%22M14 1V2H15V3H14V4H15V6H14V7H9V1ZM13 2H11V3H13ZM6 9V10H7V11H5V10H3V14H5V13H7V14H6V15H2V14H1V10H2V9ZM6 4V5H3V7H1V1H6V2H7V4ZM3 2V4H5V2ZM11 15V14H10V12H9V9H11V12H13V9H15V12H14V14H13V15ZM13 4H11V6H13Z%22/%3E%3Crect x=%227%22 y=%227%22 width=%222%22 height=%222%22 fill=%22%23FF5A1F%22/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 width=%2264%22 height=%2264%22 shape-rendering=%22crispEdges%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%222%22 fill=%22%230C0F16%22/%3E%3Cpath fill=%22%23FFFFFF%22 d=%22M7 2h2v2h-2zM6 4h1v2h-1zM9 4h1v2h-1zM5 6h1v2h-1zM10 6h1v2h-1zM4 8h1v2h-1zM11 8h1v2h-1zM3 10h1v2h-1zM12 10h1v2h-1zM1 12h14v1h-14zM1 13h2v1h-2zM13 13h2v1h-2z%22/%3E%3Cpath fill=%22%23FF5A1F%22 d=%22M7 9h2v2h-2z%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;0,900;1,400&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
@@ -38,6 +38,7 @@
   --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#5f6b7e;--faint:#626e81;
   --soft:#f8f9fb;--side:#fdfdfd;--hover:#fafbff;--hl:#e8ebf0;--op-a:#fafbff;--op-b:#f0f2f5;
   --link:var(--qi);--text:#333d4d;
+  --gut:30px;
   --fx-dot:var(--qi);--fx-line:var(--qc);
   --sf:'Noto Serif',Georgia,'Times New Roman',serif;
   --ss:'Noto Sans',Helvetica,Arial,sans-serif;
@@ -61,9 +62,8 @@ button{font:inherit;color:inherit}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-9999px;top:8px;z-index:10000;padding:8px 14px;background:var(--paper);color:var(--link);font-family:var(--ss);font-size:13px;font-weight:700;border:2px solid var(--qi)}
 .skip:focus{left:16px}
-.paper{max-width:1120px;min-height:100vh;display:flex;flex-direction:column;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(var(--qn-rgb),.08)}
+.paper{width:100%;min-height:100vh;display:flex;flex-direction:column;background:var(--paper)}
 .paper>main{flex:1}
-:root[data-theme="dark"] .paper{box-shadow:0 0 60px rgba(0,0,0,.5)}
 
 /* Barra de progresso de leitura */
 #rdprog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--qc);transform:scaleX(0);transform-origin:0 50%;z-index:9999;pointer-events:none}
@@ -87,13 +87,23 @@ button{font:inherit;color:inherit}
 .mast h1.logo .lg{display:block}
 .mast h1.logo .lg-d,:root[data-theme="dark"] .mast h1.logo .lg-l{display:none}
 :root[data-theme="dark"] .mast h1.logo .lg-d{display:block}
-.mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}
 .mast h1.logo.mono svg{height:64px;color:var(--qn)}
 :root[data-theme="dark"] .mast h1.logo.mono svg{color:var(--head)}
+.mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}
 .mast-sub{font-family:var(--ss);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--mute2);margin-top:6px}
 .mast h1.logo+.mast-sub{margin-top:14px}
 .mast-date{font-family:var(--mn);font-size:10px;color:var(--faint);margin-top:8px;letter-spacing:1px}
 .mast-date .nw{white-space:nowrap}
+/* Cabeçalho em bloco de cor (brand.masthead): logo, slogan, data e botões em on_masthead */
+.mast-wrap.solid{--mh:#273351;--on-mh:#FFFFFF;--on-mh-rgb:255,255,255;--fx-dot:var(--on-mh);--fx-line:var(--on-mh);background:var(--mh);background:linear-gradient(135deg,color-mix(in srgb,var(--mh) 94%,#fff),color-mix(in srgb,var(--mh) 92%,#000))}
+:root[data-theme="dark"] .mast-wrap.solid{border-bottom-color:var(--qn);background:color-mix(in srgb,var(--mh) 82%,#000)}
+.mast-wrap.solid #mast-canvas{opacity:.1}
+.mast-wrap.solid .mast h1,.mast-wrap.solid .mast h1.logo svg{color:var(--on-mh)}
+.mast-wrap.solid .mast-sub{color:rgba(var(--on-mh-rgb),.8)}
+.mast-wrap.solid .mast-date{color:rgba(var(--on-mh-rgb),.72)}
+.mast-wrap.solid .tool{background:transparent;border-color:rgba(var(--on-mh-rgb),.4);color:var(--on-mh)}
+.mast-wrap.solid .tool:hover{border-color:var(--on-mh);background:rgba(var(--on-mh-rgb),.1)}
+.mast-wrap.solid :focus-visible{outline-color:var(--on-mh)}
 .mast-tools{position:absolute;top:14px;right:16px;z-index:3;display:flex;gap:6px}
 .tool{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border:1.5px solid var(--rule);border-radius:20px;background:var(--paper);font-family:var(--mn);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--mute2);cursor:pointer;transition:border-color .25s,color .25s}
 .tool:hover{border-color:var(--link);color:var(--link)}
@@ -128,7 +138,7 @@ button{font:inherit;color:inherit}
 .wx .sep{color:var(--rule);margin:0 6px}
 
 /* Editorial do dia */
-.op-bar{padding:18px 32px;background:linear-gradient(135deg,var(--op-a),var(--op-b));border-bottom:1px solid var(--rl);font-size:15px;font-style:italic;color:var(--body);line-height:1.7;text-align:center}
+.op-bar{padding:18px var(--gut);background:linear-gradient(135deg,var(--op-a),var(--op-b));border-bottom:1px solid var(--rl);font-size:15px;font-style:italic;color:var(--body);line-height:1.7;text-align:center}
 .op-bar p{max-width:880px;margin:0 auto}
 .op-bar strong{color:var(--ink)}
 
@@ -136,7 +146,7 @@ button{font:inherit;color:inherit}
 .kicker{font-family:var(--ss);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--link);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--qi)}
 
 /* Em 1 minuto */
-.brief{padding:16px 30px 18px;border-bottom:1px solid var(--rl)}
+.brief{padding:16px var(--gut) 18px;border-bottom:1px solid var(--rl)}
 .brief ul{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 32px}
 .brief li{position:relative;padding-left:16px;font-family:var(--ss);font-size:13px;line-height:1.5;color:var(--body)}
 .brief li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:1px;background:var(--qc)}
@@ -159,7 +169,7 @@ figure.img-fail{display:none}
 /* Manchete + chamadas */
 .hero{display:grid;grid-template-columns:5fr 3fr;border-bottom:2px solid var(--qn)}
 .hero.solo{grid-template-columns:1fr}
-.hero-l{padding:26px 30px;border-right:1px solid var(--rule);cursor:pointer;transition:background .3s}
+.hero-l{padding:26px var(--gut);border-right:1px solid var(--rule);cursor:pointer;transition:background .3s}
 .hero.solo .hero-l{border-right:none}
 .hero-l:hover{background:var(--hover)}
 .hero-l h2{font-size:clamp(22px,3.2vw,34px);font-weight:900;line-height:1.12;margin-bottom:14px;letter-spacing:-.5px;color:var(--head)}
@@ -178,7 +188,7 @@ figure.img-fail{display:none}
 .hero-r .ss>p:not(.cat):not(.meta){font-family:var(--ss);font-size:12px;color:var(--muted);line-height:1.5}
 
 /* Destaques numerados */
-.dst{padding:14px 30px 16px;background:linear-gradient(135deg,var(--soft),var(--paper));border-bottom:1px solid var(--rl)}
+.dst{padding:14px var(--gut) 16px;background:linear-gradient(135deg,var(--soft),var(--paper));border-bottom:1px solid var(--rl)}
 .dst ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .dst li{counter-increment:t;display:flex;gap:10px;padding:9px 12px 9px 0;border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:13px;line-height:1.4;border-radius:3px;cursor:pointer;transition:background .2s}
 .dst li:hover{background:var(--hl)}
@@ -190,7 +200,7 @@ figure.img-fail{display:none}
 .dst .dst-cat{display:block;margin-top:3px;font-family:var(--mn);font-size:8.5px;text-transform:uppercase;letter-spacing:1px;color:var(--faint)}
 
 /* Busca */
-.srch{display:flex;align-items:center;gap:12px;padding:10px 30px;background:var(--paper);border-top:2px solid var(--qn)}
+.srch{display:flex;align-items:center;gap:12px;padding:10px var(--gut);background:var(--paper);border-top:2px solid var(--qn)}
 .srch-label{font-family:var(--mn);font-size:9.5px;letter-spacing:1px;color:var(--faint);text-transform:uppercase;flex-shrink:0}
 .srch-input{flex:1;min-width:0;max-width:420px;height:34px;padding:0 16px;border:1.5px solid var(--rl);border-radius:20px;font-family:var(--ss);font-size:13px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
 .srch-input:focus{border-color:var(--qi);box-shadow:0 0 0 3px rgba(var(--qi-rgb),.15)}
@@ -328,7 +338,7 @@ body.modal-open{overflow:hidden}
 .mcomp{margin-bottom:8px;font-family:var(--ss);font-size:12px;color:var(--muted)}
 .ml .mcov{margin-top:22px;padding:16px 18px;border:1px solid var(--rl);border-radius:4px;background:var(--soft)}
 .ml .mcov>h3{margin-bottom:10px;font-family:var(--mn);font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
-.cmp{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+.cmp{padding:22px var(--gut) 30px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .cmp{border-top-color:var(--qi)}
 .cmp-note{max-width:860px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
 .cmp-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin-top:6px}
@@ -338,11 +348,11 @@ body.modal-open{overflow:hidden}
 .cmp-t{font-weight:500;letter-spacing:.5px;color:var(--faint)}
 
 /* Racional da edição e lista completa do dia */
-.rat-strip{padding:9px 30px;border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
+.rat-strip{padding:9px var(--gut);border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
 .rat-strip span{color:var(--ink);font-weight:600}
 .rat-strip a{color:var(--link);font-weight:700;white-space:nowrap}
 .rat-strip a:hover{text-decoration:underline}
-.rat{padding:22px 30px 26px;border-top:2px solid var(--qn);background:var(--paper)}
+.rat{padding:22px var(--gut) 26px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .rat{border-top-color:var(--qi)}
 .rat-sum{max-width:900px;font-family:var(--sf);font-size:16px;line-height:1.6;color:var(--ink)}
 .rat-blocks{list-style:none;counter-reset:blk;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px 24px;margin-top:14px}
@@ -351,7 +361,7 @@ body.modal-open{overflow:hidden}
 .rat-blocks b{color:var(--ink)}
 .rat-blocks b::before{content:counter(blk) ". ";font-family:var(--mn);font-weight:500;color:var(--faint)}
 .rat-note{max-width:900px;margin-top:14px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
-.todas{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+.todas{padding:22px var(--gut) 30px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .todas{border-top-color:var(--qi)}
 .todas .kicker span{font-family:var(--mn);font-weight:500;letter-spacing:.5px;color:var(--faint)}
 .todas-note{max-width:900px;margin-bottom:10px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
@@ -403,7 +413,7 @@ body.modal-open{overflow:hidden}
 body.modal-open .btt{visibility:hidden}
 
 /* Arquivo de edições */
-.arch{padding:24px 30px 36px;min-height:40vh}
+.arch{padding:24px var(--gut) 36px;min-height:40vh}
 .arch-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .arch-top .kicker{flex:1}
 .arch-home{font-family:var(--ss);font-size:12px;font-weight:700;color:var(--link)}
@@ -417,7 +427,6 @@ body.modal-open .btt{visibility:hidden}
 .arch-t{font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
 .badge{flex-shrink:0;padding:1px 6px;border:1px solid var(--rule);border-radius:10px;font-family:var(--mn);font-size:8.5px;letter-spacing:1px;color:var(--faint)}
 .arch-empty{padding:30px 0;font-family:var(--ss);color:var(--muted)}
-
 /* Termômetro de Viés Editorial (fim da edição) e aba Analítico Político.
    Escala divergente validada (rampa ordinal por braço, claro e escuro):
    verde-azulado = esquerda, âmbar = direita, cinza = equilíbrio; misto hachurado. */
@@ -427,7 +436,7 @@ body.modal-open .btt{visibility:hidden}
 .t-dl{background:var(--t-dl)}.t-dm{background:var(--t-dm)}.t-df{background:var(--t-df)}.t-na{background:var(--t-na)}
 .t-mx{background:repeating-linear-gradient(135deg,var(--t-eq) 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1px var(--t-eq)}
 .sw{display:inline-block;width:8px;height:8px;margin-right:6px;border-radius:2px;vertical-align:baseline}
-.term{padding:22px 30px 26px;border-top:2px solid var(--qn);background:var(--paper)}
+.term{padding:22px var(--gut) 26px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .term{border-top-color:var(--qi)}
 .term-sum{max-width:900px;font-family:var(--sf);font-size:17px;font-weight:600;line-height:1.5;color:var(--ink)}
 .term-sum span{font-family:var(--mn);font-size:10.5px;font-weight:500;letter-spacing:.3px;color:var(--mute2)}
@@ -481,7 +490,7 @@ body.modal-open .btt{visibility:hidden}
 .tl-tx a{color:var(--ink)}
 .tl-tx a:hover{color:var(--link);text-decoration:underline}
 .tl-r{font-size:11.5px;color:var(--muted);white-space:nowrap}
-.an{padding:24px 30px 36px}
+.an{padding:24px var(--gut) 36px}
 .an-intro{max-width:900px;font-family:var(--sf);font-size:16px;line-height:1.6;color:var(--ink)}
 .an-blk{margin-top:26px;padding-top:16px;border-top:1px solid var(--rl)}
 .an-h{margin-bottom:10px;font-family:var(--ss);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--head)}
@@ -563,12 +572,392 @@ body.modal-open .btt{visibility:hidden}
 @media (max-width:400px){
   .tool.tool-an span{display:none}
 }
+
+/* ── Computador (a partir de 1024 px): primeira página no desenho de jornal ──
+   Cabeçalho compacto (data e hora da edição à esquerda, logo ao centro, ferramentas
+   à direita), barra de editorias com régua dupla e uma grade 2/3 + 1/3: na coluna
+   principal, o editorial, a manchete (texto à esquerda, foto à direita, chamada
+   relacionada abaixo do texto), "Mais para ler" numerado em duas colunas com
+   miniatura e "Em 1 minuto"; no trilho, as chamadas com foto e o Radar, que
+   acompanha a altura da coluna principal, rola por dentro e diz quantos itens faltam.
+   Abaixo disso, as abas (cards com réguas finas), o racional e a cobertura comparada.
+   Abaixo de 1024 px nada disto aparece e valem os blocos originais (op-bar, brief,
+   hero, dst), ocultos no computador. */
+.mast-l,.sec-nav,.fp{display:none}
+@media (min-width:1024px){
+  :root{--gut:32px;--fr:var(--ink)}
+  :root[data-theme="dark"]{--fr:#75829a}
+
+  /* Cabeçalho */
+  .mast{padding:16px 300px 14px}
+  .mast h1.logo svg,.mast h1.logo.mono svg{height:clamp(64px,4.2vw,92px)}
+  .mast h1.logo+.mast-sub{margin-top:8px}
+  .mast-sub{font-size:9px}
+  .mast-l:not(:empty){display:block;position:absolute;z-index:3;left:var(--gut);top:50%;transform:translateY(-50%);font-family:var(--ss);text-align:left}
+  .mast-l:not(:empty)~.mast .mast-date{display:none}
+  .mast-l .ml-d{font-size:13px;font-weight:600;line-height:1.4;color:var(--on-mh,var(--head))}
+  .mast-l .ml-e{margin-top:3px;font-family:var(--mn);font-size:10px;letter-spacing:.6px;color:var(--faint)}
+  .mast-wrap.solid .mast-l .ml-e{color:rgba(var(--on-mh-rgb),.72)}
+  .mast-l .nw{white-space:nowrap}
+  .mast-tools{top:50%;right:var(--gut);transform:translateY(-50%)}
+
+  /* Barra de editorias (leva às abas) com régua dupla; os atalhos da edição ficam
+     à direita e, se não couberem na mesma linha das editorias, descem juntos para
+     uma segunda linha, alinhados à direita */
+  .sec-nav{display:block;padding:0 var(--gut);background:var(--paper)}
+  .sn-in{display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px;padding:10px 0 9px;border-bottom:4px double var(--fr)}
+  .sec-nav ul{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:2px 14px}
+  .sn-ed{flex:1 1 auto;min-width:0}
+  .sn-x{flex:none;margin-left:auto;padding-left:14px;border-left:1px solid var(--rule)}
+  :root[data-theme="dark"] .sn-x{border-left-color:var(--fr)}
+  .sec-nav a{display:block;padding:3px 0 2px;font-family:var(--ss);font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;box-shadow:inset 0 -2px 0 transparent;transition:color .2s,box-shadow .2s}
+  .sec-nav a:hover{color:var(--link);box-shadow:inset 0 -2px 0 var(--sc,var(--qi))}
+  .sn-x a{color:var(--mute2)}
+  .sn-x a:hover{color:var(--link)}
+
+  /* Grade da primeira página */
+  .fp{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);padding:20px var(--gut) 0;background:var(--paper)}
+  .fp~.op-bar,.fp~.brief,.fp~.rat-strip,.fp~.hero,.fp~.dst{display:none}
+  .fp-main{min-width:0;padding-right:24px}
+  .fp-rail{display:flex;flex-direction:column;min-width:0;padding-left:24px;border-left:1px solid var(--rl)}
+  .fp .cat{margin-bottom:6px}
+  .fp-lead,.fp-rel,.fp-mi,.fp-r1,.fp-r2i{position:relative;cursor:pointer}
+  .fp-lead:has(>.fp-lt>h2 .hit:focus-visible),.fp-rel:has(.hit:focus-visible),.fp-mi:has(.hit:focus-visible),.fp-r1:has(.hit:focus-visible),.fp-r2i:has(.hit:focus-visible){outline:2px solid var(--link);outline-offset:3px}
+  .fp h2 a,.fp h3 a{transition:color .2s}
+  .fp-lead:not(:has(.fp-rel:hover)):hover h2 a,.fp-rel:hover h3 a,.fp-mi:hover h3 a,.fp-r1:hover h3 a,.fp-r2i:hover h3 a,.fp-op a:hover .fp-tt{color:var(--link)}
+  .fp-lbl{display:flex;align-items:center;gap:8px;padding:9px 0 3px;font-family:var(--ss);font-size:10.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--head)}
+  .fp-n{font-family:var(--mn);font-size:10px;font-weight:500;letter-spacing:0;color:var(--faint)}
+
+  /* Caixa principal: editorial, manchete e "Mais para ler" */
+  .fp-box{padding:0 18px 4px;border:1px solid var(--fr)}
+  .fp-ed{padding:16px 5% 0;text-align:center}
+  .fp-ed-k{font-family:var(--ss);font-size:9.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--link)}
+  .fp-ed-t{max-width:860px;margin:6px auto 0;font-family:var(--sf);font-size:14.5px;font-style:italic;line-height:1.6;color:var(--body)}
+  .fp-ed-t strong{color:var(--ink)}
+  .fp-ed::after{content:"";display:block;width:64px;height:2px;margin:12px auto 0;background:var(--qi)}
+  /* Coluna de texto em 40% (padrão), 45% (wm) ou metade (wt) do pacote */
+  .fp-lead{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:0 20px;padding:20px 0}
+  .fp-lead.wm{grid-template-columns:minmax(0,9fr) minmax(0,11fr)}
+  .fp-lead.wt{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .fp-lead.noimg,.fp-lead:has(.fp-li.img-fail){grid-template-columns:1fr}
+  .fp-lt{display:flex;flex-direction:column;min-width:0}
+  .fp-lead h2{margin-bottom:10px;font-size:clamp(22px,calc(7px + 1.3vw),40px);font-weight:700;line-height:1.14;letter-spacing:-.3px;color:var(--head);overflow-wrap:break-word;text-wrap:balance}
+  .fp-dek{font-family:var(--sf);font-size:clamp(14px,calc(9px + .45vw),18px);line-height:1.5;color:var(--body)}
+  .fp-sub{margin-top:10px;font-family:var(--ss);font-size:13px;line-height:1.6;color:var(--body)}
+  .fp-sub strong{color:var(--ink)}
+  .fp-lt>.cov.mini{max-width:420px}
+  /* Coluna da foto: a foto não impõe altura ao pacote. Parte de um recorte
+     panorâmico (2,4:1) e cresce até a altura da coluna de texto; se o texto for o
+     mais curto, a chamada relacionada desce para o pé dele. Assim as duas colunas
+     terminam juntas. Sem script, o trecho do corpo fica sob a foto até 1800 px e,
+     acima disso, na coluna do texto; com script (page.js), a manchete escolhe onde
+     ficam o trecho (ex-l/ex-r) e a chamada relacionada para a foto ficar perto de 3:2. */
+  .fp-lp{display:flex;flex-direction:column;min-width:0;container-type:inline-size}
+  .fp-li{flex:1 1 0;width:100%;min-height:41.6cqw}
+  .fp-lead:not(.noimg) .fp-sub-t{display:none}
+  .fp-rel{z-index:2;margin-top:auto;padding-top:12px;border-top:1px solid var(--rl)}
+  .fp-lt>:has(+.fp-rel){margin-bottom:16px}
+  .fp-lp>.fp-rel{margin-top:14px}
+  .fp-lead.ex-l:not(.noimg) .fp-sub-t,.fp-lead.ex-r .fp-sub-p{display:block}
+  .fp-lead.ex-r:not(.noimg) .fp-sub-t,.fp-lead.ex-l .fp-sub-p{display:none}
+  /* Foto que não carrega: o pacote vira uma coluna só, com o trecho sob o título */
+  .fp-lead:has(.fp-li.img-fail) .fp-lt>.fp-sub-t{display:block}
+  /* Parágrafos seguintes do corpo: sem foto, sempre; com foto, só quando page.js
+     os escolhe (x1, x2) para a coluna de texto acompanhar a foto */
+  .fp-sub-x{display:none}
+  .fp-lead.noimg .fp-sub-x,.fp-lead:has(.fp-li.img-fail) .fp-sub-x,.fp-lead.ex-l.x1 .fp-sub-x1,.fp-lead.ex-l.x2 :is(.fp-sub-x1,.fp-sub-x2){display:block}
+  .fp-lead:has(.fp-li.img-fail) .fp-lp>:not(.fp-rel){display:none}
+  .fp-rel h3,.fp-r1 h3{text-wrap:balance}
+  .fp-rel h3{font-size:clamp(15px,calc(9px + .45vw),19px);font-weight:700;line-height:1.26;color:var(--ink)}
+
+  /* "Mais para ler": numerais azuis como nos Destaques, linha fina inteira */
+  .fp-more{border-top:1px solid var(--fr)}
+  .fp-ml{list-style:none;counter-reset:fpm;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fp-mi{counter-increment:fpm;display:flex;align-items:flex-start;gap:14px;padding:14px 20px 14px 0;border-bottom:1px solid var(--rl)}
+  .fp-mi::before{content:counter(fpm);flex-shrink:0;min-width:18px;margin-top:17px;font-family:var(--sf);font-size:22px;font-weight:900;line-height:1;color:var(--link)}
+  .fp-mi:nth-child(even){padding:14px 0 14px 20px}
+  .fp-mi:nth-child(even)::after{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:var(--rl)}
+  .fp-mi:last-child:nth-child(odd){grid-column:1/-1;padding-right:0}
+  .fp-mi:last-child,.fp-mi:nth-last-child(2):nth-child(odd){border-bottom:none}
+  .fp-mt{flex:1;min-width:0}
+  .fp-mi h3{font-size:clamp(15px,calc(9px + .45vw),19px);font-weight:700;line-height:1.26;color:var(--ink)}
+  .fp-mdk{margin-top:5px;font-family:var(--ss);font-size:12.5px;line-height:1.5;color:var(--muted)}
+  .fp-th{flex-shrink:0;width:clamp(72px,5.4vw,128px);aspect-ratio:1}
+
+  /* Em 1 minuto (em colunas: o mesmo espaço entre todos os itens) e racional */
+  .fp-brief{margin-top:20px;border-top:1px solid var(--fr)}
+  .fp-brief ul{list-style:none;columns:2;column-gap:28px;padding:8px 0 0}
+  .fp-brief li{position:relative;break-inside:avoid;margin-bottom:9px;padding-left:16px;font-family:var(--ss);font-size:13px;line-height:1.5;color:var(--body)}
+  .fp-brief li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:1px;background:var(--qc)}
+  .fp-brief strong{color:var(--ink)}
+  .fp-rat{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 18px;margin-top:11px;padding:10px 0 20px;border-top:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
+  .fp-rat-s{color:var(--ink);font-weight:600;text-wrap:balance}
+  .fp-rat-l{white-space:nowrap}
+  .fp-rat a{color:var(--link);font-weight:700}
+  .fp-rat a:hover{text-decoration:underline}
+
+  /* Trilho: chamadas com foto (a primeira em 16:9, com altura limitada) e o Radar */
+  .fp-ri{aspect-ratio:3/2;margin-bottom:10px}
+  .fp-r1 .fp-ri{width:100%;aspect-ratio:16/9;max-height:15.7vw}
+  .fp-r1{padding-bottom:16px;border-bottom:1px solid var(--rl)}
+  .fp-r1 h3{font-size:clamp(18px,calc(8px + .8vw),27px);font-weight:700;line-height:1.2;color:var(--ink)}
+  .fp-rdk{margin-top:6px;font-family:var(--sf);font-size:clamp(13.5px,calc(9px + .3vw),16px);line-height:1.5;color:var(--body)}
+  .fp-r2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px;padding:16px 0;border-bottom:1px solid var(--rl)}
+  .fp-r2i{min-width:0;padding-right:14px}
+  .fp-r2i:nth-child(even){padding:0 0 0 14px}
+  .fp-r2i:nth-child(even)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--rl)}
+  .fp-r2i h3{font-size:clamp(14.5px,calc(9px + .4vw),18px);font-weight:700;line-height:1.26;color:var(--ink)}
+  /* Radar: ocupa o resto do trilho e rola por dentro; o rodapé diz quantos itens faltam */
+  .fp-op{position:relative;flex:1 1 auto;min-height:300px}
+  .fp-op-in{position:absolute;inset:0;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  .fp-op.more .fp-op-in{bottom:36px}
+  /* Esmaecido no pé só no meio da rolagem (no início a lista termina num item inteiro) */
+  .fp-op.mid .fp-op-in{-webkit-mask-image:linear-gradient(#000 calc(100% - 26px),transparent);mask-image:linear-gradient(#000 calc(100% - 26px),transparent)}
+  /* Se a lista inteira cabe, as linhas se espaçam por igual até o pé do trilho */
+  .fp-op ol{flex:1 0 auto;display:flex;flex-direction:column;list-style:none}
+  .fp-op li{flex:1 0 auto;display:flex;align-items:center}
+  .fp-op .fp-lbl{position:sticky;top:0;z-index:1;margin-top:16px;border-top:1px solid var(--fr);background:var(--paper)}
+  .fp-op .fp-lbl::before{content:"";width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--qr);animation:pulse 2s infinite}
+  .fp-op li+li{border-top:1px solid var(--rl)}
+  .fp-op a{flex:1;display:block;padding:calc(10px + var(--rx,0px)/2) 0 calc(11px + var(--rx,0px)/2)}
+  .fp-by{display:block;font-family:var(--sf);font-size:13px;font-variant-caps:all-small-caps;letter-spacing:.9px;line-height:1.3;color:var(--mute2)}
+  .fp-by time{font-family:var(--mn);font-size:10px;font-variant-caps:normal;letter-spacing:0;color:var(--link)}
+  .fp-tt{display:block;margin-top:3px;font-family:var(--sf);font-size:clamp(15px,calc(9px + .42vw),19px);font-weight:600;line-height:1.3;color:var(--ink);transition:color .2s}
+  .fp-op-more{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:10px;height:36px;padding:0;border:none;border-top:1px solid var(--fr);background:var(--paper);font-family:var(--ss);font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--link);cursor:pointer}
+  .fp-op-more[hidden]{display:none}
+  .fp-op-more:hover span:first-child{text-decoration:underline}
+  .fp-op-more:focus-visible{outline-offset:-2px}
+  .fp-op-more b{font-family:var(--mn);font-weight:600}
+  .fp-op-more i{font-style:normal;font-size:14px}
+
+  /* Matérias por editoria: abas como cabeçalho de seção, busca à direita */
+  .fp~.tabs-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:24px;margin:24px var(--gut) 0;border-top:4px double var(--fr)}
+  .fp~.tabs-wrap>.tabs-nav{grid-column:1;grid-row:1;min-width:0}
+  .fp~.tabs-wrap>.srch{grid-column:2;grid-row:1;padding:8px 0;border-top:none;background:transparent}
+  .fp~.tabs-wrap>.srch .srch-input{width:300px;height:32px}
+  .fp~.tabs-wrap>.tab-layout{grid-column:1/-1;grid-row:2;border-top:1px solid var(--rl)}
+  .fp~.tabs-wrap .tabs-bar{padding-left:0;background:transparent;border:none}
+  .fp~.tabs-wrap .tab-btn{margin-bottom:0;padding:13px 12px 10px;border-bottom-width:2px}
+  .fp~.tabs-wrap .tab-btn:first-child{padding-left:0}
+  .fp~.tabs-wrap .tab-btn:hover,.fp~.tabs-wrap .tab-btn[aria-selected="true"]{background:transparent}
+  .fp~.tabs-wrap .tab-btn[aria-selected="true"]{border-bottom-width:4px;padding-bottom:8px}
+  .fp~.tabs-wrap .tab-main{border-right:none}
+  .fp~.tabs-wrap .pane-hd{padding:16px 0 8px}
+  /* O Radar fica só no trilho da capa (um Radar só na tela); os cards usam a largura toda. */
+  .fp~.tabs-wrap .tab-side{display:none}
+  /* Cards sem caixa, com réguas finas: horizontal entre as linhas e vertical entre
+     as colunas; miniatura quadrada à direita do texto. O card que sobra na última
+     linha se alarga para fechá-la (título à esquerda, linha fina à direita). */
+  .fp~.tabs-wrap .cards{margin:0 -20px;padding:0;clip-path:inset(0 20px)}
+  .fp~.tabs-wrap .cl{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:repeat(5,auto) 1fr;column-gap:16px;align-content:start;padding:14px 20px 16px;background:transparent;box-shadow:0 -1px 0 var(--rl)}
+  .fp~.tabs-wrap .cl::after{content:"";position:absolute;left:0;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .fp~.tabs-wrap .cl>*{grid-column:1;max-width:760px}
+  .fp~.tabs-wrap .cl:hover{background:transparent;transform:none;box-shadow:0 -1px 0 var(--rl)}
+  .fp~.tabs-wrap .cl:hover h3 a{color:var(--link)}
+  .fp~.tabs-wrap .cl h3 a{transition:color .2s}
+  .fp~.tabs-wrap .cl:not(:has(>.ci:not(.img-fail))){display:block}
+  .fp~.tabs-wrap .cl>.ci,.fp~.tabs-wrap:not(.searching) .cl:last-child:nth-child(n)>.ci{grid-column:2;grid-row:1/-1;width:clamp(76px,5.6vw,120px);height:auto;aspect-ratio:1;margin:2px 0 0}
+  .fp~.tabs-wrap .cl h3{margin-bottom:6px;font-size:clamp(15.5px,calc(9px + .45vw),19px);text-wrap:balance}
+  .fp~.tabs-wrap .cl .dk{display:block;overflow:visible}
+  .fp~.tabs-wrap .cl .meta{margin-top:6px}
+  .fp~.tabs-wrap .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fp~.tabs-wrap.all .cards,.fp~.tabs-wrap.searching .cards{grid-template-columns:minmax(0,1fr)}
+  /* Durante a busca, page.js marca os cards que fecham a última linha */
+  .fp~.tabs-wrap.searching .cl.sp-2{grid-column:span 2}
+  .fp~.tabs-wrap.searching .cl.sp-3{grid-column:span 3}
+  .fp~.tabs-wrap.searching .cl.sp-all{grid-column:1/-1}
+  .fp~.tabs-wrap.searching .cl.wide{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap.searching .cl.wide>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap.searching .cl.wide>.ci{grid-column:3}
+  .fp~.tabs-wrap.searching .cl.wide:not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+
+  /* Racional: blocos numa grade de 4 colunas sem vagas vazias (a última linha
+     incompleta se fecha); a partir de 1600 px, resumo à esquerda e blocos à direita */
+  .rat,.cmp{margin:0 var(--gut);padding:20px 0 26px;border-top:4px double var(--fr)}
+  :root[data-theme="dark"] .rat,:root[data-theme="dark"] .cmp{border-top-color:var(--fr)}
+  .rat{margin-top:28px}
+  .rat-sum{font-size:15.5px}
+  .rat>.rat-blocks{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 20px;margin-top:14px}
+  .rat-blocks li{justify-content:flex-start;padding:5px 0 6px 12px;background:transparent;font-size:12px;line-height:1.4}
+  .rat-blocks li:last-child:nth-child(4n+1){grid-column:1/-1}
+  .rat-blocks li:last-child:nth-child(4n+2),.rat-blocks li:nth-last-child(2):nth-child(4n+1),.rat-blocks li:last-child:nth-child(4n+3){grid-column:span 2}
+  .rat-note{font-size:12px}
+
+  /* Cobertura comparada: colunas com réguas finas; em cada linha, títulos, barras e
+     conclusões alinhados (subgrade) */
+  .cmp-list{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:40px;row-gap:0;margin-top:4px}
+  .cmp-i{position:relative;display:grid;grid-row:span 7;grid-template-rows:subgrid;align-content:start;padding:14px 0 16px;border-bottom:none;border-top:1px solid var(--rl)}
+  .cmp-i:nth-child(-n+3){border-top:none}
+  .cmp-i:not(:nth-child(3n+1))::before{content:"";position:absolute;left:-20px;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .cmp-i>.cov.full{display:contents}
+  .cmp-i>.cat{grid-row:1}
+  .cmp-i>h3{grid-row:2;margin-bottom:8px;font-size:16px;line-height:1.28}
+  .cmp-i .cov-scale{grid-row:3;align-self:end;font-size:11px;line-height:1.3}
+  .cmp-i .cov-bar{grid-row:4}
+  .cmp-i .cov-lean{grid-row:5}
+  .cmp-i .cov-c{grid-row:6;font-size:13.5px;line-height:1.5}
+  .cmp-i .cov-who{grid-row:7}
+}
+@media (min-width:1024px) and (max-width:1279.98px){
+  .sn-in{column-gap:16px}
+  .sec-nav ul{gap:2px 10px}
+  .sec-nav a{font-size:12.5px}
+  .sn-x{padding-left:10px}
+  /* Abas em linha própria, sob o rótulo da seção e a busca */
+  .fp~.tabs-wrap::before{content:"Matérias por editoria";grid-column:1;grid-row:1;align-self:center;font-family:var(--ss);font-size:10.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--head)}
+  .fp~.tabs-wrap>.tabs-nav{grid-column:1/-1;grid-row:2}
+  .fp~.tabs-wrap>.tab-layout{grid-row:3}
+  .fp~.tabs-wrap .tabs-bar{border-top:1px solid var(--rl)}
+  /* "Mais para ler" em uma coluna (duas ficariam estreitas demais) */
+  .fp-ml{grid-template-columns:minmax(0,1fr)}
+  .fp-mi,.fp-mi:nth-child(even){padding:13px 0}
+  .fp-mi:nth-child(even)::after{display:none}
+  .fp-mi:nth-last-child(2):nth-child(odd){border-bottom:1px solid var(--rl)}
+  /* Card que sobra na última linha (2 colunas) */
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd)>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd)>.ci{grid-column:3}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd):not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media (min-width:1024px) and (max-width:1279.98px){
+  /* Cobertura comparada em 2 colunas (3 ficariam estreitas demais) */
+  .cmp-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmp-i:nth-child(3){border-top:1px solid var(--rl)}
+  .cmp-i:nth-child(3n+1)::before{content:"";position:absolute;left:-20px;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .cmp-i:nth-child(odd)::before{display:none}
+  /* Item que sobra na última linha: ocupa a linha (título e barra à esquerda,
+     conclusão à direita) em vez de deixar uma vaga vazia */
+  .cmp-i:last-child:nth-child(odd){grid-column:1/-1}
+  .cmp-i:last-child:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px}
+  .cmp-i:last-child:nth-child(odd)>*,.cmp-i:last-child:nth-child(odd) .cov-scale,.cmp-i:last-child:nth-child(odd) .cov-bar,.cmp-i:last-child:nth-child(odd) .cov-lean{grid-column:1}
+  .cmp-i:last-child:nth-child(odd) .cov-c{grid-column:2;grid-row:2/-1;align-self:start;margin-top:0}
+  .cmp-i:last-child:nth-child(odd) .cov-who{grid-column:1;grid-row:6}
+}
+@media (min-width:1024px) and (max-width:1279.98px){
+  /* Manchete com o título em toda a largura do pacote e, abaixo, texto e foto lado
+     a lado: page.js escolhe esta forma (ta) quando, com o título na coluna estreita,
+     a foto ficaria pequena ou panorâmica demais */
+  .fp-lead.ta{grid-template-rows:repeat(8,auto) 1fr}
+  .fp-lead.ta>.fp-lt{display:contents}
+  .fp-lead.ta>.fp-lt>*{grid-column:1}
+  .fp-lead.ta>.fp-lt>:is(.cat,h2){grid-column:1/-1}
+  .fp-lead.ta>.fp-lt>.fp-rel{grid-row:-2/-1;align-self:end}
+  .fp-lead.ta>.fp-lp{grid-column:2;grid-row:3/-1}
+  .fp-lead.ta h2{margin-bottom:12px;font-size:clamp(24px,calc(2px + 2.2vw),30px)}
+}
+@media (min-width:1024px) and (max-width:1799.98px),(min-width:2200px){
+  /* Chamadas 2 e 3 do trilho empilhadas, com miniatura à direita (como em "Mais
+     para ler"): abaixo de 1800 px, em duas colunas os títulos ficariam com 4 a 6
+     linhas; a partir de 2200 px, as fotos lado a lado ficariam grandes demais e
+     tirariam espaço do Radar */
+  .fp-r2{grid-template-columns:minmax(0,1fr);row-gap:0;padding:0}
+  .fp-r2i,.fp-r2i:nth-child(even){display:grid;grid-template-columns:minmax(0,1fr) clamp(84px,5.4vw,128px);grid-template-rows:repeat(3,auto) 1fr;column-gap:16px;align-content:start;padding:14px 0}
+  .fp-r2i+.fp-r2i{border-top:1px solid var(--rl)}
+  .fp-r2i:nth-child(even)::before{display:none}
+  .fp-r2i>*{grid-column:1}
+  .fp-r2i>.fp-ri{grid-column:2;grid-row:1/-1;width:100%;aspect-ratio:1;margin:2px 0 0}
+}
+@media (min-width:1280px) and (max-width:1799.98px){
+  /* Cards: 3 colunas (2 com o Radar ao lado) */
+  .fp~.tabs-wrap .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fp~.tabs-wrap.all .cards,.fp~.tabs-wrap.searching .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(n){grid-column:auto}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(3n+2){grid-column:span 2}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(3n+1){grid-column:1/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.dk,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd)>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.ci,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd)>.ci{grid-column:3}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)):not(:has(>.ci:not(.img-fail))),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd):not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media (min-width:1280px) and (max-width:1599.98px){
+  /* Cobertura comparada em 3 colunas: os itens que sobram na última linha se
+     alargam para fechá-la */
+  .cmp-i:last-child:nth-child(3n+1){grid-column:1/-1}
+  .cmp-i:last-child:nth-child(3n+2){grid-column:span 2}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)){grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>*,.cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-scale,.cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-bar,.cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-lean{grid-column:1}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-c{grid-column:2;grid-row:2/-1;align-self:start;margin-top:0}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-who{grid-column:1;grid-row:6}
+}
+@media (min-width:1280px){
+  .src-list{columns:4 220px}
+}
+@media (min-width:1440px){
+  .fp-brief ul{columns:3}
+}
+@media (min-width:1600px){
+  .fp-ed-t{font-size:15.5px}
+  .fp-sub,.fp-brief li{font-size:14px}
+  .fp-mdk{font-size:13.5px}
+  .fp-rat{font-size:13px}
+  .sec-nav a{font-size:14px}
+  .cl .dk{font-size:13.5px}
+  .rat-sum{font-size:16px}
+  .rat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);grid-template-rows:repeat(4,auto) 1fr;column-gap:36px}
+  .rat>*{grid-column:1}
+  .rat>.kicker{grid-column:1/-1}
+  .rat>.rat-blocks{grid-column:2;grid-row:2/-1;align-self:stretch;grid-auto-rows:1fr;gap:12px 20px;margin-top:2px}
+  /* Cobertura comparada em 4 colunas */
+  .cmp-list{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cmp-i:nth-child(-n+4){border-top:none}
+  .cmp-i:not(:nth-child(4n+1))::before{content:"";position:absolute;left:-20px;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .cmp-i:nth-child(4n+1)::before{display:none}
+  /* Itens que sobram na última linha: fecham a linha (1 sozinho ocupa as 4
+     colunas; 2 ficam com 2 cada; de 3, o último fica com 2) */
+  .cmp-i:last-child:nth-child(4n+1){grid-column:1/-1}
+  .cmp-i:last-child:nth-child(4n+2),.cmp-i:nth-last-child(2):nth-child(4n+1),.cmp-i:last-child:nth-child(4n+3){grid-column:span 2}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)){grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3))>*,.cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-scale,.cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-bar,.cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-lean{grid-column:1}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-c{grid-column:2;grid-row:2/-1;align-self:start;margin-top:0}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-who{grid-column:1;grid-row:6}
+}
+@media (min-width:1800px){
+  /* Cards: 4 colunas (3 com o Radar ao lado) */
+  .fp~.tabs-wrap .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .fp~.tabs-wrap.all .cards,.fp~.tabs-wrap.searching .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fp~.tabs-wrap:not(.searching) .cl:last-child:nth-child(n){grid-column:auto}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(4n+2),.fp~.tabs-wrap:not(.all):not(.searching) .cl:nth-last-child(2):nth-child(4n+1),.fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(4n+3){grid-column:span 2}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(4n+1){grid-column:1/-1}
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(3n+2){grid-column:span 2}
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(3n+1){grid-column:1/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)){grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3))>.dk,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3))>.ci,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.ci{grid-column:3}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)):not(:has(>.ci:not(.img-fail))),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)):not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  /* Manchete: texto em ~40% (título um passo menor, equilibrado) e foto perto de 3:2 */
+  .fp-lead h2{font-size:clamp(26px,calc(5px + 1.2vw),36px)}
+  .fp-lead:not(.noimg) .fp-sub-t{display:block}
+  .fp-sub-p{display:none}
+}
+
+@media (min-width:2200px){
+  /* Trilho largo: a 1ª chamada fica com o texto à esquerda e a foto à direita
+     (perto de 3:2, acompanhando a altura do texto), bem menor que a da manchete */
+  .fp-r1:has(>.fp-ri:not(.img-fail)){display:grid;grid-template-columns:minmax(0,9fr) minmax(0,11fr);grid-template-rows:repeat(6,auto) 1fr;column-gap:24px;align-content:start}
+  .fp-r1:has(>.fp-ri:not(.img-fail))>*{grid-column:1}
+  .fp-r1:has(>.fp-ri:not(.img-fail)) h3{font-size:calc(4px + .8vw)}
+  .fp-r1:has(>.fp-ri:not(.img-fail))>.fp-ri{grid-column:2;grid-row:1/-1;align-self:stretch;width:100%;height:auto;max-height:none;aspect-ratio:3/2;margin:0}
+}
+@media (min-width:2400px){
+  /* Manchete um passo maior: a coluna de texto acompanha a foto larga */
+  .fp-lead h2{font-size:1.65vw}
+  .fp-dek{font-size:19.5px}
+  .fp-lead .fp-sub{font-size:15px}
+}
+
 /* Tablet: os botões do canto ainda ficam na mesma linha; o logo desce para não ficar sob eles */
 @media (max-width:880px){
   .mast{padding-top:52px}
 }
 @media (max-width:760px){
-  .paper{box-shadow:none}
   .mast{padding:52px 16px 18px}
   .mast h1{font-size:36px}
   .mast h1.logo svg{height:92px}
@@ -630,7 +1019,6 @@ body.modal-open .btt{visibility:hidden}
 @media print{
   body{background:#fff}
   #rdprog,#mast-canvas,.mast-tools,.tk-pause,.srch,.tabs-bar,.tab-side,.btt,.modals{display:none!important}
-  .paper{box-shadow:none;max-width:none}
   .js .tab-pane,.pane-hd{display:block!important}
   .tk.run .tk-rail{animation:none}
 }</style>
@@ -639,7 +1027,7 @@ body.modal-open .btt{visibility:hidden}
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <div id="rdprog" aria-hidden="true"></div>
 <div class="paper">
-<header class="mast-wrap">
+<header class="mast-wrap solid">
   <canvas id="mast-canvas" aria-hidden="true"></canvas>
   <div class="mast-tools">
     <a class="tool" href="./" title="Edições anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Edições</span></a>
@@ -649,10 +1037,11 @@ body.modal-open .btt{visibility:hidden}
       <span class="lbl">Escuro</span>
     </button>
   </div>
+  <div class="mast-l"></div>
   <div class="mast">
-    <h1 class="logo duo"><a href="../"><span class="lg lg-l"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 89 20" width="890" height="200" shape-rendering="crispEdges" role="img" aria-labelledby="pbcv-tech-logo-title"><title id="pbcv-tech-logo-title">PBCV Tech</title><path fill="#0C0F16" d="M13 8H12V9H11V10H4V16H0V0H11V1H12V2H13ZM58 0H62V6H61V8H60V10H59V12H58V14H57V16H53V14H52V12H51V10H50V8H49V6H48V0H52V6H53V8H54V10H56V8H57V6H58ZM28 8H29V14H28V15H27V16H15V0H26V1H27V2H28ZM34 16V15H33V14H32V2H33V1H34V0H44V1H45V2H46V5H42V3H36V13H42V11H46V14H45V15H44V16ZM19 13H25V9H19ZM4 3V7H9V3ZM19 3V6H24V3Z"/><rect x="66" y="9" width="19" height="7" fill="#FF5A1F"/><path fill="#0C0F16" d="M71.5 10V11H70V15H69V11H67.5V10ZM82.5 11.5V12H83V15H82V12H81V15H80V10H81V11.5ZM77 14.5H78V14H79V14.5H78.5V15H76.5V14.5H76V12H76.5V11.5H78.5V12H79V12.5H78V12H77ZM72.5 14.5H72V12H72.5V11.5H74.5V12H75V13.5H73V14.5H75V15H72.5ZM74 12H73V13H74Z"/></svg></span><span class="lg lg-d"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 89 20" width="890" height="200" shape-rendering="crispEdges" role="img" aria-labelledby="dk-pbcv-tech-logo-title"><title id="dk-pbcv-tech-logo-title">PBCV Tech</title><path fill="#FFFFFF" d="M13 8H12V9H11V10H4V16H0V0H11V1H12V2H13ZM58 0H62V6H61V8H60V10H59V12H58V14H57V16H53V14H52V12H51V10H50V8H49V6H48V0H52V6H53V8H54V10H56V8H57V6H58ZM28 8H29V14H28V15H27V16H15V0H26V1H27V2H28ZM34 16V15H33V14H32V2H33V1H34V0H44V1H45V2H46V5H42V3H36V13H42V11H46V14H45V15H44V16ZM19 13H25V9H19ZM4 3V7H9V3ZM19 3V6H24V3Z"/><rect x="66" y="9" width="19" height="7" fill="#FF5A1F"/><path fill="#0C0F16" d="M71.5 10V11H70V15H69V11H67.5V10ZM82.5 11.5V12H83V15H82V12H81V15H80V10H81V11.5ZM77 14.5H78V14H79V14.5H78.5V15H76.5V14.5H76V12H76.5V11.5H78.5V12H79V12.5H78V12H77ZM72.5 14.5H72V12H72.5V11.5H74.5V12H75V13.5H73V14.5H75V15H72.5ZM74 12H73V13H74Z"/></svg></span></a></h1>
+    <h1 class="logo mono"><a href="../"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 122 20" width="1220" height="200" shape-rendering="crispEdges" role="img" aria-labelledby="triangula-logo-title"><title id="triangula-logo-title">Triangula</title><path fill="currentColor" d="M7 0h3v3h-3zM22 0h9v3h-9zM33 0h8v1h-8zM45 0h3v16h-3zM52 0h6v1h-6zM62 0h5v4h-5zM69 0h3v8h-3zM76 0h6v1h-6zM86 0h3v13h-3zM93 0h3v13h-3zM98 0h3v13h-3zM110 0h6v1h-6zM33 1h9v1h-9zM51 1h8v1h-8zM75 1h8v1h-8zM109 1h8v1h-8zM33 2h10v1h-10zM50 2h10v1h-10zM74 2h10v1h-10zM108 2h10v1h-10zM7 3h1v1h-1zM9 3h1v1h-1zM25 3h3v13h-3zM33 3h3v4h-3zM40 3h3v4h-3zM50 3h3v5h-3zM57 3h3v5h-3zM74 3h3v10h-3zM81 3h3v2h-3zM108 3h3v5h-3zM115 3h3v5h-3zM6 4h1v2h-1zM10 4h1v2h-1zM62 4h3v12h-3zM66 4h2v4h-2zM5 6h1v2h-1zM11 6h1v2h-1zM33 7h10v1h-10zM4 8h1v2h-1zM12 8h1v2h-1zM33 8h9v1h-9zM50 8h10v3h-10zM67 8h5v4h-5zM79 8h5v3h-5zM108 8h10v3h-10zM33 9h8v1h-8zM3 10h1v2h-1zM13 10h1v2h-1zM33 10h3v6h-3zM38 10h3v2h-3zM50 11h3v5h-3zM57 11h3v5h-3zM81 11h3v2h-3zM108 11h3v5h-3zM115 11h3v5h-3zM2 12h1v1h-1zM14 12h1v1h-1zM39 12h3v2h-3zM68 12h4v4h-4zM0 13h3v1h-3zM14 13h3v1h-3zM74 13h10v1h-10zM86 13h10v1h-10zM98 13h8v3h-8zM0 14h17v1h-17zM40 14h3v2h-3zM75 14h8v1h-8zM87 14h8v1h-8zM0 15h3v1h-3zM14 15h3v1h-3zM76 15h6v1h-6zM88 15h6v1h-6z"/><path fill="#FF5A1F" d="M7 9h3v3h-3z"/></svg></a></h1>
     <p class="mast-sub">Seu terminal financeiro diário</p>
-    <p class="mast-date">Analítico Político&nbsp;· <span class="nw">atualizado em 14/10/2026</span></p>
+    <p class="mast-date">Analítico Político&nbsp;· <span class="nw">atualizado em 15/10/2026</span></p>
   </div>
 </header>
 <main id="conteudo">
@@ -661,22 +1050,22 @@ body.modal-open .btt{visibility:hidden}
     <h2 class="kicker" id="an-h">Analítico Político</h2>
     <a class="arch-home" href="../">&larr; Edição mais recente</a>
   </div>
-  <p class="an-intro">Todo o histórico do termômetro: 20 textos analisados de 4 veículos, publicados de 13/10/2026 a 14/10/2026.</p>
+  <p class="an-intro">Todo o histórico do termômetro: 40 textos analisados de 6 veículos, publicados de 13/10/2026 a 15/10/2026.</p>
 
   <div class="an-blk">
     <h3 class="an-h" id="an-onde">Onde estamos</h3>
-    <p class="term-sum">Equilibrado · T −1 na média de 18 notícias com dimensão política <span>(intervalo de 95%: −2 a 0)</span></p>
+    <p class="term-sum">Equilibrado · T −1 na média de 38 notícias com dimensão política <span>(intervalo de 95%: −2 a 0)</span></p>
 <div class="tg" role="img" aria-label="Média de todo o histórico (notícias): T −1 (Equilibrado), intervalo de 95% de −2 a 0; escala de −100 (esquerda) a +100 (direita)">
   <div class="tg-track">
     <div class="tg-bands"><span class="tg-f t-ef" style="left:0.0%;width:25.0%" title="Esquerda forte"></span><span class="tg-f t-em" style="left:25.0%;width:12.5%" title="Esquerda moderada"></span><span class="tg-f t-el" style="left:37.5%;width:7.5%" title="Leve à esquerda"></span><span class="tg-f t-eq" style="left:45.0%;width:10.0%" title="Equilibrado"></span><span class="tg-f t-dl" style="left:55.0%;width:7.5%" title="Leve à direita"></span><span class="tg-f t-dm" style="left:62.5%;width:12.5%" title="Direita moderada"></span><span class="tg-f t-df" style="left:75.0%;width:25.0%" title="Direita forte"></span></div>
-    <span class="tg-zero"></span><span class="tg-ic" style="left:48.84%;width:1.26%"></span><span class="tg-dot" style="left:49.47%"></span>
+    <span class="tg-zero"></span><span class="tg-ic" style="left:49.14%;width:0.77%"></span><span class="tg-dot" style="left:49.53%"></span>
   </div>  <div class="tg-axis" aria-hidden="true"><span>Esquerda · &minus;100</span><span>0</span><span>+100 · Direita</span></div></div><div class="td">
-  <div class="td-bar" role="img" aria-label="Rótulos dos textos: Equilibrado: 18"><span class="t-eq" style="width:100.0%" title="Equilibrado: 18"></span></div>
-  <ul class="td-leg"><li><i class="t-eq" aria-hidden="true"></i>Equilibrado <b>18</b></li></ul>
+  <div class="td-bar" role="img" aria-label="Rótulos dos textos: Equilibrado: 38"><span class="t-eq" style="width:100.0%" title="Equilibrado: 38"></span></div>
+  <ul class="td-leg"><li><i class="t-eq" aria-hidden="true"></i>Equilibrado <b>38</b></li></ul>
 </div>    <ul class="an-tiles">
-      <li><span class="an-tl">Textos analisados</span><b>20</b><span class="an-td">4 veículos · 6 editorias · 2 dias</span></li>
-      <li><span class="an-tl">Notícias com T</span><b>18</b><span class="an-td">2 sem dimensão política · 0 inconclusivas</span></li>
-      <li><span class="an-tl">Qualidade da apuração</span><b>89</b><span class="an-td">de 100 · Boa</span></li>
+      <li><span class="an-tl">Textos analisados</span><b>40</b><span class="an-td">6 veículos · 6 editorias · 2 dias</span></li>
+      <li><span class="an-tl">Notícias com T</span><b>38</b><span class="an-td">2 sem dimensão política · 0 inconclusivas</span></li>
+      <li><span class="an-tl">Qualidade da apuração</span><b>86</b><span class="an-td">de 100 · Boa</span></li>
       <li><span class="an-tl">Opinião (à parte)</span><b>0</b><span class="an-td">sem T</span></li>
     </ul>
   </div>
@@ -684,10 +1073,10 @@ body.modal-open .btt{visibility:hidden}
   <div class="an-blk">
     <h3 class="an-h" id="an-indo">Para onde estamos indo</h3>
     <ul class="an-reads">
-      <li class="rd-ins"><span class="an-tl">Tendência do termômetro</span><b>Dados insuficientes</b><p>0 meses com 30 ou mais análises; a tendência pede 6.</p></li>
-      <li class="rd-ins"><span class="an-tl">Tendência da qualidade da apuração</span><b>Dados insuficientes</b><p>0 meses com 30 ou mais análises; a tendência pede 6.</p></li>
-      <li class="rd-ins"><span class="an-tl">Janela recente × histórico: termômetro</span><b>Dados insuficientes</b><p>15 análise(s) de 14/10/2026 a 14/10/2026 e 3 de 13/10/2026 a 13/10/2026; a comparação pede 30 em cada janela.</p></li>
-      <li class="rd-ins"><span class="an-tl">Janela recente × histórico: qualidade</span><b>Dados insuficientes</b><p>17 análise(s) de 14/10/2026 a 14/10/2026 e 3 de 13/10/2026 a 13/10/2026; a comparação pede 30 em cada janela.</p></li>
+      <li class="rd-ins"><span class="an-tl">Tendência do termômetro</span><b>Dados insuficientes</b><p>1 mês com 30 ou mais análises; a tendência pede 6.</p></li>
+      <li class="rd-ins"><span class="an-tl">Tendência da qualidade da apuração</span><b>Dados insuficientes</b><p>1 mês com 30 ou mais análises; a tendência pede 6.</p></li>
+      <li class="rd-ins"><span class="an-tl">Janela recente × histórico: termômetro</span><b>Dados insuficientes</b><p>0 análise(s) de 15/10/2026 a 15/10/2026 e 38 de 13/10/2026 a 14/10/2026; a comparação pede 30 em cada janela.</p></li>
+      <li class="rd-ins"><span class="an-tl">Janela recente × histórico: qualidade</span><b>Dados insuficientes</b><p>0 análise(s) de 15/10/2026 a 15/10/2026 e 40 de 13/10/2026 a 14/10/2026; a comparação pede 30 em cada janela.</p></li>
     </ul>
   </div>
 
@@ -697,34 +1086,44 @@ body.modal-open .btt{visibility:hidden}
       <figcaption>Termômetro por semana (notícias)</figcaption>
       <div class="ts-plot" role="img" aria-label="Média semanal de T das notícias, 1 semana(s); última: −1 (Equilibrado). Escala de −25 a +25.">
 <span class="ts-g" style="top:100.0%"><i>−25</i></span><span class="ts-g" style="top:50.0%"><i>0</i></span><span class="ts-g" style="top:0.0%"><i>+25</i></span><span class="ts-g ts-z" style="top:50.0%"></span>        <svg class="ts-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-          <path class="ts-band" d="M500.0,495.9 L500.0,546.4 Z"/>
-          <path class="ts-line" d="M500.0,521.1" vector-effect="non-scaling-stroke"/>
+          <path class="ts-band" d="M500.0,503.6 L500.0,534.3 Z"/>
+          <path class="ts-line" d="M500.0,518.9" vector-effect="non-scaling-stroke"/>
         </svg>
-<span class="ts-pt" style="left:50.0%;top:52.11%" title="Semana de 12/10/2026: T −1 (Equilibrado), 18 notícias"></span>      </div>
+<span class="ts-pt" style="left:50.0%;top:51.89%" title="Semana de 12/10/2026: T −1 (Equilibrado), 38 notícias"></span>      </div>
       <div class="ts-x" aria-hidden="true"><span style="left:50.0%">12/10/2026</span></div>
     </figure>
     <figure class="ts">
       <figcaption>Qualidade da apuração por semana (0 a 100)</figcaption>
-      <div class="ts-plot" role="img" aria-label="Qualidade média da apuração por semana, 1 semana(s); última: 89 de 100.">
+      <div class="ts-plot" role="img" aria-label="Qualidade média da apuração por semana, 1 semana(s); última: 86 de 100.">
 <span class="ts-g" style="top:0.0%"><i>100</i></span><span class="ts-g" style="top:20%"><i>80</i></span><span class="ts-g" style="top:50%"><i>50</i></span><span class="ts-g" style="top:100.0%"><i>0</i></span>        <svg class="ts-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-          <path class="ts-band" d="M500.0,74.4 L500.0,155.6 Z"/>
-          <path class="ts-line" d="M500.0,115.0" vector-effect="non-scaling-stroke"/>
+          <path class="ts-band" d="M500.0,105.2 L500.0,167.3 Z"/>
+          <path class="ts-line" d="M500.0,136.2" vector-effect="non-scaling-stroke"/>
         </svg>
-<span class="ts-pt" style="left:50.0%;top:11.5%" title="Semana de 12/10/2026: qualidade 89 (Boa)"></span>      </div>
+<span class="ts-pt" style="left:50.0%;top:13.62%" title="Semana de 12/10/2026: qualidade 86 (Boa)"></span>      </div>
       <div class="ts-x" aria-hidden="true"><span style="left:50.0%">12/10/2026</span></div>
     </figure>
   </div>
 
   <div class="an-blk">
     <h3 class="an-h" id="an-rk-1">Ranking · Veículos</h3>
-<p class="term-note">Fora do ranking (menos de 30 notícias com T): Valor Econômico (15), Folha de S.Paulo (1), Money Times (1), g1 (1).</p>  </div>
+    <ol class="rk">
+      <li class="rk-i" title="Valor Econômico: T ajustado −1 (Equilibrado); média −1, intervalo de 95% −2 a 0; 30 notícias">
+        <span class="rk-n">Valor Econômico</span>
+        <span class="rk-p" aria-hidden="true"><span class="rk-z" style="left:50.0%"></span><span class="rk-ic" style="left:46.63%;width:3.54%"></span><span class="rk-d" style="left:48.33%"><i class="t-eq"></i></span></span>
+        <span class="rk-v"><b>−1</b> Equilibrado<span class="rk-x">30 notícias · média bruta −1</span></span>
+      </li>
+    </ol>
+    <div class="rk-axis" aria-hidden="true"><span class="rk-n"></span><span class="rk-p"><i style="left:0.0%">−25</i><i style="left:50.0%">0</i><i style="left:100.0%">+25</i></span><span class="rk-v"></span></div>
+<p class="term-note">Fora do ranking (menos de 30 notícias com T): Folha de S.Paulo (3), Agência Brasil (2), ClimaInfo (1), Money Times (1), g1 (1).</p>  </div>
   <div class="an-blk">
     <h3 class="an-h" id="an-rk-2">Ranking · Editorias</h3>
-<p class="term-note">Fora do ranking (menos de 30 notícias com T): Política (6), Geopolítica &amp; Mundo (4), Mercados &amp; Finanças (4), Brasil · Economia (2), Jurídico &amp; Regulação (1), Natureza &amp; Meio Ambiente (1).</p>  </div>
+<p class="term-note">Fora do ranking (menos de 30 notícias com T): Mercados &amp; Finanças (11), Política (10), Geopolítica &amp; Mundo (7), Natureza &amp; Meio Ambiente (5), Jurídico &amp; Regulação (3), Brasil · Economia (2).</p>  </div>
 
   <div class="an-blk">
     <h3 class="an-h" id="an-q">Qualidade da apuração · Veículos</h3>
-    <p class="term-note">O ranking de qualidade começa com 30 notícias com T por veículo.</p>
+    <ol class="qb">
+      <li><span class="rk-n">Valor Econômico</span><span class="qb-bar" aria-hidden="true"><span style="width:85.64%"></span></span><span class="rk-v"><b>86</b> Boa<span class="rk-x">média bruta 85 em 32 textos</span></span></li>
+    </ol>
   </div>
 
   <div class="an-blk">
@@ -733,10 +1132,11 @@ body.modal-open .btt{visibility:hidden}
       <table class="an-tbl">
         <thead><tr><th scope="col">Eixo</th><th scope="col">Textos</th><th scope="col">Com T</th><th scope="col">T médio</th><th scope="col">Rótulo</th><th scope="col">Qualidade</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Econômico</th><td>10</td><td>9</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>88</td></tr>
+          <tr><th scope="row">Econômico</th><td>24</td><td>23</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>85</td></tr>
+          <tr><th scope="row">Costumes</th><td>3</td><td>3</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>85</td></tr>
           <tr><th scope="row">Segurança</th><td>4</td><td>4</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>87</td></tr>
-          <tr><th scope="row">Instituições</th><td>14</td><td>14</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>88</td></tr>
-          <tr><th scope="row">Geral</th><td>5</td><td>4</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>91</td></tr>
+          <tr><th scope="row">Instituições</th><td>29</td><td>29</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>86</td></tr>
+          <tr><th scope="row">Geral</th><td>9</td><td>8</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>87</td></tr>
         </tbody>
       </table>
     </div>
@@ -749,7 +1149,7 @@ body.modal-open .btt{visibility:hidden}
       <table class="an-tbl">
         <thead><tr><th scope="col">Publicação</th><th scope="col">Textos</th><th scope="col">Notícias com T</th><th scope="col">T médio</th><th scope="col">Rótulo</th><th scope="col">Qualidade</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><a href="2026-10-14.html#termometro">14/10/2026</a></th><td>17</td><td>15</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>89</td></tr>
+          <tr><th scope="row"><a href="2026-10-15.html#termometro">14/10/2026</a></th><td>37</td><td>35</td><td><i class="sw t-eq" aria-hidden="true"></i>−1</td><td class="an-l">Equilibrado</td><td>86</td></tr>
           <tr><th scope="row"><a href="2026-10-14.html#termometro">13/10/2026</a></th><td>3</td><td>3</td><td><i class="sw t-eq" aria-hidden="true"></i>−3</td><td class="an-l">Equilibrado</td><td>86</td></tr>
         </tbody>
       </table>
@@ -760,7 +1160,7 @@ body.modal-open .btt{visibility:hidden}
     <h3 class="an-h" id="an-todas">Todas as análises</h3>
     <p class="term-note">Uma linha por texto, do mais recente para o mais antigo; o resumo do cálculo e os sinais de cada texto ficam no Termômetro do dia da edição.</p>
     <details class="term-det" open>
-      <summary>Outubro de 2026 · 20 textos</summary>
+      <summary>Outubro de 2026 · 40 textos</summary>
       <ol class="tl-list">
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>g1</b> · <a href="https://g1.globo.com/tecnologia/noticia/2026/10/14/estados-americanos-processam-openai-e-acusam-chatgpt-de-incentivar-automutilacao-em-jovens.ghtml" target="_blank" rel="noopener noreferrer">Estados americanos processam OpenAI e acusam ChatGPT de incentivar automutilação em jovens<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 76</span></li>
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/politica/noticia/2026/10/14/senado-discute-pec-do-fim-da-escala-6x1.ghtml" target="_blank" rel="noopener noreferrer">Senado discute PEC do fim da escala 6x1; acompanhe ao vivo<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 92</span></li>
@@ -778,7 +1178,27 @@ body.modal-open .btt{visibility:hidden}
         <li class="tl"><span class="ta-v"><i class="sw t-na" aria-hidden="true"></i>—</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/brasil/noticia/2026/10/14/chuva-forte-alaga-tunel-do-anhangabau-e-coloca-sao-paulo-em-estado-de-atencao.ghtml" target="_blank" rel="noopener noreferrer">Chuva forte alaga túnel do Anhangabaú e coloca São Paulo em estado de atenção<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Não se aplica · apuração 92</span></li>
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/politica/noticia/2026/10/14/entenda-o-que-muda-se-a-pec-do-fim-da-escala-6x1-for-aprovada.ghtml" target="_blank" rel="noopener noreferrer">Entenda o que muda se a PEC do fim da escala 6x1 for aprovada<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 95</span></li>
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/quaest-medo-da-volta-da-familia-bolsonaro-empata-com-medo-da-reeleicao-de-lula.ghtml" target="_blank" rel="noopener noreferrer">Quaest: Medo da volta da família Bolsonaro empata com medo da reeleição de Lula<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 94</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/politica/noticia/2026/10/14/veja-as-repercussoes-da-aprovacao-do-fim-da-escala-6x1.ghtml" target="_blank" rel="noopener noreferrer">Veja as repercussões da aprovação do fim da escala 6x1<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 95</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>−6</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/financas/noticia/2026/10/14/tcu-suspende-aprovao-das-contas-do-bc-at-avaliar-caso-master.ghtml" target="_blank" rel="noopener noreferrer">TCU suspende aprovação das contas do BC até avaliar caso Master<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 94</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>−3</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/mundo/noticia/2026/10/14/zelensky-recebe-forte-apoio-do-reino-unido-aps-aumento-de-tenses-com-trump.ghtml" target="_blank" rel="noopener noreferrer">Zelensky recebe forte apoio do Reino Unido após aumento de tensões com Trump<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 65</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>+3</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/financas/noticia/2026/10/14/ibovespa-cai-com-dados-de-inflacao-nos-eua-e-eleicao-presidencial-no-radar.ghtml" target="_blank" rel="noopener noreferrer">Ibovespa cai com dados de inflação nos EUA e eleição presidencial no radar<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 94</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/financas/noticia/2026/10/14/petroleo-sobe-com-escalada-de-ataques-no-oriente-medio-e-riscos-a-oferta.ghtml" target="_blank" rel="noopener noreferrer">Petróleo sobe com escalada de ataques no Oriente Médio e riscos à oferta<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 75</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/empresas/noticia/2026/10/14/lufthansa-vence-disputa-e-levar-449-pontos-percentuais-da-portuguesa-tap-por-us-13-bilho.ghtml" target="_blank" rel="noopener noreferrer">Lufthansa vence disputa e levará 44,9% da portuguesa TAP, por US$ 1,3 bilhão<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 80</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/financas/noticia/2026/10/14/camara-rejeita-parecer-sobre-projeto-de-resolucao-que-abria-brecha-para-socorro-do-brb-pelo-fgc.ghtml" target="_blank" rel="noopener noreferrer">Câmara rejeita parecer sobre projeto de resolução que abria brecha para socorro do BRB pelo FGC<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 65</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/brasil/noticia/2026/10/14/lula-comemora-fim-da-escala-6x1-e-campanha-aposta-em-aprovao-para-impulsionar-votos.ghtml" target="_blank" rel="noopener noreferrer">Lula comemora fim da escala 6x1 e campanha aposta em aprovação para impulsionar votos<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 83</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>−2</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/lula-vai-perdoar-dividas-do-mei-entenda-a-proposta-do-governo.ghtml" target="_blank" rel="noopener noreferrer">Lula vai perdoar dívidas do MEI? Entenda a proposta do governo<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 75</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/flavio-bolsonaro-volta-atras-e-diz-que-vai-ao-debate-da-band.ghtml" target="_blank" rel="noopener noreferrer">Flávio Bolsonaro volta atrás e diz que vai ao debate da Band após Lula confirmar presença<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 83</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/mundo/noticia/2026/10/14/ir-muda-ttica-de-ataques-a-navios-para-manter-petrleo-caro-antes-das-eleies-nos-eua.ghtml" target="_blank" rel="noopener noreferrer">Irã muda tática de ataques a navios para manter petróleo caro antes das eleições nos EUA<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 76</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/mundo/noticia/2026/10/14/lderes-mundiais-e-fiis-rezam-pelo-papa-leo-xiv-aps-diagnstico-de-cncer-de-pulmo.ghtml" target="_blank" rel="noopener noreferrer">Líderes mundiais e fiéis rezam pelo papa Leão XIV após diagnóstico de câncer de pulmão<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 92</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/financas/noticia/2026/10/14/ouro-cai-com-valorizacao-do-dolar-e-dos-treasuries-apos-dado-de-inflacao-dos-eua.ghtml" target="_blank" rel="noopener noreferrer">Ouro cai com valorização do dólar e dos Treasuries após dado de inflação dos EUA<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 92</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/financas/noticia/2026/10/14/juros-futuros-abandonam-alta-com-alivio-externo-e-taxas-ficam-perto-da-estabilidade.ghtml" target="_blank" rel="noopener noreferrer">Juros futuros abandonam alta com alívio externo e taxas ficam perto da estabilidade<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 82</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/financas/noticia/2026/10/14/0eba365d-destaques.ghtml" target="_blank" rel="noopener noreferrer">Destaques<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 88</span></li>
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Money Times</b> · <a href="https://www.moneytimes.com.br/petrobras-bofa-diz-que-mercado-substima-pre-sal-e-eleva-o-preco-alvo-de-petr4-lils/" target="_blank" rel="noopener noreferrer">Petrobras: BofA diz que mercado substima pré-sal e coloca R$ 15 no preço-alvo de PETR4<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 100</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Folha de S.Paulo</b> · <a href="https://www1.folha.uol.com.br/ambiente/2026/10/fumaca-de-queimadas-leva-a-suspensao-de-aulas-em-manaus.shtml" target="_blank" rel="noopener noreferrer">Fumaça de queimadas leva à suspensão de aulas em Manaus<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 94</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>−6</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Folha de S.Paulo</b> · <a href="https://www1.folha.uol.com.br/mercado/2026/10/tcu-condiciona-aprovar-contas-do-bc-a-julgamento-da-liquidacao-do-master.shtml" target="_blank" rel="noopener noreferrer">TCU condiciona aprovar contas do BC a julgamento da liquidação do Master<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 100</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>ClimaInfo</b> · <a href="https://climainfo.org.br/2026/10/14/amazonia-registra-o-menor-desmatamento-em-41-anos-mostra-o-mapbiomas/" target="_blank" rel="noopener noreferrer">Amazônia registra o menor desmatamento em 41 anos, mostra o MapBiomas<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 94</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Agência Brasil</b> · <a href="https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuva-alaga-ruas-do-centro-e-deixa-um-morto-na-zona-norte-de-sao-paulo" target="_blank" rel="noopener noreferrer">Chuva alaga ruas do centro e deixa um morto na zona norte de São Paulo<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 88</span></li>
+        <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>−3</span><span class="tl-d">14/10</span><span class="tl-tx"><b>Agência Brasil</b> · <a href="https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/agropecuaria-ocupa-territorios-proximos-aos-preservados-na-amazonia" target="_blank" rel="noopener noreferrer">Agropecuária ocupa territórios próximos aos preservados na Amazônia<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 70</span></li>
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>−7</span><span class="tl-d">13/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/brasil/noticia/2026/10/13/acordo-entre-mercosul-e-ue-eleva-em-30-pontos-percentuais-exportaes-brasileiras-desde-maio-diz-elias-rosa.ghtml" target="_blank" rel="noopener noreferrer">Acordo entre Mercosul e UE eleva em 30% exportações brasileiras desde maio, diz Elias Rosa<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 74</span></li>
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>0</span><span class="tl-d">13/10</span><span class="tl-tx"><b>Valor Econômico</b> · <a href="https://valor.globo.com/politica/noticia/2026/10/13/hugo-motta-inicia-articulaes-por-reconduo-presidncia-da-cmara.ghtml" target="_blank" rel="noopener noreferrer">Hugo Motta inicia articulações por recondução à presidência da Câmara<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 85</span></li>
         <li class="tl"><span class="ta-v"><i class="sw t-eq" aria-hidden="true"></i>−3</span><span class="tl-d">13/10</span><span class="tl-tx"><b>Folha de S.Paulo</b> · <a href="https://www1.folha.uol.com.br/ambiente/2026/10/incendios-florestais-dobram-no-amazonas-em-2026-mas-indice-esta-abaixo-da-media-historica.shtml" target="_blank" rel="noopener noreferrer">Incêndios florestais dobram no Amazonas em 2026, mas índice está abaixo da média histórica<span class="sr-only"> (abre a fonte em nova aba)</span></a></span><span class="tl-r">Equilibrado · apuração 100</span></li>
@@ -792,7 +1212,7 @@ body.modal-open .btt{visibility:hidden}
 </section>
 </main>
 <footer class="ft">
-  <p><strong>PBCV Tech</strong> · Analítico Político · cálculo v1.1.0 · 13/10/2026 a 14/10/2026</p>
+  <p><strong>Triangula</strong> · Analítico Político · cálculo v1.1.0 · 13/10/2026 a 15/10/2026</p>
   <p class="ft-links"><a href="../">Edição mais recente</a> · <a href="./">Edições anteriores</a> · <a href="https://github.com/pbcvphyton/qi-journal" rel="noopener">Código-fonte</a></p>
 </footer>
 </div>
@@ -1044,6 +1464,190 @@ body.modal-open .btt{visibility:hidden}
     update();
   }
 
+  /* Barra de editorias do computador: cada link leva às abas e abre a da editoria. */
+  function setupSectionNav(tabsApi) {
+    if (!tabsApi) return;
+    Array.prototype.forEach.call(d.querySelectorAll('.sec-nav a[data-tab]'), function (link) {
+      link.addEventListener('click', function () {
+        var tab = tabsApi.wrap.querySelector('[role="tab"][data-tab="' + link.getAttribute('data-tab') + '"]');
+        if (tab) tab.click();
+      });
+    });
+  }
+
+  /* Manchete do computador: escolhe onde ficam o trecho do corpo (sob o título ou
+     sob a foto) e a chamada relacionada (sob o texto ou sob a foto), a largura da
+     coluna de texto (40%, 45% ou metade), se o título ocupa a largura do pacote
+     (abaixo de 1280 px) e, nas telas largas, quantos parágrafos seguintes do corpo
+     entram na coluna de texto. Vale a forma em que a foto fica mais perto de 3:2,
+     sem vão no pé das colunas e bem maior que a foto da 1ª chamada do trilho; em
+     caso de empate, a mais simples. */
+  function setupLeadFit() {
+    var lead = d.querySelector('.fp-lead:not(.noimg)');
+    var lt = lead && lead.querySelector('.fp-lt'), lp = lead && lead.querySelector('.fp-lp');
+    var photo = lp && lp.querySelector('.fp-li');
+    if (!photo) return;
+    var rel = lt.querySelector('.fp-rel'), title = lt.querySelector('h2');
+    var extras = lt.querySelectorAll('.fp-sub-x').length;
+    var rail = d.querySelector('.fp-r1 .fp-ri');
+    var desk = w.matchMedia('(min-width:1024px)');
+    var narrow = w.matchMedia('(max-width:1279.98px)'), wide = w.matchMedia('(min-width:1600px)');
+    var CLASSES = ['ex-l', 'ex-r', 'wm', 'wt', 'ta', 'x1', 'x2'];
+    function options() {
+      // {left: trecho na coluna do texto, right: relacionada sob a foto,
+      //  split: 0 (40%), 1 (45%), 2 (metade), top: título em toda a largura, more: parágrafos}
+      var list = [];
+      [false, true].forEach(function (top) {
+        if (top && !narrow.matches) return;
+        [0, 1, 2].forEach(function (split) {
+          [false, true].forEach(function (right) {
+            var most = wide.matches ? extras : 0;
+            for (var more = 0; more <= most; more++) list.push({ left: true, right: right, split: split, top: top, more: more });
+            list.push({ left: false, right: right, split: split, top: top, more: 0 });
+          });
+        });
+      });
+      return list;
+    }
+    function bottomOf(col) {
+      var bottom = 0;
+      Array.prototype.forEach.call(col.children, function (child) {
+        var r = child.getBoundingClientRect();
+        if (r.height) bottom = Math.max(bottom, r.bottom);
+      });
+      return bottom;
+    }
+    function reset() {
+      CLASSES.forEach(function (c) { lead.classList.remove(c); });
+      if (rel && rel.parentNode !== lt) lt.appendChild(rel);
+    }
+    function apply(o) {
+      reset();
+      lead.classList.add(o.left ? 'ex-l' : 'ex-r');
+      if (o.split) lead.classList.add(o.split === 1 ? 'wm' : 'wt');
+      if (o.top) lead.classList.add('ta');
+      if (o.more) lead.classList.add('x' + o.more);
+      if (rel && o.right) lp.appendChild(rel);
+    }
+    function score(o) {
+      var r = photo.getBoundingClientRect();
+      if (!r.width || !r.height) return Infinity;
+      var gap = Math.abs(bottomOf(lt) - bottomOf(lp)), slack = 0;
+      var prev = rel && rel.parentNode === lt ? rel.previousElementSibling : null;
+      if (prev) slack = Math.max(0, rel.getBoundingClientRect().top - prev.getBoundingClientRect().bottom - 16);
+      var value = Math.abs(Math.log(r.width / r.height / 1.5)) + (gap + slack) / 60;
+      // A foto da manchete deve ser bem maior que a da 1ª chamada do trilho
+      var other = rail ? rail.getBoundingClientRect() : null;
+      if (other && other.width) value += Math.max(0, Math.log(1.5 * other.width * other.height / (r.width * r.height)));
+      // Título com mais de 4 linhas (coluna estreita demais) também pesa
+      var size = title.getBoundingClientRect().height / (parseFloat(getComputedStyle(title).lineHeight) || 1);
+      value += Math.max(0, Math.round(size) - 4) * 0.04;
+      return value + o.split * 0.03 + (o.top ? 0.02 : 0) + o.more * 0.05;
+    }
+    function fit() {
+      reset();
+      if (!desk.matches || photo.classList.contains('img-fail') || !lp.offsetWidth) return;
+      var best = null, bestScore = Infinity;
+      options().forEach(function (o) {
+        apply(o);
+        var value = score(o);
+        if (value < bestScore - 0.001) {
+          bestScore = value;
+          best = o;
+        }
+      });
+      if (best) apply(best);
+      else reset();
+    }
+    var img = photo.querySelector('img');
+    if (img) img.addEventListener('error', function () { w.setTimeout(fit, 0); });
+    onResize(fit);
+    onMediaChange(desk, fit);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit);
+    fit();
+  }
+
+  /* Radar do trilho (computador): a lista rola por dentro e o rodapé diz quantos
+     itens ainda estão abaixo; o clique leva o primeiro deles ao topo da lista (no
+     fim, volta ao início). Sem rolagem, a lista termina no pé de um item: a sobra
+     (menos que um item) se reparte entre os itens visíveis, sem item cortado. */
+  function setupRadarMore() {
+    var box = d.querySelector('.fp-op');
+    var list = box && box.querySelector('.fp-op-in'), more = box && box.querySelector('.fp-op-more');
+    var ol = list && list.querySelector('ol'), head = list && list.querySelector('.fp-lbl');
+    if (!list || !more || !ol) return;
+    var items = Array.prototype.slice.call(ol.children);
+    var below = 0, ticking = false;
+    function bottomEdge() { return list.getBoundingClientRect().top + list.clientTop + list.clientHeight; }
+    function hidden() {
+      var edge = bottomEdge() + 1;
+      return items.filter(function (li) { return li.getBoundingClientRect().bottom > edge; });
+    }
+    function label(text, count, arrow) {
+      more.textContent = '';
+      var span = d.createElement('span');
+      span.appendChild(d.createTextNode(text[0]));
+      if (count) {
+        var b = d.createElement('b');
+        b.textContent = count;
+        span.appendChild(b);
+      }
+      span.appendChild(d.createTextNode(text[1]));
+      var icon = d.createElement('i');
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = arrow;
+      more.appendChild(span);
+      more.appendChild(icon);
+    }
+    function align() {
+      var edge = bottomEdge() - list.scrollTop, fit = 0, last = 0;
+      items.some(function (li) {
+        var bottom = li.getBoundingClientRect().bottom;
+        if (bottom > edge + 0.5) return true;
+        fit += 1;
+        last = bottom;
+        return false;
+      });
+      if (fit && fit < items.length) ol.style.setProperty('--rx', Math.floor((edge - last) / fit * 100) / 100 + 'px');
+    }
+    function status() {
+      ticking = false;
+      if (more.hidden) return;
+      below = hidden().length;
+      if (below) label(['Mais ', below === 1 ? ' notícia no Radar' : ' notícias no Radar'], String(below), '↓');
+      else label(['Voltar ao início do Radar', ''], '', '↑');
+      box.classList.toggle('mid', below > 0 && list.scrollTop > 2);
+    }
+    function layout() {
+      box.classList.remove('more');
+      box.classList.remove('mid');
+      ol.style.removeProperty('--rx');
+      more.hidden = !list.clientHeight || list.scrollHeight <= list.clientHeight + 1;
+      if (more.hidden) return;
+      box.classList.add('more');
+      align();
+      status();
+    }
+    function schedule() {
+      if (!ticking) {
+        ticking = true;
+        w.requestAnimationFrame(status);
+      }
+    }
+    more.addEventListener('click', function () {
+      var next = below && hidden()[0];
+      if (next) {
+        var top = next.getBoundingClientRect().top - list.getBoundingClientRect().top - list.clientTop;
+        list.scrollTo({ top: list.scrollTop + top - (head ? head.offsetHeight : 0), behavior: smooth() });
+      } else list.scrollTo({ top: 0, behavior: smooth() });
+    });
+    list.addEventListener('scroll', schedule, { passive: true });
+    if (w.ResizeObserver) new w.ResizeObserver(layout).observe(box);
+    else onResize(layout);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(layout);
+    layout();
+  }
+
   /* ── Busca em tempo real (sem acento e sem diferenciar maiúsculas) ─── */
   var modalIsOpen = function () { return false; };
   function setupSearch(tabsApi) {
@@ -1057,6 +1661,30 @@ body.modal-open .btt{visibility:hidden}
     }
     var cards = Array.prototype.slice.call(wrap.querySelectorAll('.cl'));
     cards.forEach(function (card) { card.searchText = norm(card.textContent.replace(/\s+/g, ' ')); });
+
+    /* Computador: durante a busca os cards que sobram na última linha de cada seção
+       se alargam para fechá-la (sem a busca, o CSS faz isso pela posição do card). */
+    var SPANS = ['sp-2', 'sp-3', 'sp-all', 'wide'];
+    function fillRows() {
+      cards.forEach(function (card) { SPANS.forEach(function (c) { card.classList.remove(c); }); });
+      if (!wrap.classList.contains('searching')) return;
+      panes.forEach(function (pane) {
+        var grid = pane.querySelector('.cards');
+        if (!grid || !grid.offsetWidth) return;
+        var cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+        var shown = Array.prototype.filter.call(grid.children, function (c) { return !c.classList.contains('is-hidden'); });
+        var rest = shown.length % cols;
+        if (cols < 2 || !rest) return;
+        var last = shown[shown.length - 1];
+        if (rest === 1) last.classList.add('sp-all');
+        else if (rest === 2 && cols === 4) {
+          last.classList.add('sp-2');
+          shown[shown.length - 2].classList.add('sp-2', 'wide');
+        } else last.classList.add('sp-' + (cols - rest + 1));
+        last.classList.add('wide');
+      });
+    }
+    onResize(fillRows);
 
     function run() {
       var terms = norm(input.value).split(/\s+/).filter(Boolean);
@@ -1074,6 +1702,7 @@ body.modal-open .btt{visibility:hidden}
       });
       if (count) count.textContent = terms.length ? (total === 1 ? '1 matéria' : total + ' matérias') : '';
       if (none) none.hidden = !terms.length || total > 0;
+      fillRows();
     }
     function clear() {
       if (!input.value) return;
@@ -1258,7 +1887,11 @@ body.modal-open .btt{visibility:hidden}
   setupTheme();
   setupCanvas();
   setupTicker();
-  setupSearch(setupTabs());
+  var tabsApi = setupTabs();
+  setupSearch(tabsApi);
+  setupSectionNav(tabsApi);
+  setupLeadFit();
+  setupRadarMore();
   setupAges();
   setupModals();
   setupScroll();

@@ -1,0 +1,957 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-15",
+ "analises": [
+  {
+   "id": "864a5f5c68c8",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/14/veja-as-repercussoes-da-aprovacao-do-fim-da-escala-6x1.ghtml",
+   "titulo": "Veja as repercussões da aprovação do fim da escala 6x1",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "senado-aprova-pec-que-acaba-com-a-escala-6x1-e-r",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 1337,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "A alteração da jornada máxima de 44 para 40 horas semanais acarreta a necessidade de aumentar a produtividade brasileira em 1,4%",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A matéria balanceia duas fontes com visão moderada/positiva (Imaizumi e Naercio) e duas com alertas severos de custos e inflação (Barbosa Filho e Leal)."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "enquanto 74,7% dos trabalhadores com carteira assinada têm contrato de 41 a 44 horas, apenas 31,8% deles trabalham efetivamente nesse intervalo",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta dados estatísticos fundamentados com fonte primária (Ministério do Trabalho e IBGE) para qualificar a discussão sobre jornada."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "ffd7c143f881",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/tcu-suspende-aprovao-das-contas-do-bc-at-avaliar-caso-master.ghtml",
+   "titulo": "TCU suspende aprovação das contas do BC até avaliar caso Master",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tcu-suspende-aprovacao-de-contas-do-banco-centra",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": -6,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 10 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 235,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -6.03,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ROTULOS",
+     "citacao": "um ex-deputado federal indicado para o cargo por lideranças de partidos que compõem o Centrão.",
+     "paragrafo": "P4",
+     "direcao": "esquerda",
+     "contribuicao": -6.03,
+     "explicacao": "Atribui ao relator do TCU a vinculação política com o Centrão, contrastando com o parecer técnico da AudBancos favorável ao BC."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "O relatório técnico da Unidade de Auditoria Especializada em Bancos Públicos (AudBancos), responsável pela auditoria do BC, encaminhou opinião por julgar regulares as contas",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem registra tanto a posição do corpo técnico do TCU quanto a recomendação do Ministério Público de aguardar os processos."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "e72e147cb282",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/14/zelensky-recebe-forte-apoio-do-reino-unido-aps-aumento-de-tenses-com-trump.ghtml",
+   "titulo": "Zelensky recebe forte apoio do Reino Unido após aumento de tensões com Trump",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ucrania-retoma-ataques-a-refinarias-russas-e-exp",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 65,
+    "rotulo": "Regular"
+   },
+   "palavras": 413,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -3.14,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Em entrevista ao apresentador Piers Morgan, Zelensky disse que era doloroso quando Trump tomava o partido da Rússia contra a Ucrânia.",
+     "paragrafo": "P8",
+     "direcao": "esquerda",
+     "contribuicao": -3.14,
+     "explicacao": "A reportagem dá voz ao desabafo de Zelensky e às declarações britânicas, sem buscar manifestação ou contexto dos porta-vozes de Trump sobre as críticas recebidas."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "4c5a0a571761",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/ibovespa-cai-com-dados-de-inflacao-nos-eua-e-eleicao-presidencial-no-radar.ghtml",
+   "titulo": "Ibovespa cai com dados de inflação nos EUA e eleição presidencial no radar",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "inflacao-dos-eua-acelera-a-3-7-e-deflagra-liquid",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 711,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 3.33,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "vantagem maior em termos percentuais para o senador Flávio Bolsonaro (PL) em relação ao presidente Luiz Inácio Lula da Silva (PT) fez o Ibovespa devolver as perdas e apresentar leve alta.",
+     "paragrafo": "P3",
+     "direcao": "direita",
+     "contribuicao": 3.33,
+     "explicacao": "Enquadra a melhora temporária dos preços na bolsa como uma resposta positiva ('alívio momentâneo') ao avanço eleitoral do candidato de direita contra o de esquerda."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "d3e4eff59577",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/petroleo-sobe-com-escalada-de-ataques-no-oriente-medio-e-riscos-a-oferta.ghtml",
+   "titulo": "Petróleo sobe com escalada de ataques no Oriente Médio e riscos à oferta",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "houthis-atacam-sede-da-saudi-aramco-e-elevam-tem",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 323,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "ce49199a1a31",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/14/lufthansa-vence-disputa-e-levar-449-pontos-percentuais-da-portuguesa-tap-por-us-13-bilho.ghtml",
+   "titulo": "Lufthansa vence disputa e levará 44,9% da portuguesa TAP, por US$ 1,3 bilhão",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "lufthansa-vence-disputa-e-compra-44-9-da-tap-por",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 632,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "0872c8884500",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/camara-rejeita-parecer-sobre-projeto-de-resolucao-que-abria-brecha-para-socorro-do-brb-pelo-fgc.ghtml",
+   "titulo": "Câmara rejeita parecer sobre projeto de resolução que abria brecha para socorro do BRB pelo FGC",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "camara-rejeita-parecer-de-resolucao-bancaria-que",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 65,
+    "rotulo": "Regular"
+   },
+   "palavras": 754,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "0ce7ee95a9af",
+   "url": "https://climainfo.org.br/2026/10/14/amazonia-registra-o-menor-desmatamento-em-41-anos-mostra-o-mapbiomas/",
+   "titulo": "Amazônia registra o menor desmatamento em 41 anos, mostra o MapBiomas",
+   "veiculo": "ClimaInfo",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "desmatamento-na-amazonia-recua-ao-menor-nivel-em",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "costumes",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 463,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f6bb2096cb14",
+   "url": "https://www1.folha.uol.com.br/ambiente/2026/10/fumaca-de-queimadas-leva-a-suspensao-de-aulas-em-manaus.shtml",
+   "titulo": "Fumaça de queimadas leva à suspensão de aulas em Manaus",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "fumaca-de-queimadas-suspende-aulas-em-manaus-e-g",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 931,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "O Amazonas registrou 7.815 focos de incêndio entre 1º de janeiro e 12 de outubro, aumento de 116% em relação ao mesmo período de 2025",
+     "paragrafo": "P12",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Uso de dados quantitativos oficiais do Inpe com base e período claros para dimensionar o problema."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "c58aa018269b",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/14/lula-comemora-fim-da-escala-6x1-e-campanha-aposta-em-aprovao-para-impulsionar-votos.ghtml",
+   "titulo": "Lula comemora fim da escala 6x1 e campanha aposta em aprovação para impulsionar votos",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "senado-aprova-pec-que-acaba-com-a-escala-6x1-e-r",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 83,
+    "rotulo": "Boa"
+   },
+   "palavras": 455,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "eadc80435e44",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/lula-vai-perdoar-dividas-do-mei-entenda-a-proposta-do-governo.ghtml",
+   "titulo": "Lula vai perdoar dívidas do MEI? Entenda a proposta do governo",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "camara-aprova-por-461-a-4-projeto-que-perdoa-div",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -2,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 759,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -2.35,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "perdão de R$ 12,6 bilhões em dívidas com a União pode beneficiar cerca de 3,6 milhões de empreendedores",
+     "paragrafo": "P2",
+     "direcao": "esquerda",
+     "contribuicao": -2.35,
+     "explicacao": "Apresenta números amplos anunciados pelo governo sem contraponto de impacto fiscal por especialistas independentes."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "98d99c9e2166",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/flavio-bolsonaro-volta-atras-e-diz-que-vai-ao-debate-da-band.ghtml",
+   "titulo": "Flávio Bolsonaro volta atrás e diz que vai ao debate da Band após Lula confirmar presença",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "flavio-bolsonaro-recua-e-confirma-ida-a-debate-c",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 83,
+    "rotulo": "Boa"
+   },
+   "palavras": 469,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "f3816c9ca290",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/tcu-condiciona-aprovar-contas-do-bc-a-julgamento-da-liquidacao-do-master.shtml",
+   "titulo": "TCU condiciona aprovar contas do BC a julgamento da liquidação do Master",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tcu-suspende-aprovacao-de-contas-do-banco-centra",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -6,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 779,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -5.88,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "A proposta aprovada contrariou a área técnica e foi levada ao plenário pelo ministro Jorge Oliveira, futuro presidente do TCU e cotado para uma das vagas do STF (Supremo Tribunal Federal) em um eventual governo de Flávio Bolsonaro (PL).",
+     "paragrafo": "P3",
+     "direcao": "esquerda",
+     "contribuicao": -5.88,
+     "explicacao": "Associa a atuação do ministro a articulações políticas futuras ligadas à direita, politizando o ato administrativo do TCU."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "1e5f77dde540",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/14/ir-muda-ttica-de-ataques-a-navios-para-manter-petrleo-caro-antes-das-eleies-nos-eua.ghtml",
+   "titulo": "Irã muda tática de ataques a navios para manter petróleo caro antes das eleições nos EUA",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ataques-com-projeteis-afundam-dois-cargueiros-no",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 76,
+    "rotulo": "Regular"
+   },
+   "palavras": 1013,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "4196ed9690bb",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/14/lderes-mundiais-e-fiis-rezam-pelo-papa-leo-xiv-aps-diagnstico-de-cncer-de-pulmo.ghtml",
+   "titulo": "Líderes mundiais e fiéis rezam pelo papa Leão XIV após diagnóstico de câncer de pulmão",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "papa-leao-xiv-se-recupera-de-cirurgia-no-pulmao",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "costumes",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 674,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "e2e0f8678646",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/ouro-cai-com-valorizacao-do-dolar-e-dos-treasuries-apos-dado-de-inflacao-dos-eua.ghtml",
+   "titulo": "Ouro cai com valorização do dólar e dos Treasuries após dado de inflação dos EUA",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "inflacao-dos-eua-acelera-a-3-7-e-deflagra-liquid",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 225,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a13a60a5d4fa",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/juros-futuros-abandonam-alta-com-alivio-externo-e-taxas-ficam-perto-da-estabilidade.ghtml",
+   "titulo": "Juros futuros abandonam alta com alívio externo e taxas ficam perto da estabilidade",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "ibovespa-recua-e-dolar-vai-a-r-5-03-sob-impacto",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 82,
+    "rotulo": "Boa"
+   },
+   "palavras": 216,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "bfbde7ec751b",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/0eba365d-destaques.ghtml",
+   "titulo": "Destaques",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "multa-de-us-1-95-bilhao-por-lavagem-de-dinheiro",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 155,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "bae6fb81e992",
+   "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuva-alaga-ruas-do-centro-e-deixa-um-morto-na-zona-norte-de-sao-paulo",
+   "titulo": "Chuva alaga ruas do centro e deixa um morto na zona norte de São Paulo",
+   "veiculo": "Agência Brasil",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "forte-chuva-alaga-tunel-do-anhangabau-e-deixa-um",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 533,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c4456030fe6c",
+   "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/agropecuaria-ocupa-territorios-proximos-aos-preservados-na-amazonia",
+   "titulo": "Agropecuária ocupa territórios próximos aos preservados na Amazônia",
+   "veiculo": "Agência Brasil",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "desmatamento-na-amazonia-recua-ao-menor-nivel-em",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-15",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "costumes"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 70,
+    "rotulo": "Regular"
+   },
+   "palavras": 591,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -2.61,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "essa forma de ocupação é uma ameaça à conservação do bioma.",
+     "paragrafo": "P8",
+     "direcao": "esquerda",
+     "contribuicao": -2.61,
+     "explicacao": "Atribui ao pesquisador o conceito de que a atividade econômica é uma ameaça, alinhando a voz do texto à premissa ambientalista."
+    }
+   ],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-15T10:14:30+00:00",
+   "provedor": "gemini → gemini_lite",
+   "modelo": "gemini-flash-latest + gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 8,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 31044,
+    "saida": 16051
+   },
+   "analises": [
+    "864a5f5c68c8",
+    "ffd7c143f881",
+    "e72e147cb282",
+    "4c5a0a571761",
+    "d3e4eff59577",
+    "ce49199a1a31",
+    "0872c8884500",
+    "0ce7ee95a9af",
+    "f6bb2096cb14",
+    "c58aa018269b",
+    "eadc80435e44",
+    "98d99c9e2166",
+    "f3816c9ca290",
+    "1e5f77dde540",
+    "4196ed9690bb",
+    "e2e0f8678646",
+    "a13a60a5d4fa",
+    "bfbde7ec751b",
+    "bae6fb81e992",
+    "c4456030fe6c"
+   ]
+  }
+ ]
+}
