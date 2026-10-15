@@ -119,8 +119,8 @@ def test_header_ticker_weather_editorial_and_briefing(rendered):
         'border-bottom:3px solid #1B2745;">' in html
     )
     assert (
-        '<img src="https://pbcvphyton.github.io/qi-journal/assets/triangula-logo-email-cabecalho.png"'
-        ' width="366" height="60" alt="Triangula"' in html
+        '<img src="https://pbcvphyton.github.io/qi-journal/assets/triangula-marca-email.png"'
+        ' width="248" height="64" alt="Triangula"' in html
     )
     assert '<img class="lg-d"' not in html
     assert '>Seu terminal financeiro diário</p>' in html

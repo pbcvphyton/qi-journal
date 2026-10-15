@@ -400,18 +400,19 @@ def test_default_brand_logo_palette_and_favicon(edition):
     assert '<meta name="generator" content="Triangula · qijournal 2.0">' in html
     assert "--qi:#394A7A;--qn:#1B2745;--qc:#FF5A1F;" in html
     assert '<header class="mast-wrap solid">' in html and ".mast-wrap.solid{--mh:#273351;--on-mh:#FFFFFF;" in html
-    # Letreiro em pixels: currentColor (branco sobre o bloco) e o fato laranja; pixels nítidos
+    # Marca Editorial: letreiro em contornos na cor do bloco (currentColor) e o pingo do i
+    # em triângulo laranja; vetor liso (não é pixel art)
     assert 'fill="currentColor"' in html and 'fill="#FF5A1F"' in html
-    assert html.count('shape-rendering="crispEdges"') == 1
-    # alturas múltiplas de 20 (a grade do SVG): 3 px por unidade no desktop, 2 px no celular;
+    assert "crispEdges" not in html
     # a altura da marca vale também para o logo monocromático (vem depois da regra padrão de 64 px)
     assert html.index(".mast h1.logo.mono svg{height:64px") < html.index(
-        ".mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}"
+        ".mast h1.logo svg,.mast h1.logo.mono svg{height:64px;max-width:100%}"
     )
-    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html
+    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:46px}" in html
     assert "--ink:#1a2332;--paper:#fff;--bg:#f0f2f5;" in html  # neutros frios do layout original
     favicon = re.search(r'<link rel="icon" type="image/svg\+xml" href="([^"]+)"', html).group(1)
-    assert favicon.startswith("data:image/svg+xml,%3Csvg") and "FF5A1F" in favicon and "crispEdges" in favicon
+    # ícone: o triângulo laranja sobre o marinho
+    assert favicon.startswith("data:image/svg+xml,%3Csvg") and "FF5A1F" in favicon and "1B2745" in favicon
     assert "QI Journal" not in html
 
 

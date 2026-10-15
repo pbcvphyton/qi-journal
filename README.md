@@ -402,9 +402,11 @@ Há duas marcas prontas: **Triangula** (`tech`, padrão; antes PBCV Tech) e **PB
 Cores, nome, slogan e logo de cada marca ficam em `config/site.yaml → brands`.
 Uma `QIJ_BRAND` com marca inexistente (como o antigo `qi`) cai na marca padrão.
 
-A marca Triangula (até out/2026, PBCV Tech) usa um logo em pixel art na mesma
-grade do antigo **Sinal**: o símbolo de três fontes (nós nos vértices de um
-triângulo) com o fato laranja no centro e o letreiro TRIANGULA. A chave da
+A marca Triangula (até out/2026, PBCV Tech) usa o logo **Editorial** (projeto
+*Triangula — Marca 2026* no Claude Design): "triangula" em minúsculas na
+Newsreader (wght 600, opsz 72; SIL Open Font License), com o pingo do i trocado
+por um triângulo laranja. As letras são contornos (o logo não depende de fonte
+carregada na página) e o ícone é o triângulo laranja sobre o marinho. A chave da
 marca continua `tech` (o termômetro depende dela). Desde out/2026 o jornal usa
 a estrutura visual do TSA Tech: página na largura toda da tela (margens em
 `--gut`, que crescem nas telas largas), cabeçalho em bloco marinho `#273351`
@@ -416,16 +418,16 @@ réguas), laranja de sinal `#FF5A1F` (destaques; só decoração no fundo branco
 altas/quedas do ticker em `#7FC8FF`/`#FF5C9A`, com os cinzas azulados do layout
 original.
 
-- `assets/triangula-logo-cabecalho.svg` — logo do cabeçalho, com o letreiro em
-  `currentColor` (branco sobre o bloco, nos dois modos). Por ser pixel art, as
-  alturas (`logo_height: 60`, `logo_height_mobile: 40`) são múltiplas de 20, a
-  grade do SVG, para os pixels ficarem nítidos;
-- `assets/triangula-favicon.svg` — o símbolo de 16 × 16;
-- `assets/triangula-logo-email-cabecalho.png` — logo do e-mail (clientes de
-  e-mail não exibem SVG), branco sobre a cor do cabeçalho, servido pelo GitHub
-  Pages (`email_logo`). As versões claras/escuras anteriores (`triangula-logo*`)
-  e os `pbcv-tech-*` ficam no repositório porque os e-mails já enviados apontam
-  para eles.
+- `assets/triangula-marca-cabecalho.svg` — logo do cabeçalho, com o letreiro em
+  `currentColor` (branco sobre o bloco, nos dois modos) e o triângulo laranja
+  (`logo_height: 64`, `logo_height_mobile: 46`);
+- `assets/triangula-marca.svg` — o mesmo logo em marinho, para fundos claros;
+- `assets/triangula-favicon.svg` — o ícone: triângulo laranja sobre o marinho;
+- `assets/triangula-marca-email.png` — logo do e-mail (clientes de e-mail não
+  exibem SVG), branco sobre a cor do cabeçalho, em 3x (248 × 64), servido pelo
+  GitHub Pages (`email_logo`). Os logos anteriores (em pixel: `triangula-logo*`,
+  `pbcv-tech-*`) ficam no repositório com os mesmos nomes e tamanhos porque os
+  e-mails já enviados apontam para eles.
 
 Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 `colors.on_masthead` (logo em `currentColor`).
