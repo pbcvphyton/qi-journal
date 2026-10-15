@@ -1,12 +1,12 @@
 PBCV TECH
-Quarta-feira, 14 de outubro de 2026 · 20:46 BRT
+Quarta-feira, 14 de outubro de 2026 · 21:04 BRT
 
 MERCADOS
 --------
 Dólar R$ 5,05 (+0,35%) · Euro R$ 5,64 (+0,45%) · Yuan R$ 0,75 (+0,14%) ·
 Ibovespa 206.506 pts (-0,18%) · IFIX 3.954 pts (+0,07%) · S&P 500 7.719
-pts (-1,11%) · Brent US$ 105,63 (-0,41%) · Ouro US$ 4.123 (+0,38%) ·
-Bitcoin US$ 81.514 (-1,91%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+pts (-1,11%) · Brent US$ 105,65 (-0,39%) · Ouro US$ 4.130 (+0,53%) ·
+Bitcoin US$ 81.695 (-1,98%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
@@ -16,184 +16,236 @@ a 27°
 Montevidéu: 15°C, nublado (mín. 15° / máx. 15°) · amanhã: garoa fraca,
 15° a 15°
 
+EDITORIAL
+---------
+O Congresso Nacional avança em pautas de forte apelo econômico e social
+ao aprovar o perdão de dívidas para microempreendedores e abrir a
+votação da PEC sobre a jornada 6x1. No cenário externo e de negócios, a
+aceleração da inflação norte-americana impõe cautela aos mercados,
+enquanto Petrobras e Apple alcançam novos recordes em valor de mercado.
+
 EM 1 MINUTO
 -----------
-• TCU estima em até R$ 3,06 bi pagamentos indevidos de seguro-defeso em
-  2024
-• Dólar hoje avança após dados mais fortes de inflação nos EUA
-• Trump diz que começará exploração em grande escala de petróleo e gás
-  na ‘nossa Groenlândia’
-• México exige que plataformas digitais protejam menores de conteúdo
-  violento e sexual
-• Responsabilidade dos bancos nos financiamentos de empreendimentos
-  imobiliários
+• MEIs: Câmara aprova projeto que extingue dívidas tributárias inscritas
+  na dívida ativa e eleva teto de faturamento para R$ 140 mil.
+• Escala 6x1: Senado abre deliberação da PEC que reduz a jornada máxima
+  para 40 horas semanais e extingue o modelo 6x1.
+• Eleições: Pesquisa Quaest aponta empate técnico no segundo turno, com
+  Flávio Bolsonaro marcando 46% das intenções contra 44% de Lula.
+• Inflação nos EUA: Índice ao consumidor sobe para 3,7% em setembro e
+  eleva rendimentos dos Treasuries, penalizando bolsas globais.
+• Petrobras: Estatal bate máxima histórica e atinge R$ 800 bilhões em
+  valor de mercado, impulsionada por pré-sal e alta do petróleo.
+• São Paulo: Chuvas torrenciais alagam vias centrais, transbordam lagos
+  do Ibirapuera e deixam uma pessoa morta na Brasilândia.
 
 COMO FOI COMPILADA
 ------------------
-Edição automática (sem IA): as 1.795 notícias coletadas de 45 veículos
-foram agrupadas por títulos parecidos em 1.298 assuntos; as 24 matérias
-saíram por relevância, frescor e número de veículos. Nenhuma notícia foi
-descartada: todas estão na lista completa do dia.
+A IA leu as 1.790 notícias coletadas de 45 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.100 assuntos,
+interpretou o foco de cada veículo e comparou para que lado cada um
+seguiu em 104 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+notícia foi descartada: todas estão na lista completa do dia.
 Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#racional
-Todas as 1.795 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14-todas.html
+Todas as 1.790 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14-todas.html
 
 MANCHETE
 --------
-Por 461 a 4, Câmara aprova projeto de lei que perdoa dívida do MEI e
-aumenta limite de faturamento
-A Câmara dos Deputados aprovou, nesta quarta-feira (14), projeto de lei
-do governo que propõe o perdão para cerca de 3,6 milhões de
-microempreendedores inscritos na dívida ativa da União a partir de 2027
-e aumentam o…
+Câmara aprova perdão de dívidas de MEIs e ampliação do teto de
+faturamento
+Projeto aprovado por 461 votos a 4 extingue passivos inscritos na dívida
+ativa e eleva o limite de enquadramento da categoria para R$ 140 mil.
 Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão, g1,
 Poder360, Seu Dinheiro, Agência Brasil, Money Times, Exame, CNN Brasil
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-por-461-a-4-camara-aprova-projeto-de-lei-que-per
+Cobertura: Pende para: Foca nos parâmetros fiscais e regras de dívida
+para MEIs · 10 de 12 veículos. A maior parte dos veículos enfatizou os
+dados fiscais e os novos limites da categoria, enquanto Estadão e Folha
+destacaram o peso político e eleitoral da votação para a campanha de
+Lula.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-camara-aprova-perdao-de-dividas-de-meis-e-amplia
 
 BRASIL · ECONOMIA
 -----------------
-• TCU estima em até R$ 3,06 bi pagamentos indevidos de seguro-defeso em
-  2024
-  O Tribunal de Contas da União (TCU) estima que até R$ 3,06 bilhões do
-  seguro-defeso podem ter sido pagos indevidamente em 2024.
-  Fontes: Valor Econômico, Estadão
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-tcu-estima-em-ate-r-3-06-bi-pagamentos-indevidos
+• Gol suspende rotas e abre licença não remunerada após disparada no
+  combustível
+  Querosene de aviação dobra de preço e atinge 40% dos custos da
+  empresa, afetando voos domésticos e trechos para a Flórida.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, InfoMoney, g1
+  Cobertura: Pende para: Foca no cancelamento de trechos e impacto ao
+  passageiro · 4 de 5 veículos. A maior parte da mídia destacou o
+  impacto prático sobre as viagens internacionais de passageiros,
+  enquanto o noticiário financeiro deu ênfase às medidas trabalhistas de
+  contingência tomadas junto à tripulação.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-gol-suspende-rotas-e-abre-licenca-nao-remunerada
 
 MERCADOS & FINANÇAS
 -------------------
-• Houthis ameaçam novos ataques a aeroportos e instalações de petróleo
-  da Arábia Saudita
-  Os houthis do Iêmen prometeram nesta quarta-feira (14) continuar
-  atacando aeroportos e instalações petrolíferas da Arábia Saudita, um
-  dia depois de uma ofensiva que, segundo fontes, causou danos extensos
-  à sede da…
+• Inflação nos EUA acelera para 3,7% e pressiona bolsas em Nova York e o
+  Ibovespa
+  Índice de preços ao consumidor norte-americano acima do esperado
+  impulsiona os Treasuries e o dólar, enquanto ações de tecnologia e
+  bolsas globais recuam com perspectiva de juros elevados.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Money Times, Exame, The
+  Wall Street Journal, The New York Times, CNBC, The Guardian, BBC News
+  Cobertura: Pende para: Foco na volatilidade doméstica e efeito
+  eleitoral · 4 de 6 veículos. A imprensa internacional concentrou-se no
+  risco de aperto dos juros e no recuo das big techs, enquanto veículos
+  brasileiros destacaram a oscilação do Ibovespa com o cenário
+  eleitoral.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-inflacao-nos-eua-acelera-para-3-7-e-pressiona-bo
+
+• Petrobras atinge R$ 800 bilhões em valor de mercado com alta do
+  petróleo e preço-alvo elevado pelo BofA
+  Estatal registra patamar histórico em bolsa impulsionada por produção
+  robusta no pré-sal e novos acordos bilionários.
+  Fontes: Money Times, Seu Dinheiro, Suno Notícias
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
+  plenamente na exposição dos dados positivos, sem divergências factuais
+  sobre os ganhos de valuation da empresa e suas perspectivas
+  operacionais.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-petrobras-atinge-r-800-bilhoes-em-valor-de-merca
+
+• Houthis atacam sede da Saudi Aramco e ameaçam instalações petrolíferas
+  na Arábia Saudita
+  Ofensiva com drones e mísseis atingiu escritórios de executivos da
+  estatal saudita em Dhahran e impulsionou os preços do petróleo no
+  mercado internacional.
   Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Financial Times,
   The Wall Street Journal, The New York Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-houthis-ameacam-novos-ataques-a-aeroportos-e-ins
+  Cobertura: Pende para: Ressalta danos graves e risco de escalada
+  militar · 5 de 6 veículos. A maioria dos veículos enfatizou o alcance
+  inédito dos estragos aos escritórios executivos da petroleira,
+  confrontando as tentativas do governo saudita de minimizar o
+  incidente.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-houthis-atacam-sede-da-saudi-aramco-e-ameacam-in
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• STF exclui expurgos de correção de depósito judicial
-  O Supremo Tribunal Federal (STF) decidiu que os bancos não precisam
-  incluir os expurgos inflacionários no cálculo da correção monetária
-  devida sobre valores de depósitos judiciais. O placar foi de sete
-  votos a dois.
+• STF decide que depósitos judiciais não devem ter correção por expurgos
+  inflacionários
+  Supremo define por 7 votos a 2 que bancos só precisam aplicar os
+  índices legais da época e protege valores já levantados em juízo.
   Fontes: Valor Econômico, Conjur, JOTA, Estadão, Folha de S.Paulo
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-stf-exclui-expurgos-de-correcao-de-deposito-judi
-
-• Lufthansa vence disputa e levará 44,9% da portuguesa TAP, por US$ 1,3
-  bilhão
-  O governo de Portugal anunciou, nesta quarta-feira (14), a escolha da
-  proposta da Lufthansa para o processo de privatização da TAP. Pelos
-  termos colocados, o grupo pagará US$ 1,3 bilhão por 44,9% da companhia
-  aérea.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Financial
-  Times
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-lufthansa-vence-disputa-e-levara-44-9-da-portugu
+  Cobertura: Sem divergência entre os 5 veículos. Houve alinhamento
+  factual entre todos os veículos, que reportaram o placar de 7 a 2 a
+  favor dos bancos e a fundamentação estritamente legal dos depósitos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-stf-decide-que-depositos-judiciais-nao-devem-ter
 
 POLÍTICA
 --------
-• PT comemora rejeição maior de Flávio e queda na desaprovação de Lula
-  na pesquisa Quaest
-  A campanha do presidente Luiz Inácio Lula da Silva (PT) comemorou o
-  resultado da primeira pesquisa Quaest do segundo turno, divulgada
-  nesta quarta-feira (14).
+• Senado inicia deliberação da PEC que extingue a jornada de trabalho
+  6x1
+  Proposta prevê redução da carga máxima semanal de 44 para 40 horas e
+  mobiliza articulação do governo para votação em dois turnos.
+  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo, NeoFeed,
+  Agência Senado, g1, Agência Brasil
+  Cobertura: Pende para: Foca na tramitação legislativa e direitos dos
+  trabalhadores · 5 de 8 veículos. A maioria dos órgãos noticiosos
+  concentrou-se no andamento parlamentar e nos requisitos de votação,
+  mas Folha, Estadão e NeoFeed frisaram as repercussões eleitorais e os
+  temores empresariais.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-senado-inicia-deliberacao-da-pec-que-extingue-a
+
+• Quaest aponta empate técnico entre Flávio Bolsonaro e Lula no segundo
+  turno
+  Levantamento mostra o senador do PL com 46% das intenções de voto
+  contra 44% do petista, que confirmou presença no primeiro debate
+  televisivo.
   Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão,
   g1, Seu Dinheiro, Money Times, Exame, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-pt-comemora-rejeicao-maior-de-flavio-e-queda-na
+  Cobertura: Sem divergência entre os 10 veículos. A cobertura convergiu
+  amplamente na apresentação do empate técnico verificado pela Quaest e
+  na confirmação do embate presencial entre Lula e Flávio no debate de
+  domingo.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-quaest-aponta-empate-tecnico-entre-flavio-bolson
 
-• Campanhas de Lula e Flávio chegam a acordo para reduzir judicialização
-  e cobram tratamento igualitário de 'big techs'
-  As campanhas do presidente Luiz Inácio Lula da Silva (PT) e do
-  candidato à Presidência Flávio Bolsonaro (PL) fecharam um acordo nesta
-  quarta-feira (14) para diminuir a judicialização na reta final da
-  eleição.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-campanhas-de-lula-e-flavio-chegam-a-acordo-para
-
-• Campanha de Lula pede que TSE aplique mesma regra de suspensão
-  temporária a canal ‘Tropa do Flávio’
-  A campanha do presidente Luiz Inácio Lula da Silva (PT) pediu nesta
-  quarta-feira (14) que o Tribunal Superior Eleitoral (TSE) também
-  suspenda por 48 horas o canal “Tropa do Flávio”, como foi feito com a
-  lista de…
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-campanha-de-lula-pede-que-tse-aplique-mesma-regr
-
-• Campanha de Lula questiona no TSE alcance das publicações de Nikolas e
-  IA da Meta
-  Além de apresentar ao Tribunal Superior Eleitoral (TSE) uma
-  manifestação em que questiona um suposto enviesamento da ferramenta de
-  inteligência artificial (IA) da Meta no WhatsApp, acusando-a de
-  favorecer a candidatura…
-  Fontes: Valor Econômico, Conjur, g1, Agência Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-campanha-de-lula-questiona-no-tse-alcance-das-pu
+• CCJ do Senado aprova PEC da Segurança Pública e texto segue para o
+  plenário
+  Texto reforça combate a facções e integração federativa, enquanto a
+  oposição articula emenda para incluir a redução da maioridade penal na
+  apreciação final.
+  Fontes: Valor Econômico, JOTA, Agência Senado, g1, CNN Brasil
+  Cobertura: Equilíbrio: 2 × 2 de 5 veículos. A maior parte dos veículos
+  tratou o avanço da matéria como trunfo da base governista, enquanto
+  reportagens complementares detalharam a tentativa da oposição de
+  polarizar a votação com a maioridade penal.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-ccj-do-senado-aprova-pec-da-seguranca-publica-e
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Papa Leão XIV se recupera bem após cirurgia para retirada de tumor no
-  pulmão
-  A recuperação do papa Leão XIV após a cirurgia realizada ontem está
-  progredindo conforme o esperado, e ele já começou a caminhar pelo
-  quarto do hospital e a se alimentar normalmente, informou o Vaticano
-  nesta…
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, CNN Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-papa-leao-xiv-se-recupera-bem-apos-cirurgia-para
+• Restrições na Starlink travam drones da Ucrânia e ampliam atrito com
+  Washington
+  Militares ucranianos enfrentam falhas operacionais após limitações de
+  velocidade no serviço de satélite em meio a cobranças dos EUA.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Financial
+  Times, The Wall Street Journal, The Guardian, BBC News, CNBC, The New
+  York Times
+  Cobertura: Pende para: Enfatiza o impacto militar e a vulnerabilidade
+  da Ucrânia · 6 de 10 veículos. A cobertura internacional dividiu-se
+  entre relatos do colapso tático no campo de batalha e análises sobre o
+  uso do serviço via satélite como ferramenta de coerção política dos
+  EUA.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-restricoes-na-starlink-travam-drones-da-ucrania
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Apple atinge valor de mercado de US$ 5 trilhões
-  A Apple juntou-se à Nvidia no clube de valor de mercado de US$ 5
-  trilhões nesta quarta-feira, 14 contrariando uma tendência geral de
-  baixa do restante do mercado.
+• Apple fecha avaliada em US$ 5 trilhões e acompanha Nvidia em patamar
+  recorde
+  Ações da fabricante do iPhone subiram 0,5% nesta quarta-feira,
+  consolidando a companhia como a segunda mais valiosa do mundo.
   Fontes: Valor Econômico, g1, InfoMoney, Seu Dinheiro, Exame, CNN
   Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-apple-atinge-valor-de-mercado-de-us-5-trilhoes
-
-IMOBILIÁRIO
------------
-• Responsabilidade dos bancos nos financiamentos de empreendimentos
-  imobiliários
-  É sabido que, na sociedade pós-moderna, é comum a existência de redes
-  de contratos em que se torna comum o braço do financiamento na
-  aquisição de bens e produtos.
-  Fontes: Conjur
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-responsabilidade-dos-bancos-nos-financiamentos-d
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura foi
+  unânime ao registrar o marco financeiro e o fato de a Apple integrar
+  agora, ao lado da Nvidia, o grupo de empresas negociadas a US$ 5
+  trilhões no fechamento.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-apple-fecha-avaliada-em-us-5-trilhoes-e-acompanh
 
 ESPORTE
 -------
-• Intervenções e conversas com o grupo: como foi o primeiro treino de
-  Seedorf no Corinthians
-  Seedorf é bastante participativo em primeiro dia de treino como
-  técnico do Corinthians O primeiro dia de trabalho de Clarence Seedorf
-  no Corinthians foi agitado.
+• Seedorf é apresentado no Corinthians e comanda primeiro treino para
+  evitar rebaixamento
+  Técnico holandês de 50 anos assume o cargo após sequência de oito
+  derrotas da equipe no Campeonato Brasileiro.
   Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
   Brasil
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-intervencoes-e-conversas-com-o-grupo-como-foi-o
+  Cobertura: Equilíbrio: 2 × 2 de 6 veículos. A maior parte dos veículos
+  esportivos centrou a cobertura no impacto prático e tático do primeiro
+  treino, enquanto a cobertura política de jornais generalistas
+  enfatizou as fragilidades do processo decisório e a inatividade do
+  treinador.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-seedorf-e-apresentado-no-corinthians-e-comanda-p
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Chuva forte alaga túnel do Anhangabaú e coloca São Paulo em estado de
-  atenção
-  A cidade de São Paulo entrou em estado de atenção para alagamentos
-  devido à chuva que atinge a cidade na tarde desta quarta-feira (14).
-  Fontes: Valor Econômico, Poder360, Agência Brasil, Exame
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-chuva-forte-alaga-tunel-do-anhangabau-e-coloca-s
+• Chuvas torrenciais inundam São Paulo, deixam um morto e causam caos no
+  trânsito
+  Temporal alaga túnel do Anhangabaú, transborda lagos no Ibirapuera,
+  provoca deslizamento fatal na Brasilândia e suspende o rodízio
+  municipal.
+  Fontes: Valor Econômico, Poder360, Agência Brasil, Exame, CNN Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura de todos
+  os veículos foi estritamente convergente e factual, registrando
+  estragos urbanos, caos viário e uma vítima fatal.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-chuvas-torrenciais-inundam-sao-paulo-deixam-um-m
 
 CULTURA & VARIEDADES
 --------------------
-• Netflix corta cerca de mil vagas em maior rodada de demissões desde
-  2022, diz jornal
-  A Netflix está cortando cerca de 6% de sua força de trabalho, ou
-  aproximadamente 1.000 postos de trabalho, em sua maior rodada de
-  demissões desde 2022, informou o jornal The Wall Street Journal nesta
-  quarta-feira (14)…
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, BBC News
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-netflix-corta-cerca-de-mil-vagas-em-maior-rodada
+• Netflix demite cerca de 1.000 funcionários no maior corte de vagas
+  desde 2022
+  Redução atinge aproximadamente 6% do quadro global e afeta áreas de
+  produto, tecnologia, recursos humanos e jurídico.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, BBC News, CNBC,
+  TechCrunch, The New York Times, Financial Times
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura converge
+  sem divergências factuais sobre o tamanho das demissões (cerca de
+  1.000 profissionais, ou 6%) e os motivos ligados à saturação e
+  consolidação do mercado de streaming.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-14.html#s-netflix-demite-cerca-de-1-000-funcionarios-no-ma
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 20:46 (BRT) · Edição automática (sem IA)
+Gerado automaticamente em 21:04 (BRT) · Edição gerada por IA
+(gemini-flash-latest)

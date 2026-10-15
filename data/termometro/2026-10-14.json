@@ -1,0 +1,1111 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-14",
+ "analises": [
+  {
+   "id": "c2a63092d240",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/14/senado-discute-pec-do-fim-da-escala-6x1.ghtml",
+   "titulo": "Senado discute PEC do fim da escala 6x1; acompanhe ao vivo",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "senado-inicia-deliberacao-da-pec-que-extingue-a",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 462,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "Precisamos ouvir quem trabalha e quem emprega, considerar os pequenos negócios e os diversos setores da nossa economia.",
+     "paragrafo": "P10",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A cobertura registra a fala institucional que equilibra os anseios dos trabalhadores com as preocupações dos empregadores."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "A líder do governo no Senado, Teresa Leitão (PT-PE), afirmou ter reunido 56 assinaturas para o requerimento de calendário especial",
+     "paragrafo": "P4",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta números precisos da contagem de assinaturas e quórum necessário (49 votos) para situar a tramitação legislativa."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "8b635891bf1b",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/pt-comemora-rejeicao-maior-de-flavio-e-queda-na-desaprovacao-de-lula-na-pesquisa-quaest.ghtml",
+   "titulo": "PT comemora rejeição maior de Flávio e queda na desaprovação de Lula na pesquisa Quaest",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "quaest-aponta-empate-tecnico-entre-flavio-bolson",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -9,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 76,
+    "rotulo": "Regular"
+   },
+   "palavras": 447,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": -8.69,
+    "divergente": false
+   },
+   "por_eixo": {
+    "instituicoes": -8.69
+   },
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "PT comemora rejeição maior de Flávio e queda na desaprovação de Lula na pesquisa Quaest",
+     "paragrafo": "P0",
+     "direcao": "esquerda",
+     "contribuicao": -5.56,
+     "explicacao": "O título foca exclusivamente nos pontos favoráveis ao PT, relegando ao P3 o fato de que Flávio lidera numericamente a disputa."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "o que a equipe bolsonarista nega e se diz alvo de \"fake news\".",
+     "paragrafo": "P5",
+     "direcao": "esquerda",
+     "contribuicao": -3.14,
+     "explicacao": "Enquanto os estrategistas petistas têm sua visão e táticas detalhadas ao longo de todo o texto, a campanha bolsonarista recebe apenas uma menção incidental em oração subordinada."
+    },
+    {
+     "id": "E3",
+     "criterio": "NUMEROS",
+     "citacao": "Na intenção de votos, os dois estão tecnicamente empatados, com o senador numericamente à frente (46% a 44%).",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto explicita os percentuais e o critério estatístico de empate técnico logo no início do texto."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "026e37d94075",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/flavio-bolsonaro-quer-incluir-reducao-da-maioridade-penal-na-pec-da-seguranca-publica.ghtml",
+   "titulo": "Flávio Bolsonaro quer incluir redução da maioridade penal na PEC da Segurança Pública",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "ccj-do-senado-aprova-pec-da-seguranca-publica-e",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 493,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "A medida, porém, enfrentou resistência do governo e de partidos de esquerda, que ameaçavam votar contra o texto caso o dispositivo fosse mantido.",
+     "paragrafo": "P4",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta o histórico legislativo e a posição contrária do governo com termos neutros e descritivos."
+    },
+    {
+     "id": "E2",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "O texto original do Executivo previa a centralização da coordenação das políticas de segurança pela União, o que gerou forte reação dos governadores.",
+     "paragrafo": "P12",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Contextualiza as modificações feitas pelo Congresso no projeto do Executivo sem emitir juízo de valor."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "d5857ed72049",
+   "url": "https://g1.globo.com/tecnologia/noticia/2026/10/14/estados-americanos-processam-openai-e-acusam-chatgpt-de-incentivar-automutilacao-em-jovens.ghtml",
+   "titulo": "Estados americanos processam OpenAI e acusam ChatGPT de incentivar automutilação em jovens",
+   "veiculo": "g1",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "oito-estados-dos-eua-processam-openai-por-risco",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 76,
+    "rotulo": "Regular"
+   },
+   "palavras": 402,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Um porta-voz da OpenAI, buscado pela Reuters, não comentou o assunto.",
+     "paragrafo": "P14",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem registra explicitamente a busca por manifestação da empresa processada, mantendo o padrão ético de contraditório."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "bf873c400829",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/14/por-461-a-4-cmara-aprova-projeto-de-lei-que-perdoa-dvida-do-mei-e-aumenta-limite-de-faturamento.ghtml",
+   "titulo": "Por 461 a 4, Câmara aprova projeto de lei que perdoa dívida do MEI e aumenta limite de faturamento",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "camara-aprova-perdao-de-dividas-de-meis-e-amplia",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 2,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 862,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 1.57,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "Parlamentares da bancada do PT avaliam que a medida tem possibilidade de impactar o resultado eleitoral e o potencial de virada",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto contextualiza abertamente a manobra política do governo e a motivação eleitoral no segundo turno, equilibrando a cobertura que poderia focar unicamente nos benefícios econômicos."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "Parlamentares de partidos de direita como o Novo e o Missão acusaram o governo de populismo e de não ouvir o setor produtivo",
+     "paragrafo": "P9",
+     "direcao": "direita",
+     "contribuicao": 1.57,
+     "explicacao": "Apresenta a crítica da oposição de direita de forma indireta sem citação literal, equilibrando a narrativa oficial."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "f6a45d19fbae",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/13/acordo-entre-mercosul-e-ue-eleva-em-30-pontos-percentuais-exportaes-brasileiras-desde-maio-diz-elias-rosa.ghtml",
+   "titulo": "Acordo entre Mercosul e UE eleva em 30% exportações brasileiras desde maio, diz Elias Rosa",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "acordo-entre-mercosul-e-uniao-europeia-eleva-exp",
+   "data_publicacao": "2026-10-13",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -7,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 74,
+    "rotulo": "Regular"
+   },
+   "palavras": 389,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -6.67,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Elias Rosa afirmou ainda que, em um período anterior ao do atual governo Lula, o Brasil adotou uma política externa de \"segregação\" e \"isolamento\"",
+     "paragrafo": "P9",
+     "direcao": "esquerda",
+     "contribuicao": -6.67,
+     "explicacao": "O texto registra ataques duros da autoridade governista à gestão anterior sem conceder contraponto ou ouvir representantes do governo antecedente para balancear a crítica."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "bac735432d32",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/14/gol-reduz-operao-por-acusa-de-preo-do-combustvel-rota-para-flrida-suspensa.ghtml",
+   "titulo": "Gol reduz operação por causa de preço do combustível; rota para Flórida é suspensa",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "gol-suspende-rotas-e-abre-licenca-nao-remunerada",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 369,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "b96bc32b6069",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/14/ucrnia-diz-que-spacex-restringiu-uso-do-starlink-em-meio-a-tenses-com-os-eua.ghtml",
+   "titulo": "Ucrânia diz que SpaceX restringiu uso do Starlink em meio a tensões com os EUA",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "restricoes-na-starlink-travam-drones-da-ucrania",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": -2,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 1200,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -2.09,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Elon Musk, por sua vez, disse nesta tarde que os sistemas Starshield são de propriedade e controlados pelo governo dos EUA.",
+     "paragrafo": "P7",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem dá espaço à versão de Musk e da SpaceX logo após apresentar as queixas das autoridades de Kiev."
+    },
+    {
+     "id": "E2",
+     "criterio": "HUMANIZACAO",
+     "citacao": "Em Kiev, equipes de resgate retiravam feridos em macas dos escombros de um prédio residencial destruído durante a madrugada",
+     "paragrafo": "P25",
+     "direcao": "esquerda",
+     "contribuicao": -2.09,
+     "explicacao": "Descreve detalhadamente o drama humano dos civis ucranianos sob bombardeio russo."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "822db3271e3e",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/14/papa-leo-se-xiv-se-recupera-bem-aps-cirurgia-para-retirada-de-tumor-no-pulmo.ghtml",
+   "titulo": "Papa Leão XIV se recupera bem após cirurgia para retirada de tumor no pulmão",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "papa-leao-xiv-retira-tumor-no-pulmao-e-inicia-re",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 448,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "A operação durou cerca de 90 minutos e foi concluída sem complicações, informaram na noite de terça-feira o principal cirurgião do papa, Stefano Margaritora, e seu médico pessoal, Luigi Carbone.",
+     "paragrafo": "P10",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Dado factual acompanhado da identificação precisa dos médicos responsáveis."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "1eba721bacb3",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/14/embraer-compra-51-pontos-percentuais-da-indiana-novavayu-aerospace-por-r-27-milhes.ghtml",
+   "titulo": "Embraer compra 51% da indiana Novavayu Aerospace",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "embraer-adquire-51-da-indiana-novavayu-aerospace",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 395,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "Diferentemente do informado anteriormente, a participação da Embraer na Novavayu foi adquirida por 510 mil rúpias, e não 510 milhões de rúpias",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Correção transparente de dados numéricos e valores de conversão."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "c833f9206a8c",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/14/dois-navios-afundam-perto-do-estreito-de-ormuz-aps-ataques-com-projteis.ghtml",
+   "titulo": "Dois navios afundam perto do Estreito de Ormuz após ataques com projéteis",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "navios-de-carga-afundam-apos-ataques-com-misseis",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 627,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "A empresa responsável pela gestão do navio, Peonies Shipmanagement FZE, sediada nos Emirados Árabes Unidos, não foi localizada imediatamente para comentar.",
+     "paragrafo": "P8",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Registro explícito de tentativa de contato com os envolvidos no incidente."
+    },
+    {
+     "id": "E2",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "O Irã afirma que está ampliando suas ofensivas em resposta ao bloqueio americano de seus portos e ao endurecimento das sanções impostas no mês passado.",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresentação da justificativa de Teerã em resposta às sanções e ao bloqueio dos EUA, contextualizando ambos os polos da disputa."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "26d039e9147e",
+   "url": "https://valor.globo.com/financas/ao-vivo/2023/06/16/dolar-avanca-e-ibovespa-recua-em-dia-de-correcao-siga-os-mercados.ghtml",
+   "titulo": "Ibovespa fecha em queda, dólar sobe e juros ficam perto da estabilidade com exterior e eleição no foco",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "inflacao-nos-eua-acelera-para-3-7-e-pressiona-bo",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 187,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "No fechamento, o índice Dow Jones ficou perto da estabilidade (-0,09%), aos 51.622,14 pontos, enquanto o S&P 500 recuou 1,10%, aos 7.719,50 pontos",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Dados numéricos e variações percentuais detalhadas e contextualizadas com pontuações exatas de fechamento."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "0f2cc01cb983",
+   "url": "https://www.moneytimes.com.br/petrobras-bofa-diz-que-mercado-substima-pre-sal-e-eleva-o-preco-alvo-de-petr4-lils/",
+   "titulo": "Petrobras: BofA diz que mercado substima pré-sal e coloca R$ 15 no preço-alvo de PETR4",
+   "veiculo": "Money Times",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "petrobras-atinge-r-800-bilhoes-em-valor-de-merca",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 669,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "elevou o preço-alvo das ações da Petrobras (PETR4) em R$ 15, de R$ 55 para R$ 70, nesta quarta-feira (14)",
+     "paragrafo": "P1",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta métricas objetivas de preço anterior, preço revisado e data da alteração com base em relatório do banco."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "d8d145f3a14e",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/14/houthis-ameaam-novos-ataques-a-aeroportos-e-instalaes-de-petrleo-da-arbia-saudita.ghtml",
+   "titulo": "Houthis ameaçam novos ataques a aeroportos e instalações de petróleo da Arábia Saudita",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "houthis-atacam-sede-da-saudi-aramco-e-ameacam-in",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "seguranca",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 728,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Os houthis afirmaram que os locais ameaçados são alvos legítimos e descreveram seus ataques como uma retaliação aos bombardeios sauditas",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem apresenta as justificativas dadas pelo grupo rebelde e contextualiza em seguida as alegações e reações das autoridades sauditas."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "9f23e852c18e",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/14/segundo-maior-banco-dos-eua-e-multado-em-us-195-bilhao-por-falhas-no-combate-a-lavagem-de-dinheiro.ghtml",
+   "titulo": "Segundo maior banco dos EUA é multado em US$ 1,95 bilhão por falhas no combate à lavagem de dinheiro",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "bank-of-america-recebe-multa-de-us-1-2-bilhao-no",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 74,
+    "rotulo": "Regular"
+   },
+   "palavras": 305,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "O Bank of America (BofA) foi multado em US$ 1,95 bilhão por violações relacionadas a lavagem de dinheiro e ao cumprimento de sanções",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A matéria detalha os valores exatos de cada multa individual emitida por cada órgão regulador sem viés opinativo."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "4886101ff938",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/14/chuva-forte-alaga-tunel-do-anhangabau-e-coloca-sao-paulo-em-estado-de-atencao.ghtml",
+   "titulo": "Chuva forte alaga túnel do Anhangabaú e coloca São Paulo em estado de atenção",
+   "veiculo": "Valor Econômico",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "chuvas-torrenciais-inundam-sao-paulo-deixam-um-m",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 507,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "98190b129e75",
+   "url": "https://www1.folha.uol.com.br/ambiente/2026/10/incendios-florestais-dobram-no-amazonas-em-2026-mas-indice-esta-abaixo-da-media-historica.shtml",
+   "titulo": "Incêndios florestais dobram no Amazonas em 2026, mas índice está abaixo da média histórica",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "queimadas-dobram-no-amazonas-em-2026-e-uniao-rec",
+   "data_publicacao": "2026-10-13",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "geral",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1136,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": -3.14,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "Apesar dos impactos ambientais e sanitários inegáveis, o número registrado no Amazonas neste ano está 12% abaixo da média histórica",
+     "paragrafo": "P13",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem contextualiza o aumento percentual recente com a série histórica oficial do Inpe, evitando alarmismo desprovido de base temporal."
+    },
+    {
+     "id": "E2",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "diz Alencar, em referência a Flávio Bolsonaro (PL).",
+     "paragrafo": "P24",
+     "direcao": "esquerda",
+     "contribuicao": -3.14,
+     "explicacao": "A redação explicita a crítica da especialista direcionando nominalmente a Flávio Bolsonaro a tese de que uma vitória sua sinalizaria tolerância com crimes ambientais."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "59ea5be60c98",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/14/entenda-o-que-muda-se-a-pec-do-fim-da-escala-6x1-for-aprovada.ghtml",
+   "titulo": "Entenda o que muda se a PEC do fim da escala 6x1 for aprovada",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "senado-inicia-deliberacao-da-pec-que-extingue-a",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 1066,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Parte do setor produtivo teme que as novas regras aumentem custos de produção e resultem em demissões. Estudo de pesquisadores do Instituto Brasileiro de Economia da Fundação Getulio Vargas",
+     "paragrafo": "P25",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto apresenta tanto os benefícios esperados para o bem-estar dos trabalhadores quanto as ressalvas do setor produtivo e estudos de custos econômicos."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "d23df80618c5",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/14/quaest-medo-da-volta-da-familia-bolsonaro-empata-com-medo-da-reeleicao-de-lula.ghtml",
+   "titulo": "Quaest: Medo da volta da família Bolsonaro empata com medo da reeleição de Lula",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "quaest-aponta-empate-tecnico-entre-flavio-bolson",
+   "data_publicacao": "2026-10-14",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 659,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "A pesquisa, com margem de erro de dois pontos percentuais e nível de confiança de 95%, foi contratado pela TV Globo e pelo jornal O Globo e está registrada na Justiça Eleitoral",
+     "paragrafo": "P13",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A matéria expõe todos os parâmetros técnicos, registro e contratantes da pesquisa de forma rigorosa e transparente."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "No universo geral da pesquisa, considerando os que temem mais a volta do clã Bolsonaro",
+     "paragrafo": "P8",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem divide simetricamente os parágrafos 8 e 9 para destrinchar em detalhes os motivos de medo apontados para ambos os candidatos."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "3cb571460fc6",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/13/hugo-motta-inicia-articulaes-por-reconduo-presidncia-da-cmara.ghtml",
+   "titulo": "Hugo Motta inicia articulações por recondução à presidência da Câmara",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "centrao-firma-bloco-na-camara-e-formaliza-apoio",
+   "data_publicacao": "2026-10-13",
+   "analisado_em": "2026-10-14",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 788,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Como o Valor mostrou, ainda que ala expressiva da bancada do PL esteja vocalizando o desejo de não apoiar a recondução de Motta",
+     "paragrafo": "P10",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem traz a contextualização dos acordos partidários, incluindo a resistência interna no PL e os compromissos decorrentes da eleição presidencial."
+    }
+   ],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-15T00:17:03+00:00",
+   "provedor": "gemini",
+   "modelo": "gemini-flash-latest",
+   "candidatos": 40,
+   "textos_curtos": 5,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 34066,
+    "saida": 19648
+   },
+   "analises": [
+    "c2a63092d240",
+    "8b635891bf1b",
+    "026e37d94075",
+    "d5857ed72049",
+    "bf873c400829",
+    "f6a45d19fbae",
+    "bac735432d32",
+    "b96bc32b6069",
+    "822db3271e3e",
+    "1eba721bacb3",
+    "c833f9206a8c",
+    "26d039e9147e",
+    "0f2cc01cb983",
+    "d8d145f3a14e",
+    "9f23e852c18e",
+    "4886101ff938",
+    "98190b129e75",
+    "59ea5be60c98",
+    "d23df80618c5",
+    "3cb571460fc6"
+   ]
+  }
+ ]
+}
