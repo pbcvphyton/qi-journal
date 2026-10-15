@@ -23,6 +23,9 @@
 
 {% block home_link %}{{ home_href }}{% endblock %}
 {% block dateline %}{{ v.date_label }}{% if v.time_label %}&nbsp;· <span class="nw">{{ v.time_label }} {{ v.tz_label }}</span>{% endif %}{% endblock %}
+{#- Computador: data e hora da edição à esquerda do logo (como o cabeçalho de um
+    jornal). A hora é a da geração, verdadeira também nas edições do arquivo. -#}
+{% block mast_left %}<p class="ml-d">{{ v.date_label }}</p>{% if v.time_label %}<p class="ml-e">Edição das <span class="nw">{{ v.time_label }} {{ v.tz_label }}</span></p>{% endif %}{% endblock %}
 
 {% block tools %}
     <a class="tool" href="{{ archive_href }}" title="Edições anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Edições</span></a>
@@ -54,6 +57,169 @@
   <p>{% if w.now_emoji %}<span role="img" aria-label="{{ w.now_desc }}" title="{{ w.now_desc }}">{{ w.now_emoji }}</span>{% endif %}<strong>{{ w.city }}</strong>{{ w.now_temp }} <span aria-hidden="true">↓</span><span class="sr-only">mínima </span>{{ w.today_min }} <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>{{ w.today_max }}<span class="sep" aria-hidden="true">|</span>Amanhã {% if w.tomorrow_emoji %}<span role="img" aria-label="{{ w.tomorrow_desc }}" title="{{ w.tomorrow_desc }}">{{ w.tomorrow_emoji }}</span> {% endif %}<span aria-hidden="true">↓</span><span class="sr-only">mínima </span>{{ w.tomorrow_min }} <span aria-hidden="true">↑</span><span class="sr-only">máxima </span>{{ w.tomorrow_max }}</p>
   {% endfor %}
 </section>
+{% endif %}
+
+{#- Primeira página no computador (a partir de 1024 px), no desenho de jornal:
+    barra de editorias com régua dupla; coluna principal (editorial, manchete com a
+    foto à direita e a chamada relacionada, "Mais para ler" e "Em 1 minuto") e trilho
+    à direita (chamadas com foto e o Radar). No celular e no tablet estes blocos
+    ficam ocultos e valem os de baixo (op-bar, brief, hero, dst), que no computador
+    se ocultam. -#}
+{% if v.sections %}
+<nav class="sec-nav" aria-label="Editorias">
+  <div class="sn-in">
+  <ul class="sn-ed">
+    {% for sec in v.sections %}
+    <li><a href="#editorias" data-tab="{{ sec.id }}" style="--sc:{{ sec.color }}">{{ sec.title }}</a></li>
+    {% endfor %}
+    <li><a href="#editorias" data-tab="all">Todas</a></li>
+  </ul>
+  {% if v.compared or v.rationale or v.index_url %}
+  <ul class="sn-x">
+    {% if v.compared %}<li><a href="#cobertura">Cobertura comparada</a></li>{% endif %}
+    {% if v.rationale %}<li><a href="#racional">Racional da edição</a></li>{% endif %}
+    {% if v.index_url %}<li><a href="{{ v.index_url }}">Todas as {{ v.index_total|num }} notícias</a></li>{% endif %}
+  </ul>
+  {% endif %}
+  </div>
+</nav>
+{% endif %}
+
+{% if v.lead %}
+{% set L = v.lead %}
+<div class="fp">
+  <div class="fp-main">
+    <section class="fp-box" aria-label="Manchete e principais matérias">
+      {% if v.editorial %}
+      <div class="fp-ed">
+        <p class="fp-ed-k">Editorial do dia</p>
+        <p class="fp-ed-t">{{ v.editorial|md_lite }}</p>
+      </div>
+      {% endif %}
+      <article class="fp-lead{% if not L.image %} noimg{% endif %}" style="--sc:{{ L.color }}">
+        <div class="fp-lt">
+          <p class="cat">{{ L.section_title }}</p>
+          <h2{{ m.lang(L) }}><a class="hit" href="#{{ L.anchor }}">{{ L.headline }}</a></h2>
+          {% if L.dek %}
+          <p class="fp-dek"{{ m.lang(L) }}>{{ L.dek }}</p>
+          {% endif %}
+          {% if v.lead_excerpt %}
+          <p class="fp-sub fp-sub-t"{{ m.lang(L) }}>{{ v.lead_excerpt|md_lite }}</p>
+          {% endif %}
+          {#- Parágrafos seguintes do corpo: aparecem sem foto e, nas telas largas,
+              quando a coluna de texto precisa crescer para a foto ficar perto de 3:2 -#}
+          {% for paragraph in v.lead_more %}
+          <p class="fp-sub fp-sub-x fp-sub-x{{ loop.index }}"{{ m.lang(L) }}>{{ paragraph|md_lite }}</p>
+          {% endfor %}
+          {{ m.meta(L) }}
+          {% if L.coverage %}
+          {{ m.badge(L.coverage) }}
+          {% endif %}
+          {% if v.related %}
+          {% set s = v.related %}
+          <div class="fp-rel" style="--sc:{{ s.color }}">
+            <h3{{ m.lang(s) }}><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+            {{ m.meta(s) }}
+          </div>
+          {% endif %}
+        </div>
+        {% if L.image %}
+        <div class="fp-lp">
+          {{ m.figure(L, "fp-li") }}
+          {% if v.lead_excerpt %}
+          <p class="fp-sub fp-sub-p"{{ m.lang(L) }}>{{ v.lead_excerpt|md_lite }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+      </article>
+      {% if v.more %}
+      <div class="fp-more">
+        <h2 class="fp-lbl">Mais para ler</h2>
+        <ol class="fp-ml">
+          {% for s in v.more %}
+          <li class="fp-mi" style="--sc:{{ s.color }}">
+            <div class="fp-mt">
+              <p class="cat">{{ s.section_title }}</p>
+              <h3{{ m.lang(s) }}><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+              {% if s.dek %}
+              <p class="fp-mdk"{{ m.lang(s) }}>{{ s.dek }}</p>
+              {% endif %}
+            </div>
+            {% if s.image %}
+            {{ m.figure(s, "fp-th") }}
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+      {% endif %}
+    </section>
+    {% if v.briefing %}
+    <section class="fp-brief" aria-labelledby="fpb-h">
+      <h2 class="fp-lbl" id="fpb-h">Em 1 minuto</h2>
+      <ul>
+        {% for item in v.briefing %}
+        <li>{{ item|md_lite }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    {% if v.rationale %}
+    <p class="fp-rat"><span class="fp-rat-s">{{ v.rationale.strip }}</span> <span class="fp-rat-l"><a href="#racional">Como foi compilada</a>{% if v.index_url %} · <a href="{{ v.index_url }}">Todas as {{ v.index_total|num }} notícias</a>{% endif %}</span></p>
+    {% endif %}
+  </div>
+  {% if v.secondary or v.radar %}
+  <aside class="fp-rail" aria-label="Outras chamadas e Radar de notícias">
+    {% if v.secondary %}
+    {% set s = v.secondary[0] %}
+    <article class="fp-r1" style="--sc:{{ s.color }}">
+      {% if s.image %}
+      {{ m.figure(s, "fp-ri") }}
+      {% endif %}
+      <p class="cat">{{ s.section_title }}</p>
+      <h3{{ m.lang(s) }}><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+      {% if s.dek %}
+      <p class="fp-rdk"{{ m.lang(s) }}>{{ s.dek }}</p>
+      {% endif %}
+      {{ m.meta(s) }}
+      {% if s.coverage %}
+      {{ m.badge(s.coverage) }}
+      {% endif %}
+    </article>
+    {% if v.secondary|length > 1 %}
+    <div class="fp-r2">
+      {% for s in v.secondary[1:] %}
+      <article class="fp-r2i" style="--sc:{{ s.color }}">
+        {% if s.image %}
+        {{ m.figure(s, "fp-ri") }}
+        {% endif %}
+        <p class="cat">{{ s.section_title }}</p>
+        <h3{{ m.lang(s) }}><a class="hit" href="#{{ s.anchor }}">{{ s.headline }}</a></h3>
+        {{ m.meta(s) }}
+        {% if s.coverage %}
+        {{ m.badge(s.coverage) }}
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endif %}
+    {% if v.radar %}
+    <section class="fp-op" aria-labelledby="fpr-h">
+      <div class="fp-op-in">
+        <h2 class="fp-lbl" id="fpr-h">Radar de notícias <span class="fp-n">{{ v.radar|length }}</span></h2>
+        <ol>
+          {% for r in v.radar %}
+          <li><a href="{{ r.href }}"{% if r.external %} target="_blank" rel="noopener noreferrer"{% endif %}><span class="fp-by">{% if r.time %}<time>{{ r.time }}</time> · {% endif %}{{ r.source }}</span><span class="fp-tt"{% if r.lang %} lang="{{ r.lang }}"{% endif %}>{{ r.title }}</span>{% if r.external %}<span class="sr-only"> (abre a fonte em nova aba)</span>{% endif %}</a></li>
+          {% endfor %}
+        </ol>
+      </div>
+      <button class="fp-op-more" type="button" hidden></button>
+    </section>
+    {% endif %}
+  </aside>
+  {% endif %}
+</div>
 {% endif %}
 
 {% if v.editorial %}

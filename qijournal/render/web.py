@@ -35,6 +35,7 @@ DEFAULT_COLORS = {
 DEFAULT_ON_MASTHEAD = "#FFFFFF"
 RADAR_SIZE = 8
 RADAR_WIRE_SIZE = 12  # itens do Radar quando a edição traz notícias além das matérias
+FRONT_MORE_SIZE = 8  # itens de "Mais para ler" na primeira página do computador
 LEAD_MORE_PARAGRAPHS = 2  # texto extra da manchete quando não há imagem (ou ela falha)
 DESCRIPTION_MAX = 200
 EXCERPT_OVERLAP = 0.6  # similaridade a partir da qual um parágrafo repete a linha fina
@@ -293,6 +294,10 @@ class EditionView:
     # Termômetro do dia (marca com termômetro, quando ele rodou na edição); o link
     # da aba "Analítico Político" sai em termometro.analitico_href.
     termometro: TermometroDiaView | None = None
+    # Primeira página no computador (layout de jornal): chamada relacionada sob a
+    # manchete e a grade "Mais para ler" (demais destaques e matérias fora da capa).
+    related: StoryView | None = None
+    more: list[StoryView] = field(default_factory=list)
 
     @property
     def index_total(self) -> int:
@@ -771,6 +776,24 @@ def _index_view(
     return sorted(sections.values(), key=lambda s: order.get(s.id, len(order)))
 
 
+def _front_page(
+    lead: StoryView | None, secondary: list[StoryView], highlights: list[StoryView], ordered: list[StoryView]
+) -> tuple[StoryView | None, list[StoryView]]:
+    """Primeira página do computador: a chamada relacionada à manchete (o primeiro
+    destaque da mesma editoria; senão, o primeiro destaque) e "Mais para ler" (os
+    demais destaques e, até completar ``FRONT_MORE_SIZE``, as matérias que não
+    aparecem em outro ponto da capa), sem repetir nenhuma matéria. As que sobram
+    ficam nas abas por editoria, como todas as outras."""
+    if lead is None:
+        return None, []
+    related = next((s for s in highlights if s.section_title == lead.section_title), None)
+    if related is None and highlights:
+        related = highlights[0]
+    placed = {lead.id, *(s.id for s in secondary), *(s.id for s in highlights)}
+    more = [s for s in highlights if s is not related] + [s for s in ordered if s.id not in placed]
+    return related, more[:FRONT_MORE_SIZE]
+
+
 def _mode_label(edition: Edition) -> str:
     if edition.mode == "ai":
         return f"Edição gerada por IA ({edition.model})" if edition.model else "Edição gerada por IA"
@@ -821,6 +844,7 @@ def build_view(edition: Edition, config: Config, *, archive: bool = False) -> Ed
     secondary = _pick(edition.secondary, by_id, used)
     highlights = _pick(edition.highlights, by_id, used)
     radar = _radar(edition, ordered, tz)
+    related, more = _front_page(lead, secondary, highlights, ordered)
 
     description = filters.plain(edition.editorial) or (lead.dek if lead else "") or brand.tagline
     base_url = config.site.base_url
@@ -857,6 +881,8 @@ def build_view(edition: Edition, config: Config, *, archive: bool = False) -> Ed
         index=_index_view(edition, lookup, default_color, tz, by_id),
         index_url=f"{base_url}edicoes/{index_page_name(edition.date)}" if edition.index else "",
         termometro=termometro_dia_view(edition.termometro) if config.termometro_ativo else None,
+        related=related,
+        more=more,
     )
 
 

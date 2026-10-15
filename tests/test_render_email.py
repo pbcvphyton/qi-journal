@@ -112,18 +112,18 @@ def test_preheader_is_hidden_and_plain(rendered):
 
 def test_header_ticker_weather_editorial_and_briefing(rendered):
     _, html, _ = rendered
-    # Cabeçalho claro: logo em PNG (GitHub Pages) numa célula branca; no modo escuro (CSS) troca pela versão escura.
-    assert '<td align="center" bgcolor="#ffffff" class="px hdr" style="padding:28px 20px 18px;background:#ffffff;' in html
+    # Cabeçalho em bloco marinho (estrutura do TSA Tech): logo em PNG (GitHub Pages),
+    # branco sobre a cor do bloco; escuro nos dois modos, sem versão escura.
     assert (
-        '<img class="lg-l" src="https://pbcvphyton.github.io/qi-journal/assets/triangula-logo-email.png"'
+        '<td align="center" bgcolor="#273351" class="px" style="padding:30px 20px 20px;background:#273351;'
+        'border-bottom:3px solid #1B2745;">' in html
+    )
+    assert (
+        '<img src="https://pbcvphyton.github.io/qi-journal/assets/triangula-logo-email-cabecalho.png"'
         ' width="366" height="60" alt="Triangula"' in html
     )
-    assert (
-        '<!--[if !mso]><!--><img class="lg-d" src="https://pbcvphyton.github.io/qi-journal/assets/'
-        'triangula-logo-email-dark.png" width="366" height="60" alt="" style="display:none;' in html
-    )
-    assert ".hdr{background:#111827!important;" in html and ".lg-d{display:block!important;" in html
-    assert 'text-transform:uppercase;color:#5f6b7e;" class="muted">Seu terminal financeiro diário</p>' in html
+    assert '<img class="lg-d"' not in html
+    assert '>Seu terminal financeiro diário</p>' in html
     assert 'Terça-feira, 29 de setembro de 2026&nbsp;· <span style="white-space:nowrap">05:07 BRT</span>' in html
     assert "#687487" not in html  # cinza antigo, abaixo de AA sobre #f8f9fb
     assert (
@@ -213,8 +213,6 @@ def test_pbcv_brand_email_uses_text_wordmark(edition):
     assert "<svg" not in html.lower()
     assert '<span style="color:#A3B4E0;">PBCV</span>' in html
     assert "background:#1B2745;" in html
-    assert "<img src=\"https://pbcvphyton.github.io/qi-journal/assets/" not in html  # sem logo de e-mail
-    assert 'class="px" style="padding:28px 20px 18px;border-bottom:3px solid #1B2745;"' in html  # cabeçalho no papel
 
 
 def test_email_logo_falls_back_to_text(edition):
@@ -222,8 +220,8 @@ def test_email_logo_falls_back_to_text(edition):
     cfg.brand.email_logo = {"src": "javascript:alert(1)", "width": 212, "height": 44}
     _, html, _ = render_email(edition, cfg)
     assert "javascript:" not in html and "<img src=\"https://pbcvphyton" not in html
-    # wordmark em marinho (sem a classe "q", que pintaria o nome de aqua ilegível no branco)
-    assert '<span style="color:#1B2745;font-weight:900;" class="ink">Triangula</span>' in html
+    # wordmark em texto na cor sobre o bloco do cabeçalho (on_masthead)
+    assert '<span style="color:#FFFFFF;font-weight:900;">Triangula</span>' in html
 
 
 def test_solid_masthead_email_uses_blended_tones(edition):

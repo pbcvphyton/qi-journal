@@ -9,7 +9,7 @@ import re
 import pytest
 
 from qijournal.models import Section, SourceRef, Story
-from qijournal.render.web import build_view, render_archive_index, render_edition_page
+from qijournal.render.web import FRONT_MORE_SIZE, build_view, render_archive_index, render_edition_page
 from tests.fixtures.render.helpers import (
     LEAD_ID,
     MALICIOUS_ID,
@@ -169,6 +169,25 @@ def test_hero_lead_secondary_and_highlights(page, edition):
         assert f'href="#s-{story_id}"' in highlights
 
 
+def test_desktop_front_page_places_each_story_once(page, edition, config):
+    """Primeira página do computador: manchete, chamada relacionada (destaque da mesma
+    editoria), trilho com as secundárias e "Mais para ler" com os demais destaques e,
+    até 8 itens, as matérias fora da capa, sem repetir matéria."""
+    view = build_view(edition, config)
+    assert view.related is not None and view.related.section_title == view.lead.section_title
+    assert view.related.id in edition.highlights
+    front = [view.lead.id, view.related.id, *(s.id for s in view.secondary), *(s.id for s in view.more)]
+    assert len(front) == len(set(front))  # nenhuma repetida
+    assert len(view.more) == min(FRONT_MORE_SIZE, len(view.stories) - 2 - len(view.secondary))
+    assert [s.id for s in view.more[: len(edition.highlights) - 1]] == [i for i in edition.highlights if i != view.related.id]
+    fp = re.search(r'<div class="fp">.*?</aside>\s*</div>', page, re.S).group(0)
+    # ordem no HTML: manchete, relacionada, "Mais para ler" e, no trilho, as secundárias
+    in_order = [view.lead.id, view.related.id, *(s.id for s in view.more), *(s.id for s in view.secondary)]
+    assert re.findall(r'<a class="hit" href="#s-([^"]+)"', fp) == in_order
+    nav = re.search(r'<nav class="sec-nav".*?</nav>', page, re.S).group(0)
+    assert re.findall(r'data-tab="([^"]+)"', nav) == [s.id for s in edition.sections] + ["all"]
+
+
 def test_tabs_one_per_section_plus_all(page, edition):
     tabs = re.findall(r'<button class="tab-btn"[^>]*data-tab="([^"]+)"[^>]*>([^<]+)<', page)
     assert [t[0] for t in tabs] == [s.id for s in edition.sections] + ["all"]
@@ -203,10 +222,10 @@ def test_ticker_and_weather(page):
 def test_header_dateline_and_tools(page):
     # "·" colado na data e hora/fuso inseparáveis: no celular nenhuma linha começa com "·" nem fica só com "BRT"
     assert 'Terça-feira, 29 de setembro de 2026&nbsp;· <span class="nw">05:07 BRT</span>' in page
-    assert '<header class="mast-wrap">' in page  # cabeçalho claro, como no QI Journal
-    assert '<h1 class="logo duo"><a href="./"><span class="lg lg-l"><svg' in page
+    assert '<header class="mast-wrap solid">' in page  # bloco marinho, como o topo do TSA Tech
+    assert '<h1 class="logo mono"><a href="./"><svg' in page  # letreiro em currentColor (on_masthead)
     assert '<title id="triangula-logo-title">Triangula</title>' in page
-    assert '<title id="dk-triangula-logo-title">Triangula</title>' in page  # versão do modo escuro
+    assert "dk-triangula-logo-title" not in page  # um só logo: o bloco é escuro nos dois modos
     assert 'class="q"' not in page  # wordmark de texto não é usado quando há logo
     assert 'id="dmBtn"' in page and 'id="srchBtn"' in page and 'id="srchInput"' in page
     assert 'id="rdprog"' in page and 'id="btt"' in page
@@ -236,7 +255,7 @@ def test_heuristic_mode_label(edition, config):
 
 def test_archive_page_links(edition, config):
     html = render(edition, config, home_href="../", archive_href="./")
-    assert '<h1 class="logo duo"><a href="../">' in html
+    assert '<h1 class="logo mono"><a href="../">' in html
     assert '<a href="./">Edições anteriores</a>' in html
 
 
@@ -244,7 +263,7 @@ def test_unsafe_hrefs_fall_back_to_defaults(edition, config):
     html = render(edition, config, home_href="javascript:alert(1)", archive_href="//evil.example/")
     hrefs = parse(html).hrefs
     assert not [h for h in hrefs if h.startswith(("javascript:", "//"))]
-    assert '<h1 class="logo duo"><a href="./">' in html
+    assert '<h1 class="logo mono"><a href="./">' in html
     assert '<a href="edicoes/">Edições anteriores</a>' in html
 
 
@@ -377,16 +396,18 @@ def test_pbcv_brand_renders_inline_logo(edition):
 
 def test_default_brand_logo_palette_and_favicon(edition):
     html = render(edition, default_config())
-    assert '<meta name="theme-color" content="#1B2745">' in html
+    assert '<meta name="theme-color" content="#273351">' in html  # marinho do cabeçalho
     assert '<meta name="generator" content="Triangula · qijournal 2.0">' in html
     assert "--qi:#394A7A;--qn:#1B2745;--qc:#FF5A1F;" in html
-    assert ".mast-wrap.solid{" not in html  # cabeçalho claro
-    # Sinal: letreiro em pixels (tinta no claro, branco no escuro) e tarja laranja; pixels nítidos
-    assert 'fill="#0C0F16"' in html and 'fill="#FFFFFF"' in html and 'fill="#FF5A1F"' in html
-    assert html.count('shape-rendering="crispEdges"') == 2
-    assert ':root[data-theme="dark"] .mast h1.logo:not(.mono):not(.duo) svg{filter:' in html
-    # alturas múltiplas de 20 (a grade do SVG): 3 px por unidade no desktop, 2 px no celular
-    assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}" in html
+    assert '<header class="mast-wrap solid">' in html and ".mast-wrap.solid{--mh:#273351;--on-mh:#FFFFFF;" in html
+    # Letreiro em pixels: currentColor (branco sobre o bloco) e o fato laranja; pixels nítidos
+    assert 'fill="currentColor"' in html and 'fill="#FF5A1F"' in html
+    assert html.count('shape-rendering="crispEdges"') == 1
+    # alturas múltiplas de 20 (a grade do SVG): 3 px por unidade no desktop, 2 px no celular;
+    # a altura da marca vale também para o logo monocromático (vem depois da regra padrão de 64 px)
+    assert html.index(".mast h1.logo.mono svg{height:64px") < html.index(
+        ".mast h1.logo svg,.mast h1.logo.mono svg{height:60px;max-width:100%}"
+    )
     assert ".mast h1.logo svg,.mast h1.logo.mono svg{height:40px}" in html
     assert "--ink:#1a2332;--paper:#fff;--bg:#f0f2f5;" in html  # neutros frios do layout original
     favicon = re.search(r'<link rel="icon" type="image/svg\+xml" href="([^"]+)"', html).group(1)
@@ -512,6 +533,14 @@ def test_lead_extra_paragraphs_only_for_missing_image(edition):
     page_html = render(ed)
     assert '<p class="sub more">Segundo <strong>parágrafo</strong>.</p>' in page_html
     assert ".hero-l .more{display:none}" in page_html  # só aparecem sem imagem (CSS :has)
+    # Primeira página do computador: os mesmos parágrafos na coluna de texto da manchete,
+    # ocultos por padrão (aparecem sem foto ou quando page.js os escolhe: x1, x2)
+    front = re.search(r'<article class="fp-lead.*?</article>', page_html, re.S).group(0)
+    assert re.findall(r'<p class="fp-sub fp-sub-x fp-sub-x(\d)">(.*?)</p>', front) == [
+        ("1", "Segundo <strong>parágrafo</strong>."),
+        ("2", "Terceiro parágrafo."),
+    ]
+    assert ".fp-sub-x{display:none}" in page_html
 
 
 # ── regressões da edição real de 29/09/2026 ─────────────────────────────────
@@ -634,7 +663,11 @@ def test_coverage_on_cards_modal_and_compared_section(edition, config):
     card_story.coverage = _coverage(["b", "b", "a"])
     ed.compared = [_coverage(["a", "neutro"], section="mercados", url="javascript:alert(1)", published=ed.generated_at)]
     page = render(ed, config)
-    assert page.count('<div class="cov mini lean-a"') == 2  # manchete + card dela na aba da seção
+    # manchete (bloco do celular e primeira página do computador) + card dela na aba da seção
+    assert page.count('<div class="cov mini lean-a"') == 3
+    hero = re.search(r'<section class="hero".*?</section>', page, re.S).group(0)
+    front = re.search(r'<article class="fp-lead.*?</article>', page, re.S).group(0)
+    assert hero.count('<div class="cov mini lean-a"') == 1 and front.count('<div class="cov mini lean-a"') == 1
     assert page.count('<div class="cov mini lean-b"') == 1  # card
     modal = re.search(rf'<div class="mo" id="s-{LEAD_ID}".*?</article>\s*</div>', page, re.S).group(0)
     assert '<section class="mcov" aria-label="Análise da cobertura">' in modal

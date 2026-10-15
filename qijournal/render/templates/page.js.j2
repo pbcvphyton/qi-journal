@@ -247,6 +247,190 @@
     update();
   }
 
+  /* Barra de editorias do computador: cada link leva às abas e abre a da editoria. */
+  function setupSectionNav(tabsApi) {
+    if (!tabsApi) return;
+    Array.prototype.forEach.call(d.querySelectorAll('.sec-nav a[data-tab]'), function (link) {
+      link.addEventListener('click', function () {
+        var tab = tabsApi.wrap.querySelector('[role="tab"][data-tab="' + link.getAttribute('data-tab') + '"]');
+        if (tab) tab.click();
+      });
+    });
+  }
+
+  /* Manchete do computador: escolhe onde ficam o trecho do corpo (sob o título ou
+     sob a foto) e a chamada relacionada (sob o texto ou sob a foto), a largura da
+     coluna de texto (40%, 45% ou metade), se o título ocupa a largura do pacote
+     (abaixo de 1280 px) e, nas telas largas, quantos parágrafos seguintes do corpo
+     entram na coluna de texto. Vale a forma em que a foto fica mais perto de 3:2,
+     sem vão no pé das colunas e bem maior que a foto da 1ª chamada do trilho; em
+     caso de empate, a mais simples. */
+  function setupLeadFit() {
+    var lead = d.querySelector('.fp-lead:not(.noimg)');
+    var lt = lead && lead.querySelector('.fp-lt'), lp = lead && lead.querySelector('.fp-lp');
+    var photo = lp && lp.querySelector('.fp-li');
+    if (!photo) return;
+    var rel = lt.querySelector('.fp-rel'), title = lt.querySelector('h2');
+    var extras = lt.querySelectorAll('.fp-sub-x').length;
+    var rail = d.querySelector('.fp-r1 .fp-ri');
+    var desk = w.matchMedia('(min-width:1024px)');
+    var narrow = w.matchMedia('(max-width:1279.98px)'), wide = w.matchMedia('(min-width:1600px)');
+    var CLASSES = ['ex-l', 'ex-r', 'wm', 'wt', 'ta', 'x1', 'x2'];
+    function options() {
+      // {left: trecho na coluna do texto, right: relacionada sob a foto,
+      //  split: 0 (40%), 1 (45%), 2 (metade), top: título em toda a largura, more: parágrafos}
+      var list = [];
+      [false, true].forEach(function (top) {
+        if (top && !narrow.matches) return;
+        [0, 1, 2].forEach(function (split) {
+          [false, true].forEach(function (right) {
+            var most = wide.matches ? extras : 0;
+            for (var more = 0; more <= most; more++) list.push({ left: true, right: right, split: split, top: top, more: more });
+            list.push({ left: false, right: right, split: split, top: top, more: 0 });
+          });
+        });
+      });
+      return list;
+    }
+    function bottomOf(col) {
+      var bottom = 0;
+      Array.prototype.forEach.call(col.children, function (child) {
+        var r = child.getBoundingClientRect();
+        if (r.height) bottom = Math.max(bottom, r.bottom);
+      });
+      return bottom;
+    }
+    function reset() {
+      CLASSES.forEach(function (c) { lead.classList.remove(c); });
+      if (rel && rel.parentNode !== lt) lt.appendChild(rel);
+    }
+    function apply(o) {
+      reset();
+      lead.classList.add(o.left ? 'ex-l' : 'ex-r');
+      if (o.split) lead.classList.add(o.split === 1 ? 'wm' : 'wt');
+      if (o.top) lead.classList.add('ta');
+      if (o.more) lead.classList.add('x' + o.more);
+      if (rel && o.right) lp.appendChild(rel);
+    }
+    function score(o) {
+      var r = photo.getBoundingClientRect();
+      if (!r.width || !r.height) return Infinity;
+      var gap = Math.abs(bottomOf(lt) - bottomOf(lp)), slack = 0;
+      var prev = rel && rel.parentNode === lt ? rel.previousElementSibling : null;
+      if (prev) slack = Math.max(0, rel.getBoundingClientRect().top - prev.getBoundingClientRect().bottom - 16);
+      var value = Math.abs(Math.log(r.width / r.height / 1.5)) + (gap + slack) / 60;
+      // A foto da manchete deve ser bem maior que a da 1ª chamada do trilho
+      var other = rail ? rail.getBoundingClientRect() : null;
+      if (other && other.width) value += Math.max(0, Math.log(1.5 * other.width * other.height / (r.width * r.height)));
+      // Título com mais de 4 linhas (coluna estreita demais) também pesa
+      var size = title.getBoundingClientRect().height / (parseFloat(getComputedStyle(title).lineHeight) || 1);
+      value += Math.max(0, Math.round(size) - 4) * 0.04;
+      return value + o.split * 0.03 + (o.top ? 0.02 : 0) + o.more * 0.05;
+    }
+    function fit() {
+      reset();
+      if (!desk.matches || photo.classList.contains('img-fail') || !lp.offsetWidth) return;
+      var best = null, bestScore = Infinity;
+      options().forEach(function (o) {
+        apply(o);
+        var value = score(o);
+        if (value < bestScore - 0.001) {
+          bestScore = value;
+          best = o;
+        }
+      });
+      if (best) apply(best);
+      else reset();
+    }
+    var img = photo.querySelector('img');
+    if (img) img.addEventListener('error', function () { w.setTimeout(fit, 0); });
+    onResize(fit);
+    onMediaChange(desk, fit);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit);
+    fit();
+  }
+
+  /* Radar do trilho (computador): a lista rola por dentro e o rodapé diz quantos
+     itens ainda estão abaixo; o clique leva o primeiro deles ao topo da lista (no
+     fim, volta ao início). Sem rolagem, a lista termina no pé de um item: a sobra
+     (menos que um item) se reparte entre os itens visíveis, sem item cortado. */
+  function setupRadarMore() {
+    var box = d.querySelector('.fp-op');
+    var list = box && box.querySelector('.fp-op-in'), more = box && box.querySelector('.fp-op-more');
+    var ol = list && list.querySelector('ol'), head = list && list.querySelector('.fp-lbl');
+    if (!list || !more || !ol) return;
+    var items = Array.prototype.slice.call(ol.children);
+    var below = 0, ticking = false;
+    function bottomEdge() { return list.getBoundingClientRect().top + list.clientTop + list.clientHeight; }
+    function hidden() {
+      var edge = bottomEdge() + 1;
+      return items.filter(function (li) { return li.getBoundingClientRect().bottom > edge; });
+    }
+    function label(text, count, arrow) {
+      more.textContent = '';
+      var span = d.createElement('span');
+      span.appendChild(d.createTextNode(text[0]));
+      if (count) {
+        var b = d.createElement('b');
+        b.textContent = count;
+        span.appendChild(b);
+      }
+      span.appendChild(d.createTextNode(text[1]));
+      var icon = d.createElement('i');
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = arrow;
+      more.appendChild(span);
+      more.appendChild(icon);
+    }
+    function align() {
+      var edge = bottomEdge() - list.scrollTop, fit = 0, last = 0;
+      items.some(function (li) {
+        var bottom = li.getBoundingClientRect().bottom;
+        if (bottom > edge + 0.5) return true;
+        fit += 1;
+        last = bottom;
+        return false;
+      });
+      if (fit && fit < items.length) ol.style.setProperty('--rx', Math.floor((edge - last) / fit * 100) / 100 + 'px');
+    }
+    function status() {
+      ticking = false;
+      if (more.hidden) return;
+      below = hidden().length;
+      if (below) label(['Mais ', below === 1 ? ' notícia no Radar' : ' notícias no Radar'], String(below), '↓');
+      else label(['Voltar ao início do Radar', ''], '', '↑');
+      box.classList.toggle('mid', below > 0 && list.scrollTop > 2);
+    }
+    function layout() {
+      box.classList.remove('more');
+      box.classList.remove('mid');
+      ol.style.removeProperty('--rx');
+      more.hidden = !list.clientHeight || list.scrollHeight <= list.clientHeight + 1;
+      if (more.hidden) return;
+      box.classList.add('more');
+      align();
+      status();
+    }
+    function schedule() {
+      if (!ticking) {
+        ticking = true;
+        w.requestAnimationFrame(status);
+      }
+    }
+    more.addEventListener('click', function () {
+      var next = below && hidden()[0];
+      if (next) {
+        var top = next.getBoundingClientRect().top - list.getBoundingClientRect().top - list.clientTop;
+        list.scrollTo({ top: list.scrollTop + top - (head ? head.offsetHeight : 0), behavior: smooth() });
+      } else list.scrollTo({ top: 0, behavior: smooth() });
+    });
+    list.addEventListener('scroll', schedule, { passive: true });
+    if (w.ResizeObserver) new w.ResizeObserver(layout).observe(box);
+    else onResize(layout);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(layout);
+    layout();
+  }
+
   /* ── Busca em tempo real (sem acento e sem diferenciar maiúsculas) ─── */
   var modalIsOpen = function () { return false; };
   function setupSearch(tabsApi) {
@@ -260,6 +444,30 @@
     }
     var cards = Array.prototype.slice.call(wrap.querySelectorAll('.cl'));
     cards.forEach(function (card) { card.searchText = norm(card.textContent.replace(/\s+/g, ' ')); });
+
+    /* Computador: durante a busca os cards que sobram na última linha de cada seção
+       se alargam para fechá-la (sem a busca, o CSS faz isso pela posição do card). */
+    var SPANS = ['sp-2', 'sp-3', 'sp-all', 'wide'];
+    function fillRows() {
+      cards.forEach(function (card) { SPANS.forEach(function (c) { card.classList.remove(c); }); });
+      if (!wrap.classList.contains('searching')) return;
+      panes.forEach(function (pane) {
+        var grid = pane.querySelector('.cards');
+        if (!grid || !grid.offsetWidth) return;
+        var cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+        var shown = Array.prototype.filter.call(grid.children, function (c) { return !c.classList.contains('is-hidden'); });
+        var rest = shown.length % cols;
+        if (cols < 2 || !rest) return;
+        var last = shown[shown.length - 1];
+        if (rest === 1) last.classList.add('sp-all');
+        else if (rest === 2 && cols === 4) {
+          last.classList.add('sp-2');
+          shown[shown.length - 2].classList.add('sp-2', 'wide');
+        } else last.classList.add('sp-' + (cols - rest + 1));
+        last.classList.add('wide');
+      });
+    }
+    onResize(fillRows);
 
     function run() {
       var terms = norm(input.value).split(/\s+/).filter(Boolean);
@@ -277,6 +485,7 @@
       });
       if (count) count.textContent = terms.length ? (total === 1 ? '1 matéria' : total + ' matérias') : '';
       if (none) none.hidden = !terms.length || total > 0;
+      fillRows();
     }
     function clear() {
       if (!input.value) return;
@@ -461,7 +670,11 @@
   setupTheme();
   setupCanvas();
   setupTicker();
-  setupSearch(setupTabs());
+  var tabsApi = setupTabs();
+  setupSearch(tabsApi);
+  setupSectionNav(tabsApi);
+  setupLeadFit();
+  setupRadarMore();
   setupAges();
   setupModals();
   setupScroll();

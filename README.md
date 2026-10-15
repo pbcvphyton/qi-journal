@@ -404,24 +404,28 @@ Uma `QIJ_BRAND` com marca inexistente (como o antigo `qi`) cai na marca padrão.
 
 A marca Triangula (até out/2026, PBCV Tech) usa um logo em pixel art na mesma
 grade do antigo **Sinal**: o símbolo de três fontes (nós nos vértices de um
-triângulo) com o fato laranja no centro e o letreiro TRIANGULA, num cabeçalho
-claro como o do antigo QI Journal. A chave da marca continua `tech` (o
-termômetro depende dela). A paleta vem do quadro do Sinal: marinho `#1B2745` (ticker, rodapé, títulos), ardósia `#394A7A` (links e
+triângulo) com o fato laranja no centro e o letreiro TRIANGULA. A chave da
+marca continua `tech` (o termômetro depende dela). Desde out/2026 o jornal usa
+a estrutura visual do TSA Tech: página na largura toda da tela (margens em
+`--gut`, que crescem nas telas largas), cabeçalho em bloco marinho `#273351`
+(`colors.masthead`, com data e hora à esquerda do logo no computador), barra de
+editorias e primeira página no desenho de jornal no computador (editorial,
+manchete com a foto ao lado, "Mais para ler" e trilho com o Radar); no celular
+e no tablet valem os blocos de sempre. A paleta vem do quadro do Sinal: marinho `#1B2745` (ticker, rodapé, títulos), ardósia `#394A7A` (links e
 réguas), laranja de sinal `#FF5A1F` (destaques; só decoração no fundo branco) e
 altas/quedas do ticker em `#7FC8FF`/`#FF5C9A`, com os cinzas azulados do layout
 original.
 
-- `assets/triangula-logo.svg` e `assets/triangula-logo-dark.svg` — logo do
-  cabeçalho para os modos claro e escuro (`logo_svg` e `logo_svg_dark`; o site
-  troca de SVG, sem filtro de inversão). Por ser pixel art, as alturas
-  (`logo_height: 60`, `logo_height_mobile: 40`) são múltiplas de 20, a grade do
-  SVG, para os pixels ficarem nítidos;
+- `assets/triangula-logo-cabecalho.svg` — logo do cabeçalho, com o letreiro em
+  `currentColor` (branco sobre o bloco, nos dois modos). Por ser pixel art, as
+  alturas (`logo_height: 60`, `logo_height_mobile: 40`) são múltiplas de 20, a
+  grade do SVG, para os pixels ficarem nítidos;
 - `assets/triangula-favicon.svg` — o símbolo de 16 × 16;
-- `assets/triangula-logo-email.png` e `…-email-dark.png` — logo do e-mail
-  (clientes de e-mail não exibem SVG), servidos pelo GitHub Pages
-  (`email_logo`/`email_logo_dark`); a versão escura entra pelo CSS do modo
-  escuro de clientes como o Apple Mail. Os `pbcv-tech-*` antigos ficam no
-  repositório porque os e-mails já enviados apontam para eles.
+- `assets/triangula-logo-email-cabecalho.png` — logo do e-mail (clientes de
+  e-mail não exibem SVG), branco sobre a cor do cabeçalho, servido pelo GitHub
+  Pages (`email_logo`). As versões claras/escuras anteriores (`triangula-logo*`)
+  e os `pbcv-tech-*` ficam no repositório porque os e-mails já enviados apontam
+  para eles.
 
 Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 `colors.on_masthead` (logo em `currentColor`).

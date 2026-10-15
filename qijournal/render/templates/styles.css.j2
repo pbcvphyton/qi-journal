@@ -1,6 +1,8 @@
 {#- Estilos da página (incluídos inline). Layout do jornal:
-    tokens --qi/--qn/--qc/--qr, papel central de 1120px, masthead, ticker na cor da tinta,
-    faixa de clima, op-bar, hero 5fr/3fr, destaques numerados, abas, cards e modais.
+    tokens --qi/--qn/--qc/--qr, papel na largura toda da tela, masthead, ticker na cor da
+    tinta, faixa de clima, op-bar, hero 5fr/3fr, destaques numerados, abas, cards e modais.
+    Em telas largas as margens (--gut), as colunas e as letras crescem por faixas (fim do
+    arquivo), de modo que a página ocupa o monitor inteiro sem esticar as linhas de texto.
     As cores da marca vêm de config.brand.colors (já validadas em web.py); os neutros
     são os cinzas azulados do layout original (QI Journal), que casam com o marinho
     e o cobalto da marca Triangula. Com brand.masthead, o cabeçalho vira um bloco de
@@ -13,6 +15,7 @@
   --head:var(--qn);--body:#4a5568;--muted:#5a6577;--mute2:#5f6b7e;--faint:#626e81;
   --soft:#f8f9fb;--side:#fdfdfd;--hover:#fafbff;--hl:#e8ebf0;--op-a:#fafbff;--op-b:#f0f2f5;
   --link:var(--qi);--text:#333d4d;
+  --gut:30px;
   --fx-dot:var(--qi);--fx-line:var(--qc);
   --sf:'Noto Serif',Georgia,'Times New Roman',serif;
   --ss:'Noto Sans',Helvetica,Arial,sans-serif;
@@ -36,9 +39,8 @@ button{font:inherit;color:inherit}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-9999px;top:8px;z-index:10000;padding:8px 14px;background:var(--paper);color:var(--link);font-family:var(--ss);font-size:13px;font-weight:700;border:2px solid var(--qi)}
 .skip:focus{left:16px}
-.paper{max-width:1120px;min-height:100vh;display:flex;flex-direction:column;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(var(--qn-rgb),.08)}
+.paper{width:100%;min-height:100vh;display:flex;flex-direction:column;background:var(--paper)}
 .paper>main{flex:1}
-:root[data-theme="dark"] .paper{box-shadow:0 0 60px rgba(0,0,0,.5)}
 
 /* Barra de progresso de leitura */
 #rdprog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--qc);transform:scaleX(0);transform-origin:0 50%;z-index:9999;pointer-events:none}
@@ -62,11 +64,11 @@ button{font:inherit;color:inherit}
 .mast h1.logo .lg{display:block}
 .mast h1.logo .lg-d,:root[data-theme="dark"] .mast h1.logo .lg-l{display:none}
 :root[data-theme="dark"] .mast h1.logo .lg-d{display:block}
+.mast h1.logo.mono svg{height:64px;color:var(--qn)}
+:root[data-theme="dark"] .mast h1.logo.mono svg{color:var(--head)}
 {% if brand.logo_height %}
 .mast h1.logo svg,.mast h1.logo.mono svg{height:{{ brand.logo_height }}px;max-width:100%}
 {% endif %}
-.mast h1.logo.mono svg{height:64px;color:var(--qn)}
-:root[data-theme="dark"] .mast h1.logo.mono svg{color:var(--head)}
 .mast-sub{font-family:var(--ss);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--mute2);margin-top:6px}
 .mast h1.logo+.mast-sub{margin-top:14px}
 .mast-date{font-family:var(--mn);font-size:10px;color:var(--faint);margin-top:8px;letter-spacing:1px}
@@ -117,7 +119,7 @@ button{font:inherit;color:inherit}
 .wx .sep{color:var(--rule);margin:0 6px}
 
 /* Editorial do dia */
-.op-bar{padding:18px 32px;background:linear-gradient(135deg,var(--op-a),var(--op-b));border-bottom:1px solid var(--rl);font-size:15px;font-style:italic;color:var(--body);line-height:1.7;text-align:center}
+.op-bar{padding:18px var(--gut);background:linear-gradient(135deg,var(--op-a),var(--op-b));border-bottom:1px solid var(--rl);font-size:15px;font-style:italic;color:var(--body);line-height:1.7;text-align:center}
 .op-bar p{max-width:880px;margin:0 auto}
 .op-bar strong{color:var(--ink)}
 
@@ -125,7 +127,7 @@ button{font:inherit;color:inherit}
 .kicker{font-family:var(--ss);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--link);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--qi)}
 
 /* Em 1 minuto */
-.brief{padding:16px 30px 18px;border-bottom:1px solid var(--rl)}
+.brief{padding:16px var(--gut) 18px;border-bottom:1px solid var(--rl)}
 .brief ul{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 32px}
 .brief li{position:relative;padding-left:16px;font-family:var(--ss);font-size:13px;line-height:1.5;color:var(--body)}
 .brief li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:1px;background:var(--qc)}
@@ -148,7 +150,7 @@ figure.img-fail{display:none}
 /* Manchete + chamadas */
 .hero{display:grid;grid-template-columns:5fr 3fr;border-bottom:2px solid var(--qn)}
 .hero.solo{grid-template-columns:1fr}
-.hero-l{padding:26px 30px;border-right:1px solid var(--rule);cursor:pointer;transition:background .3s}
+.hero-l{padding:26px var(--gut);border-right:1px solid var(--rule);cursor:pointer;transition:background .3s}
 .hero.solo .hero-l{border-right:none}
 .hero-l:hover{background:var(--hover)}
 .hero-l h2{font-size:clamp(22px,3.2vw,34px);font-weight:900;line-height:1.12;margin-bottom:14px;letter-spacing:-.5px;color:var(--head)}
@@ -167,7 +169,7 @@ figure.img-fail{display:none}
 .hero-r .ss>p:not(.cat):not(.meta){font-family:var(--ss);font-size:12px;color:var(--muted);line-height:1.5}
 
 /* Destaques numerados */
-.dst{padding:14px 30px 16px;background:linear-gradient(135deg,var(--soft),var(--paper));border-bottom:1px solid var(--rl)}
+.dst{padding:14px var(--gut) 16px;background:linear-gradient(135deg,var(--soft),var(--paper));border-bottom:1px solid var(--rl)}
 .dst ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .dst li{counter-increment:t;display:flex;gap:10px;padding:9px 12px 9px 0;border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:13px;line-height:1.4;border-radius:3px;cursor:pointer;transition:background .2s}
 .dst li:hover{background:var(--hl)}
@@ -179,7 +181,7 @@ figure.img-fail{display:none}
 .dst .dst-cat{display:block;margin-top:3px;font-family:var(--mn);font-size:8.5px;text-transform:uppercase;letter-spacing:1px;color:var(--faint)}
 
 /* Busca */
-.srch{display:flex;align-items:center;gap:12px;padding:10px 30px;background:var(--paper);border-top:2px solid var(--qn)}
+.srch{display:flex;align-items:center;gap:12px;padding:10px var(--gut);background:var(--paper);border-top:2px solid var(--qn)}
 .srch-label{font-family:var(--mn);font-size:9.5px;letter-spacing:1px;color:var(--faint);text-transform:uppercase;flex-shrink:0}
 .srch-input{flex:1;min-width:0;max-width:420px;height:34px;padding:0 16px;border:1.5px solid var(--rl);border-radius:20px;font-family:var(--ss);font-size:13px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
 .srch-input:focus{border-color:var(--qi);box-shadow:0 0 0 3px rgba(var(--qi-rgb),.15)}
@@ -317,7 +319,7 @@ body.modal-open{overflow:hidden}
 .mcomp{margin-bottom:8px;font-family:var(--ss);font-size:12px;color:var(--muted)}
 .ml .mcov{margin-top:22px;padding:16px 18px;border:1px solid var(--rl);border-radius:4px;background:var(--soft)}
 .ml .mcov>h3{margin-bottom:10px;font-family:var(--mn);font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--faint)}
-.cmp{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+.cmp{padding:22px var(--gut) 30px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .cmp{border-top-color:var(--qi)}
 .cmp-note{max-width:860px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
 .cmp-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin-top:6px}
@@ -327,11 +329,11 @@ body.modal-open{overflow:hidden}
 .cmp-t{font-weight:500;letter-spacing:.5px;color:var(--faint)}
 
 /* Racional da edição e lista completa do dia */
-.rat-strip{padding:9px 30px;border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
+.rat-strip{padding:9px var(--gut);border-bottom:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
 .rat-strip span{color:var(--ink);font-weight:600}
 .rat-strip a{color:var(--link);font-weight:700;white-space:nowrap}
 .rat-strip a:hover{text-decoration:underline}
-.rat{padding:22px 30px 26px;border-top:2px solid var(--qn);background:var(--paper)}
+.rat{padding:22px var(--gut) 26px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .rat{border-top-color:var(--qi)}
 .rat-sum{max-width:900px;font-family:var(--sf);font-size:16px;line-height:1.6;color:var(--ink)}
 .rat-blocks{list-style:none;counter-reset:blk;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px 24px;margin-top:14px}
@@ -340,7 +342,7 @@ body.modal-open{overflow:hidden}
 .rat-blocks b{color:var(--ink)}
 .rat-blocks b::before{content:counter(blk) ". ";font-family:var(--mn);font-weight:500;color:var(--faint)}
 .rat-note{max-width:900px;margin-top:14px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
-.todas{padding:22px 30px 30px;border-top:2px solid var(--qn);background:var(--paper)}
+.todas{padding:22px var(--gut) 30px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .todas{border-top-color:var(--qi)}
 .todas .kicker span{font-family:var(--mn);font-weight:500;letter-spacing:.5px;color:var(--faint)}
 .todas-note{max-width:900px;margin-bottom:10px;font-family:var(--ss);font-size:12.5px;line-height:1.55;color:var(--muted)}
@@ -392,7 +394,7 @@ body.modal-open{overflow:hidden}
 body.modal-open .btt{visibility:hidden}
 
 /* Arquivo de edições */
-.arch{padding:24px 30px 36px;min-height:40vh}
+.arch{padding:24px var(--gut) 36px;min-height:40vh}
 .arch-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .arch-top .kicker{flex:1}
 .arch-home{font-family:var(--ss);font-size:12px;font-weight:700;color:var(--link)}
@@ -406,7 +408,6 @@ body.modal-open .btt{visibility:hidden}
 .arch-t{font-size:15px;font-weight:700;line-height:1.3;color:var(--ink)}
 .badge{flex-shrink:0;padding:1px 6px;border:1px solid var(--rule);border-radius:10px;font-family:var(--mn);font-size:8.5px;letter-spacing:1px;color:var(--faint)}
 .arch-empty{padding:30px 0;font-family:var(--ss);color:var(--muted)}
-
 {% if brand.termometro %}
 /* Termômetro de Viés Editorial (fim da edição) e aba Analítico Político.
    Escala divergente validada (rampa ordinal por braço, claro e escuro):
@@ -417,7 +418,7 @@ body.modal-open .btt{visibility:hidden}
 .t-dl{background:var(--t-dl)}.t-dm{background:var(--t-dm)}.t-df{background:var(--t-df)}.t-na{background:var(--t-na)}
 .t-mx{background:repeating-linear-gradient(135deg,var(--t-eq) 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1px var(--t-eq)}
 .sw{display:inline-block;width:8px;height:8px;margin-right:6px;border-radius:2px;vertical-align:baseline}
-.term{padding:22px 30px 26px;border-top:2px solid var(--qn);background:var(--paper)}
+.term{padding:22px var(--gut) 26px;border-top:2px solid var(--qn);background:var(--paper)}
 :root[data-theme="dark"] .term{border-top-color:var(--qi)}
 .term-sum{max-width:900px;font-family:var(--sf);font-size:17px;font-weight:600;line-height:1.5;color:var(--ink)}
 .term-sum span{font-family:var(--mn);font-size:10.5px;font-weight:500;letter-spacing:.3px;color:var(--mute2)}
@@ -471,7 +472,7 @@ body.modal-open .btt{visibility:hidden}
 .tl-tx a{color:var(--ink)}
 .tl-tx a:hover{color:var(--link);text-decoration:underline}
 .tl-r{font-size:11.5px;color:var(--muted);white-space:nowrap}
-.an{padding:24px 30px 36px}
+.an{padding:24px var(--gut) 36px}
 .an-intro{max-width:900px;font-family:var(--sf);font-size:16px;line-height:1.6;color:var(--ink)}
 .an-blk{margin-top:26px;padding-top:16px;border-top:1px solid var(--rl)}
 .an-h{margin-bottom:10px;font-family:var(--ss);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--head)}
@@ -554,12 +555,392 @@ body.modal-open .btt{visibility:hidden}
   .tool.tool-an span{display:none}
 }
 {% endif %}
+
+/* ── Computador (a partir de 1024 px): primeira página no desenho de jornal ──
+   Cabeçalho compacto (data e hora da edição à esquerda, logo ao centro, ferramentas
+   à direita), barra de editorias com régua dupla e uma grade 2/3 + 1/3: na coluna
+   principal, o editorial, a manchete (texto à esquerda, foto à direita, chamada
+   relacionada abaixo do texto), "Mais para ler" numerado em duas colunas com
+   miniatura e "Em 1 minuto"; no trilho, as chamadas com foto e o Radar, que
+   acompanha a altura da coluna principal, rola por dentro e diz quantos itens faltam.
+   Abaixo disso, as abas (cards com réguas finas), o racional e a cobertura comparada.
+   Abaixo de 1024 px nada disto aparece e valem os blocos originais (op-bar, brief,
+   hero, dst), ocultos no computador. */
+.mast-l,.sec-nav,.fp{display:none}
+@media (min-width:1024px){
+  :root{--gut:32px;--fr:var(--ink)}
+  :root[data-theme="dark"]{--fr:#75829a}
+
+  /* Cabeçalho */
+  .mast{padding:16px 300px 14px}
+  .mast h1.logo svg,.mast h1.logo.mono svg{height:clamp(64px,4.2vw,92px)}
+  .mast h1.logo+.mast-sub{margin-top:8px}
+  .mast-sub{font-size:9px}
+  .mast-l:not(:empty){display:block;position:absolute;z-index:3;left:var(--gut);top:50%;transform:translateY(-50%);font-family:var(--ss);text-align:left}
+  .mast-l:not(:empty)~.mast .mast-date{display:none}
+  .mast-l .ml-d{font-size:13px;font-weight:600;line-height:1.4;color:var(--on-mh,var(--head))}
+  .mast-l .ml-e{margin-top:3px;font-family:var(--mn);font-size:10px;letter-spacing:.6px;color:var(--faint)}
+  .mast-wrap.solid .mast-l .ml-e{color:rgba(var(--on-mh-rgb),.72)}
+  .mast-l .nw{white-space:nowrap}
+  .mast-tools{top:50%;right:var(--gut);transform:translateY(-50%)}
+
+  /* Barra de editorias (leva às abas) com régua dupla; os atalhos da edição ficam
+     à direita e, se não couberem na mesma linha das editorias, descem juntos para
+     uma segunda linha, alinhados à direita */
+  .sec-nav{display:block;padding:0 var(--gut);background:var(--paper)}
+  .sn-in{display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px;padding:10px 0 9px;border-bottom:4px double var(--fr)}
+  .sec-nav ul{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:2px 14px}
+  .sn-ed{flex:1 1 auto;min-width:0}
+  .sn-x{flex:none;margin-left:auto;padding-left:14px;border-left:1px solid var(--rule)}
+  :root[data-theme="dark"] .sn-x{border-left-color:var(--fr)}
+  .sec-nav a{display:block;padding:3px 0 2px;font-family:var(--ss);font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;box-shadow:inset 0 -2px 0 transparent;transition:color .2s,box-shadow .2s}
+  .sec-nav a:hover{color:var(--link);box-shadow:inset 0 -2px 0 var(--sc,var(--qi))}
+  .sn-x a{color:var(--mute2)}
+  .sn-x a:hover{color:var(--link)}
+
+  /* Grade da primeira página */
+  .fp{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);padding:20px var(--gut) 0;background:var(--paper)}
+  .fp~.op-bar,.fp~.brief,.fp~.rat-strip,.fp~.hero,.fp~.dst{display:none}
+  .fp-main{min-width:0;padding-right:24px}
+  .fp-rail{display:flex;flex-direction:column;min-width:0;padding-left:24px;border-left:1px solid var(--rl)}
+  .fp .cat{margin-bottom:6px}
+  .fp-lead,.fp-rel,.fp-mi,.fp-r1,.fp-r2i{position:relative;cursor:pointer}
+  .fp-lead:has(>.fp-lt>h2 .hit:focus-visible),.fp-rel:has(.hit:focus-visible),.fp-mi:has(.hit:focus-visible),.fp-r1:has(.hit:focus-visible),.fp-r2i:has(.hit:focus-visible){outline:2px solid var(--link);outline-offset:3px}
+  .fp h2 a,.fp h3 a{transition:color .2s}
+  .fp-lead:not(:has(.fp-rel:hover)):hover h2 a,.fp-rel:hover h3 a,.fp-mi:hover h3 a,.fp-r1:hover h3 a,.fp-r2i:hover h3 a,.fp-op a:hover .fp-tt{color:var(--link)}
+  .fp-lbl{display:flex;align-items:center;gap:8px;padding:9px 0 3px;font-family:var(--ss);font-size:10.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--head)}
+  .fp-n{font-family:var(--mn);font-size:10px;font-weight:500;letter-spacing:0;color:var(--faint)}
+
+  /* Caixa principal: editorial, manchete e "Mais para ler" */
+  .fp-box{padding:0 18px 4px;border:1px solid var(--fr)}
+  .fp-ed{padding:16px 5% 0;text-align:center}
+  .fp-ed-k{font-family:var(--ss);font-size:9.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--link)}
+  .fp-ed-t{max-width:860px;margin:6px auto 0;font-family:var(--sf);font-size:14.5px;font-style:italic;line-height:1.6;color:var(--body)}
+  .fp-ed-t strong{color:var(--ink)}
+  .fp-ed::after{content:"";display:block;width:64px;height:2px;margin:12px auto 0;background:var(--qi)}
+  /* Coluna de texto em 40% (padrão), 45% (wm) ou metade (wt) do pacote */
+  .fp-lead{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:0 20px;padding:20px 0}
+  .fp-lead.wm{grid-template-columns:minmax(0,9fr) minmax(0,11fr)}
+  .fp-lead.wt{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .fp-lead.noimg,.fp-lead:has(.fp-li.img-fail){grid-template-columns:1fr}
+  .fp-lt{display:flex;flex-direction:column;min-width:0}
+  .fp-lead h2{margin-bottom:10px;font-size:clamp(22px,calc(7px + 1.3vw),40px);font-weight:700;line-height:1.14;letter-spacing:-.3px;color:var(--head);overflow-wrap:break-word;text-wrap:balance}
+  .fp-dek{font-family:var(--sf);font-size:clamp(14px,calc(9px + .45vw),18px);line-height:1.5;color:var(--body)}
+  .fp-sub{margin-top:10px;font-family:var(--ss);font-size:13px;line-height:1.6;color:var(--body)}
+  .fp-sub strong{color:var(--ink)}
+  .fp-lt>.cov.mini{max-width:420px}
+  /* Coluna da foto: a foto não impõe altura ao pacote. Parte de um recorte
+     panorâmico (2,4:1) e cresce até a altura da coluna de texto; se o texto for o
+     mais curto, a chamada relacionada desce para o pé dele. Assim as duas colunas
+     terminam juntas. Sem script, o trecho do corpo fica sob a foto até 1800 px e,
+     acima disso, na coluna do texto; com script (page.js), a manchete escolhe onde
+     ficam o trecho (ex-l/ex-r) e a chamada relacionada para a foto ficar perto de 3:2. */
+  .fp-lp{display:flex;flex-direction:column;min-width:0;container-type:inline-size}
+  .fp-li{flex:1 1 0;width:100%;min-height:41.6cqw}
+  .fp-lead:not(.noimg) .fp-sub-t{display:none}
+  .fp-rel{z-index:2;margin-top:auto;padding-top:12px;border-top:1px solid var(--rl)}
+  .fp-lt>:has(+.fp-rel){margin-bottom:16px}
+  .fp-lp>.fp-rel{margin-top:14px}
+  .fp-lead.ex-l:not(.noimg) .fp-sub-t,.fp-lead.ex-r .fp-sub-p{display:block}
+  .fp-lead.ex-r:not(.noimg) .fp-sub-t,.fp-lead.ex-l .fp-sub-p{display:none}
+  /* Foto que não carrega: o pacote vira uma coluna só, com o trecho sob o título */
+  .fp-lead:has(.fp-li.img-fail) .fp-lt>.fp-sub-t{display:block}
+  /* Parágrafos seguintes do corpo: sem foto, sempre; com foto, só quando page.js
+     os escolhe (x1, x2) para a coluna de texto acompanhar a foto */
+  .fp-sub-x{display:none}
+  .fp-lead.noimg .fp-sub-x,.fp-lead:has(.fp-li.img-fail) .fp-sub-x,.fp-lead.ex-l.x1 .fp-sub-x1,.fp-lead.ex-l.x2 :is(.fp-sub-x1,.fp-sub-x2){display:block}
+  .fp-lead:has(.fp-li.img-fail) .fp-lp>:not(.fp-rel){display:none}
+  .fp-rel h3,.fp-r1 h3{text-wrap:balance}
+  .fp-rel h3{font-size:clamp(15px,calc(9px + .45vw),19px);font-weight:700;line-height:1.26;color:var(--ink)}
+
+  /* "Mais para ler": numerais azuis como nos Destaques, linha fina inteira */
+  .fp-more{border-top:1px solid var(--fr)}
+  .fp-ml{list-style:none;counter-reset:fpm;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fp-mi{counter-increment:fpm;display:flex;align-items:flex-start;gap:14px;padding:14px 20px 14px 0;border-bottom:1px solid var(--rl)}
+  .fp-mi::before{content:counter(fpm);flex-shrink:0;min-width:18px;margin-top:17px;font-family:var(--sf);font-size:22px;font-weight:900;line-height:1;color:var(--link)}
+  .fp-mi:nth-child(even){padding:14px 0 14px 20px}
+  .fp-mi:nth-child(even)::after{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:var(--rl)}
+  .fp-mi:last-child:nth-child(odd){grid-column:1/-1;padding-right:0}
+  .fp-mi:last-child,.fp-mi:nth-last-child(2):nth-child(odd){border-bottom:none}
+  .fp-mt{flex:1;min-width:0}
+  .fp-mi h3{font-size:clamp(15px,calc(9px + .45vw),19px);font-weight:700;line-height:1.26;color:var(--ink)}
+  .fp-mdk{margin-top:5px;font-family:var(--ss);font-size:12.5px;line-height:1.5;color:var(--muted)}
+  .fp-th{flex-shrink:0;width:clamp(72px,5.4vw,128px);aspect-ratio:1}
+
+  /* Em 1 minuto (em colunas: o mesmo espaço entre todos os itens) e racional */
+  .fp-brief{margin-top:20px;border-top:1px solid var(--fr)}
+  .fp-brief ul{list-style:none;columns:2;column-gap:28px;padding:8px 0 0}
+  .fp-brief li{position:relative;break-inside:avoid;margin-bottom:9px;padding-left:16px;font-family:var(--ss);font-size:13px;line-height:1.5;color:var(--body)}
+  .fp-brief li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:1px;background:var(--qc)}
+  .fp-brief strong{color:var(--ink)}
+  .fp-rat{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 18px;margin-top:11px;padding:10px 0 20px;border-top:1px solid var(--rl);font-family:var(--ss);font-size:12px;line-height:1.5;color:var(--muted)}
+  .fp-rat-s{color:var(--ink);font-weight:600;text-wrap:balance}
+  .fp-rat-l{white-space:nowrap}
+  .fp-rat a{color:var(--link);font-weight:700}
+  .fp-rat a:hover{text-decoration:underline}
+
+  /* Trilho: chamadas com foto (a primeira em 16:9, com altura limitada) e o Radar */
+  .fp-ri{aspect-ratio:3/2;margin-bottom:10px}
+  .fp-r1 .fp-ri{width:100%;aspect-ratio:16/9;max-height:15.7vw}
+  .fp-r1{padding-bottom:16px;border-bottom:1px solid var(--rl)}
+  .fp-r1 h3{font-size:clamp(18px,calc(8px + .8vw),27px);font-weight:700;line-height:1.2;color:var(--ink)}
+  .fp-rdk{margin-top:6px;font-family:var(--sf);font-size:clamp(13.5px,calc(9px + .3vw),16px);line-height:1.5;color:var(--body)}
+  .fp-r2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px;padding:16px 0;border-bottom:1px solid var(--rl)}
+  .fp-r2i{min-width:0;padding-right:14px}
+  .fp-r2i:nth-child(even){padding:0 0 0 14px}
+  .fp-r2i:nth-child(even)::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--rl)}
+  .fp-r2i h3{font-size:clamp(14.5px,calc(9px + .4vw),18px);font-weight:700;line-height:1.26;color:var(--ink)}
+  /* Radar: ocupa o resto do trilho e rola por dentro; o rodapé diz quantos itens faltam */
+  .fp-op{position:relative;flex:1 1 auto;min-height:300px}
+  .fp-op-in{position:absolute;inset:0;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  .fp-op.more .fp-op-in{bottom:36px}
+  /* Esmaecido no pé só no meio da rolagem (no início a lista termina num item inteiro) */
+  .fp-op.mid .fp-op-in{-webkit-mask-image:linear-gradient(#000 calc(100% - 26px),transparent);mask-image:linear-gradient(#000 calc(100% - 26px),transparent)}
+  /* Se a lista inteira cabe, as linhas se espaçam por igual até o pé do trilho */
+  .fp-op ol{flex:1 0 auto;display:flex;flex-direction:column;list-style:none}
+  .fp-op li{flex:1 0 auto;display:flex;align-items:center}
+  .fp-op .fp-lbl{position:sticky;top:0;z-index:1;margin-top:16px;border-top:1px solid var(--fr);background:var(--paper)}
+  .fp-op .fp-lbl::before{content:"";width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--qr);animation:pulse 2s infinite}
+  .fp-op li+li{border-top:1px solid var(--rl)}
+  .fp-op a{flex:1;display:block;padding:calc(10px + var(--rx,0px)/2) 0 calc(11px + var(--rx,0px)/2)}
+  .fp-by{display:block;font-family:var(--sf);font-size:13px;font-variant-caps:all-small-caps;letter-spacing:.9px;line-height:1.3;color:var(--mute2)}
+  .fp-by time{font-family:var(--mn);font-size:10px;font-variant-caps:normal;letter-spacing:0;color:var(--link)}
+  .fp-tt{display:block;margin-top:3px;font-family:var(--sf);font-size:clamp(15px,calc(9px + .42vw),19px);font-weight:600;line-height:1.3;color:var(--ink);transition:color .2s}
+  .fp-op-more{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:10px;height:36px;padding:0;border:none;border-top:1px solid var(--fr);background:var(--paper);font-family:var(--ss);font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--link);cursor:pointer}
+  .fp-op-more[hidden]{display:none}
+  .fp-op-more:hover span:first-child{text-decoration:underline}
+  .fp-op-more:focus-visible{outline-offset:-2px}
+  .fp-op-more b{font-family:var(--mn);font-weight:600}
+  .fp-op-more i{font-style:normal;font-size:14px}
+
+  /* Matérias por editoria: abas como cabeçalho de seção, busca à direita */
+  .fp~.tabs-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:24px;margin:24px var(--gut) 0;border-top:4px double var(--fr)}
+  .fp~.tabs-wrap>.tabs-nav{grid-column:1;grid-row:1;min-width:0}
+  .fp~.tabs-wrap>.srch{grid-column:2;grid-row:1;padding:8px 0;border-top:none;background:transparent}
+  .fp~.tabs-wrap>.srch .srch-input{width:300px;height:32px}
+  .fp~.tabs-wrap>.tab-layout{grid-column:1/-1;grid-row:2;border-top:1px solid var(--rl)}
+  .fp~.tabs-wrap .tabs-bar{padding-left:0;background:transparent;border:none}
+  .fp~.tabs-wrap .tab-btn{margin-bottom:0;padding:13px 12px 10px;border-bottom-width:2px}
+  .fp~.tabs-wrap .tab-btn:first-child{padding-left:0}
+  .fp~.tabs-wrap .tab-btn:hover,.fp~.tabs-wrap .tab-btn[aria-selected="true"]{background:transparent}
+  .fp~.tabs-wrap .tab-btn[aria-selected="true"]{border-bottom-width:4px;padding-bottom:8px}
+  .fp~.tabs-wrap .tab-main{border-right:none}
+  .fp~.tabs-wrap .pane-hd{padding:16px 0 8px}
+  /* O Radar fica só no trilho da capa (um Radar só na tela); os cards usam a largura toda. */
+  .fp~.tabs-wrap .tab-side{display:none}
+  /* Cards sem caixa, com réguas finas: horizontal entre as linhas e vertical entre
+     as colunas; miniatura quadrada à direita do texto. O card que sobra na última
+     linha se alarga para fechá-la (título à esquerda, linha fina à direita). */
+  .fp~.tabs-wrap .cards{margin:0 -20px;padding:0;clip-path:inset(0 20px)}
+  .fp~.tabs-wrap .cl{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:repeat(5,auto) 1fr;column-gap:16px;align-content:start;padding:14px 20px 16px;background:transparent;box-shadow:0 -1px 0 var(--rl)}
+  .fp~.tabs-wrap .cl::after{content:"";position:absolute;left:0;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .fp~.tabs-wrap .cl>*{grid-column:1;max-width:760px}
+  .fp~.tabs-wrap .cl:hover{background:transparent;transform:none;box-shadow:0 -1px 0 var(--rl)}
+  .fp~.tabs-wrap .cl:hover h3 a{color:var(--link)}
+  .fp~.tabs-wrap .cl h3 a{transition:color .2s}
+  .fp~.tabs-wrap .cl:not(:has(>.ci:not(.img-fail))){display:block}
+  .fp~.tabs-wrap .cl>.ci,.fp~.tabs-wrap:not(.searching) .cl:last-child:nth-child(n)>.ci{grid-column:2;grid-row:1/-1;width:clamp(76px,5.6vw,120px);height:auto;aspect-ratio:1;margin:2px 0 0}
+  .fp~.tabs-wrap .cl h3{margin-bottom:6px;font-size:clamp(15.5px,calc(9px + .45vw),19px);text-wrap:balance}
+  .fp~.tabs-wrap .cl .dk{display:block;overflow:visible}
+  .fp~.tabs-wrap .cl .meta{margin-top:6px}
+  .fp~.tabs-wrap .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fp~.tabs-wrap.all .cards,.fp~.tabs-wrap.searching .cards{grid-template-columns:minmax(0,1fr)}
+  /* Durante a busca, page.js marca os cards que fecham a última linha */
+  .fp~.tabs-wrap.searching .cl.sp-2{grid-column:span 2}
+  .fp~.tabs-wrap.searching .cl.sp-3{grid-column:span 3}
+  .fp~.tabs-wrap.searching .cl.sp-all{grid-column:1/-1}
+  .fp~.tabs-wrap.searching .cl.wide{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap.searching .cl.wide>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap.searching .cl.wide>.ci{grid-column:3}
+  .fp~.tabs-wrap.searching .cl.wide:not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+
+  /* Racional: blocos numa grade de 4 colunas sem vagas vazias (a última linha
+     incompleta se fecha); a partir de 1600 px, resumo à esquerda e blocos à direita */
+  .rat,.cmp{margin:0 var(--gut);padding:20px 0 26px;border-top:4px double var(--fr)}
+  :root[data-theme="dark"] .rat,:root[data-theme="dark"] .cmp{border-top-color:var(--fr)}
+  .rat{margin-top:28px}
+  .rat-sum{font-size:15.5px}
+  .rat>.rat-blocks{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 20px;margin-top:14px}
+  .rat-blocks li{justify-content:flex-start;padding:5px 0 6px 12px;background:transparent;font-size:12px;line-height:1.4}
+  .rat-blocks li:last-child:nth-child(4n+1){grid-column:1/-1}
+  .rat-blocks li:last-child:nth-child(4n+2),.rat-blocks li:nth-last-child(2):nth-child(4n+1),.rat-blocks li:last-child:nth-child(4n+3){grid-column:span 2}
+  .rat-note{font-size:12px}
+
+  /* Cobertura comparada: colunas com réguas finas; em cada linha, títulos, barras e
+     conclusões alinhados (subgrade) */
+  .cmp-list{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:40px;row-gap:0;margin-top:4px}
+  .cmp-i{position:relative;display:grid;grid-row:span 7;grid-template-rows:subgrid;align-content:start;padding:14px 0 16px;border-bottom:none;border-top:1px solid var(--rl)}
+  .cmp-i:nth-child(-n+3){border-top:none}
+  .cmp-i:not(:nth-child(3n+1))::before{content:"";position:absolute;left:-20px;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .cmp-i>.cov.full{display:contents}
+  .cmp-i>.cat{grid-row:1}
+  .cmp-i>h3{grid-row:2;margin-bottom:8px;font-size:16px;line-height:1.28}
+  .cmp-i .cov-scale{grid-row:3;align-self:end;font-size:11px;line-height:1.3}
+  .cmp-i .cov-bar{grid-row:4}
+  .cmp-i .cov-lean{grid-row:5}
+  .cmp-i .cov-c{grid-row:6;font-size:13.5px;line-height:1.5}
+  .cmp-i .cov-who{grid-row:7}
+}
+@media (min-width:1024px) and (max-width:1279.98px){
+  .sn-in{column-gap:16px}
+  .sec-nav ul{gap:2px 10px}
+  .sec-nav a{font-size:12.5px}
+  .sn-x{padding-left:10px}
+  /* Abas em linha própria, sob o rótulo da seção e a busca */
+  .fp~.tabs-wrap::before{content:"Matérias por editoria";grid-column:1;grid-row:1;align-self:center;font-family:var(--ss);font-size:10.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--head)}
+  .fp~.tabs-wrap>.tabs-nav{grid-column:1/-1;grid-row:2}
+  .fp~.tabs-wrap>.tab-layout{grid-row:3}
+  .fp~.tabs-wrap .tabs-bar{border-top:1px solid var(--rl)}
+  /* "Mais para ler" em uma coluna (duas ficariam estreitas demais) */
+  .fp-ml{grid-template-columns:minmax(0,1fr)}
+  .fp-mi,.fp-mi:nth-child(even){padding:13px 0}
+  .fp-mi:nth-child(even)::after{display:none}
+  .fp-mi:nth-last-child(2):nth-child(odd){border-bottom:1px solid var(--rl)}
+  /* Card que sobra na última linha (2 colunas) */
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd)>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd)>.ci{grid-column:3}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(odd):not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media (min-width:1024px) and (max-width:1279.98px){
+  /* Cobertura comparada em 2 colunas (3 ficariam estreitas demais) */
+  .cmp-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmp-i:nth-child(3){border-top:1px solid var(--rl)}
+  .cmp-i:nth-child(3n+1)::before{content:"";position:absolute;left:-20px;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .cmp-i:nth-child(odd)::before{display:none}
+  /* Item que sobra na última linha: ocupa a linha (título e barra à esquerda,
+     conclusão à direita) em vez de deixar uma vaga vazia */
+  .cmp-i:last-child:nth-child(odd){grid-column:1/-1}
+  .cmp-i:last-child:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px}
+  .cmp-i:last-child:nth-child(odd)>*,.cmp-i:last-child:nth-child(odd) .cov-scale,.cmp-i:last-child:nth-child(odd) .cov-bar,.cmp-i:last-child:nth-child(odd) .cov-lean{grid-column:1}
+  .cmp-i:last-child:nth-child(odd) .cov-c{grid-column:2;grid-row:2/-1;align-self:start;margin-top:0}
+  .cmp-i:last-child:nth-child(odd) .cov-who{grid-column:1;grid-row:6}
+}
+@media (min-width:1024px) and (max-width:1279.98px){
+  /* Manchete com o título em toda a largura do pacote e, abaixo, texto e foto lado
+     a lado: page.js escolhe esta forma (ta) quando, com o título na coluna estreita,
+     a foto ficaria pequena ou panorâmica demais */
+  .fp-lead.ta{grid-template-rows:repeat(8,auto) 1fr}
+  .fp-lead.ta>.fp-lt{display:contents}
+  .fp-lead.ta>.fp-lt>*{grid-column:1}
+  .fp-lead.ta>.fp-lt>:is(.cat,h2){grid-column:1/-1}
+  .fp-lead.ta>.fp-lt>.fp-rel{grid-row:-2/-1;align-self:end}
+  .fp-lead.ta>.fp-lp{grid-column:2;grid-row:3/-1}
+  .fp-lead.ta h2{margin-bottom:12px;font-size:clamp(24px,calc(2px + 2.2vw),30px)}
+}
+@media (min-width:1024px) and (max-width:1799.98px),(min-width:2200px){
+  /* Chamadas 2 e 3 do trilho empilhadas, com miniatura à direita (como em "Mais
+     para ler"): abaixo de 1800 px, em duas colunas os títulos ficariam com 4 a 6
+     linhas; a partir de 2200 px, as fotos lado a lado ficariam grandes demais e
+     tirariam espaço do Radar */
+  .fp-r2{grid-template-columns:minmax(0,1fr);row-gap:0;padding:0}
+  .fp-r2i,.fp-r2i:nth-child(even){display:grid;grid-template-columns:minmax(0,1fr) clamp(84px,5.4vw,128px);grid-template-rows:repeat(3,auto) 1fr;column-gap:16px;align-content:start;padding:14px 0}
+  .fp-r2i+.fp-r2i{border-top:1px solid var(--rl)}
+  .fp-r2i:nth-child(even)::before{display:none}
+  .fp-r2i>*{grid-column:1}
+  .fp-r2i>.fp-ri{grid-column:2;grid-row:1/-1;width:100%;aspect-ratio:1;margin:2px 0 0}
+}
+@media (min-width:1280px) and (max-width:1799.98px){
+  /* Cards: 3 colunas (2 com o Radar ao lado) */
+  .fp~.tabs-wrap .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fp~.tabs-wrap.all .cards,.fp~.tabs-wrap.searching .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(n){grid-column:auto}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(3n+2){grid-column:span 2}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(3n+1){grid-column:1/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd){grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.dk,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd)>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.ci,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd)>.ci{grid-column:3}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)):not(:has(>.ci:not(.img-fail))),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(odd):not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media (min-width:1280px) and (max-width:1599.98px){
+  /* Cobertura comparada em 3 colunas: os itens que sobram na última linha se
+     alargam para fechá-la */
+  .cmp-i:last-child:nth-child(3n+1){grid-column:1/-1}
+  .cmp-i:last-child:nth-child(3n+2){grid-column:span 2}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)){grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>*,.cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-scale,.cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-bar,.cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-lean{grid-column:1}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-c{grid-column:2;grid-row:2/-1;align-self:start;margin-top:0}
+  .cmp-i:last-child:is(:nth-child(3n+1),:nth-child(3n+2)) .cov-who{grid-column:1;grid-row:6}
+}
+@media (min-width:1280px){
+  .src-list{columns:4 220px}
+}
+@media (min-width:1440px){
+  .fp-brief ul{columns:3}
+}
+@media (min-width:1600px){
+  .fp-ed-t{font-size:15.5px}
+  .fp-sub,.fp-brief li{font-size:14px}
+  .fp-mdk{font-size:13.5px}
+  .fp-rat{font-size:13px}
+  .sec-nav a{font-size:14px}
+  .cl .dk{font-size:13.5px}
+  .rat-sum{font-size:16px}
+  .rat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);grid-template-rows:repeat(4,auto) 1fr;column-gap:36px}
+  .rat>*{grid-column:1}
+  .rat>.kicker{grid-column:1/-1}
+  .rat>.rat-blocks{grid-column:2;grid-row:2/-1;align-self:stretch;grid-auto-rows:1fr;gap:12px 20px;margin-top:2px}
+  /* Cobertura comparada em 4 colunas */
+  .cmp-list{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cmp-i:nth-child(-n+4){border-top:none}
+  .cmp-i:not(:nth-child(4n+1))::before{content:"";position:absolute;left:-20px;top:14px;bottom:16px;width:1px;background:var(--rl)}
+  .cmp-i:nth-child(4n+1)::before{display:none}
+  /* Itens que sobram na última linha: fecham a linha (1 sozinho ocupa as 4
+     colunas; 2 ficam com 2 cada; de 3, o último fica com 2) */
+  .cmp-i:last-child:nth-child(4n+1){grid-column:1/-1}
+  .cmp-i:last-child:nth-child(4n+2),.cmp-i:nth-last-child(2):nth-child(4n+1),.cmp-i:last-child:nth-child(4n+3){grid-column:span 2}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)){grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3))>*,.cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-scale,.cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-bar,.cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-lean{grid-column:1}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-c{grid-column:2;grid-row:2/-1;align-self:start;margin-top:0}
+  .cmp-i:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)) .cov-who{grid-column:1;grid-row:6}
+}
+@media (min-width:1800px){
+  /* Cards: 4 colunas (3 com o Radar ao lado) */
+  .fp~.tabs-wrap .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .fp~.tabs-wrap.all .cards,.fp~.tabs-wrap.searching .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fp~.tabs-wrap:not(.searching) .cl:last-child:nth-child(n){grid-column:auto}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(4n+2),.fp~.tabs-wrap:not(.all):not(.searching) .cl:nth-last-child(2):nth-child(4n+1),.fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(4n+3){grid-column:span 2}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:last-child:nth-child(4n+1){grid-column:1/-1}
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(3n+2){grid-column:span 2}
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:nth-child(3n+1){grid-column:1/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)){grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;column-gap:28px}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3))>.dk,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.dk{grid-column:2;grid-row:2/-1}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3))>.ci,
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2))>.ci{grid-column:3}
+  .fp~.tabs-wrap:not(.all):not(.searching) .cl:is(:last-child:nth-child(4n+1),:last-child:nth-child(4n+2),:nth-last-child(2):nth-child(4n+1),:last-child:nth-child(4n+3)):not(:has(>.ci:not(.img-fail))),
+  .fp~.tabs-wrap.all:not(.searching) .cl:last-child:is(:nth-child(3n+1),:nth-child(3n+2)):not(:has(>.ci:not(.img-fail))){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  /* Manchete: texto em ~40% (título um passo menor, equilibrado) e foto perto de 3:2 */
+  .fp-lead h2{font-size:clamp(26px,calc(5px + 1.2vw),36px)}
+  .fp-lead:not(.noimg) .fp-sub-t{display:block}
+  .fp-sub-p{display:none}
+}
+
+@media (min-width:2200px){
+  /* Trilho largo: a 1ª chamada fica com o texto à esquerda e a foto à direita
+     (perto de 3:2, acompanhando a altura do texto), bem menor que a da manchete */
+  .fp-r1:has(>.fp-ri:not(.img-fail)){display:grid;grid-template-columns:minmax(0,9fr) minmax(0,11fr);grid-template-rows:repeat(6,auto) 1fr;column-gap:24px;align-content:start}
+  .fp-r1:has(>.fp-ri:not(.img-fail))>*{grid-column:1}
+  .fp-r1:has(>.fp-ri:not(.img-fail)) h3{font-size:calc(4px + .8vw)}
+  .fp-r1:has(>.fp-ri:not(.img-fail))>.fp-ri{grid-column:2;grid-row:1/-1;align-self:stretch;width:100%;height:auto;max-height:none;aspect-ratio:3/2;margin:0}
+}
+@media (min-width:2400px){
+  /* Manchete um passo maior: a coluna de texto acompanha a foto larga */
+  .fp-lead h2{font-size:1.65vw}
+  .fp-dek{font-size:19.5px}
+  .fp-lead .fp-sub{font-size:15px}
+}
+
 /* Tablet: os botões do canto ainda ficam na mesma linha; o logo desce para não ficar sob eles */
 @media (max-width:880px){
   .mast{padding-top:52px}
 }
 @media (max-width:760px){
-  .paper{box-shadow:none}
   .mast{padding:52px 16px 18px}
   .mast h1{font-size:36px}
   .mast h1.logo svg{height:92px}
@@ -622,7 +1003,6 @@ body.modal-open .btt{visibility:hidden}
 @media print{
   body{background:#fff}
   #rdprog,#mast-canvas,.mast-tools,.tk-pause,.srch,.tabs-bar,.tab-side,.btt,.modals{display:none!important}
-  .paper{box-shadow:none;max-width:none}
   .js .tab-pane,.pane-hd{display:block!important}
   .tk.run .tk-rail{animation:none}
 }

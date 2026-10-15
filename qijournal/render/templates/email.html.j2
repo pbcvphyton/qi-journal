@@ -87,7 +87,7 @@
   {% if brand.tagline %}
   <p style="margin:12px 0 0;font-family:{{ sans }};font-size:10px;line-height:14px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:{{ on|blend(mh, 0.8) }};">{{ brand.tagline }}</p>
   {% endif %}
-  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:{{ on|blend(mh, 0.72) }};">{{ v.date_label }}{% if v.time_label %} · {{ v.time_label }} {{ v.tz_label }}{% endif %}</p>
+  <p style="margin:8px 0 0;font-family:{{ mono }};font-size:11px;line-height:16px;color:{{ on|blend(mh, 0.72) }};">{{ v.date_label }}{% if v.time_label %}&nbsp;· <span style="white-space:nowrap">{{ v.time_label }} {{ v.tz_label }}</span>{% endif %}</p>
 </td></tr>
 {% elif brand.email_logo %}
 {#- Logo colorido sobre fundo branco explícito (PNG opaco): no modo escuro dos
