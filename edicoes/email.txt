@@ -1,258 +1,246 @@
 TRIANGULA
-Quinta-feira, 15 de outubro de 2026 · 06:55 BRT
+Sexta-feira, 16 de outubro de 2026 · 09:23 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,03 (0,00%) · Euro R$ 5,65 (+0,63%) · Yuan R$ 0,75 (+0,03%) ·
-Ibovespa 206.506 pts (-0,18%) · IFIX 3.954 pts (+0,07%) · S&P 500 7.719
-pts (-1,11%) · Brent US$ 103,93 (-2,01%) · Ouro US$ 4.178 (+1,71%) ·
-Bitcoin US$ 81.198 (-2,36%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Dólar R$ 5,08 (-0,46%) · Euro R$ 5,71 (-0,18%) · Yuan R$ 0,76 (-0,44%) ·
+Ibovespa 204.324 pts (-1,06%) · IFIX 3.956 pts (+0,06%) · S&P 500 7.744
+pts (+0,33%) · Brent US$ 106,16 (+0,23%) · Ouro US$ 4.196 (+0,62%) ·
+Bitcoin US$ 82.239 (+2,23%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 18°C, parcialmente nublado (mín. 17° / máx. 26°) · amanhã:
-pancadas de chuva moderadas, 18° a 25°
-Montevidéu: 15°C, nublado (mín. 14° / máx. 15°) · amanhã: garoa
-moderada, 13° a 15°
+São Paulo: 20°C, garoa moderada (mín. 17° / máx. 25°) · amanhã: pancadas
+de chuva fracas, 16° a 23°
+Montevidéu: 14°C, nublado (mín. 13° / máx. 15°) · amanhã: garoa fraca,
+12° a 13°
 
 EDITORIAL
 ---------
-A aprovação no Senado da PEC que extingue a escala 6x1 e reduz a jornada
-de trabalho semanal para 40 horas marca uma inflexão de forte impacto
-econômico no Brasil, dividindo empregadores e trabalhadores enquanto o
-cenário eleitoral segue acirrado. No exterior, a reaceleração da
-inflação nos Estados Unidos a 3,7% impõe cautela generalizada aos
-mercados globais, penalizando ações de tecnologia e elevando os juros
-futuros. Ao mesmo tempo, ataques contra a infraestrutura de petróleo no
-Oriente Médio e tensões no Estreito de Ormuz voltam a pressionar custos
-logísticos e energéticos.
+O cenário político brasileiro atinge ponto crítico com o empate técnico
+na corrida presidencial e novas medidas econômico-trabalhistas aprovadas
+no Congresso, como o fim da escala 6x1. No cenário internacional, a
+escalada do conflito na Ucrânia e as tensões energéticas afetam os
+mercados globais e pressionam as bolsas. Enquanto isso, o Banco Central
+registra alta de 0,3% no IBC-Br de agosto, mantendo o foco dos
+investidores na estabilidade fiscal.
 
 EM 1 MINUTO
 -----------
-• Fim da escala 6x1: Senado aprovou por 75 votos a 1 a PEC que reduz a
-  jornada máxima para 40 horas semanais sem corte salarial; texto vai a
-  promulgação.
-• Eleição presidencial: Pesquisa Quaest aponta empate técnico no segundo
-  turno, com Flávio Bolsonaro marcando 46% das intenções de voto contra
-  44% de Lula.
-• Inflação americana: Avanço do índice de preços para 3,7% em setembro
-  nos EUA reforçou apostas de aperto monetário e derrubou ações globais
-  de tecnologia.
-• Depósitos judiciais: STF formou maioria para livrar bancos do
-  pagamento de expurgos inflacionários de planos econômicos em recursos
-  sob custódia da Justiça.
-• Marca histórica: A Apple fechou o pregão avaliada em US$ 5 trilhões e
-  se juntou à Nvidia no patamar inédito, contrariando o pessimismo de
-  Wall Street.
-• Choque no petróleo: Ofensiva com mísseis dos houthis atingiu a sede
-  corporativa da Saudi Aramco e reacendeu alertas do FMI sobre choques
-  de oferta global.
+• Datafolha e PoderData apontam empate técnico entre Lula e Flávio
+  Bolsonaro na reta final do segundo turno presidencial.
+• Congresso promulga emenda constitucional que encerra a escala 6x1 e
+  reduz a jornada máxima para 40 horas semanais.
+• IBC-Br do Banco Central sobe 0,3% em agosto, impulsionado pelo
+  desempenho da economia em linha com as expectativas.
+• Ucrânia retoma ataques a refinarias russas, encerrando trégua
+  energética e gerando crise com a Casa Branca e apoio da União
+  Europeia.
+• Rafael Câmara é confirmado na Haas, recolocando o Brasil com dois
+  pilotos na Fórmula 1 a partir de 2027.
+• FMI projeta que o Brasil voltará a ser a oitava maior economia mundial
+  em 2027, com PIB estimado em US$ 2,8 trilhões.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.775 notícias coletadas de 45 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 1.167 assuntos,
+A IA leu as 1.368 notícias coletadas de 44 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 967 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 97 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+seguiu em 84 assuntos e escolheu as 22 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#racional
-Todas as 1.775 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#racional
+Todas as 1.368 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16-todas.html
 
 MANCHETE
 --------
-Senado aprova PEC que acaba com a escala 6x1 e reduz jornada semanal
-para 40 horas
-Proposta de Emenda à Constituição segue para promulgação após placar de
-75 a 1; oposição liberou a bancada e Flávio Bolsonaro votou a favor.
-Fontes: Valor Econômico, Conjur, JOTA, Estadão, Folha de S.Paulo,
-NeoFeed, Agência Senado, g1, Agência Brasil, Seu Dinheiro, Exame, CNN
-Brasil
-Cobertura: Pende para: Alerta para pressa eleitoral e impacto na
-produtividade · 3 de 12 veículos. A cobertura se dividiu entre os
-impactos econômicos e críticas empresariais à pressa eleitoral, de um
-lado, e a celebração governista pelo avanço social e trabalhista, de
-outro.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-senado-aprova-pec-que-acaba-com-a-escala-6x1-e-r
+Datafolha e PoderData mostram empate técnico entre Lula e Flávio
+Bolsonaro no 2º turno
+Novas pesquisas divulgadas mostram cenário de igualdade na disputa
+presidencial às vésperas do segundo turno.
+Fontes: Folha de S.Paulo, Poder360, g1, Money Times, Exame, Seu
+Dinheiro, CNN Brasil
+Cobertura: Sem divergência entre os 7 veículos. A cobertura convergiu na
+divulgação dos números das pesquisas que apontam o empate técnico e a
+acirrada disputa no segundo turno.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-datafolha-e-poderdata-mostram-empate-tecnico-ent
+
+BRASIL · ECONOMIA
+-----------------
+• IBC-Br sobe 0,3% em agosto com recuo do agro e fica em linha com
+  expectativas
+  Índice de Atividade Econômica do Banco Central registrou alta no mês
+  passado após três meses de estagnação ou queda.
+  Fontes: InfoMoney, g1, Poder360, Money Times, Exame
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura dos
+  veículos convergiu inteiramente na divulgação dos dados oficiais do
+  Banco Central e na comparação com as expectativas de mercado.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-ibc-br-sobe-0-3-em-agosto-com-recuo-do-agro-e-fi
+
+• Banco Central decreta liquidação extrajudicial da cooperativa
+  Credipaiva
+  Autoridade monetária apontou grave violação de normas e determinou a
+  indisponibilidade de bens de ex-administradores.
+  Fontes: Estadão, Folha de S.Paulo, Money Times, CNN Brasil
+  Cobertura: Sem divergência entre os 4 veículos. Todos os veículos
+  relataram o fato com base na mesma nota oficial do Banco Central, sem
+  divergências de apuração.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-banco-central-decreta-liquidacao-extrajudicial-d
 
 MERCADOS & FINANÇAS
 -------------------
-• Inflação dos EUA acelera a 3,7% e deflagra liquidação de ações de
-  tecnologia no mundo
-  Avanço do índice de preços reforça apostas de alta de juros pelo
-  Federal Reserve e derruba bolsas em Nova York e na Ásia.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Financial Times, The
-  Wall Street Journal, The New York Times, The Guardian, BBC News, CNBC
-  Cobertura: Sem divergência entre os 9 veículos. A imprensa nacional e
-  internacional convergiu ao associar a reaceleração do CPI americano à
-  perspectiva de juros elevados e ao forte ajuste no setor de
-  tecnologia.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-inflacao-dos-eua-acelera-a-3-7-e-deflagra-liquid
-
-• Ibovespa recua e dólar vai a R$ 5,03 sob impacto de juros externos e
-  cautela eleitoral
-  Inflação acima do esperado nos Estados Unidos e espera por pesquisas
-  eleitorais para a Presidência ditam o ritmo dos negócios no Brasil.
-  Fontes: Valor Econômico, Folha de S.Paulo, Suno Notícias
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
-  ao relatar o dia de cautela mista, com juros americanos e pesquisas
-  eleitorais determinando oscilações contidas no câmbio e na bolsa.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-ibovespa-recua-e-dolar-vai-a-r-5-03-sob-impacto
-
-• Houthis atacam sede da Saudi Aramco e elevam temor sobre oferta global
-  de petróleo
-  Ofensiva com mísseis e drones atingiu escritórios corporativos na
-  Arábia Saudita e motivou alertas do FMI sobre choques econômicos
-  prolongados.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, CNN Brasil,
-  Financial Times, The New York Times, The Wall Street Journal, CNBC
-  Cobertura: Sem divergência entre os 8 veículos. A cobertura relatou de
-  forma unânime a gravidade do ataque contra o coração corporativo da
-  petroleira saudita e seus reflexos imediatos sobre a oferta de
-  energia.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-houthis-atacam-sede-da-saudi-aramco-e-elevam-tem
-
-• Lufthansa vence disputa e compra 44,9% da TAP por até US$ 1,3 bilhão
-  Governo de Portugal escolhe proposta do grupo alemão em detrimento da
-  Air France-KLM para privatizar aérea.
-  Fontes: Valor Econômico, Folha de S.Paulo
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
-  na exposição factual dos valores e das condições da privatização,
-  sublinhando a vitória alemã sobre a Air France-KLM.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-lufthansa-vence-disputa-e-compra-44-9-da-tap-por
-
-• Câmara rejeita parecer de resolução bancária que abria margem para FGC
-  socorrer BRB
-  Dispositivo acrescentado pelo relator Marcelo Queiroz é barrado em
-  plenário e presidente da Casa encerra votação.
-  Fontes: Valor Econômico, Estadão
-  Cobertura: Sem divergência entre os 2 veículos. Ambos os veículos
-  convergiram no registro de que a inclusão de regra para favorecer o
-  BRB foi o motivo determinante da rejeição do texto em plenário.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-camara-rejeita-parecer-de-resolucao-bancaria-que
+• RecargaPay altera gestão financeira em preparação para IPO nos EUA
+  Fintech de origem argentina segue passos de Nubank e Inter ao mirar
+  abertura de capital no mercado americano.
+  Fontes: Folha de S.Paulo
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-recargapay-altera-gestao-financeira-em-preparaca
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• TCU suspende aprovação de contas do Banco Central até avaliar conduta
-  no Banco Master
-  Tribunal de Contas da União condiciona regularidade da gestão da
-  autarquia em 2025 ao término de apurações sobre eventual morosidade.
-  Fontes: Valor Econômico, Folha de S.Paulo
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura tratou a
-  intervenção do TCU com foco factual estrito na pendência dos processos
-  de auditoria sobre o Master.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-tcu-suspende-aprovacao-de-contas-do-banco-centra
-
-• STF decide que bancos não devem pagar expurgos inflacionários em
-  depósitos judiciais
-  Por 7 votos a 2, corte veda incidência de índices dos planos Bresser,
-  Verão e Collor sobre recursos em juízo e pacifica milhares de
-  disputas.
-  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo
-  Cobertura: Sem divergência entre os 4 veículos. Os veículos
-  convergiram integralmente nos aspectos técnicos da decisão,
-  ressaltando o alívio aos bancos e a modulação adotada.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-stf-decide-que-bancos-nao-devem-pagar-expurgos-i
+• TSE proíbe Meta de restringir conteúdo político e fixa multa de R$ 500
+  mil diários
+  Decisão do ministro Marco Aurélio Bellizze exige neutralidade na
+  ferramenta Meta AI e barra anúncios eleitorais sem identificação
+  partidária.
+  Fontes: Folha de S.Paulo, Estadão, g1, Agência Brasil
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura foi
+  uniforme e factual, focando nos termos técnicos da determinação
+  judicial de Bellizze e nas obrigações de neutralidade impostas às
+  redes da Meta.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-tse-proibe-meta-de-restringir-conteudo-politico
 
 POLÍTICA
 --------
-• Quaest aponta empate técnico entre Flávio Bolsonaro, com 46%, e Lula,
-  com 44%
-  Primeira sondagem do instituto para o segundo turno mostra disputa
-  acirrada, com 51% a 49% nos votos válidos e alta taxa de cristalização
-  das opções do eleitorado.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Seu
-  Dinheiro
-  Cobertura: Sem divergência entre os 6 veículos. A imprensa tratou os
-  dados de forma uniforme e factual, destacando a divisão do país, a
-  margem estreita e a rigidez do eleitorado.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-quaest-aponta-empate-tecnico-entre-flavio-bolson
+• Alcolumbre adia votação da PEC da Segurança no Senado após racha sobre
+  maioridade penal
+  Proposta foi retirada de pauta após divergências sobre emendas que
+  reduzem idade penal para 16 anos e guinada no discurso do presidente
+  Lula.
+  Fontes: Folha de S.Paulo, Estadão, Agência Senado, g1, Agência Brasil,
+  CNN Brasil
+  Cobertura: Pende para: Foca no racha governista e na guinada eleitoral
+  de Lula · 3 de 6 veículos. A maioria dos veículos deu ênfase política
+  ao racha interno do PT e à guinada discursiva de Lula, enquanto as
+  agências oficiais mantiveram foco nos trâmites e na condução da Mesa
+  do Senado.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-alcolumbre-adia-votacao-da-pec-da-seguranca-no-s
 
-• Câmara aprova por 461 a 4 projeto que perdoa dívidas e amplia teto do
-  MEI
-  Texto relatado pelo PT beneficia 3,6 milhões de microempreendedores
-  inadimplentes e segue para votação acelerada no Senado.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Seu Dinheiro,
-  Agência Brasil
-  Cobertura: Pende para: Enfatiza a manobra eleitoral a dias do segundo
-  turno · 3 de 6 veículos. A imprensa geral e econômica enfatizou o
-  caráter eleitoreiro e a urgência da votação antes do pleito de 25 de
-  outubro, enquanto veículos de serviço e estatais ressaltaram os
-  critérios técnicos e os benefícios diretos aos MEIs.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-camara-aprova-por-461-a-4-projeto-que-perdoa-div
+• Lula anuncia PEC de tarifa zero nos ônibus aos fins de semana e atrai
+  críticas da oposição
+  Presidente sugere uso de emendas parlamentares para bancar passe
+  livre; cálculo preliminar indica custo anual de R$ 16 bilhões.
+  Fontes: Estadão, Folha de S.Paulo, g1, Seu Dinheiro
+  Cobertura: Pende para: Aponta cálculo eleitoral, impacto fiscal e
+  entraves legais · 3 de 5 veículos. A maior parte da cobertura
+  concentrou-se nos custos bilionários e no viés eleitoral da promessa a
+  poucos dias da votação, enquanto outros veículos mantiveram registro
+  descritivo da postagem oficial.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-lula-anuncia-pec-de-tarifa-zero-nos-onibus-aos-f
+
+• Congresso promulga emenda constitucional que encerra escala 6x1 e
+  reduz jornada
+  Mudança diminui a jornada máxima de 44 para 40 horas semanais e
+  repercute internacionalmente como vitória política.
+  Fontes: Estadão, Folha de S.Paulo, Agência Senado, Poder360, g1,
+  Agência Brasil, Secovi-SP
+  Cobertura: Sem divergência entre os 7 veículos. A cobertura convergiu
+  ao relatar a promulgação da PEC e detalhar as implicações práticas da
+  nova jornada de trabalho.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-congresso-promulga-emenda-constitucional-que-enc
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Ucrânia retoma ataques a refinarias russas e expõe atrito com
-  Washington após restrições ao Starlink
-  Volodymyr Zelensky diz que encerrou cessar-fogo unilateral após cortes
-  em inteligência e limitações operacionais atribuídas à Casa Branca.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
-  Financial Times, The New York Times, The Wall Street Journal, The
-  Guardian, BBC News, CNBC
-  Cobertura: Pende para: Foca a vulnerabilidade militar e o racha com
-  Washington · 7 de 11 veículos. Parte expressiva dos veículos tratou o
-  colapso militar e o bloqueio do Starlink como sinal de isolamento de
-  Kiev, enquanto publicações econômicas e agências focaram a resposta
-  armada ucraniana contra refinarias russas.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-ucrania-retoma-ataques-a-refinarias-russas-e-exp
+• Casa Branca limita uso de satélites Starlink pela Ucrânia em meio a
+  conflito e tensão com Kiev
+  Decisão de impor restrições ao sistema de comunicações gera pânico em
+  Kiev e abre debate sobre a dependência ucraniana do apoio tecnológico
+  americano.
+  Fontes: g1, CNN Brasil, The Wall Street Journal
+  Cobertura: Pende para: Enfatiza a gravidade e o impacto das restrições
+  para a defesa ucraniana · 2 de 4 veículos. A cobertura converge ao
+  apontar a gravidade da medida americana, dividindo-se entre a denúncia
+  do impacto operacional imediato e a discussão sobre os desdobramentos
+  diplomáticos e estratégicos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-casa-branca-limita-uso-de-satelites-starlink-pel
+
+• Ucrânia retoma ataques contra refinarias russas e abre crise direta
+  com Trump
+  Volodimir Zelenski encerra trégua energética após bombardeios de
+  Moscou, irrita a Casa Branca e recebe apoio enfático da União Europeia
+  em Bruxelas.
+  Fontes: Folha de S.Paulo, InfoMoney, Estadão, g1, CNN Brasil, The New
+  York Times, The Wall Street Journal, The Guardian, BBC News
+  Cobertura: Pende para: Destaca desafio de Zelenski e atrito com
+  Washington · 8 de 10 veículos. A maior parte da cobertura
+  concentrou-se no atrito aberto entre Zelenski e Trump, enquanto
+  veículos financeiros e europeus destacaram a reação da UE em amparar
+  Kiev.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-ucrania-retoma-ataques-contra-refinarias-russas
+
+• Ataque a tiros em escola do Oregon deixa três crianças e um professor
+  mortos
+  Atirador de 16 anos invade colégio de ensino fundamental na cidade de
+  Bend e é morto no local por morador armado que o perseguiu.
+  Fontes: Folha de S.Paulo, Estadão, g1, Agência Brasil, CNN Brasil, The
+  Guardian, BBC News
+  Cobertura: Sem divergência entre os 7 veículos. A imprensa cobriu a
+  tragédia de maneira puramente informativa, com foco nas idades das
+  vítimas e no ato do morador que conteve o agressor.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-ataque-a-tiros-em-escola-do-oregon-deixa-tres-cr
+
+• Maduro e Cilia Flores declaram inocência de acusações de tortura em
+  tribunal de Nova York
+  Casal deposto da Venezuela comparece algemado perante juiz federal dos
+  Estados Unidos para contestar novas acusações formais de violação de
+  direitos humanos.
+  Fontes: Folha de S.Paulo, Estadão, g1, The Guardian, BBC News
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura foi
+  unânime e factual, descrevendo os procedimentos formais da corte e a
+  declaração de não culpabilidade de ambos os réus.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-maduro-e-cilia-flores-declaram-inocencia-de-acus
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Apple fecha pregão avaliada em US$ 5 trilhões e amplia marca histórica
-  Fabricante do iPhone avança 0,5%, junta-se à Nvidia no patamar inédito
-  e contraria pregão negativo no mercado global.
-  Fontes: Valor Econômico, g1, Seu Dinheiro
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura tratou o
-  recorde da Apple com enfoque factual unificado, ressaltando o
-  ineditismo do fechamento acima de US$ 5 trilhões e a companhia da
-  Nvidia nesse patamar.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-apple-fecha-pregao-avaliada-em-us-5-trilhoes-e-a
+• Dúvidas sobre retorno da IA derrubam ações de tecnologia e impulsionam
+  títulos públicos
+  Investidores desfazem posições em fabricantes de chips e títulos de
+  data centers diante de questionamentos sobre a receita do setor.
+  Fontes: Folha de S.Paulo, The Guardian, CNBC
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura converge
+  ao apontar um choque de realidade sobre o setor de IA, guiado pela
+  discrepância entre os altos volumes de dívida de infraestrutura e as
+  receitas geradas.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-duvidas-sobre-retorno-da-ia-derrubam-acoes-de-te
 
 ESPORTE
 -------
-• Palmeiras vence o Fluminense por 2 a 1 no Maracanã e abre vantagem na
-  semifinal da Libertadores
-  Com gols de Flaco López e Marlon Freitas, equipe paulista larga na
-  frente, mas sofre gol de Wesley Natã nos acréscimos.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar,
-  Agência Brasil, CNN Brasil
-  Cobertura: Sem divergência entre os 7 veículos. A cobertura
-  jornalística convergiu amplamente na constatação de que o Palmeiras
-  foi letal e eficiente diante de um Fluminense que dominou a posse de
-  bola mas pecou na finalização.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-palmeiras-vence-o-fluminense-por-2-a-1-no-maraca
+• Flamengo segura empate sem gols com o Estudiantes na Argentina pela
+  Libertadores
+  Rubro-negro não acerta chutes ao gol, sofre pressão, mas leva decisão
+  da vaga na final para o Maracanã.
+  Fontes: ge, Folha de S.Paulo, Gazeta Esportiva, Placar, Agência
+  Brasil, CNN Brasil, Estadão
+  Cobertura: Equilíbrio: 2 × 2 de 7 veículos. A cobertura dividiu-se
+  entre a visão pragmática de que o resultado foi excelente pelo
+  contexto e as críticas severas ao desempenho ofensivo nulo da equipe.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-flamengo-segura-empate-sem-gols-com-o-estudiante
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Forte chuva alaga Túnel do Anhangabaú e deixa um morto na zona norte
-  de São Paulo
-  Temporal na capital paulista gerou 17 pontos de alagamento, três
-  desabamentos e levou a Defesa Civil e o CGE a decretarem estado de
-  atenção.
-  Fontes: Valor Econômico, Agência Brasil
-  Cobertura: Sem divergência entre os 2 veículos. Os relatos coincidiram
-  na dimensão dos estragos causados pelo temporal na capital, com a
-  Agência Brasil enfatizando os danos humanos e o Valor a mobilidade
-  urbana.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-forte-chuva-alaga-tunel-do-anhangabau-e-deixa-um
-
-CULTURA & VARIEDADES
---------------------
-• Netflix anuncia corte de cerca de 1.000 funcionários em sua maior
-  rodada de demissões desde 2022
-  Gigante do streaming reduz cerca de 6% de sua força global de trabalho
-  para enfrentar intensa concorrência no mercado de mídia.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, BBC News, The New York
-  Times, CNBC
-  Cobertura: Sem divergência entre os 4 veículos. A cobertura
-  jornalística convergiu ao reportar os cortes estruturais na gigante do
-  streaming e os desafios mercadológicos enfrentados pela companhia.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-15.html#s-netflix-anuncia-corte-de-cerca-de-1-000-funciona
+• Inglaterra declara seca severa em seis áreas e Istambul sofre com
+  fortes enchentes
+  Enquanto reservatórios britânicos atingem níveis críticos e impõem
+  restrições severas, temporais históricos paralisam a maior cidade da
+  Turquia.
+  Fontes: The Guardian, BBC News
+  Cobertura: Sem divergência entre os 3 veículos. Os veículos
+  convergiram no registro dos impactos severos do clima extremo na
+  Europa, contrapondo a seca britânica às cheias na Turquia.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-16.html#s-inglaterra-declara-seca-severa-em-seis-areas-e-i
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 06:55 (BRT) · Edição gerada por IA
+Gerado automaticamente em 09:23 (BRT) · Edição gerada por IA
 (gemini-flash-latest + gemini-flash-lite-latest)

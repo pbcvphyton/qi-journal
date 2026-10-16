@@ -1,0 +1,862 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-16",
+ "analises": [
+  {
+   "id": "67980d056021",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/datafolha-flavio-tem-59-dos-votos-validos-entre-nao-alinhados-contra-41-de-lula.shtml",
+   "titulo": "Datafolha: Flávio tem 59% dos votos válidos entre não alinhados, contra 41% de Lula",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "datafolha-e-poderdata-mostram-empate-tecnico-ent",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1109,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "9a4b369cb947",
+   "url": "https://www1.folha.uol.com.br/colunas/painel/2026/10/lider-do-pt-que-propos-emenda-sobre-maioridade-diz-a-aliados-que-agiu-com-aval-do-planalto.shtml",
+   "titulo": "Líder do PT que propôs emenda sobre maioridade diz a aliados que agiu com aval do Planalto",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "alcolumbre-adia-votacao-da-pec-da-seguranca-no-s",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 77,
+    "rotulo": "Regular"
+   },
+   "palavras": 410,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "6ec044b618b8",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/meta-veiculou-no-brasil-anuncios-politicos-ilegais-pagos-no-exterior-diz-pesquisa.shtml",
+   "titulo": "Meta veiculou no Brasil anúncios políticos ilegais pagos no exterior, mostra levantamento",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-proibe-meta-de-restringir-conteudo-politico",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 991,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c9764576b746",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/fmi-preve-que-india-assumira-quarta-maior-economia-do-mundo-em-2027-e-japao-caira-para-sexto.shtml",
+   "titulo": "FMI prevê que Brasil subirá para oitava maior economia do mundo em 2027",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "fmi-projeta-que-brasil-voltara-a-ser-a-oitava-ma",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 604,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a3cb47a99c12",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/zelenski-desafia-trump-e-retoma-ataque-a-refinarias-russas.shtml",
+   "titulo": "Zelenski desafia Trump e retoma ataque a refinarias russas",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ucrania-retoma-ataques-contra-refinarias-russas",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 872,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "fb040099b284",
+   "url": "https://g1.globo.com/mundo/noticia/2026/10/15/ordem-para-limitar-sistema-de-satelites-usado-pela-ucrania-na-guerra-partiu-da-casa-branca-diz-agencia.ghtml",
+   "titulo": "Ordem para limitar sistema de satélites usado pela Ucrânia na guerra partiu da Casa Branca, diz agência",
+   "veiculo": "g1",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "casa-branca-limita-uso-de-satelites-starlink-pel",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 70,
+    "rotulo": "Regular"
+   },
+   "palavras": 886,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a669cbfc32e9",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/maduro-e-cilia-se-declaram-inocentes-de-acusacoes-de-tortura-nos-eua.shtml",
+   "titulo": "Maduro e Cilia se declaram inocentes de acusações de tortura nos EUA",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "maduro-e-cilia-flores-declaram-inocencia-de-acus",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 854,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "2894843fceeb",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/atirador-ataca-escola-nos-eua-e-mata-3-criancas-e-1-adulto-diz-imprensa.shtml",
+   "titulo": "Atirador adolescente ataca escola nos EUA e mata 3 crianças e 1 professor",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ataque-a-tiros-em-escola-do-oregon-deixa-tres-cr",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "costumes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 65,
+    "rotulo": "Regular"
+   },
+   "palavras": 595,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "d1d7615c713f",
+   "url": "https://www1.folha.uol.com.br/colunas/painelsa/2026/10/recargapay-troca-gestao-financeira-para-se-preparar-para-ipo-nos-eua.shtml",
+   "titulo": "RecargaPay troca gestão financeira para se preparar para IPO nos EUA",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "recargapay-altera-gestao-financeira-em-preparaca",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 91,
+    "rotulo": "Boa"
+   },
+   "palavras": 568,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "15f74e326c71",
+   "url": "https://www1.folha.uol.com.br/ambiente/2026/10/desmatamento-global-desacelera-em-2025-puxado-pela-america-latina.shtml",
+   "titulo": "Desmatamento global desacelera em 2025, puxado pela América Latina",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "desmatamento-global-recua-15-em-2025-com-destaqu",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "costumes"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 756,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -2.61,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "incentivou a proteção das florestas e aumentou subsídios",
+     "paragrafo": "P6",
+     "direcao": "esquerda",
+     "contribuicao": -2.61,
+     "explicacao": "Atribui ações positivas diretas ao atual presidente de esquerda ao tratar de sua gestão ambiental."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "9ac362958b1c",
+   "url": "https://c-level.folha.uol.com.br/financas/2026/10/investidores-se-desfazem-de-titulos-de-data-centers-enquanto-mercado-questiona-receitas-de-ia.shtml",
+   "titulo": "Investidores se desfazem de títulos de data centers enquanto mercado questiona receitas de IA",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "duvidas-sobre-retorno-da-ia-derrubam-acoes-de-te",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 795,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "eaa2f1e83a31",
+   "url": "https://g1.globo.com/tecnologia/noticia/2026/10/16/iphone-duo-entra-em-pre-venda-nesta-sexta-veja-precos-do-celular-dobravel-da-apple.ghtml",
+   "titulo": "iPhone Duo entra em pré-venda nesta sexta; veja preços do celular dobrável da Apple",
+   "veiculo": "g1",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "apple-abre-pre-venda-do-iphone-duo-no-brasil-com",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 507,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "890b278aa537",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/datafolha-17-dos-eleitores-de-flavio-bolsonaro-dizem-votar-nele-para-derrotar-lula.shtml",
+   "titulo": "Datafolha: 17% dos eleitores de Flávio Bolsonaro dizem votar nele para derrotar Lula",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "datafolha-e-poderdata-mostram-empate-tecnico-ent",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 575,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "61227770f33d",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/lula-diz-assumir-culpa-por-ma-avaliacao-do-governo-e-diz-ser-a-favor-de-reduzir-idade-penal-para-crime-hediondo.shtml",
+   "titulo": "Lula dá guinada em discurso sobre maioridade penal e diz assumir culpa por má avaliação do governo",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "alcolumbre-adia-votacao-da-pec-da-seguranca-no-s",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1267,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "d82fc112c774",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/chefe-da-campanha-de-lula-critica-kassio-no-tse-e-vai-denunciar-interferencia-da-meta-nas-eleicoes.shtml",
+   "titulo": "Chefe da campanha de Lula critica Kassio no TSE e vai denunciar interferência da Meta nas eleições",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-proibe-meta-de-restringir-conteudo-politico",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": "Entrevista",
+   "genero": "entrevista",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1345,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "b2a41d5fc838",
+   "url": "https://g1.globo.com/economia/noticia/2026/10/16/previa-do-pib-do-banco-central-tem-crescimento-de-03percent-em-agosto.ghtml",
+   "titulo": "No 1º aumento em três meses, 'prévia do PIB' do Banco Central registra alta de 0,3% em agosto",
+   "veiculo": "g1",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "ibc-br-sobe-0-3-em-agosto-com-recuo-do-agro-e-fi",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 600,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "ef1f6e1027f3",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/banco-central-decreta-liquidacao-de-cooperativa-de-credito-credipaiva-por-violacoes-de-normas.shtml",
+   "titulo": "Banco Central decreta liquidação de cooperativa de crédito Credipaiva por violações de normas",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "banco-central-decreta-liquidacao-extrajudicial-d",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 311,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a85c025afeee",
+   "url": "https://g1.globo.com/economia/noticia/2026/10/15/brasil-deve-voltar-ao-top-8-das-maiores-economias-do-mundo-em-2027-preve-fmi.ghtml",
+   "titulo": "Brasil deve voltar ao top 8 das maiores economias do mundo em 2027, prevê FMI",
+   "veiculo": "g1",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "fmi-projeta-que-brasil-voltara-a-ser-a-oitava-ma",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 475,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "215855a9ac6e",
+   "url": "https://g1.globo.com/sp/vale-do-paraiba-regiao/noticia/2026/10/15/irmaos-batista-concluem-compra-da-avibras-fabricante-de-armas-e-foguetes-de-jacarei.ghtml",
+   "titulo": "Irmãos Batista concluem compra da Avibras, fabricante de armas e foguetes de Jacareí, SP",
+   "veiculo": "g1",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "irmaos-batista-concluem-compra-da-avibras-e-nome",
+   "data_publicacao": "2026-10-15",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 474,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "e560589ff41c",
+   "url": "https://www.infomoney.com.br/mundo/lideres-da-ue-apoiam-zelenskiy-trump-classifica-ataques-ucranianos-de-vergonha/",
+   "titulo": "Líderes da UE apoiam Zelenskiy; Trump classifica ataques ucranianos de “vergonha”",
+   "veiculo": "InfoMoney",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ucrania-retoma-ataques-contra-refinarias-russas",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-16",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 72,
+    "rotulo": "Regular"
+   },
+   "palavras": 619,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-16T12:37:05+00:00",
+   "provedor": "gemini_lite",
+   "modelo": "gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 9,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 36264,
+    "saida": 12741
+   },
+   "analises": [
+    "67980d056021",
+    "9a4b369cb947",
+    "6ec044b618b8",
+    "c9764576b746",
+    "a3cb47a99c12",
+    "fb040099b284",
+    "a669cbfc32e9",
+    "2894843fceeb",
+    "d1d7615c713f",
+    "15f74e326c71",
+    "9ac362958b1c",
+    "eaa2f1e83a31",
+    "890b278aa537",
+    "61227770f33d",
+    "d82fc112c774",
+    "b2a41d5fc838",
+    "ef1f6e1027f3",
+    "a85c025afeee",
+    "215855a9ac6e",
+    "e560589ff41c"
+   ]
+  }
+ ]
+}
