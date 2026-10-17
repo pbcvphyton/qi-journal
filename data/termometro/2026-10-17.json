@@ -1,0 +1,1012 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-17",
+ "analises": [
+  {
+   "id": "3d3c17aad48b",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/16/governo-pode-dar-credito-e-capacitacao-para-empresas-afetadas-pelo-fim-da-escala-6x1-diz-durigan.ghtml",
+   "titulo": "Governo pode dar crédito e capacitação para empresas afetadas pelo fim da escala 6x1, diz Durigan",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "congresso-promulga-fim-da-escala-6x1-e-governo-p",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 53,
+    "rotulo": "Regular"
+   },
+   "palavras": 350,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -3.33,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "O ministro da Fazenda, Dario Durigan, afirmou nesta sexta-feira (16) que o governo prevê criar linhas de crédito específicas",
+     "paragrafo": "P2",
+     "direcao": "esquerda",
+     "contribuicao": -3.33,
+     "explicacao": "A matéria restringe-se a repercutir anúncios e declarações do ministro da Fazenda, sem abrir espaço para entidades empresariais avaliarem a viabilidade das medidas propostas."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "52c7f4829e32",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/16/governo-tenta-votar-pec-da-segurana-antes-do-2-turno-em-meio-a-disputa-sobre-maioridade-penal.ghtml",
+   "titulo": "Governo tenta votar PEC da Segurança antes do 2º turno em meio a disputa sobre maioridade penal",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-defende-reducao-da-maioridade-penal-para-cr",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 411,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "A proposta do petista busca contrapor a iniciativa de Marinho, que prevê a redução para 16 anos como regra geral",
+     "paragrafo": "P8",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem equilibra a cobertura descrevendo de forma simétrica as propostas e os cálculos táticos tanto da oposição quanto do governo."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "4d9cddff4c96",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/16/justia-recebe-denncia-e-12-se-tornam-rus-por-fraude-na-americanas-aps-vaivm-de-provas.ghtml",
+   "titulo": "Justiça recebe denúncia e 12 se tornam réus por fraude na Americanas após vaivém de provas",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "justica-torna-reus-12-ex-executivos-da-americana",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 662,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Gutierrez afirmou, por meio da assessoria de imprensa, que não vai se manifestar neste momento. A defesa de Anna Saicali informou que a executiva não vai se pronunciar.",
+     "paragrafo": "P12",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem busca ativamente os réus e seus advogados, registrando a resposta daqueles que se manifestaram e assinalando o silêncio dos demais."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "26dc543c4878",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/16/com-deciso-do-tse-canal-de-janones-no-precisa-mais-de-vnculo-com-campanha-de-lula.ghtml",
+   "titulo": "Com decisão do TSE, canal de Janones não precisa mais de vínculo com campanha de Lula",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-aprova-regras-para-whatsapp-em-campanhas-e-d",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 71,
+    "rotulo": "Regular"
+   },
+   "palavras": 645,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "A avaliação, no entanto, é de que as suas decisões criaram controvérsias que acabaram voltando ao ponto de partida. \"Tudo como dantes no quartel de Abrantes\", ironizou um ministro.",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Utilização de fonte sob anonimato para fazer troça da atuação do presidente da corte eleitoral, refletindo bastidores jurídicos sem favorecimento partidário explícito."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "f742165b6973",
+   "url": "https://valor.globo.com/noticia/2026/10/16/meta-admite-incidentes-tcnicos-que-afetaram-campanhas-e-nega-interferncia-em-eleies.ghtml",
+   "titulo": "Meta admite 'incidentes técnicos' que afetaram campanhas e nega interferência em eleições",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-confirma-ordem-de-isonomia-para-a-meta-e-emp",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 912,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Segundo a Meta, em 23 de setembro, a conta de anúncios de Lula foi desativada por engano, e não por razões políticas.",
+     "paragrafo": "P12",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto apresenta ponto a ponto as alegações da campanha de Lula e as justificativas técnicas fornecidas pela Meta."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "3f743c80e14e",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/16/pf-ve-contradicoes-em-depoimento-de-delator-sobre-o-filme-dark-horse.ghtml",
+   "titulo": "PF vê contradições em depoimento de delator sobre o filme 'Dark Horse'",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "pf-aponta-fraude-em-repasses-a-filme-sobre-bolso",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 454,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "O Valor entrou em contato com a defesa de Freixo para perguntar se ele gostaria de se manifestar.",
+     "paragrafo": "P7",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem buscou ouvir a defesa do delator a respeito das inconsistências apontadas pela PF."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "413da26797d5",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/16/indice-de-atividade-economica-do-bc-sobe-034percent-em-agosto.ghtml",
+   "titulo": "Índice de atividade econômica do BC sobe 0,34% em agosto",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "ibc-br-avanca-0-34-em-agosto-e-interrompe-dois-m",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 298,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "7a8391c2e7b2",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/16/rendimento-de-criancas-e-adolescentes-em-trabalho-infantil-nao-chega-a-r-1000-mensais-diz-ibge.ghtml",
+   "titulo": "Rendimento de crianças e adolescentes em trabalho infantil não chega a R$ 1.000 mensais, diz IBGE",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "trabalho-infantil-atinge-menor-nivel-historico-e",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 347,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "rendimento mensal médio de pessoas de 5 a 17 anos que realizavam atividade econômica, seja em trabalho infantil ou não, ficou em R$ 967 em 2025.",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem contextualiza os dados estatísticos detalhando a fonte (IBGE), o período de apuração (2025) e as categorias analisadas."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "1c5989c507e1",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/16/zelensky-critica-acordo-eua-russia-e-diz-que-aliados-europeus-sao-verdadeiros-lideres.ghtml",
+   "titulo": "Zelensky critica acordo EUA-Rússia e diz que aliados europeus são 'verdadeiros líderes'",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "trump-suspende-sancoes-energeticas-contra-a-russ",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 83,
+    "rotulo": "Boa"
+   },
+   "palavras": 529,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "Zelensky critica acordo EUA-Rússia e diz que aliados europeus são 'verdadeiros líderes'",
+     "paragrafo": "P0",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A manchete privilegia a crítica de Zelensky, mas reflete o fato jornalístico principal da cúpula da UE."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "Por sua vez, Trump disse hoje que nem ele nem Elon Musk são responsáveis pelo fato de a Ucrânia ter perdido",
+     "paragrafo": "P4",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto apresenta a defesa e a versão de Trump em resposta às críticas recebidas."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "e59dcf1418f0",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/16/atirador-mata-quatro-em-escola-primria-dos-eua-antes-de-ser-morto-por-civil.ghtml",
+   "titulo": "Atirador mata quatro em escola primária dos EUA antes de ser morto por civil",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ataque-a-tiros-deixa-quatro-mortos-em-escola-no",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 655,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Cada ataque reacende o debate sobre as leis de controle de armas em um país onde o direito de possuir armas é protegido pela Segunda Emenda da Constituição. Defensores do direito ao porte de armas argumentam que armar professores seria uma…",
+     "paragrafo": "P9",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto contextualiza as duas posições tradicionais do debate político americano sem tomar partido."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "836b1bcb630e",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/16/nova-porta-voz-da-casa-branca-demitida-aps-5-dias-no-cargo-diz-jornal.ghtml",
+   "titulo": "Nova porta-voz da Casa Branca é demitida após 5 dias no cargo",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "trump-demite-secretaria-de-imprensa-katie-zachar",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 439,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "ff86e43b95a8",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/16/franca-e-alemanha-chegam-a-acordo-sobre-emissoes-de-co2-de-veiculos-e-status-do-reino-unido.ghtml",
+   "titulo": "França e Alemanha chegam a acordo sobre emissões de CO2 de veículos e status do Reino Unido",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "franca-e-alemanha-fecham-acordo-para-flexibiliza",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 811,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "0a941d04a7d8",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/16/papa-leo-xiv-faz-apelo-por-cidade-na-ucrnia-em-conversa-telefnica-com-putin.ghtml",
+   "titulo": "Papa Leão XIV faz apelo por cidade na Ucrânia em conversa telefônica com Putin",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "papa-leao-xiv-se-recupera-de-cirurgia-de-cancer",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 10 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 89,
+    "rotulo": "Boa"
+   },
+   "palavras": 224,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "Rússia e Ucrânia se acusam mutuamente de bloquear a entrada de suprimentos para a população da cidade, controlada pela Rússia e que a Ucrânia tenta retomar.",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta simetricamente as acusações de ambos os lados do conflito militar a respeito do bloqueio humanitário."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "7fd95b78e2cd",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/16/petroleo-sobe-a-quase-us-110-com-duvidas-sobre-oferta-do-oriente-medio-e-da-russia.ghtml",
+   "titulo": "Petróleo sobe a quase US$ 110 com dúvidas sobre oferta do Oriente Médio e da Rússia",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "petroleo-brent-alcanca-us-110-com-escalada-de-te",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 250,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "No fechamento, o petróleo tipo Brent (a referência mundial) com vencimento em dezembro subiu 3,94%, cotado a US$ 109,86 por barril",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Os dados de cotação indicam vencimento, percentual, bolsa de negociação e contextualização semanal de maneira técnica."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "c384d41ce5a9",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/16/deficit-fiscal-dos-eua-chega-a-cerca-de-us-2-tri-em-2026-o-maior-em-5-anos.ghtml",
+   "titulo": "Déficit fiscal dos EUA chega a cerca de US$ 2 trilhões em 2026, o maior em 5 anos",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "deficit-fiscal-dos-estados-unidos-chega-a-us-1-9",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 336,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "As receitas totais atingiram nível recorde de US$ 5,4 trilhões no ano fiscal de 2026, em alta de 3% ante o precedente — um aumento de US$ 169 bilhões no intervalo.",
+     "paragrafo": "P6",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Oferece o quadro completo das contas ao citar recorde tanto nas receitas quanto nas despesas, evitando simplificação."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "9af1ae5fb28e",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/16/em-ny-nasdaq-cai-21percent-com-ajuste-de-posicoes-em-techs-e-avanco-do-petroleo.ghtml",
+   "titulo": "Em NY, Nasdaq cai 2,1% com ajuste de posições em ‘techs’ e avanço do petróleo",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "acoes-de-tecnologia-afundam-em-nova-york-sob-tem",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 308,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "O índice Dow Jones encerrou em queda de 0,34%, aos 52.001,70 pontos; o S&P 500 cedeu 1,09%, aos 7.659,42 pontos, e o Nasdaq desvalorizou 2,14%",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresentação técnica, neutra e contextualizada dos fechamentos dos principais índices de ações."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "57588a3b169e",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/16/desmatamento-na-amazonia-e-o-menor-desde-1998-informa-ministerio-do-meio-ambiente.ghtml",
+   "titulo": "Desmatamento na Amazônia é o menor desde 1998, informa Ministério do Meio Ambiente",
+   "veiculo": "Valor Econômico",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "desmatamento-na-amazonia-e-no-cerrado-atinge-men",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 641,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "A área de desmatamento na Amazônia registrou 3.335 km² neste ano, sendo a menor da série histórica desde 1998",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem ancora as alegações em dados históricos oficiais de série temporal do Prodes/Inpe."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "6e332b3af30a",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/16/com-a-presenca-de-lula-congresso-nacional-promulga-fim-da-escala-6x1.ghtml",
+   "titulo": "Com a presença de Lula, Congresso Nacional promulga fim da escala 6x1",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "congresso-promulga-fim-da-escala-6x1-e-governo-p",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -4,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 562,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -3.75,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "A mudança de posição de Flávio ocorreu diante do receio de prejuízos eleitorais com a rejeição à proposta.",
+     "paragrafo": "P8",
+     "direcao": "esquerda",
+     "contribuicao": -3.75,
+     "explicacao": "Atribui a votação de Flávio Bolsonaro exclusivamente a receio pragmático de perda de votos."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "0369ebecb090",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/16/o-que-e-crime-hediondo-para-o-qual-lula-quer-reduzir-a-maioridade-penal.ghtml",
+   "titulo": "O que é crime hediondo, para o qual Lula quer reduzir a maioridade penal?",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-defende-reducao-da-maioridade-penal-para-cr",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 638,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "O que é crime hediondo, para o qual Lula quer reduzir a maioridade penal?",
+     "paragrafo": "P0",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto adota tom estritamente explicativo e didático sobre o marco legal, sem juízo valorativo contra ou a favor da declaração."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "b587fbacb969",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/16/apos-ex-executivos-virarem-reus-americanas-reafirma-ter-sido-vitima-de-fraude.ghtml",
+   "titulo": "Após ex-executivos virarem réus, Americanas reafirma ter sido vítima de fraude",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "justica-torna-reus-12-ex-executivos-da-americana",
+   "data_publicacao": "2026-10-16",
+   "analisado_em": "2026-10-17",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 226,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-17T09:30:34+00:00",
+   "provedor": "gemini",
+   "modelo": "gemini-flash-latest",
+   "candidatos": 40,
+   "textos_curtos": 4,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 27982,
+    "saida": 17332
+   },
+   "analises": [
+    "3d3c17aad48b",
+    "52c7f4829e32",
+    "4d9cddff4c96",
+    "26dc543c4878",
+    "f742165b6973",
+    "3f743c80e14e",
+    "413da26797d5",
+    "7a8391c2e7b2",
+    "1c5989c507e1",
+    "e59dcf1418f0",
+    "836b1bcb630e",
+    "ff86e43b95a8",
+    "0a941d04a7d8",
+    "7fd95b78e2cd",
+    "c384d41ce5a9",
+    "9af1ae5fb28e",
+    "57588a3b169e",
+    "6e332b3af30a",
+    "0369ebecb090",
+    "b587fbacb969"
+   ]
+  }
+ ]
+}
