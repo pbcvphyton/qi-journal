@@ -1,0 +1,1089 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-18",
+ "analises": [
+  {
+   "id": "0b5f92bfb2b0",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/18/lula-e-flavio-disputam-as-ruas-na-reta-final-da-campanha.ghtml",
+   "titulo": "Lula e Flávio disputam as ruas na reta final da campanha",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-e-flavio-bolsonaro-disputam-ruas-e-realizam",
+   "data_publicacao": "2026-10-18",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 826,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "Flávio tem 47% e Lula, 45% das intenções de voto, empatados tecnicamente dentro da margem de erro",
+     "paragrafo": "P13",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta os dados da pesquisa indicando os percentuais de ambos os candidatos e a margem de erro técnica."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "81299bfac416",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/17/roberta-luchsinger-diz-que-pretende-firmar-acordo-de-delao-premiada-e-promete-no-poupar-ningum.ghtml",
+   "titulo": "Roberta Luchsinger diz que pretende firmar acordo de delação e promete ‘não poupar ninguém’",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "roberta-luchsinger-diz-buscar-delacao-premiada-s",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 766,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Em nota enviada ao Valor, a Secretaria de Comunicação Social da Presidência da República (Secom) afirmou que o presidente Lula",
+     "paragrafo": "P12",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem concede amplo espaço de contraponto à Presidência e aos ministérios citados para refutar as alegações da acusadora."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "08456d4be33b",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/17/quem-esta-na-frente-para-presidente-no-segundo-turno-ultimas-pesquisas-revelam-favorito-em-cada-faixa-salarial.ghtml",
+   "titulo": "Quem está na frente para presidente no segundo turno? Últimas pesquisas revelam favorito em cada faixa salarial",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "pesquisas-vox-brasil-e-ipespe-apontam-disputa-ac",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 315,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "O levantamento ouviu 2.520 pessoas de 16 anos ou mais entre os dias 13 e 14 de outubro. A margem de erro é de dois pontos percentuais",
+     "paragrafo": "P4",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Informa detalhadamente os parâmetros metodológicos, amostra, período de coleta, margem de erro e registro eleitoral da pesquisa."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "24eaf6487ffe",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/advogado-amigo-de-flavio-recebeu-documentos-vazados-do-stj-e-mpf-diz-site.shtml",
+   "titulo": "Advogado amigo de Flávio recebeu documentos vazados do STJ e MPF, diz site",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "stj-abre-investigacao-e-exonera-servidor-por-sus",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 606,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": -2.61,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "OUTRO LADO: Willer Tomaz afirmou que 'nega categoricamente' as suspeitas",
+     "paragrafo": "P1",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A linha fina destaca imediatamente a manifestação de defesa do principal investigado."
+    },
+    {
+     "id": "E2",
+     "criterio": "HIERARQUIA",
+     "citacao": "Advogado amigo de Flávio recebeu documentos vazados do STJ e MPF, diz site",
+     "paragrafo": "P0",
+     "direcao": "esquerda",
+     "contribuicao": -2.61,
+     "explicacao": "Puxa para o título a conexão pessoal com o candidato presidencial Flávio Bolsonaro, embora a apuração sobre minutas vazadas diga respeito centralmente a Willer Tomaz."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "fa40f196c2f8",
+   "url": "https://c-level.folha.uol.com.br/infraestrutura/2026/10/antt-faz-pente-fino-em-carajas-e-cobra-explicacoes-da-vale-sobre-r-116-bilhao.shtml",
+   "titulo": "ANTT faz pente-fino em Carajás e cobra explicações da Vale sobre R$ 1,16 bilhão",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "antt-faz-pente-fino-em-carajas-e-cobra-explicaco",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1018,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "À Folha a Vale declarou que \"reafirma seu compromisso com as diretrizes e bases gerais para a otimização dos contratos",
+     "paragrafo": "P11",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem busca e concede espaço para os esclarecimentos técnicos da Vale após detalhar os questionamentos da ANTT."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "Na planilha entregue, 67 registros, com saldo remanescente de aproximadamente R$ 92 milhões, aparecem classificados como pertencentes a outros projetos",
+     "paragrafo": "P20",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Dados específicos com fonte, período e quantificação precisa do objeto em disputa técnica."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "737647c81b7e",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/17/trump-suspende-sanes-e-tarifas-contra-a-rssia-sob-nova-lei.ghtml",
+   "titulo": "Trump suspende sanções e tarifas contra a Rússia sob nova lei",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "trump-suspende-sancoes-e-tarifas-contra-a-russia",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 571,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "O representante dos EUA Don Beyer, um democrata da Virgínia, criticou duramente Trump pela isenção, afirmando que ele estava cedendo ao presidente russo Vladimir Putin.",
+     "paragrafo": "P13",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta o contraponto crítico da oposição no Congresso de forma equilibrada após expor os argumentos da Casa Branca."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "4dfe204502d6",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/17/milhares-de-manifestantes-marcham-em-lisboa-contra-avano-do-custo-de-vida.ghtml",
+   "titulo": "Milhares de manifestantes marcham em Lisboa contra avanço do custo de vida",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "onda-de-protestos-contra-o-custo-de-vida-deixa-m",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": -2,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 469,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": -2.09,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HUMANIZACAO",
+     "citacao": "Carolina Cruz, de 26 anos, doutoranda e pesquisadora em biologia que recebe uma bolsa de cerca de 1.300 euros (US$ 1.460) por mês, corre o risco de perder a moradia",
+     "paragrafo": "P11",
+     "direcao": "esquerda",
+     "contribuicao": -2.09,
+     "explicacao": "Dá rosto e perfil pessoal empático aos manifestantes que criticam o custo de vida, sem personificação simétrica do lado da gestão pública."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "O ministro dos Assuntos Parlamentares de Portugal, Carlos Abreu Amorim, disse na sexta-feira que o \"governo não cederá aos gritos da rua\"",
+     "paragrafo": "P16",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto registra a posição oficial do governo em resposta às manifestações e demandas apresentadas."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "e55efa7ec0bc",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/17/papa-leo-deixar-hospital-quatro-dias-aps-cirurgia-para-tratar-cncer-de-pulmo.ghtml",
+   "titulo": "Papa Leão deixa hospital, quatro dias após cirurgia para tratar câncer de pulmão",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "papa-leao-xiv-recebe-alta-apos-cirurgia-de-cance",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 342,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "771b3d881c42",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/colonos-israelenses-atacam-comitiva-de-diplomatas-europeus-na-cisjordania.shtml",
+   "titulo": "Colonos israelenses atacam comitiva de diplomatas europeus na Cisjordânia",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ataque-de-colonos-israelenses-contra-diplomatas",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 878,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": -3.33,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "O ministro das Relações Exteriores de Israel, Gideon Saar, condenou o ataque e classificou os responsáveis como manifestantes israelenses violentos.",
+     "paragrafo": "P6",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta a manifestação e a defesa formal do governo israelense após as denúncias de agressão."
+    },
+    {
+     "id": "E2",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "assim como foram expandidos, pelo governo Netanyahu, os assentamentos de judeus na região, ilegais sob o direito internacional.",
+     "paragrafo": "P11",
+     "direcao": "esquerda",
+     "contribuicao": -3.33,
+     "explicacao": "Enquadra a política habitacional de Netanyahu sob a classificação de ilegalidade pelo direito internacional."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "3e9c46f9ef65",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/17/governo-envia-comitiva-de-ministros-ao-amazonas-para-acompanhar-incndios-florestais.ghtml",
+   "titulo": "Governo envia comitiva de ministros ao Amazonas para acompanhar incêndios florestais",
+   "veiculo": "Valor Econômico",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "fumaca-de-queimadas-paralisa-voos-de-combate-a-i",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "geral",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 365,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -2.78,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "a Amazônia registrou 3.335 km² de área desmatada, o menor índice da série histórica iniciada em 1988.",
+     "paragrafo": "P7",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta dado oficial contextualizado com a série histórica completa e marcos temporais."
+    },
+    {
+     "id": "E2",
+     "criterio": "HIERARQUIA",
+     "citacao": "A declaração do senador, no entanto, diverge dos números do Projeto de Monitoramento do Desmatamento na Amazônia Legal por Satélite (Prodes).",
+     "paragrafo": "P8",
+     "direcao": "esquerda",
+     "contribuicao": -2.78,
+     "explicacao": "A redação confronta de pronto a afirmação do candidato de oposição com base em estatísticas oficiais do Prodes."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "eb73e2f0543d",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/17/chuvas-intensas-estiagem-e-queimadas-provocam-estragos-e-agravam-riscos-ambientais-em-diferentes-regioes-do-brasil.ghtml",
+   "titulo": "Chuvas intensas, estiagem e queimadas provocam estragos e agravam riscos ambientais em diferentes regiões do Brasil",
+   "veiculo": "Valor Econômico",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "chuvas-intensas-provocam-alagamentos-quedas-de-a",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 1320,
+   "cortado": true,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "621c05faf986",
+   "url": "https://c-level.folha.uol.com.br/financas/2026/10/citi-e-bank-of-america-sao-mais-dois-bancos-dos-eua-a-restringir-acesso-de-ia-a-contas-de-clientes.shtml",
+   "titulo": "Citi e Bank of America são mais dois bancos dos EUA a restringir acesso de IA a contas de clientes",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "bancos-e-reguladores-impoem-restricoes-ao-avanco",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 780,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "3d8004dcf8dd",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/17/lula-quer-confronto-e-vai-desmascarar-flavio-bolsonaro-em-debate-diz-edinho.ghtml",
+   "titulo": "Lula quer confronto e vai desmascarar Flávio Bolsonaro em debate, diz Edinho",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-e-flavio-bolsonaro-disputam-ruas-e-realizam",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -9,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 84,
+    "rotulo": "Boa"
+   },
+   "palavras": 537,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -9.28,
+    "divergente": false
+   },
+   "por_eixo": {
+    "instituicoes": -9.28
+   },
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "O senador não comprou, vendeu, intermediou e nem possui qualquer vínculo com o imóvel em questão.",
+     "paragrafo": "P10",
+     "direcao": "esquerda",
+     "contribuicao": -6.67,
+     "explicacao": "A matéria dedica quase a totalidade do espaço aos ataques e estratégias formulados pelo presidente do PT, reservando apenas o último parágrafo para a defesa do senador acusado."
+    },
+    {
+     "id": "E2",
+     "criterio": "HIERARQUIA",
+     "citacao": "Lula quer confronto e vai desmascarar Flávio Bolsonaro em debate, diz Edinho",
+     "paragrafo": "P0",
+     "direcao": "esquerda",
+     "contribuicao": -2.61,
+     "explicacao": "O título coloca a acusação ('vai desmascarar') em destaque afirmativo, ainda que atribuída na oração final ao presidente do PT."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "54d9c02854e2",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/amiga-de-lulinha-afirma-que-quer-fazer-delacao-premiada-e-chama-presidente-de-mentiroso.shtml",
+   "titulo": "Amiga de Lulinha afirma que quer fazer delação premiada e chama presidente de mentiroso",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "roberta-luchsinger-diz-buscar-delacao-premiada-s",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1123,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Apesar disso, ela não apresentou informações novas sobre as investigações em curso.",
+     "paragrafo": "P12",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem faz a devida checagem factual ao apontar que a acusadora atacou o presidente sem apresentar provas ou elementos inéditos para respaldar as alegações."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "Por meio de nota, o presidente afirmou desconhecer \"inteiramente os fatos relatados\".",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A nota da Presidência e a resposta de Camilo Santana foram incluídas de maneira ampla para contrapor as falas concedidas à TV."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "afba6f0fe2b3",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/17/quem-esta-na-frente-para-presidente-no-segundo-turno-veja-resultado-das-ultimas-pesquisas-por-genero-idade-e-escolaridade.ghtml",
+   "titulo": "Quem está na frente para presidente no segundo turno? Veja resultado das últimas pesquisas por gênero, idade e escolaridade",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "pesquisas-vox-brasil-e-ipespe-apontam-disputa-ac",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 545,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "A margem de erro é de dois pontos percentuais, para mais ou para menos, e o nível de confiança é de 95%.",
+     "paragrafo": "P8",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto reporta integralmente as especificações metodológicas das pesquisas, indicando números, datas, margem de erro e número de registro no TSE."
+    },
+    {
+     "id": "E2",
+     "criterio": "HIERARQUIA",
+     "citacao": "mostram o candidato Flávio Bolsonaro (PL) numericamente à frente de Luiz Inácio Lula da Silva (PT) na disputa pela Presidência, apesar da diferença ainda estar dentro das margens de erro",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto qualifica a liderança como numérica e ressalva imediatamente a condição de empate técnico dentro da margem de erro."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "eac6df4d7722",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/ex-presidente-jose-sarney-recebe-alta-apos-cirurgia-abdominal-no-maranhao.shtml",
+   "titulo": "Ex-presidente José Sarney recebe alta após cirurgia abdominal no Maranhão",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "jose-sarney-recebe-alta-hospitalar-em-sao-luis-a",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 363,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "552b52f0a4cf",
+   "url": "https://g1.globo.com/politica/noticia/2026/10/17/stj-abre-investigacao-e-exonera-servidor-suspeito-de-vazar-minutas-a-advogado-amigo-de-flavio.ghtml",
+   "titulo": "STJ abre investigação e exonera servidor suspeito de vazar minutas de decisões a advogado amigo de Flávio",
+   "veiculo": "g1",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "stj-abre-investigacao-e-exonera-servidor-por-sus",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -6,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 940,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -5.56,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "STJ abre investigação e exonera servidor suspeito de vazar minutas de decisões a advogado amigo de Flávio",
+     "paragrafo": "P0",
+     "direcao": "esquerda",
+     "contribuicao": -5.56,
+     "explicacao": "O título conecta imediatamente a apuração administrativa no STJ a Flávio Bolsonaro, embora o investigado principal seja o advogado e não o próprio senador."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "Veja a nota na íntegra:",
+     "paragrafo": "P21",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem publica integralmente a nota de defesa do investigado Willer Tomaz, permitindo a apresentação de sua versão dos fatos."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "32cfb90a8ecf",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/tse-libera-atos-com-mote-de-democracia-no-rio-convocado-por-caetano-salvador-e-porto-alegre-e-rejeita-vetar-shows.shtml",
+   "titulo": "TSE libera atos com mote de democracia no Rio, convocado por Caetano, Salvador e Porto Alegre, e rejeita vetar shows",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-libera-atos-com-shows-em-defesa-da-democraci",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 669,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "O Novo sustentava que as mobilizações convocadas para o domingo anterior ao segundo turno",
+     "paragrafo": "P6",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto resume os argumentos da petição inicial do Novo com clareza antes de contrapor com os fundamentos da decisão do corregedor."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "ad1aeb328418",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/17/policia-francesa-entra-em-confronto-com-manifestantes-em-protesto-contra-o-custo-de-vida.ghtml",
+   "titulo": "Protestos violentos atingem cidades em toda a França",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "onda-de-protestos-contra-o-custo-de-vida-deixa-m",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 834,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Estamos lutando porque o custo de vida está insuportável, porque o preço do combustível está alto demais",
+     "paragrafo": "P9",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A matéria dá voz direta a manifestante explicando as demandas e queixas contra os cortes e condições de vida, equilibrando as falas oficiais."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "propôs 43 bilhões de euros, o equivalente a US$ 49 bilhões, em cortes de gastos no orçamento de 2027",
+     "paragrafo": "P16",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem contextualiza os números exatos e as metas fiscais que desencadearam a insatisfação social."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "7b79a73c9226",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/papa-leao-14-recebera-alta-do-hospital-neste-sabado-diz-vaticano.shtml",
+   "titulo": "Papa Leão 14 recebe alta do hospital após retirada de tumor",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "papa-leao-xiv-recebe-alta-apos-cirurgia-de-cance",
+   "data_publicacao": "2026-10-17",
+   "analisado_em": "2026-10-18",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 946,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ADJETIVOS",
+     "citacao": "um grande sinal para o mundo de que Leão 14 continua ativo e atento aos acontecimentos",
+     "paragrafo": "P10",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Classifica a ligação a Putin como 'um grande sinal', em afirmação avaliativa da redação, embora ancorada no contexto de retorno do pontífice às atividades."
+    }
+   ],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-18T11:15:51+00:00",
+   "provedor": "gemini",
+   "modelo": "gemini-flash-latest",
+   "candidatos": 40,
+   "textos_curtos": 11,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 37671,
+    "saida": 19666
+   },
+   "analises": [
+    "0b5f92bfb2b0",
+    "81299bfac416",
+    "08456d4be33b",
+    "24eaf6487ffe",
+    "fa40f196c2f8",
+    "737647c81b7e",
+    "4dfe204502d6",
+    "e55efa7ec0bc",
+    "771b3d881c42",
+    "3e9c46f9ef65",
+    "eb73e2f0543d",
+    "621c05faf986",
+    "3d8004dcf8dd",
+    "54d9c02854e2",
+    "afba6f0fe2b3",
+    "eac6df4d7722",
+    "552b52f0a4cf",
+    "32cfb90a8ecf",
+    "ad1aeb328418",
+    "7b79a73c9226"
+   ]
+  }
+ ]
+}
