@@ -1,0 +1,896 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-20",
+ "analises": [
+  {
+   "id": "59fc80b33719",
+   "url": "https://valor.globo.com/politica/coluna/sangue-suor-e-lagrimas-na-reta-final.ghtml",
+   "titulo": "Sangue, suor e lágrimas na reta final",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "pesquisas-apontam-empate-tecnico-entre-flavio-bo",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "opiniao",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 3,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 166,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 2.67,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "Se a subestimativa do voto de direita favorece Flávio Bolsonaro, a quebra de sigilo é a bala de prata de Lula",
+     "paragrafo": "P1",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A linha fina equilibra a análise ao apontar simetricamente a vantagem estrutural de um candidato contra o trunfo de campanha do adversário."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "não fosse a subestimativa histórica do voto da direita, em média, de 1,4 ponto.",
+     "paragrafo": "P2",
+     "direcao": "direita",
+     "contribuicao": 2.67,
+     "explicacao": "O texto assume como premissa certa a subestimativa de 1,4 ponto para projetar uma desvantagem eleitoral maior para Lula."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "68a9a50418e2",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/19/jair-bolsonaro-tambem-antecipou-pagamento-do-auxilio-brasil-antes-do-2o-turno-de-2022.ghtml",
+   "titulo": "Jair Bolsonaro também antecipou pagamento do Auxílio Brasil antes do 2º turno de 2022",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "governo-antecipa-calendario-do-bolsa-familia-ant",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -9,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 74,
+    "rotulo": "Regular"
+   },
+   "palavras": 456,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -8.63,
+    "divergente": false
+   },
+   "por_eixo": {
+    "instituicoes": -8.63
+   },
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "Jair Bolsonaro também antecipou pagamento do Auxílio Brasil antes do 2º turno de 2022",
+     "paragrafo": "P0",
+     "direcao": "esquerda",
+     "contribuicao": -5.88,
+     "explicacao": "O título coloca o ex-presidente como sujeito principal de um fato ocorrido há quatro anos para atenuar o fato factual imediato da antecipação feita pelo governo Lula."
+    },
+    {
+     "id": "E2",
+     "criterio": "OMISSAO",
+     "citacao": "A antecipação, segundo o governo, foi uma forma de minimizar, de forma preventiva, os efeitos das mudanças climáticas decorrentes do El Niño.",
+     "paragrafo": "P7",
+     "direcao": "esquerda",
+     "contribuicao": -2.75,
+     "explicacao": "A reportagem dedica espaço substancial às justificativas técnicas do MDS sem apresentar qualquer contraponto de especialistas em direito eleitoral ou da oposição quanto ao potencial impacto eleitoral da medida."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "e5d5e995f47d",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/19/com-sada-da-recuperao-judicial-americanas-espera-mais-acesso-ao-crdito.ghtml",
+   "titulo": "Com saída da recuperação judicial, Americanas espera mais acesso ao crédito",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "justica-do-rio-encerra-processo-de-recuperacao-j",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 763,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "7630df53902b",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/19/ri-happy-entra-com-pedido-de-recuperacao-extrajudicial-para-renegociar-r-827-milhoes-em-dividas.ghtml",
+   "titulo": "Ri Happy entra com pedido de recuperação extrajudicial para renegociar R$ 827 milhões em dívidas",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "ri-happy-pede-recuperacao-extrajudicial-para-ree",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 714,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "3e041781652f",
+   "url": "https://valor.globo.com/noticia/2026/10/19/manifestantes-pedem-que-meta-no-interfira-na-eleio-brasileira.ghtml",
+   "titulo": "Manifestantes pedem que Meta não interfira na eleição brasileira",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-intima-meta-a-provar-isonomia-apos-campanha",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 89,
+    "rotulo": "Boa"
+   },
+   "palavras": 401,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "02dff903fd81",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/19/volkswagen-planeja-congelar-salrios-at-2030-diz-conselho-de-trabalhadores.ghtml",
+   "titulo": "Volkswagen planeja congelar salários até 2030, diz conselho de trabalhadores",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "volkswagen-planeja-congelar-salarios-de-660-mil",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 72,
+    "rotulo": "Regular"
+   },
+   "palavras": 250,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "ecec3be3e5f6",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/19/arbia-saudita-adia-davos-do-deserto-aps-ataques-dos-houthis.ghtml",
+   "titulo": "Arábia Saudita adia ‘Davos do deserto’ após ataques dos houthis",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "arabia-saudita-adia-forum-de-investimentos-para",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 64,
+    "rotulo": "Regular"
+   },
+   "palavras": 353,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "14c860e1d709",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/19/entenda-o-que-esta-acontecendo-na-franca.ghtml",
+   "titulo": "Vandalismo, protesto por educação: entenda o que está acontecendo na França",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "franca-decreta-toques-de-recolher-para-conter-on",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 89,
+    "rotulo": "Boa"
+   },
+   "palavras": 625,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "05abf864c781",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/pib-da-china-acelera-a-45-no-terceiro-trimestre-impulsionado-por-alta-nas-exportacoes.shtml",
+   "titulo": "PIB da China acelera a 4,5% no terceiro trimestre impulsionado por alta nas exportações",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "pib-da-china-cresce-4-5-no-terceiro-trimestre-im",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 917,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "71064ec7310d",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/19/bolsas-da-asia-fecham-sem-rumo-unico-com-pib-chines-e-cautela-com-ia.ghtml",
+   "titulo": "Bolsas da Ásia fecham sem rumo único, com PIB chinês e cautela com IA",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "queda-de-32-em-estreia-de-empresa-de-data-center",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 676,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "6ae69a4b91e5",
+   "url": "https://umsoplaneta.globo.com/biodiversidade/noticia/2026/10/19/cop17-da-biodiversidade-comeca-na-armenia-com-paises-atrasados-em-todas-as-23-metas-globais-para-a-natureza.ghtml",
+   "titulo": "COP17 da biodiversidade começa na Armênia com países atrasados em todas as 23 metas globais para a natureza",
+   "veiculo": "Um Só Planeta",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "cop17-da-biodiversidade-comeca-na-armenia-com-al",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 872,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "030dbccbf7c2",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/19/apple-enfrenta-novo-pedido-de-indenizao-aps-veredicto-histrico-de-patente-de-us-57-bi.ghtml",
+   "titulo": "Apple enfrenta novo pedido de indenização após veredicto histórico de patente de US$ 5,7 bi",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "taction-pede-inclusao-de-juros-e-vendas-recentes",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 312,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "ce52db8bb57a",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/19/ex-funcionrio-da-openai-acusado-de-instalar-dispositivo-de-gravao-parece-ter-apoio-saudita-dizem-promotores-dos-eua.ghtml",
+   "titulo": "Ex-funcionário da OpenAI acusado de instalar dispositivo de gravação parece ter apoio saudita, dizem promotores dos EUA",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "ex-engenheiro-da-openai-acusado-de-espionagem-te",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 87,
+    "rotulo": "Boa"
+   },
+   "palavras": 291,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "1c0a7c43a718",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/19/governo-antecipa-pagamento-do-bolsa-famlia-e-todos-os-beneficirios-recebero-antes-da-eleio.ghtml",
+   "titulo": "Governo antecipa pagamento do Bolsa Família reajustado",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "governo-antecipa-calendario-do-bolsa-familia-ant",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 1120,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c5692f7b7fec",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/19/justia-encerra-recuperao-judicial-da-americanas.ghtml",
+   "titulo": "Justiça encerra recuperação judicial da Americanas",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "justica-do-rio-encerra-processo-de-recuperacao-j",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 2,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 233,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 1.63,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "LEXICO",
+     "citacao": "rombo bilionário",
+     "paragrafo": "P7",
+     "direcao": "direita",
+     "contribuicao": 1.63,
+     "explicacao": "Uso do termo informal 'rombo' em vez de termos descritivos neutros como 'déficit' ou 'inconsistência contábil'."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "d25827713bd3",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/19/pgr-e-contra-pedido-de-moraes-para-investigar-andre-mendonca-por-atuacao-nos-casos-master-e-inss.ghtml",
+   "titulo": "PGR dá parecer contrário à abertura de inquérito contra André Mendonça",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "pgr-rejeita-pedido-de-investigacao-contra-andre",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 87,
+    "rotulo": "Boa"
+   },
+   "palavras": 774,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "af515604b057",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/19/ministro-do-tse-da-24h-para-meta-comprovar-que-cumpriu-decisao-sobre-publicacoes-politico-eleitorais.ghtml",
+   "titulo": "TSE cobra Meta por isonomia e fim de restrições",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-intima-meta-a-provar-isonomia-apos-campanha",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 530,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "92137e7716fa",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/19/pf-faz-operacao-contra-ex-servidor-do-stj-suspeito-de-vazar-informacoes-a-amigo-de-flavio-bolsonaro.ghtml",
+   "titulo": "PF faz operação contra ex-servidor do STJ suspeito de vazar dados a Willer Tomaz",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "pf-mira-ex-servidor-do-stj-por-suspeita-de-vazar",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 362,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f8639c33cf7f",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/19/economia-cresce-05-pontos-percentuais-em-agosto-ante-julho-informa-fgv.ghtml",
+   "titulo": "Economia cresce 0,5% em agosto ante julho, informa FGV",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "monitor-do-pib-da-fgv-avanca-0-5-em-agosto-e-int",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 244,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "734ba1c8c7ae",
+   "url": "https://c-level.folha.uol.com.br/negocios/2026/10/volks-planeja-congelar-salarios-ate-2030-em-todo-o-mundo-afirma-conselho-de-trabalhadores.shtml",
+   "titulo": "Volks planeja congelar salários até 2030 em todo o mundo, afirma conselho de trabalhadores",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "volkswagen-planeja-congelar-salarios-de-660-mil",
+   "data_publicacao": "2026-10-19",
+   "analisado_em": "2026-10-20",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 258,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-20T10:20:20+00:00",
+   "provedor": "gemini_lite → gemini",
+   "modelo": "gemini-flash-latest + gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 8,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 29427,
+    "saida": 15224
+   },
+   "analises": [
+    "59fc80b33719",
+    "68a9a50418e2",
+    "e5d5e995f47d",
+    "7630df53902b",
+    "3e041781652f",
+    "02dff903fd81",
+    "ecec3be3e5f6",
+    "14c860e1d709",
+    "05abf864c781",
+    "71064ec7310d",
+    "6ae69a4b91e5",
+    "030dbccbf7c2",
+    "ce52db8bb57a",
+    "1c0a7c43a718",
+    "c5692f7b7fec",
+    "d25827713bd3",
+    "af515604b057",
+    "92137e7716fa",
+    "f8639c33cf7f",
+    "734ba1c8c7ae"
+   ]
+  }
+ ]
+}

@@ -1,247 +1,260 @@
 TRIANGULA
-Segunda-feira, 19 de outubro de 2026 · 06:55 BRT
+Terça-feira, 20 de outubro de 2026 · 06:55 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,07 (0,00%) · Euro R$ 5,69 (-0,26%) · Yuan R$ 0,76 (+0,15%) ·
-Ibovespa 205.430 pts (+0,54%) · IFIX 3.940 pts (-0,41%) · S&P 500 7.659
-pts (-1,09%) · Brent US$ 108,54 (-1,20%) · Ouro US$ 4.190 (+0,21%) ·
-Bitcoin US$ 82.889 (+1,04%)
+Dólar R$ 5,05 (+0,11%) · Euro R$ 5,67 (+0,04%) · Yuan R$ 0,76 (+0,09%) ·
+Ibovespa 205.079 pts (-0,17%) · IFIX 3.957 pts (+0,43%) · S&P 500 7.691
+pts (+0,41%) · Brent US$ 111,69 (+1,95%) · Ouro US$ 4.138 (-0,54%) ·
+Bitcoin US$ 81.354 (-1,60%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 15°C, nublado (mín. 14° / máx. 22°) · amanhã: nublado, 13° a
-23°
-Montevidéu: 12°C, nublado (mín. 11° / máx. 12°) · amanhã: nublado, 10° a
-15°
+São Paulo: 14°C, nublado (mín. 14° / máx. 23°) · amanhã: nublado, 14° a
+25°
+Montevidéu: 10°C, céu limpo (mín. 10° / máx. 15°) · amanhã: nublado, 11°
+a 17°
 
 EDITORIAL
 ---------
-A reta final do segundo turno ganha contornos de alta voltagem com o
-primeiro debate direto entre Lula e Flávio Bolsonaro em meio a pesquisas
-que apontam empate técnico. No front econômico e corporativo, as
-atenções se dividem entre a adaptação à nova jornada de trabalho e o
-julgamento bilionário da exclusão do ISS no STF. Lá fora, a onda de
-violência na França e as negociações unilaterais sobre a Ucrânia
-adicionam forte prêmio de risco ao cenário global.
+O encerramento do processo de recuperação judicial da Americanas marca
+um ponto de inflexão para o mercado de crédito e o varejo brasileiro,
+enquanto a rede Ri Happy recorre à reestruturação extrajudicial. Na
+esfera pública, a reta final da corrida presidencial mantém o ambiente
+polarizado com empate técnico nas pesquisas e antecipação de pagamentos
+sociais. No exterior, os riscos geopolíticos e as turbulências fiscais
+voltam ao radar com o cancelamento do fórum de Riad e medidas de
+segurança na Europa.
 
 EM 1 MINUTO
 -----------
-• Debate presidencial: O confronto na Band entre Lula e Flávio Bolsonaro
-  teve foco em ataques mútuos, enquanto a pesquisa Nexus aponta empate
-  técnico.
-• Pauta fiscal: O STF marcou o julgamento sobre a exclusão do ISS da
-  base de PIS/Cofins, caso que pode custar R$ 35,4 bilhões à União.
-• Crise em Paris: Protestos violentos contra aperto orçamentário
-  deixaram 2.400 detidos na França, derrubando o euro e pressionando
-  Emmanuel Macron.
-• Guerra e energia: Donald Trump suspendeu sanções ao petróleo da Rússia
-  em busca de negociação, provocando atritos com o presidente Volodymyr
-  Zelensky.
-• Brasileirão: O Flamengo superou o Bahia por 3 a 0 em Salvador e
-  retomou a liderança do campeonato com 67 pontos na 31ª rodada.
+• A Justiça do Rio encerrou a recuperação judicial de R$ 42,5 bilhões da
+  Americanas, concluindo o processo iniciado após a fraude contábil de
+  2023.
+• Novos levantamentos mostram empate técnico entre Flávio Bolsonaro e
+  Lula a menos de uma semana da votação definitiva no segundo turno.
+• O Ministério da Agricultura declarou emergência zoossanitária em Santa
+  Catarina após foco da doença de Newcastle, motivando embargo do México
+  à carne de ave.
+• A Ri Happy protocolou pedido de recuperação extrajudicial em São Paulo
+  para reestruturar dívidas que somam R$ 827 milhões.
+• A Arábia Saudita adiou a conferência 'Davos no deserto' para 2027 após
+  ataques de mísseis houthis contra aeroportos da região.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.059 notícias coletadas de 36 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 680 assuntos,
+A IA leu as 1.581 notícias coletadas de 44 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.056 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 71 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+seguiu em 94 assuntos e escolheu as 24 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#racional
-Todas as 1.059 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#racional
+Todas as 1.581 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20-todas.html
 
 MANCHETE
 --------
-Lula e Flávio Bolsonaro trocam acusações em debate na Band marcado por
-tensão e poucos projetos
-Primeiro confronto televisivo do segundo turno foca ataques sobre
-corrupção e episódios com aliados, deixando propostas para economia e
-segurança em segundo plano.
-Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, InfoMoney, g1,
-Exame, CNN Brasil, Poder360, Al Jazeera
-Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu
-integralmente ao classificar o debate como agressivo, centrado em
-acusações recíprocas e sem saldo favorável definitivo para qualquer
-lado.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-lula-e-flavio-bolsonaro-trocam-acusacoes-em-deba
+Justiça do Rio encerra processo de recuperação judicial da Americanas
+Decisão encerra reestruturação de R$ 42,5 bilhões iniciada em 2023 após
+fraude contábil, enquanto varejista busca retomar acesso a crédito para
+fornecedores.
+Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, NeoFeed,
+Poder360, Agência Brasil, Exame
+Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu de
+maneira unânime no relato factual da sentença judicial da 4ª Vara
+Empresarial do Rio de Janeiro, com o Valor Econômico detalhando o
+cenário pós-saída da empresa.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-justica-do-rio-encerra-processo-de-recuperacao-j
 
 BRASIL · ECONOMIA
 -----------------
-• Pedidos de recuperação judicial no agronegócio caem 20,7% no segundo
-  trimestre
-  Levantamento da Serasa Experian registra 448 requerimentos e aponta
-  primeira queda para o período desde 2022, embora pedidos de pessoas
-  físicas apresentem alta.
-  Fontes: Money Times, Exame, CNN Brasil
-  Cobertura: Pende para: Destaca alívio com retração de 20,7% nas
-  recuperações · 2 de 3 veículos. A maior parte dos veículos repercutiu
-  o dado agregado de queda nas recuperações, enquanto a Exame chamou
-  atenção para a persistência da pressão sobre produtores pessoa física.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-pedidos-de-recuperacao-judicial-no-agronegocio-c
-
-• Governo inicia pagamento do Bolsa Família de R$ 691 e prepara ajuste
-  no Orçamento
-  Primeira parcela com reajuste de 15,04% começa a ser paga enquanto
-  equipe econômica estrutura proposta para remanejar R$ 20 bilhões no
-  PLOA.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Poder360, Exame
-  Cobertura: Pende para: Prioriza as orientações de calendário e
-  recomposição de renda · 3 de 5 veículos. A maioria dos veículos deu
-  ênfase prática e informativa ao início dos depósitos e às regras do
-  benefício, enquanto o Valor Econômico se diferenciou ao escrutinar o
-  custo político e o remanejamento orçamentário.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-governo-inicia-pagamento-do-bolsa-familia-de-r-6
-
-• Empresas correm para ajustar rotinas e preveem hora extra mais cara
-  com nova escala 5x2
-  Fim da jornada 6x1 aprovado no Senado exige renegociação de convenções
-  com sindicatos em dois meses e pressiona custos trabalhistas.
-  Fontes: Valor Econômico
-  Cobertura: Sem divergência entre os 2 veículos. Os veículos
-  convergiram ao ressaltar a corrida corporativa para adaptação
-  contratual e a perspectiva de custos trabalhistas mais elevados.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-empresas-correm-para-ajustar-rotinas-e-preveem-h
+• Governo declara emergência zoossanitária em SC após foco da doença de
+  Newcastle
+  Portaria abrange quatro municípios catarinenses por 60 dias após caso
+  em criatório de perus, enquanto México suspende importações avícolas
+  do Brasil.
+  Fontes: Estadão, Folha de S.Paulo, g1, CNN Brasil
+  Cobertura: Equilíbrio: 2 × 2 de 4 veículos. A cobertura combinou a
+  descrição imediata dos protocolos de contenção veterinária pelo
+  governo com o alerta para os reflexos econômicos negativos nas
+  exportações do agronegócio.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-governo-declara-emergencia-zoossanitaria-em-sc-a
 
 MERCADOS & FINANÇAS
 -------------------
-• Temporada de balanços do terceiro trimestre começa na B3 com WEG,
-  Bradesco e Romi
-  Calendário de divulgações corporativas divide as atenções do mercado
-  com indicadores como IGP-10 e Monitor do PIB da FGV ao longo da
-  semana.
-  Fontes: Poder360, Money Times, Seu Dinheiro
-  Cobertura: Sem divergência entre os 3 veículos. A imprensa nacional
-  apresentou em tom analítico e factual os prazos de divulgação de
-  balanços do 3T26 e os principais indicadores macroeconômicos da
-  semana.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-temporada-de-balancos-do-terceiro-trimestre-come
+• Província de Alberta rejeita referendo separatista e decide permanecer
+  no Canadá
+  Votação histórica na região responsável por 84% do petróleo canadense
+  afasta risco de ruptura territorial e garante vitória política ao
+  premiê Mark Carney.
+  Fontes: Estadão, g1, CNN Brasil, Financial Times, The Wall Street
+  Journal, The New York Times, The Guardian, Al Jazeera
+  Cobertura: Sem divergência entre os 8 veículos. A imprensa nacional e
+  internacional convergiu ao noticiar a rejeição esmagadora à proposta
+  de separação de Alberta, mantendo a integridade territorial canadense.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-provincia-de-alberta-rejeita-referendo-separatis
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• STF recebe novo inquérito da PF que investiga Flávio Bolsonaro por
-  suposta lavagem de dinheiro
-  Ministro Alexandre de Moraes assume relatoria de apuração preliminar
-  aberta a partir de dados telefônicos do advogado Willer Tomaz.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Money Times
-  Cobertura: Sem divergência entre os 5 veículos. Os veículos relataram
-  de maneira factual a abertura do inquérito no STF, a atuação da PF e a
-  designação do ministro Alexandre de Moraes.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-stf-recebe-novo-inquerito-da-pf-que-investiga-fl
+• PGR rejeita pedido de investigação contra André Mendonça no STF
+  Órgão afasta acusação de abuso de autoridade feita por Alexandre de
+  Moraes por considerar que relatórios de inteligência da PF não possuem
+  valor de prova.
+  Fontes: JOTA, Valor Econômico, Folha de S.Paulo, Estadão, g1, Money
+  Times, Agência Brasil
+  Cobertura: Sem divergência entre os 7 veículos. A cobertura
+  jornalística registrou de forma factual e convergente o parecer da PGR
+  contra a apuração por abuso de autoridade, destacando os limites
+  probatórios dos documentos da PF.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-pgr-rejeita-pedido-de-investigacao-contra-andre
+
+• TSE intima Meta a provar isonomia após campanha de Lula pedir cassação
+  de chapa do PL
+  Justiça Eleitoral estipula 24 horas para empresa comprovar equilíbrio
+  algorítmico, enquanto manifestantes realizam atos em São Paulo sob o
+  lema 'Meta não se meta'.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
+  Brasil, Money Times, Exame
+  Cobertura: Pende para: Destaca a acusação de manipulação e pressão
+  jurídica no TSE · 4 de 7 veículos. A cobertura foi dominada pela forte
+  investida processual da campanha governista no tribunal e nas ruas,
+  contextualizada com a ordem de comprovação emitida pelo TSE à big
+  tech.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-tse-intima-meta-a-provar-isonomia-apos-campanha
+
+• Ri Happy pede recuperação extrajudicial para reestruturar dívida de R$
+  827 milhões
+  Maior rede especializada em brinquedos do país protocola plano em São
+  Paulo com adesão inicial de credores detentores de 42,38% dos débitos
+  após troca de controle.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, NeoFeed, Seu Dinheiro,
+  Suno Notícias
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura seguiu
+  linha puramente factual em todos os veículos, detalhando o
+  endividamento de R$ 827,4 milhões e a transição societária recente da
+  varejista.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-ri-happy-pede-recuperacao-extrajudicial-para-ree
 
 POLÍTICA
 --------
-• Pesquisa BTG/Nexus aponta empate técnico com Flávio em 50,3% e Lula
-  com 49,7%
-  Levantamento mostra redução da distância numérica nos votos válidos e
-  registra divisão expressiva nas taxas de rejeição e aprovação do
-  governo.
-  Fontes: Folha de S.Paulo, Poder360, Money Times, Exame, CNN Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura foi
-  estritamente convergente e factual entre os veículos, destacando o
-  empate técnico absoluto e o alto grau de cristalização das intenções
-  de voto e rejeições.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-pesquisa-btg-nexus-aponta-empate-tecnico-com-fla
+• Pesquisas apontam empate técnico entre Flávio Bolsonaro e Lula na reta
+  final
+  Levantamentos da Futura, BTG/Nexus e Atlas indicam equilíbrio
+  estatístico a menos de uma semana da votação definitiva para a
+  Presidência.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, Poder360,
+  Exame
+  Cobertura: Pende para: Ressalta a liderança numérica de Flávio
+  Bolsonaro · 2 de 6 veículos. A maior parte dos veículos tratou os
+  números como um retrato de empate técnico absoluto, enquanto análises
+  pontuais exploraram os recortes de rejeição e a dinâmica dos votos
+  válidos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-pesquisas-apontam-empate-tecnico-entre-flavio-bo
+
+• Governo antecipa calendário do Bolsa Família antes do segundo turno
+  Medida garante pagamento de parcelas reajustadas a beneficiários a
+  menos de uma semana do pleito, em movimento que reproduz estratégia
+  adotada em 2022.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Seu Dinheiro
+  Cobertura: Pende para: Enfatiza paralelo eleitoral com a estratégia de
+  2022 · 3 de 4 veículos. A maior parte dos veículos ressaltou o caráter
+  político-eleitoral da antecipação e traçou comparações com a eleição
+  de 2022, enquanto apenas o g1 manteve foco estritamente voltado às
+  datas e ao serviço ao beneficiário.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-governo-antecipa-calendario-do-bolsa-familia-ant
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Protestos violentos na França deixam um morto, 2.400 presos e geram
-  abalo nos mercados
-  O presidente Emmanuel Macron afirmou que nada justifica a violência e
-  rejeitou a renúncia do ministro do Interior, enquanto investidores
-  vendem ativos franceses.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, Financial Times, The Guardian, Al Jazeera, CNBC, The Wall
-  Street Journal, The New York Times, BBC News, El País
-  Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu
-  na gravidade dos atos de vandalismo e nos registros de prisões e
-  feridos, com alguns veículos adicionando repercussões econômicas e
-  políticas.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-protestos-violentos-na-franca-deixam-um-morto-2
+• França decreta toques de recolher para conter onda de protestos
+  violentos
+  Governo francês impõe restrições em Paris e outras cidades após dias
+  de saques e confrontos; Itália também reforça segurança em Milão com
+  envio de tropas.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
+  Financial Times, The New York Times, The Guardian, CNBC
+  Cobertura: Equilíbrio: 1 × 1 de 10 veículos. A cobertura concentrou-se
+  de forma convergente no relato factual da imposição dos toques de
+  recolher e no reforço policial, com alguns veículos internacionais
+  aprofundando a análise sobre a crise estrutural dos governos
+  centristas.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-franca-decreta-toques-de-recolher-para-conter-on
 
-• Trump suspende sanções à Rússia em busca de negociações e entra em
-  confronto com Zelensky
-  Alívio a compradores de petróleo busca conter preços de energia e
-  provoca forte reação do líder ucraniano.
-  Fontes: g1, The New York Times, The Wall Street Journal, BBC News,
-  CNBC, Al Jazeera, Valor Econômico, Folha de S.Paulo
-  Cobertura: Pende para: Critica a flexibilização como recuo frente a
-  Moscou · 2 de 6 veículos. A cobertura norte-americana polarizou-se
-  entre o pragmatismo doméstico da Casa Branca frente aos combustíveis e
-  as acusações de Kiev sobre a quebra de apoio contra Moscou.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-trump-suspende-sancoes-a-russia-em-busca-de-nego
-
-• Ucrânia lança ataque com mais de mil drones e atinge infraestrutura de
-  petróleo na Rússia
-  Bombardeios atingiram refinarias e centros de dados em São Petersburgo
-  e Leningrado, deixando mortos e feridos.
-  Fontes: Valor Econômico, The Wall Street Journal, BBC News, Al Jazeera
-  Cobertura: Sem divergência entre os 4 veículos. A imprensa cobriu de
-  maneira uniforme o volume histórico de aeronaves não tripuladas e a
-  concentração de danos materiais no setor energético russo.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-ucrania-lanca-ataque-com-mais-de-mil-drones-e-at
+• Arábia Saudita adia fórum de investimentos para 2027 após ataques de
+  mísseis houthis
+  Conhecida como "Davos no deserto", a conferência em Riad reuniria
+  líderes de Wall Street e foi suspensa após ofensivas contra aeroportos
+  do reino.
+  Fontes: Valor Econômico, The New York Times, The Wall Street Journal,
+  CNBC, Al Jazeera
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura
+  internacional foi estritamente factual e convergiu ao relatar o
+  adiamento do fórum para 2027 provocado pelos ataques letais a
+  aeroportos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-arabia-saudita-adia-forum-de-investimentos-para
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Anthropic destina 5% de suas ações a fundo voltado a mitigar impacto
-  da IA
-  Empresa criadora do Claude planeja compensar perda de postos de
-  trabalho e financiar ações de bem público antes de eventual abertura
-  de capital.
-  Fontes: Valor Econômico, Money Times, Financial Times, The Wall Street
-  Journal, BBC News, CNBC, Al Jazeera, TechCrunch
-  Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu
-  na divulgação do anúncio da Anthropic, priorizando os efeitos sobre o
-  mercado de trabalho e citando o escrutínio público e a futura oferta
-  de ações.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-anthropic-destina-5-de-suas-acoes-a-fundo-voltad
+• Taction pede inclusão de juros e vendas recentes a indenização de US$
+  5,7 bi contra Apple
+  Fabricante do iPhone violou patente de resposta tátil em relógios e
+  celulares; empresa de San Diego busca elevar a conta em centenas de
+  milhões.
+  Fontes: Valor Econômico, g1
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura foi
+  totalmente uniforme ao relatar a tentativa da Taction de inflar a
+  condenação bilionária e a negativa categórica da Apple perante o
+  tribunal.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-taction-pede-inclusao-de-juros-e-vendas-recentes
 
-• EUA ameaçam Europa com retaliação devastadora por restrições à
-  Starlink
-  Embaixador americano adverte que planos da União Europeia de limitar
-  acesso de concorrentes estrangeiros ao espectro provocarão resposta
-  dura de Washington.
-  Fontes: Valor Econômico, Folha de S.Paulo, Financial Times
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura foi
-  unânime ao registrar o tom ameaçador da diplomacia norte-americana
-  contra planos regulatórios europeus que afetam a Starlink e a SpaceX.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-eua-ameacam-europa-com-retaliacao-devastadora-po
+• Ex-engenheiro da OpenAI acusado de espionagem tem fiança negada após
+  apoio da Arábia Saudita
+  Abdulrahman Alfozan é réu por instalar escuta em sala de reuniões
+  executivas da dona do ChatGPT; autoridades sauditas bancaram fuga da
+  família.
+  Fontes: Valor Econômico, The Wall Street Journal, The New York Times,
+  BBC News, CNBC
+  Cobertura: Sem divergência entre os 5 veículos. Os veículos
+  convergiram nos dados processuais, frisando a gravidade do grampo
+  corporativo na sede da OpenAI e a intervenção direta de diplomatas
+  sauditas.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-ex-engenheiro-da-openai-acusado-de-espionagem-te
 
 ESPORTE
 -------
-• Flamengo supera o Bahia por 3 a 0 e retoma a liderança do Campeonato
-  Brasileiro
-  Time carioca constrói vitória no segundo tempo na Arena Fonte Nova e
-  alcança 67 pontos na 31ª rodada.
-  Fontes: ge, Estadão, Folha de S.Paulo, Placar, CNN Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
-  inteiramente no relato do domínio do Flamengo na etapa final e no
-  impacto imediato do placar sobre a liderança da Série A.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-flamengo-supera-o-bahia-por-3-a-0-e-retoma-a-lid
+• Corinthians empata com Vitória sob olhar de Seedorf e continua
+  ameaçado pelo rebaixamento
+  Gol de pênalti de Yuri Alberto encerra sequência de oito derrotas, mas
+  mantém equipe sem vencer há nove rodadas.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, UOL, Placar,
+  CNN Brasil
+  Cobertura: Pende para: Enfatiza a crise corintiana e a proximidade do
+  Z-4 · 6 de 7 veículos. Predominou o enfoque na persistência da crise e
+  na ameaça de rebaixamento do Corinthians, com a postura de Seedorf no
+  estádio no centro da cobertura.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-corinthians-empata-com-vitoria-sob-olhar-de-seed
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• COP17 da Biodiversidade começa na Armênia com alerta da ONU sobre
-  atraso nas metas globais
-  Reunião de mais de 200 países em Yerevan realiza primeira revisão do
-  Marco de Kunming-Montreal.
-  Fontes: Agência Brasil
-  Cobertura: Sem divergência entre os 2 veículos. Os veículos
-  convergiram no registro factual sobre o déficit no cumprimento das
-  metas acordadas para a contenção da perda de biodiversidade até o fim
-  da década.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-cop17-da-biodiversidade-comeca-na-armenia-com-al
+• COP17 da Biodiversidade começa na Armênia com alerta sobre metas
+  globais
+  Representantes de quase 200 países iniciam conferência da ONU em
+  Ierevan sem cumprimento prévio das metas para a natureza.
+  Fontes: Um Só Planeta, ClimaInfo, The Guardian
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura converge
+  na constatação de que os países falharam nas metas anteriores da ONU e
+  destaca a pressão por compromissos reais na Armênia.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-cop17-da-biodiversidade-comeca-na-armenia-com-al
 
 CULTURA & VARIEDADES
 --------------------
-• Morre aos 84 anos o cantor e pianista Benito Di Paula em São Paulo
-  Ícone do samba com piano nos anos 1970, artista enfrentava
-  complicações decorrentes de câncer de próstata.
-  Fontes: Valor Econômico, Exame, CNN Brasil
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura foi
-  unânime e factual, prestando tributo à importância artística de Benito
-  Di Paula para a MPB.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-19.html#s-morre-aos-84-anos-o-cantor-e-pianista-benito-di
+• Morre aos 84 anos o cantor e compositor Benito Di Paula em São Paulo
+  Artista enfrentava complicações decorrentes de um câncer de próstata
+  diagnosticado há cerca de um ano.
+  Fontes: Valor Econômico
+  Cobertura: Equilíbrio: 1 × 1 de 2 veículos. A cobertura combinou a
+  notificação da perda cultural com uma abordagem de conscientização
+  médica sobre a doença.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-20.html#s-morre-aos-84-anos-o-cantor-e-compositor-benito-d
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
