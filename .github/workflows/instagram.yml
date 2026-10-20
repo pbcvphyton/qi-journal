@@ -41,7 +41,10 @@ jobs:
   instagram:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Logo depois da edição, o publicador espera até 75 min pelo horário-alvo
+    # das publicações da manhã (minutos do Actions são grátis em repositório
+    # público), em vez de depender do agendamento, que atrasa horas.
+    timeout-minutes: 120
     env:
       TZ: America/Sao_Paulo
       PYTHONUNBUFFERED: "1"
@@ -129,9 +132,15 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_API_HOST: ${{ vars.IG_API_HOST }}
           IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          IG_PAUSE: ${{ vars.IG_PAUSE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT: ${{ github.event_name }}
         run: |
-          python -m qijournal instagram publicar --media-dir "$MEDIA_DIR" \
-            --token-out "$RUNNER_TEMP/ig-token" --alert-out "$RUNNER_TEMP/ig-alerta.txt"
+          # --sync: a fila vai para a branch instagram a cada passo (container
+          # criado, publicado), para nada sair em dobro se a execução morrer.
+          args=(--media-dir "$MEDIA_DIR" --sync --token-out "$RUNNER_TEMP/ig-token" --alert-out "$RUNNER_TEMP/ig-alerta.txt")
+          if [ "$EVENT" = "workflow_run" ] || [ "$EVENT" = "repository_dispatch" ]; then args+=(--wait-max 75); fi
+          python -m qijournal instagram publicar "${args[@]}"
 
       - name: Guardar a fila (branch instagram)
         if: always() && steps.plan.outputs.publish == 'true'
@@ -157,6 +166,7 @@ jobs:
           rm -f "$RUNNER_TEMP/ig-token"
 
       - name: Avisar o dono (issue)
+        # O GitHub manda e-mail ao dono do repositório a cada issue e comentário.
         if: always() && hashFiles(format('{0}/ig-alerta.txt', runner.temp)) != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -165,11 +175,25 @@ jobs:
           number=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
           body="$(cat "$RUNNER_TEMP/ig-alerta.txt")
 
+          Passo a passo: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/blob/main/docs/instagram.md
           Execução: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           if [ -n "$number" ]; then
             gh issue comment "$number" --repo "$GITHUB_REPOSITORY" --body "$body"
           else
-            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body "$body"
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body "$body" --assignee "$GITHUB_REPOSITORY_OWNER" \
+              || gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body "$body"
+          fi
+
+      - name: Fechar o aviso resolvido
+        if: steps.publish.outcome == 'success' && hashFiles(format('{0}/ig-alerta.txt', runner.temp)) == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          title="Instagram: ação necessária"
+          number=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue close "$number" --repo "$GITHUB_REPOSITORY" --comment "Resolvido: o Instagram voltou a publicar normalmente."
           fi
 
       - name: Resultado

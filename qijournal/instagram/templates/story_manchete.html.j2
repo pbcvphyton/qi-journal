@@ -1,0 +1,3 @@
+{% extends "_base.html.j2" %}
+{% block style %}.box{position:absolute;inset:80px;font-size:34px;line-height:1.3;overflow:hidden}h1{font-family:'Noto Serif';font-size:56px;margin-bottom:24px}{% endblock %}
+{% block body %}<div class="box" data-fit="debug" data-min="18"><h1>story_manchete · {{ page }}/{{ pages }}</h1>{% for k, v in s.items() %}<p><b>{{ k }}</b>: {{ v }}</p>{% endfor %}</div>{% endblock %}

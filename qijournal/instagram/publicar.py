@@ -1,4 +1,15 @@
-"""Publica no Instagram o que venceu na fila (instagram/fila.json)."""
+"""Publica no Instagram o que venceu na fila (``fila.json`` da branch ``instagram``).
+
+Proteções contra publicar em dobro (o log da execução é público e ninguém
+acompanha a conta):
+
+- o id do container é gravado (e enviado à branch) ANTES do ``media_publish``;
+  a execução seguinte confere o status dele em vez de criar outro;
+- ``media_publish`` nunca é repetido às cegas (ver ``InstagramClient.publish``);
+- antes de publicar um post de feed, a primeira linha da legenda é procurada
+  nas publicações recentes do perfil;
+- no máximo um post de feed a cada :data:`~.fila.FEED_GAP`.
+"""
 
 from __future__ import annotations
 
@@ -11,12 +22,13 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import Callable
 
-from .fila import FAILED, MAX_ATTEMPTS, PUBLISHED, Fila, Post
+from .fila import FAILED, FEED_GAP, MAX_ATTEMPTS, PUBLISHED, Fila, Post
 from .graph import GraphError, InstagramClient
 
 log = logging.getLogger(__name__)
 
 UrlCheck = Callable[[str], bool]
+Save = Callable[[str], None]  # recebe uma descrição curta do que mudou
 
 
 class TokenInvalido(Exception):
@@ -47,8 +59,8 @@ def _first_line(caption: str) -> str:
 class Resultado:
     publicados: list[Post] = field(default_factory=list)
     falhas: list[Post] = field(default_factory=list)
-    aguardando: list[Post] = field(default_factory=list)  # imagens ainda fora do ar
-    limite: bool = False  # limite de publicações em 24 h atingido
+    aguardando: list[Post] = field(default_factory=list)  # imagens ainda fora do ar ou intervalo do feed
+    limite: bool = False  # cota de publicações em 24 h atingida
 
 
 def _already_on_instagram(post: Post, recent: list[dict], since: datetime) -> dict | None:
@@ -57,7 +69,7 @@ def _already_on_instagram(post: Post, recent: list[dict], since: datetime) -> di
     Rede de segurança contra publicar em dobro quando uma execução publicou mas
     morreu antes de gravar a fila. Stories não têm legenda: não se aplica.
     """
-    if post.kind == "story" or not post.caption:
+    if not post.feed or not post.caption:
         return None
     key = _first_line(post.caption)
     if not key:
@@ -72,6 +84,48 @@ def _already_on_instagram(post: Post, recent: list[dict], since: datetime) -> di
     return None
 
 
+def _create_container(client: InstagramClient, post: Post, urls: list[str]) -> str:
+    if post.kind == "carousel":
+        alts = list(post.alt_texts) + [None] * (len(urls) - len(post.alt_texts))
+        children = [client.create_image(u, carousel_item=True, alt_text=a) for u, a in zip(urls, alts)]
+        for child in children:
+            client.wait_ready(child)
+        return client.create_carousel(children, post.caption)
+    if post.kind == "image":
+        return client.create_image(urls[0], caption=post.caption, alt_text=(post.alt_texts or [None])[0])
+    return client.create_image(urls[0], story=True)
+
+
+def _publish_one(client: InstagramClient, post: Post, urls: list[str], save: Save) -> str:
+    """Cria (ou reaproveita) o container, grava o id e publica. Devolve o id da mídia."""
+    if post.container_id:
+        status = client.container_status(post.container_id)
+        if status == "PUBLISHED":
+            log.warning("Instagram: %s já tinha sido publicado (container %s)", post.id, post.container_id)
+            return (client.find_published() if post.feed else None) or post.container_id
+        if status != "FINISHED":  # EXPIRED, ERROR ou desconhecido: cria outro
+            post.container_id = None
+    if not post.container_id:
+        post.container_id = _create_container(client, post, urls)
+        save(f"{post.id}: container criado")
+    client.wait_ready(post.container_id)
+    return client.publish(post.container_id, feed=post.feed)
+
+
+def _quota_reached(client: InstagramClient) -> bool:
+    try:
+        usage, total = client.publishing_quota()
+    except GraphError as exc:
+        if exc.token_invalid:
+            raise TokenInvalido(str(exc)) from exc
+        log.warning("Instagram: cota de publicação indisponível (%s)", exc)
+        return False
+    if usage is not None and total:
+        log.info("Instagram: %s de %s publicações nas últimas 24 h", usage, total)
+        return usage >= total - 1
+    return False
+
+
 def publish_due(
     fila: Fila,
     client: InstagramClient,
@@ -79,14 +133,15 @@ def publish_due(
     media_url: str,
     now: datetime,
     check_url: UrlCheck = url_ok,
-    save: Callable[[], None] | None = None,
+    save: Save | None = None,
 ) -> Resultado:
     """Publica as publicações vencidas, na ordem do horário-alvo.
 
-    Grava a fila (``save``) depois de cada publicação, para que uma falha no meio
-    não faça a próxima execução publicar de novo. Levanta :class:`TokenInvalido`
-    se o token não serve mais.
+    ``save`` é chamado a cada mudança de estado (container criado, publicado,
+    falha), para que nada se perca se a execução morrer no meio. Levanta
+    :class:`TokenInvalido` se o token não serve mais.
     """
+    save = save or (lambda what: None)
     resultado = Resultado()
     due = fila.due(now)
     if not due:
@@ -98,8 +153,18 @@ def publish_due(
             raise TokenInvalido(str(exc)) from exc
         log.warning("Instagram: não deu para listar as publicações recentes (%s)", exc)
         recent = []
+    if _quota_reached(client):
+        log.warning("Instagram: cota de publicações em 24 h no limite; a fila fica para depois")
+        resultado.limite = True
+        return resultado
 
     for post in due:
+        if post.feed:
+            last = fila.last_feed_publication()
+            if last is not None and now - last < FEED_GAP:
+                log.info("Instagram: %s espera o intervalo de %s desde o último post de feed", post.id, FEED_GAP)
+                resultado.aguardando.append(post)
+                continue
         urls = [media_url + path for path in post.images]
         missing = [u for u in urls if not check_url(u)]
         if missing:
@@ -111,48 +176,40 @@ def publish_due(
             log.warning("Instagram: %s já estava no perfil (%s); só registrando", post.id, found.get("id"))
             post.status, post.media_id = PUBLISHED, str(found.get("id"))
             post.permalink = found.get("permalink")
-            post.published_at = str(found.get("timestamp"))
+            post.published_at = now.isoformat(timespec="seconds")
             resultado.publicados.append(post)
-            if save:
-                save()
+            save(f"{post.id}: já publicado")
             continue
         post.attempts += 1
         try:
-            if post.kind == "carousel":
-                media_id = client.post_carousel(urls, post.caption, post.alt_texts)
-            elif post.kind == "image":
-                media_id = client.post_image(urls[0], post.caption, (post.alt_texts or [None])[0])
-            else:
-                media_id = client.post_story(urls[0])
+            media_id = _publish_one(client, post, urls, save)
         except GraphError as exc:
             post.last_error = str(exc)[:500]
             if exc.token_invalid:
                 post.attempts -= 1  # não conta: o problema é o token, não a publicação
-                if save:
-                    save()
+                save(f"{post.id}: token inválido")
                 raise TokenInvalido(str(exc)) from exc
             if exc.publish_limit:
                 post.attempts -= 1
-                log.warning("Instagram: limite de publicações em 24 h atingido; %s fica para depois", post.id)
+                log.warning("Instagram: cota de publicações em 24 h atingida; %s fica para depois", post.id)
                 resultado.limite = True
-                if save:
-                    save()
+                save(f"{post.id}: cota atingida")
                 break
             post.status = FAILED
             if not exc.transient:
                 post.attempts = MAX_ATTEMPTS  # erro permanente: não adianta tentar de novo
+                post.container_id = None
             log.error("Instagram: %s não saiu (tentativa %d): %s", post.id, post.attempts, exc)
             resultado.falhas.append(post)
-            if save:
-                save()
+            save(f"{post.id}: falhou")
             continue
         post.status = PUBLISHED
         post.media_id = media_id
+        post.container_id = None
         post.last_error = None
         post.published_at = now.isoformat(timespec="seconds")
-        post.permalink = client.permalink(media_id)
+        post.permalink = client.permalink(media_id) if post.feed else None
         log.info("Instagram: %s publicado (%s)", post.id, post.permalink or media_id)
         resultado.publicados.append(post)
-        if save:
-            save()
+        save(f"{post.id}: publicado")
     return resultado

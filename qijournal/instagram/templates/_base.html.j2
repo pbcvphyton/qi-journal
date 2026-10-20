@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+{{ brand.fonts_css }}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:{{ 1080 }}px;height:{{ 1920 if kind == 'story' else 1350 }}px;overflow:hidden}
+body{font-family:'Noto Sans',sans-serif;background:#F6F4EF;color:#1B2745;-webkit-font-smoothing:antialiased}
+.fit-clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--clamp,6);overflow:hidden}
+{% block style %}{% endblock %}
+</style></head>
+<body>{% block body %}{% endblock %}</body></html>

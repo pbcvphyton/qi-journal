@@ -306,6 +306,38 @@ class TermometroConfig:
 
 
 @dataclass
+class InstagramSlot:
+    """Horário-alvo de uma publicação diária (BRT) e até quando ela ainda pode sair."""
+
+    weekdays: str | None = None  # "07:00" de segunda a sexta (None: não sai)
+    weekends: str | None = None  # sábado e domingo
+    expires: str = "23:00"  # prazo no mesmo dia; passou disso, não sai mais
+
+
+def _instagram_slots(raw: Any) -> dict[str, InstagramSlot]:
+    defaults = {
+        "manha": InstagramSlot(weekdays="07:00", weekends="08:30", expires="13:00"),
+        "stories": InstagramSlot(weekdays="07:10", weekends="08:40", expires="13:00"),
+        "raiox": InstagramSlot(weekdays="18:30", weekends=None, expires="22:30"),
+    }
+    for name, value in (raw or {}).items():
+        defaults[name] = InstagramSlot(**value) if isinstance(value, Mapping) else InstagramSlot()
+    return defaults
+
+
+@dataclass
+class InstagramConfig:
+    """Publicações do Instagram geradas a partir da edição (qijournal/instagram)."""
+
+    enabled: bool = True
+    # Período eleitoral: até esta data (inclusive), nada de pesquisa eleitoral e
+    # política fora do Raio-X; no "Em 1 minuto", no máximo um item de política.
+    election_until: str | None = None
+    keep_days: int = 7  # dias de imagens guardados na branch instagram
+    slots: dict[str, InstagramSlot] = field(default_factory=lambda: _instagram_slots(None))
+
+
+@dataclass
 class CityConfig:
     name: str
     lat: float
@@ -333,6 +365,7 @@ class Config:
     llm: LLMConfig
     email: EmailConfig
     termometro: TermometroConfig = field(default_factory=TermometroConfig)
+    instagram: InstagramConfig = field(default_factory=InstagramConfig)
 
     def section(self, section_id: str) -> SectionConfig:
         for s in self.sections:
@@ -443,6 +476,10 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
     if _truthy(env.get("QIJ_NO_TERMOMETRO")):
         termometro.enabled = False
 
+    instagram_raw = dict(site_raw.get("instagram") or {})
+    slots = _instagram_slots(instagram_raw.pop("slots", None))
+    instagram = InstagramConfig(**instagram_raw, slots=slots)
+
     return Config(
         root=root,
         site=site,
@@ -455,4 +492,5 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
         llm=llm,
         email=email,
         termometro=termometro,
+        instagram=instagram,
     )

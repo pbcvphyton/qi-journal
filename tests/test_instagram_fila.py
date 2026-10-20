@@ -73,28 +73,46 @@ def test_prune_remove_registros_antigos():
 
 
 class FakeClient:
-    def __init__(self, *, recent=(), fail=None):
+    """Cliente falso: registra containers e publicações; ``fail`` estoura na criação do container."""
+
+    def __init__(self, *, recent=(), fail=None, quota=(0, 100), statuses=None):
         self.recent = list(recent)
         self.fail = fail
-        self.posted = []
+        self.quota = quota
+        self.statuses = dict(statuses or {})
+        self.containers = []
+        self.published = []
 
     def recent_media(self, limit=25):
         return self.recent
 
-    def _go(self, kind, *args):
+    def publishing_quota(self):
+        return self.quota
+
+    def create_image(self, url, *, caption=None, alt_text=None, carousel_item=False, story=False):
         if self.fail:
             raise self.fail
-        self.posted.append((kind, args))
-        return f"m{len(self.posted)}"
+        cid = f"c{len(self.containers) + 1}"
+        self.containers.append((cid, "story" if story else "item" if carousel_item else "image", url, caption, alt_text))
+        return cid
 
-    def post_carousel(self, urls, caption, alts):
-        return self._go("carousel", urls, caption, alts)
+    def create_carousel(self, children, caption):
+        cid = f"c{len(self.containers) + 1}"
+        self.containers.append((cid, "carousel", list(children), caption, None))
+        return cid
 
-    def post_image(self, url, caption, alt):
-        return self._go("image", url, caption, alt)
+    def wait_ready(self, cid):
+        pass
 
-    def post_story(self, url):
-        return self._go("story", url)
+    def container_status(self, cid):
+        return self.statuses.get(cid, "FINISHED")
+
+    def publish(self, cid, *, feed=True):
+        self.published.append(cid)
+        return f"m{len(self.published)}"
+
+    def find_published(self):
+        return "m-recente"
 
     def permalink(self, media_id):
         return f"https://www.instagram.com/p/{media_id}/"
@@ -104,13 +122,16 @@ def test_publica_o_que_venceu_e_grava_a_cada_publicacao():
     fila = Fila(posts=[post(), post("2026-10-20-story", kind="story", images=["instagram/2026-10-20/story.jpg"], due="2026-10-20T07:00:00-03:00")])
     saves = []
     client = FakeClient()
-    res = publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True, save=lambda: saves.append(1))
+    res = publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True, save=saves.append)
     assert [p.id for p in res.publicados] == ["2026-10-20-story", "2026-10-20-carrossel"]
-    assert len(saves) == 2
-    kind, (urls, caption, alts) = client.posted[1]
-    assert kind == "carousel" and urls[0] == BASE + "instagram/2026-10-20/carrossel-01.jpg"
+    assert len(saves) == 4  # container criado + publicado, para cada um
+    carousel = [c for c in client.containers if c[1] == "carousel"][0]
+    items = [c for c in client.containers if c[1] == "item"]
+    assert carousel[2] == [c[0] for c in items] and carousel[3].startswith("Manchete do dia")
+    assert items[0][2] == BASE + "instagram/2026-10-20/carrossel-01.jpg"
     p = fila.get("2026-10-20-carrossel")
-    assert p.status == PUBLISHED and p.media_id == "m2" and p.permalink.endswith("/m2/")
+    assert p.status == PUBLISHED and p.media_id == "m2" and p.permalink.endswith("/m2/") and p.container_id is None
+    assert fila.get("2026-10-20-story").permalink is None
     assert publish_due(fila, client, media_url=BASE, now=at("09:00"), check_url=lambda u: True).publicados == []
 
 
@@ -127,7 +148,7 @@ def test_nao_publica_de_novo_o_que_ja_esta_no_perfil():
     recent = [{"id": "999", "caption": "Manchete do dia — algo\noutro corpo", "timestamp": "2026-10-20T10:31:00+0000", "permalink": "https://www.instagram.com/p/x/"}]
     client = FakeClient(recent=recent)
     res = publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True)
-    assert client.posted == []
+    assert client.containers == [] and client.published == []
     assert fila.get("2026-10-20-carrossel").media_id == "999"
     assert res.publicados
 
@@ -154,3 +175,38 @@ def test_token_invalido_interrompe_tudo():
     with pytest.raises(TokenInvalido):
         publish_due(fila, FakeClient(fail=GraphError("expirou", code=190)), media_url=BASE, now=at("08:00"), check_url=lambda u: True)
     assert fila.get("2026-10-20-carrossel").attempts == 0
+
+
+def test_intervalo_minimo_entre_posts_de_feed():
+    manha = post("2026-10-20-carrossel", status=PUBLISHED, published_at="2026-10-20T16:30:00-03:00")
+    noite = post("2026-10-20-raiox", due="2026-10-20T18:30:00-03:00", caption="Raio-X\n")
+    story = post("2026-10-20-story", kind="story", images=["s.jpg"], due="2026-10-20T18:00:00-03:00")
+    fila = Fila(posts=[manha, noite, story])
+    res = publish_due(fila, FakeClient(), media_url=BASE, now=at("18:45"), check_url=lambda u: True)
+    assert [p.id for p in res.publicados] == ["2026-10-20-story"]  # story não respeita o intervalo
+    assert [p.id for p in res.aguardando] == ["2026-10-20-raiox"]
+    res = publish_due(fila, FakeClient(), media_url=BASE, now=at("19:31"), check_url=lambda u: True)
+    assert [p.id for p in res.publicados] == ["2026-10-20-raiox"]
+
+
+def test_container_gravado_e_reaproveitado_na_execucao_seguinte():
+    fila = Fila(posts=[post(container_id="c-antigo", status=FAILED, attempts=1)])
+    client = FakeClient(statuses={"c-antigo": "FINISHED"})
+    publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True)
+    assert client.containers == [] and client.published == ["c-antigo"]
+
+    fila = Fila(posts=[post(container_id="c-antigo", status=FAILED, attempts=1)])
+    client = FakeClient(statuses={"c-antigo": "PUBLISHED"})
+    publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True)
+    assert client.published == [] and fila.posts[0].status == PUBLISHED and fila.posts[0].media_id == "m-recente"
+
+    fila = Fila(posts=[post(container_id="c-antigo", status=FAILED, attempts=1)])
+    client = FakeClient(statuses={"c-antigo": "EXPIRED"})
+    publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True)
+    assert len(client.containers) == 3 and client.published == ["c3"]
+
+
+def test_cota_no_limite_nao_publica():
+    fila = Fila(posts=[post()])
+    res = publish_due(fila, FakeClient(quota=(99, 100)), media_url=BASE, now=at("08:00"), check_url=lambda u: True)
+    assert res.limite and fila.posts[0].status == PENDING and fila.posts[0].attempts == 0

@@ -24,6 +24,7 @@ KINDS = ("carousel", "image", "story")
 PENDING, PUBLISHED, FAILED, EXPIRED = "pending", "published", "failed", "expired"
 MAX_ATTEMPTS = 4  # tentativas por publicação (erros permanentes desistem na hora)
 KEEP_DAYS = 45  # registros mais antigos saem da fila
+FEED_GAP = timedelta(hours=3)  # intervalo mínimo entre dois posts de feed
 
 
 @dataclass
@@ -40,9 +41,15 @@ class Post:
     status: str = PENDING
     attempts: int = 0
     last_error: str | None = None
+    container_id: str | None = None  # container criado e ainda não publicado (recuperação)
     media_id: str | None = None
     permalink: str | None = None
     published_at: str | None = None
+
+    @property
+    def feed(self) -> bool:
+        """Vai para o feed (carrossel, imagem); story não conta no intervalo entre posts."""
+        return self.kind != "story"
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -120,6 +127,15 @@ class Fila:
             if now >= post.due_at():
                 ready.append(post)
         return sorted(ready, key=lambda p: (p.due_at(), p.id))
+
+    def last_feed_publication(self) -> datetime | None:
+        times = [datetime.fromisoformat(p.published_at) for p in self.posts if p.feed and p.status == PUBLISHED and p.published_at]
+        return max(times) if times else None
+
+    def next_due(self, now: datetime) -> datetime | None:
+        """Próximo horário-alvo ainda no futuro entre as publicações pendentes."""
+        upcoming = [p.due_at() for p in self.posts if p.status == PENDING and p.due_at() > now and p.expires_at() > now]
+        return min(upcoming) if upcoming else None
 
     def prune(self, today: date, keep_days: int = KEEP_DAYS) -> list[Post]:
         """Remove da fila registros com mais de ``keep_days`` dias; devolve os removidos."""

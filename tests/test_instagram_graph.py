@@ -13,9 +13,11 @@ class FakeTransport:
     def __init__(self, responses):
         self.responses = list(responses)
         self.calls = []
+        self.tokens = []
 
-    def __call__(self, method, url, params):
+    def __call__(self, method, url, params, token):
         self.calls.append((method, url, dict(params)))
+        self.tokens.append(token)
         if not self.responses:
             raise AssertionError(f"chamada inesperada: {method} {url}")
         response = self.responses.pop(0)
@@ -42,7 +44,7 @@ def test_post_image_cria_container_espera_e_publica():
     assert params["image_url"] == "https://x/img.jpg"
     assert params["caption"] == "Legenda"
     assert params["alt_text"] == "Texto alternativo"
-    assert params["access_token"] == "SEGREDO"
+    assert "access_token" not in params and set(t.tokens) == {"SEGREDO"}  # token só no cabeçalho
     assert t.calls[1][0] == "GET" and t.calls[1][1].endswith("/c1")
     assert t.calls[-1][1].endswith("/17841400000000000/media_publish")
     assert t.calls[-1][2]["creation_id"] == "c1"
@@ -132,11 +134,32 @@ def test_refresh_token_sem_versao_na_url_e_troca_o_token_em_uso():
     assert info.access_token == "NOVO" and info.expires_in == 5184000
     assert t.calls[0][1] == "https://graph.instagram.com/refresh_access_token"
     assert t.calls[0][2]["grant_type"] == "ig_refresh_token"
+    assert t.calls[0][2]["access_token"] == "SEGREDO" and t.tokens[0] == ""  # a renovação exige o token na query
     c.account()
-    assert t.calls[1][2]["access_token"] == "NOVO"
+    assert t.tokens[1] == "NOVO"
 
 
 def test_host_do_facebook_login():
     c, t = client([(200, {"data": [{"quota_usage": 3, "config": {"quota_total": 50}}]})], host="graph.facebook.com", version="v24.0")
     assert c.publishing_quota() == (3, 50)
     assert t.calls[0][1] == "https://graph.facebook.com/v24.0/17841400000000000/content_publishing_limit"
+
+
+def test_publish_nao_repete_as_cegas_e_confere_o_container():
+    # media_publish falha com 5xx, mas o container já estava publicado: não publica de novo.
+    c, t = client([
+        (500, {"error": {"message": "erro", "code": 2, "is_transient": True}}),
+        (200, {"status_code": "PUBLISHED"}),
+        (200, {"data": [{"id": "m7"}]}),
+    ])
+    assert c.publish("c1") == "m7"
+    assert [call[1].rsplit("/", 1)[-1] for call in t.calls] == ["media_publish", "c1", "media"]
+
+    # Story publicado: não há lista para consultar; fica o id do container.
+    c, t = client([(502, {"error": {"message": "erro"}}), (200, {"status_code": "PUBLISHED"})])
+    assert c.publish("c2", feed=False) == "c2"
+
+    # Container ainda pronto (FINISHED): tenta publicar mais uma vez.
+    c, t = client([(503, {"error": {"message": "erro"}}), (200, {"status_code": "FINISHED"}), (200, {"id": "m8"})])
+    assert c.publish("c3") == "m8"
+    assert sum(1 for call in t.calls if call[1].endswith("media_publish")) == 2

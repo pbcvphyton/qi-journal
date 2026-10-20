@@ -2,9 +2,9 @@
 
 Serve tanto à "Instagram API with Instagram Login" (``graph.instagram.com``)
 quanto à "with Facebook Login" (``graph.facebook.com``): o fluxo de publicação
-é o mesmo (container → espera ficar pronto → ``media_publish``). O token vai
-sempre no corpo do POST ou na query do GET e nunca aparece nos logs nem nas
-mensagens de erro (o log do Actions é público em repositório público).
+é o mesmo (container → espera ficar pronto → ``media_publish``). O token vai no
+cabeçalho ``Authorization: Bearer`` (nunca na URL) e não aparece nos logs nem
+nas mensagens de erro (o log do Actions é público em repositório público).
 
 Todo acesso à rede passa por um ``transport`` injetável, para os testes rodarem
 sem internet.
@@ -33,8 +33,8 @@ TRANSIENT_CODES = {1, 2, 4, 17, 32, 613, 9007}
 TOKEN_CODES = {190}  # token expirado, revogado ou inválido
 PUBLISH_LIMIT_SUBCODES = {2207042}  # limite de publicações em 24 h atingido
 
-# (método, url, parâmetros) → (status HTTP, corpo JSON decodificado)
-Transport = Callable[[str, str, dict[str, str]], tuple[int, Any]]
+# (método, url, parâmetros, token) → (status HTTP, corpo JSON decodificado)
+Transport = Callable[[str, str, dict[str, str], str], tuple[int, Any]]
 
 
 class GraphError(Exception):
@@ -64,15 +64,17 @@ class GraphError(Exception):
         return self.subcode in PUBLISH_LIMIT_SUBCODES
 
 
-def urllib_transport(method: str, url: str, params: dict[str, str]) -> tuple[int, Any]:
+def urllib_transport(method: str, url: str, params: dict[str, str], token: str) -> tuple[int, Any]:
     """Transporte real: GET com parâmetros na query, POST com corpo form-urlencoded."""
     data = urllib.parse.urlencode(params).encode()
     if method == "GET":
-        req = urllib.request.Request(f"{url}?{data.decode()}", method="GET")
+        req = urllib.request.Request(f"{url}?{data.decode()}" if params else url, method="GET")
     else:
         req = urllib.request.Request(url, data=data, method=method)
         req.add_header("Content-Type", "application/x-www-form-urlencoded")
     req.add_header("User-Agent", "TriangulaBot/1.0 (+https://github.com/pbcvphyton/qi-journal)")
+    if token:
+        req.add_header("Authorization", f"Bearer {token}")
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT_SECONDS) as resp:
             return resp.status, _decode(resp.read())
@@ -125,17 +127,29 @@ class InstagramClient:
             prefix += f"/{self.version}"
         return f"{prefix}/{path.lstrip('/')}"
 
-    def _call(self, method: str, path: str, params: dict[str, Any] | None = None, *, versioned: bool = True) -> Any:
+    def _call(
+        self,
+        method: str,
+        path: str,
+        params: dict[str, Any] | None = None,
+        *,
+        versioned: bool = True,
+        retries: int | None = None,
+        token_in_query: bool = False,
+    ) -> Any:
         """Chama a API com retentativas exponenciais para erros passageiros."""
         query = {k: str(v) for k, v in (params or {}).items() if v is not None}
-        query["access_token"] = self._token
+        token = self._token
+        if token_in_query:  # refresh_access_token só aceita o token como parâmetro
+            query["access_token"], token = self._token, ""
         url = self._url(path, versioned=versioned)
+        retries = self._retries if retries is None else retries
         last: GraphError | None = None
-        for attempt in range(self._retries + 1):
+        for attempt in range(retries + 1):
             if attempt:
-                self._sleep(min(5 * 2 ** (attempt - 1), 60))
+                self._sleep(min(15 * 4 ** (attempt - 1), 180))  # 15 s, 60 s, 180 s
             try:
-                status, body = self._transport(method, url, query)
+                status, body = self._transport(method, url, query, token)
             except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
                 last = GraphError(f"falha de rede em {method} {path}: {type(e).__name__}", transient=True)
             else:
@@ -145,7 +159,7 @@ class InstagramClient:
                 last = self._error(method, path, status, error or {})
             if not last.transient:
                 break
-            log.warning("Instagram: %s (tentativa %d/%d)", last, attempt + 1, self._retries + 1)
+            log.warning("Instagram: %s (tentativa %d/%d)", last, attempt + 1, retries + 1)
         assert last is not None
         raise last
 
@@ -210,8 +224,32 @@ class InstagramClient:
             self._sleep(interval)
             waited += interval
 
-    def publish(self, container_id: str) -> str:
-        return str(self._call("POST", f"{self.user_id}/media_publish", {"creation_id": container_id})["id"])
+    def publish(self, container_id: str, *, feed: bool = True) -> str:
+        """Publica o container. Sem retentativa às cegas: se a chamada falhar de um jeito
+        ambíguo (rede, 5xx), confere o status do container antes de desistir — se ele
+        já está PUBLISHED, o post saiu (o id vem da lista de mídias do feed; story não
+        aparece lá e fica registrado pelo id do container)."""
+        try:
+            return str(self._call("POST", f"{self.user_id}/media_publish", {"creation_id": container_id}, retries=0)["id"])
+        except GraphError as exc:
+            if not exc.transient:
+                raise
+            self._sleep(15)
+            status = self.container_status(container_id)
+            if status == "PUBLISHED":
+                log.warning("Instagram: media_publish falhou (%s), mas o container %s já está publicado", exc, container_id)
+                return (self.find_published() if feed else None) or container_id
+            if status == "FINISHED":
+                return str(self._call("POST", f"{self.user_id}/media_publish", {"creation_id": container_id}, retries=0)["id"])
+            raise
+
+    def find_published(self) -> str | None:
+        """Id da publicação mais recente do feed (a que acabou de sair)."""
+        try:
+            recent = self.recent_media(limit=1)
+        except GraphError:
+            return None
+        return str(recent[0]["id"]) if recent else None
 
     def permalink(self, media_id: str) -> str | None:
         try:
@@ -239,13 +277,13 @@ class InstagramClient:
     def post_story(self, image_url: str) -> str:
         container = self.create_image(image_url, story=True)
         self.wait_ready(container)
-        return self.publish(container)
+        return self.publish(container, feed=False)
 
     # ── Consultas e token ─────────────────────────────────────────────────
 
     def account(self) -> dict[str, Any]:
-        """Confere o token: devolve id e username do perfil."""
-        return self._call("GET", self.user_id, {"fields": "id,username"})
+        """Teste de saúde do token: devolve id e username do perfil."""
+        return self._call("GET", self.user_id, {"fields": "id,username"}, retries=1)
 
     def publishing_quota(self) -> tuple[int | None, int | None]:
         """(publicações nas últimas 24 h, limite), ou (None, None) se a API não informar."""
@@ -255,6 +293,7 @@ class InstagramClient:
         return data.get("quota_usage"), config.get("quota_total")
 
     def recent_media(self, limit: int = 25) -> list[dict[str, Any]]:
+        """Publicações recentes do feed (carrossel, imagem, reels), da mais nova para a mais antiga."""
         body = self._call("GET", f"{self.user_id}/media", {"fields": "id,caption,timestamp,permalink,media_type", "limit": limit})
         return list(body.get("data") or [])
 
@@ -264,7 +303,7 @@ class InstagramClient:
         O token precisa ter ao menos 24 h e ainda estar válido; o novo vale 60 dias.
         """
         body = self._call(
-            "GET", "refresh_access_token", {"grant_type": "ig_refresh_token"}, versioned=False
+            "GET", "refresh_access_token", {"grant_type": "ig_refresh_token"}, versioned=False, token_in_query=True
         )
         token = str(body.get("access_token") or "")
         if not token:
