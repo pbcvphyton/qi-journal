@@ -1,0 +1,2 @@
+# Só para gerar as imagens do Instagram (workflow instagram.yml).
+playwright==1.55.0
