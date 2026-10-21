@@ -1,0 +1,906 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-21",
+ "analises": [
+  {
+   "id": "5472fdc9c8d6",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/20/nunes-marques-nega-acao-do-tse-em-alteracoes-de-locais-de-votacao.ghtml",
+   "titulo": "Nunes Marques responsabiliza TREs por mudanças em seções",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "nunes-marques-diz-que-tse-nao-tem-relacao-com-mu",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 509,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "Nunes Marques explicou que",
+     "paragrafo": "P6",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Uso de verbo de atribuição neutro/explicativo para relatar as declarações da autoridade."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "355b7f7840f1",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/20/aps-reunio-com-zelensky-witkoff-dos-eua-viajar-rssia-com-proposta.ghtml",
+   "titulo": "Após reunião com Zelensky, Witkoff, dos EUA, viajará à Rússia com proposta",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "enviado-dos-eua-se-reune-com-zelensky-em-oslo-e",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 67,
+    "rotulo": "Regular"
+   },
+   "palavras": 597,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "Zelensky reiterou que",
+     "paragrafo": "P11",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Emprego de verbo de atribuição neutro para relatar a posição ucraniana."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "d128a90e9601",
+   "url": "https://www1.folha.uol.com.br/ambiente/2026/10/overshoot-e-inevitavel-mas-voltar-a-15c-de-aquecimento-ainda-e-possivel-diz-onu.shtml",
+   "titulo": "'Overshoot' é inevitável, mas voltar a 1,5°C de aquecimento ainda é possível, diz ONU",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "onu-alerta-que-corte-de-emissoes-precisa-ser-ace",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": -5,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 1238,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": -5.23,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "LEXICO",
+     "citacao": "Medida protecionista, em torno de uma tecnologia decadente",
+     "paragrafo": "P12",
+     "direcao": "esquerda",
+     "contribuicao": -5.23,
+     "explicacao": "A voz da redação emite juízo de valor crítico sobre políticas industriais europeias e brasileiras."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "2a106d6666f1",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/20/spacex-reverte-prejuzo-e-lucra-us-44-bilhes-no-3-trimestre.ghtml",
+   "titulo": "SpaceX reverte prejuízo e lucra US$ 4,4 bilhões no 3º trimestre",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "spacex-e-tesla-avaliam-fusao-historica-apos-salt",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 686,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "lucro líquido de US$ 4,4 bilhões no terceiro trimestre de 2026",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresentação de dados financeiros com base em balanço oficial e projeções de mercado."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "103b9439de04",
+   "url": "https://c-level.folha.uol.com.br/ia/2026/10/governo-trump-veta-uso-da-ia-chinesa-deepseek-em-agencias-governamentais-china-critica-medida.shtml",
+   "titulo": "Governo Trump veta uso da IA chinesa DeepSeek em agências governamentais; China critica medida",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "governo-dos-eua-proibe-o-uso-de-inteligencia-art",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 407,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c9d88583295c",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/20/amigo-de-flavio-bolsonaro-willer-tomaz-movimentou-r-5-bilhoes-em-bets-aponta-fazenda.ghtml",
+   "titulo": "Amigo de Flávio Bolsonaro, Willer Tomaz movimentou R$ 5 bilhões em bets, aponta Fazenda",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "willer-tomaz-movimentou-r-5-bilhoes-em-apostas-e",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 636,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "dd353e7f0652",
+   "url": "https://braziljournal.com/ifood-paga-r-1-bilhao-pela-caju-e-dobra-a-aposta-em-beneficios",
+   "titulo": "iFood paga R$ 1 bilhão pela Caju e dobra a aposta em benefícios",
+   "veiculo": "Brazil Journal",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "ifood-beneficios-compra-a-caju-por-cerca-de-r-1",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 70,
+    "rotulo": "Regular"
+   },
+   "palavras": 813,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "28f0bfe7959d",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/tudo-o-que-voce-precisa-saber-sobre-o-fim-da-escala-6x1.shtml",
+   "titulo": "Tudo o que você precisa saber sobre o fim da escala 6x1",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "promulgacao-da-emenda-que-encerra-escala-6x1-exi",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 975,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "90283c04a8ef",
+   "url": "https://c-level.folha.uol.com.br/agro/2026/10/china-mexico-e-chile-restringem-importacoes-de-frango-do-brasil-por-doenca-de-newcastle-em-sc.shtml",
+   "titulo": "China, México e Chile restringem importações de frango do Brasil por doença de Newcastle em SC",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "china-mexico-e-chile-impoem-barreiras-ao-frango",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "geral",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 612,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "e3453b0671de",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/20/zelensky-se-reunir-com-enviado-dos-eua-em-meio-a-tenses-com-trump.ghtml",
+   "titulo": "Zelensky se reunirá com enviado dos EUA em meio a tensões com Trump",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "enviado-dos-eua-se-reune-com-zelensky-em-oslo-e",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 10 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 83,
+    "rotulo": "Boa"
+   },
+   "palavras": 721,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f7960ffa85f0",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/20/ibovespa-avanca-16percent-impulsionado-por-bancos-e-com-eleicao-no-radar.ghtml",
+   "titulo": "Ibovespa avança 1,6% impulsionado por bancos e com eleição no radar",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "ibovespa-sobe-1-57-puxado-por-bancos-e-expectati",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 668,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "75e44e4187e6",
+   "url": "https://g1.globo.com/tecnologia/noticia/2026/10/20/governo-dos-estados-unidos-veta-uso-da-ia-chinesa-deepseek-em-agencias-governamentais.ghtml",
+   "titulo": "Governo dos Estados Unidos veta uso da IA chinesa DeepSeek em agências governamentais",
+   "veiculo": "g1",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "governo-dos-eua-proibe-o-uso-de-inteligencia-art",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 67,
+    "rotulo": "Regular"
+   },
+   "palavras": 283,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "75e0f7605633",
+   "url": "https://g1.globo.com/economia/noticia/2026/10/21/apos-seis-anos-de-atraso-e-crises-de-seguranca-maior-boeing-737-max-10-e-aprovado-para-voar-conheca.ghtml",
+   "titulo": "Após seis anos de atraso e crises de segurança, maior Boeing 737 MAX 10 é aprovado para voar; conheça",
+   "veiculo": "g1",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "faa-certifica-boeing-737-max-10-para-operacoes-c",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 568,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "d46efa507973",
+   "url": "https://www1.folha.uol.com.br/colunas/painelsa/2026/10/escritorio-de-willer-tomaz-amigo-de-flavio-bolsonaro-deve-r-100-mil-a-receita.shtml",
+   "titulo": "Escritório de Willer Tomaz, amigo de Flávio Bolsonaro, deve R$ 100 mil à Receita",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "willer-tomaz-movimentou-r-5-bilhoes-em-apostas-e",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "opiniao",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 424,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "93003ee9d556",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/20/mudancas-nos-locais-de-votacao-pelo-tse-geram-duvidas-e-criticas.ghtml",
+   "titulo": "Mudanças nos locais de votação pelo TSE geram dúvidas e críticas",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "nunes-marques-diz-que-tse-nao-tem-relacao-com-mu",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 667,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "fea6e972af42",
+   "url": "https://c-level.folha.uol.com.br/negocios/2026/10/ifood-beneficios-assina-acordo-para-compra-da-caju-e-se-aproxima-das-lideres-de-segmento.shtml",
+   "titulo": "iFood Benefícios assina acordo para compra da Caju e se aproxima das líderes de segmento",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "ifood-beneficios-compra-a-caju-por-cerca-de-r-1",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 755,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a20a819a5957",
+   "url": "https://neofeed.com.br/negocios/o-xadrez-dos-ceos-para-equilibrar-as-contas-com-o-fim-da-escala-6x1/",
+   "titulo": "O xadrez dos CEOs para equilibrar as contas com o fim da escala 6×1",
+   "veiculo": "NeoFeed",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "promulgacao-da-emenda-que-encerra-escala-6x1-exi",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 73,
+    "rotulo": "Regular"
+   },
+   "palavras": 1380,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "2b3bdca68212",
+   "url": "https://c-level.folha.uol.com.br/agro/2026/10/mexico-suspende-importacao-de-frango-do-brasil-apos-surto-de-doenca-aviaria.shtml",
+   "titulo": "México suspende importação de frango brasileiro após surto de doença aviária",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "china-mexico-e-chile-impoem-barreiras-ao-frango",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 91,
+    "rotulo": "Boa"
+   },
+   "palavras": 472,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f570da46f827",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/20/ibovespa-sobe-com-apoio-de-petrobras-e-queda-dos-juros-futuros-de-olho-no-quadro-eleitoral.ghtml",
+   "titulo": "Ibovespa sobe 1,6% com bancos e ações domésticas em meio a otimismo eleitoral",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "ibovespa-sobe-1-57-puxado-por-bancos-e-expectati",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 67,
+    "rotulo": "Regular"
+   },
+   "palavras": 596,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 3.14,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "Leitura de possível alternância de poder reforça apostas em cenário mais favorável a ajuste fiscal",
+     "paragrafo": "P1",
+     "direcao": "direita",
+     "contribuicao": 3.14,
+     "explicacao": "Atribui alta da bolsa a uma perspectiva de vitória da oposição (direita), enquadrando essa alternativa como a favorável ao ajuste fiscal."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "bc09ef7f561a",
+   "url": "https://c-level.folha.uol.com.br/negocios/2026/10/acordos-da-spacex-para-alugar-data-centers-elevam-receita-em-161.shtml",
+   "titulo": "Conselhos de administração da SpaceX e da Tesla avaliam possível fusão",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "spacex-e-tesla-avaliam-fusao-historica-apos-salt",
+   "data_publicacao": "2026-10-20",
+   "analisado_em": "2026-10-21",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 922,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-21T10:15:25+00:00",
+   "provedor": "gemini_lite",
+   "modelo": "gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 11,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 36655,
+    "saida": 16381
+   },
+   "analises": [
+    "5472fdc9c8d6",
+    "355b7f7840f1",
+    "d128a90e9601",
+    "2a106d6666f1",
+    "103b9439de04",
+    "c9d88583295c",
+    "dd353e7f0652",
+    "28f0bfe7959d",
+    "90283c04a8ef",
+    "e3453b0671de",
+    "f7960ffa85f0",
+    "75e44e4187e6",
+    "75e0f7605633",
+    "d46efa507973",
+    "93003ee9d556",
+    "fea6e972af42",
+    "a20a819a5957",
+    "2b3bdca68212",
+    "f570da46f827",
+    "bc09ef7f561a"
+   ]
+  }
+ ]
+}
