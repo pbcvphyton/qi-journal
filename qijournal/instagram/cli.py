@@ -106,11 +106,59 @@ def _syncer(fila: Fila, media_dir: Path, enabled: bool):
     return save
 
 
+TOKEN_ALERT = (
+    "O token do Instagram expirou ou foi revogado: nenhuma publicação sai até ele ser trocado. "
+    "Gere um novo token (docs/instagram.md, seção 2, itens 5 e 6) e atualize o segredo IG_ACCESS_TOKEN (seção 4)."
+)
+
+
+def _paused(env: Mapping[str, str]) -> bool:
+    return (env.get("IG_PAUSE") or "").strip().lower() in {"1", "true", "sim", "yes"}
+
+
+def cmd_token(args: argparse.Namespace, config: Config, env: Mapping[str, str] | None = None) -> int:
+    """Teste de saúde do token e renovação semanal (o token novo vai para --token-out)."""
+    env = os.environ if env is None else env
+    client = client_from_env(env)
+    if client is None:
+        log.info("Instagram não configurado (segredos IG_USER_ID e IG_ACCESS_TOKEN)")
+        return EXIT_OK
+    media_dir = Path(args.media_dir)
+    fila = Fila.load(media_dir)
+    now = args.now or datetime.now(timezone.utc)
+    try:
+        account = client.account()
+        log.info("Instagram: conectado como @%s", account.get("username") or account.get("id"))
+        status = maybe_refresh(client, fila, now, current_token=env["IG_ACCESS_TOKEN"].strip())
+    except GraphError as exc:
+        if exc.token_invalid:
+            log.error("Instagram: o token não vale mais (%s)", exc)
+            _write_alert(args.alert_out, f"{TOKEN_ALERT} Erro: {exc}")
+        else:
+            log.error("Instagram: não deu para conferir o token agora (%s)", exc)
+        return EXIT_ERROR
+    if status.new_token and args.token_out:
+        write_token_file(status.new_token, Path(args.token_out))
+    if status.refreshed:
+        _syncer(fila, media_dir, args.sync)("token renovado")
+    if status.warning:
+        _write_alert(
+            args.alert_out,
+            f"Atenção: {status.warning}. A renovação automática não está funcionando: confira o segredo "
+            "GH_SECRETS_TOKEN (docs/instagram.md, seção 3) ou gere um token novo (seção 2, itens 5 e 6).",
+        )
+    return EXIT_OK
+
+
 def cmd_publicar(args: argparse.Namespace, config: Config, env: Mapping[str, str] | None = None) -> int:
     env = os.environ if env is None else env
-    if (env.get("IG_PAUSE") or "").strip().lower() in {"1", "true", "sim", "yes"}:
+    if _paused(env):
         log.warning("Instagram pausado pela variável IG_PAUSE; nada é publicado")
         return EXIT_OK
+    token_file = Path(args.token_file) if args.token_file else None
+    if token_file is not None and token_file.is_file() and token_file.read_text(encoding="utf-8").strip():
+        # Token recém-renovado neste job (o segredo só muda para o próximo).
+        env = {**env, "IG_ACCESS_TOKEN": token_file.read_text(encoding="utf-8").strip()}
     client = client_from_env(env)
     if client is None:
         log.info("Instagram não configurado (segredos IG_USER_ID e IG_ACCESS_TOKEN); nada a publicar")
@@ -120,21 +168,12 @@ def cmd_publicar(args: argparse.Namespace, config: Config, env: Mapping[str, str
     save = _syncer(fila, media_dir, args.sync)
     now = args.now or datetime.now(timezone.utc)
     deadline = now + timedelta(minutes=max(0, args.wait_max))
-    published = 0
+    published, failed = 0, False
     try:
-        account = client.account()
-        log.info("Instagram: conectado como @%s", account.get("username") or account.get("id"))
-        status = maybe_refresh(client, fila, now, current_token=env["IG_ACCESS_TOKEN"].strip())
-        if status.new_token and args.token_out:
-            write_token_file(status.new_token, Path(args.token_out))
-        if status.refreshed:
-            save("token renovado")
-        if status.warning:
-            _write_alert(args.alert_out, f"Atenção: {status.warning}. A renovação automática não está funcionando; veja os passos 6 a 8 do guia (docs/instagram.md).")
         while True:
             resultado = publish_due(fila, client, media_url=media_url(config, env), now=now, save=save)
             published += len(resultado.publicados)
-            failed = bool(resultado.falhas)
+            failed = failed or bool(resultado.falhas)
             # Logo depois da edição: espera o horário-alvo das próximas publicações
             # (minutos do Actions são grátis em repositório público) em vez de
             # depender do agendamento, que atrasa horas.
@@ -142,19 +181,14 @@ def cmd_publicar(args: argparse.Namespace, config: Config, env: Mapping[str, str
             if args.now is not None or upcoming is None or upcoming > deadline or resultado.limite:
                 break
             wait = (upcoming - now).total_seconds() + 5
-            log.info("Instagram: esperando %d min pela próxima publicação (%s)", wait // 60, upcoming.astimezone().strftime("%H:%M"))
+            log.info("Instagram: esperando %d min pela próxima publicação (%s)", wait // 60, upcoming.isoformat(timespec="minutes"))
             time.sleep(wait)
             now = datetime.now(timezone.utc)
     except (TokenInvalido, GraphError) as exc:
         fila.save()
         if isinstance(exc, TokenInvalido) or getattr(exc, "token_invalid", False):
             log.error("Instagram: o token não vale mais (%s)", exc)
-            _write_alert(
-                args.alert_out,
-                "O token do Instagram expirou ou foi revogado: nenhuma publicação sai até ele ser trocado. "
-                "Gere um novo token (passo 6 do guia docs/instagram.md) e atualize o segredo IG_ACCESS_TOKEN "
-                f"(passo 8). Erro: {exc}",
-            )
+            _write_alert(args.alert_out, f"{TOKEN_ALERT} Erro: {exc}")
         else:
             log.error("Instagram: erro na API (%s)", exc)
         return EXIT_ERROR
@@ -180,6 +214,14 @@ def add_parser(commands: argparse._SubParsersAction, common: argparse.ArgumentPa
     publicar.add_argument("--now", type=iso_datetime, metavar="ISO", help="data/hora de referência (sem fuso = UTC)")
     publicar.add_argument("--sync", action="store_true", help="envia a fila à branch instagram a cada mudança")
     publicar.add_argument("--wait-max", type=int, default=0, metavar="MIN", help="espera até MIN minutos pelas próximas publicações")
-    publicar.add_argument("--token-out", metavar="FILE", help="onde gravar o token renovado (para o segredo)")
+    publicar.add_argument("--token-file", metavar="FILE", help="token renovado neste job (se existir, substitui o do ambiente)")
     publicar.add_argument("--alert-out", metavar="FILE", help="onde gravar um alerta para o dono (token)")
     publicar.set_defaults(handler=cmd_publicar)
+
+    token = sub.add_parser("token", parents=[common], help="confere o token e o renova toda semana")
+    token.add_argument("--media-dir", default=DEFAULT_MEDIA_DIR, metavar="DIR", help="cópia da branch instagram (fila e imagens)")
+    token.add_argument("--now", type=iso_datetime, metavar="ISO", help="data/hora de referência (sem fuso = UTC)")
+    token.add_argument("--sync", action="store_true", help="envia a fila à branch instagram depois de renovar")
+    token.add_argument("--token-out", metavar="FILE", help="onde gravar o token renovado (para o segredo)")
+    token.add_argument("--alert-out", metavar="FILE", help="onde gravar um alerta para o dono")
+    token.set_defaults(handler=cmd_token)

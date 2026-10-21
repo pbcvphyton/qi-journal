@@ -123,8 +123,8 @@ jobs:
         run: |
           .github/scripts/instagram-branch.sh "🖼️ Instagram: publicações de $(date +%d/%m/%Y)"
 
-      - name: Publicar no Instagram
-        id: publish
+      - name: Conferir e renovar o token do Instagram
+        id: token
         if: steps.plan.outputs.publish == 'true'
         continue-on-error: true
         env:
@@ -132,27 +132,16 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_API_HOST: ${{ vars.IG_API_HOST }}
           IG_API_VERSION: ${{ vars.IG_API_VERSION }}
-          IG_PAUSE: ${{ vars.IG_PAUSE }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EVENT: ${{ github.event_name }}
-        run: |
-          # --sync: a fila vai para a branch instagram a cada passo (container
-          # criado, publicado), para nada sair em dobro se a execução morrer.
-          args=(--media-dir "$MEDIA_DIR" --sync --token-out "$RUNNER_TEMP/ig-token" --alert-out "$RUNNER_TEMP/ig-alerta.txt")
-          if [ "$EVENT" = "workflow_run" ] || [ "$EVENT" = "repository_dispatch" ]; then args+=(--wait-max 75); fi
-          python -m qijournal instagram publicar "${args[@]}"
-
-      - name: Guardar a fila (branch instagram)
-        if: always() && steps.plan.outputs.publish == 'true'
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          .github/scripts/instagram-branch.sh "📸 Instagram: fila em $(date '+%d/%m/%Y %H:%M')"
+          # O token da "Instagram API with Instagram Login" vale 60 dias: é
+          # renovado toda semana e o novo vai já para o segredo (passo seguinte).
+          python -m qijournal instagram token --media-dir "$MEDIA_DIR" --sync \
+            --token-out "$RUNNER_TEMP/ig-token" --alert-out "$RUNNER_TEMP/ig-alerta.txt"
 
       - name: Guardar o token renovado
-        # O token da "Instagram API with Instagram Login" vale 60 dias: o publicador
-        # renova toda semana e, com o segredo GH_SECRETS_TOKEN (token fine-grained
-        # com permissão "Secrets: write" neste repositório), o novo é gravado aqui.
+        # Com o segredo GH_SECRETS_TOKEN (token fine-grained com "Secrets: write"
+        # só neste repositório), o token novo substitui o IG_ACCESS_TOKEN.
         if: always() && hashFiles(format('{0}/ig-token', runner.temp)) != ''
         env:
           GH_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
@@ -163,7 +152,38 @@ jobs:
             gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" < "$RUNNER_TEMP/ig-token"
             echo "Segredo IG_ACCESS_TOKEN atualizado."
           fi
-          rm -f "$RUNNER_TEMP/ig-token"
+
+      - name: Publicar no Instagram
+        id: publish
+        if: steps.plan.outputs.publish == 'true' && steps.token.outcome == 'success'
+        continue-on-error: true
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          # Se o token acabou de ser renovado, o segredo só muda para o próximo
+          # job: este usa o novo, lido do arquivo temporário (--token-file).
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_API_HOST: ${{ vars.IG_API_HOST }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          IG_PAUSE: ${{ vars.IG_PAUSE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          # --sync: a fila vai para a branch instagram a cada passo (container
+          # criado, publicado), para nada sair em dobro se a execução morrer.
+          args=(--media-dir "$MEDIA_DIR" --sync --token-file "$RUNNER_TEMP/ig-token" --alert-out "$RUNNER_TEMP/ig-alerta.txt")
+          if [ "$EVENT" = "workflow_run" ] || [ "$EVENT" = "repository_dispatch" ]; then args+=(--wait-max 75); fi
+          python -m qijournal instagram publicar "${args[@]}"
+
+      - name: Guardar a fila (branch instagram)
+        if: always() && steps.plan.outputs.publish == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/scripts/instagram-branch.sh "📸 Instagram: fila em $(date '+%d/%m/%Y %H:%M')"
+
+      - name: Apagar o token temporário
+        if: always()
+        run: rm -f "$RUNNER_TEMP/ig-token"
 
       - name: Avisar o dono (issue)
         # O GitHub manda e-mail ao dono do repositório a cada issue e comentário.
@@ -197,7 +217,7 @@ jobs:
           fi
 
       - name: Resultado
-        if: steps.publish.outcome == 'failure'
+        if: steps.token.outcome == 'failure' || steps.publish.outcome == 'failure'
         run: |
-          echo "::error::A publicação no Instagram falhou; veja o passo \"Publicar no Instagram\"."
+          echo "::error::O Instagram falhou; veja os passos \"Conferir e renovar o token\" e \"Publicar no Instagram\"."
           exit 1
