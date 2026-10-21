@@ -330,6 +330,7 @@ class InstagramConfig:
     """Publicações do Instagram geradas a partir da edição (qijournal/instagram)."""
 
     enabled: bool = True
+    handle: str | None = None  # @ do perfil (sem o @): link no rodapé do site e do e-mail
     # Período eleitoral: até esta data (inclusive), nada de pesquisa eleitoral e
     # política fora do Raio-X; no "Em 1 minuto", no máximo um item de política.
     election_until: str | None = None

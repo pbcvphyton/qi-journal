@@ -212,6 +212,8 @@ def _render_text(view: EditionView, sections: list[EmailSection], footer: dict[s
         f"Abrir edição completa: {base}",
         f"Edições anteriores: {footer['archive_url']}",
     ]
+    if view.instagram_url:
+        lines.append(f"Siga no Instagram: {view.instagram_url}")
     if view.repo_url:
         lines.append(f"Código-fonte: {view.repo_url}")
     lines += _wrap(footer["generated"])

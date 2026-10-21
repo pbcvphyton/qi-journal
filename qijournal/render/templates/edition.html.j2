@@ -414,7 +414,7 @@
 {% block footer %}
 <footer class="ft">
   <p><strong>{{ brand.name }}</strong> · {{ v.sources_total }} fontes consultadas · {{ v.mode_label }} · {{ v.date_label }}</p>
-  <p class="ft-links"><a href="{{ archive_href }}">Edições anteriores</a>{% if v.repo_url %} · <a href="{{ v.repo_url }}" rel="noopener">Código-fonte</a>{% endif %}</p>
+  <p class="ft-links"><a href="{{ archive_href }}">Edições anteriores</a>{% if v.instagram_url %} · <a href="{{ v.instagram_url }}" rel="noopener">Siga no Instagram</a>{% endif %}{% if v.repo_url %} · <a href="{{ v.repo_url }}" rel="noopener">Código-fonte</a>{% endif %}</p>
   {% if v.source_groups %}
   <details>
     <summary>Status das fontes · {{ v.sources_ok }} de {{ v.sources_total }} feeds ok</summary>

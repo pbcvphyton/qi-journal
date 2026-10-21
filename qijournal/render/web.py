@@ -9,6 +9,7 @@ e-mail (``render/email.py``).
 from __future__ import annotations
 
 import logging
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Any
@@ -290,6 +291,7 @@ class EditionView:
     compared: list[CoverageView] = field(default_factory=list)  # demais assuntos com cobertura comparada
     rationale: RationaleView | None = None  # racional da compilação (vazio em edições antigas)
     index: list[IndexSectionView] = field(default_factory=list)  # todas as notícias do dia, por seção
+    instagram_url: str = ""  # perfil do Instagram (config instagram.handle), no rodapé
     index_url: str = ""  # página com todas as notícias do dia (edicoes/AAAA-MM-DD-todas.html)
     # Termômetro do dia (marca com termômetro, quando ele rodou na edição); o link
     # da aba "Analítico Político" sai em termometro.analitico_href.
@@ -803,6 +805,12 @@ def _mode_label(edition: Edition) -> str:
 # ── view completa ────────────────────────────────────────────────────────────
 
 
+def instagram_url(config: Config) -> str:
+    """Link do perfil do Instagram, se o @ estiver configurado (instagram.handle)."""
+    handle = re.sub(r"[^A-Za-z0-9._]", "", (config.instagram.handle or "").lstrip("@"))
+    return f"https://www.instagram.com/{handle}/" if handle else ""
+
+
 def build_view(edition: Edition, config: Config, *, archive: bool = False) -> EditionView:
     """Converte a edição num modelo de apresentação validado e sem marcação.
 
@@ -872,6 +880,7 @@ def build_view(edition: Edition, config: Config, *, archive: bool = False) -> Ed
         source_groups=_source_groups(edition, config),
         base_url=base_url,
         repo_url=filters.safe_url(config.site.repo_url) or "",
+        instagram_url=instagram_url(config),
         edition_url=f"{base_url}edicoes/{edition.date}.html",
         description=text.truncate(description, DESCRIPTION_MAX),
         og_image=lead.image if lead else None,

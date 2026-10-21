@@ -257,6 +257,7 @@ termometro:
 # (expires) do mesmo dia. Sem horário no fim de semana (null), não sai.
 instagram:
   enabled: true
+  handle: null                  # @ do perfil, sem o @ (ex.: triangula.jornal): vira "Siga no Instagram" no site e no e-mail
   election_until: "2026-10-27"  # 2º turno em 25/10: sem pesquisa eleitoral e sem política no Raio-X
   keep_days: 7
   slots:

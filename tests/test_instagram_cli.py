@@ -86,3 +86,21 @@ def test_token_invalido_avisa_o_dono(tmp_path, monkeypatch):
 def test_url_da_midia_na_branch_instagram():
     assert cli.media_url(load_config(), {}) == "https://raw.githubusercontent.com/pbcvphyton/qi-journal/instagram/"
     assert cli.media_url(load_config(), {"IG_MEDIA_URL": "https://exemplo.org/ig"}) == "https://exemplo.org/ig/"
+
+
+def test_link_do_instagram_no_site_e_no_email():
+    import json
+    from pathlib import Path
+
+    from qijournal.models import Edition
+    from qijournal.render.email import render_email
+    from qijournal.render.web import build_view, instagram_url
+
+    config = load_config()
+    assert instagram_url(config) == ""
+    config.instagram.handle = "@triangula.jornal"
+    assert instagram_url(config) == "https://www.instagram.com/triangula.jornal/"
+    edition = Edition.from_dict(json.loads((Path(__file__).parent / "fixtures" / "edicao-2026-10-20.json").read_text()))
+    assert build_view(edition, config).instagram_url.endswith("/triangula.jornal/")
+    _subject, html, text = render_email(edition, config)
+    assert "https://www.instagram.com/triangula.jornal/" in html and "Siga no Instagram" in text
