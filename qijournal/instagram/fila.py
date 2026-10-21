@@ -95,8 +95,9 @@ class Fila:
     def upsert(self, posts: Iterable[Post]) -> list[str]:
         """Adiciona as publicações do dia; refazer a edição atualiza só as que ainda não saíram.
 
-        Devolve os ids adicionados ou atualizados. Publicação já feita (ou que
-        expirou) nunca é trocada.
+        Devolve os ids adicionados ou atualizados. Publicação já feita nunca é
+        trocada; uma que expirou só volta com um prazo mais longo (o "Comece
+        aqui", renovado a cada edição até sair).
         """
         changed: list[str] = []
         for post in posts:
@@ -106,7 +107,9 @@ class Fila:
             if current is None:
                 self.posts.append(post)
                 changed.append(post.id)
-            elif current.status in (PENDING, FAILED):
+            elif current.status in (PENDING, FAILED) or (
+                current.status == EXPIRED and post.expires_at() > current.expires_at()
+            ):
                 self.posts[self.posts.index(current)] = post
                 changed.append(post.id)
         self.posts.sort(key=lambda p: (p.due_at(), p.id))

@@ -131,25 +131,28 @@ def test_generate_renderiza_e_monta_a_fila(tmp_path, edition):
     posts = generate(edition, config, root=config.root, media_dir=tmp_path, now=now, renderer_factory=lambda: renderer)
     ids = [p.id for p in posts]
     assert ids == [
+        "lancamento-comece-aqui",
         "2026-10-20-manha",
         "2026-10-20-stories-1", "2026-10-20-stories-2", "2026-10-20-stories-3", "2026-10-20-stories-4",
         "2026-10-20-raiox",
     ]
-    manha = posts[0]
+    lancamento, manha = posts[0], posts[1]
+    assert lancamento.due == "2026-10-20T00:00:00-03:00" and len(lancamento.images) == 6
+    assert lancamento.caption.startswith("Comece aqui")
     assert manha.kind == "carousel" and len(manha.images) == 8 and len(manha.alt_texts) == 8
     assert manha.due == "2026-10-20T07:00:00-03:00" and manha.expires == "2026-10-20T13:00:00-03:00"
     assert all((tmp_path / img).is_file() for p in posts for img in p.images)
     assert all(img.startswith("2026-10-20/") and len(img.rsplit("-", 1)[-1]) == len("0123456789.jpg") for p in posts for img in p.images)
-    assert posts[1].due < posts[2].due  # stories na ordem
+    assert posts[2].due < posts[3].due  # stories na ordem
     sizes = {name.split("-")[0]: (w, h) for name, w, h in renderer.calls}
-    assert sizes == {".manha": (1080, 1350), ".stories": (1080, 1920), ".raiox": (1080, 1350)}
+    assert sizes == {".manha": (1080, 1350), ".stories": (1080, 1920), ".raiox": (1080, 1350), ".lancamento": (1080, 1350)}
 
 
 def test_generate_pula_o_que_ja_passou_do_prazo(tmp_path, edition):
     config = load_config()
     now = datetime(2026, 10, 20, 17, 0, tzinfo=timezone.utc)  # 14:00 em Brasília
     posts = generate(edition, config, root=config.root, media_dir=tmp_path, now=now, renderer_factory=FakeRenderer)
-    assert [p.id for p in posts] == ["2026-10-20-raiox"]
+    assert [p.id for p in posts] == ["lancamento-comece-aqui", "2026-10-20-raiox"]
 
 
 def test_limpeza_de_imagens_antigas_e_orfas(tmp_path):
@@ -163,3 +166,15 @@ def test_limpeza_de_imagens_antigas_e_orfas(tmp_path):
     removed = clean_media(fila, tmp_path, date(2026, 10, 20), keep_days=7)
     assert sorted(p.name for p in removed) == ["2026-10-01", "manha-01-velha.jpg"]
     assert (tmp_path / "2026-10-20" / "manha-01-nova.jpg").is_file()
+
+
+def test_comece_aqui_volta_a_fila_ate_sair():
+    def lanc(expires, status="pending"):
+        return Post(id="lancamento-comece-aqui", date="2026-10-20", kind="carousel", due="2026-10-20T00:00:00-03:00",
+                    expires=expires, images=["a.jpg"], status=status)
+
+    fila = Fila(posts=[lanc("2026-10-23T00:00:00-03:00", status="expired")])
+    assert fila.upsert([lanc("2026-10-23T00:00:00-03:00")]) == []  # mesmo prazo: não volta
+    assert fila.upsert([lanc("2026-10-24T00:00:00-03:00")]) == ["lancamento-comece-aqui"]
+    fila.posts[0].status = "published"
+    assert fila.upsert([lanc("2026-10-25T00:00:00-03:00")]) == []  # já saiu: nunca mais

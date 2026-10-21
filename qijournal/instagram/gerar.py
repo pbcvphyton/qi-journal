@@ -27,6 +27,8 @@ log = logging.getLogger(__name__)
 TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
 SIZES = {"carousel": (1080, 1350), "image": (1080, 1350), "story": (1080, 1920)}
 STORY_STEP = timedelta(minutes=1)  # stories em sequência: um minuto de diferença no horário-alvo
+LAUNCH_ID = "lancamento-comece-aqui"  # sai uma vez só, antes de tudo, quando a conta for conectada
+LAUNCH_DAYS = 3  # cada dia renova o post (números do dia) e o prazo, até ele sair
 
 
 def environment() -> Environment:
@@ -122,10 +124,12 @@ def generate(
     media_dir: Path,
     now: datetime,
     renderer_factory: Callable[[], Renderer] = Renderer,
+    launch: bool = True,
 ) -> list[Post]:
     """Renderiza as publicações do dia em ``media_dir/<data>/`` e devolve os itens da fila.
 
     Slots cujo prazo já passou não são gerados (a edição saiu tarde demais).
+    Com ``launch``, inclui o "Comece aqui" (a fila só o aceita enquanto não saiu).
     """
     if not config.instagram.enabled:
         log.info("Instagram desligado em config/site.yaml")
@@ -179,6 +183,24 @@ def generate(
                     )
                 )
             log.info("Instagram: %s pronto (%d imagem(ns), sai a partir de %s)", piece.title, len(images), due.strftime("%d/%m %H:%M"))
+        if launch and edition.mode == "ai":
+            piece = conteudo.comece_aqui(edition, brand)
+            images = _render_piece(renderer, env, piece, brand, out_dir, rel_dir)
+            start = datetime.combine(day, time(0, 0), tz)
+            posts.insert(
+                0,
+                Post(
+                    id=LAUNCH_ID,
+                    date=edition.date,
+                    kind="carousel",
+                    due=start.isoformat(),
+                    expires=(start + timedelta(days=LAUNCH_DAYS)).isoformat(),
+                    images=images,
+                    caption=piece.caption,
+                    alt_texts=[conteudo.alt(s.alt) for s in piece.slides],
+                    title=piece.title,
+                ),
+            )
     return posts
 
 

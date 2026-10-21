@@ -8,6 +8,7 @@ veículo cobriu cada assunto e a lista completa de todas as notícias do dia.
 
 - **Edição do dia:** <https://pbcvphyton.github.io/qi-journal/>
 - **Edições anteriores:** <https://pbcvphyton.github.io/qi-journal/edicoes/>
+- **Instagram:** posts e stories gerados da edição e publicados sozinhos ([guia](docs/instagram.md))
 
 Nada precisa ser feito à mão: o GitHub gera a edição sozinho a partir das
 **05:07 (horário de Brasília)**, publica o site e dispara o e-mail.
@@ -434,6 +435,18 @@ Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 
 ---
 
+## Instagram
+
+Depois de cada edição, o workflow **Instagram** gera os posts do dia e os publica pela API oficial do Instagram, cada um no seu horário:
+- carrossel "Em 1 minuto" de manhã;
+- stories;
+- "Raio-X da cobertura" à noite;
+- "Terminal da manhã" nos dias sem IA.
+
+Todo o texto vem do JSON da edição. As imagens e a fila de publicação ficam na branch `instagram`. A configuração da conta e dos segredos é feita uma vez: veja **[docs/instagram.md](docs/instagram.md)**.
+
+---
+
 ## Segredos e variáveis do GitHub
 
 | Nome | Tipo | Para quê |
@@ -446,6 +459,9 @@ Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 | `ANTHROPIC_API_KEY` | segredo | editor 6 (Claude, pago) |
 | `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_TO` | segredos | envio do e-mail por SMTP |
 | `EMAIL_FROM`, `SMTP_HOST`, `SMTP_PORT` | segredos (opcionais) | ajustes do SMTP |
+| `IG_USER_ID`, `IG_ACCESS_TOKEN` | segredos | publicação no Instagram ([guia](docs/instagram.md)) |
+| `GH_SECRETS_TOKEN` | segredo | grava o token do Instagram renovado toda semana |
+| `IG_API_VERSION`, `IG_API_HOST`, `IG_PAUSE` | variáveis (opcionais) | versão e host da API do Instagram; `IG_PAUSE=true` pausa as publicações |
 | `QIJ_BRAND` | variável | marca (`tech` ou `pbcv`) |
 | `QIJ_NO_TERMOMETRO` | variável | `1` desliga o Termômetro de Viés e a aba Analítico Político |
 | `QIJ_MODEL` | variável | modelo do Claude |
@@ -502,20 +518,26 @@ qijournal/                código do jornal
                           da especificação), agregacao.py (aba analítica),
                           analise.py (textos → IA → cálculo) e historico.py
   deliver/smtp.py         envio do e-mail por SMTP
+  instagram/              Instagram: conteudo.py (posts a partir da edição),
+                          gerar.py + templates/ (imagens), fila.py e publicar.py
+                          (fila e publicação), graph.py (API do Instagram)
   pipeline.py             orquestra coleta → edição → páginas → e-mail
   __main__.py             comandos (python -m qijournal …)
 config/site.yaml          marca, seções, cotações, clima, limites da edição
 config/sources.yaml       fontes de notícia
 config/saida_modelo.schema.json, lexico.yaml, atores.yaml  termômetro (formato da
                           saída da IA, dicionário e âncoras de campo)
-assets/                   logos e ícones das marcas
+assets/                   logos e ícones das marcas; fonts/ (fontes das imagens do
+                          Instagram); instagram/ (foto de perfil e capas de destaque)
+docs/instagram.md         guia do Instagram
 index.html                edição do dia (gerado automaticamente)
 edicoes/                  arquivo de edições, todas as notícias de cada dia,
                           e-mail e latest.json (gerado)
 data/                     cada edição em JSON e, em data/termometro/, as análises
                           do termômetro de cada dia, guardadas para sempre (gerado)
 tests/                    testes automáticos
-.github/workflows/        daily.yml (edição diária) e ci.yml (testes)
+.github/workflows/        daily.yml (edição diária), instagram.yml (posts do
+                          Instagram) e ci.yml (testes)
 ```
 
 `index.html`, `edicoes/` e `data/` são escritos pelo robô — não edite à mão.

@@ -569,3 +569,65 @@ def raio_x(edition: Edition, brand: dict[str, Any], *, election: bool, exclude: 
         ]
     )
     return Peca(slot="raiox", kind="carousel", title="Raio-X da cobertura", slides=slides, caption=caption, story_ids=[story.id])
+
+
+def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
+    """Carrossel de apresentação (o primeiro post do perfil, para fixar): sai uma única vez."""
+    stats = edition.stats
+    outlets = edition.rationale.outlets if edition.rationale else 0
+    articles = num(stats.articles_collected)
+    texts = [
+        f"**Como funciona.** Toda manhã, um robô coleta as notícias de {stats.sources_total} fontes, de {outlets} veículos. "
+        f"Uma IA compila as matérias do dia em 9 editorias e compara como cada veículo cobriu cada assunto.",
+        "**O que sai aqui.** Toda manhã, o **Em 1 minuto**: os fatos do dia e o mercado. "
+        "À noite, o **Raio-X da cobertura**: o assunto em que a imprensa mais se dividiu.",
+        "**Lado A x lado B.** Mesmo fato, enquadramentos diferentes. O Raio-X mostra o que cada veículo destacou. "
+        "Enquadramento é a escolha do que destacar, não erro nem mentira.",
+        "**O que não fazemos.** Sem opinião, sem foto de jornal, sem pesquisa eleitoral e sem publicidade política. "
+        "Tudo é resumo automático por IA, sempre com as fontes.",
+    ]
+    total = len(texts)
+    slides = [
+        Slide(
+            "capa",
+            {
+                "kicker": "COMECE AQUI",
+                "headline": f"Todo dia, {articles} notícias. 1 minuto para você.",
+                "dek": "A Triangula lê a imprensa inteira e mostra o que aconteceu, quanto o mercado andou "
+                "e como cada veículo contou a mesma história.",
+                "section": None,
+                "teaser": "Como funciona · arraste",
+            },
+            alt=f"Comece aqui. Todo dia, {articles} notícias. 1 minuto para você.",
+        )
+    ]
+    for n, value in enumerate(texts, 1):
+        slides.append(
+            Slide("fato", {"n": n, "total": total, "text": value, "section": None, "sources": "", "outlets": 0}, alt=plain(value))
+        )
+    slides.append(
+        Slide(
+            "fechamento",
+            {
+                "articles": articles,
+                "outlets": outlets,
+                "stories": len(edition.stories),
+                "compared": sum(1 for s in edition.stories if s.coverage) + len(edition.compared),
+                "cta": "Salve · Envie · Siga",
+            },
+            alt="Siga a Triangula. A edição completa de hoje está no link da bio.",
+        )
+    )
+    caption = finish_caption(
+        [
+            "Comece aqui: o jornal que lê a imprensa inteira por você",
+            f"Toda manhã, a Triangula lê {articles} notícias de {outlets} veículos e entrega três coisas: "
+            "o que aconteceu, quanto o mercado andou e como cada veículo contou a mesma história.",
+            "▸ Toda manhã: Em 1 minuto, os fatos do dia e o mercado.\n"
+            "▸ À noite: Raio-X da cobertura, o lado A x lado B da imprensa.\n"
+            "▸ Conta automática: resumo por IA, sempre com as fontes. Sem opinião e sem foto de jornal.",
+            "Siga e ative as notificações. Edição completa de hoje: link na bio.",
+            "#triangula #noticias #jornalismo #mercadofinanceiro",
+        ]
+    )
+    return Peca(slot="lancamento", kind="carousel", title="Comece aqui", slides=slides, caption=caption)
