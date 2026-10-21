@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import os
 import shutil
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
@@ -29,8 +30,10 @@ STORY_STEP = timedelta(minutes=1)  # stories em sequência: um minuto de diferen
 
 
 def environment() -> Environment:
+    # QIJ_IG_TEMPLATES: outra pasta de templates (para testar um visual novo sem mexer nestes).
+    templates = os.environ.get("QIJ_IG_TEMPLATES") or str(TEMPLATES_DIR)
     env = Environment(
-        loader=FileSystemLoader(str(TEMPLATES_DIR)),
+        loader=FileSystemLoader(templates),
         autoescape=True,
         trim_blocks=True,
         lstrip_blocks=True,
