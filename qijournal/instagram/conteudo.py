@@ -595,7 +595,7 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
                 "headline": f"Todo dia, {articles} notícias. 1 minuto para você.",
                 "dek": "A Triangula lê a imprensa inteira e mostra o que aconteceu, quanto o mercado andou "
                 "e como cada veículo contou a mesma história.",
-                "section": None,
+                "section": {"id": "triangula", "title": "Triangula", "color": "#FF5A1F"},
                 "teaser": "Como funciona · arraste",
             },
             alt=f"Comece aqui. Todo dia, {articles} notícias. 1 minuto para você.",
