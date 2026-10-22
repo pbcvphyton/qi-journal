@@ -1,241 +1,231 @@
 TRIANGULA
-Quarta-feira, 21 de outubro de 2026 · 06:56 BRT
+Quinta-feira, 22 de outubro de 2026 · 07:05 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,01 (-0,35%) · Euro R$ 5,63 (-0,32%) · Yuan R$ 0,75 (-0,18%) ·
-Ibovespa 208.296 pts (+1,57%) · IFIX 3.976 pts (+0,49%) · S&P 500 7.713
-pts (+0,28%) · Brent US$ 110,14 (+1,24%) · Ouro US$ 4.141 (-0,05%) ·
-Bitcoin US$ 83.366 (+2,44%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Dólar R$ 5,03 (+0,08%) · Euro R$ 5,65 (+0,10%) · Yuan R$ 0,75 (+0,27%) ·
+Ibovespa 206.495 pts (-0,86%) · IFIX 3.975 pts (-0,02%) · S&P 500 7.757
+pts (+0,58%) · Brent US$ 112,09 (+3,00%) · Ouro US$ 4.102 (-1,16%) ·
+Bitcoin US$ 81.961 (-1,60%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 16°C, nublado (mín. 14° / máx. 25°) · amanhã: garoa moderada,
-16° a 25°
-Montevidéu: 12°C, céu limpo (mín. 11° / máx. 17°) · amanhã: garoa
-intensa, 13° a 19°
+São Paulo: 17°C, nublado (mín. 16° / máx. 26°) · amanhã: trovoadas, 17°
+a 25°
+Montevidéu: 14°C, nublado (mín. 14° / máx. 19°) · amanhã: trovoadas, 16°
+a 17°
 
 EDITORIAL
 ---------
-O cenário político brasileiro ganha forte tensão após revelações sobre
-movimentações financeiras bilionárias ligadas a apostas e embates
-jurídicos na reta final do segundo turno. Na economia, o mercado
-financeiro reage positivamente com alta do Ibovespa e recuo do dólar,
-enquanto fusões bilionárias como a da iFood Benefícios e Caju redesenham
-o setor corporativo. No exterior, a diplomacia internacional busca
-destravar acordos na Ucrânia e o petróleo pressiona o mercado global.
+O Supremo Tribunal Federal impôs um impacto bilionário aos cofres
+públicos ao decidir que o ISS não integra a base de cálculo do PIS e da
+Cofins. No cenário político, o acirramento da corrida presidencial eleva
+a cautela nos mercados, enquanto a economia internacional reage à
+disparada do petróleo e à crise fiscal na Europa. No esporte, o
+Palmeiras garante vaga em mais uma final de Libertadores.
 
 EM 1 MINUTO
 -----------
-• Nota técnica da Fazenda aponta que Willer Tomaz movimentou R$ 5
-  bilhões em apostas em 2025.
-• iFood Benefícios compra a Caju por cerca de R$ 1 bilhão e cria uma
-  gigante no setor.
-• Ibovespa sobe 1,57% e fecha aos 208.296 pontos, impulsionado por
-  bancos e alívio nos juros.
-• China, México e Chile impõem barreiras ao frango catarinense após caso
-  de doença de Newcastle.
-• Vasco perde para o Boca Juniors por 3 a 1 no Maracanã e é eliminado da
-  Copa Sul-Americana.
+• STF decide por 6 a 5 que o ISS fica fora da base de cálculo do PIS e
+  da Cofins, gerando impacto estimado em R$ 35,4 bilhões.
+• Pesquisa Quaest aponta empate técnico entre Flávio Bolsonaro (45%) e
+  Lula (44%) na reta final do segundo turno.
+• Petróleo Brent supera US$ 112 por barril impulsionado por tensões
+  geopolíticas no Oriente Médio e incidentes no Estreito de Ormuz.
+• Elon Musk confirma que Tesla e SpaceX avaliam uma possível fusão
+  histórica avaliada em R$ 3,6 trilhões.
+• Palmeiras vence o Fluminense nos pênaltis e garante vaga na sua oitava
+  final de Copa Libertadores.
+• Relatório do Pnuma alerta que o planeta caminha para um aquecimento de
+  2,8°C e que ultrapassar o limite de 1,5°C é inevitável.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.640 notícias coletadas de 46 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 1.158 assuntos,
+A IA leu as 1.693 notícias coletadas de 44 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.165 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 85 assuntos e escolheu as 14 matérias desta edição. Nenhuma
+seguiu em 93 assuntos e escolheu as 14 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#racional
-Todas as 1.640 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#racional
+Todas as 1.693 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22-todas.html
 
 MANCHETE
 --------
-Willer Tomaz movimentou R$ 5 bilhões em apostas em 2025, aponta nota
-técnica do Ministério da Fazenda
-Advogado e amigo de Flávio Bolsonaro foi o maior apostador do país no
-ano passado, segundo dados da Secretaria de Prêmios e Apostas.
-Fontes: JOTA, Valor Econômico, Folha de S.Paulo, Estadão, g1, Exame
-Cobertura: Sem divergência entre os 6 veículos. A cobertura foi uniforme
-ao repercutir os dados da nota técnica da Fazenda, detalhando os
-montantes milionários e bilionários movimentados pelo advogado
-investigado.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-willer-tomaz-movimentou-r-5-bilhoes-em-apostas-e
-
-BRASIL · ECONOMIA
------------------
-• iFood Benefícios compra a Caju por cerca de R$ 1 bi e cria gigante de
-  benefícios
-  A operação combina plataformas que somam 3 milhões de usuários e
-  acirra a disputa no mercado de vale-refeição e vale-alimentação.
-  Fontes: Estadão, Brazil Journal, Folha de S.Paulo, Bloomberg Línea,
-  g1, NeoFeed, Money Times, Seu Dinheiro
-  Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu
-  integralmente ao relatar o negócio de forma factual, destacando os
-  valores bilionários, a união de bases de usuários e a dependência do
-  aval de órgãos reguladores.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-ifood-beneficios-compra-a-caju-por-cerca-de-r-1
-
-• Promulgação da emenda que encerra escala 6x1 exige revisão de
-  contratos públicos e rotinas
-  Emenda Constitucional 141 reduz jornada semanal para 40 horas e
-  determina reequilíbrio econômico em concessões e serviços estatais.
-  Fontes: JOTA, Folha de S.Paulo, NeoFeed, Secovi-SP
-  Cobertura: Pende para: Destaca impactos de custos para empresas e
-  contratos · 2 de 4 veículos. A cobertura técnica especializada focou o
-  passivo financeiro em concessões e custos corporativos, enquanto
-  veículos gerais destacaram o cronograma da conquista trabalhista.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-promulgacao-da-emenda-que-encerra-escala-6x1-exi
-
-• China, México e Chile impõem barreiras ao frango do Brasil após caso
-  da doença de Newcastle em SC
-  Autoridades sanitárias restringiram compras avícolas de Santa Catarina
-  após foco da doença detectado em um criatório de perus no município de
-  Nova Itaberaba.
-  Fontes: Estadão, Folha de S.Paulo, g1, Poder360, CNN Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura foi
-  factual e convergente, concentrando-se no impacto comercial para
-  frigoríficos de Santa Catarina e nos esclarecimentos do Ministério da
-  Agricultura sobre o alcance dos embargos.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-china-mexico-e-chile-impoem-barreiras-ao-frango
+STF decide que ISS não integra a base de cálculo do PIS e da Cofins
+Por 6 votos a 5, corte encerra derivada da tese do século e impõe
+impacto estimado em R$ 35,4 bilhões aos cofres públicos.
+Fontes: Valor Econômico, JOTA, STJ, Estadão, Folha de S.Paulo, Agência
+Brasil
+Cobertura: Equilíbrio: 2 × 2 de 6 veículos. A maior parte dos jornais de
+economia e política deu destaque central ao risco fiscal bilionário da
+derrota da União, enquanto veículos jurídicos e oficiais detalharam a
+fixação das teses.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-stf-decide-que-iss-nao-integra-a-base-de-calculo
 
 MERCADOS & FINANÇAS
 -------------------
-• Ibovespa sobe 1,57% puxado por bancos e expectativas para o segundo
-  turno
-  O principal índice da B3 fechou aos 208.295 pontos em sessão de alívio
-  nos juros futuros e desvalorização do dólar.
-  Fontes: Valor Econômico, Suno Notícias
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
-  ao constatar que o avanço do Ibovespa foi ditado pelo setor bancário e
-  pela precificação do quadro político.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-ibovespa-sobe-1-57-puxado-por-bancos-e-expectati
+• Governo prevê renegociação de até R$ 90 bi em dívidas no Desenrola 3.0
+  Ministério da Fazenda lança edital de chamamento para bancos e fundos
+  participarem do novo programa de renegociação.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência
+  Brasil, Money Times
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  integralmente para a divulgação do edital de chamamento e os detalhes
+  do Desenrola 3.0 informados pelo Ministério da Fazenda.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-governo-preve-renegociacao-de-ate-r-90-bi-em-div
+
+• Petróleo Brent supera US$ 112 por barril com tensão no Oriente Médio e
+  incidentes em Ormuz
+  Cotação da commodity dispara após relatos de danos a navios
+  petroleiros no Estreito de Ormuz, ataques na Arábia Saudita e queda de
+  estoques nos EUA.
+  Fontes: Valor Econômico, Financial Times, CNBC
+  Cobertura: Pende para: Foco na escalada bélica e risco físico de
+  interrupção da oferta · 2 de 4 veículos. A maior parte da cobertura
+  concentrou-se na vertente geopolítica e na vulnerabilidade de
+  infraestruturas no Golfo, com menor ênfase nas repercussões
+  macroeconômicas sobre a inflação.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-petroleo-brent-supera-us-112-por-barril-com-tens
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Nunes Marques diz que TSE não tem relação com mudanças de locais de
-  votação no segundo turno
-  Presidente da corte eleitoral afirma que alterações são definidas
-  pelos TREs e registra queda de 94% em relação a 2022.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Money Times, Agência
-  Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
-  na divulgação das declarações oficiais de Nunes Marques, embora alguns
-  veículos tenham incorporado análises de bastidor sobre falhas
-  operacionais na comunicação prévia dos tribunais regionais.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-nunes-marques-diz-que-tse-nao-tem-relacao-com-mu
+• STJ condena ex-presidente do TJBA e ex-juiz nas primeiras penas da
+  Operação Faroeste
+  Corte Especial impõe penas em regime fechado e perda de cargos a
+  magistrados envolvidos em esquema de venda de sentenças na Bahia.
+  Fontes: JOTA, STJ, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura foi
+  unânime e factual, ressaltando o ineditismo das condenações de mérito
+  da Operação Faroeste contra magistrados de segundo grau.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-stj-condena-ex-presidente-do-tjba-e-ex-juiz-nas
 
 POLÍTICA
 --------
-• Lula prepara PEC da gratuidade de transporte e agenda sanção de perdão
-  de dívidas do MEI
-  Proposta prevê destinar 25% das emendas parlamentares para ônibus
-  gratuitos nos fins de semana, enquanto lei cria o Prospera MEI.
-  Fontes: JOTA, Valor Econômico, Folha de S.Paulo, g1, Agência Brasil,
-  CNN Brasil
-  Cobertura: Equilíbrio: 2 × 2 de 6 veículos. A imprensa econômica e
-  política ressaltou o impasse do financiamento via emendas e o timing
-  eleitoral, enquanto portais de grande alcance enfatizaram os
-  benefícios anunciados.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-lula-prepara-pec-da-gratuidade-de-transporte-e-a
+• Lula e Flávio Bolsonaro trocam exigências e escalam desafio sobre
+  quebra de sigilos
+  Candidatos ao Planalto condicionam abertura de dados bancários,
+  fiscais e telefônicos a exigências mútuas no TSE.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Money
+  Times, Agência Brasil, Exame
+  Cobertura: Pende para: Destaca a reação e o aceite de Lula ao desafio
+  · 3 de 8 veículos. A cobertura começou evidenciando o protocolo de
+  exigências de Flávio Bolsonaro no TSE e convergiu ao fim do dia para a
+  resposta contundente de Lula em ato de campanha.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-lula-e-flavio-bolsonaro-trocam-exigencias-e-esca
+
+• Quaest aponta empate técnico com Flávio em 45% e Lula em 44%, e
+  cautela atinge mercados
+  Pesquisa mostra aperto na reta final, salto no grupo de indecisos e
+  queda na rejeição do petista antes do segundo turno.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, g1, Exame
+  Cobertura: Equilíbrio: 2 × 2 de 6 veículos. A maior parte dos veículos
+  destacou o empate técnico e a cautela gerada pela proximidade
+  percentual entre os dois candidatos, com foco nos indecisos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-quaest-aponta-empate-tecnico-com-flavio-em-45-e
+
+• Lula sanciona lei que perdoa dívidas tributárias e eleva teto de
+  faturamento de MEIs
+  Norma perdoa débitos inscritos na Dívida Ativa da União e amplia
+  receita anual da categoria para R$ 110 mil em 2027.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência
+  Senado, Agência Brasil
+  Cobertura: Equilíbrio: 2 × 2 de 6 veículos. Veículos de circulação
+  geral salientaram a conveniência eleitoral do anúncio a dias da
+  votação, enquanto canais públicos e guias focaram nas regras
+  operacionais e tetos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-lula-sanciona-lei-que-perdoa-dividas-tributarias
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Enviado dos EUA se reúne com Zelensky em Oslo e viaja à Rússia para
-  conversas diretas com Putin
-  Steve Witkoff tenta destravar acordo diplomático para a guerra na
-  Ucrânia após negociações construtivas e anúncio de libertação de
-  prisioneiro americano.
-  Fontes: Valor Econômico, Estadão, g1, CNN Brasil, The Guardian, CNBC,
-  Al Jazeera
-  Cobertura: Pende para: Destaca avanço diplomático e abertura para
-  negociar paz · 4 de 8 veículos. A maioria dos veículos salientou a
-  abertura nas conversas diplomáticas com Putin em São Petersburgo, mas
-  reportagens destacaram as fricções entre Kiev e Washington sobre
-  exigências de concessões.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-enviado-dos-eua-se-reune-com-zelensky-em-oslo-e
+• Rússia aceita retomar negociações com Ucrânia e EUA após encontro em
+  São Petersburgo
+  Kremlin sinaliza abertura para tratativas em novembro a pedido de
+  enviado de Donald Trump, enquanto Vladimir Putin liberta prisioneiro
+  americano.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
+  Financial Times, The Guardian, BBC News, CNBC
+  Cobertura: Equilíbrio: 1 × 1 de 9 veículos. A cobertura dividiu-se
+  entre destacar os sinais diplomáticos de aproximação negociada pelos
+  EUA e relatar os ataques militares contínuos que contradizem uma
+  trégua imediata.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-russia-aceita-retomar-negociacoes-com-ucrania-e
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• SpaceX e Tesla avaliam fusão histórica após salto nos resultados
-  operacionais
-  Conselhos de administração criam comitês especiais para analisar
-  negócio de trilhões de dólares impulsionado por inteligência
-  artificial.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Financial Times, BBC
-  News, CNBC, MarketWatch, Al Jazeera, TechCrunch, The Wall Street
-  Journal, The New York Times
-  Cobertura: Pende para: Enfatiza a sinergia em IA e o salto de receita
-  da SpaceX · 6 de 11 veículos. A cobertura concentrou-se
-  majoritariamente nos fortes resultados operacionais da SpaceX e no
-  otimismo com inteligência artificial, enquanto veículos internacionais
-  mantiveram atenção às exigências de governança corporativa.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-spacex-e-tesla-avaliam-fusao-historica-apos-salt
-
-• FAA certifica Boeing 737 Max 10 para operações comerciais após anos de
-  atrasos
-  Órgão regulador de aviação dos EUA conclui aprovação da maior variante
-  da família comercial após crises de segurança.
-  Fontes: Valor Econômico, g1, The New York Times, CNBC
-  Cobertura: Sem divergência entre os 4 veículos. Os veículos
-  convergiram plenamente no relato factual da certificação regulatória,
-  frisando o impacto do atraso acumulado desde 2020.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-faa-certifica-boeing-737-max-10-para-operacoes-c
-
-• Governo dos EUA proíbe o uso de inteligência artificial da chinesa
-  DeepSeek em agências federais
-  Departamento de Segurança Interna cita risco à segurança nacional e
-  determina remoção de ferramentas e softwares terceirizados.
-  Fontes: Folha de S.Paulo, g1, The New York Times, The Guardian, CNBC,
-  TechCrunch
-  Cobertura: Pende para: Destaca risco à segurança nacional e a dados
-  sigilosos · 4 de 6 veículos. Predominou o foco nas restrições de
-  segurança impostas pelo governo americano, enquanto The New York Times
-  e Folha deram peso relevante à resposta e acusação de politização por
-  Pequim.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-governo-dos-eua-proibe-o-uso-de-inteligencia-art
+• Meta é condenada a pagar US$ 25 bilhões no Novo México por caso
+  Cambridge Analytica
+  A Justiça do estado americano determinou a multa após um júri concluir
+  que a empresa enganou usuários sobre privacidade de dados.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Financial Times, The
+  New York Times, The Guardian, BBC News, CNBC, South China Morning
+  Post, MarketWatch, Al Jazeera, TechCrunch
+  Cobertura: Sem divergência entre os 12 veículos. A cobertura dos
+  veículos convergiu integralmente na divulgação factual da multa
+  histórica aplicada à Meta no Novo México.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-meta-e-condenada-a-pagar-us-25-bilhoes-no-novo-m
 
 ESPORTE
 -------
-• Vasco perde para o Boca Juniors no Maracanã e é eliminado da Copa
-  Sul-Americana
-  Time argentino vence por 3 a 1, reverte vantagem construída na
-  Bombonera e garante vaga na decisão continental.
-  Fontes: ge, Estadão, Folha de S.Paulo, Placar, Gazeta Esportiva, CNN
-  Brasil
-  Cobertura: Pende para: Destaca a falha defensiva e a frustração da
-  torcida vascaína · 4 de 6 veículos. A cobertura concentrou-se
-  majoritariamente na análise da queda vascaína e nas falhas capitais do
-  time, com veículos dividindo espaço entre a lamentação local e a
-  celebração provocativa do Boca Juniors.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-vasco-perde-para-o-boca-juniors-no-maracana-e-e
-
-• PSG vence o Barcelona por 4 a 2 pela Champions League, mas perde
-  Kvaratskhelia
-  Equipe francesa mantém 100% de aproveitamento na competição europeia,
-  mas atacante sofre grave lesão no joelho.
+• Palmeiras vence o Fluminense nos pênaltis e garante vaga na oitava
+  final de Libertadores
+  Equipe de Abel Ferreira perdeu no tempo normal por 1 a 0, mas levou a
+  melhor nas penalidades com brilho de Carlos Miguel.
   Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar,
-  Trivela, BBC Sport
+  Poder360, CNN Brasil
   Cobertura: Sem divergência entre os 7 veículos. A cobertura convergiu
-  ao tratar o jogo como um marco técnico da rodada europeia,
-  equilibrando o brilho ofensivo francês com a nota trágica da lesão.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-psg-vence-o-barcelona-por-4-a-2-pela-champions-l
+  ao relatar de forma factual e detalhada a classificação histórica do
+  Palmeiras nos pênaltis e a queda do Fluminense.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-palmeiras-vence-o-fluminense-nos-penaltis-e-gara
+
+• Atlético-MG perde para o Montevideo City Torque, mas avança à final da
+  Sul-Americana
+  Galo sofreu dois gols nos acréscimos e expulsão, mas garantiu vaga na
+  decisão graças à vitória por 3 a 0 no jogo de ida.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar
+  Cobertura: Sem divergência entre os 6 veículos. Todos os veículos
+  destacaram o susto sofrido pelo Atlético-MG no Uruguai, mas
+  convergiram ao ressaltar a importância da vaga na decisão.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-atletico-mg-perde-para-o-montevideo-city-torque
+
+• Brasil termina em quinto lugar no Mundial de Ginástica Artística e
+  adia vaga em Los Angeles
+  Equipe feminina comandada por Rebeca Andrade somou 159,730 pontos na
+  final por equipes em Roterdã.
+  Fontes: Estadão, Folha de S.Paulo, Gazeta Esportiva, Agência Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  integralmente ao relatar o desempenho do Brasil e a configuração do
+  pódio no Mundial.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-brasil-termina-em-quinto-lugar-no-mundial-de-gin
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• ONU alerta que corte de emissões precisa ser acelerado para conter
-  aquecimento global
-  Exceder o limite de 1,5°C é considerado inevitável, mas reverter a
-  alta exige cortes drásticos de carbono nos próximos anos.
-  Fontes: Folha de S.Paulo
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
-  ao relatar os alertas da ONU sobre a necessidade urgente de redução de
-  emissões para lidar com o aquecimento global.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-21.html#s-onu-alerta-que-corte-de-emissoes-precisa-ser-ace
+• Planeta caminha para aquecimento de 2,8°C e ONU alerta que ultrapassar
+  1,5°C é inevitável
+  Relatório do Pnuma aponta que o mundo falha em reduzir emissões com
+  rapidez, enquanto a ONU afirma que exceder o limite de 1,5°C é
+  iminente.
+  Fontes: Valor Econômico, Folha de S.Paulo, Um Só Planeta, ClimaInfo
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura convergiu
+  integralmente na divulgação dos dados alarmantes do Pnuma, destacando
+  de maneira homogênea a gravidade do cenário climático global.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-planeta-caminha-para-aquecimento-de-2-8-c-e-onu
+
+• Emissões de gases de efeito estufa no Brasil caem 6% em 2025
+  impulsionadas por recuo no desmate
+  Dados do SEEG mostram que o país atingiu o menor volume bruto de
+  emissões desde 2018, embora a pecuária siga como desafio.
+  Fontes: Valor Econômico, Folha de S.Paulo, Um Só Planeta, ClimaInfo,
+  Agência Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  na divulgação dos dados positivos do SEEG, com ênfase unânime na queda
+  proporcionada pela redução do desmatamento e menções aos desafios
+  setoriais.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-22.html#s-emissoes-de-gases-de-efeito-estufa-no-brasil-cae
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 06:56 (BRT) · Edição gerada por IA
+Gerado automaticamente em 07:05 (BRT) · Edição gerada por IA
 (gemini-flash-latest + gemini-flash-lite-latest)

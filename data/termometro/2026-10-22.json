@@ -1,0 +1,886 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-22",
+ "analises": [
+  {
+   "id": "8433144a78df",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/21/flavio-trucou-com-um-6-e-vou-meter-um-9-na-cara-dele-diz-lula-ao-dizer-que-aceita-abrir-mais-sigilos.ghtml",
+   "titulo": "Flávio trucou com um 6 e vou meter um 9 na cara dele, afirma Lula ao aceitar abrir mais sigilos",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-e-flavio-bolsonaro-trocam-exigencias-e-esca",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 724,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "4958136ef787",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/21/ao-sancionar-pacote-para-meis-lula-diz-que-governo-incentiva-brasileiros-e-serem-empreendedores.ghtml",
+   "titulo": "Ao sancionar pacote para MEIs, Lula diz que governo incentiva brasileiros e serem empreendedores",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-sanciona-lei-que-perdoa-dividas-tributarias",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 69,
+    "rotulo": "Regular"
+   },
+   "palavras": 365,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "986c76bc2628",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/21/rssia-liberta-americano-preso-desde-2022-durante-encontro-de-putin-com-witkoff.ghtml",
+   "titulo": "Rússia liberta americano preso desde 2022 durante encontro de Putin com Witkoff",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "russia-aceita-retomar-negociacoes-com-ucrania-e",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 65,
+    "rotulo": "Regular"
+   },
+   "palavras": 479,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "17ebd646a3d9",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/21/petroleo-fecha-perto-da-estabilidade-mas-avanca-no-pos-mercado-com-ataque-a-saudi-aramco.ghtml",
+   "titulo": "Petróleo fecha perto da estabilidade, mas avança no pós-mercado com ataque à Saudi Aramco",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "petroleo-brent-supera-us-112-por-barril-com-tens",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 46,
+    "rotulo": "Fraca"
+   },
+   "palavras": 301,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "12efeb716f5e",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/21/aquecimento-global-j-superou-15c-e-pode-chegar-a-28c-alerta-onu.ghtml",
+   "titulo": "Temperatura global pode subir 2,8ºC neste século, diz ONU",
+   "veiculo": "Valor Econômico",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "planeta-caminha-para-aquecimento-de-2-8-c-e-onu",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 597,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "d7dcd4bcc3cc",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/21/meta-e-condenada-a-pagar-us-25-bi-em-processo-relacionado-a-cambridge-analytica.ghtml",
+   "titulo": "Meta é condenada a pagar US$ 25 bi em processo relacionado à Cambridge Analytica",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "meta-e-condenada-a-pagar-us-25-bilhoes-no-novo-m",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 632,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "8a47994cd9f6",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/21/lula-abriu-o-sigilo-bancario-fiscal-e-telefonico-entenda.ghtml",
+   "titulo": "Lula abriu o sigilo bancário, fiscal e telefônico? Entenda",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-e-flavio-bolsonaro-trocam-exigencias-e-esca",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 89,
+    "rotulo": "Boa"
+   },
+   "palavras": 802,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "9dc115f81fa1",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/21/ibovespa-recua-com-acirramento-da-disputa-eleitoral-e-sem-o-apoio-de-vale.ghtml",
+   "titulo": "Ibovespa recua com acirramento da disputa eleitoral e sem o apoio de Vale",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "quaest-aponta-empate-tecnico-com-flavio-em-45-e",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 62,
+    "rotulo": "Regular"
+   },
+   "palavras": 540,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f3fb5cb9211a",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/21/presidente-lula-sanciona-projeto-de-ampliao-do-teto-e-perdo-das-dvidas-do-mei.ghtml",
+   "titulo": "Presidente Lula sanciona projeto de ampliação do teto e perdão das dívidas do MEI",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-sanciona-lei-que-perdoa-dividas-tributarias",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 69,
+    "rotulo": "Regular"
+   },
+   "palavras": 398,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 2.94,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "é mais uma investida do governo federal para tentar melhorar a avaliação da gestão às vésperas do segundo turno da eleição",
+     "paragrafo": "P1",
+     "direcao": "direita",
+     "contribuicao": 2.94,
+     "explicacao": "Enquadra a medida governamental primordialmente como estratégia eleitoral."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "669faea8327c",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/21/enviado-de-trump-pede-a-putin-retomada-de-negociaes-trilaterais-de-paz-na-ucrnia.ghtml",
+   "titulo": "Putin e Zelensky dizem aceitar reunião trilateral",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "russia-aceita-retomar-negociacoes-com-ucrania-e",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 67,
+    "rotulo": "Regular"
+   },
+   "palavras": 296,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "dc265eb45d0d",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/21/estoques-de-petroleo-dos-eua-caem-mais-do-que-o-esperado-na-semana-ate-16-de-outubro.ghtml",
+   "titulo": "Estoques de petróleo dos EUA caem mais do que o esperado na semana até 16 de outubro",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "petroleo-brent-supera-us-112-por-barril-com-tens",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 174,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "64e9104f9212",
+   "url": "https://www1.folha.uol.com.br/ambiente/2026/10/emissoes-de-gases-estufa-caem-pelo-terceiro-ano-consecutivo-no-brasil.shtml",
+   "titulo": "Emissões de gases-estufa caem pelo terceiro ano consecutivo no Brasil",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "emissoes-de-gases-de-efeito-estufa-no-brasil-cae",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "costumes",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -6,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 60,
+    "rotulo": "Regular"
+   },
+   "palavras": 1103,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -5.88,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "LEXICO",
+     "citacao": "promoveu um desmonte da fiscalização ambiental",
+     "paragrafo": "P3",
+     "direcao": "esquerda",
+     "contribuicao": -5.88,
+     "explicacao": "Utiliza vocabulário codificado de oposição ('desmonte') na voz da redação."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "d282261b314b",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/21/lula-e-marcola-no-se-opem-a-abrir-sigilos-e-vo-atender-condies-de-flvio-diz-camilo-santana.ghtml",
+   "titulo": "Lula e Marcola não se opõem a abrir sigilos, afirma coordenador de campanha do PT",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-e-flavio-bolsonaro-trocam-exigencias-e-esca",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 78,
+    "rotulo": "Regular"
+   },
+   "palavras": 362,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f6ac245d18df",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/21/dolar-a-vista-tem-leve-alta-com-ajuste-externo-e-atencao-a-disputa-presidencial.ghtml",
+   "titulo": "Dólar à vista tem leve alta com ajuste externo e atenção à disputa presidencial",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "quaest-aponta-empate-tecnico-com-flavio-em-45-e",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 81,
+    "rotulo": "Boa"
+   },
+   "palavras": 488,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "5d27702a693b",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/stj-condena-desembargadora-a-14-anos-de-prisao-em-acao-da-operacao-faroeste.shtml",
+   "titulo": "STJ condena desembargadora a 14 anos de prisão em ação da Operação Faroeste",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "stj-condena-ex-presidente-do-tjba-e-ex-juiz-nas",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 782,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "bcb815d8ce99",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/governo-pode-comprar-ate-r-90-bi-em-dividas-da-populacao-para-o-desenrola-30-em-novembro-diz-ministro.shtml",
+   "titulo": "Governo pode comprar até R$ 90 bi em dívidas da população para o Desenrola 3.0 em novembro, diz ministro",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "governo-preve-renegociacao-de-ate-r-90-bi-em-div",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 837,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -2.94,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "Durigan criticou, sem citar nomes, a proposta do candidato à Presidência Flávio Bolsonaro (PL).",
+     "paragrafo": "P13",
+     "direcao": "esquerda",
+     "contribuicao": -2.94,
+     "explicacao": "Usa o verbo 'criticou' e reproduz a qualificação pejorativa ('calote generalizado') do governo contra a proposta da oposição."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "37205f1a5d48",
+   "url": "https://umsoplaneta.globo.com/clima/noticia/2026/10/21/mundo-caminha-para-aquecimento-de-ate-28-c-neste-seculo-alerta-onu.ghtml",
+   "titulo": "Mundo caminha para aquecimento de até 2,8 °C neste século, alerta ONU",
+   "veiculo": "Um Só Planeta",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "planeta-caminha-para-aquecimento-de-2-8-c-e-onu",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 1298,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "e666d4c6b0c1",
+   "url": "https://umsoplaneta.globo.com/clima/noticia/2026/10/21/emissao-liquida-de-poluentes-no-pais-cai-ao-menor-nivel-desde-2012.ghtml",
+   "titulo": "Emissão líquida de poluentes no país cai ao menor nível desde 2012",
+   "veiculo": "Um Só Planeta",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "emissoes-de-gases-de-efeito-estufa-no-brasil-cae",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 695,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "6e4fbffbe3f1",
+   "url": "https://www1.folha.uol.com.br/tec/2026/10/meta-pagara-us-25-bilhoes-ao-novo-mexico-por-enganar-usuarios-sobre-privacidade-de-dados.shtml",
+   "titulo": "Meta pagará US$ 25 bilhões ao Novo México por enganar usuários sobre privacidade de dados",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "meta-e-condenada-a-pagar-us-25-bilhoes-no-novo-m",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1069,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "483e1b28fad6",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/21/ibovespa-ronda-a-estabilidade-apos-quaest-mostrar-vantagem-mais-estreita-de-flavio.ghtml",
+   "titulo": "Ibovespa recua em meio a cautela após Quaest mostrar menor diferença entre Flávio e Lula",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "quaest-aponta-empate-tecnico-com-flavio-em-45-e",
+   "data_publicacao": "2026-10-21",
+   "analisado_em": "2026-10-22",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 695,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-22T10:38:50+00:00",
+   "provedor": "gemini_lite",
+   "modelo": "gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 13,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 34071,
+    "saida": 14019
+   },
+   "analises": [
+    "8433144a78df",
+    "4958136ef787",
+    "986c76bc2628",
+    "17ebd646a3d9",
+    "12efeb716f5e",
+    "d7dcd4bcc3cc",
+    "8a47994cd9f6",
+    "9dc115f81fa1",
+    "f3fb5cb9211a",
+    "669faea8327c",
+    "dc265eb45d0d",
+    "64e9104f9212",
+    "d282261b314b",
+    "f6ac245d18df",
+    "5d27702a693b",
+    "bcb815d8ce99",
+    "37205f1a5d48",
+    "e666d4c6b0c1",
+    "6e4fbffbe3f1",
+    "483e1b28fad6"
+   ]
+  }
+ ]
+}
