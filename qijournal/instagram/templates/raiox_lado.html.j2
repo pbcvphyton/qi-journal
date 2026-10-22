@@ -1,3 +1,83 @@
 {% extends "_base.html.j2" %}
-{% block style %}.box{position:absolute;inset:80px;font-size:34px;line-height:1.3;overflow:hidden}h1{font-family:'Noto Serif';font-size:56px;margin-bottom:24px}{% endblock %}
-{% block body %}<div class="box" data-fit="debug" data-min="18"><h1>raiox_lado · {{ page }}/{{ pages }}</h1>{% for k, v in s.items() %}<p><b>{{ k }}</b>: {{ v }}</p>{% endfor %}</div>{% endblock %}
+{% import "_macros.html.j2" as m with context %}
+{% import "_raiox.html.j2" as rx with context %}
+{% set side = s.side %}
+{% set L = side|upper %}
+{% set c = s.counts %}
+{#- Orçamento de texto (enxerto do Editorial, com corte mais duro): no máximo 3 enquadramentos e
+    560 caracteres, e só entram os que cabem inteiros com o corpo a 34 px no espaço que sobra
+    depois do rótulo. Os demais vão para "Também no lado X", só pelo nome. Estimativa em px:
+    linhas = ceil(caracteres / 45) a 34 px; cada veículo custa 2,18em (nome e respiros) + 1,3em por linha. -#}
+{% set label_len = s.label|length %}
+{% set lab_max_lines = 2 if label_len <= 60 else (3 if label_len <= 110 else 4) %}
+{% set nsl = namespace(fs=0) %}
+{% for f in [62, 56, 50, 46] %}
+  {% if nsl.fs == 0 and (label_len * 1.08 / (1900 / f))|round(0, 'ceil') <= lab_max_lines %}{% set nsl.fs = f %}{% endif %}
+{% endfor %}
+{% set lab_fs = nsl.fs or 46 %}
+{% set lab_lines = [(label_len * 1.08 / (1900 / lab_fs))|round(0, 'ceil')|int, 1]|max %}
+{% set compact = lab_lines >= 3 or (s.outlets|length) >= 3 %}
+{% set list_top = 262 + (112 if compact else 140) + (24 if compact else 32) + lab_fs * (1.12 * lab_lines + 0.24) + (22 if compact else 30) %}
+{% set avail = 1236 - 18 - list_top %}
+{% set ns = namespace(k=0, chars=0, cost=0, stop=false) %}
+{% for o in s.outlets[:3] %}
+  {% set flen = (o.framing or '')|length %}
+  {% set lines = (flen / 45)|round(0, 'ceil') %}
+  {% set cost = 34 * (2.18 + 1.3 * lines) + 2 %}
+  {% set also_h = 0 if loop.index == (s.outlets|length) else 100 %}
+  {% if not ns.stop and (loop.first or (ns.chars + flen <= 560 and ns.cost + cost <= avail - also_h)) %}
+    {% set ns.k = loop.index %}{% set ns.chars = ns.chars + flen %}{% set ns.cost = ns.cost + cost %}
+  {% else %}{% set ns.stop = true %}{% endif %}
+{% endfor %}
+{% set shown = s.outlets[:ns.k] %}
+{% set rest = s.outlets[ns.k:] %}
+{% set n = shown|length if shown else 1 %}
+{% block theme %}{{ 't-side-a' if side == 'a' else 't-side-b' }}{% endblock %}
+{% block style %}
+{{ rx.css() }}
+.who{display:flex;align-items:center;gap:28px;margin-top:{{ 30 if compact else 42 }}px;flex:none}
+.letter{width:{{ 112 if compact else 140 }}px;height:{{ 112 if compact else 140 }}px;flex:none;border:5px solid #fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:800;font-size:{{ 84 if compact else 108 }}px;line-height:1;color:#fff;background:rgba(15,23,48,.18);padding-bottom:.04em}
+.who .t{display:flex;flex-direction:column;gap:10px}
+.who .t b{font-family:var(--mono);font-weight:600;font-size:34px;letter-spacing:.08em;text-transform:uppercase}
+.who .t span{font-family:var(--sans);font-weight:600;font-size:34px;color:var(--ink2)}
+.who .t span em{font-style:normal;font-family:var(--mono);font-weight:600;color:#fff}
+.label{margin-top:{{ 24 if compact else 32 }}px;font-family:var(--serif);font-weight:700;font-size:{{ lab_fs }}px;line-height:1.12;letter-spacing:-.01em;color:#fff;
+  max-height:{{ (lab_fs * (1.12 * lab_lines + 0.26))|round(0, 'ceil')|int }}px;overflow:hidden;--clamp:{{ lab_lines }};flex:none}
+/* a lista ocupa o espaço restante; o ajuste reduz o corpo até 34 px se faltar espaço */
+.list{margin-top:{{ 22 if compact else 30 }}px;border-top:2px solid var(--rule2);flex:0 1 auto;min-height:0;overflow:hidden;--clamp:14;
+  font-size:{{ [48 if n == 1 else (42 if ns.chars <= 300 else 40), lab_fs - 2]|min }}px;padding-top:0}
+.o{padding:.48em 0 .5em;border-bottom:2px solid var(--rule)}
+.o:last-child{border-bottom:0}
+.o .nm{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-weight:600;font-size:.84em;letter-spacing:.01em;color:#fff;line-height:1.1}
+.o .nm i{display:block;width:.42em;height:.42em;background:#fff;flex:none}
+/* corte fixo de linhas por enquadramento: se atuar, o guarda do quadro (data-clamp) encolhe a lista até o texto
+   aparecer inteiro; se nem a 34 px couber, o FIT_JS registra "texto cortado" no log (não corta em silêncio) */
+.o .fr{margin-top:.28em;font-family:var(--sans);font-weight:500;font-size:1em;line-height:1.3;color:var(--ink2);
+  --clamp:{{ 7 if n > 1 else 10 }};display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--clamp);overflow:hidden}
+.also{flex:none;padding-top:20px;font-family:var(--mono);font-size:30px;line-height:1.35;color:var(--ink2);max-height:100px;overflow:hidden;--clamp:2}
+.also b{color:#fff;font-weight:600}
+.ftr{margin-top:auto}
+.list + .ftr,.also + .ftr{padding-top:18px}
+{% endblock %}
+{% block body %}
+<div class="frame">
+  {{ m.header('Raio-X da cobertura') }}
+  {{ rx.locator(c, side) }}
+  <div class="who">
+    <div class="letter">{{ L }}</div>
+    <div class="t"><b>Lado {{ L }}</b><span><em>{{ s.outlets|length }}</em> de <em>{{ c.total }}</em> veículos</span></div>
+  </div>
+  <p class="label" data-fit="raiox-lado-{{ side }}" data-min="40">{{ m.tx(s.label) }}</p>
+  <div class="list" data-fit="raiox-lado-{{ side }}-veiculos" data-min="34">
+    {% for o in shown %}
+    <div class="o">
+      <div class="nm"><i></i>{{ o.name }}</div>
+      {% if o.framing %}<p class="fr" data-clamp="raiox-enquadramento-{{ side }}-{{ loop.index }}">{{ m.tx(o.framing) }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% if rest %}<p class="also" data-fit="raiox-tambem-{{ side }}" data-min="26"><b>Também no lado {{ L }}:</b> {{ rest|map(attribute='name')|join(', ') }}</p>{% endif %}
+  {{ rx.footer_rx() }}
+</div>
+{% endblock %}

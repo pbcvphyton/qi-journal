@@ -1,3 +1,71 @@
 {% extends "_base.html.j2" %}
-{% block style %}.box{position:absolute;inset:80px;font-size:34px;line-height:1.3;overflow:hidden}h1{font-family:'Noto Serif';font-size:56px;margin-bottom:24px}{% endblock %}
-{% block body %}<div class="box" data-fit="debug" data-min="18"><h1>fechamento · {{ page }}/{{ pages }}</h1>{% for k, v in s.items() %}<p><b>{{ k }}</b>: {{ v }}</p>{% endfor %}</div>{% endblock %}
+{% import "_macros.html.j2" as m with context %}
+{% set ctas = (s.get('cta') or 'Salve · Envie · Siga').split(' · ') %}
+{% set launch = slot == 'lancamento' %}
+{#- No "Comece aqui" (perene, fica fixado) o gerador manda números arredondados ("mais de 1.500",
+    "mais de 40"): o "mais de" sai do numeral e vai para o rótulo, e as contagens exatas do dia
+    (matérias, coberturas comparadas) não aparecem, porque deixariam de valer no dia seguinte. -#}
+{% set art = (s.articles|string)|replace('\u00a0', ' ') %}
+{% set art_more = art.startswith('mais de ') %}
+{% set art_n = art[8:] if art_more else art %}
+{% set out = (s.outlets|string)|replace('\u00a0', ' ') %}
+{% set out_more = out.startswith('mais de ') %}
+{% set out_n = out[8:] if out_more else out %}
+{% set alen = art_n|length %}
+{% block theme %}t-dark{% endblock %}
+{% block style %}
+.k0{margin-top:52px;flex:none}
+.big{display:flex;align-items:baseline;gap:26px;margin-top:10px;flex:none;flex-wrap:wrap}
+/* herói em numeral de display: ponto de milhar justo, sem zero pontilhado */
+.big .n{font-size:{{ 210 if alen <= 5 else 168 }}px;line-height:.9;color:var(--orange);letter-spacing:-.035em;font-variant-numeric:proportional-nums lining-nums}
+.big .u{font-family:var(--serif);font-weight:800;font-size:60px;line-height:1;letter-spacing:-.01em}
+.of{margin-top:26px;flex:none;font-family:var(--serif);font-weight:800;font-size:60px;line-height:1.05;letter-spacing:-.01em;padding-bottom:30px;border-bottom:2px solid var(--rule2)}
+.of .numd{font-family:var(--sans)}
+.stats{display:grid;grid-template-columns:repeat({{ 3 if s.get('compared') else 2 }},1fr);margin-top:44px;border-top:2px solid var(--rule2);border-bottom:2px solid var(--rule);flex:none}
+.stats div{padding:24px 0 24px 0;border-right:2px solid var(--rule)}
+.stats div+div{padding-left:28px}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-size:68px;line-height:1}
+.stats b small{display:block;font-family:var(--mono);font-weight:500;font-size:26px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+.stats span{display:block;margin-top:12px;font-family:var(--mono);font-size:26px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+.msg{margin:auto 0;padding:40px 0;font-family:var(--serif);font-weight:700;font-size:50px;line-height:1.2;letter-spacing:-.01em;flex:none}
+.msg em{font-style:normal;color:var(--orange);white-space:nowrap}
+.msg em svg{display:inline-block;width:.62em;height:.62em;margin-left:.22em;vertical-align:.02em}
+.cta{display:grid;grid-template-columns:repeat({{ ctas|length }},1fr);gap:18px;flex:none}
+.cta div{height:132px;border:2px solid var(--rule2);display:flex;align-items:center;justify-content:center;gap:18px;
+  font-family:var(--mono);font-weight:600;font-size:32px;letter-spacing:.06em;text-transform:uppercase;background:var(--panel)}
+.cta svg{width:44px;height:44px}
+.ftr{margin-top:34px}
+{% endblock %}
+{% block body %}
+<div class="frame">
+  {# o "link na bio" aparece uma vez, na frase em laranja; o cabeçalho e o rodapé não o repetem #}
+  {{ m.header('Guia rápido' if launch else 'Painel do dia') }}
+  <span class="lbl k0">{{ 'Todo dia, lemos' if launch else 'Hoje lemos' }}{{ ' mais de' if art_more }}</span>
+  <div class="big"><span class="n numd">{{ art_n }}</span><span class="u">notícias</span></div>
+  {% if launch %}
+  <p class="of">de {{ 'mais de ' if out_more }}<span class="numd">{{ out_n }}</span>&nbsp;veículos.</p>
+  <p class="msg">A edição completa sai todo dia, com o que cada veículo destacou em cada assunto: <em>link na bio{{ m.out_arrow(30, 4.4) }}</em></p>
+  {% else %}
+  <div class="stats">
+    <div><b class="numd">{% if out_more %}<small>mais de</small>{% endif %}{{ out_n }}</b><span>veículos</span></div>
+    <div><b class="numd">{{ s.stories }}</b><span>matérias</span></div>
+    {% if s.get('compared') %}<div><b class="numd">{{ s.compared }}</b><span>coberturas comparadas</span></div>{% endif %}
+  </div>
+  <p class="msg">A edição completa, com {{ s.stories }} matérias e como cada veículo cobriu cada assunto: <em>link na bio{{ m.out_arrow(30, 4.4) }}</em></p>
+  {% endif %}
+  <div class="cta">
+    {% for c in ctas %}
+    {% set lc = c|lower %}
+    <div>
+      {% if 'salv' in lc %}<svg viewBox="0 0 44 44" fill="none" stroke="#F6F4EF" stroke-width="3.4" stroke-linejoin="round" aria-hidden="true"><path d="M11 5h22v34l-11-8-11 8z"/></svg>
+      {% elif 'envi' in lc or 'compart' in lc %}<svg viewBox="0 0 44 44" fill="none" stroke="#F6F4EF" stroke-width="3.4" stroke-linejoin="round" aria-hidden="true"><path d="M40 5L4 19l14 6 6 14z"/><path d="M40 5L18 25"/></svg>
+      {% else %}<svg viewBox="0 0 44 44" fill="none" stroke="#F6F4EF" stroke-width="3.4" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="15" r="8"/><path d="M4 39c1.5-8 7-12 14-12s12.5 4 14 12"/><path d="M36 10v12M30 16h12" stroke="#FF5A1F"/></svg>{% endif %}
+      <span>{{ c }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {# fechamento não é resumo de IA nem cita fonte: o rodapé leva a assinatura e a página ("08/08") #}
+  {{ m.footer(brand.tagline) }}
+</div>
+{% endblock %}

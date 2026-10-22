@@ -337,7 +337,8 @@ def _briefing_items(edition: Edition, *, election: bool, limit: int = 5) -> list
             break
         if story.id in used or (election and (is_political(story, f"{story.headline} {story.dek}"))):
             continue
-        items.append({"text": f"{plain(story.headline)}. {plain(story.dek)}", "story": story})
+        # Só a linha fina (uma frase, sem a manchete colada na frente).
+        items.append({"text": plain(story.dek) or plain(story.headline), "story": story})
         used.add(story.id)
     return items
 
@@ -354,6 +355,8 @@ def em_1_minuto(edition: Edition, brand: dict[str, Any], *, election: bool) -> P
         return None
     if election_lead:  # a capa não estampa pesquisa nem política no período eleitoral
         lead = next((i["story"] for i in items if i["story"] is not None and not is_political(i["story"])), lead)
+        # O 1º fato é o da capa (é o slide que o Instagram reapresenta a quem não deslizou).
+        items.sort(key=lambda i: 0 if i["story"] is lead else 1)
     stats = edition.stats
     outlets = edition.rationale.outlets if edition.rationale else 0
     total = len(items)
@@ -639,7 +642,7 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
     texts = [
         f"**Como funciona.** Toda manhã, um robô coleta as notícias de {more_than(stats.sources_total, 10)} fontes, "
         f"de {more_than(outlets, 10)} veículos. "
-        f"Uma IA compila as matérias do dia em 9 editorias e compara como cada veículo cobriu cada assunto.",
+        "Uma IA compila as matérias do dia por editoria e compara como cada veículo cobriu cada assunto.",
         "**O que sai aqui.** Toda manhã, o **Em 1 minuto**: os fatos do dia e o mercado. "
         "À noite, o **Raio-X da cobertura**: o assunto em que a imprensa mais se dividiu.",
         "**Lado A x lado B.** Mesmo fato, enquadramentos diferentes. O Raio-X mostra o que cada veículo destacou. "
@@ -676,7 +679,8 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
                 "compared": sum(1 for s in edition.stories if s.coverage) + len(edition.compared),
                 "cta": "Salve · Envie · Siga",
             },
-            alt="Siga a Triangula. A edição completa de hoje está no link da bio.",
+            alt=f"Todo dia, lemos {articles} notícias de {more_than(outlets, 10)} veículos. A edição completa, "
+            "com o que cada veículo destacou em cada assunto, está no link da bio. Salve, envie, siga.",
         )
     )
     caption = finish_caption(
@@ -687,7 +691,7 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
             "▸ Toda manhã: Em 1 minuto, os fatos do dia e o mercado.\n"
             "▸ À noite: Raio-X da cobertura, o lado A x lado B da imprensa.\n"
             "▸ Conta automática: resumo por IA, sempre com as fontes. Sem opinião e sem foto de jornal.",
-            "Siga e ative as notificações. Edição completa de hoje: link na bio.",
+            "Siga e ative as notificações. Edição completa do dia: link na bio.",
             "#triangula #noticias #jornalismo #mercadofinanceiro",
         ]
     )

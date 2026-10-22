@@ -2,10 +2,171 @@
 <html lang="pt-BR"><head><meta charset="utf-8">
 <style>
 {{ brand.fonts_css }}
+/* ── Triangula · "Terminal de Dados" (versão final) ──────────────────────
+   Vozes: manchetes e títulos de seção em Noto Serif 800 · texto em Noto Sans ·
+   rótulos e dados em IBM Plex Mono · numerais de display (≥ 60 px) em Noto Sans 800
+   tabular (o zero do Plex Mono tem ponto e o ponto ocupa uma célula inteira).
+   Laranja só no elemento que importa; alta/queda sempre com sinal + seta em SVG.
+   Raio-X: lado A ardósia #394A7A · neutro cinza #4B5563 · lado B petróleo #0F7C8C
+   (fundo inteiro e texto pequeno do lado B em #0B6470, para todo texto passar de 4,5:1).
+   Cores de editoria: vêm do site (s.section.color). Jurídico & Regulação (#394A7A) e Geopolítica & Mundo
+   (#0E7C8B) coincidem com os lados A e B; decisão consciente (as editorias ficam como estão). Para não
+   misturar os dois sentidos, no Raio-X a editoria nunca entra em cor: só em chip vazado (.chip.line).
+   Paginação (uma regra só nos três carrosséis): conta os slides do carrossel ("02/08"), no rodapé à
+   direita, em todos os slides menos a capa. A barra de progresso dos fatos segue o mesmo critério.
+   Setas: → só onde há mais slides (arraste); ↗ quando a ação sai do post (link na bio, perfil). */
+:root{
+  --navy:#1B2745; --deep:#0F1730; --orange:#FF5A1F; --paper:#F6F4EF;
+  --up-dark:#7FC8FF; --down-dark:#FF5C9A; --up-light:#2E6BD6; --down-light:#C90055;
+  --side-a:#394A7A; --side-b:#0F7C8C; --side-b-ink:#0B6470; --side-n:#4B5563;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Noto Sans',sans-serif; --serif:'Noto Serif',serif;
+  --mx:72px;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:{{ 1080 }}px;height:{{ 1920 if kind == 'story' else 1350 }}px;overflow:hidden}
-body{font-family:'Noto Sans',sans-serif;background:#F6F4EF;color:#1B2745;-webkit-font-smoothing:antialiased}
-.fit-clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--clamp,6);overflow:hidden}
+html,body{width:1080px;height:{{ 1920 if kind == 'story' else 1350 }}px;overflow:hidden}
+body{position:relative;font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;
+  background:var(--bg);color:var(--ink)}
+/* temas: --ink texto principal · --ink2 secundário · --ink3 metadados (todos ≥ 4,5:1 sobre --bg) */
+.t-dark{--bg:#0F1730;--ink:#F6F4EF;--ink2:#B4BED6;--ink3:#8E9AB8;--rule:rgba(246,244,239,.16);--rule2:rgba(246,244,239,.32);--rule3:rgba(246,244,239,.62);
+  --gridc:rgba(127,200,255,.055);--up:var(--up-dark);--down:var(--down-dark);--chipb:rgba(246,244,239,.30);--panel:#16213F}
+.t-paper{--bg:#F6F4EF;--ink:#1B2745;--ink2:#4B5563;--ink3:#5A6474;--rule:rgba(27,39,69,.16);--rule2:rgba(27,39,69,.34);--rule3:rgba(27,39,69,.82);
+  --gridc:rgba(27,39,69,.05);--up:var(--up-light);--down:var(--down-light);--chipb:transparent;--panel:#ECE9E1}
+.t-side-a{--bg:#394A7A;--ink:#FFFFFF;--ink2:rgba(255,255,255,.94);--ink3:rgba(255,255,255,.86);--rule:rgba(255,255,255,.24);--rule2:rgba(255,255,255,.48);--rule3:rgba(255,255,255,.7);
+  --gridc:rgba(255,255,255,.06);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.22);--side-dark:#2A3760}
+.t-side-b{--bg:#0B6470;--ink:#FFFFFF;--ink2:#FFFFFF;--ink3:rgba(255,255,255,.92);--rule:rgba(255,255,255,.26);--rule2:rgba(255,255,255,.5);--rule3:rgba(255,255,255,.72);
+  --gridc:rgba(255,255,255,.07);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.18);--side-dark:#08505A}
+
+/* grade de terminal: módulo de 72 px alinhado às margens, esmaecendo para baixo */
+.grid{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--gridc) 1px,transparent 1px),linear-gradient(90deg,var(--gridc) 1px,transparent 1px);
+  background-size:72px 72px;background-position:0 0;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.15) 100%)}
+
+/* o quadro corta o que passar dele: nada invade a zona da interface (story: 250 px no topo, 340 px na base).
+   Antes de cortar, o script do fim da página encolhe os textos ajustáveis; se nem assim couber,
+   marca o quadro com data-fit e o FIT_JS do gerador registra "texto cortado" no log. */
+.frame{position:absolute;left:var(--mx);right:var(--mx);top:64px;bottom:60px;display:flex;flex-direction:column;overflow:hidden}
+.story .frame{top:250px;bottom:340px}
+.frame[data-fit]{padding:0!important}
+.frame.fit-clamp{display:flex!important;-webkit-line-clamp:none}
+/* faixa de topo: cor da editoria (fatos) ou ardósia | petróleo (assinatura do Raio-X) */
+.band{position:absolute;left:0;right:0;top:0;height:14px;display:flex;z-index:2}
+.band i{flex:1}
+
+/* cabeçalho com régua dupla de jornal (3 px + 1 px) */
+.hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex:none;padding-bottom:18px;
+  border-bottom:3px solid var(--rule3);position:relative;margin-bottom:9px}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:1px;background:var(--rule3)}
+.rule2x{flex:none;height:3px;background:var(--rule3);position:relative;margin-bottom:9px}
+.rule2x::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--rule3)}
+.logo{display:block;color:var(--ink);line-height:0}
+.logo svg{width:100%;height:auto;display:block}
+.mono{font-family:var(--mono)}
+.lbl{font-family:var(--mono);font-weight:500;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);line-height:1.2}
+.lbl.strong{color:var(--ink);font-weight:600}
+.hdr .lbl{line-height:1;padding-bottom:4px}
+.hr{height:2px;background:var(--rule);flex:none}
+.ftr{flex:none;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-top:2px solid var(--rule);padding-top:18px;margin-top:auto}
+.ftr .note{font-family:var(--sans);font-size:26px;line-height:1.25;color:var(--ink3);font-weight:500}
+.ftr .pg{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--ink2);letter-spacing:.04em;white-space:nowrap}
+.ftr .pg b{color:var(--ink);font-weight:600}
+
+/* título de seção: a mesma voz das manchetes */
+.sec-title{font-family:var(--serif);font-weight:800;font-size:80px;line-height:1;letter-spacing:-.018em;color:var(--ink)}
+/* numerais de display: sem zero pontilhado e com ponto de milhar justo */
+.numd{font-family:var(--sans);font-weight:800;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.025em}
+
+/* chip de editoria e etiquetas */
+.chip{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 20px;border:2px solid var(--chipb);
+  font-family:var(--mono);font-weight:600;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.chip.line{background:transparent!important;border-color:var(--rule3);color:var(--ink)}
+.tag{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 22px;font-family:var(--mono);font-weight:600;
+  font-size:30px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.tag.orange{background:var(--orange);color:#0F1730}
+.tag.navy{background:#1B2745;color:#F6F4EF}
+.tri{display:inline-block;flex:none}
+
+/* chamada de rodapé das capas: MONO CAIXA ALTA à esquerda, ARRASTE → em laranja à direita */
+.cta-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;flex:none;
+  border-top:2px solid var(--rule3);border-bottom:2px solid var(--rule3);
+  font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.cta-bar .go{display:flex;align-items:center;gap:16px;white-space:nowrap}
+.cta-bar .go svg{width:58px;height:26px;flex:none}
+
+/* alta/queda: sinal + seta em traço (o triângulo é só da marca) */
+.chg{display:inline-flex;align-items:center;gap:.26em;font-family:var(--mono);font-weight:600;white-space:nowrap}
+.chg.up{color:var(--up)} .chg.down{color:var(--down)} .chg.flat{color:var(--ink2)}
+.chg svg{width:.6em;height:.8em;flex:none;overflow:visible}
+
+/* ajuste automático: último recurso */
+.fit-clamp{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:var(--clamp,4);overflow:hidden;padding-bottom:0!important}
+strong{font-weight:800}
+.nw{white-space:nowrap}
+/* manchetes com quebra equilibrada; parágrafos sem palavra órfã na última linha */
+h1,h2,.sec-title{text-wrap:balance}
+p,.txt{text-wrap:pretty}
+/* data da capa: dia em numeral de display + mês/dia da semana em mono */
+.datebox{display:flex;align-items:center;gap:14px;color:var(--ink)}
+.datebox .dd{font-family:var(--sans);font-weight:800;font-variant-numeric:tabular-nums lining-nums;font-size:112px;line-height:.78;letter-spacing:-.04em}
+.datebox .mm{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-weight:500;font-size:28px;letter-spacing:.08em;color:var(--ink3);line-height:1}
+.datebox .mm b{font-weight:600;color:var(--ink);font-size:34px}
+.datebox.plain{font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.08em}
+/* folga para acentos e descendentes (o ajuste mede scrollHeight, que inclui o desenho dos glifos) */
+[data-fit]:not([data-clamp]){padding-top:.06em;padding-bottom:.18em}
 {% block style %}{% endblock %}
 </style></head>
-<body>{% block body %}{% endblock %}</body></html>
+<body class="{% block theme %}t-dark{% endblock %}{{ ' story' if kind == 'story' else '' }}">
+<div class="grid"></div>
+{% block body %}{% endblock %}
+<script>
+/* Guarda do quadro (roda antes do FIT_JS do gerador, assim que as fontes carregam):
+   1) ajusta cada [data-fit] como o FIT_JS (−2 px até caber, sem passar de data-min);
+   2) se a soma ainda transborda o .frame (tolerância de 4 px, o arredondamento das linhas), encolhe mais os [data-fit] que de fato liberam altura;
+   3) se nem no mínimo couber, marca o .frame com data-fit, e o FIT_JS o reporta como "texto cortado".
+   Textos com corte fixo de linhas (-webkit-line-clamp, marcados com data-clamp="nome" e --clamp = nº de linhas):
+   o corte não aparece no contêiner, então, se ele atuou, o guarda encolhe o [data-fit] que os contém até o texto
+   aparecer inteiro; se nem no mínimo, o elemento ganha data-fit e o FIT_JS registra "texto cortado". */
+(function () {
+  function over(el) { return el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1; }
+  function fs(el) { return parseFloat(getComputedStyle(el).fontSize); }
+  function run() {
+    var fr = document.querySelector('.frame');
+    var els = Array.prototype.slice.call(document.querySelectorAll('[data-fit]'));
+    els.forEach(function (el) {
+      var min = parseFloat(el.dataset.min || '20'), size = fs(el);
+      while (over(el) && size > min) { size = Math.max(min, size - 2); el.style.fontSize = size + 'px'; }
+    });
+    var clamps = Array.prototype.slice.call(document.querySelectorAll('[data-clamp]'));
+    clamps.forEach(function (el) {
+      var host = el.parentElement ? el.parentElement.closest('[data-fit]') : null;
+      while (host && over(el)) {
+        var hmin = parseFloat(host.dataset.min || '20'), hs = fs(host);
+        if (hs <= hmin) break;
+        host.style.fontSize = Math.max(hmin, hs - 2) + 'px';
+      }
+    });
+    function flagClamps() {
+      clamps.forEach(function (el) {
+        if (over(el)) { el.dataset.fit = el.dataset.clamp; el.dataset.min = String(fs(el)); }
+      });
+    }
+    if (!fr) { flagClamps(); return; }
+    var tall = function () { return fr.scrollHeight - fr.clientHeight; };
+    var live = els.filter(function (el) { return fr.contains(el); });
+    for (var guard = 0; tall() > 4 && live.length && guard < 400; guard++) {
+      var el = live[guard % live.length], min = parseFloat(el.dataset.min || '20'), size = fs(el);
+      if (size <= min) { live.splice(live.indexOf(el), 1); continue; }
+      var before = tall();
+      el.style.fontSize = Math.max(min, size - 2) + 'px';
+      if (tall() >= before) { el.style.fontSize = size + 'px'; live.splice(live.indexOf(el), 1); }
+    }
+    if (tall() > 4) { fr.dataset.fit = 'quadro-transborda'; fr.dataset.min = String(fs(fr)); }
+    flagClamps();
+  }
+  window.addEventListener('load', function () {
+    void document.body.offsetHeight;
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(run);
+  });
+})();
+</script>
+</body></html>

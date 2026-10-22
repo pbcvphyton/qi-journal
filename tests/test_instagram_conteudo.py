@@ -203,3 +203,16 @@ def test_raio_x_leva_nomes_e_manchete_em_todos_os_slides(edition):
     for slide in peca.slides:
         assert slide.ctx["a"] == ["Estadão", "CNN Brasil"] and slide.ctx["b"] == ["Folha de S.Paulo", "g1"]
         assert slide.ctx["headline"].startswith("Governo declara emergência")
+
+
+def test_periodo_eleitoral_com_manchete_politica_troca_capa_e_primeiro_fato(raw):
+    raw = deepcopy(raw)
+    lead = next(s for s in raw["stories"] if s["id"] == raw["lead"])
+    lead["section"] = "politica"
+    edition = Edition.from_dict(raw)
+    peca = conteudo.em_1_minuto(edition, {}, election=True)
+    capa = peca.slides[0].ctx["headline"]
+    assert not capa.startswith("Justiça do Rio")
+    primeiro = peca.slides[1].ctx["text"]
+    story = conteudo.match_story(edition, primeiro)
+    assert story is not None and story.headline == capa

@@ -1,3 +1,35 @@
 {% extends "_base.html.j2" %}
-{% block style %}.box{position:absolute;inset:80px;font-size:34px;line-height:1.3;overflow:hidden}h1{font-family:'Noto Serif';font-size:56px;margin-bottom:24px}{% endblock %}
-{% block body %}<div class="box" data-fit="debug" data-min="18"><h1>raiox_conclusao · {{ page }}/{{ pages }}</h1>{% for k, v in s.items() %}<p><b>{{ k }}</b>: {{ v }}</p>{% endfor %}</div>{% endblock %}
+{% import "_macros.html.j2" as m with context %}
+{% import "_raiox.html.j2" as rx with context %}
+{% set has_why = s.get('why') %}
+{% block theme %}t-paper{% endblock %}
+{% block style %}
+{{ rx.css() }}
+.blk{margin-top:52px;flex:none}
+{% if not has_why %}.blk{margin:auto 0;padding-bottom:40px}{% endif %}
+.blk .k{display:flex;align-items:center;gap:16px}
+.concl{margin-top:22px;font-family:var(--serif);font-weight:600;font-size:{{ 52 if has_why else 60 }}px;line-height:1.24;letter-spacing:-.006em;color:var(--ink);
+  max-height:{{ 470 if has_why else 760 }}px;overflow:hidden;--clamp:{{ 8 if has_why else 11 }}}
+.why{margin-top:44px;padding:30px 32px 32px;background:#1B2745;color:#F6F4EF;flex:none}
+.why .k{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-weight:600;font-size:28px;letter-spacing:.06em;text-transform:uppercase;color:var(--orange)}
+.why p{margin-top:16px;font-family:var(--sans);font-weight:500;font-size:38px;line-height:1.3;max-height:300px;overflow:hidden;--clamp:6}
+.ftr{margin-top:auto}
+{% endblock %}
+{% block body %}
+{{ m.rx_band() }}
+<div class="frame">
+  {{ m.header('Raio-X da cobertura') }}
+  {{ rx.locator(s.counts) }}
+  <div class="blk">
+    <span class="lbl strong k">Conclusão</span>
+    <p class="concl" data-fit="raiox-conclusao" data-min="38">{{ m.tx(s.conclusion) }}</p>
+  </div>
+  {% if has_why %}
+  <div class="why">
+    <span class="k">{{ m.tri(26) }}Por que importa</span>
+    <p data-fit="raiox-porque" data-min="30">{{ m.tx(s.why) }}</p>
+  </div>
+  {% endif %}
+  {{ rx.footer_rx() }}
+</div>
+{% endblock %}

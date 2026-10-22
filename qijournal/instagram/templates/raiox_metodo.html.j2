@@ -1,3 +1,58 @@
 {% extends "_base.html.j2" %}
-{% block style %}.box{position:absolute;inset:80px;font-size:34px;line-height:1.3;overflow:hidden}h1{font-family:'Noto Serif';font-size:56px;margin-bottom:24px}{% endblock %}
-{% block body %}<div class="box" data-fit="debug" data-min="18"><h1>raiox_metodo · {{ page }}/{{ pages }}</h1>{% for k, v in s.items() %}<p><b>{{ k }}</b>: {{ v }}</p>{% endfor %}</div>{% endblock %}
+{% import "_macros.html.j2" as m with context %}
+{% import "_raiox.html.j2" as rx with context %}
+{% set c = s.counts %}
+{% block theme %}t-dark{% endblock %}
+{% block style %}
+{{ rx.css() }}
+.k{margin-top:56px;flex:none}
+/* três etapas de largura igual, com qualquer conteúdo (minmax(0,1fr) não deixa o conteúdo alargar a coluna) */
+.pipe{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr) 56px minmax(0,1fr);align-items:stretch;margin-top:24px;flex:none}
+.pipe .st{border:2px solid var(--rule2);background:var(--panel);padding:24px 22px 24px;display:flex;flex-direction:column;gap:12px;min-height:236px;min-width:0}
+.pipe .st b{font-family:var(--mono);font-weight:600;font-size:56px;line-height:1;letter-spacing:-.03em}
+.pipe .st b.numd{font-family:var(--sans);font-weight:800;font-size:64px}
+.pipe .st .sp{margin-top:auto}
+.pipe .st span{font-family:var(--mono);font-size:26px;line-height:1.25;letter-spacing:.03em;text-transform:uppercase;color:var(--ink2)}
+.pipe .ar{display:flex;align-items:center;justify-content:center}
+.pipe .ar svg{width:40px;height:24px}
+/* textos publicados: folhas com dobra e linhas (SVG preenchido; não parecem glifo ausente) */
+.docs{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.docs svg{width:30px;height:38px;flex:none;display:block}
+.docs em{font-style:normal;font-family:var(--mono);font-weight:600;font-size:26px;color:var(--ink2);letter-spacing:.02em}
+/* ênfase: a barra ilustrativa mostra sempre os três destinos, A | neutro | B */
+.tri3{display:flex;gap:4px;height:34px}
+.tri3 i{flex:1;display:block}
+
+.txt{margin-top:44px;font-family:var(--sans);font-weight:500;font-size:44px;line-height:1.32;color:var(--ink2);flex:none}
+.txt b{color:var(--ink);font-weight:700}
+.cta{margin-top:auto;flex:none;border-top:2px solid var(--rule2);padding-top:40px}
+.cta h2{font-family:var(--serif);font-weight:800;font-size:76px;line-height:1.06;letter-spacing:-.015em}
+.cta h2 em{font-style:normal;color:var(--orange)}
+.cta .bio{display:flex;align-items:center;margin-top:36px}
+.cta .bio span{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.ftr{margin-top:36px}
+{% endblock %}
+{% block body %}
+{{ m.rx_band() }}
+<div class="frame">
+  {{ m.header('Raio-X da cobertura') }}
+  <span class="lbl strong k">Como fazemos</span>
+  <div class="pipe">
+    {% set ndocs = c.total if c.total <= 10 else 9 %}
+    <div class="st"><b class="numd">{{ c.total }}</b><span>textos publicados</span>
+      <div class="sp docs">{% for i in range(ndocs) %}<svg viewBox="0 0 30 38" aria-hidden="true"><path d="M1 1h20l8 8v28H1z" fill="#F6F4EF"/><path d="M21 1v8h8z" fill="#8E9AB8"/><path d="M6 16h18M6 22h18M6 28h11" stroke="#1B2745" stroke-width="2.6" stroke-linecap="round"/></svg>{% endfor %}{% if c.total > ndocs %}<em>+{{ c.total - ndocs }}</em>{% endif %}</div></div>
+    <div class="ar"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12H34M25 3l9 9-9 9" fill="none" stroke="#FF5A1F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="st"><b>IA</b><span>compara os textos</span></div>
+    <div class="ar"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12H34M25 3l9 9-9 9" fill="none" stroke="#FF5A1F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="st"><b>Ênfase</b><span>Lado A, neutro ou lado B</span><div class="sp tri3"><i style="background:#394A7A;box-shadow:inset 0 0 0 2px #8C9BD0"></i><i style="background:#4B5563;box-shadow:inset 0 0 0 2px #9CA3AF"></i><i style="background:#0F7C8C;box-shadow:inset 0 0 0 2px #5FC3D1"></i></div></div>
+  </div>
+  <p class="txt">A IA compara os textos publicados e classifica a ênfase de cada veículo. <b>Enquadramento não é erro nem mentira:</b> é a escolha do que destacar.</p>
+  <div class="cta">
+    <h2>Leu só uma versão? <em>Mande para quem leu a outra.</em></h2>
+    {# último slide: nada de → (sugere que há mais para arrastar); o link sai do post, então ↗ #}
+    <div class="bio"><span>Edição completa: link na bio{{ m.out_arrow(30, 4.4) }}</span></div>
+  </div>
+  {# "Como fazemos" explica o método, não é análise de IA: o rodapé leva a assinatura e a página #}
+  {{ m.footer(brand.tagline) }}
+</div>
+{% endblock %}

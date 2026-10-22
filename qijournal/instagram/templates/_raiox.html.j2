@@ -1,0 +1,21 @@
+{# Peças comuns do Raio-X da cobertura #}
+{% import "_macros.html.j2" as m with context %}
+{# localizador: a barra A | neutro | B do assunto, com o lado do slide em destaque #}
+{% macro locator(counts, focus=None, label='Espectro') -%}
+<div class="loc">
+  <span class="lbl strong">{{ label }}</span>
+  <div class="locbar">{{ m.spectrum(counts, 48, focus, True, 26, 770) }}</div>
+</div>
+{%- endmacro %}
+
+{% macro css() -%}
+{{ m.spectrum_css() }}
+.loc{display:flex;align-items:center;gap:26px;flex:none;margin-top:28px}
+.loc .lbl{white-space:nowrap}
+.locbar{flex:1}
+.loc .spec .seg{min-width:96px;padding:0 16px}
+{%- endmacro %}
+
+{% macro footer_rx() -%}
+{{ m.footer('Análise automática por IA dos textos publicados') }}
+{%- endmacro %}
