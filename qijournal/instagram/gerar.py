@@ -88,7 +88,7 @@ def _render_piece(
     total = len(piece.slides)
     for i, slide in enumerate(piece.slides, 1):
         html = env.get_template(f"{slide.template}.html.j2").render(
-            brand=brand, s=slide.ctx, page=i, pages=total, kind=piece.kind, slot=piece.slot
+            brand=brand, s=conteudo.polish(slide.ctx), page=i, pages=total, kind=piece.kind, slot=piece.slot
         )
         tmp = out_dir / f".{piece.slot}-{i:02d}.jpg"
         renderer.render(html, tmp, width=width, height=height)

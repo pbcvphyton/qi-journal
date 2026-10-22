@@ -128,6 +128,56 @@ def num(value: int | None) -> str:
     return qtext.format_number_pt(int(value or 0), 0)
 
 
+def more_than(value: int | None, step: int) -> str:
+    """``1581, 100`` → ``"mais de 1.500"``; abaixo de ``step``, o próprio número."""
+    value = int(value or 0)
+    if value < step:
+        return num(value)
+    floor = value // step * step
+    return f"mais de {num(floor)}" if floor < value else num(value)
+
+
+_DQUOTES = re.compile(r'"([^"\n]+)"')
+_SQUOTES = re.compile(r"(^|[\s(\[{—–*-])'([^'\n]+)'(?=[\s.,;:!?)\]}—–*-]|$)")
+_EMPHASIS = re.compile(r"\*\*(.+?)\*\*")
+EMPHASIS_MAX_CHARS = 40
+EMPHASIS_MAX_WORDS = 5
+_NBSP_AFTER = re.compile(r"(?<![\w])(R\$|US\$|€|nº|n\.º) ")
+_NBSP_NUMBER = re.compile(r"(?<=\d) (?=(?:mil|milhões|milhão|bilhões|bilhão|trilhões|trilhão|bi|mi|pts|pontos|minutos?|horas?|dias?|anos?|meses|mês|veículos|notícias|matérias|%)\b)")
+
+
+def smart_quotes(value: str) -> str:
+    """Aspas retas → tipográficas (“…” e ‘…’); apóstrofos ficam como estão."""
+    value = _DQUOTES.sub("“\\1”", value)
+    return _SQUOTES.sub("\\1‘\\2’", value)
+
+
+def tidy(value: str) -> str:
+    """Texto de slide: aspas tipográficas, ênfase (**…**) só em trechos curtos e espaço
+    inseparável entre número e unidade ("1 minuto", "R$ 42,5", "827 milhões")."""
+    value = smart_quotes(value)
+
+    def emphasis(m: re.Match) -> str:
+        inner = m.group(1)
+        short = len(inner) <= EMPHASIS_MAX_CHARS and len(inner.split()) <= EMPHASIS_MAX_WORDS
+        return m.group(0) if short else inner
+
+    value = _EMPHASIS.sub(emphasis, value)
+    value = _NBSP_AFTER.sub(lambda m: m.group(1) + "\u00a0", value)
+    return _NBSP_NUMBER.sub("\u00a0", value)
+
+
+def polish(ctx: Any) -> Any:
+    """Aplica :func:`tidy` a todos os textos do contexto de um slide (recursivo)."""
+    if isinstance(ctx, str):
+        return tidy(ctx)
+    if isinstance(ctx, dict):
+        return {k: (v if k in ("color", "id", "trend", "stance") else polish(v)) for k, v in ctx.items()}
+    if isinstance(ctx, list):
+        return [polish(v) for v in ctx]
+    return ctx
+
+
 # ── Leitura da edição ─────────────────────────────────────────────────────
 
 
@@ -244,7 +294,7 @@ def hashtags(fmt_tag: str, sections: Iterable[str], *, election: bool) -> str:
 
 
 def finish_caption(parts: list[str]) -> str:
-    caption = "\n\n".join(p.strip() for p in parts if p and p.strip())
+    caption = smart_quotes("\n\n".join(p.strip() for p in parts if p and p.strip()))
     if len(caption) > CAPTION_LIMIT:
         caption = caption[: CAPTION_LIMIT - 1].rsplit("\n", 1)[0]
     return caption
@@ -287,7 +337,7 @@ def _briefing_items(edition: Edition, *, election: bool, limit: int = 5) -> list
             break
         if story.id in used or (election and (is_political(story, f"{story.headline} {story.dek}"))):
             continue
-        items.append({"text": f"**{plain(story.headline)}.** {plain(story.dek)}", "story": story})
+        items.append({"text": f"{plain(story.headline)}. {plain(story.dek)}", "story": story})
         used.add(story.id)
     return items
 
@@ -498,7 +548,16 @@ def raio_x(edition: Edition, brand: dict[str, Any], *, election: bool, exclude: 
     neutral = [o for o in c.outlets if o.stance not in ("a", "b")]
     section = section_info(edition, story.section)
     counts = {"a": len(side_a), "b": len(side_b), "n": len(neutral), "total": len(c.outlets)}
-    common = {"section": section, "counts": counts, "side_a": plain(c.side_a), "side_b": plain(c.side_b)}
+    common = {
+        "section": section,
+        "counts": counts,
+        "side_a": plain(c.side_a),
+        "side_b": plain(c.side_b),
+        "headline": plain(story.headline),
+        "a": [o.name for o in side_a],
+        "b": [o.name for o in side_b],
+        "n": [o.name for o in neutral],
+    }
     slides = [
         Slide(
             "raiox_capa",
@@ -575,9 +634,11 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
     """Carrossel de apresentação (o primeiro post do perfil, para fixar): sai uma única vez."""
     stats = edition.stats
     outlets = edition.rationale.outlets if edition.rationale else 0
-    articles = num(stats.articles_collected)
+    # O post fica fixado no perfil: números arredondados, não a contagem do dia.
+    articles = more_than(stats.articles_collected, 100)
     texts = [
-        f"**Como funciona.** Toda manhã, um robô coleta as notícias de {stats.sources_total} fontes, de {outlets} veículos. "
+        f"**Como funciona.** Toda manhã, um robô coleta as notícias de {more_than(stats.sources_total, 10)} fontes, "
+        f"de {more_than(outlets, 10)} veículos. "
         f"Uma IA compila as matérias do dia em 9 editorias e compara como cada veículo cobriu cada assunto.",
         "**O que sai aqui.** Toda manhã, o **Em 1 minuto**: os fatos do dia e o mercado. "
         "À noite, o **Raio-X da cobertura**: o assunto em que a imprensa mais se dividiu.",
@@ -592,7 +653,7 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
             "capa",
             {
                 "kicker": "COMECE AQUI",
-                "headline": f"Todo dia, {articles} notícias. 1 minuto para você.",
+                "headline": f"Todo dia, {articles} notícias. 1 minuto para você.",  # "mais de 1.500"
                 "dek": "A Triangula lê a imprensa inteira e mostra o que aconteceu, quanto o mercado andou "
                 "e como cada veículo contou a mesma história.",
                 "section": {"id": "triangula", "title": "Triangula", "color": "#FF5A1F"},
@@ -610,7 +671,7 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
             "fechamento",
             {
                 "articles": articles,
-                "outlets": outlets,
+                "outlets": more_than(outlets, 10),
                 "stories": len(edition.stories),
                 "compared": sum(1 for s in edition.stories if s.coverage) + len(edition.compared),
                 "cta": "Salve · Envie · Siga",
@@ -621,7 +682,7 @@ def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
     caption = finish_caption(
         [
             "Comece aqui: o jornal que lê a imprensa inteira por você",
-            f"Toda manhã, a Triangula lê {articles} notícias de {outlets} veículos e entrega três coisas: "
+            f"Toda manhã, a Triangula lê {articles} notícias de {more_than(outlets, 10)} veículos e entrega três coisas: "
             "o que aconteceu, quanto o mercado andou e como cada veículo contou a mesma história.",
             "▸ Toda manhã: Em 1 minuto, os fatos do dia e o mercado.\n"
             "▸ À noite: Raio-X da cobertura, o lado A x lado B da imprensa.\n"

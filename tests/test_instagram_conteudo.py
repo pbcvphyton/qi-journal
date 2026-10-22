@@ -178,3 +178,28 @@ def test_comece_aqui_volta_a_fila_ate_sair():
     assert fila.upsert([lanc("2026-10-24T00:00:00-03:00")]) == ["lancamento-comece-aqui"]
     fila.posts[0].status = "published"
     assert fila.upsert([lanc("2026-10-25T00:00:00-03:00")]) == []  # já saiu: nunca mais
+
+
+def test_texto_dos_slides_aspas_enfase_curta_e_espacos_inseparaveis():
+    assert conteudo.tidy("conferência **'Davos no deserto'** em 2027") == "conferência **‘Davos no deserto’** em 2027"
+    assert conteudo.tidy('o lema "Meta não se meta"') == "o lema “Meta não se meta”"
+    longa = "**França decreta toques de recolher para conter onda de protestos.** Governo francês"
+    assert "**" not in conteudo.tidy(longa)
+    assert conteudo.tidy("A **Ri Happy** pediu") == "A **Ri Happy** pediu"
+    assert conteudo.tidy("1 minuto, R$ 42,5 bilhões") == "1 minuto, R$ 42,5 bilhões"
+    assert conteudo.polish({"color": "#FF5A1F", "outlets": [{"name": 'O "X"'}]}) == {"color": "#FF5A1F", "outlets": [{"name": "O “X”"}]}
+
+
+def test_numeros_arredondados_do_comece_aqui(edition):
+    assert conteudo.more_than(1581, 100) == "mais de 1.500"
+    assert conteudo.more_than(40, 10) == "40"
+    peca = conteudo.comece_aqui(edition, {})
+    assert peca.slides[0].ctx["headline"] == "Todo dia, mais de 1.500 notícias. 1 minuto para você."
+    assert "1.581" not in peca.caption and "mais de 40 veículos" in peca.caption
+
+
+def test_raio_x_leva_nomes_e_manchete_em_todos_os_slides(edition):
+    peca = conteudo.raio_x(edition, {}, election=True)
+    for slide in peca.slides:
+        assert slide.ctx["a"] == ["Estadão", "CNN Brasil"] and slide.ctx["b"] == ["Folha de S.Paulo", "g1"]
+        assert slide.ctx["headline"].startswith("Governo declara emergência")
