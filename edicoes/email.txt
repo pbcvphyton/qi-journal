@@ -1,251 +1,246 @@
 TRIANGULA
-Sexta-feira, 23 de outubro de 2026 · 06:59 BRT
+Sábado, 24 de outubro de 2026 · 09:38 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,03 (-0,45%) · Euro R$ 5,64 (-0,47%) · Yuan R$ 0,75 (-0,23%) ·
-Ibovespa 204.120 pts (-1,15%) · IFIX 3.974 pts (-0,04%) · S&P 500 7.663
-pts (-1,21%) · Brent US$ 109,66 (+0,92%) · Ouro US$ 4.040 (-0,49%) ·
-Bitcoin US$ 81.568 (-0,35%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Dólar R$ 5,00 (-1,11%) · Euro R$ 5,56 (-1,84%) · Yuan R$ 0,74 (-1,67%) ·
+Ibovespa 205.083 pts (+0,47%) · IFIX 3.991 pts (+0,43%) · S&P 500 7.624
+pts (-0,52%) · Brent US$ 111,70 (+2,80%) · Ouro US$ 4.008 (-1,29%) ·
+Bitcoin US$ 80.705 (-1,14%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 18°C, pancadas de chuva fracas (mín. 17° / máx. 24°) ·
-amanhã: trovoadas, 19° a 27°
-Montevidéu: 16°C, parcialmente nublado (mín. 15° / máx. 20°) · amanhã:
-garoa fraca, 14° a 16°
+São Paulo: 23°C, nublado (mín. 17° / máx. 25°) · amanhã: trovoadas, 16°
+a 23°
+Montevidéu: 15°C, nublado (mín. 14° / máx. 16°) · amanhã: garoa fraca,
+12° a 14°
 
 EDITORIAL
 ---------
-A três dias do segundo turno, a corrida presidencial atinge o ápice da
-indefinição com o Datafolha apontando empate rigoroso entre Lula e
-Flávio Bolsonaro, acirrando o clima antes do debate final. No cenário
-exterior, ataques a instalações petrolíferas no Oriente Médio
-impulsionam a commodity e pressionam os mercados financeiros globais.
-Paralelamente, governos e empresas entram em alerta máximo diante de uma
-vulnerabilidade crítica descoberta na linguagem PHP.
+Na véspera da votação de segundo turno, as atenções do país convergem
+para os reflexos do confronto final de propostas na televisão e para a
+reta final de atos dos candidatos em cenário de empate técnico. No front
+econômico, o endurecimento de regras contra o superendividamento pelo
+Banco Central e a desaceleração do IPCA-15 dividem espaço com a cautela
+global provocada pelo avanço das tensões militares no Oriente Médio.
+Enquanto isso, negociações estratégicas de infraestrutura e segurança
+pública internacional moldam a agenda externa em meio a fortes protestos
+na Europa.
 
 EM 1 MINUTO
 -----------
-• Empate absoluto: Pesquisa Datafolha mostra Flávio Bolsonaro e Lula com
-  50% dos votos válidos cada a três dias da votação do segundo turno.
-• Choque no petróleo: Ataques a instalações na Arábia Saudita e tensões
-  no Estreito de Ormuz disparam as cotações da commodity no mercado
-  global.
-• Alerta cibernético: Falha crítica histórica na linguagem PHP
-  identificada por IA tira páginas do ar e leva governo federal a
-  desligar sistemas.
-• Bancos: Bradesco lucra R$ 7,1 bilhões no terceiro trimestre, alta
-  anual de 14,6%, mas acende sinal amarelo para avanço na inadimplência.
-• Libertadores: Estudiantes supera o Flamengo nos pênaltis em pleno
-  Maracanã e vai decidir o título continental contra o Palmeiras em
-  Montevidéu.
+• Eleições 2026: Lula e Flávio Bolsonaro trocaram acusações no último
+  debate na TV Globo e concentram atos finais no Sudeste em cenário de
+  empate técnico.
+• Petróleo em alta: As cotações da commodity sobem forte diante do
+  aumento das tensões geopolíticas entre Estados Unidos, Israel e Irã no
+  Oriente Médio.
+• Regulação bancária: O Banco Central endureceu as regras para oferta de
+  crédito com ferramentas voltadas a conter o superendividamento de
+  vulneráveis.
+• Indústria aeronáutica: A carteira de pedidos da Embraer bateu recorde
+  histórico de US$ 35,7 bilhões no 3º trimestre, avanço de 14% em doze
+  meses.
+• Tribunal Superior Eleitoral: TSE deu prazo de 24 horas para Meta e X
+  detalharem o emprego de inteligência artificial e a moderação de posts
+  eleitorais.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.671 notícias coletadas de 46 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 1.192 assuntos,
+A IA leu as 1.568 notícias coletadas de 44 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.038 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 96 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+seguiu em 99 assuntos e escolheu as 24 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#racional
-Todas as 1.671 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#racional
+Todas as 1.568 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24-todas.html
 
 MANCHETE
 --------
-Datafolha aponta Flávio Bolsonaro e Lula com 50% dos votos válidos cada
-no segundo turno
-Pesquisa a três dias da votação mostra Flávio com 47% e Lula com 46% dos
-votos totais, mantendo a corrida presidencial em empate técnico
-absoluto.
-Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Seu
-Dinheiro, Exame, CNN Brasil
-Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu ao
-constatar um cenário de empate técnico absoluto na reta final entre Lula
-e Flávio Bolsonaro, com pequenas variações marginais entre os
-institutos.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-datafolha-aponta-flavio-bolsonaro-e-lula-com-50
+Lula e Flávio Bolsonaro ajustam tom e travam último debate na TV antes
+do segundo turno
+Em confronto com regras mais rígidas na Globo, petista reage a ataques
+pessoais e adversário busca imagem moderada e foco no futuro.
+Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Agência Brasil,
+Money Times, Al Jazeera, JOTA, Poder360, g1, CNN Brasil
+Cobertura: Equilíbrio: 1 × 1 de 9 veículos. A cobertura dividiu-se entre
+leituras que viram vantagem para Lula e avaliações favoráveis à postura
+propositiva de Flávio, com consenso sobre um tom menos agressivo que o
+anterior.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-lula-e-flavio-bolsonaro-ajustam-tom-e-travam-ult
 
 BRASIL · ECONOMIA
 -----------------
-• Bradesco lucra R$ 7,1 bilhões no 3º tri, mas alta na inadimplência
-  exige cautela
-  Ganho líquido recorrente sobe 14,6% em relação a 2025, impulsionado
-  por corte de custos em meio à desaceleração na pessoa física.
-  Fontes: Valor Econômico, Brazil Journal, Folha de S.Paulo, Bloomberg
-  Línea, NeoFeed, Seu Dinheiro
-  Cobertura: Pende para: Destaca a perda de fôlego com inadimplência e
-  provisões · 4 de 6 veículos. A maior parte da cobertura especializada
-  (quatro veículos) enfatizou a desaceleração de curto prazo e o impacto
-  do risco de inadimplência, enquanto outros dois priorizaram a
-  consolidação da recuperação do lucro.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-bradesco-lucra-r-7-1-bilhoes-no-3o-tri-mas-alta
+• Banco Central endurece normas para oferta de crédito e cria
+  ferramentas contra superendividamento
+  Instituições financeiras terão de obter consentimento prévio de
+  clientes vulneráveis e disponibilizar painel para monitoramento de
+  dívidas.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, InfoMoney, g1,
+  Poder360, Agência Brasil, Seu Dinheiro
+  Cobertura: Sem divergência entre os 8 veículos. A imprensa tratou o
+  pacote regulatório de maneira consensual, pontuando os prazos de
+  adaptação e a defesa do consumidor endividado.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-banco-central-endurece-normas-para-oferta-de-cre
 
-• Arrecadação federal bate recorde de R$ 239,4 bilhões em setembro com
-  petróleo e 'bets'
-  Receitas têm alta real de 5,62% no mês impulsionadas por R$ 11,1
-  bilhões arrecadados com apostas esportivas de janeiro a setembro.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil
-  Cobertura: Sem divergência entre os 4 veículos. A cobertura foi
-  unânime ao registrar o recorde mensal da arrecadação tributária,
-  atribuindo o resultado principalmente aos influxos do setor de
-  petróleo e das plataformas de apostas.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-arrecadacao-federal-bate-recorde-de-r-239-4-bilh
+• IPCA-15 sobe 0,32% em outubro com alívio tarifário, mas alimentos
+  seguem pressionados
+  Prévia da inflação oficial desacelera na comparação com setembro e
+  acumula variação de 4,62% nos últimos 12 meses.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Suno Notícias
+  Cobertura: Equilíbrio: 3 × 3 de 6 veículos. Houve divisão entre
+  veículos que enfatizaram a surpresa positiva no dado fechado e aqueles
+  que frisaram os núcleos resistentes e o custo da alimentação.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-ipca-15-sobe-0-32-em-outubro-com-alivio-tarifari
+
+• Carteira de pedidos da Embraer bate recorde histórico de US$ 35,7
+  bilhões no 3º trimestre
+  Volume total de encomendas avança 14% em doze meses, puxado por forte
+  demanda no segmento de defesa e na aviação executiva.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Seu Dinheiro, Suno
+  Notícias
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura foi
+  unânime ao registrar o desempenho histórico da carteira e a
+  diversificação entre aviação executiva, comercial e de defesa.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-carteira-de-pedidos-da-embraer-bate-recorde-hist
 
 MERCADOS & FINANÇAS
 -------------------
-• Petróleo Brent salta mais de 4% e supera US$ 113 após ataques na
-  Arábia Saudita
-  Ataques com mortos a aeroporto e instalações petrolíferas sauditas
-  intensificam temores de interrupção na oferta do Oriente Médio.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Money Times, Al
-  Jazeera, g1, The Guardian, CNBC
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
-  ao associar o salto expressivo nas cotações do petróleo à escalada
-  militar de ataques aéreos no território saudita e ao aperto das
-  reservas globais.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-petroleo-brent-salta-mais-de-4-e-supera-us-113-a
-
-• Ibovespa despenca 1,15% com cautela eleitoral e alta do petróleo;
-  dólar avança
-  A Bolsa fechou em forte queda nesta quinta-feira com investidores à
-  espera da pesquisa Datafolha sobre o segundo turno presidencial.
-  Fontes: Folha de S.Paulo, g1
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
-  ao tratar a queda da Bolsa e a alta do dólar como reflexo direto da
-  cautela eleitoral e do cenário externo.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-ibovespa-despenca-1-15-com-cautela-eleitoral-e-a
-
-• Grupo Euro17 pede recuperação judicial em São Paulo com dívida de R$
-  1,72 bi
-  Processo abrange oito empresas do grupo controlado por Ik Cavalcanti
-  Albuquerque, incluindo a Euro Securitizadora.
-  Fontes: NeoFeed
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-grupo-euro17-pede-recuperacao-judicial-em-sao-pa
-
-• Mega-Sena acumula novamente e prêmio da faixa principal salta para R$
-  230 milhões
-  Apostadores não acertam as dezenas e o valor acumulado atinge nova
-  marca milionária; Lotofácil tem dezenas de ganhadores.
-  Fontes: Money Times, Seu Dinheiro
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
-  totalmente na divulgação dos resultados das loterias e no novo valor
-  do prêmio principal.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-mega-sena-acumula-novamente-e-premio-da-faixa-pr
+• Petróleo supera US$ 116 o barril com escalada geopolítica entre
+  Estados Unidos, Israel e Irã
+  Cotação atinge o maior patamar em seis meses diante do receio de novos
+  ataques a refinarias e da pressão sobre a inflação global.
+  Fontes: Valor Econômico, Poder360, Financial Times, The New York
+  Times, The Wall Street Journal, The Guardian, CNBC
+  Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu
+  na análise dos choques de oferta e no agravamento das tensões
+  militares como determinantes para a disparada da commodity.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-petroleo-supera-us-116-o-barril-com-escalada-geo
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• STF reafirma prazo de dez anos para distribuidoras devolverem ICMS na
-  conta de luz
-  Corte define que período para devolução aos consumidores decorrente da
-  chamada tese do século começa a contar do recebimento dos recursos ou
-  da compensação.
-  Fontes: Valor Econômico, Conjur
-  Cobertura: Sem divergência entre os 2 veículos. Os veículos
-  convergiram ao detalhar a decisão do Supremo que define o início da
-  contagem dos dez anos para a devolução de tributos aos consumidores.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-stf-reafirma-prazo-de-dez-anos-para-distribuidor
+• Casas Bahia nomeia Camille Faria para liderar reestruturação
+  financeira
+  Ex-executiva da Americanas assume as negociações com credores do plano
+  de recuperação judicial da varejista.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Bloomberg Línea
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura convergiu
+  na divulgação factual da nomeação da executiva e nos impactos
+  esperados para a reestruturação da dívida da empresa.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-casas-bahia-nomeia-camille-faria-para-liderar-re
+
+• TSE dá prazo de 24 horas para Meta e X explicarem uso de IA e
+  distribuição
+  Corregedor-geral determina envio de relatórios detalhados sobre regras
+  de publicações políticas e remoção de conteúdos.
+  Fontes: JOTA, g1, Agência Brasil
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
+  integralmente ao relatar a ordem do TSE e os prazos concedidos às
+  plataformas de tecnologia.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-tse-da-prazo-de-24-horas-para-meta-e-x-explicare
 
 POLÍTICA
 --------
-• Mendonça decide que Lula e Flávio não precisam de aval da Justiça
-  Eleitoral para abrir sigilos
-  Vice-presidente do TSE nega pedido de mediação após campanhas
-  assinarem termo de liberação de dados sob troca de acusações e
-  divergências.
-  Fontes: Valor Econômico, Conjur, JOTA, Folha de S.Paulo, Estadão, g1,
-  Money Times, Agência Brasil
-  Cobertura: Equilíbrio: 4 × 4 de 8 veículos. A cobertura dividiu-se
-  entre veículos que destacaram o fundamento jurídico da decisão de
-  André Mendonça e aqueles que privilegiaram as trocas de acusações
-  entre as campanhas.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-mendonca-decide-que-lula-e-flavio-nao-precisam-d
+• Pesquisas indicam empate técnico entre Flávio Bolsonaro e Lula às
+  vésperas da votação
+  Levantamentos Ipespe e Instituto França mostram disputa acirrada,
+  enquanto Eurasia reduz favoritismo do senador para 60%.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Poder360, g1, Money
+  Times
+  Cobertura: Equilíbrio: 2 × 2 de 6 veículos. Predominou o retrato de
+  indefinição estatística nacional, intercalando destaques pontuais para
+  a liderança de Flávio com análises sobre a recuperação de Lula.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-pesquisas-indicam-empate-tecnico-entre-flavio-bo
 
-• Lula e Flávio Bolsonaro ajustam tom antes do último debate
-  presidencial na TV Globo
-  Encontro nesta sexta-feira terá regras estritas de movimentação e
-  blocos temáticos em meio ao acirramento da disputa pelo Palácio do
-  Planalto.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, Estadão,
-  g1, CNN Brasil, Poder360, Agência Brasil
-  Cobertura: Sem divergência entre os 7 veículos. A cobertura convergiu
-  na apresentação do debate da Globo como confronto decisivo para
-  definir indecisos, com candidatos orientados a moderar o tom para
-  conter rejeição.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-lula-e-flavio-bolsonaro-ajustam-tom-antes-do-ult
+• Lula e Flávio Bolsonaro concentram últimos atos de campanha no Sudeste
+  neste sábado
+  Candidatos priorizam agendas de rua em São Paulo, Rio de Janeiro e
+  Minas Gerais até o encerramento do prazo eleitoral às 22h.
+  Fontes: Valor Econômico, g1, Exame, CNN Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  na descrição factual dos itinerários dos candidatos no Sudeste,
+  apontando a busca crucial por votos nos três maiores estados do país.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-lula-e-flavio-bolsonaro-concentram-ultimos-atos
+
+• Moraes determina bloqueio de R$ 6 bilhões de Willer Tomaz em
+  investigação sobre Flávio Bolsonaro
+  Ministro do STF quebrou sigilos bancários e fiscais de empresas após
+  PF apontar candidato como ‘usuário master’ de conta.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura foi
+  estritamente factual e alinhada entre todos os veículos, reportando o
+  conteúdo das decisões de Moraes e os dados do relatório da PF.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-moraes-determina-bloqueio-de-r-6-bilhoes-de-will
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Terremoto de magnitude 7 atinge o Tibete e deixa ao menos 16 mortos na
-  China
-  Tremor no sudoeste chinês mobiliza equipes de resgate, destrói
-  centenas de casas e deixa dezenas de feridos.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil,
-  The New York Times, The Guardian, South China Morning Post, BBC News
-  Cobertura: Sem divergência entre os 9 veículos. A cobertura foi
-  exclusivamente factual e uniforme, com a imprensa internacional e
-  nacional acompanhando a elevação dos números de feridos e os danos
-  causados.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-terremoto-de-magnitude-7-atinge-o-tibete-e-deixa
+• Israel cerca Hebron e inicia demolições após morte de soldados na
+  Cisjordânia
+  Governo Netanyahu responde a ataque a tiros com ofensiva militar e
+  bloqueio territorial a poucos dias das eleições legislativas.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, The New York Times, The
+  Wall Street Journal, The Guardian, BBC News, Al Jazeera
+  Cobertura: Pende para: Aponta punição coletiva e cálculo
+  político-eleitoral · 6 de 8 veículos. A maior parte da imprensa
+  internacional frisou o caráter de punição coletiva das demolições e o
+  contexto eleitoral, enquanto coberturas factuais priorizaram as baixas
+  militares.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-israel-cerca-hebron-e-inicia-demolicoes-apos-mor
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Falha crítica na linguagem PHP descoberta por IA tira sites do ar e
-  põe governos em alerta
-  Vulnerabilidade que permaneceu oculta por mais de uma década afeta
-  operadores globais e levou o governo brasileiro a determinar a
-  desativação preventiva de sistemas.
-  Fontes: Valor Econômico, g1, The New York Times, The Guardian, BBC
-  News, CNBC
-  Cobertura: Sem divergência entre os 6 veículos. A imprensa cobriu o
-  episódio de modo unânime e factual, destacando a severidade da brecha
-  no código e o esforço emergencial conjunto para blindar portais
-  públicos e privados.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-falha-critica-na-linguagem-php-descoberta-por-ia
+• EUA e Paraguai fecham acordo para abastecer projetos de IA com energia
+  da usina de Itaipu
+  Parceria anunciada pelo vice-secretário Christopher Landau não inclui
+  o Brasil na negociação energética.
+  Fontes: Brazil Journal, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 2 veículos. Os veículos
+  convergiram ao registrar os termos da parceria bilateral entre
+  Washington e Assunção e pontuar a omissão do Brasil no anúncio.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-eua-e-paraguai-fecham-acordo-para-abastecer-proj
+
+IMOBILIÁRIO
+-----------
+• Allos acerta venda de fatia em sete shoppings para fundo da Kinea por
+  até R$ 1 bilhão
+  Transação tem taxa de capitalização de 9,5% e condiciona o volume
+  final à captação de recursos no mercado.
+  Fontes: Valor Econômico, InfoMoney, NeoFeed, Money Times
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura foi
+  unânime e factual, destacando os termos financeiros do acordo e a
+  preservação da gestão dos ativos pela Allos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-allos-acerta-venda-de-fatia-em-sete-shoppings-pa
 
 ESPORTE
 -------
-• Estudiantes elimina Flamengo nos pênaltis e decide Libertadores contra
-  o Palmeiras
-  Após novo empate sem gols no Maracanã, time argentino vence por 3 a 2
-  nas cobranças com atuação decisiva de Muslera e vai à final em
-  Montevidéu.
-  Fontes: ge, Estadão, Folha de S.Paulo, Placar, Gazeta Esportiva,
-  Agência Brasil, CNN Brasil
-  Cobertura: Pende para: Foca na ineficiência ofensiva e no fracasso do
-  Flamengo · 4 de 8 veículos. A maior parte da mídia brasileira centrou
-  foco nas falhas táticas e no prejuízo do Flamengo, enquanto veículos
-  analíticos e internacionais ressaltaram a façanha do veterano Muslera.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-estudiantes-elimina-flamengo-nos-penaltis-e-deci
+• Flamengo aciona Conmebol e contesta nos tribunais ida do Estudiantes à
+  final
+  Clube carioca alega escalação irregular do zagueiro Marcos Rojo e
+  recorre a precedente de 2018 para tentar reverter a eliminação na
+  Libertadores.
+  Fontes: ge, Estadão, Gazeta Esportiva
+  Cobertura: Sem divergência entre os 3 veículos. A imprensa tratou o
+  episódio de forma factual, concentrando-se nos detalhes jurídicos do
+  recurso e na liberação prévia do zagueiro argentino pelo tribunal
+  internacional.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-flamengo-aciona-conmebol-e-contesta-nos-tribunai
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Emissões de gases de efeito estufa do Brasil caem 6% em 2025 puxadas
-  por recuo no desmatamento
-  Dados do Sistema de Estimativas de Emissões mostram segundo ano
-  seguido de redução, atingindo o menor patamar bruto desde 2018.
-  Fontes: Valor Econômico, ((o))eco, ClimaInfo
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
-  plenamente em relatar a diminuição expressiva das emissões brasileiras
-  a partir dos cálculos oficiais do Seeg.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-emissoes-de-gases-de-efeito-estufa-do-brasil-cae
-
-CULTURA & VARIEDADES
---------------------
-• U2 anuncia terceiro show no MorumBIS em São Paulo após rápida venda de
-  ingressos
-  Apresentação adicional foi marcada para 14 de março de 2027 com
-  participação de Beck; venda geral tem início nesta sexta-feira.
-  Fontes: Exame, CNN Brasil
-  Cobertura: Sem divergência entre os 2 veículos. Os veículos trouxeram
-  informes de serviço convergentes sobre a abertura de lote extra e as
-  datas dos espetáculos da turnê.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-23.html#s-u2-anuncia-terceiro-show-no-morumbis-em-sao-paul
+• Quase todos os recifes de coral podem entrar em colapso até 2075,
+  alerta relatório
+  Avaliação científica inédita da União Internacional para a Conservação
+  da Natureza estima colapso de 96% dos sistemas marinhos rasos.
+  Fontes: Exame
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura foi
+  unânime em apontar a gravidade do relatório e a urgência do risco
+  ambiental e financeiro sobre os mares.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-quase-todos-os-recifes-de-coral-podem-entrar-em
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 06:59 (BRT) · Edição gerada por IA
+Gerado automaticamente em 09:38 (BRT) · Edição gerada por IA
 (gemini-flash-latest + gemini-flash-lite-latest)
