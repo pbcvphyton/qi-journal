@@ -1,0 +1,865 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-25",
+ "analises": [
+  {
+   "id": "47329bc3b92c",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/especial/flavio-e-lula-disputam-voto-a-voto-relembre-como-foi-a-reta-final.ghtml",
+   "titulo": "Flávio e Lula disputam voto a voto; relembre como foi a reta final",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "brasil-vai-as-urnas-neste-domingo-para-o-segundo",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 3,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 82,
+    "rotulo": "Boa"
+   },
+   "palavras": 1335,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 3.33,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "A Bolsa atinge 206.912 pontos, marco inédito, e o dólar registra a maior queda em um único pregão em oito anos.",
+     "paragrafo": "P9",
+     "direcao": "direita",
+     "contribuicao": 3.33,
+     "explicacao": "Destaca dados econômicos muito positivos associados à expectativa de vitória de Flávio Bolsonaro."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "16c6b91b3422",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/24/quem-esta-na-frente-nas-pesquisas-para-presidente-veja-os-ultimos-resultados-por-genero-idade-e-escolaridade.ghtml",
+   "titulo": "Quem está na frente nas pesquisas para presidente? Veja os últimos resultados por gênero, idade e escolaridade",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "pesquisas-da-vespera-apontam-empate-tecnico-entr",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 373,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "8027a91078d6",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/cerca-de-1200-palestinos-sao-deslocados-em-hebron-apos-israel-iniciar-operacao-militar.shtml",
+   "titulo": "Cerca de 1.200 palestinos são deslocados após operação do Exército de Israel",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "israel-impoe-lockdown-e-desloca-centenas-de-pale",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 893,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "09174f181bb4",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/incendio-atinge-antigo-retiro-de-hitler-na-alemanha.shtml",
+   "titulo": "Incêndio atinge antigo retiro de Hitler na Alemanha",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "incendio-destroi-ninho-da-aguia-historico-retiro",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 454,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "be239cb2172b",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/24/colunistas-analisam-ultimas-pesquisas-para-presidente-antes-do-2o-turno-confira-video.ghtml",
+   "titulo": "Colunistas analisam últimas pesquisas para presidente antes do 2º turno; confira vídeo",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "brasil-vai-as-urnas-neste-domingo-para-o-segundo",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "analise",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 255,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "881c03c1c7f3",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/24/quem-esta-na-frente-para-presidente-no-segundo-turno-ultimas-pesquisas-revelam-favorito-em-cada-faixa-salarial.ghtml",
+   "titulo": "Quem está na frente para presidente no segundo turno? Últimas pesquisas revelam favorito em cada faixa salarial",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "pesquisas-da-vespera-apontam-empate-tecnico-entr",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 350,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "495a44cc5b9e",
+   "url": "https://www1.folha.uol.com.br/blogs/brasilia-hoje/2026/10/pgr-pede-que-stf-derrube-exigencia-de-autorizacao-previa-para-transporte-de-indigenas-no-2o-turno.shtml",
+   "titulo": "PGR pede que STF derrube exigência de autorização prévia para transporte de indígenas no 2º turno",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-reconsidera-e-autoriza-uso-de-frota-federal",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 519,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "abb2ca007016",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/promessas-de-lula-e-flavio-as-vesperas-do-2o-turno-ampliam-risco-de-colapso-fiscal-do-brasil.shtml",
+   "titulo": "Promessas de Lula e Flávio às vésperas do 2º turno ampliam risco de colapso fiscal do Brasil",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "eleicao-presidencial-deixa-fatura-fiscal-pesada",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "analise",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1159,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "04face1f7f70",
+   "url": "https://c-level.folha.uol.com.br/negocios/2026/10/braskem-divulga-a-investidores-detalhes-de-propostas-de-reestruturacao-da-divida.shtml",
+   "titulo": "Credores e acionistas da Braskem mais perto de um acordo",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "braskem-e-credores-avancam-em-acordo-de-reestrut",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 82,
+    "rotulo": "Boa"
+   },
+   "palavras": 602,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "d63c44cea81d",
+   "url": "https://g1.globo.com/mundo/noticia/2026/10/24/kim-jong-un-encerra-visita-a-china-em-gesto-de-aproximacao-com-pequim.ghtml",
+   "titulo": "Kim Jong-un encerra visita à China em gesto de aproximação com Pequim",
+   "veiculo": "g1",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "kim-jong-un-visita-a-china-em-aproximacao-e-cruz",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 78,
+    "rotulo": "Regular"
+   },
+   "palavras": 467,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "ce2228e8a3c0",
+   "url": "https://c-level.folha.uol.com.br/negocios/2026/10/trump-deve-anunciar-plano-da-audi-para-construir-fabrica-na-georgia-nos-eua-diz-fonte.shtml",
+   "titulo": "Trump deve anunciar plano da Audi para construir fábrica na Geórgia, nos EUA, diz fonte",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "trump-anuncia-que-audi-construira-sua-primeira-f",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 73,
+    "rotulo": "Regular"
+   },
+   "palavras": 514,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "03afea12ee90",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/eleicao-mais-acirrada-desde-a-redemocratizacao-opoe-flavio-bolsonaro-a-lula-com-158-milhoes-aptos-a-votar.shtml",
+   "titulo": "Eleição mais acirrada desde a redemocratização opõe Flávio Bolsonaro a Lula com 158 milhões aptos a votar",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "brasil-vai-as-urnas-neste-domingo-para-o-segundo",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1181,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "8936018a52c4",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/24/datafolha-flvio-tem-48-pontos-percentuais-e-lula-registra-47-na-vspera-do-segundo-turno.ghtml",
+   "titulo": "Datafolha: Flávio tem 48% e Lula registra 47% na véspera do segundo turno",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "pesquisas-da-vespera-apontam-empate-tecnico-entr",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 736,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f82a6479e63d",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/lula-e-flavio-bolsonaro-escolherao-chefe-da-fazenda-sob-cenario-de-desconfianca.shtml",
+   "titulo": "Lula e Flávio Bolsonaro escolherão chefe da Fazenda sob cenário de desconfiança",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "eleicao-presidencial-deixa-fatura-fiscal-pesada",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 81,
+    "rotulo": "Boa"
+   },
+   "palavras": 1319,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "3d493f2b77ec",
+   "url": "https://g1.globo.com/mundo/noticia/2026/10/24/kim-jong-un-visita-china-um-dia-apos-pedir-exercito-mais-forte-e-revolucao-militar.ghtml",
+   "titulo": "Kim Jong-un visita China um dia após pedir 'exército mais forte' e 'revolução militar'",
+   "veiculo": "g1",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "kim-jong-un-visita-a-china-em-aproximacao-e-cruz",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 83,
+    "rotulo": "Boa"
+   },
+   "palavras": 507,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "5632416c52cc",
+   "url": "https://g1.globo.com/mundo/noticia/2026/10/24/incendio-atinge-ninho-da-aguia-construcao-usada-por-hitler-na-alemanha.ghtml",
+   "titulo": "Incêndio atinge 'Ninho da Águia', construção usada por Hitler na Alemanha; veja FOTOS",
+   "veiculo": "g1",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "incendio-destroi-ninho-da-aguia-historico-retiro",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 379,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "444254928a3c",
+   "url": "https://www.seudinheiro.com/2026/politica/pesquisas-btg-pactual-nexus-e-datafolha-mostram-empate-tecnico-na-vespera-do-2o-turno/",
+   "titulo": "Pesquisas BTG Pactual/Nexus e Datafolha mostram empate técnico, mas com um detalhe",
+   "veiculo": "Seu Dinheiro",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "brasil-vai-as-urnas-neste-domingo-para-o-segundo",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 668,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c75d5e1cff50",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/24/datafolha-flavio-tem-48percent-e-lula-registra-47percent-na-vespera-do-segundo-turno.ghtml",
+   "titulo": "Datafolha: Flávio tem 51% e Lula registra 49% dos votos válidos na véspera do segundo turno",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "pesquisas-da-vespera-apontam-empate-tecnico-entr",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 656,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f8340eaea006",
+   "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/24/nunes-marques-decisao-transporte-de-indigenas-no-2o-turno.ghtml",
+   "titulo": "Nunes Marques reconsidera decisão e autoriza uso da frota de órgãos federais para transporte de indígenas no 2º turno",
+   "veiculo": "g1",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-reconsidera-e-autoriza-uso-de-frota-federal",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 399,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "674bb931ea2f",
+   "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/24/pgr-pede-ao-stf-para-derrubar-exigencia-de-autorizacao-previa-para-transporte-de-indigenas-no-2o-turno.ghtml",
+   "titulo": "PGR pede ao STF para derrubar exigência de autorização prévia para transporte de indígenas no 2º turno",
+   "veiculo": "g1",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "tse-reconsidera-e-autoriza-uso-de-frota-federal",
+   "data_publicacao": "2026-10-24",
+   "analisado_em": "2026-10-25",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 596,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-25T11:41:07+00:00",
+   "provedor": "gemini_lite",
+   "modelo": "gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 11,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 34084,
+    "saida": 12333
+   },
+   "analises": [
+    "47329bc3b92c",
+    "16c6b91b3422",
+    "8027a91078d6",
+    "09174f181bb4",
+    "be239cb2172b",
+    "881c03c1c7f3",
+    "495a44cc5b9e",
+    "abb2ca007016",
+    "04face1f7f70",
+    "d63c44cea81d",
+    "ce2228e8a3c0",
+    "03afea12ee90",
+    "8936018a52c4",
+    "f82a6479e63d",
+    "3d493f2b77ec",
+    "5632416c52cc",
+    "444254928a3c",
+    "c75d5e1cff50",
+    "f8340eaea006",
+    "674bb931ea2f"
+   ]
+  }
+ ]
+}

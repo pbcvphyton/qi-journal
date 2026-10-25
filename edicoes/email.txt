@@ -1,246 +1,228 @@
 TRIANGULA
-Sábado, 24 de outubro de 2026 · 09:38 BRT
+Domingo, 25 de outubro de 2026 · 08:18 BRT
 
 MERCADOS
 --------
 Dólar R$ 5,00 (-1,11%) · Euro R$ 5,56 (-1,84%) · Yuan R$ 0,74 (-1,67%) ·
 Ibovespa 205.083 pts (+0,47%) · IFIX 3.991 pts (+0,43%) · S&P 500 7.624
 pts (-0,52%) · Brent US$ 111,70 (+2,80%) · Ouro US$ 4.008 (-1,29%) ·
-Bitcoin US$ 80.705 (-1,14%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Bitcoin US$ 80.313 (-0,22%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 23°C, nublado (mín. 17° / máx. 25°) · amanhã: trovoadas, 16°
-a 23°
-Montevidéu: 15°C, nublado (mín. 14° / máx. 16°) · amanhã: garoa fraca,
-12° a 14°
+São Paulo: 20°C, trovoadas (mín. 16° / máx. 21°) · amanhã: garoa fraca,
+13° a 19°
+Montevidéu: 13°C, nublado (mín. 12° / máx. 14°) · amanhã: garoa fraca,
+11° a 13°
 
 EDITORIAL
 ---------
-Na véspera da votação de segundo turno, as atenções do país convergem
-para os reflexos do confronto final de propostas na televisão e para a
-reta final de atos dos candidatos em cenário de empate técnico. No front
-econômico, o endurecimento de regras contra o superendividamento pelo
-Banco Central e a desaceleração do IPCA-15 dividem espaço com a cautela
-global provocada pelo avanço das tensões militares no Oriente Médio.
-Enquanto isso, negociações estratégicas de infraestrutura e segurança
-pública internacional moldam a agenda externa em meio a fortes protestos
-na Europa.
+O Brasil vai às urnas neste domingo para decidir o segundo turno mais
+acirrado de sua história presidencial, em meio a pesquisas que apontam
+empate técnico. Enquanto os eleitores definem o futuro político do país
+sob forte esquema de segurança, os mercados e gestores acompanham a
+fatura fiscal herdada pelo vencedor e a movimentação corporativa e
+internacional. No esporte, Rebeca Andrade brilha no exterior e o
+Brasileirão registra mudanças na liderança e na zona de rebaixamento.
 
 EM 1 MINUTO
 -----------
-• Eleições 2026: Lula e Flávio Bolsonaro trocaram acusações no último
-  debate na TV Globo e concentram atos finais no Sudeste em cenário de
-  empate técnico.
-• Petróleo em alta: As cotações da commodity sobem forte diante do
-  aumento das tensões geopolíticas entre Estados Unidos, Israel e Irã no
-  Oriente Médio.
-• Regulação bancária: O Banco Central endureceu as regras para oferta de
-  crédito com ferramentas voltadas a conter o superendividamento de
-  vulneráveis.
-• Indústria aeronáutica: A carteira de pedidos da Embraer bateu recorde
-  histórico de US$ 35,7 bilhões no 3º trimestre, avanço de 14% em doze
-  meses.
-• Tribunal Superior Eleitoral: TSE deu prazo de 24 horas para Meta e X
-  detalharem o emprego de inteligência artificial e a moderação de posts
-  eleitorais.
+• O Brasil realiza neste domingo o segundo turno mais acirrado da
+  história para definir a Presidência entre Lula e Flávio Bolsonaro.
+• Pesquisas Datafolha e Quaest divulgadas na véspera mostram empate
+  técnico na abertura das urnas.
+• O Ibovespa encerrou a última sessão aos 205.083 pontos, com alta de
+  0,47%, enquanto o dólar recuou a R$ 5,00.
+• A ginasta brasileira Rebeca Andrade conquistou o tricampeonato mundial
+  do salto em Roterdã, chegando a 10 medalhas em Mundiais.
+• O piloto italiano Kimi Antonelli, de 20 anos, cravou a pole position
+  para o GP dos Estados Unidos de Fórmula 1.
+• A França prendeu quase mil pessoas em meio a um forte esquema policial
+  para conter uma nova onda de protestos econômicos.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.568 notícias coletadas de 44 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 1.038 assuntos,
+A IA leu as 1.194 notícias coletadas de 34 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 738 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 99 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+seguiu em 63 assuntos e escolheu as 21 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#racional
-Todas as 1.568 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#racional
+Todas as 1.194 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25-todas.html
 
 MANCHETE
 --------
-Lula e Flávio Bolsonaro ajustam tom e travam último debate na TV antes
-do segundo turno
-Em confronto com regras mais rígidas na Globo, petista reage a ataques
-pessoais e adversário busca imagem moderada e foco no futuro.
-Fontes: Valor Econômico, Folha de S.Paulo, Estadão, Agência Brasil,
-Money Times, Al Jazeera, JOTA, Poder360, g1, CNN Brasil
-Cobertura: Equilíbrio: 1 × 1 de 9 veículos. A cobertura dividiu-se entre
-leituras que viram vantagem para Lula e avaliações favoráveis à postura
-propositiva de Flávio, com consenso sobre um tom menos agressivo que o
-anterior.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-lula-e-flavio-bolsonaro-ajustam-tom-e-travam-ult
+Brasil vai às urnas neste domingo para o segundo turno mais acirrado da
+história
+Cerca de 158 milhões de eleitores decidem a Presidência entre Lula e
+Flávio Bolsonaro após campanha marcada por acirramento.
+Fontes: Valor Econômico, Folha de S.Paulo
+Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu ao
+tratar o pleito como o mais disputado da história recente, ressaltando o
+empate técnico nas pesquisas.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-brasil-vai-as-urnas-neste-domingo-para-o-segundo
 
 BRASIL · ECONOMIA
 -----------------
-• Banco Central endurece normas para oferta de crédito e cria
-  ferramentas contra superendividamento
-  Instituições financeiras terão de obter consentimento prévio de
-  clientes vulneráveis e disponibilizar painel para monitoramento de
+• Eleição presidencial deixa fatura fiscal pesada para o vencedor de
+  disputa acirrada
+  O presidente eleito neste domingo herda uma dívida pública bilionária,
+  promessas eleitorais e o desafio de escolher um ministro da Fazenda
+  sob desconfiança.
+  Fontes: Estadão, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
+  ao apontar o grave quadro fiscal e a pressão sobre o próximo governo.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-eleicao-presidencial-deixa-fatura-fiscal-pesada
+
+• Braskem e credores avançam em acordo de reestruturação de dívida
+  Plano em negociação prevê prorrogação de prazos na recuperação
+  extrajudicial, compromisso de aporte da Petrobras e conversão de
   dívidas.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, InfoMoney, g1,
-  Poder360, Agência Brasil, Seu Dinheiro
-  Cobertura: Sem divergência entre os 8 veículos. A imprensa tratou o
-  pacote regulatório de maneira consensual, pontuando os prazos de
-  adaptação e a defesa do consumidor endividado.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-banco-central-endurece-normas-para-oferta-de-cre
-
-• IPCA-15 sobe 0,32% em outubro com alívio tarifário, mas alimentos
-  seguem pressionados
-  Prévia da inflação oficial desacelera na comparação com setembro e
-  acumula variação de 4,62% nos últimos 12 meses.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Suno Notícias
-  Cobertura: Equilíbrio: 3 × 3 de 6 veículos. Houve divisão entre
-  veículos que enfatizaram a surpresa positiva no dado fechado e aqueles
-  que frisaram os núcleos resistentes e o custo da alimentação.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-ipca-15-sobe-0-32-em-outubro-com-alivio-tarifari
-
-• Carteira de pedidos da Embraer bate recorde histórico de US$ 35,7
-  bilhões no 3º trimestre
-  Volume total de encomendas avança 14% em doze meses, puxado por forte
-  demanda no segmento de defesa e na aviação executiva.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Seu Dinheiro, Suno
-  Notícias
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura foi
-  unânime ao registrar o desempenho histórico da carteira e a
-  diversificação entre aviação executiva, comercial e de defesa.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-carteira-de-pedidos-da-embraer-bate-recorde-hist
-
-MERCADOS & FINANÇAS
--------------------
-• Petróleo supera US$ 116 o barril com escalada geopolítica entre
-  Estados Unidos, Israel e Irã
-  Cotação atinge o maior patamar em seis meses diante do receio de novos
-  ataques a refinarias e da pressão sobre a inflação global.
-  Fontes: Valor Econômico, Poder360, Financial Times, The New York
-  Times, The Wall Street Journal, The Guardian, CNBC
-  Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu
-  na análise dos choques de oferta e no agravamento das tensões
-  militares como determinantes para a disparada da commodity.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-petroleo-supera-us-116-o-barril-com-escalada-geo
+  Fontes: Valor Econômico, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 2 veículos. Os veículos relataram
+  o avanço das negociações sem divergências de tom.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-braskem-e-credores-avancam-em-acordo-de-reestrut
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Casas Bahia nomeia Camille Faria para liderar reestruturação
-  financeira
-  Ex-executiva da Americanas assume as negociações com credores do plano
-  de recuperação judicial da varejista.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, Bloomberg Línea
-  Cobertura: Sem divergência entre os 4 veículos. A cobertura convergiu
-  na divulgação factual da nomeação da executiva e nos impactos
-  esperados para a reestruturação da dívida da empresa.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-casas-bahia-nomeia-camille-faria-para-liderar-re
+• TSE reconsidera e autoriza uso de frota federal para transporte de
+  indígenas no 2º turno
+  Ministro Kassio Nunes Marques recuou após PGR acionar o STF para
+  suspender exigência de autorização prévia.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  inteiramente no relato factual da ação da PGR e na rápida resposta de
+  recuo por parte do TSE.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-tse-reconsidera-e-autoriza-uso-de-frota-federal
 
-• TSE dá prazo de 24 horas para Meta e X explicarem uso de IA e
-  distribuição
-  Corregedor-geral determina envio de relatórios detalhados sobre regras
-  de publicações políticas e remoção de conteúdos.
-  Fontes: JOTA, g1, Agência Brasil
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
-  integralmente ao relatar a ordem do TSE e os prazos concedidos às
-  plataformas de tecnologia.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-tse-da-prazo-de-24-horas-para-meta-e-x-explicare
+• Primeira Seção do STJ define que ICMS-Difal não entra na base de
+  cálculo de PIS e Cofins
+  Corte julgou a matéria sob o rito dos recursos repetitivos (Tema
+  1.372) e estabeleceu a modulação temporal dos efeitos da decisão.
+  Fontes: STJ
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-primeira-secao-do-stj-define-que-icms-difal-nao
 
 POLÍTICA
 --------
-• Pesquisas indicam empate técnico entre Flávio Bolsonaro e Lula às
-  vésperas da votação
-  Levantamentos Ipespe e Instituto França mostram disputa acirrada,
-  enquanto Eurasia reduz favoritismo do senador para 60%.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Poder360, g1, Money
-  Times
-  Cobertura: Equilíbrio: 2 × 2 de 6 veículos. Predominou o retrato de
-  indefinição estatística nacional, intercalando destaques pontuais para
-  a liderança de Flávio com análises sobre a recuperação de Lula.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-pesquisas-indicam-empate-tecnico-entre-flavio-bo
-
-• Lula e Flávio Bolsonaro concentram últimos atos de campanha no Sudeste
-  neste sábado
-  Candidatos priorizam agendas de rua em São Paulo, Rio de Janeiro e
-  Minas Gerais até o encerramento do prazo eleitoral às 22h.
-  Fontes: Valor Econômico, g1, Exame, CNN Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
-  na descrição factual dos itinerários dos candidatos no Sudeste,
-  apontando a busca crucial por votos nos três maiores estados do país.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-lula-e-flavio-bolsonaro-concentram-ultimos-atos
-
-• Moraes determina bloqueio de R$ 6 bilhões de Willer Tomaz em
-  investigação sobre Flávio Bolsonaro
-  Ministro do STF quebrou sigilos bancários e fiscais de empresas após
-  PF apontar candidato como ‘usuário master’ de conta.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura foi
-  estritamente factual e alinhada entre todos os veículos, reportando o
-  conteúdo das decisões de Moraes e os dados do relatório da PF.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-moraes-determina-bloqueio-de-r-6-bilhoes-de-will
+• Pesquisas da véspera apontam empate técnico entre Flávio Bolsonaro e
+  Lula
+  Levantamentos de Datafolha e Quaest mostram o candidato do PL
+  numericamente à frente em votos válidos, dentro da margem de erro, na
+  abertura das urnas.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, InfoMoney,
+  Bloomberg Línea, g1, Money Times, CNN Brasil
+  Cobertura: Sem divergência entre os 9 veículos. A cobertura convergiu
+  na constatação de empate técnico absoluto na véspera da votação, sem
+  divergências substanciais de enquadramento analítico.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-pesquisas-da-vespera-apontam-empate-tecnico-entr
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Israel cerca Hebron e inicia demolições após morte de soldados na
-  Cisjordânia
-  Governo Netanyahu responde a ataque a tiros com ofensiva militar e
-  bloqueio territorial a poucos dias das eleições legislativas.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, The New York Times, The
-  Wall Street Journal, The Guardian, BBC News, Al Jazeera
-  Cobertura: Pende para: Aponta punição coletiva e cálculo
-  político-eleitoral · 6 de 8 veículos. A maior parte da imprensa
-  internacional frisou o caráter de punição coletiva das demolições e o
-  contexto eleitoral, enquanto coberturas factuais priorizaram as baixas
-  militares.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-israel-cerca-hebron-e-inicia-demolicoes-apos-mor
+• Trump anuncia que Audi construirá sua primeira fábrica nos EUA com
+  investimento bilionário
+  Montadora alemã instalará unidade na Geórgia com capacidade para
+  produzir 200 mil SUVs por ano.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
+  na divulgação do plano industrial da Audi nos Estados Unidos e nos
+  valores informados pelo governo.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-trump-anuncia-que-audi-construira-sua-primeira-f
+
+• Kim Jong-un visita a China em aproximação e cruza nova ponte na
+  fronteira
+  Líder norte-coreano viajou a Dandong pela ponte recém-inaugurada em
+  sua primeira viagem ao país em mais de um ano.
+  Fontes: Valor Econômico, g1, The Wall Street Journal, The New York
+  Times, The Guardian, South China Morning Post
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  inteiramente nos fatos da viagem de Kim Jong-un, na inauguração da
+  ponte de Dandong e no reforço dos laços com Pequim.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-kim-jong-un-visita-a-china-em-aproximacao-e-cruz
+
+• Israel impõe lockdown e desloca centenas de palestinos em operação
+  militar em Hebron
+  Ação ocorre após morte de dois soldados e antecede eleições gerais
+  marcadas para a próxima terça-feira.
+  Fontes: Folha de S.Paulo, The New York Times, The Guardian, BBC News,
+  Al Jazeera
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  nos impactos humanitários do cerco militar a Hebron e nas restrições
+  de trânsito devido às eleições.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-israel-impoe-lockdown-e-desloca-centenas-de-pale
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• EUA e Paraguai fecham acordo para abastecer projetos de IA com energia
-  da usina de Itaipu
-  Parceria anunciada pelo vice-secretário Christopher Landau não inclui
-  o Brasil na negociação energética.
-  Fontes: Brazil Journal, Folha de S.Paulo
-  Cobertura: Sem divergência entre os 2 veículos. Os veículos
-  convergiram ao registrar os termos da parceria bilateral entre
-  Washington e Assunção e pontuar a omissão do Brasil no anúncio.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-eua-e-paraguai-fecham-acordo-para-abastecer-proj
-
-IMOBILIÁRIO
------------
-• Allos acerta venda de fatia em sete shoppings para fundo da Kinea por
-  até R$ 1 bilhão
-  Transação tem taxa de capitalização de 9,5% e condiciona o volume
-  final à captação de recursos no mercado.
-  Fontes: Valor Econômico, InfoMoney, NeoFeed, Money Times
-  Cobertura: Sem divergência entre os 4 veículos. A cobertura foi
-  unânime e factual, destacando os termos financeiros do acordo e a
-  preservação da gestão dos ativos pela Allos.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-allos-acerta-venda-de-fatia-em-sete-shoppings-pa
+• Musk acusa Ucrânia de violar regras da Starlink após restabelecimento
+  de sinal
+  Kiev confirma estabilização dos serviços de satélite, enquanto
+  empresário afirma que rede foi empregada em ações ofensivas de drones.
+  Fontes: The New York Times, The Wall Street Journal, The Guardian, BBC
+  News, CNBC, TechCrunch
+  Cobertura: Pende para: Foco no restabelecimento do sinal militar pela
+  Ucrânia · 4 de 6 veículos. A maioria dos veículos (CNBC, Guardian, WSJ
+  e TechCrunch) priorizou a volta do serviço militar, enquanto NYT e BBC
+  deram destaque principal às queixas contratuais de Musk.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-musk-acusa-ucrania-de-violar-regras-da-starlink
 
 ESPORTE
 -------
-• Flamengo aciona Conmebol e contesta nos tribunais ida do Estudiantes à
-  final
-  Clube carioca alega escalação irregular do zagueiro Marcos Rojo e
-  recorre a precedente de 2018 para tentar reverter a eliminação na
-  Libertadores.
-  Fontes: ge, Estadão, Gazeta Esportiva
-  Cobertura: Sem divergência entre os 3 veículos. A imprensa tratou o
-  episódio de forma factual, concentrando-se nos detalhes jurídicos do
-  recurso e na liberação prévia do zagueiro argentino pelo tribunal
-  internacional.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-flamengo-aciona-conmebol-e-contesta-nos-tribunai
+• Neymar é expulso por lei Vini Jr em jogo do Santos e dispara contra
+  Nestor
+  Atacante santista recebe cartão vermelho após cobrir a boca em
+  discussão e desfalca a equipe por quase um mês.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
+  Brasil
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  na apuração factual do incidente e na repercussão da expulsão de
+  Neymar sob a lei Vini Jr.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-neymar-e-expulso-por-lei-vini-jr-em-jogo-do-sant
+
+• Palmeiras assume liderança do Brasileirão e Corinthians entra na zona
+  de rebaixamento
+  Verdão vence o Bragantino por 2 a 0, enquanto Timão sofre virada nos
+  minutos finais na estreia de Seedorf.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
+  Brasil
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  ao relatar o impacto da rodada para os principais clubes de São Paulo.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-palmeiras-assume-lideranca-do-brasileirao-e-cori
+
+• Kimi Antonelli surpreende e crava pole position 'milagrosa' para o GP
+  dos Estados Unidos de Fórmula 1
+  Aos 20 anos, piloto italiano da Mercedes supera favoritismo de Ferrari
+  e Red Bull e fica perto de confirmar título mundial.
+  Fontes: ge
+  Cobertura: Sem divergência entre os 3 veículos. A imprensa destaca
+  unanimemente a façanha de Kimi Antonelli e a relevância da pole
+  position para o desfecho do campeonato da Fórmula 1.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-kimi-antonelli-surpreende-e-crava-pole-position
+
+• Michael Carrick tenta blindar cargo no Manchester United em meio a
+  turbulências e crise de resultados
+  Após goleada sofrida para o Como na Champions League, técnico tenta
+  provar viabilidade do comando antes de receber o Bournemouth.
+  Fontes: Trivela
+  Cobertura: Sem divergência entre os 2 veículos. Os veículos convergem
+  ao retratar a gravidade da crise no clube inglês e o cerco em torno do
+  comando técnico.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-michael-carrick-tenta-blindar-cargo-no-mancheste
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Quase todos os recifes de coral podem entrar em colapso até 2075,
-  alerta relatório
-  Avaliação científica inédita da União Internacional para a Conservação
-  da Natureza estima colapso de 96% dos sistemas marinhos rasos.
-  Fontes: Exame
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura foi
-  unânime em apontar a gravidade do relatório e a urgência do risco
-  ambiental e financeiro sobre os mares.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-24.html#s-quase-todos-os-recifes-de-coral-podem-entrar-em
+• Tempestade Boelo atinge o Reino Unido com ventos de até 135 km/h e
+  cortes de energia
+  Alertas âmbar continuam em vigor na Escócia, Irlanda do Norte e norte
+  da Inglaterra após estragos do temporal.
+  Fontes: The Guardian, BBC News
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
+  ao relatar os prejuízos causados pela tempestade Boelo e a manutenção
+  dos alertas de risco.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-tempestade-boelo-atinge-o-reino-unido-com-ventos
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 09:38 (BRT) · Edição gerada por IA
+Gerado automaticamente em 08:18 (BRT) · Edição gerada por IA
 (gemini-flash-latest + gemini-flash-lite-latest)
