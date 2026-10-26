@@ -1,0 +1,905 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-26",
+ "analises": [
+  {
+   "id": "9983fbb4e5dc",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/25/segundo-turno-leva-quase-3-milhoes-de-eleitores-as-urnas-a-mais-que-o-primeiro.ghtml",
+   "titulo": "Segundo turno leva quase 3 milhões de eleitores às urnas a mais que o primeiro",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "abstencao-no-segundo-turno-registra-menor-patama",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 181,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "ab1462c1e151",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/alcolumbre-e-motta-ligam-para-lula-oferecem-apoio-e-pedem-que-ele-atue-para-unir-o-brasil.shtml",
+   "titulo": "Alcolumbre e Motta ligam para Lula, oferecem apoio e pedem que ele atue para unir o Brasil",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "presidentes-do-senado-e-da-camara-telefonam-para",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 841,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "6b73f5100160",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/26/abstencao-no-segundo-turno-foi-a-menor-desde-2006.ghtml",
+   "titulo": "Abstenção no segundo turno foi a menor desde 2006",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "abstencao-no-segundo-turno-registra-menor-patama",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "analise",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 1127,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "bef8a47045f4",
+   "url": "https://www.infomoney.com.br/politica/alcolumbre-e-motta-oferecem-apoio-a-lula-e-pedem-uniao-do-pais-apos-eleicao/",
+   "titulo": "Alcolumbre e Motta pedem conciliação e dizem que Lula deve governar para todos",
+   "veiculo": "InfoMoney",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "presidentes-do-senado-e-da-camara-telefonam-para",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 85,
+    "rotulo": "Boa"
+   },
+   "palavras": 299,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "02dc2017c557",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/25/quem-decidiu-prorrogar-as-eleicoes-entenda.ghtml",
+   "titulo": "Quem decidiu prorrogar as eleições? Entenda",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "decisao-de-cristiano-zanin-prorroga-votacao-ate",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 450,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f2ae566c2378",
+   "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/26/bahia-pernambuco-sao-paulo-maiores-quedas-taxa-abstencao-percentual-estado.ghtml",
+   "titulo": "Bahia, Pernambuco e São Paulo lideram queda na taxa de abstenção; veja percentuais por estado",
+   "veiculo": "g1",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "abstencao-no-segundo-turno-registra-menor-patama",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 89,
+    "rotulo": "Boa"
+   },
+   "palavras": 554,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a18cf26f64ca",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/25/tre-ba-afirma-nao-ter-recebido-votos-em-papel-apos-prorrogacao-da-votacao.ghtml",
+   "titulo": "TRE-BA afirma não ter recebido votos em papel após prorrogação da votação",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "decisao-de-cristiano-zanin-prorroga-votacao-ate",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 264,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "cb373e9a470d",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/conta-da-babaquice-fiscal-tera-de-ser-paga-pelo-proprio-lula.shtml",
+   "titulo": "Conta da 'babaquice' fiscal terá de ser paga pelo próprio Lula",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "equipe-economica-de-lula-prepara-medidas-de-ajus",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "opiniao",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 19,
+   "rotulo": "Leve à direita",
+   "confianca": "baixa",
+   "resumo": "Leve à direita (confiança baixa). Principais sinais: rótulos e aspas (E1) e carga avaliativa (E2).",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 50,
+    "rotulo": "Regular"
+   },
+   "palavras": 719,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 18.5,
+    "divergente": false
+   },
+   "por_eixo": {
+    "economico": 18.5
+   },
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ROTULOS",
+     "citacao": "Conta da 'babaquice' fiscal terá de ser paga pelo próprio Lula",
+     "paragrafo": "P0",
+     "direcao": "direita",
+     "contribuicao": 12.5,
+     "explicacao": "Uso de termos pejorativos na voz do autor e título para caracterizar a política econômica do governo."
+    },
+    {
+     "id": "E2",
+     "criterio": "ADJETIVOS",
+     "citacao": "A soberba não deve resistir aos fatos e, vitorioso, terá de resolver o problema que criou para si.",
+     "paragrafo": "P4",
+     "direcao": "direita",
+     "contribuicao": 6.0,
+     "explicacao": "Atribuição de traços morais negativos ao governante."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "1a5f828ab4d5",
+   "url": "https://braziljournal.com/acoes-domesticas-boas-devem-cair-20-30-gestores-preveem-segunda-caotica",
+   "titulo": "“Ações domésticas boas devem cair 20-30%”. Gestores preveem segunda caótica",
+   "veiculo": "Brazil Journal",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "reeleicao-de-lula-derruba-ativos-brasileiros-e-e",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 69,
+    "rotulo": "Regular"
+   },
+   "palavras": 331,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a6d931892add",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/25/lula-e-reeleito-presidente-da-republica.ghtml",
+   "titulo": "Em virada histórica, Lula se reelege e quebra onda mundial de avanço da direita",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-vence-flavio-bolsonaro-em-virada-historica",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "analise",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "economico",
+     "costumes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 82,
+    "rotulo": "Boa"
+   },
+   "palavras": 1118,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "7fefd254f186",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/25/mesmo-com-derrota-no-2o-turno-pl-elege-a-maior-parte-dos-governadores-em-2026-veja-lista.ghtml",
+   "titulo": "Mesmo com derrota no 2º turno, PL elege a maior parte dos governadores em 2026; veja lista",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "direita-amplia-forca-nos-estados-e-define-govern",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 825,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "aefb00037e57",
+   "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/26/nas-10-cidades-onde-a-abstencao-mais-caiu-entre-os-turnos-veja-como-foi-a-votacao-para-presidente.ghtml",
+   "titulo": "Nas 10 cidades onde a abstenção mais caiu entre os turnos, veja como foi a votação para presidente",
+   "veiculo": "g1",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "abstencao-no-segundo-turno-registra-menor-patama",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 381,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "3533c4a9eb72",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/25/por-que-a-eleicao-foi-prorrogada.ghtml",
+   "titulo": "Por que a eleição foi prorrogada? Veja perguntas e respostas",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "decisao-de-cristiano-zanin-prorroga-votacao-ate",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 410,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "Por que a apuração tinha 0,25% após às 17h no site do TSE?",
+     "paragrafo": "P9",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto aborda de forma transparente uma dúvida comum do público sobre os dados divulgados, esclarecendo-a com base técnica."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "704c6a5f05c6",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/equipe-de-lula-prepara-pec-para-buscar-centro-da-meta-fiscal-e-preve-menos-credito-subsidiado.shtml",
+   "titulo": "Equipe de Lula prepara PEC para buscar centro da meta fiscal e prevê menos crédito subsidiado",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "equipe-economica-de-lula-prepara-medidas-de-ajus",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 4,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 1311,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 3.53,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Os governos de esquerda a princípio já têm menos entrada com os agentes do mercado financeiro",
+     "paragrafo": "P29",
+     "direcao": "direita",
+     "contribuicao": 3.53,
+     "explicacao": "A análise dá voz a especialistas do setor financeiro para caracterizar a relação entre governos progressistas e o mercado, refletindo a visão predominante desse setor."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "ce15776533e0",
+   "url": "https://www.infomoney.com.br/mercados/reeleicao-lula-divida-publica-agenda-26102026/",
+   "titulo": "Reeleição de Lula, dívida pública, Gerdau, Focus e mais destaques desta segunda",
+   "veiculo": "InfoMoney",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "reeleicao-de-lula-derruba-ativos-brasileiros-e-e",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 787,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "O resultado contraria o cenário-base e entrega a maior surpresa desta eleição com a vitória de Lula",
+     "paragrafo": "P7",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Uso de fontes do mercado financeiro para relatar a reação dos ativos, acompanhado da fala do candidato derrotado contestando o pleito."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "acd08d126a2e",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/na-paulista-lula-prestigia-alckmin-e-exalta-janones.shtml",
+   "titulo": "Na Paulista, Lula prestigia Alckmin, exalta Janones e se declara a Janja",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-vence-flavio-bolsonaro-em-virada-historica",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "costumes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 65,
+    "rotulo": "Regular"
+   },
+   "palavras": 629,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "128788b3a7b2",
+   "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/25/veja-as-10-cidades-com-menor-abstencao-no-2o-turno-e-o-que-mudou-em-relacao-ao-1o-turno-e-2022.ghtml",
+   "titulo": "Veja as 10 cidades com menor abstenção no 2º turno e o que mudou em relação ao 1º turno e 2022",
+   "veiculo": "g1",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "abstencao-no-segundo-turno-registra-menor-patama",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 506,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "4b6bf04c45e1",
+   "url": "https://valor.globo.com/noticia/2026/10/25/nunes-marques-parabeniza-lula-pelo-quarto-mandato-e-ressalta-queda-da-abstencao.ghtml",
+   "titulo": "Nunes Marques: Prorrogação de horário não alterou nada na eleição",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "prorrogacao-do-horario-de-votacao-pelo-stf-gera",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 467,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c1c1634664bd",
+   "url": "https://valor.globo.com/politica/eleicoes-2026/noticia/2026/10/25/deputados-do-pl-falam-em-golpe-e-questionam-deciso-de-zanin-de-prorrogar-votao.ghtml",
+   "titulo": "Deputados do PL falam em golpe e questionam decisão de Zanin de prorrogar votação",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "decisao-de-cristiano-zanin-prorroga-votacao-ate",
+   "data_publicacao": "2026-10-25",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 78,
+    "rotulo": "Regular"
+   },
+   "palavras": 300,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "923dc047a265",
+   "url": "https://www.moneytimes.com.br/lula-vai-ao-quarto-mandato-com-desafio-de-retomar-credibilidade-fiscal-apos-elevar-gastos-na-campanha-fets/",
+   "titulo": "Lula vai ao quarto mandato com desafio de retomar credibilidade fiscal após elevar gastos na campanha",
+   "veiculo": "Money Times",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "equipe-economica-de-lula-prepara-medidas-de-ajus",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-26",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "analise",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1229,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-26T10:35:31+00:00",
+   "provedor": "gemini_lite",
+   "modelo": "gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 19,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 34757,
+    "saida": 14476
+   },
+   "analises": [
+    "9983fbb4e5dc",
+    "ab1462c1e151",
+    "6b73f5100160",
+    "bef8a47045f4",
+    "02dc2017c557",
+    "f2ae566c2378",
+    "a18cf26f64ca",
+    "cb373e9a470d",
+    "1a5f828ab4d5",
+    "a6d931892add",
+    "7fefd254f186",
+    "aefb00037e57",
+    "3533c4a9eb72",
+    "704c6a5f05c6",
+    "ce15776533e0",
+    "acd08d126a2e",
+    "128788b3a7b2",
+    "4b6bf04c45e1",
+    "c1c1634664bd",
+    "923dc047a265"
+   ]
+  }
+ ]
+}
