@@ -13,6 +13,7 @@ acompanha a conta):
 
 from __future__ import annotations
 
+import http.client
 import logging
 import re
 import unicodedata
@@ -28,7 +29,9 @@ from .graph import GraphError, InstagramClient
 log = logging.getLogger(__name__)
 
 UrlCheck = Callable[[str], bool]
-Save = Callable[[str], None]  # recebe uma descrição curta do que mudou
+# Recebe uma descrição curta do que mudou; devolve False se não conseguiu guardar o
+# estado na branch (aí o post não segue para o media_publish).
+Save = Callable[[str], "bool | None"]
 
 
 class TokenInvalido(Exception):
@@ -41,7 +44,7 @@ def url_ok(url: str, timeout: float = 20) -> bool:
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return resp.status == 200 and resp.headers.get("Content-Type", "").startswith("image/")
-    except (urllib.error.URLError, TimeoutError, ConnectionError, OSError, ValueError):
+    except (urllib.error.URLError, TimeoutError, ConnectionError, OSError, ValueError, http.client.HTTPException):
         return False
 
 
@@ -107,7 +110,10 @@ def _publish_one(client: InstagramClient, post: Post, urls: list[str], save: Sav
             post.container_id = None
     if not post.container_id:
         post.container_id = _create_container(client, post, urls)
-        save(f"{post.id}: container criado")
+        if save(f"{post.id}: container criado") is False:
+            # Sem o container gravado na branch, uma execução que morresse depois do
+            # media_publish publicaria de novo: melhor deixar para a próxima.
+            raise GraphError(f"{post.id}: não deu para gravar o container na branch; fica para depois", transient=True)
     client.wait_ready(post.container_id)
     return client.publish(post.container_id, feed=post.feed)
 
@@ -196,6 +202,8 @@ def publish_due(
                 save(f"{post.id}: cota atingida")
                 break
             post.status = FAILED
+            if exc.dead_container:
+                post.container_id = None  # o próximo tenta com um container novo
             if not exc.transient:
                 post.attempts = MAX_ATTEMPTS  # erro permanente: não adianta tentar de novo
                 post.container_id = None

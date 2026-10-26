@@ -91,11 +91,15 @@ def test_erro_passageiro_tenta_de_novo_e_permanente_nao():
     assert c.create_image("https://x/1.jpg") == "c1"
     assert len(t.calls) == 2
 
-    c, t = client([(400, {"error": {"message": "Only photo or video can be accepted", "code": 9004, "error_subcode": 2207052}})])
+    c, t = client([(400, {"error": {"message": "The aspect ratio is not supported", "code": 36003, "error_subcode": 2207009}})])
     with pytest.raises(GraphError) as info:
         c.create_image("https://x/1.jpg")
     assert not info.value.transient
     assert len(t.calls) == 1
+
+    # A Meta não conseguiu baixar a imagem: passageiro (tenta de novo).
+    c, t = client([(400, {"error": {"message": "Media download has failed", "code": 9004, "error_subcode": 2207052}}), (200, {"id": "c9"})])
+    assert c.create_image("https://x/1.jpg") == "c9"
 
 
 def test_token_invalido_e_limite_de_publicacao_sao_identificados():
@@ -120,8 +124,9 @@ def test_token_nunca_aparece_na_mensagem_de_erro():
 
 def test_container_com_erro_ou_que_nao_fica_pronto():
     c, _ = client([(200, {"status_code": "ERROR"})])
-    with pytest.raises(GraphError):
+    with pytest.raises(GraphError) as info:
         c.wait_ready("c1")
+    assert info.value.transient and info.value.dead_container
     c, _ = client([(200, {"status_code": "IN_PROGRESS"})] * 3)
     with pytest.raises(GraphError) as info:
         c.wait_ready("c1", timeout=10, interval=5)
@@ -159,7 +164,22 @@ def test_publish_nao_repete_as_cegas_e_confere_o_container():
     c, t = client([(502, {"error": {"message": "erro"}}), (200, {"status_code": "PUBLISHED"})])
     assert c.publish("c2", feed=False) == "c2"
 
-    # Container ainda pronto (FINISHED): tenta publicar mais uma vez.
-    c, t = client([(503, {"error": {"message": "erro"}}), (200, {"status_code": "FINISHED"}), (200, {"id": "m8"})])
-    assert c.publish("c3") == "m8"
-    assert sum(1 for call in t.calls if call[1].endswith("media_publish")) == 2
+    # Container continua FINISHED por 2 min: NÃO publica de novo agora (fica para a próxima execução).
+    c, t = client([(503, {"error": {"message": "erro"}})] + [(200, {"status_code": "FINISHED"})] * 8)
+    with pytest.raises(GraphError) as info:
+        c.publish("c3")
+    assert info.value.transient and not info.value.dead_container
+    assert sum(1 for call in t.calls if call[1].endswith("media_publish")) == 1
+
+    # Container morreu: pede um novo.
+    c, t = client([(503, {"error": {"message": "erro"}}), (200, {"status_code": "ERROR"})])
+    with pytest.raises(GraphError) as info:
+        c.publish("c4")
+    assert info.value.dead_container and info.value.transient
+
+
+def test_resposta_cortada_e_erro_de_rede_passageiro():
+    import http.client
+
+    c, t = client([http.client.IncompleteRead(b"x"), (200, {"id": "c1"})])
+    assert c.create_image("https://x/1.jpg") == "c1"

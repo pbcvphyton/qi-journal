@@ -210,3 +210,33 @@ def test_cota_no_limite_nao_publica():
     fila = Fila(posts=[post()])
     res = publish_due(fila, FakeClient(quota=(99, 100)), media_url=BASE, now=at("08:00"), check_url=lambda u: True)
     assert res.limite and fila.posts[0].status == PENDING and fila.posts[0].attempts == 0
+
+
+def test_container_morto_e_recriado_e_falha_de_gravacao_adia_o_post():
+    fila = Fila(posts=[post()])
+    client = FakeClient()
+    client.wait_ready = lambda cid: (_ for _ in ()).throw(GraphError("ERROR", transient=True, dead_container=True))
+    publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True)
+    p = fila.posts[0]
+    assert p.status == FAILED and p.container_id is None and p.attempts == 1
+
+    fila = Fila(posts=[post()])
+    client = FakeClient()
+    publish_due(fila, client, media_url=BASE, now=at("08:00"), check_url=lambda u: True, save=lambda what: False)
+    assert client.published == [] and fila.posts[0].status == FAILED and fila.posts[0].attempts == 1
+
+
+def test_refazer_a_fila_mantem_o_container_pendente():
+    fila = Fila(posts=[post(status=FAILED, attempts=2, container_id="c-velho")])
+    fila.upsert([post(caption="nova legenda")])
+    p = fila.posts[0]
+    assert p.container_id == "c-velho" and p.attempts == 2 and p.caption == "nova legenda"
+
+
+def test_post_permanente_nunca_sai_da_fila():
+    lanc = post("lancamento-comece-aqui", status=PUBLISHED, permanent=True)
+    lanc.date = "2026-01-01"
+    fila = Fila(posts=[lanc, post("2026-01-02-manha")])
+    fila.prune(date(2026, 10, 20))
+    assert [p.id for p in fila.posts] == ["lancamento-comece-aqui"]
+    assert fila.has_published("lancamento-comece-aqui")

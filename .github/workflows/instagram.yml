@@ -32,14 +32,15 @@ permissions:
   contents: write
   issues: write
 
-concurrency:
-  # Uma execução por vez: a fila na branch instagram tem um único escritor.
-  group: instagram
-  cancel-in-progress: false
-
 jobs:
   instagram:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    # Uma execução por vez: a fila na branch instagram tem um único escritor. No
+    # job (e não no workflow), para que execuções puladas pelo "if" acima não
+    # tomem o lugar de uma que está esperando a vez.
+    concurrency:
+      group: instagram
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     # Logo depois da edição, o publicador espera até 75 min pelo horário-alvo
     # das publicações da manhã (minutos do Actions são grátis em repositório
@@ -56,14 +57,23 @@ jobs:
           ref: main
 
       - name: Baixar a fila e as imagens (branch instagram)
+        id: download
         run: |
           mkdir -p "$MEDIA_DIR"
-          if git ls-remote --exit-code --heads origin instagram >/dev/null; then
-            # A branch existe: sem ela a fila zeraria e publicações poderiam sair em dobro.
-            git fetch --quiet --depth 1 origin instagram
+          # Sem a fila, publicações poderiam sair em dobro: qualquer erro aqui que
+          # não seja "a branch não existe" para a execução.
+          rc=0
+          git ls-remote --exit-code origin refs/heads/instagram >/dev/null || rc=$?
+          if [ "$rc" -eq 0 ]; then
+            git fetch --quiet --depth 1 origin refs/heads/instagram
             git archive FETCH_HEAD | tar -x -C "$MEDIA_DIR"
-          else
+            git rev-parse FETCH_HEAD > "$RUNNER_TEMP/ig-branch-tip"
+          elif [ "$rc" -eq 2 ]; then
             echo "Branch instagram ainda não existe; começando uma fila nova."
+            : > "$RUNNER_TEMP/ig-branch-tip"
+          else
+            echo "::error::Não deu para consultar a branch instagram (git ls-remote saiu com $rc)."
+            exit 1
           fi
           ls -la "$MEDIA_DIR"
 
@@ -125,7 +135,8 @@ jobs:
 
       - name: Conferir e renovar o token do Instagram
         id: token
-        if: steps.plan.outputs.publish == 'true'
+        # !cancelled(): o que já estava na fila sai mesmo se a geração de hoje falhou.
+        if: ${{ !cancelled() && steps.download.outcome == 'success' && steps.plan.outputs.publish == 'true' }}
         continue-on-error: true
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
@@ -136,26 +147,39 @@ jobs:
         run: |
           # O token da "Instagram API with Instagram Login" vale 60 dias: é
           # renovado toda semana e o novo vai já para o segredo (passo seguinte).
+          rc=0
           python -m qijournal instagram token --media-dir "$MEDIA_DIR" --sync \
-            --token-out "$RUNNER_TEMP/ig-token" --alert-out "$RUNNER_TEMP/ig-alerta.txt"
+            --token-out "$RUNNER_TEMP/ig-token" --alert-out "$RUNNER_TEMP/ig-alerta.txt" || rc=$?
+          if [ -s "$RUNNER_TEMP/ig-token" ]; then echo "renewed=true" >> "$GITHUB_OUTPUT"; fi
+          exit "$rc"
 
       - name: Guardar o token renovado
         # Com o segredo GH_SECRETS_TOKEN (token fine-grained com "Secrets: write"
-        # só neste repositório), o token novo substitui o IG_ACCESS_TOKEN.
-        if: always() && hashFiles(format('{0}/ig-token', runner.temp)) != ''
+        # só neste repositório), o token novo substitui o IG_ACCESS_TOKEN. Só
+        # depois disso a fila passa a contar a validade nova (--confirm).
+        if: ${{ !cancelled() && steps.token.outputs.renewed == 'true' }}
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GH_SECRETS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          alert="$RUNNER_TEMP/ig-alerta.txt"
           if [ -z "$GH_TOKEN" ]; then
             echo "::warning::Token do Instagram renovado, mas o segredo GH_SECRETS_TOKEN não existe para guardá-lo."
-          else
-            gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" < "$RUNNER_TEMP/ig-token"
-            echo "Segredo IG_ACCESS_TOKEN atualizado."
+            echo "O token do Instagram foi renovado, mas não pôde ser guardado: falta o segredo GH_SECRETS_TOKEN (docs/instagram.md, seção 3). Sem ele, o token vence em 60 dias e as publicações param." >> "$alert"
+            exit 0
           fi
+          if ! gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" < "$RUNNER_TEMP/ig-token"; then
+            echo "::error::Não deu para gravar o token novo no segredo IG_ACCESS_TOKEN."
+            echo "O token do Instagram foi renovado, mas o GitHub recusou gravá-lo no segredo IG_ACCESS_TOKEN: confira se o GH_SECRETS_TOKEN ainda vale e tem \"Secrets: write\" neste repositório (docs/instagram.md, seção 3)." >> "$alert"
+            exit 1
+          fi
+          echo "Segredo IG_ACCESS_TOKEN atualizado."
+          python -m qijournal instagram token --confirm --media-dir "$MEDIA_DIR" --sync
 
       - name: Publicar no Instagram
         id: publish
-        if: steps.plan.outputs.publish == 'true' && steps.token.outcome == 'success'
+        if: ${{ !cancelled() && steps.plan.outputs.publish == 'true' && steps.token.outcome == 'success' }}
         continue-on-error: true
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
@@ -175,7 +199,8 @@ jobs:
           python -m qijournal instagram publicar "${args[@]}"
 
       - name: Guardar a fila (branch instagram)
-        if: always() && steps.plan.outputs.publish == 'true'
+        # Nunca sem a fila baixada: gravaria uma fila vazia por cima da verdadeira.
+        if: always() && steps.download.outcome == 'success' && steps.plan.outputs.publish == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -187,10 +212,12 @@ jobs:
 
       - name: Avisar o dono (issue)
         # O GitHub manda e-mail ao dono do repositório a cada issue e comentário.
-        if: always() && hashFiles(format('{0}/ig-alerta.txt', runner.temp)) != ''
+        # (hashFiles não enxerga o RUNNER_TEMP: a conferência fica no script.)
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          [ -s "$RUNNER_TEMP/ig-alerta.txt" ] || exit 0
           title="Instagram: ação necessária"
           number=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
           body="$(cat "$RUNNER_TEMP/ig-alerta.txt")
@@ -205,11 +232,12 @@ jobs:
           fi
 
       - name: Fechar o aviso resolvido
-        if: steps.publish.outcome == 'success' && hashFiles(format('{0}/ig-alerta.txt', runner.temp)) == ''
+        if: ${{ !cancelled() && steps.publish.outcome == 'success' }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          [ -s "$RUNNER_TEMP/ig-alerta.txt" ] && exit 0
           title="Instagram: ação necessária"
           number=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
           if [ -n "$number" ]; then

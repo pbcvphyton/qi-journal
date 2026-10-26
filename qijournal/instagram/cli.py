@@ -19,11 +19,12 @@ from qijournal.models import Edition
 from .fila import Fila
 from .graph import DEFAULT_HOST, DEFAULT_VERSION, GraphError, InstagramClient
 from .publicar import TokenInvalido, publish_due
-from .token import maybe_refresh, write_token_file
+from .token import confirm_refresh, maybe_refresh, write_token_file
 
 log = logging.getLogger(__name__)
 
 EXIT_OK, EXIT_ERROR = 0, 1
+RETRY_EVERY = timedelta(minutes=5)  # nova tentativa de posts vencidos que ficaram esperando
 MEDIA_BRANCH = "instagram"
 SYNC_SCRIPT = Path(".github") / "scripts" / "instagram-branch.sh"
 DEFAULT_MEDIA_DIR = "instagram-midia"
@@ -63,12 +64,14 @@ def latest_edition(root: Path) -> Edition:
 
 
 def _write_alert(path: str | None, message: str) -> None:
+    # Acrescenta: outros passos do workflow escrevem avisos no mesmo arquivo.
     if path:
-        Path(path).write_text(message + "\n", encoding="utf-8")
+        with Path(path).open("a", encoding="utf-8") as fh:
+            fh.write(message + "\n")
 
 
 def cmd_gerar(args: argparse.Namespace, config: Config) -> int:
-    from .gerar import clean_media, generate  # importa o Playwright só aqui
+    from .gerar import LAUNCH_ID, clean_media, generate  # importa o Playwright só aqui
 
     root = Path(args.dir)
     media_dir = Path(args.media_dir)
@@ -79,7 +82,8 @@ def cmd_gerar(args: argparse.Namespace, config: Config) -> int:
         log.warning("Instagram: a última edição é de %s, não de hoje (%s); nada a gerar", edition.date, today)
         return EXIT_OK
     fila = Fila.load(media_dir)
-    posts = generate(edition, config, root=root, media_dir=media_dir, now=now)
+    # O "Comece aqui" sai uma vez só: depois de publicado, nunca mais é gerado.
+    posts = generate(edition, config, root=root, media_dir=media_dir, now=now, launch=not fila.has_published(LAUNCH_ID))
     changed = fila.upsert(posts)
     fila.prune(today)
     removed = clean_media(fila, media_dir, today, config.instagram.keep_days)
@@ -92,16 +96,22 @@ def cmd_gerar(args: argparse.Namespace, config: Config) -> int:
 
 
 def _syncer(fila: Fila, media_dir: Path, enabled: bool):
-    """Grava a fila no disco e, com ``--sync``, envia a branch instagram na hora."""
+    """Grava a fila no disco e, com ``--sync``, envia a branch instagram na hora.
 
-    def save(what: str) -> None:
+    Devolve False se o envio falhou (o publicador não segue para o media_publish
+    sem o container gravado na branch).
+    """
+
+    def save(what: str) -> bool:
         fila.save()
         if not enabled:
-            return
+            return True
         env = {**os.environ, "MEDIA_DIR": str(media_dir)}
         done = subprocess.run([str(SYNC_SCRIPT), f"📸 Instagram: {what}"], env=env, check=False)
         if done.returncode != 0:
             log.warning("Instagram: não deu para enviar a fila à branch instagram agora (%s)", what)
+            return False
+        return True
 
     return save
 
@@ -119,11 +129,18 @@ def _paused(env: Mapping[str, str]) -> bool:
 def cmd_token(args: argparse.Namespace, config: Config, env: Mapping[str, str] | None = None) -> int:
     """Teste de saúde do token e renovação semanal (o token novo vai para --token-out)."""
     env = os.environ if env is None else env
+    media_dir = Path(args.media_dir)
+    if args.confirm:
+        # O workflow gravou o token novo no segredo: as datas dele passam a valer.
+        fila = Fila.load(media_dir)
+        if confirm_refresh(fila):
+            _syncer(fila, media_dir, args.sync)("token renovado guardado no segredo")
+            log.info("Instagram: token novo confirmado (vale até %s)", fila.token.get("expires_at"))
+        return EXIT_OK
     client = client_from_env(env)
     if client is None:
         log.info("Instagram não configurado (segredos IG_USER_ID e IG_ACCESS_TOKEN)")
         return EXIT_OK
-    media_dir = Path(args.media_dir)
     fila = Fila.load(media_dir)
     now = args.now or datetime.now(timezone.utc)
     try:
@@ -134,13 +151,14 @@ def cmd_token(args: argparse.Namespace, config: Config, env: Mapping[str, str] |
         if exc.token_invalid:
             log.error("Instagram: o token não vale mais (%s)", exc)
             _write_alert(args.alert_out, f"{TOKEN_ALERT} Erro: {exc}")
-        else:
-            log.error("Instagram: não deu para conferir o token agora (%s)", exc)
-        return EXIT_ERROR
+            return EXIT_ERROR
+        # Oscilação da API: não bloqueia a publicação (o publicador detecta token inválido sozinho).
+        log.warning("Instagram: não deu para conferir o token agora (%s); sigo para a publicação", exc)
+        return EXIT_OK
     if status.new_token and args.token_out:
         write_token_file(status.new_token, Path(args.token_out))
-    if status.refreshed:
-        _syncer(fila, media_dir, args.sync)("token renovado")
+    if status.refreshed or fila.token.get("estimated"):
+        _syncer(fila, media_dir, args.sync)("token renovado" if status.refreshed else "validade do token registrada")
     if status.warning:
         _write_alert(
             args.alert_out,
@@ -176,8 +194,13 @@ def cmd_publicar(args: argparse.Namespace, config: Config, env: Mapping[str, str
             failed = failed or bool(resultado.falhas)
             # Logo depois da edição: espera o horário-alvo das próximas publicações
             # (minutos do Actions são grátis em repositório público) em vez de
-            # depender do agendamento, que atrasa horas.
+            # depender do agendamento, que atrasa horas. Posts já vencidos que
+            # ficaram esperando (imagem fora do ar, intervalo do feed, falha
+            # passageira) são tentados de novo a cada RETRY_EVERY.
             upcoming = fila.next_due(now)
+            if fila.retry_soon(now):
+                retry_at = now + RETRY_EVERY
+                upcoming = retry_at if upcoming is None else min(upcoming, retry_at)
             if args.now is not None or upcoming is None or upcoming > deadline or resultado.limite:
                 break
             wait = (upcoming - now).total_seconds() + 5
@@ -192,6 +215,9 @@ def cmd_publicar(args: argparse.Namespace, config: Config, env: Mapping[str, str
         else:
             log.error("Instagram: erro na API (%s)", exc)
         return EXIT_ERROR
+    except BaseException:
+        fila.save()  # nada do que já saiu pode se perder
+        raise
     fila.prune(pipeline.local_date(now, config.site.timezone))
     save("fila em dia")
     log.info("Instagram: %d publicação(ões) nesta execução", published)
@@ -224,4 +250,5 @@ def add_parser(commands: argparse._SubParsersAction, common: argparse.ArgumentPa
     token.add_argument("--sync", action="store_true", help="envia a fila à branch instagram depois de renovar")
     token.add_argument("--token-out", metavar="FILE", help="onde gravar o token renovado (para o segredo)")
     token.add_argument("--alert-out", metavar="FILE", help="onde gravar um alerta para o dono")
+    token.add_argument("--confirm", action="store_true", help="o token renovado foi guardado no segredo: passa a valer")
     token.set_defaults(handler=cmd_token)

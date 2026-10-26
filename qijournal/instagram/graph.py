@@ -12,6 +12,7 @@ sem internet.
 
 from __future__ import annotations
 
+import http.client
 import json
 import logging
 import time
@@ -32,6 +33,10 @@ TIMEOUT_SECONDS = 60
 TRANSIENT_CODES = {1, 2, 4, 17, 32, 613, 9007}
 TOKEN_CODES = {190}  # token expirado, revogado ou inválido
 PUBLISH_LIMIT_SUBCODES = {2207042}  # limite de publicações em 24 h atingido
+# A Meta não conseguiu baixar a mídia (2207052) ou o download expirou (2207003):
+# costuma ser passageiro (cache/CDN logo depois do envio das imagens).
+TRANSIENT_SUBCODES = {2207003, 2207052}
+NETWORK_ERRORS = (urllib.error.URLError, TimeoutError, ConnectionError, OSError, http.client.HTTPException)
 
 # (método, url, parâmetros, token) → (status HTTP, corpo JSON decodificado)
 Transport = Callable[[str, str, dict[str, str], str], tuple[int, Any]]
@@ -48,12 +53,14 @@ class GraphError(Exception):
         code: int | None = None,
         subcode: int | None = None,
         transient: bool = False,
+        dead_container: bool = False,
     ):
         super().__init__(message)
         self.status = status
         self.code = code
         self.subcode = subcode
         self.transient = transient
+        self.dead_container = dead_container  # o container acabou em ERROR/EXPIRED: criar outro
 
     @property
     def token_invalid(self) -> bool:
@@ -150,7 +157,7 @@ class InstagramClient:
                 self._sleep(min(15 * 4 ** (attempt - 1), 180))  # 15 s, 60 s, 180 s
             try:
                 status, body = self._transport(method, url, query, token)
-            except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            except NETWORK_ERRORS as e:
                 last = GraphError(f"falha de rede em {method} {path}: {type(e).__name__}", transient=True)
             else:
                 error = body.get("error") if isinstance(body, dict) else None
@@ -169,7 +176,9 @@ class InstagramClient:
         message = str(error.get("error_user_msg") or error.get("message") or f"HTTP {status}")
         # A mensagem da API nunca traz o token, mas por garantia ele é removido.
         message = message.replace(self._token, "***")
-        transient = bool(error.get("is_transient")) or status >= 500 or code in TRANSIENT_CODES
+        transient = (
+            bool(error.get("is_transient")) or status >= 500 or code in TRANSIENT_CODES or subcode in TRANSIENT_SUBCODES
+        )
         if subcode in PUBLISH_LIMIT_SUBCODES:
             transient = False
         detail = f"código {code}" + (f"/{subcode}" if subcode else "") if code is not None else f"HTTP {status}"
@@ -218,7 +227,8 @@ class InstagramClient:
             if status in ("FINISHED", "PUBLISHED"):
                 return
             if status in ("ERROR", "EXPIRED"):
-                raise GraphError(f"container {container_id} terminou em {status}")
+                # Quase sempre falha ao baixar a imagem: vale tentar de novo com outro container.
+                raise GraphError(f"container {container_id} terminou em {status}", transient=True, dead_container=True)
             if waited >= timeout:
                 raise GraphError(f"container {container_id} não ficou pronto em {int(timeout)} s ({status})", transient=True)
             self._sleep(interval)
@@ -234,13 +244,17 @@ class InstagramClient:
         except GraphError as exc:
             if not exc.transient:
                 raise
-            self._sleep(15)
-            status = self.container_status(container_id)
-            if status == "PUBLISHED":
-                log.warning("Instagram: media_publish falhou (%s), mas o container %s já está publicado", exc, container_id)
-                return (self.find_published() if feed else None) or container_id
-            if status == "FINISHED":
-                return str(self._call("POST", f"{self.user_id}/media_publish", {"creation_id": container_id}, retries=0)["id"])
+            # A 1ª chamada pode ter dado certo no servidor: espera o container virar
+            # PUBLISHED por até 2 min. Se continuar FINISHED, NÃO publica de novo
+            # agora: a próxima execução confere o status com folga e só então publica.
+            for _ in range(8):
+                self._sleep(15)
+                status = self.container_status(container_id)
+                if status == "PUBLISHED":
+                    log.warning("Instagram: media_publish falhou (%s), mas o container %s já está publicado", exc, container_id)
+                    return (self.find_published() if feed else None) or container_id
+                if status in ("ERROR", "EXPIRED"):
+                    raise GraphError(f"container {container_id} terminou em {status}", transient=True, dead_container=True) from exc
             raise
 
     def find_published(self) -> str | None:

@@ -42,6 +42,7 @@ class Post:
     attempts: int = 0
     last_error: str | None = None
     container_id: str | None = None  # container criado e ainda não publicado (recuperação)
+    permanent: bool = False  # nunca sai da fila (o "Comece aqui": sai uma vez só, para sempre)
     media_id: str | None = None
     permalink: str | None = None
     published_at: str | None = None
@@ -110,6 +111,10 @@ class Fila:
             elif current.status in (PENDING, FAILED) or (
                 current.status == EXPIRED and post.expires_at() > current.expires_at()
             ):
+                if current.container_id and current.status in (PENDING, FAILED):
+                    # Um container criado (talvez já publicado) não pode ser esquecido:
+                    # a próxima execução confere o status dele antes de criar outro.
+                    post.container_id, post.attempts = current.container_id, current.attempts
                 self.posts[self.posts.index(current)] = post
                 changed.append(post.id)
         self.posts.sort(key=lambda p: (p.due_at(), p.id))
@@ -143,9 +148,20 @@ class Fila:
     def prune(self, today: date, keep_days: int = KEEP_DAYS) -> list[Post]:
         """Remove da fila registros com mais de ``keep_days`` dias; devolve os removidos."""
         cutoff = (today - timedelta(days=keep_days)).isoformat()
-        old = [p for p in self.posts if p.date < cutoff]
-        self.posts = [p for p in self.posts if p.date >= cutoff]
+        old = [p for p in self.posts if p.date < cutoff and not p.permanent]
+        self.posts = [p for p in self.posts if p.date >= cutoff or p.permanent]
         return old
+
+    def retry_soon(self, now: datetime) -> bool:
+        """Há publicação vencida, ainda no prazo, esperando nova tentativa?"""
+        return any(
+            p.status in (PENDING, FAILED) and p.attempts < MAX_ATTEMPTS and p.due_at() <= now < p.expires_at()
+            for p in self.posts
+        )
+
+    def has_published(self, post_id: str) -> bool:
+        post = self.get(post_id)
+        return post is not None and post.status == PUBLISHED
 
 
 def now_utc() -> datetime:

@@ -199,6 +199,7 @@ def generate(
                     caption=piece.caption,
                     alt_texts=[conteudo.alt(s.alt) for s in piece.slides],
                     title=piece.title,
+                    permanent=True,
                 ),
             )
     return posts
