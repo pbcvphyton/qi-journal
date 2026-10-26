@@ -56,3 +56,33 @@ jobs:
           size=$(wc -c < "$out/edicoes/email.html")
           echo "email.html do exemplo: $size bytes"
           [ "$size" -le 36000 ] || { echo "::error::email.html do exemplo com $size bytes (limite 36000)"; exit 1; }
+
+      - name: Instagram de exemplo (renderização real dos templates)
+        run: |
+          pip install -r requirements-instagram.txt
+          python -m playwright install --with-deps chromium
+          dir="$RUNNER_TEMP/ig"
+          mkdir -p "$dir/edicoes" "$dir/data"
+          # Edição por IA (fixture real de 20/10/2026): "Comece aqui", "Em 1 minuto", stories e Raio-X.
+          cp tests/fixtures/edicao-2026-10-20.json "$dir/data/2026-10-20.json"
+          echo '{"date": "2026-10-20"}' > "$dir/edicoes/latest.json"
+          python -m qijournal instagram gerar --dir "$dir" --media-dir "$dir/midia" --now 2026-10-20T09:30:00Z --force 2>&1 | tee "$dir/log.txt"
+          n=$(find "$dir/midia/2026-10-20" -name '*.jpg' | wc -l)
+          echo "Imagens geradas: $n"
+          [ "$n" -eq 25 ] || { echo "::error::esperava 25 imagens do Instagram (6 do Comece aqui + 19 do dia), saíram $n"; exit 1; }
+          # Edição automática (sem IA) do exemplo offline: "Terminal da manhã" e stories.
+          auto=$(python -c 'import json, sys; print(json.load(open(sys.argv[1]))["date"])' "$RUNNER_TEMP/out/edicoes/latest.json")
+          python -m qijournal instagram gerar --dir "$RUNNER_TEMP/out" --media-dir "$dir/midia-auto" --now "${auto}T09:30:00Z" --force 2>&1 | tee -a "$dir/log.txt"
+          [ -n "$(find "$dir/midia-auto" -name '*.jpg')" ] || { echo "::error::a edição automática não gerou imagens do Instagram"; exit 1; }
+          if grep -q "fonte(s) não carregada" "$dir/log.txt"; then echo "::error::fonte da marca não carregou"; exit 1; fi
+
+      - name: Guardar as imagens do Instagram de exemplo
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v6
+        with:
+          name: instagram-exemplo
+          path: ${{ runner.temp }}/ig/midia*/
+          retention-days: 7
+          if-no-files-found: ignore
+

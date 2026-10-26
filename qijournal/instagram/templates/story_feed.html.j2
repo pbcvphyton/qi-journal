@@ -1,0 +1,69 @@
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-dark{% endblock %}
+{% block style %}
+.k{margin-top:56px;flex:none;display:flex;align-items:center;gap:16px}
+h1{margin-top:24px;font-family:var(--serif);font-weight:800;font-size:108px;line-height:1.03;letter-spacing:-.02em;flex:none}
+h1 em{font-style:normal;color:var(--orange)}
+/* miniatura do carrossel da manhã (capa marinho, fato em papel, mercado): só forma, sem dado nem cor de cotação */
+.strip{display:flex;gap:18px;margin-top:56px;flex:none;align-items:flex-end}
+.card{position:relative;width:228px;height:285px;flex:none;overflow:hidden}
+.card.capa{width:268px;height:335px;background:#1B2745;box-shadow:0 0 0 2px rgba(246,244,239,.5),0 18px 40px rgba(0,0,0,.45)}
+.card.fato{background:#F6F4EF;opacity:.92}
+.card.merc{background:#16213F;box-shadow:inset 0 0 0 2px rgba(246,244,239,.18);opacity:.92}
+.card .lg{position:absolute;left:20px;top:20px;width:96px;color:#F6F4EF}
+.card .lg svg{width:100%;height:auto;display:block}
+.card .r2{position:absolute;left:20px;right:20px;top:56px;height:3px;background:rgba(246,244,239,.6)}
+.card .tg{position:absolute;left:20px;top:92px;width:84px;height:16px;background:var(--orange)}
+/* barras de texto do mock: no máximo 85% da largura interna do cartão (nada encosta na borda nem passa da régua) */
+.card .ln{position:absolute;left:20px;width:calc((100% - 40px) * var(--w, .85));height:16px;background:rgba(246,244,239,.92)}
+.card .cb{position:absolute;left:20px;right:20px;bottom:20px;height:24px;border-top:2px solid rgba(246,244,239,.5);border-bottom:2px solid rgba(246,244,239,.5)}
+.card .cb i{position:absolute;right:0;top:9px;width:22px;height:3px;background:var(--orange)}
+.card.fato .bar{position:absolute;left:0;right:0;top:0;height:8px;background:#394A7A}
+.card.fato .num{position:absolute;left:18px;top:34px;font-family:var(--sans);font-weight:800;font-size:56px;color:#394A7A;line-height:1;letter-spacing:-.03em}
+.card.fato .ln{background:rgba(27,39,69,.5);height:11px}
+.card.fato .rl{position:absolute;left:18px;right:18px;top:150px;height:2px;background:rgba(27,39,69,.7)}
+.card.merc .ttl{position:absolute;left:18px;top:20px;width:110px;height:18px;background:rgba(246,244,239,.85)}
+.card.merc .row{position:absolute;left:18px;right:18px;height:30px;border-bottom:2px solid rgba(246,244,239,.16);display:flex;align-items:center;justify-content:space-between}
+.card.merc .row i{display:block;width:70px;height:9px;background:rgba(246,244,239,.75)}
+.card.merc .row .ar{display:block;width:12px;height:16px;color:rgba(246,244,239,.55)}
+.card.merc .row .ar svg{display:block;width:12px;height:16px}
+.dots{display:flex;gap:10px;margin-top:26px;flex:none}
+.dots i{display:block;width:12px;height:12px;border-radius:50%;background:rgba(246,244,239,.3)}
+.dots i:first-child{background:#F6F4EF}
+.go{display:flex;align-items:center;gap:16px;margin-top:40px;flex:none;font-family:var(--mono);font-weight:600;font-size:32px;letter-spacing:.06em;text-transform:uppercase}
+.today{margin-top:auto;flex:none}
+.stats{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--rule2);border-bottom:2px solid var(--rule)}
+.stats div{padding:26px 0;border-right:2px solid var(--rule)}
+.stats div+div{padding-left:26px}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-size:76px;line-height:1}
+.stats span{display:block;margin-top:12px;font-family:var(--mono);font-size:26px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+{% endblock %}
+{% block body %}
+<div class="frame">
+  {#- O story sai às 07:10 e o carrossel pode atrasar ou falhar: o texto não afirma que ele "já" está no ar
+      nem que é "agora". Diz o que é e onde fica. -#}
+  <div class="hdr">{{ m.logo(240) }}<span class="lbl">Edição da manhã</span></div>
+  <div class="k"><span class="tag orange">Em 1 minuto</span></div>
+  <h1>Os fatos da manhã, <em>no perfil</em></h1>
+  <div class="strip">
+    <div class="card capa"><div class="lg">{{ brand.logo }}</div><div class="r2"></div><div class="tg"></div><div class="ln" style="top:128px;--w:.85"></div><div class="ln" style="top:154px;--w:.72"></div><div class="ln" style="top:180px;--w:.8"></div><div class="ln" style="top:206px;--w:.46"></div><div class="cb"><i></i></div></div>
+    <div class="card fato"><div class="bar"></div><div class="num">01</div><div class="rl"></div><div class="ln" style="top:166px;--w:.85"></div><div class="ln" style="top:190px;--w:.74"></div><div class="ln" style="top:214px;--w:.8"></div><div class="ln" style="top:238px;--w:.5"></div></div>
+    <div class="card merc"><div class="ttl"></div>
+      {% for t in ['up', 'up', 'down', 'up', 'down'] %}<div class="row" style="top:{{ 60 + loop.index0 * 40 }}px"><i></i><span class="ar">{{ m.arrow(t) }}</span></div>{% endfor %}
+    </div>
+  </div>
+  <div class="dots">{% for i in range(8) %}<i></i>{% endfor %}</div>
+  {# a ação sai do story (vai ao perfil): ↗, não → (que no story parece "toque para o próximo") #}
+  <div class="go">Toque no perfil{{ m.out_arrow(34, 4.6) }}</div>
+  <div class="today">
+    <span class="lbl">Hoje na Triangula</span>
+    <div class="stats">
+      <div><b class="numd">{{ s.articles }}</b><span>notícias</span></div>
+      <div><b class="numd">{{ s.outlets }}</b><span>veículos</span></div>
+      <div><b class="numd">{{ s.stories }}</b><span>matérias</span></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

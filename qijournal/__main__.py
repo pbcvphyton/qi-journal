@@ -7,6 +7,8 @@ Comandos:
 - ``render``: gera a edição a partir de um bundle salvo (offline, sem e-mail).
 - ``send-email``: envia por SMTP o e-mail da última edição publicada.
 - ``check-sources``: baixa cada feed de ``config/sources.yaml`` e mostra o estado.
+- ``instagram gerar``: gera as imagens e legendas do Instagram a partir da última edição e põe na fila.
+- ``instagram publicar``: publica pela API do Instagram o que já venceu na fila.
 
 Códigos de saída: 0 = sucesso; 1 = erro; 2 = dados insuficientes (a edição
 não foi publicada e a anterior continua no ar) ou argumentos inválidos.
@@ -29,6 +31,7 @@ from qijournal import net, pipeline
 from qijournal.collect.feeds import collect_feeds
 from qijournal.config import Config, load_config
 from qijournal.deliver.smtp import EmailDeliveryError
+from qijournal.instagram import cli as instagram_cli
 from qijournal.net import Fetcher
 
 # Nome fixo: executado com ``-m``, ``__name__`` seria "__main__".
@@ -245,6 +248,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     check = commands.add_parser("check-sources", parents=[common], help="testa cada feed de config/sources.yaml")
     check.set_defaults(handler=_cmd_check_sources)
+
+    instagram_cli.add_parser(commands, common, _iso_datetime)
     return parser
 
 

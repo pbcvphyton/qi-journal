@@ -1,0 +1,142 @@
+"""Comandos do Instagram (python -m qijournal instagram ...), sem rede."""
+
+from __future__ import annotations
+
+import argparse
+from datetime import datetime, timezone
+
+from qijournal.config import load_config
+from qijournal.instagram import cli
+from qijournal.instagram.graph import GraphError, TokenInfo
+from qijournal.instagram.publicar import Resultado
+
+
+def args(tmp_path, **kw):
+    base = dict(media_dir=str(tmp_path), now=None, sync=False, wait_max=0, token_file=None, token_out=None, confirm=False, alert_out=str(tmp_path / "alerta.txt"))
+    base.update(kw)
+    return argparse.Namespace(**base)
+
+
+ENV = {"IG_USER_ID": "1784", "IG_ACCESS_TOKEN": "VELHO"}
+
+
+def test_sem_segredos_ou_pausado_nao_publica(tmp_path, monkeypatch):
+    monkeypatch.setattr(cli, "publish_due", lambda *a, **k: (_ for _ in ()).throw(AssertionError("não devia publicar")))
+    config = load_config()
+    assert cli.cmd_publicar(args(tmp_path), config, env={}) == cli.EXIT_OK
+    assert cli.cmd_publicar(args(tmp_path), config, env={**ENV, "IG_PAUSE": "true"}) == cli.EXIT_OK
+    assert cli.cmd_token(args(tmp_path), config, env={}) == cli.EXIT_OK
+
+
+def test_token_renovado_no_job_substitui_o_do_ambiente(tmp_path, monkeypatch):
+    seen = {}
+
+    def fake_client(env):
+        seen["token"] = env["IG_ACCESS_TOKEN"]
+        return object()
+
+    monkeypatch.setattr(cli, "client_from_env", fake_client)
+    monkeypatch.setattr(cli, "publish_due", lambda *a, **k: Resultado())
+    token_file = tmp_path / "ig-token"
+    token_file.write_text("NOVO\n")
+    assert cli.cmd_publicar(args(tmp_path, token_file=str(token_file)), load_config(), env=ENV) == cli.EXIT_OK
+    assert seen["token"] == "NOVO"
+    assert cli.cmd_publicar(args(tmp_path, token_file=str(tmp_path / "nao-existe")), load_config(), env=ENV) == cli.EXIT_OK
+    assert seen["token"] == "VELHO"
+
+
+class FakeTokenClient:
+    host = "graph.instagram.com"
+
+    def __init__(self, *, invalid=False, new="NOVO"):
+        self.invalid = invalid
+        self.new = new
+
+    def account(self):
+        if self.invalid:
+            raise GraphError("Error validating access token", code=190)
+        return {"id": "1784", "username": "triangula"}
+
+    def refresh_token(self):
+        return TokenInfo(access_token=self.new, expires_in=5184000)
+
+
+def test_token_renova_grava_arquivo_e_datas_sem_o_token(tmp_path, monkeypatch):
+    monkeypatch.setattr(cli, "client_from_env", lambda env: FakeTokenClient())
+    out = tmp_path / "ig-token"
+    now = datetime(2026, 10, 21, 10, 0, tzinfo=timezone.utc)
+    assert cli.cmd_token(args(tmp_path, token_out=str(out), now=now), load_config(), env=ENV) == cli.EXIT_OK
+    assert out.read_text() == "NOVO"
+    fila = (tmp_path / "fila.json").read_text()
+    assert "2026-10-21T10:00:00+00:00" in fila and "NOVO" not in fila and "VELHO" not in fila
+    assert not (tmp_path / "alerta.txt").exists()
+    # Uma semana ainda não passou: não renova de novo.
+    out.unlink()
+    assert cli.cmd_token(args(tmp_path, token_out=str(out), now=now), load_config(), env=ENV) == cli.EXIT_OK
+    assert not out.exists()
+
+
+def test_token_invalido_avisa_o_dono(tmp_path, monkeypatch):
+    monkeypatch.setattr(cli, "client_from_env", lambda env: FakeTokenClient(invalid=True))
+    assert cli.cmd_token(args(tmp_path), load_config(), env=ENV) == cli.EXIT_ERROR
+    alerta = (tmp_path / "alerta.txt").read_text()
+    assert "expirou ou foi revogado" in alerta and "IG_ACCESS_TOKEN" in alerta
+
+
+def test_url_da_midia_na_branch_instagram():
+    assert cli.media_url(load_config(), {}) == "https://raw.githubusercontent.com/pbcvphyton/qi-journal/instagram/"
+    assert cli.media_url(load_config(), {"IG_MEDIA_URL": "https://exemplo.org/ig"}) == "https://exemplo.org/ig/"
+
+
+def test_link_do_instagram_no_site_e_no_email():
+    import json
+    from pathlib import Path
+
+    from qijournal.models import Edition
+    from qijournal.render.email import render_email
+    from qijournal.render.web import build_view, instagram_url
+
+    config = load_config()
+    assert instagram_url(config) == ""
+    config.instagram.handle = "@triangula.jornal"
+    assert instagram_url(config) == "https://www.instagram.com/triangula.jornal/"
+    edition = Edition.from_dict(json.loads((Path(__file__).parent / "fixtures" / "edicao-2026-10-20.json").read_text()))
+    assert build_view(edition, config).instagram_url.endswith("/triangula.jornal/")
+    _subject, html, text = render_email(edition, config)
+    assert "https://www.instagram.com/triangula.jornal/" in html and "Siga no Instagram" in text
+
+
+def test_token_novo_so_vale_depois_de_guardado_no_segredo(tmp_path, monkeypatch):
+    import json as _json
+
+    monkeypatch.setattr(cli, "client_from_env", lambda env: FakeTokenClient())
+    now = datetime(2026, 10, 21, 10, 0, tzinfo=timezone.utc)
+    cli.cmd_token(args(tmp_path, token_out=str(tmp_path / "t"), now=now), load_config(), env=ENV)
+    token = _json.loads((tmp_path / "fila.json").read_text())["token"]
+    # Antes de guardar: vale a validade estimada do token do segredo; a do novo fica pendente.
+    assert token["expires_at"].startswith("2026-12-20") and token["estimated"] is True
+    assert token["pending"]["refreshed_at"].startswith("2026-10-21")
+    assert cli.cmd_token(args(tmp_path, confirm=True), load_config(), env=ENV) == cli.EXIT_OK
+    token = _json.loads((tmp_path / "fila.json").read_text())["token"]
+    assert "pending" not in token and "estimated" not in token and token["refreshed_at"].startswith("2026-10-21")
+
+
+def test_aviso_de_vencimento_quando_o_segredo_nunca_e_atualizado(tmp_path, monkeypatch):
+    from datetime import timedelta
+
+    monkeypatch.setattr(cli, "client_from_env", lambda env: FakeTokenClient())
+    start = datetime(2026, 10, 21, 10, 0, tzinfo=timezone.utc)
+    alerta = tmp_path / "alerta.txt"
+    for week in range(9):  # o token novo nunca é guardado (sem --confirm)
+        cli.cmd_token(args(tmp_path, token_out=str(tmp_path / "t"), now=start + timedelta(days=7 * week)), load_config(), env=ENV)
+    assert alerta.exists() and "expira em" in alerta.read_text()
+
+
+def test_oscilacao_da_api_no_teste_do_token_nao_bloqueia_a_publicacao(tmp_path, monkeypatch):
+    class Instavel(FakeTokenClient):
+        def account(self):
+            raise GraphError("Service unavailable", status=503, transient=True)
+
+    monkeypatch.setattr(cli, "client_from_env", lambda env: Instavel())
+    assert cli.cmd_token(args(tmp_path), load_config(), env=ENV) == cli.EXIT_OK
+    assert not (tmp_path / "alerta.txt").exists()

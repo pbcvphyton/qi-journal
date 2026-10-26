@@ -1,0 +1,70 @@
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% import "_raiox.html.j2" as rx with context %}
+{% set parts = s.kicker.split(' · ', 1) %}
+{% set c = s.counts %}
+{% set nsides = (1 if c.a else 0) + (1 if c.b else 0) %}
+{% set hl = s.headline|length %}
+{# nomes dos veículos de cada lado (s.a / s.b, quando o gerador os enviar) #}
+{% set names_a = s.get('a') or [] %}
+{% set names_b = s.get('b') or [] %}
+{% set has_names = names_a or names_b %}
+{% block theme %}t-paper{% endblock %}
+{% block style %}
+{{ rx.css() }}
+.top{display:flex;align-items:flex-start;justify-content:space-between;flex:none;padding-bottom:22px}
+.tagline{margin-top:18px;font-family:var(--mono);font-size:26px;letter-spacing:.06em;color:var(--ink3);text-transform:uppercase}
+.top .datebox{margin-top:4px}
+.main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:34px 0 36px}
+.tagrow{display:flex;align-items:center;gap:18px;flex:none}
+.tag.navy{gap:16px}
+h1{margin-top:28px;font-family:var(--serif);font-weight:800;font-size:{{ 84 if hl <= 80 else 76 }}px;line-height:1.06;letter-spacing:-.014em;color:#1B2745;
+  max-height:{{ 400 if has_names else 450 }}px;overflow:hidden;--clamp:6;flex:none}
+.box{margin-top:38px;flex:none}
+.box .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.box .cap b{font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.04em;color:var(--ink)}
+.box .cap .lbl{color:var(--ink2)}
+/* Abaixo da barra (que já traz lado e contagem), cada coluna diz QUEM e O QUÊ: a chave A/B na cor do lado,
+   os nomes dos veículos e o enquadramento. Sem régua colorida na largura da coluna: as colunas são metades
+   fixas e não fingem alinhar com os segmentos da barra (que são proporcionais).
+   As duas colunas se ajustam juntas: o tamanho vem do contêiner (data-fit), as descrições usam 1em. */
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:30px;font-size:34px;max-height:{{ 300 if has_names else 250 }}px;overflow:hidden;--clamp:12}
+.side{min-width:0}
+.side .hd{display:flex;align-items:flex-start;gap:14px}
+.side .key{flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:800;font-size:30px;line-height:1;color:#fff;padding-bottom:2px}
+.side.a .key{background:#394A7A} .side.b .key{background:#0B6470}
+.side .who{display:block;padding-top:6px;font-family:var(--mono);font-weight:600;font-size:28px;line-height:1.25;color:var(--ink);min-width:0}
+.side .who .more{color:var(--ink3)}
+.side p{margin-top:12px;font-family:var(--sans);font-weight:600;font-size:1em;line-height:1.24;color:var(--ink);text-wrap:balance}
+.cta-bar .go svg{color:var(--orange)}
+.sides.fit-clamp{display:grid!important}
+{% endblock %}
+{% block body %}
+{{ m.rx_band() }}
+<div class="frame">
+  <div class="top">
+    <div>{{ m.logo(300, '#1B2745') }}<div class="tagline">{{ brand.tagline }}</div></div>
+    {% if parts|length > 1 %}{{ m.datebox(parts[1]) }}{% endif %}
+  </div>
+  <div class="rule2x"></div>
+  <div class="main">
+    <div class="tagrow"><span class="tag navy">{{ m.tri(26) }}{{ parts[0] }}</span></div>
+    <h1 data-fit="raiox-manchete" data-min="56">{{ m.tx(s.headline) }}</h1>
+    <div class="box">
+      {# a barra já mostra lado e contagem (neutro incluído, quando há): a legenda acima não repete #}
+      <div class="cap"><b>{{ c.total }} veículos · {{ nsides }} enquadramentos</b></div>
+      {{ m.spectrum(c, 76, None, True, 30, 936) }}
+      <div class="sides" data-fit="raiox-capa-lados" data-min="28">
+        {% for key, names, text in [('a', names_a, s.side_a), ('b', names_b, s.side_b)] %}
+        <div class="side {{ key }}"><div class="hd"><span class="key">{{ key|upper }}</span><span class="who">{% if names %}{{ m.names_line(names, 23) }}{% else %}{{ m.side_name(key) }}{% endif %}</span></div><p>{{ m.tx(text) }}</p></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="cta-bar">
+    <span>Mesmo fato, {{ 'dois' if nsides == 2 else nsides }} enquadramentos</span>
+    <span class="go">Arraste{{ m.go_arrow() }}</span>
+  </div>
+</div>
+{% endblock %}

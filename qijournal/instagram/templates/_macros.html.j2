@@ -1,0 +1,187 @@
+{# ── Macros do visual "Terminal de Dados" (versão final) ────────────── #}
+
+{# letreiro 'triangula' (o pingo do i já é o triângulo laranja do SVG) #}
+{% macro logo(width=200, color=None) -%}
+<span class="logo" style="width:{{ width }}px{% if color %};color:{{ color }}{% endif %}">{{ brand.logo }}</span>
+{%- endmacro %}
+
+{# triângulo da marca: só no letreiro e como marcador de chapéu (nunca como alta/queda) #}
+{% macro tri(size=26, color='#FF5A1F') -%}
+<svg class="tri" width="{{ size }}" height="{{ (size * 0.9)|round|int }}" viewBox="0 0 20 18" aria-hidden="true"><path d="M10 0L20 18H0Z" fill="{{ color }}"/></svg>
+{%- endmacro %}
+
+{# seta de alta/queda em traço (↑ ↓), na cor e no peso do número ao lado #}
+{% macro arrow(trend) -%}
+<svg viewBox="0 0 12 16" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{%- if trend == 'up' %}<path d="M6 14.6V2M1.4 6.6L6 2l4.6 4.6"/>
+{%- elif trend == 'down' %}<path d="M6 1.4V14M1.4 9.4L6 14l4.6-4.6"/>
+{%- else %}<path d="M1.4 8h9.2"/>{% endif -%}
+</svg>
+{%- endmacro %}
+
+{% macro change(q, size=34) -%}
+{% if q.change %}<span class="chg {{ q.trend or 'flat' }}" style="font-size:{{ size }}px">{{ arrow(q.trend) }}{{ q.change }}</span>{% endif %}
+{%- endmacro %}
+
+{# ação que sai do post (link na bio, perfil): seta diagonal ↗, laranja. A → fica só para "arraste" #}
+{% macro out_arrow(size=30, stroke=4) -%}
+<svg class="out" width="{{ size }}" height="{{ size }}" viewBox="0 0 30 30" fill="none" stroke="#FF5A1F" stroke-width="{{ stroke }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 25L24 6M9 5h16v16"/></svg>
+{%- endmacro %}
+
+{# seta de chamada para o próximo slide (arraste), sempre laranja #}
+{% macro go_arrow(w=58, h=26, stroke=4) -%}
+<svg width="{{ w }}" height="{{ h }}" viewBox="0 0 58 26" fill="none" stroke="#FF5A1F" stroke-width="{{ stroke }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13h52M42 2l12 11-12 11"/></svg>
+{%- endmacro %}
+
+{# temperatura: 14.3 → "14"; 13.7 → "13,7" #}
+{% macro t0(v) %}{% if v is not none %}{{ '%.0f'|format(v) }}{% else %}–{% endif %}{% endmacro %}
+{% macro t1(v) %}{% if v is not none %}{{ ('%.1f'|format(v))|replace('.', ',') }}{% else %}–{% endif %}{% endmacro %}
+
+{# ícone de clima em SVG (sem emoji), escolhido pela descrição #}
+{% macro weather_icon(desc, size=64, stroke='currentColor', sun='#FF5A1F') -%}
+{% set d = (desc or '')|lower %}
+{% if 'trovo' in d or 'tempest' in d %}{% set wk = 'storm' %}
+{% elif 'chuv' in d or 'garoa' in d or 'pancad' in d or 'aguaceiro' in d %}{% set wk = 'rain' %}
+{% elif 'neve' in d %}{% set wk = 'snow' %}
+{% elif 'neblin' in d or 'nevoeir' in d or 'bruma' in d or 'névoa' in d %}{% set wk = 'fog' %}
+{% elif 'parcial' in d or 'poucas' in d or 'alguma' in d or 'entre' in d %}{% set wk = 'partly' %}
+{% elif 'nubl' in d or 'encobert' in d or 'nuve' in d %}{% set wk = 'cloud' %}
+{% elif 'limpo' in d or 'sol' in d or 'claro' in d or 'ensolar' in d %}{% set wk = 'sun' %}
+{% else %}{% set wk = 'cloud' %}{% endif %}
+<svg class="wx" width="{{ size }}" height="{{ size }}" viewBox="0 0 64 64" fill="none" stroke="{{ stroke }}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{% if wk == 'sun' %}
+<circle cx="32" cy="32" r="11" stroke="{{ sun }}"/><g stroke="{{ sun }}"><path d="M32 7v7M32 50v7M7 32h7M50 32h7M14.3 14.3l5 5M44.7 44.7l5 5M14.3 49.7l5-5M44.7 19.3l5-5"/></g>
+{% elif wk == 'partly' %}
+<g stroke="{{ sun }}"><circle cx="24" cy="22" r="8"/><path d="M24 6v4M8 22h4M12.7 10.7l2.8 2.8M35.3 10.7l-2.8 2.8"/></g>
+<path d="M20 50h26a10 10 0 0 0 0-20a14 14 0 0 0-26.5 5A7.5 7.5 0 0 0 20 50z" fill="var(--bg)"/>
+{% elif wk == 'rain' %}
+<path d="M18 40h28a10 10 0 0 0 0-20a14 14 0 0 0-26.5 5A7.5 7.5 0 0 0 18 40z"/><path d="M22 47l-3 8M33 47l-3 8M44 47l-3 8"/>
+{% elif wk == 'storm' %}
+<path d="M18 38h28a10 10 0 0 0 0-20a14 14 0 0 0-26.5 5A7.5 7.5 0 0 0 18 38z"/><path d="M34 42l-6 9h8l-6 9" stroke="{{ sun }}"/>
+{% elif wk == 'snow' %}
+<path d="M18 40h28a10 10 0 0 0 0-20a14 14 0 0 0-26.5 5A7.5 7.5 0 0 0 18 40z"/><path d="M22 49v6M19 52h6M34 49v6M31 52h6M46 49v6M43 52h6"/>
+{% elif wk == 'fog' %}
+<path d="M18 34h28a10 10 0 0 0 0-20a14 14 0 0 0-26.5 5A7.5 7.5 0 0 0 18 34z"/><path d="M12 44h40M18 52h32"/>
+{% else %}
+<path d="M17 46h30a11 11 0 0 0 0-22a15 15 0 0 0-28.5 5.5A8.2 8.2 0 0 0 17 46z"/>
+{% endif %}
+</svg>
+{%- endmacro %}
+
+{# barra A | neutro | B, proporcional à contagem de veículos.
+   focus = lado do slide: esse segmento vira branco cheio; os demais ficam vazados (texto branco, ≥ 4,5:1).
+   Rótulo por extenso ("Lado A", "Neutro", "Lado B") quando o segmento comporta (w = largura da barra em px);
+   num segmento estreito, só a inicial. O neutro se chama "Neutro" em todo o sistema. #}
+{% macro spectrum(counts, height=64, focus=None, labels=True, fs=28, w=936) -%}
+{% set ca = counts.get('a', 0) or 0 %}{% set cn = counts.get('n', 0) or 0 %}{% set cb = counts.get('b', 0) or 0 %}
+{% set tot = [ca + cn + cb, 1]|max %}
+{% set nseg = [(1 if ca else 0) + (1 if cn else 0) + (1 if cb else 0), 1]|max %}
+<div class="spec{{ ' focus' if focus else '' }}" style="height:{{ height }}px">
+{% for key, color, short, full, c in [('a', '#394A7A', 'A', 'Lado A', ca), ('n', '#4B5563', 'N', 'Neutro', cn), ('b', '#0F7C8C', 'B', 'Lado B', cb)] %}
+{% if c > 0 %}
+{% set segw = (w - 6 * (nseg - 1)) * c / tot %}
+{% set need = ((full|length) + 1 + (c|string|length)) * fs * 0.64 + 1.4 * fs + 16 %}
+<div class="seg seg-{{ key }}{% if focus %}{{ ' on' if focus == key else ' off' }}{% endif %}" style="flex:{{ c }} 1 0;{% if not focus %}background:{{ color }};{% endif %}font-size:{{ fs }}px">
+{% if labels %}<span>{{ full if segw >= need else short }}</span><b>{{ c }}</b>{% endif %}
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro spectrum_css() -%}
+.spec{display:flex;gap:6px;width:100%}
+.spec .seg{display:flex;align-items:center;justify-content:space-between;gap:.5em;padding:0 .7em;min-width:3.6em;color:#fff;
+  font-family:var(--mono);font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
+.spec .seg b{font-weight:700}
+.spec .seg.on{background:#fff;color:var(--side-dark,#1B2745)}
+.spec .seg.off{background:transparent;box-shadow:inset 0 0 0 2px var(--rule3);color:var(--ink2)}
+{%- endmacro %}
+
+{# faixa ardósia | petróleo: assinatura do Raio-X na grade #}
+{% macro rx_band() -%}
+<div class="band"><i style="background:#394A7A"></i><i style="background:#0F7C8C"></i></div>
+{%- endmacro %}
+
+{# nome do lado #}
+{% macro side_name(key) %}{% if key == 'a' %}Lado A{% elif key == 'b' %}Lado B{% else %}Neutro{% endif %}{% endmacro %}
+
+{# cabeçalho padrão: letreiro + rótulo da série, sobre a régua dupla #}
+{% macro header(right='', logo_w=196) -%}
+<div class="hdr">{{ logo(logo_w) }}{% if right %}<span class="lbl">{{ right }}</span>{% endif %}</div>
+{%- endmacro %}
+
+{# rodapé: nota (fonte dos dados, "Resumo automático por IA" só onde há resumo de IA, ou a assinatura) +
+   paginação. Regra única nos três carrosséis: conta os slides ("02/08"), sempre aqui, em todos menos a capa. #}
+{% macro footer(note='Resumo automático por IA a partir das fontes citadas', paged=True) -%}
+<div class="ftr"><span class="note">{{ note }}</span>{% if paged and kind == 'carousel' and pages > 1 %}<span class="pg"><b>{{ '%02d'|format(page) }}</b>/{{ '%02d'|format(pages) }}</span>{% endif %}</div>
+{%- endmacro %}
+
+{# chip da editoria; cor da seção como fundo, contorno claro para não sumir no marinho #}
+{% macro section_chip(section, fallback='Em 1 minuto') -%}
+{% if section %}<span class="chip" style="background:{{ sec_color(section) }}">{{ section.title }}</span>
+{%- else %}<span class="chip" style="background:#1B2745">{{ fallback }}</span>{% endif %}
+{%- endmacro %}
+
+{# data do kicker ("TER 20 OUT"): dia em numeral de display + mês/dia da semana em mono #}
+{% macro datebox(text) -%}
+{% set d = (text or '').split(' ') %}
+{% if d|length == 3 %}
+<div class="datebox"><span class="dd">{{ d[1] }}</span><span class="mm"><b>{{ d[2] }}</b>{{ d[0] }}</span></div>
+{%- else %}<span class="datebox plain">{{ text }}</span>{% endif %}
+{%- endmacro %}
+
+{# lista de veículos curta, numa linha: "Estadão · CNN Brasil +2". budget = caracteres que cabem na linha
+   (fonte mono: todos têm a mesma largura). Se nem todos os nomes cabem, reserva o espaço do "+N" para ele
+   não cair sozinho na linha de baixo. O primeiro nome entra sempre. #}
+{% macro names_line(names, budget=36) -%}
+{% set full = names|join(' · ')|length %}
+{% set cap = budget if full <= budget else budget - 2 - ((names|length)|string|length) %}
+{% set ns = namespace(k=0, len=0) %}
+{% for nm in names %}{% if loop.first or (ns.k == loop.index0 and ns.len + 3 + nm|length <= cap) %}{% set ns.k = loop.index %}{% set ns.len = ns.len + (3 if not loop.first else 0) + nm|length %}{% endif %}{% endfor %}
+{{ names[:ns.k]|join(' · ') }}{% if names|length > ns.k %}&nbsp;<span class="more">+{{ names|length - ns.k }}</span>{% endif %}
+{%- endmacro %}
+
+
+{# Cor da editoria: a do site (s.section.color). Jurídico & Regulação (ardósia) e Geopolítica & Mundo
+   (petróleo) coincidem com as cores de lado A e lado B do Raio-X: decisão consciente, as editorias ficam como estão. #}
+{% macro sec_color(section, fallback='#1B2745') -%}
+{{- section.color if section and section.color else fallback -}}
+{%- endmacro %}
+
+{# ── Texto corrido ────────────────────────────────────────────────────────
+   O gerador já entrega o texto pronto: aspas tipográficas, ênfase (**…**) só em trechos curtos e espaço
+   inseparável entre número e unidade ("1 minuto", "R$ 42,5 bilhões"). Aqui fica só o acabamento de página:
+   rich(): **negrito** vira <strong> (sublinhado laranja), com as aspas em volta do destaque fora do
+   sublinhado; palavra de uma letra ("a", "O", "e") não fica sozinha no fim da linha (sem encadear) e
+   "mais de"/"menos de" não se separam ("Todo dia, mais de / 1.500 notícias").
+   tx(): o mesmo, sem negrito (títulos, linhas finas). #}
+{% macro _nb(t) -%}
+{%- for w in t.split(' ') -%}
+{%- set core = w.lstrip('(“‘') -%}
+{{- w -}}{%- if not loop.last -%}{{- '\u00a0' if ((core|length == 1 and core.isalpha() and (loop.nextitem|length) > 1) or (core|lower in ['mais', 'menos'] and loop.nextitem == 'de')) else ' ' -}}{%- endif -%}
+{%- endfor -%}
+{%- endmacro %}
+
+{% macro rich(text, em=True) -%}
+{%- set segs = (text or '').split('**') -%}
+{%- set paired = (segs|length) is odd -%}
+{%- for seg in segs -%}
+{%- set t = seg|replace('*', '') -%}
+{%- if em and loop.index0 is odd and (paired or not loop.last) -%}
+{%- set wrap = t|length > 2 and t[0] in '“‘"' and t[-1] in '”’"' -%}
+{%- set inner = t[1:-1] if wrap else t -%}
+{%- if wrap %}{{ t[0] }}{% endif -%}<strong>{{ _nb(inner) }}</strong>{%- if wrap %}{{ t[-1] }}{% endif -%}
+{%- else -%}{{ _nb(t) }}{%- endif -%}
+{%- endfor -%}
+{%- endmacro %}
+
+{% macro tx(text) -%}{{ rich(text, em=False) }}{%- endmacro %}
+
+{# linha de fontes: cada veículo inteiro numa linha ("Folha de S.Paulo" nunca parte) #}
+{% macro sources(text) -%}
+{%- set parts = (text or '').rsplit(' +', 1) -%}
+{%- set names = parts[0].split(', ') -%}
+{%- for nm in names -%}<span class="nw">{{ nm }}{{ ',' if not loop.last }}</span>{{ ' ' if not loop.last }}{%- endfor -%}
+{%- if parts|length > 1 %} <span class="nw more">+{{ parts[1] }}</span>{% endif -%}
+{%- endmacro %}

@@ -205,7 +205,7 @@
 {# Rodapé #}
 <tr><td align="center" class="px" style="padding:18px 20px 20px;background:{{ c.navy }};font-family:{{ mono }};font-size:10px;line-height:17px;letter-spacing:1px;color:#b9c2d6;">
   <b style="color:{{ c.accent }};">{{ brand.name }}</b> · {{ v.sources_total }} fontes consultadas<br>
-  <a href="{{ footer.archive_url }}" style="color:#ffffff;text-decoration:underline;">Edições anteriores</a>{% if v.repo_url %} · <a href="{{ v.repo_url }}" style="color:#ffffff;text-decoration:underline;">Código-fonte</a>{% endif %}<br>
+  <a href="{{ footer.archive_url }}" style="color:#ffffff;text-decoration:underline;">Edições anteriores</a>{% if v.instagram_url %} · <a href="{{ v.instagram_url }}" style="color:#ffffff;text-decoration:underline;">Siga no Instagram</a>{% endif %}{% if v.repo_url %} · <a href="{{ v.repo_url }}" style="color:#ffffff;text-decoration:underline;">Código-fonte</a>{% endif %}<br>
   {{ footer.generated }}
 </td></tr>
 

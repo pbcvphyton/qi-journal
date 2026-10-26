@@ -1,0 +1,2590 @@
+{
+ "date": "2026-10-20",
+ "date_label": "Terça-feira, 20 de outubro de 2026",
+ "generated_at": "2026-10-20T09:55:24+00:00",
+ "mode": "ai",
+ "model": "gemini-flash-latest + gemini-flash-lite-latest",
+ "editorial": "O encerramento do processo de recuperação judicial da Americanas marca um ponto de inflexão para o mercado de crédito e o varejo brasileiro, enquanto a rede Ri Happy recorre à reestruturação extrajudicial. Na esfera pública, a reta final da corrida presidencial mantém o ambiente polarizado com empate técnico nas pesquisas e antecipação de pagamentos sociais. No exterior, os riscos geopolíticos e as turbulências fiscais voltam ao radar com o cancelamento do fórum de Riad e medidas de segurança na Europa.",
+ "briefing": [
+  "A Justiça do Rio encerrou a **recuperação judicial** de R$ 42,5 bilhões da Americanas, concluindo o processo iniciado após a fraude contábil de 2023.",
+  "Novos levantamentos mostram **empate técnico** entre Flávio Bolsonaro e Lula a menos de uma semana da votação definitiva no segundo turno.",
+  "O Ministério da Agricultura declarou **emergência zoossanitária** em Santa Catarina após foco da doença de Newcastle, motivando embargo do México à carne de ave.",
+  "A **Ri Happy** protocolou pedido de recuperação extrajudicial em São Paulo para reestruturar dívidas que somam R$ 827 milhões.",
+  "A Arábia Saudita adiou a conferência **'Davos no deserto'** para 2027 após ataques de mísseis houthis contra aeroportos da região."
+ ],
+ "lead": "justica-do-rio-encerra-processo-de-recuperacao-j",
+ "secondary": [
+  "pesquisas-apontam-empate-tecnico-entre-flavio-bo",
+  "governo-declara-emergencia-zoossanitaria-em-sc-a",
+  "arabia-saudita-adia-forum-de-investimentos-para"
+ ],
+ "highlights": [
+  "governo-antecipa-calendario-do-bolsa-familia-ant",
+  "franca-decreta-toques-de-recolher-para-conter-on",
+  "cop17-da-biodiversidade-comeca-na-armenia-com-al",
+  "ri-happy-pede-recuperacao-extrajudicial-para-ree",
+  "pgr-rejeita-pedido-de-investigacao-contra-andre",
+  "tse-intima-meta-a-provar-isonomia-apos-campanha",
+  "taction-pede-inclusao-de-juros-e-vendas-recentes",
+  "ex-engenheiro-da-openai-acusado-de-espionagem-te"
+ ],
+ "sections": [
+  {
+   "id": "brasil",
+   "title": "Brasil · Economia",
+   "color": "#1B2745",
+   "story_ids": [
+    "governo-declara-emergencia-zoossanitaria-em-sc-a",
+    "monitor-do-pib-da-fgv-avanca-0-5-em-agosto-e-int",
+    "volkswagen-planeja-congelar-salarios-de-660-mil"
+   ]
+  },
+  {
+   "id": "mercados",
+   "title": "Mercados & Finanças",
+   "color": "#2E6BD6",
+   "story_ids": [
+    "provincia-de-alberta-rejeita-referendo-separatis",
+    "queda-de-32-em-estreia-de-empresa-de-data-center"
+   ]
+  },
+  {
+   "id": "juridico",
+   "title": "Jurídico & Regulação",
+   "color": "#394A7A",
+   "story_ids": [
+    "justica-do-rio-encerra-processo-de-recuperacao-j",
+    "pgr-rejeita-pedido-de-investigacao-contra-andre",
+    "tse-intima-meta-a-provar-isonomia-apos-campanha",
+    "ri-happy-pede-recuperacao-extrajudicial-para-ree",
+    "pf-mira-ex-servidor-do-stj-por-suspeita-de-vazar"
+   ]
+  },
+  {
+   "id": "politica",
+   "title": "Política",
+   "color": "#C90055",
+   "story_ids": [
+    "pesquisas-apontam-empate-tecnico-entre-flavio-bo",
+    "governo-antecipa-calendario-do-bolsa-familia-ant"
+   ]
+  },
+  {
+   "id": "mundo",
+   "title": "Geopolítica & Mundo",
+   "color": "#0F7C8C",
+   "story_ids": [
+    "franca-decreta-toques-de-recolher-para-conter-on",
+    "arabia-saudita-adia-forum-de-investimentos-para",
+    "putin-propoe-cupula-com-trump-e-xi-enquanto-atri",
+    "pib-da-china-cresce-4-5-no-terceiro-trimestre-im"
+   ]
+  },
+  {
+   "id": "tecnologia",
+   "title": "Tecnologia & Negócios",
+   "color": "#C2410C",
+   "story_ids": [
+    "taction-pede-inclusao-de-juros-e-vendas-recentes",
+    "ex-engenheiro-da-openai-acusado-de-espionagem-te"
+   ]
+  },
+  {
+   "id": "esporte",
+   "title": "Esporte",
+   "color": "#B45309",
+   "story_ids": [
+    "corinthians-empata-com-vitoria-sob-olhar-de-seed",
+    "federacao-portuguesa-suspende-cristiano-ronaldo",
+    "rebeca-andrade-brilha-no-salto-e-leva-selecao-a"
+   ]
+  },
+  {
+   "id": "natureza",
+   "title": "Natureza & Meio Ambiente",
+   "color": "#2F7D32",
+   "story_ids": [
+    "cop17-da-biodiversidade-comeca-na-armenia-com-al"
+   ]
+  },
+  {
+   "id": "variedades",
+   "title": "Cultura & Variedades",
+   "color": "#4B5563",
+   "story_ids": [
+    "morre-aos-84-anos-o-cantor-e-compositor-benito-d",
+    "globo-e-netflix-fecham-acordo-para-exibicao-de-1"
+   ]
+  }
+ ],
+ "stories": [
+  {
+   "id": "justica-do-rio-encerra-processo-de-recuperacao-j",
+   "section": "juridico",
+   "headline": "Justiça do Rio encerra processo de recuperação judicial da Americanas",
+   "dek": "Decisão encerra reestruturação de R$ 42,5 bilhões iniciada em 2023 após fraude contábil, enquanto varejista busca retomar acesso a crédito para fornecedores.",
+   "body": [
+    "A Justiça do Rio de Janeiro decretou o encerramento da recuperação judicial da **Americanas** e de suas subsidiárias, conforme noticiaram veículos como **Valor Econômico**, **Estadão** e **Folha de S.Paulo**. A sentença foi assinada pelo juiz Arthur Eduardo Magalhães Ferreira, da 4ª Vara Empresarial. O processo teve início em janeiro de 2023, após a revelação de um escândalo de fraude contábil que levou a companhia a renegociar cerca de **R$ 42,5 bilhões** em dívidas, o terceiro maior montante da história das recuperações judiciais no Brasil.",
+    "Segundo o diretor-presidente da companhia, Fernando Soares, ouvido pelo **Valor Econômico**, a varejista cumpriu integralmente o plano homologado e agora pretende ampliar o acesso ao crédito para operações e fornecedores. A empresa passou por uma reestruturação que reduziu seu tamanho e priorizou as lojas físicas sobre o digital. Apesar da saída formal do processo, o balanço financeiro ainda reflete dificuldades: no segundo trimestre de 2026, a Americanas apurou prejuízo de R$ 274 milhões e dívida líquida de R$ 1 bilhão em junho, com resultado financeiro negativo em R$ 201 milhões."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/10/19/com-sada-da-recuperao-judicial-americanas-espera-mais-acesso-ao-crdito.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/negocios/justica-decreta-encerramento-da-recuperacao-judicial-da-americanas/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/10/justica-do-rio-encerra-recuperacao-judicial-da-americanas-apos-fraude.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/10/19/justica-do-rj-fim-de-recuperacao-judicial-da-americanas.ghtml"
+    },
+    {
+     "name": "NeoFeed",
+     "url": "https://neofeed.com.br/negocios/quase-quatro-anos-apos-fraude-bilionaria-americanas-sai-da-recuperacao-judicial/"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-economia/justica-decreta-fim-da-recuperacao-judicial-da-americanas/"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/justica-decreta-fim-da-recuperacao-judicial-da-americanas"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/invest/mercados/justica-encerra-recuperacao-judicial-da-americanas-apos-tres-anos/"
+    }
+   ],
+   "article_ids": [
+    "e5d5e995f47d",
+    "c5692f7b7fec"
+   ],
+   "importance": 5,
+   "why_it_matters": "A desjudicialização da Americanas encerra formalmente a maior crise corporativa recente do varejo nacional, mas a operação segue pressionada por prejuízos e dependente da reabertura de linhas de crédito bancário.",
+   "image": "https://s2-valor.glbimg.com/VbijIJw3OyiOsUYGfpy6VAOZ0Ko=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/8/X/mPrpGzRACMYrMZfFzl1g/26emp-200-outra-b2-img01.jpg",
+   "published": "2026-10-19T23:28:14+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Justiça do Rio encerra processo de recuperação judicial da Americanas",
+    "conclusion": "A cobertura convergiu de maneira unânime no relato factual da sentença judicial da 4ª Vara Empresarial do Rio de Janeiro, com o Valor Econômico detalhando o cenário pós-saída da empresa.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Priorizou os planos operacionais da varejista após a saída da recuperação, com declarações do presidente da empresa sobre expansão de crédito e dados do balanço financeiro.",
+      "url": "https://valor.globo.com/empresas/noticia/2026/10/19/com-sada-da-recuperao-judicial-americanas-espera-mais-acesso-ao-crdito.ghtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "neutro",
+      "framing": "Concentrou-se nos aspectos jurídicos da decisão assinada pelo juiz Arthur Eduardo Magalhães Ferreira na 4ª Vara Empresarial do Rio de Janeiro.",
+      "url": "https://www.estadao.com.br/economia/negocios/justica-decreta-encerramento-da-recuperacao-judicial-da-americanas/"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Relatou o encerramento factual do processo ressaltando a trajetória de quase três anos desde a eclosão do escândalo de fraude contábil.",
+      "url": "https://c-level.folha.uol.com.br/negocios/2026/10/justica-do-rio-encerra-recuperacao-judicial-da-americanas-apos-fraude.shtml"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Apresentou o relato factual sobre a decisão da Justiça estadual do Rio de Janeiro de encerrar o processo protetivo da varejista.",
+      "url": "https://g1.globo.com/economia/noticia/2026/10/19/justica-do-rj-fim-de-recuperacao-judicial-da-americanas.ghtml"
+     },
+     {
+      "name": "NeoFeed",
+      "stance": "neutro",
+      "framing": "Destacou a linha do tempo de quase quatro anos desde a descoberta do rombo e a transição para fora da recuperação judicial.",
+      "url": "https://neofeed.com.br/negocios/quase-quatro-anos-apos-fraude-bilionaria-americanas-sai-da-recuperacao-judicial/"
+     },
+     {
+      "name": "Poder360",
+      "stance": "neutro",
+      "framing": "Noticiou de maneira sucinta a decretação judicial do término do processo de recuperação da companhia.",
+      "url": "https://www.poder360.com.br/poder-economia/justica-decreta-fim-da-recuperacao-judicial-da-americanas/"
+     },
+     {
+      "name": "Agência Brasil",
+      "stance": "neutro",
+      "framing": "Focou na comunicação institucional do encerramento decretado pela Justiça fluminense.",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/justica-decreta-fim-da-recuperacao-judicial-da-americanas"
+     },
+     {
+      "name": "Exame",
+      "stance": "neutro",
+      "framing": "Enfatizou a conclusão do período de três anos de reestruturação empresarial e supervisão judicial.",
+      "url": "https://exame.com/invest/mercados/justica-encerra-recuperacao-judicial-da-americanas-apos-tres-anos/"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "juridico",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 1 de 2)"
+  },
+  {
+   "id": "pesquisas-apontam-empate-tecnico-entre-flavio-bo",
+   "section": "politica",
+   "headline": "Pesquisas apontam empate técnico entre Flávio Bolsonaro e Lula na reta final",
+   "dek": "Levantamentos da Futura, BTG/Nexus e Atlas indicam equilíbrio estatístico a menos de uma semana da votação definitiva para a Presidência.",
+   "body": [
+    "A seis dias do segundo turno, os novos levantamentos de intenção de voto confirmam um cenário de **empate técnico rigoroso** na disputa presidencial. Na pesquisa da consultoria Futura divulgada nesta segunda-feira (19), o senador Flávio Bolsonaro (PL) aparece com 50,4% dos votos válidos contra 49,6% do presidente Luiz Inácio Lula da Silva (PT), uma distância de 0,8 ponto percentual dentro da margem de erro de 2,2 pontos, conforme informou o JOTA.",
+    "O levantamento do Instituto Nexus encomendado pelo BTG Pactual também apontou indefinição nas urnas, registrando Flávio com 50,3% e Lula com 49,7% dos válidos, relatou a Folha de S.Paulo. Na sondagem da Atlas/Bloomberg divulgada pelo Estadão, o candidato do PL somou 49,8% das intenções de voto contra 47,6% do petista no cenário total. Em contrapartida, dados da Nexus destacados pela Exame mostram que a rejeição a Flávio supera ligeiramente a de Lula no grupo de eleitores não polarizados, segmento considerado determinante para selar o resultado.",
+    "Segundo compilação do Poder360, Flávio Bolsonaro aparece numericamente na liderança na maioria dos levantamentos nacionais recentes, mas a margem estreita acirrou as tensões estratégicas entre os comitês de campanha, que travam uma disputa diária pela redução de rejeição e conversão de indecisos, aponta o Valor Econômico."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/coluna/sangue-suor-e-lagrimas-na-reta-final.ghtml"
+    },
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/eleicoes/eleicoes-2026/pesquisa-futura-flavio-bolsonaro-tem-504-dos-votos-validos-ante-496-de-lula"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/10/btgnexus-flavio-bolsonaro-tem-503-e-lula-497-dos-votos-validos.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/eleicoes/pesquisa-atlas-flavio-bolsonaro-tem-498-e-lula-soma-476/"
+    },
+    {
+     "name": "Poder360",
+     "url": "https://www.poder360.com.br/poder-pesquisas/saiba-como-estao-lula-e-flavio-nas-pesquisas-a-5-dias-da-eleicao/"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/brasil/rejeicao-de-flavio-bolsonaro-supera-a-de-lula-entre-eleitores-que-podem-definir-o-2o-turno/"
+    }
+   ],
+   "article_ids": [
+    "59fc80b33719",
+    "464c785711c8"
+   ],
+   "importance": 5,
+   "why_it_matters": "A proximidade numérica entre os concorrentes aumenta a relevância de cada voto de indecisos e eleva a pressão sobre os últimos atos públicos e o debate final na televisão.",
+   "image": "https://s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/public/fb_marca.png",
+   "published": "2026-10-20T08:00:00+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Pesquisas apontam empate técnico entre Flávio Bolsonaro e Lula na reta final",
+    "conclusion": "A maior parte dos veículos tratou os números como um retrato de empate técnico absoluto, enquanto análises pontuais exploraram os recortes de rejeição e a dinâmica dos votos válidos.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Analisou a tensão política nas campanhas provocada pela redução de vantagem e o impacto da volatilidade nas estratégias.",
+      "url": "https://valor.globo.com/politica/coluna/sangue-suor-e-lagrimas-na-reta-final.ghtml"
+     },
+     {
+      "name": "JOTA",
+      "stance": "neutro",
+      "framing": "Descreveu detalhadamente as margens de erro, o estreitamento da disputa nos levantamentos e o impacto do cansaço com a polarização.",
+      "url": "https://www.jota.info/eleicoes/eleicoes-2026/pesquisa-futura-flavio-bolsonaro-tem-504-dos-votos-validos-ante-496-de-lula"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Focou na igualdade matemática refletida na margem de erro ao trazer os índices dos votos válidos na pesquisa BTG/Nexus.",
+      "url": "https://www1.folha.uol.com.br/poder/2026/10/btgnexus-flavio-bolsonaro-tem-503-e-lula-497-dos-votos-validos.shtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "a",
+      "framing": "Priorizou o resultado estimulado do instituto Atlas com vantagem numérica para Flávio Bolsonaro na corrida ao Planalto.",
+      "url": "https://www.estadao.com.br/politica/eleicoes/pesquisa-atlas-flavio-bolsonaro-tem-498-e-lula-soma-476/"
+     },
+     {
+      "name": "Poder360",
+      "stance": "a",
+      "framing": "Destacou que o senador do PL está numericamente à frente na quase totalidade dos levantamentos nacionais compilados.",
+      "url": "https://www.poder360.com.br/poder-pesquisas/saiba-como-estao-lula-e-flavio-nas-pesquisas-a-5-dias-da-eleicao/"
+     },
+     {
+      "name": "Exame",
+      "stance": "b",
+      "framing": "Ressaltou a taxa de rejeição de Flávio entre os eleitores de centro e indecisos como obstáculo central na reta final.",
+      "url": "https://exame.com/brasil/rejeicao-de-flavio-bolsonaro-supera-a-de-lula-entre-eleitores-que-podem-definir-o-2o-turno/"
+     }
+    ],
+    "side_a": "Ressalta a liderança numérica de Flávio Bolsonaro",
+    "side_b": "Enfatiza a redução da margem e a rejeição ao candidato do PL",
+    "section": "politica",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 2 de 2)"
+  },
+  {
+   "id": "governo-declara-emergencia-zoossanitaria-em-sc-a",
+   "section": "brasil",
+   "headline": "Governo declara emergência zoossanitária em SC após foco da doença de Newcastle",
+   "dek": "Portaria abrange quatro municípios catarinenses por 60 dias após caso em criatório de perus, enquanto México suspende importações avícolas do Brasil.",
+   "body": [
+    "O Ministério da Agricultura e Pecuária declarou **estado de emergência zoossanitária** por 60 dias em quatro municípios do oeste de Santa Catarina — Nova Itaberaba, Águas Frias, Coronel Freitas e Nova Erechim —, após a confirmação de um foco da doença de Newcastle em uma granja comercial de perus com 6 mil aves. A medida, publicada em edição extra do Diário Oficial da União nesta segunda-feira (19), visa dar agilidade às ações de contenção do vírus e articulação com as unidades federativas, segundo o Estadão.",
+    "De acordo com informações apuradas pelo g1, o serviço veterinário oficial iniciou o monitoramento de mais de 130 granjas na região afetada, aplicando protocolos de isolamento e bloqueio de saída de aves. O diagnóstico foi validado pelo Laboratório Federal de Defesa Agropecuária de São Paulo, reconhecido pela Organização Mundial de Saúde Animal. Logo após a notificação oficial, a Secretaria de Agricultura do México anunciou a **suspensão imediata das importações** de carne de frango e produtos avícolas brasileiros, informaram o g1 e a CNN Brasil."
+   ],
+   "sources": [
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/agronegocios/governo-lula-declara-emergencia-zoossanitaria-em-4-municipios-de-sc-por-doenca-de-newcastle/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/agro/2026/10/doenca-de-newcastle-e-detectada-em-fornecedor-da-mbrf-e-ameaca-exportacoes-brasileiras.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/agronegocios/noticia/2026/10/19/mexico-suspende-importacao-de-frango-do-brasil-apos-foco-da-doenca-de-newcastle-em-sc.ghtml"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/agro/mexico-suspende-importacao-de-produtos-avicolas-do-brasil/"
+    }
+   ],
+   "article_ids": [
+    "24f2311f6d1f",
+    "b006655a1d10"
+   ],
+   "importance": 5,
+   "why_it_matters": "O foco sanitário coloca em alerta a cadeia produtiva de proteína animal e ameaça o fluxo de exportações brasileiras de aves diante do risco de novos embargos parciais no comércio internacional.",
+   "image": "https://www.estadao.com.br/resizer/v2/PUVSWJ2SC5CZFH7XT3RRRZXIBY.jpg?auth=ff67c9019a73112e8d2e144d9eb2667a4eb6c3f8338be1f8369c01f0a97959c4&smart=true&width=1000",
+   "published": "2026-10-19T22:55:36+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Governo declara emergência zoossanitária em SC após foco da doença de Newcastle",
+    "conclusion": "A cobertura combinou a descrição imediata dos protocolos de contenção veterinária pelo governo com o alerta para os reflexos econômicos negativos nas exportações do agronegócio.",
+    "outlets": [
+     {
+      "name": "Estadão",
+      "stance": "a",
+      "framing": "Enfatizou a reação de mercados compradores internacionais, apontando tendência de embargos parciais da China e do México ao produto nacional.",
+      "url": "https://www.estadao.com.br/economia/agronegocios/governo-lula-declara-emergencia-zoossanitaria-em-4-municipios-de-sc-por-doenca-de-newcastle/"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "b",
+      "framing": "Privilegiou os detalhes da portaria federal que declarou a emergência zoossanitária e a extensão temporal de 60 dias da medida.",
+      "url": "https://c-level.folha.uol.com.br/agro/2026/10/doenca-de-newcastle-e-detectada-em-fornecedor-da-mbrf-e-ameaca-exportacoes-brasileiras.shtml"
+     },
+     {
+      "name": "g1",
+      "stance": "b",
+      "framing": "Cobriu tanto a confirmação do foco pelo ministério quanto a ação em campo para monitorar mais de 130 granjas em Santa Catarina.",
+      "url": "https://g1.globo.com/sc/santa-catarina/noticia/2026/10/20/doenca-newcastle-130-granjas-monitoradas-confirmacao-foco-sc.ghtml"
+     },
+     {
+      "name": "CNN Brasil",
+      "stance": "a",
+      "framing": "Focou na repercussão comercial imediata, destacando a formalização da suspensão de compras avícolas pelo governo mexicano.",
+      "url": "https://www.cnnbrasil.com.br/agro/mexico-suspende-importacao-de-produtos-avicolas-do-brasil/"
+     }
+    ],
+    "side_a": "Destaca o impacto comercial e risco de embargos externos",
+    "side_b": "Prioriza a contenção sanitária e o monitoramento oficial",
+    "section": "brasil",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 2 de 2)"
+  },
+  {
+   "id": "governo-antecipa-calendario-do-bolsa-familia-ant",
+   "section": "politica",
+   "headline": "Governo antecipa calendário do Bolsa Família antes do segundo turno",
+   "dek": "Medida garante pagamento de parcelas reajustadas a beneficiários a menos de uma semana do pleito, em movimento que reproduz estratégia adotada em 2022.",
+   "body": [
+    "O governo federal antecipou as datas de pagamento do **Bolsa Família** de outubro para que a totalidade dos beneficiários receba os valores até esta terça-feira (20), dias antes do segundo turno presidencial marcado para domingo (25). Os repasses já incorporam o reajuste de 15,04%, elevando o piso do benefício médio de R$ 600 para **R$ 691**. Pelo cronograma ordinário baseado no dígito final do Número de Identificação Social (NIS), parte das transferências só ocorreria após a eleição.",
+    "Veículos como **Folha de S.Paulo** e **Valor Econômico** destacaram o paralelo direto com as eleições de 2022, quando a gestão de Jair Bolsonaro adiantou o cronograma do Auxílio Brasil em sete dias entre o primeiro e o segundo turnos. Oficialmente, conforme apontou o Valor, o Ministério do Desenvolvimento Social justificou a antecipação no país como providência preventiva para mitigar efeitos climáticos decorrentes do fenômeno El Niño."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/brasil/noticia/2026/10/19/jair-bolsonaro-tambem-antecipou-pagamento-do-auxilio-brasil-antes-do-2o-turno-de-2022.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/economia/bolsa-familia-reajustado-comeca-a-ser-depositado-governo-antecipa-cronograma/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mercado/2026/10/lula-repete-bolsonaro-ao-antecipar-pagamentos-do-bolsa-familia-antes-de-2o-turno-das-eleicoes.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/10/19/bolsa-familia-pagamentos-calendario.ghtml"
+    },
+    {
+     "name": "Seu Dinheiro",
+     "url": "https://www.seudinheiro.com/2026/economia/governo-antecipa-pagamento-bolsa-familia-reajustado-poucos-dias-tira-teima-lula-flavio-bolsonaro-culpa-el-nino-rsgp/"
+    }
+   ],
+   "article_ids": [
+    "68a9a50418e2",
+    "1c0a7c43a718"
+   ],
+   "importance": 5,
+   "why_it_matters": "A liberação antecipada de recursos federais na semana da votação gera repercussão eleitoral imediata e repete uma prática controversa adotada no pleito presidencial anterior.",
+   "image": "https://s2-valor.glbimg.com/KfRXJR2eJClFgpjHkhT_hhCA1JE=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2023/R/J/pry7xDQxKP5EvtkmZNQw/103527383-mariz-20-20pa-20brasilia-2002-10-2022-20jair-20bolsonaro-flavio-20bolsonaro-eleicoes-202022-20candidato-20a-20r.jpg",
+   "published": "2026-10-19T21:51:23+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Governo antecipa calendário do Bolsa Família antes do segundo turno",
+    "conclusion": "A maior parte dos veículos ressaltou o caráter político-eleitoral da antecipação e traçou comparações com a eleição de 2022, enquanto apenas o g1 manteve foco estritamente voltado às datas e ao serviço ao beneficiário.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "a",
+      "framing": "Comparou detalhadamente o calendário atual ao expediente de 2022 no Auxílio Brasil, além de reportar a justificativa climática do governo.",
+      "url": "https://valor.globo.com/brasil/noticia/2026/10/19/jair-bolsonaro-tambem-antecipou-pagamento-do-auxilio-brasil-antes-do-2o-turno-de-2022.ghtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "a",
+      "framing": "Ressaltou a proximidade do segundo turno e o peso da antecipação com reajuste em meio à disputa eleitoral apertada.",
+      "url": "https://www.estadao.com.br/economia/bolsa-familia-reajustado-comeca-a-ser-depositado-governo-antecipa-cronograma/"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "a",
+      "framing": "Deu destaque central ao fato de Lula repetir a manobra de Bolsonaro ao adiantar pagamentos às vésperas da votação decisiva.",
+      "url": "https://www1.folha.uol.com.br/mercado/2026/10/lula-repete-bolsonaro-ao-antecipar-pagamentos-do-bolsa-familia-antes-de-2o-turno-das-eleicoes.shtml"
+     },
+     {
+      "name": "g1",
+      "stance": "b",
+      "framing": "Adotou tom predominantemente informativo sobre as novas datas e o cronograma para os beneficiários do programa social.",
+      "url": "https://g1.globo.com/economia/noticia/2026/10/19/bolsa-familia-pagamentos-calendario.ghtml"
+     }
+    ],
+    "side_a": "Enfatiza paralelo eleitoral com a estratégia de 2022",
+    "side_b": "Foca no cronograma de pagamentos e no reajuste",
+    "section": "politica",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 1 de 2)"
+  },
+  {
+   "id": "ri-happy-pede-recuperacao-extrajudicial-para-ree",
+   "section": "juridico",
+   "headline": "Ri Happy pede recuperação extrajudicial para reestruturar dívida de R$ 827 milhões",
+   "dek": "Maior rede especializada em brinquedos do país protocola plano em São Paulo com adesão inicial de credores detentores de 42,38% dos débitos após troca de controle.",
+   "body": [
+    "O grupo **Ri Happy**, dono das bandeiras Ri Happy e PBKids e titular de cerca de 300 lojas no Brasil, protocolou pedido de recuperação extrajudicial na Justiça de São Paulo para reestruturar **R$ 827,4 milhões** em dívidas. Segundo o **Valor Econômico** e o **g1**, a rede já obteve o apoio de credores correspondentes a 42,38% dos débitos sujeitos ao plano (R$ 308,8 milhões), índice superior ao piso de um terço exigido por lei para a apresentação da medida.",
+    "A empresa terá 90 dias para negociar e atingir a adesão de mais da metade dos créditos abrangidos, quórum obrigatório para homologar o plano e estender as condições aos demais credores. Conforme reportado pelo Valor e pelo **NeoFeed**, a iniciativa ocorre menos de dois meses após a venda da rede pela SPX Capital à gestora BluSun Capital Partners e reflete a ineficácia da renegociação de R$ 292 milhões em dívidas bancárias feita em agosto de 2023."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/10/19/ri-happy-entra-com-pedido-de-recuperacao-extrajudicial-para-renegociar-r-827-milhoes-em-dividas.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/10/ri-happy-pede-recuperacao-extrajudicial-para-renegociar-r-827-milhoes-em-dividas.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/10/19/ri-happy-pede-recuperacao-extrajudicial.ghtml"
+    },
+    {
+     "name": "NeoFeed",
+     "url": "https://neofeed.com.br/negocios/com-divida-de-r-8274-milhoes-ri-happy-entra-com-pedido-de-recuperacao-extrajudicial/"
+    },
+    {
+     "name": "Seu Dinheiro",
+     "url": "https://www.seudinheiro.com/2026/seu-negocio/menos-de-50-dias-apos-troca-de-ceo-ri-happy-pede-recuperacao-extrajudicial-com-divida-de-r-8274-milhoes-o-que-aconteceu-giov/"
+    },
+    {
+     "name": "Suno Notícias",
+     "url": "https://www.suno.com.br/noticias/grupo-ri-happy-protocola-pedido-recuperacao-extrajudicial-go/"
+    }
+   ],
+   "article_ids": [
+    "7630df53902b",
+    "919bf855e3df"
+   ],
+   "importance": 4,
+   "why_it_matters": "O pedido explicita as persistentes pressões financeiras sobre o varejo físico de shopping centers no país, mesmo após trocas de controle societário e repactuações com instituições financeiras.",
+   "image": "https://s2-valor.glbimg.com/_uUCQky1OofJIc7DS5P8gj4BV_Y=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2023/q/Y/sySjQARKGWEF757htsMw/foto23emp-101-happy-b1.jpg",
+   "published": "2026-10-19T15:29:23+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Ri Happy pede recuperação extrajudicial para reestruturar dívida de R$ 827 milhões",
+    "conclusion": "A cobertura seguiu linha puramente factual em todos os veículos, detalhando o endividamento de R$ 827,4 milhões e a transição societária recente da varejista.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Analisou em profundidade a petição judicial, os termos de adesão dos credores, o prazo legal de 90 dias e a recente venda da rede pela SPX à BluSun.",
+      "url": "https://valor.globo.com/empresas/noticia/2026/10/19/ri-happy-entra-com-pedido-de-recuperacao-extrajudicial-para-renegociar-r-827-milhoes-em-dividas.ghtml"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Destacou o porte da rede com suas cerca de 300 lojas e o volume total da dívida renegociada em São Paulo.",
+      "url": "https://c-level.folha.uol.com.br/negocios/2026/10/ri-happy-pede-recuperacao-extrajudicial-para-renegociar-r-827-milhoes-em-dividas.shtml"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Ressaltou os valores exatos da dívida e o percentual de 42,38% de adesão preliminar já alcançado pelas seis empresas do grupo.",
+      "url": "https://g1.globo.com/economia/noticia/2026/10/19/ri-happy-pede-recuperacao-extrajudicial.ghtml"
+     },
+     {
+      "name": "NeoFeed",
+      "stance": "neutro",
+      "framing": "Noticiou o protocolo no Tribunal de Justiça no domingo e a confirmação corporativa na segunda-feira.",
+      "url": "https://neofeed.com.br/negocios/com-divida-de-r-8274-milhoes-ri-happy-entra-com-pedido-de-recuperacao-extrajudicial/"
+     },
+     {
+      "name": "Seu Dinheiro",
+      "stance": "neutro",
+      "framing": "Sublinhou o curto intervalo de tempo entre o pedido e a recente troca no comando executivo após o período do Dia das Crianças.",
+      "url": "https://www.seudinheiro.com/2026/seu-negocio/menos-de-50-dias-apos-troca-de-ceo-ri-happy-pede-recuperacao-extrajudicial-com-divida-de-r-8274-milhoes-o-que-aconteceu-giov/"
+     },
+     {
+      "name": "Suno Notícias",
+      "stance": "neutro",
+      "framing": "Noticiou de maneira estritamente factual os números centrais do processo de recuperação extrajudicial.",
+      "url": "https://www.suno.com.br/noticias/grupo-ri-happy-protocola-pedido-recuperacao-extrajudicial-go/"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "juridico",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 1 de 2)"
+  },
+  {
+   "id": "monitor-do-pib-da-fgv-avanca-0-5-em-agosto-e-int",
+   "section": "brasil",
+   "headline": "Monitor do PIB da FGV avança 0,5% em agosto e interrompe sequência de dois meses em queda",
+   "dek": "Indicador aponta crescimento de 1,5% sobre o mesmo mês de 2025 e sustenta projeção de expansão próxima a 2% para a economia brasileira no ano.",
+   "body": [
+    "A atividade econômica brasileira cresceu 0,5% em agosto na comparação com julho, segundo dados do **Monitor do PIB da FGV** divulgados nesta segunda-feira (19). A variação positiva interrompe duas retrações mensais consecutivas e eleva o resultado acumulado em doze meses para 1,8%. Em relação a agosto do ano anterior, o indicador registrou avanço de 1,5%, acumulando alta de 1,7% no trimestre encerrado em agosto na série com ajuste sazonal.",
+    "De acordo com Claudio Considera, coordenador do estudo na Fundação Getulio Vargas, os dados de agosto sinalizam que a economia nacional caminha para fechar o ano de 2026 com uma taxa de expansão de aproximadamente 2%. Contudo, análises repercutidas pelo Suno Notícias ponderaram que os componentes relacionados ao consumo das famílias exigem monitoramento em razão do nível restritivo das taxas de juros no país."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/brasil/noticia/2026/10/19/monitor-do-pib-sinaliza-que-economia-est-caminhando-para-alta-de-2-pontos-percentuais-diz-claudio-considera-da-fgv.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economia-cresce-05-em-agosto-apos-dois-meses-de-recuo-estima-fgv"
+    },
+    {
+     "name": "Suno Notícias",
+     "url": "https://www.suno.com.br/noticias/pib-cresce-agosto-2026-consumo-familias-fgv-mt/"
+    }
+   ],
+   "article_ids": [
+    "e024ade7b78e",
+    "f8639c33cf7f"
+   ],
+   "importance": 3,
+   "why_it_matters": "A retomada do crescimento mensal baliza as estimativas de atividade econômica para o encerramento de 2026 e impacta as expectativas de arrecadação e juros futuros.",
+   "image": "https://s2-valor.glbimg.com/kdalL7alg4jCVH9YjG6v6JqLTMg=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2021/j/A/HrX0inQtAhZhnRkzSQqw/071215claudiofgv24.jpg",
+   "published": "2026-10-19T16:08:07+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Monitor do PIB da FGV avança 0,5% em agosto e interrompe sequência de dois meses em queda",
+    "conclusion": "A cobertura convergiu na divulgação do avanço de 0,5% do Monitor do PIB em agosto após dois meses de queda, divergindo apenas em alertas secundários sobre consumo.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Destacou a alta de 0,5% em agosto ante julho e as declarações de Claudio Considera projetando expansão de 2% no PIB.",
+      "url": "https://valor.globo.com/brasil/noticia/2026/10/19/monitor-do-pib-sinaliza-que-economia-est-caminhando-para-alta-de-2-pontos-percentuais-diz-claudio-considera-da-fgv.ghtml"
+     },
+     {
+      "name": "Agência Brasil",
+      "stance": "neutro",
+      "framing": "Enfatizou a retomada do crescimento econômico após dois meses consecutivos de recuo na série histórica.",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economia-cresce-05-em-agosto-apos-dois-meses-de-recuo-estima-fgv"
+     },
+     {
+      "name": "Suno Notícias",
+      "stance": "neutro",
+      "framing": "Ressaltou a recuperação mensal da atividade econômica, mas adicionou tom de cautela ao desempenho do consumo das famílias.",
+      "url": "https://www.suno.com.br/noticias/pib-cresce-agosto-2026-consumo-familias-fgv-mt/"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "brasil",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Economia & Mercados"
+  },
+  {
+   "id": "pgr-rejeita-pedido-de-investigacao-contra-andre",
+   "section": "juridico",
+   "headline": "PGR rejeita pedido de investigação contra André Mendonça no STF",
+   "dek": "Órgão afasta acusação de abuso de autoridade feita por Alexandre de Moraes por considerar que relatórios de inteligência da PF não possuem valor de prova.",
+   "body": [
+    "A **Procuradoria-Geral da República (PGR)** enviou parecer ao Supremo Tribunal Federal em que se posiciona contra a abertura de inquérito criminal por abuso de autoridade contra o ministro André Mendonça, segundo informaram veículos como **JOTA**, **Valor Econômico** e **Estadão**. O pedido havia sido protocolado no inquérito das fake news pelo ministro Alexandre de Moraes, que acusou o colega de condução irregular com favorecimento a grupos políticos nos inquéritos relacionados ao Banco Master e a fraudes no INSS.",
+    "Na manifestação remetida ao presidente do STF, Edson Fachin, a PGR sustentou que relatórios de inteligência da Polícia Federal não têm valor probatório nem servem como peças de instrução criminal, limitando-se a formular hipóteses. O órgão ministerial consignou ainda que eventuais acusações por crime de responsabilidade cabem exclusivamente ao Senado Federal e que a representação apresentada não possui condições técnicas de seguimento na esfera penal."
+   ],
+   "sources": [
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/stf/do-supremo/pgr-nao-ve-crime-de-abuso-de-autoridade-mendonca-em-investigacao-do-master-e-do-inss"
+    },
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/noticia/2026/10/19/pgr-e-contra-pedido-de-moraes-para-investigar-andre-mendonca-por-atuacao-nos-casos-master-e-inss.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/10/pgr-envia-ao-stf-parecer-contra-pedido-de-moraes-para-investigar-mendonca-por-abuso-de-autoridade.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/pgr-rejeita-acusacao-de-abuso-de-autoridade-contra-mendonca-feita-por-moraes/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/10/19/caso-master-pgr-diz-nao-ver-abuso-de-autoridade-de-mendonca-em-relatorio-de-inteligencia.ghtml"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/pgr-nao-ve-abuso-de-andre-mendonca-em-investigacao-contra-moraes-fets/"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/pgr-nao-ve-abuso-de-andre-mendonca-em-investigacao-contra-moraes"
+    }
+   ],
+   "article_ids": [
+    "0f5fbe675408",
+    "d25827713bd3"
+   ],
+   "importance": 4,
+   "why_it_matters": "O posicionamento da PGR atenua temporariamente o atrito institucional aberto entre ministros do STF em um caso que envolve apurações sobre o setor financeiro e a previdência.",
+   "image": "https://images.jota.info/wp-content/uploads/2026/09/55170312304-d111e1e82d-6k.jpg",
+   "published": "2026-10-19T22:19:56+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "PGR rejeita pedido de investigação contra André Mendonça no STF",
+    "conclusion": "A cobertura jornalística registrou de forma factual e convergente o parecer da PGR contra a apuração por abuso de autoridade, destacando os limites probatórios dos documentos da PF.",
+    "outlets": [
+     {
+      "name": "JOTA",
+      "stance": "neutro",
+      "framing": "Detalhou os argumentos jurídicos da PGR sobre a ausência de valor probatório nos relatórios de inteligência e a competência do Senado.",
+      "url": "https://www.jota.info/stf/do-supremo/pgr-nao-ve-crime-de-abuso-de-autoridade-mendonca-em-investigacao-do-master-e-do-inss"
+     },
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Destacou a rejeição ao pedido de abertura de inquérito sobre as investigações envolvendo o Banco Master e o INSS.",
+      "url": "https://valor.globo.com/politica/noticia/2026/10/19/pgr-e-contra-pedido-de-moraes-para-investigar-andre-mendonca-por-atuacao-nos-casos-master-e-inss.ghtml"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Noticiou a recusa da PGR ao pedido de Moraes, ressalvando que a manifestação fez menções a vieses e desvios de neutralidade.",
+      "url": "https://www1.folha.uol.com.br/poder/2026/10/pgr-envia-ao-stf-parecer-contra-pedido-de-moraes-para-investigar-mendonca-por-abuso-de-autoridade.shtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "neutro",
+      "framing": "Enfatizou o afastamento formal da acusação de abuso de autoridade formulada por Moraes contra Mendonça.",
+      "url": "https://www.estadao.com.br/politica/pgr-rejeita-acusacao-de-abuso-de-autoridade-contra-mendonca-feita-por-moraes/"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Focou na manifestação encaminhada ao relator e presidente do Supremo apontando a falta de elementos para investigação criminal.",
+      "url": "https://g1.globo.com/politica/noticia/2026/10/19/caso-master-pgr-diz-nao-ver-abuso-de-autoridade-de-mendonca-em-relatorio-de-inteligencia.ghtml"
+     },
+     {
+      "name": "Money Times",
+      "stance": "neutro",
+      "framing": "Registrou o despacho da PGR enviado após provocação formal do ministro Edson Fachin.",
+      "url": "https://www.moneytimes.com.br/pgr-nao-ve-abuso-de-andre-mendonca-em-investigacao-contra-moraes-fets/"
+     },
+     {
+      "name": "Agência Brasil",
+      "stance": "neutro",
+      "framing": "Relatou de modo sintético a manifestação contrária da PGR ao pedido de investigação.",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/pgr-nao-ve-abuso-de-andre-mendonca-em-investigacao-contra-moraes"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "juridico",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 1 de 2)"
+  },
+  {
+   "id": "tse-intima-meta-a-provar-isonomia-apos-campanha",
+   "section": "juridico",
+   "headline": "TSE intima Meta a provar isonomia após campanha de Lula pedir cassação de chapa do PL",
+   "dek": "Justiça Eleitoral estipula 24 horas para empresa comprovar equilíbrio algorítmico, enquanto manifestantes realizam atos em São Paulo sob o lema 'Meta não se meta'.",
+   "body": [
+    "O ministro Marco Aurélio Bellizze, do Tribunal Superior Eleitoral (TSE), determinou nesta segunda-feira (19) que a Meta comprove, no prazo de **24 horas**, a adoção de medidas efetivas para garantir tratamento isonômico na distribuição de publicações políticas entre os candidatos Luiz Inácio Lula da Silva e Flávio Bolsonaro, reportaram a Folha de S.Paulo e o g1. A intimação atende a sucessivas contestações jurídicas promovidas pelo comitê petista.",
+    "Em nova frente jurídica, a coligação de Lula ingressou com uma ação no TSE requerendo a cassação da chapa presidencial de Flávio Bolsonaro por suposto benefício indevido decorrente de 'manipulação algorítmica', informaram g1 e Exame. O comando da campanha petista também acusou a empresa de descumprir ordens judiciais precedentes que visavam restabelecer o alcance orgânico dos perfis de esquerda, relatou o Estadão.",
+    "Em paralelo às ações jurídicas, manifestantes ligados a movimentos sociais e sindicais protestaram em frente à sede da controladora do Facebook, Instagram e WhatsApp, na Avenida Brigadeiro Faria Lima, em São Paulo, cobrando neutralidade nas eleições, segundo o Valor Econômico e a Agência Brasil. A Meta reiterou que limitações anteriores decorreram de falhas técnicas globais e não de ação intencional."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/noticia/2026/10/19/manifestantes-pedem-que-meta-no-interfira-na-eleio-brasileira.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/poder/2026/10/tse-da-24-horas-para-meta-comprovar-tratamento-igualitario-a-lula-e-flavio-bolsonaro.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/politica/eleicoes/campanha-de-lula-recorre-ao-tse-para-acusar-meta-de-descumprir-ordem-judicial-e-prejudicar-pt/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/19/campanha-de-lula-volta-a-acionar-tse-e-diz-que-meta-continua-favorecendo-flavio-bolsonaro-nas-redes.ghtml"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ato-em-sao-paulo-cobra-neutralidade-da-meta-nas-eleicoes"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/ato-em-sao-paulo-cobra-neutralidade-da-meta-nas-eleicoes-fets/"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/brasil/campanha-de-lula-vai-pedir-cassacao-da-chapa-de-flavio-devido-a-manipulacao-algoritmica-da-meta/"
+    }
+   ],
+   "article_ids": [
+    "3e041781652f",
+    "af515604b057"
+   ],
+   "importance": 4,
+   "why_it_matters": "O confronto direto entre Justiça Eleitoral, partidos e gigantes de tecnologia intensifica o escrutínio sobre algoritmos e plataformas digitais na definição do processo democrático.",
+   "image": "https://s2-valor.glbimg.com/Hq33Q6mlg22DCW1HR4LT_xCxdQ0=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/C/f/UhBW0CTjajexeru2Aaqw/protesto-meta.jpeg",
+   "published": "2026-10-19T21:58:26+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "TSE intima Meta a provar isonomia após campanha de Lula pedir cassação de chapa do PL",
+    "conclusion": "A cobertura foi dominada pela forte investida processual da campanha governista no tribunal e nas ruas, contextualizada com a ordem de comprovação emitida pelo TSE à big tech.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "b",
+      "framing": "Registrou os protestos presenciais na sede da Meta e detalhou a explicação da empresa sobre falhas técnicas sem intenção política.",
+      "url": "https://valor.globo.com/noticia/2026/10/19/manifestantes-pedem-que-meta-no-interfira-na-eleio-brasileira.ghtml"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "a",
+      "framing": "Priorizou o pedido drástico de cassação de chapa formulado pelo PT e os relatos de descumprimento de decisões judiciais.",
+      "url": "https://www1.folha.uol.com.br/poder/2026/10/manifestantes-pro-lula-criticam-suposta-ingerencia-eleitoral-da-meta-em-ato-na-frente-da-empresa.shtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "a",
+      "framing": "Sublinhou as alegações da campanha de reeleição sobre o descumprimento deliberado das ordens da Corte Eleitoral.",
+      "url": "https://www.estadao.com.br/politica/eleicoes/campanha-de-lula-recorre-ao-tse-para-acusar-meta-de-descumprir-ordem-judicial-e-prejudicar-pt/"
+     },
+     {
+      "name": "g1",
+      "stance": "a",
+      "framing": "Cobriu de forma contínua as novas petições do comitê de Lula apontando favorecimento sistemático ao adversário.",
+      "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/10/19/manifestantes-protestam-em-frente-a-sede-da-meta-em-sp-contra-suposta-interferencia-nas-eleicoes.ghtml"
+     },
+     {
+      "name": "Agência Brasil",
+      "stance": "neutro",
+      "framing": "Manteve foco na decisão judicial de Bellizze e relatou a manifestação popular realizada na capital paulista.",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ato-em-sao-paulo-cobra-neutralidade-da-meta-nas-eleicoes"
+     },
+     {
+      "name": "Money Times",
+      "stance": "neutro",
+      "framing": "Cobriu o protesto em São Paulo destacando o teor das palavras de ordem e a entrega de notificações.",
+      "url": "https://www.moneytimes.com.br/ato-em-sao-paulo-cobra-neutralidade-da-meta-nas-eleicoes-fets/"
+     },
+     {
+      "name": "Exame",
+      "stance": "a",
+      "framing": "Focou no pedido protocolado no TSE que contesta a integridade do equilíbrio algorítmico na eleição.",
+      "url": "https://exame.com/brasil/campanha-de-lula-vai-pedir-cassacao-da-chapa-de-flavio-devido-a-manipulacao-algoritmica-da-meta/"
+     }
+    ],
+    "side_a": "Destaca a acusação de manipulação e pressão jurídica no TSE",
+    "side_b": "Enfatiza a ordem judicial e a defesa técnica da plataforma",
+    "section": "juridico",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 2 de 2)"
+  },
+  {
+   "id": "arabia-saudita-adia-forum-de-investimentos-para",
+   "section": "mundo",
+   "headline": "Arábia Saudita adia fórum de investimentos para 2027 após ataques de mísseis houthis",
+   "dek": "Conhecida como \"Davos no deserto\", a conferência em Riad reuniria líderes de Wall Street e foi suspensa após ofensivas contra aeroportos do reino.",
+   "body": [
+    "A Arábia Saudita adiou para 2027 a Future Investment Initiative (FII), sua principal conferência anual de investimentos conhecida como **\"Davos no deserto\"**, informaram veículos internacionais nesta segunda-feira (19). Segundo o Valor Econômico e o The Wall Street Journal, a suspensão do evento que começaria na próxima semana em Riad decorre da escalada de ataques com mísseis e drones promovidos pelos rebeldes houthis, do Iêmen, contra aeroportos sauditas. O Aeroporto Internacional Rei Khalid, na capital, permanece fechado desde 10 de outubro, quando um ataque com míssil matou 13 pessoas e deixou mais de 300 feridas.",
+    "De acordo com o The New York Times e a Al Jazeera, a conferência representa uma das vitrines centrais do príncipe herdeiro Mohammed bin Salman para promover a diversificação econômica do país além do petróleo. A edição deste ano previa a participação de importantes executivos do setor financeiro global, entre eles Larry Fink, presidente-executivo da BlackRock, e Jamie Dimon, presidente-executivo do J.P. Morgan. O governo saudita também determinou trabalho remoto para funcionários públicos após os ataques, conforme relatou a Al Jazeera."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/mundo/noticia/2026/10/19/arbia-saudita-adia-davos-do-deserto-aps-ataques-dos-houthis.ghtml"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/10/19/business/saudi-investment-fii-houthis.html"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/world/middle-east/saudi-arabia-decides-against-holding-in-person-investor-conference-d9f5e66b"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/19/saudi-arabia-postpones-fii-investor-conference-to-2027.html"
+    },
+    {
+     "name": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2026/10/20/saudi-arabia-cancels-2026-davos-in-the-desert-amid-houthi-attacks"
+    }
+   ],
+   "article_ids": [
+    "ecec3be3e5f6",
+    "7925faccb09b"
+   ],
+   "importance": 5,
+   "why_it_matters": "O cancelamento expõe a vulnerabilidade da infraestrutura saudita a conflitos regionais e paralisa a maior plataforma do reino para atrair capital estrangeiro e diversificar sua economia.",
+   "image": "https://s2-valor.glbimg.com/j12gmPX7BHIXWArZS_ANYRVSBKA=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/b/h/M1JXShQv2ApTqaBntAcA/2026-10-10t113018z-1939272388-rc2pvaasi2wl-rtrmadp-3-iran-crisis-saudi-conference.jpg",
+   "published": "2026-10-19T16:58:17+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Arábia Saudita adia fórum de investimentos para 2027 após ataques de mísseis houthis",
+    "conclusion": "A cobertura internacional foi estritamente factual e convergiu ao relatar o adiamento do fórum para 2027 provocado pelos ataques letais a aeroportos.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Destacou o impacto do fechamento do aeroporto de Riad e a frustração dos planos de diversificação econômica do príncipe Mohammed bin Salman.",
+      "url": "https://valor.globo.com/mundo/noticia/2026/10/19/arbia-saudita-adia-davos-do-deserto-aps-ataques-dos-houthis.ghtml"
+     },
+     {
+      "name": "The New York Times",
+      "stance": "neutro",
+      "framing": "Enfatizou que o fórum é o pilar da estratégia saudita para reduzir a dependência energética e detalhou o adiamento após as investidas rebeldes.",
+      "url": "https://www.nytimes.com/2026/10/19/business/saudi-investment-fii-houthis.html"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "stance": "neutro",
+      "framing": "Frisou a confirmação do adiamento para 2027 e os sucessivos ataques perpetrados pela milícia apoiada pelo Irã contra a infraestrutura aeroportuária.",
+      "url": "https://www.wsj.com/world/middle-east/saudi-arabia-decides-against-holding-in-person-investor-conference-d9f5e66b"
+     },
+     {
+      "name": "CNBC",
+      "stance": "neutro",
+      "framing": "Focou na escalada militar dos rebeldes houthis com drones e mísseis como o fator determinante para postergar a cúpula de investidores.",
+      "url": "https://www.cnbc.com/2026/10/19/saudi-arabia-postpones-fii-investor-conference-to-2027.html"
+     },
+     {
+      "name": "Al Jazeera",
+      "stance": "neutro",
+      "framing": "Pontuou o cancelamento para o ano corrente e ressaltou medidas de segurança internas, como a ordem de trabalho remoto a servidores públicos.",
+      "url": "https://www.aljazeera.com/news/2026/10/20/saudi-arabia-cancels-2026-davos-in-the-desert-amid-houthi-attacks"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "mundo",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Empresas, Tecnologia & Imobiliário"
+  },
+  {
+   "id": "franca-decreta-toques-de-recolher-para-conter-on",
+   "section": "mundo",
+   "headline": "França decreta toques de recolher para conter onda de protestos violentos",
+   "dek": "Governo francês impõe restrições em Paris e outras cidades após dias de saques e confrontos; Itália também reforça segurança em Milão com envio de tropas.",
+   "body": [
+    "O governo da França recorreu a toques de recolher parciais em várias cidades nesta segunda-feira (19) para conter uma onda de protestos violentos e saques que abala o país. As restrições atingem áreas de Paris, como a Place de la République e Les Halles, além de cidades como Lille e Nice. De acordo com o primeiro-ministro Sébastien Lecornu, a determinação de restabelecer a ordem é absoluta, embora tenha descartado, a princípio, um toque de recolher geral na capital.",
+    "A onda de distúrbios começou após semanas de manifestações estudantis contra o custo de vida e a precariedade dos serviços públicos, escalando para confrontos generalizados e vandalismo que atingiram dezenas de estabelecimentos comerciais, incluindo redes como o Carrefour. A crise impõe forte desgaste político ao presidente Emmanuel Macron e alimenta o discurso da oposição, especialmente da extrema-direita liderada por Marine Le Pen.",
+    "Em paralelo, a Itália também enfrenta distúrbios urbanos motivados por insatisfações semelhantes. O governo italiano anunciou o envio de 500 militares do Exército para reforçar a segurança em Milão, após duas noites consecutivas de tumultos e saques no centro financeiro do país, resultando na detenção de centenas de pessoas."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/mundo/noticia/2026/10/19/entenda-o-que-esta-acontecendo-na-franca.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/10/protesto-fecha-louvre-e-governo-anuncia-toques-de-recolher-para-conter-onda-de-violencia-na-franca.shtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/franca-anuncia-toques-de-recolher-apos-protestos-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/mundo/noticia/2026/10/19/protestos-em-paris-primeiro-ministro-frances-pede-toque-de-recolher.ghtml"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/internacional/franca-impoe-toques-de-recolher-apos-onda-de-protestos-com-violencia/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/7bd4ac59-61e6-4604-a96a-26e7096bf768"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/10/20/world/europe/france-curfews-riots-protests-extended.html"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/world/live/2026/oct/20/france-protests-paris-curfews-italy-europe-ukraine-latest-news-updates"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/19/france-protests-paris-violence-pictures.html"
+    }
+   ],
+   "article_ids": [
+    "14c860e1d709",
+    "cf4d2bec5fb4"
+   ],
+   "importance": 5,
+   "why_it_matters": "A escalada de violência e o descontentamento social na Europa central refletem a fragilidade política de governos tradicionais e geram impactos econômicos diretos sobre o comércio e a segurança regional.",
+   "image": "https://s2-valor.glbimg.com/rTpCwS5N2NnGi96V8rbMy60DBiw=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/v/t/EGGTFsRvWsMFiOCBdCJw/2026-10-18t095135z-360697756-rc2i5oabpsgw-rtrmadp-3-france-protest.jpg",
+   "published": "2026-10-19T19:04:37+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "França decreta toques de recolher para conter onda de protestos violentos",
+    "conclusion": "A cobertura concentrou-se de forma convergente no relato factual da imposição dos toques de recolher e no reforço policial, com alguns veículos internacionais aprofundando a análise sobre a crise estrutural dos governos centristas.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Foca nos impactos econômicos dos protestos, nos prejuízos ao varejo e nas medidas administrativas adotadas pelos governos da França e Itália.",
+      "url": "https://valor.globo.com/mundo/noticia/2026/10/19/entenda-o-que-esta-acontecendo-na-franca.ghtml"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Relata os fatos cotidianos dos bloqueios e restrições de circulação, com ênfase no impacto visual dos atos nas capitais europeias.",
+      "url": "https://www1.folha.uol.com.br/mundo/2026/10/protesto-fecha-louvre-e-governo-anuncia-toques-de-recolher-para-conter-onda-de-violencia-na-franca.shtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "neutro",
+      "framing": "Destaca as decisões executivas dos primeiros-ministros e as ações das forças de segurança para conter a depredação patrimonial.",
+      "url": "https://www.estadao.com.br/internacional/meloni-seguranca-protestos-europa-npr/"
+     },
+     {
+      "name": "g1",
+      "stance": "a",
+      "framing": "Enfatiza a gravidade dos confrontos nas ruas e a evolução dos protestos estudantis para uma crise de segurança pública de grande proporção.",
+      "url": "https://g1.globo.com/mundo/noticia/2026/10/20/como-protesto-estudantil-evoluiu-na-franca-levou-500-mil-as-ruas-e-mergulhou-paris-no-caos.ghtml"
+     },
+     {
+      "name": "CNN Brasil",
+      "stance": "neutro",
+      "framing": "Apresenta uma cobertura estritamente factual e sintética sobre os decretos de toque de recolher na França.",
+      "url": "https://www.cnnbrasil.com.br/internacional/franca-impoe-toques-de-recolher-apos-onda-de-protestos-com-violencia/"
+     },
+     {
+      "name": "Financial Times",
+      "stance": "neutro",
+      "framing": "Resome as medidas conjuntas de segurança avaliadas na França e na Itália para conter grupos violentos.",
+      "url": "https://www.ft.com/content/7bd4ac59-61e6-4604-a96a-26e7096bf768"
+     },
+     {
+      "name": "The New York Times",
+      "stance": "b",
+      "framing": "Analisa o fenômeno como um sintoma do afastamento dos eleitores jovens e trabalhadores das políticas centristas na Europa.",
+      "url": "https://www.nytimes.com/2026/10/20/world/europe/france-curfews-riots-protests-extended.html"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "stance": "neutro",
+      "framing": "",
+      "url": "https://www.wsj.com/world/europe/marine-le-pen-seizes-on-french-chaos-to-present-herself-as-leader-in-waiting-80549c0a"
+     },
+     {
+      "name": "The Guardian",
+      "stance": "neutro",
+      "framing": "Acompanha os desdobramentos noturnos da calmaria nas cidades francesas e as declarações das autoridades europeias.",
+      "url": "https://www.theguardian.com/world/live/2026/oct/20/france-protests-paris-curfews-italy-europe-ukraine-latest-news-updates"
+     },
+     {
+      "name": "CNBC",
+      "stance": "neutro",
+      "framing": "Aborda os protestos sob a ótica dos distúrbios de massa e das críticas direcionadas à condução política da crise.",
+      "url": "https://www.cnbc.com/2026/10/20/france-protests-curfews-macron-gulf-trip.html"
+     }
+    ],
+    "side_a": "Destaca a necessidade de firmeza policial e ordem",
+    "side_b": "Enfatiza o desgaste político de Macron e falhas",
+    "section": "mundo",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Mundo & Natureza (parte 1 de 2)"
+  },
+  {
+   "id": "pib-da-china-cresce-4-5-no-terceiro-trimestre-im",
+   "section": "mundo",
+   "headline": "PIB da China cresce 4,5% no terceiro trimestre impulsionado por exportações",
+   "dek": "Aceleração da economia chinesa supera expectativas do mercado, sustentada pelo boom industrial e de inteligência artificial, apesar de fraqueza no consumo.",
+   "body": [
+    "A economia da China registrou expansão de 4,5% no terceiro trimestre de 2026, em comparação com o mesmo período do ano anterior, superando as previsões do mercado. O resultado foi impulsionado pelo dinamismo das exportações e pelo forte desempenho da produção industrial, beneficiadas por um ciclo de alta demanda em tecnologia e eletrônicos.",
+    "Apesar do ritmo acelerado na atividade fabril, analistas apontam que o crescimento continua assimétrico. O setor imobiliário permanece em crise e a confiança do consumidor interno segue deprimida, limitando a recuperação dos gastos no varejo e impondo desafios estruturais para o modelo econômico do país asiático."
+   ],
+   "sources": [
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/mercado/2026/10/pib-da-china-acelera-a-45-no-terceiro-trimestre-impulsionado-por-alta-nas-exportacoes.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/economia/noticia/2026/10/19/china-cresce-45percent-com-exportacoes-em-alta-mas-crise-imobiliaria-ameaca-ritmo.ghtml"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/economy/chinas-economy-expanded-4-5-in-third-quarter-powered-by-exports-53910a55"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/world/2026/oct/19/china-economy-grows-faster-than-forecast-after-ai-boom-boosted-exports"
+    },
+    {
+     "name": "BBC News",
+     "url": "https://www.bbc.co.uk/news/articles/cm5yn098xz8lo"
+    },
+    {
+     "name": "El País",
+     "url": "https://elpais.com/economia/2026-10-19/la-economia-china-acelera-su-crecimiento-al-45-en-el-tercer-trimestre.html"
+    }
+   ],
+   "article_ids": [
+    "05abf864c781",
+    "eed459a664d0"
+   ],
+   "importance": 3,
+   "why_it_matters": "O desempenho acima do esperado da segunda maior economia do mundo sinaliza resiliência na oferta global via tecnologia, mas evidencia desequilíbrios internos persistentes.",
+   "image": "https://f.i.uol.com.br/fotografia/2026/10/19/17924048996ad5eda359654_1792404899_3x2_rt.jpg",
+   "published": "2026-10-19T10:22:00+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "PIB da China cresce 4,5% no terceiro trimestre impulsionado por exportações",
+    "conclusion": "A cobertura convergiu integralmente ao relatar o dado oficial de 4,5%, equilibrando o otimismo das exportações com os alertas sobre o consumo interno e a crise imobiliária.",
+    "outlets": [
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Aponta o ritmo do PIB impulsionado pela inteligência artificial em contraponto à fraqueza do varejo.",
+      "url": "https://www1.folha.uol.com.br/mercado/2026/10/pib-da-china-acelera-a-45-no-terceiro-trimestre-impulsionado-por-alta-nas-exportacoes.shtml"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Destaca que o resultado superou as expectativas, mas adverte para os riscos associados à crise imobiliária.",
+      "url": "https://g1.globo.com/economia/noticia/2026/10/19/china-cresce-45percent-com-exportacoes-em-alta-mas-crise-imobiliaria-ameaca-ritmo.ghtml"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "stance": "neutro",
+      "framing": "Enfatiza a aceleração puxada pelo setor externo e os persistentes gargalos no consumo e no setor imobiliário.",
+      "url": "https://www.wsj.com/economy/chinas-economy-expanded-4-5-in-third-quarter-powered-by-exports-53910a55"
+     },
+     {
+      "name": "The Guardian",
+      "stance": "neutro",
+      "framing": "Associa o crescimento acima das previsões ao boom de eletrônicos e semicondutores, ponderando incertezas comerciais.",
+      "url": "https://www.theguardian.com/world/2026/oct/19/china-economy-grows-faster-than-forecast-after-ai-boom-boosted-exports"
+     },
+     {
+      "name": "BBC News",
+      "stance": "neutro",
+      "framing": "",
+      "url": "https://www.bbc.co.uk/news/articles/cm5yn098xz8lo"
+     },
+     {
+      "name": "El País",
+      "stance": "neutro",
+      "framing": "Salva o impulso industrial e das exportações frente à debilidade do consumo interno.",
+      "url": "https://elpais.com/economia/2026-10-19/la-economia-china-acelera-su-crecimiento-al-45-en-el-tercer-trimestre.html"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "mundo",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Mundo & Natureza (parte 1 de 2)"
+  },
+  {
+   "id": "queda-de-32-em-estreia-de-empresa-de-data-center",
+   "section": "mercados",
+   "headline": "Queda de 32% em estreia de empresa de data center na Coreia reativa cautela global com IA",
+   "dek": "Desempenho da operadora Elice em Seul amplia ceticismo de investidores quanto ao retorno e à sustentabilidade dos elevados aportes na infraestrutura do setor.",
+   "body": [
+    "As ações da companhia sul-coreana de data centers Elice desabaram até **36% durante o pregão de estreia** em Seul nesta terça-feira (20), encerrando o dia com queda de 32%. A frustração com a abertura de capital contaminou bolsas asiáticas e pressionou os contratos futuros em Nova York, reacendendo as preocupações do mercado financeiro internacional com os valuations esticados de empresas ligadas ao ecossistema de inteligência artificial.",
+    "Veículos como The Wall Street Journal e MarketWatch destacaram que o revés da Elice ocorre após o cancelamento recente de ofertas públicas de três provedores de data centers que tinham o respaldo de fundos globais. O episódio colocou em xeque a sustentabilidade do ritmo de gastos de capital (capex) corporativo e provocou realização de lucros nos mercados de ações após a breve recuperação registrada no pregão anterior."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/financas/noticia/2026/10/19/bolsas-da-asia-fecham-sem-rumo-unico-com-pib-chines-e-cautela-com-ia.ghtml"
+    },
+    {
+     "name": "Money Times",
+     "url": "https://www.moneytimes.com.br/bolsas-da-asia-fecham-majoritariamente-em-baixa-com-temores-sobre-ia-e-petroleo-fets/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/cddafc0a-1ae6-467b-84b8-34c172002b6a"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/tech/ai/elice-slides-in-korea-debut-amid-caution-toward-ai-stocks-912be1ea"
+    },
+    {
+     "name": "MarketWatch",
+     "url": "https://www.marketwatch.com/story/south-korean-ipo-flop-is-the-latest-in-a-string-of-disappointments-for-the-global-ai-trade-fc97748c"
+    }
+   ],
+   "article_ids": [
+    "71064ec7310d",
+    "899e9d357f0a"
+   ],
+   "importance": 3,
+   "why_it_matters": "O teste de valuation nas empresas de infraestrutura de tecnologia sinaliza cautela redobrada dos investidores globais com o endividamento e a rentabilidade do ciclo de inteligência artificial.",
+   "image": "https://s2-valor.glbimg.com/8bOqe9AiRakVzb2IyRo_kUaMj2Y=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/X/j/QsldqHRgOLfNClakAolQ/461168613.jpg",
+   "published": "2026-10-19T11:05:12+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Queda de 32% em estreia de empresa de data center na Coreia reativa cautela global com IA",
+    "conclusion": "Os veículos convergiram ao apontar a queda abrupta da Elice como catalisador de um novo movimento de cautela global sobre aportes vultosos em infraestrutura de IA.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Abordou o fechamento negativo das bolsas na Ásia em meio a preocupações com financiamento de infraestrutura tecnológica.",
+      "url": "https://valor.globo.com/financas/noticia/2026/10/19/bolsas-da-asia-fecham-sem-rumo-unico-com-pib-chines-e-cautela-com-ia.ghtml"
+     },
+     {
+      "name": "InfoMoney",
+      "stance": "neutro",
+      "framing": "Noticiou a fraqueza nos futuros de Nova York desencadeada pelo resultado frustrante da estreia da empresa em Seul.",
+      "url": "https://www.infomoney.com.br/mercados/futuros-de-ny-operam-mistos-com-perda-de-folego-das-acoes-de-ia-brent-atinge-us-111/"
+     },
+     {
+      "name": "Money Times",
+      "stance": "neutro",
+      "framing": "Sublinhou o impacto dos temores de gastos excessivos em inteligência artificial sobre os mercados asiáticos.",
+      "url": "https://www.moneytimes.com.br/bolsas-da-asia-fecham-majoritariamente-em-baixa-com-temores-sobre-ia-e-petroleo-fets/"
+     },
+     {
+      "name": "Financial Times",
+      "stance": "neutro",
+      "framing": "Destacou a queda de 32% na estreia da Elice como indicador de ansiedade crescente com os valuations de tecnologia.",
+      "url": "https://www.ft.com/content/cddafc0a-1ae6-467b-84b8-34c172002b6a"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "stance": "neutro",
+      "framing": "Reportou o tombo intradia de até 36% e a cautela renovada dos gestores em relação a investimentos no setor de IA.",
+      "url": "https://www.wsj.com/tech/ai/elice-slides-in-korea-debut-amid-caution-toward-ai-stocks-912be1ea"
+     },
+     {
+      "name": "MarketWatch",
+      "stance": "neutro",
+      "framing": "Apontou o fracasso do IPO como o mais recente de uma série de adiamentos no segmento de data centers apoiados por grandes fundos.",
+      "url": "https://www.marketwatch.com/story/south-korean-ipo-flop-is-the-latest-in-a-string-of-disappointments-for-the-global-ai-trade-fc97748c"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "mercados",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Economia & Mercados"
+  },
+  {
+   "id": "cop17-da-biodiversidade-comeca-na-armenia-com-al",
+   "section": "natureza",
+   "headline": "COP17 da Biodiversidade começa na Armênia com alerta sobre metas globais",
+   "dek": "Representantes de quase 200 países iniciam conferência da ONU em Ierevan sem cumprimento prévio das metas para a natureza.",
+   "body": [
+    "Começou nesta segunda-feira (19), em Ierevan, capital da Armênia, a **17ª Conferência das Partes da Convenção sobre Diversidade Biológica da ONU (COP17)**. Até o dia 30 de outubro, delegados de quase todos os países do mundo discutirão como frear a destruição da natureza e avaliarão, pela primeira vez, o progresso das 23 metas acordadas em 2022 durante a COP15, realizada em Montreal.",
+    "Segundo o jornal britânico The Guardian, o ponto de partida não é animador. Em reunião preparatória realizada em Nairóbi, no Quênia, os governos concluíram que estão fora do rumo em todas as 23 metas estabelecidas. Especialistas e veículos destacam que os governos nunca cumpriram integralmente uma única meta da ONU para a natureza desde a criação da convenção em 1992, pressionando por mudanças urgentes até o prazo de 2030.",
+    "O pacto global anterior foi fechado em meio a alertas científicos de que o planeta enfrenta a maior perda de vida desde a extinção dos dinossauros. Entre os compromissos em análise estão a proteção de 30% das terras e dos mares, a reforma de US$ 500 bilhões em subsídios prejudiciais ao meio ambiente e a restauração de 30% dos ecossistemas degradados."
+   ],
+   "sources": [
+    {
+     "name": "Um Só Planeta",
+     "url": "https://umsoplaneta.globo.com/biodiversidade/noticia/2026/10/19/cop17-da-biodiversidade-comeca-na-armenia-com-paises-atrasados-em-todas-as-23-metas-globais-para-a-natureza.ghtml"
+    },
+    {
+     "name": "ClimaInfo",
+     "url": "https://climainfo.org.br/2026/10/19/cop17-da-biodiversidade-comeca-com-objetivo-de-ampliar-protecao-da-natureza/"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/environment/2026/oct/19/environment-cop17-un-biodiversity-summit-yerevan-explainer-conservation"
+    }
+   ],
+   "article_ids": [
+    "6ae69a4b91e5",
+    "b6a956f6fa18"
+   ],
+   "importance": 5,
+   "why_it_matters": "A cúpula na Armênia define se os países conseguirão reverter o fracasso histórico na proteção de ecossistemas globais cruciais até 2030.",
+   "image": "https://s2-umsoplaneta.glbimg.com/4kkArJ7EBJle_8VWLY8XUDFqlXg=/i.s3.glbimg.com/v1/AUTH_7d5b9b5029304d27b7ef8a7f28b4d70f/internal_photos/bs/2024/i/V/4JMhXBRimOH6BObR7FFQ/adobestock-560091376-1-.jpeg",
+   "published": "2026-10-19T22:28:28+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "COP17 da Biodiversidade começa na Armênia com alerta sobre metas globais",
+    "conclusion": "A cobertura converge na constatação de que os países falharam nas metas anteriores da ONU e destaca a pressão por compromissos reais na Armênia.",
+    "outlets": [
+     {
+      "name": "Um Só Planeta",
+      "stance": "neutro",
+      "framing": "Detalha o início da cúpula em Ierevan e ressalta o diagnóstico pessimista levantado em Nairóbi sobre o descumprimento das 23 metas de 2022.",
+      "url": "https://umsoplaneta.globo.com/biodiversidade/noticia/2026/10/19/cop17-da-biodiversidade-comeca-na-armenia-com-paises-atrasados-em-todas-as-23-metas-globais-para-a-natureza.ghtml"
+     },
+     {
+      "name": "ClimaInfo",
+      "stance": "neutro",
+      "framing": "",
+      "url": "https://climainfo.org.br/2026/10/19/cop17-da-biodiversidade-comeca-com-objetivo-de-ampliar-protecao-da-natureza/"
+     },
+     {
+      "name": "The Guardian",
+      "stance": "neutro",
+      "framing": "Enfatiza o histórico de ineficiência global na proteção ambiental desde 1992 e cobra ações efetivas dos negociadores presentes na Armênia.",
+      "url": "https://www.theguardian.com/environment/2026/oct/19/environment-cop17-un-biodiversity-summit-yerevan-explainer-conservation"
+     },
+     {
+      "name": "Mongabay",
+      "stance": "neutro",
+      "framing": "Foca nos desdobramentos específicos para o continente africano, priorizando debates sobre financiamento e direitos de comunidades indígenas.",
+      "url": "https://news.mongabay.com/2026/10/finance-and-indigenous-rights-top-africans-agenda-as-biodiversity-summit-opens-in-yerevan/"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "natureza",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Mundo & Natureza (parte 2 de 2)"
+  },
+  {
+   "id": "taction-pede-inclusao-de-juros-e-vendas-recentes",
+   "section": "tecnologia",
+   "headline": "Taction pede inclusão de juros e vendas recentes a indenização de US$ 5,7 bi contra Apple",
+   "dek": "Fabricante do iPhone violou patente de resposta tátil em relógios e celulares; empresa de San Diego busca elevar a conta em centenas de milhões.",
+   "body": [
+    "A empresa de tecnologia Taction solicitou a um juiz federal nos Estados Unidos a ampliação da indenização recorde de **US$ 5,7 bilhões** concedida contra a Apple por violação de patentes, segundo noticiaram o Valor Econômico e o g1. Em setembro, um júri federal da Califórnia condenou a dona do iPhone por infringir uma tecnologia patenteada de feedback háptico — sistema que usa vibrações para transmitir informações ao usuário —, aplicada em iPhones e modelos do Apple Watch.",
+    "Em petição protocolada na sexta-feira (16), a Taction sustentou que o veredicto original calculou danos apenas sobre as vendas realizadas entre 2021 e o final de março. A requerente solicita agora a incidência de reparação sobre as vendas dos seis meses seguintes, além da aplicação de juros pré-julgamento à taxa legal de 7% ao ano do Estado da Califórnia e juros pós-sentença. A medida, se acolhida, pode acrescentar centenas de milhões de dólares à condenação. A Apple negou irregularidades, informou que vai recorrer e solicitou a anulação do veredicto do júri."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/10/19/apple-enfrenta-novo-pedido-de-indenizao-aps-veredicto-histrico-de-patente-de-us-57-bi.ghtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/tecnologia/noticia/2026/10/19/apple-pode-ter-de-pagar-mais-em-caso-de-patente-com-indenizacao-de-us-57-bilhoes.ghtml"
+    }
+   ],
+   "article_ids": [
+    "030dbccbf7c2",
+    "ab03a263b249"
+   ],
+   "importance": 4,
+   "why_it_matters": "O desfecho do processo pressiona a rentabilidade e o balanço da Apple ao consolidar um dos maiores passivos judiciais da história da indústria de tecnologia.",
+   "image": "https://s2-valor.glbimg.com/PmDb_y7gbL1P8u9jMcDxYaWvjXU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/L/U/naN5EbRBylvkUaLoxf1Q/465644077.jpg",
+   "published": "2026-10-19T19:21:12+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Taction pede inclusão de juros e vendas recentes a indenização de US$ 5,7 bi contra Apple",
+    "conclusion": "A cobertura foi totalmente uniforme ao relatar a tentativa da Taction de inflar a condenação bilionária e a negativa categórica da Apple perante o tribunal.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Pormenorizou as alegações técnicas da petição da Taction sobre a taxa de 7% de juros da Califórnia e relembrou precedente recente da Masimo.",
+      "url": "https://valor.globo.com/empresas/noticia/2026/10/19/apple-enfrenta-novo-pedido-de-indenizao-aps-veredicto-histrico-de-patente-de-us-57-bi.ghtml"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Enfatizou a conversão cambial do valor de US$ 5,7 bilhões para R$ 28,82 bilhões e explicou o funcionamento da patente háptica em disputa.",
+      "url": "https://g1.globo.com/tecnologia/noticia/2026/10/19/apple-pode-ter-de-pagar-mais-em-caso-de-patente-com-indenizacao-de-us-57-bilhoes.ghtml"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "tecnologia",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Empresas, Tecnologia & Imobiliário"
+  },
+  {
+   "id": "ex-engenheiro-da-openai-acusado-de-espionagem-te",
+   "section": "tecnologia",
+   "headline": "Ex-engenheiro da OpenAI acusado de espionagem tem fiança negada após apoio da Arábia Saudita",
+   "dek": "Abdulrahman Alfozan é réu por instalar escuta em sala de reuniões executivas da dona do ChatGPT; autoridades sauditas bancaram fuga da família.",
+   "body": [
+    "A Justiça dos Estados Unidos determinou que Abdulrahman Alfozan, ex-engenheiro da OpenAI acusado de espionagem corporativa, permaneça preso sem direito a fiança, segundo informações divulgadas pelo The Wall Street Journal e pelo The New York Times. Alfozan é réu pela instalação de um **dispositivo de gravação** clandestino em uma sala de reuniões da diretoria na sede da empresa, desenvolvedora do ChatGPT, localizada em San Francisco.",
+    "Promotores norte-americanos apresentaram documentos apontando que o réu contou com auxílio substancial de autoridades da Arábia Saudita. Conforme reportaram a BBC News e o Valor Econômico, o consulado saudita se ofereceu formalmente para arcar com o pagamento da fiança do ex-funcionário. Além disso, segundo os registros judiciais, representantes do país custearam passagens aéreas para que a esposa e o filho de Alfozan deixassem os Estados Unidos, enquanto o engenheiro discutia contratações com um membro da realeza saudita."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/10/19/ex-funcionrio-da-openai-acusado-de-instalar-dispositivo-de-gravao-parece-ter-apoio-saudita-dizem-promotores-dos-eua.ghtml"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/tech/ai/former-openai-worker-accused-of-bugging-discussed-jobs-with-saudi-royal-277c1c45"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/10/19/technology/saudis-aided-family-openai-engineer.html"
+    },
+    {
+     "name": "BBC News",
+     "url": "https://www.bbc.co.uk/news/articles/c6gel2dlyxvyo"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/19/openai-bugging-suspect-alfozan-saudi-royal-family.html"
+    }
+   ],
+   "article_ids": [
+    "ce52db8bb57a",
+    "15b4cbe3f94a"
+   ],
+   "importance": 4,
+   "why_it_matters": "O caso expõe a vulnerabilidade física e de inteligência das principais desenvolvedoras de IA diante de manobras de espionagem corporativa e interferência estatal estrangeira.",
+   "image": "https://s2-valor.glbimg.com/LcX-T5pON29WD4PXch33MqOEv_A=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/N/E/1f6BarRbOf0E4AyVW37A/photo-1676299081847-824916de030a.avif",
+   "published": "2026-10-19T16:13:55+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Ex-engenheiro da OpenAI acusado de espionagem tem fiança negada após apoio da Arábia Saudita",
+    "conclusion": "Os veículos convergiram nos dados processuais, frisando a gravidade do grampo corporativo na sede da OpenAI e a intervenção direta de diplomatas sauditas.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Noticiou o envolvimento de figuras da realeza e o auxílio governamental saudita citados pelas autoridades judiciais americanas.",
+      "url": "https://valor.globo.com/empresas/noticia/2026/10/19/ex-funcionrio-da-openai-acusado-de-instalar-dispositivo-de-gravao-parece-ter-apoio-saudita-dizem-promotores-dos-eua.ghtml"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "stance": "neutro",
+      "framing": "Priorizou os contatos de emprego mantidos pelo engenheiro com a realeza saudita e a recusa do juiz à oferta de fiança consular.",
+      "url": "https://www.wsj.com/tech/ai/former-openai-worker-accused-of-bugging-discussed-jobs-with-saudi-royal-277c1c45"
+     },
+     {
+      "name": "The New York Times",
+      "stance": "neutro",
+      "framing": "Detalhou a atuação de autoridades consulares sauditas no financiamento da saída da família do réu e na oferta de caução judicial.",
+      "url": "https://www.nytimes.com/2026/10/19/technology/saudis-aided-family-openai-engineer.html"
+     },
+     {
+      "name": "BBC News",
+      "stance": "neutro",
+      "framing": "Centrou o relato nas alegações dos promotores sobre o apoio diplomático externo ao funcionário que instalou o gravador.",
+      "url": "https://www.bbc.co.uk/news/articles/c6gel2dlyxvyo"
+     },
+     {
+      "name": "CNBC",
+      "stance": "neutro",
+      "framing": "Ressaltou a acusação formal de instalação da escuta na sala de conferências da OpenAI em San Francisco e a negação de fiança.",
+      "url": "https://www.cnbc.com/2026/10/19/openai-bugging-suspect-alfozan-saudi-royal-family.html"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "tecnologia",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Empresas, Tecnologia & Imobiliário"
+  },
+  {
+   "id": "provincia-de-alberta-rejeita-referendo-separatis",
+   "section": "mercados",
+   "headline": "Província de Alberta rejeita referendo separatista e decide permanecer no Canadá",
+   "dek": "Votação histórica na região responsável por 84% do petróleo canadense afasta risco de ruptura territorial e garante vitória política ao premiê Mark Carney.",
+   "body": [
+    "Os eleitores de Alberta rejeitaram nas urnas a proposta de deflagrar um processo formal de independência em relação ao Canadá, segundo os resultados divulgados na madrugada desta terça-feira (20). A região, que conta com mais de **5 milhões de habitantes** e o maior PIB per capita provincial do país (71.545 dólares canadenses em 2025), decidiu de forma expressiva pela continuidade da união territorial, resultado comemorado publicamente pelo primeiro-ministro Mark Carney.",
+    "Alberta concentra 84% de toda a extração canadense de petróleo equivalente, com produção diária de 4,4 milhões de barris, além de responder por 60% da produção de gás natural do país. Grupos separatistas argumentavam que as regulações ambientais do governo federal prejudicavam o setor de energia e que a província transferia mais recursos à federação do que recebia de volta, disputas que agora perdem força institucional imediata."
+   ],
+   "sources": [
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/por-que-alberta-provincia-mais-rica-do-canada-pode-se-separar-do-pais-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/mundo/noticia/2026/10/20/provincia-de-alberta-rejeita-separacao-e-decide-permanecer-no-canada.ghtml"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/internacional/provincia-de-alberta-rejeita-separacao-e-decide-permanecer-no-canada/"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/8afb4e0b-302b-445c-8dde-4c5b091b808e"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/world/americas/albertans-vote-to-stay-in-canada-in-historic-referendum-79f86086"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/10/19/world/canada/alberta-secession-canada-referendum.html"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/world/2026/oct/20/canada-alberta-rejects-independence-succession-referendum"
+    },
+    {
+     "name": "Al Jazeera",
+     "url": "https://www.aljazeera.com/news/2026/10/20/alberta-voters-reject-separation-from-canada-early-results-show"
+    }
+   ],
+   "article_ids": [
+    "ce6d7ea8b05e",
+    "510012667e98"
+   ],
+   "importance": 3,
+   "why_it_matters": "A permanência de Alberta preserva o suprimento de um dos maiores exportadores globais de energia e afasta a instabilidade geopolítica no fornecimento de combustíveis na América do Norte.",
+   "image": "https://www.estadao.com.br/resizer/v2/DU4UCAVBDFDPXMOJICUU6A6SGI.jpg?auth=28822fd1139b10e2039d8306268bce872a3c5b6b35e7c7cc1e1a34a83a6d17c6&smart=true&width=1000",
+   "published": "2026-10-19T17:14:06+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Província de Alberta rejeita referendo separatista e decide permanecer no Canadá",
+    "conclusion": "A imprensa nacional e internacional convergiu ao noticiar a rejeição esmagadora à proposta de separação de Alberta, mantendo a integridade territorial canadense.",
+    "outlets": [
+     {
+      "name": "Estadão",
+      "stance": "neutro",
+      "framing": "Explicou detalhadamente a relevância petrolífera de Alberta e o desfecho da apuração que consolidou a vitória pela permanência.",
+      "url": "https://www.estadao.com.br/internacional/por-que-alberta-provincia-mais-rica-do-canada-pode-se-separar-do-pais-npr/"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Destacou a vitória esmagadora dos defensores da unidade nacional e a celebração conduzida pelo premiê Mark Carney.",
+      "url": "https://g1.globo.com/mundo/noticia/2026/10/20/provincia-de-alberta-rejeita-separacao-e-decide-permanecer-no-canada.ghtml"
+     },
+     {
+      "name": "CNN Brasil",
+      "stance": "neutro",
+      "framing": "Noticiou sucintamente a decisão dos eleitores provinciais de rejeitar a proposta de independência.",
+      "url": "https://www.cnnbrasil.com.br/internacional/provincia-de-alberta-rejeita-separacao-e-decide-permanecer-no-canada/"
+     },
+     {
+      "name": "Financial Times",
+      "stance": "neutro",
+      "framing": "Reportou os resultados preliminares apontando a rejeição clara à secessão territorial canadense.",
+      "url": "https://www.ft.com/content/8afb4e0b-302b-445c-8dde-4c5b091b808e"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "stance": "neutro",
+      "framing": "Classificou a votação como histórica e abordou o alívio para os mercados com a manutenção da federação.",
+      "url": "https://www.wsj.com/world/americas/albertans-vote-to-stay-in-canada-in-historic-referendum-79f86086"
+     },
+     {
+      "name": "The New York Times",
+      "stance": "neutro",
+      "framing": "Focou na vitória dos opositores ao separatismo na província mais rica e estratégica em hidrocarbonetos do Canadá.",
+      "url": "https://www.nytimes.com/2026/10/19/world/canada/alberta-secession-canada-referendum.html"
+     },
+     {
+      "name": "The Guardian",
+      "stance": "neutro",
+      "framing": "Enfatizou o fracasso da iniciativa de convocação de um referendo formal de independência.",
+      "url": "https://www.theguardian.com/world/2026/oct/20/canada-alberta-rejects-independence-succession-referendum"
+     },
+     {
+      "name": "Al Jazeera",
+      "stance": "neutro",
+      "framing": "Relatou os dados da apuração inicial que asseguraram a recusa ao pleito separatista pelos cidadãos locais.",
+      "url": "https://www.aljazeera.com/news/2026/10/20/alberta-voters-reject-separation-from-canada-early-results-show"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "mercados",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Economia & Mercados"
+  },
+  {
+   "id": "volkswagen-planeja-congelar-salarios-de-660-mil",
+   "section": "brasil",
+   "headline": "Volkswagen planeja congelar salários de 660 mil funcionários no mundo até 2030",
+   "dek": "Medida foi revelada pelo Conselho Global de Trabalhadores da montadora alemã em meio à reestruturação operacional e aos pesados aportes em veículos elétricos.",
+   "body": [
+    "A montadora alemã Volkswagen pretende congelar os vencimentos de todo o seu quadro de **660 mil funcionários** ao redor do globo até o ano de 2030, segundo informou o Conselho Global de Trabalhadores da empresa nesta segunda-feira (19). A declaração dos representantes laborais confirmou notícia divulgada inicialmente pelo jornal alemão Sueddeutsche Zeitung sobre o rigoroso plano de contenção de despesas corporativas.",
+    "A fabricante automotiva enfrenta um período de profunda reestruturação diante da desaceleração dos mercados centrais e da acirrada concorrência na transição para a frota eletrificada. O congelamento salarial de longo prazo reflete a pressão sobre as margens operacionais da companhia alemã, que busca equilibrar o fluxo de caixa enquanto investe maciçamente em fábricas voltadas a veículos elétricos na Ásia e na Europa."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/10/19/volkswagen-planeja-congelar-salrios-at-2030-diz-conselho-de-trabalhadores.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://c-level.folha.uol.com.br/negocios/2026/10/volks-planeja-congelar-salarios-ate-2030-em-todo-o-mundo-afirma-conselho-de-trabalhadores.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/carros/noticia/2026/10/19/volkswagen-planeja-congelar-salarios-ate-2030.ghtml"
+    }
+   ],
+   "article_ids": [
+    "02dff903fd81",
+    "734ba1c8c7ae"
+   ],
+   "importance": 3,
+   "why_it_matters": "O arrocho salarial no maior grupo automotivo europeu exemplifica a severidade do ajuste de custos exigido pela transição para carros elétricos e a pressão da concorrência global.",
+   "image": "https://s2-valor.glbimg.com/Ij5oIaoUcCcfJsNO7NLvGhWBfJA=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2019/z/k/ArJ2P9RK2wj5CrM1qhNg/014jan6.jpg",
+   "published": "2026-10-19T13:34:51+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Volkswagen planeja congelar salários de 660 mil funcionários no mundo até 2030",
+    "conclusion": "A cobertura foi totalmente uniforme ao reproduzir a manifestação do conselho global de trabalhadores sobre os planos de contenção salarial da Volkswagen.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Noticiou o anúncio feito pelo conselho de trabalhadores e citou a reportagem prévia da imprensa alemã.",
+      "url": "https://valor.globo.com/empresas/noticia/2026/10/19/volkswagen-planeja-congelar-salrios-at-2030-diz-conselho-de-trabalhadores.ghtml"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Ressaltou a abrangência mundial do congelamento salarial proposto para todo o quadro funcional do grupo.",
+      "url": "https://c-level.folha.uol.com.br/negocios/2026/10/volks-planeja-congelar-salarios-ate-2030-em-todo-o-mundo-afirma-conselho-de-trabalhadores.shtml"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Contextualizou o plano salarial da montadora com os investimentos e desafios na sua linha de veículos elétricos.",
+      "url": "https://g1.globo.com/carros/noticia/2026/10/19/volkswagen-planeja-congelar-salarios-ate-2030.ghtml"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "brasil",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Economia & Mercados"
+  },
+  {
+   "id": "putin-propoe-cupula-com-trump-e-xi-enquanto-atri",
+   "section": "mundo",
+   "headline": "Putin propõe cúpula com Trump e Xi, enquanto atritos com Kiev se agravam",
+   "dek": "Lider russo sugere encontro sobre Ucrânia sem Zelensky; presidente ucraniano acusa EUA de pressão por rendição e falta de aviso prévio em ataques.",
+   "body": [
+    "O presidente da Rússia, Vladimir Putin, propôs a realização de uma cúpula em novembro com o presidente dos Estados Unidos, Donald Trump, e o líder chinês, Xi Jinping, para negociar o fim do conflito na Ucrânia. A proposta prevê discussões sobre desarmamento nuclear e acordos regionais, mas exclui explicitamente o presidente ucraniano, Volodymyr Zelensky, das conversas.",
+    "Em meio à movimentação diplomática, as tensões entre Kiev e Washington intensificaram-se. Zelensky acusou Donald Trump de tentar forçar a Ucrânia a se render aos interesses russos. Além disso, o líder ucraniano criticou duramente os aliados americanos por não terem emitido nenhum aviso prévio sobre um massivo ataque com mísseis balísticos lançado por Moscou durante o fim de semana.",
+    "Por sua vez, Trump manifestou abertura para participar de um encontro trilateral na China no próximo mês com foco em armas nucleares, reiterando críticas à condução de Kiev e sinalizando o desejo de normalizar as relações diplomáticas com o Kremlin, mesmo à revelia de aliados europeus e ucranianos."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/mundo/noticia/2026/10/19/putin-prope-cpula-com-trump-e-xi-para-negociar-fim-da-guerra-na-ucrnia.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/internacional/trump-esta-pressionando-a-ucrania-a-se-render-a-russia-diz-zelenski-npr/"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/mundo/noticia/2026/10/19/trump-diz-estar-aberto-a-reuniao-com-china-e-russia-para-discutir-desarmamento-nuclear.ghtml"
+    },
+    {
+     "name": "Financial Times",
+     "url": "https://www.ft.com/content/581d8a59-b128-4f68-9f34-6c066b36ca5b"
+    },
+    {
+     "name": "The New York Times",
+     "url": "https://www.nytimes.com/2026/10/19/us/politics/trump-russia-deals.html"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "url": "https://www.wsj.com/world/trump-putin-xi-meeting-ee489ddd"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/world/2026/oct/19/no-us-warning-russian-strikes-kyiv-power-plants-zelenskyy-ukraine-trump"
+    },
+    {
+     "name": "South China Morning Post",
+     "url": "https://www.scmp.com/news/us/article/3371428/trump-says-hes-open-xi-putin-meeting-china-nuclear-talks"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/19/putin-trump-xi-ukraine-war-energy.html"
+    }
+   ],
+   "article_ids": [
+    "2cfb15aac409",
+    "e3dd9ec6ef90"
+   ],
+   "importance": 4,
+   "why_it_matters": "A articulação de uma cúpula à revelia de Kiev e o atrito aberto entre Zelensky e Washington evidenciam uma possível guinada geopolítica capaz de alterar os rumos da guerra na Ucrânia.",
+   "image": "https://s2-valor.glbimg.com/MdcCwlorC-5WZubzwUys9qCHZaU=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2025/7/S/kSF9kGTMAXL5Lkkf1ZBQ/ap25227702963535.jpg",
+   "published": "2026-10-19T05:10:53+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Putin propõe cúpula com Trump e Xi, enquanto atritos com Kiev se agravam",
+    "conclusion": "A cobertura divide-se entre o registro das manobras diplomáticas das grandes potências lideradas por Trump e Putin e a perspectiva crítica de Kiev sobre a perda de respaldo norte-americano.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Reporta a proposta de cúpula de Putin e as declarações de Zelensky sobre a pressão para uma rendição.",
+      "url": "https://valor.globo.com/mundo/noticia/2026/10/19/putin-prope-cpula-com-trump-e-xi-para-negociar-fim-da-guerra-na-ucrnia.ghtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "neutro",
+      "framing": "Foca na prontidão de Donald Trump em se reunir com Putin e Xi Jinping e nas críticas do líder americano a Kiev.",
+      "url": "https://www.estadao.com.br/internacional/trump-esta-pressionando-a-ucrania-a-se-render-a-russia-diz-zelenski-npr/"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Detalha os aspectos centrais da oferta russa de negociação nuclear e a insatisfação ucraniana com a falta de avisos de ataques.",
+      "url": "https://g1.globo.com/mundo/noticia/2026/10/19/trump-diz-estar-aberto-a-reuniao-com-china-e-russia-para-discutir-desarmamento-nuclear.ghtml"
+     },
+     {
+      "name": "Financial Times",
+      "stance": "neutro",
+      "framing": "Informa sobre os próximos passos dos emissários americanos e o impacto do fantasma energético nas negociações.",
+      "url": "https://www.ft.com/content/581d8a59-b128-4f68-9f34-6c066b36ca5b"
+     },
+     {
+      "name": "The New York Times",
+      "stance": "b",
+      "framing": "Analisa o desgaste na relação bilateral e a frustração crescente de Trump com a resistência da Ucrânia aos seus termos.",
+      "url": "https://www.nytimes.com/2026/10/19/us/politics/trump-russia-deals.html"
+     },
+     {
+      "name": "The Wall Street Journal",
+      "stance": "a",
+      "framing": "Destaca a iniciativa de Putin de articular o formato da cúpula para negociar diretamente com as superpotências.",
+      "url": "https://www.wsj.com/world/trump-putin-xi-meeting-ee489ddd"
+     },
+     {
+      "name": "The Guardian",
+      "stance": "b",
+      "framing": "Prioriza a denúncia de Zelensky sobre a omissão de Washington em alertar sobre os bombardeios russos recentes.",
+      "url": "https://www.theguardian.com/world/2026/oct/19/no-us-warning-russian-strikes-kyiv-power-plants-zelenskyy-ukraine-trump"
+     },
+     {
+      "name": "South China Morning Post",
+      "stance": "neutro",
+      "framing": "",
+      "url": "https://www.scmp.com/news/us/article/3371428/trump-says-hes-open-xi-putin-meeting-china-nuclear-talks"
+     },
+     {
+      "name": "CNBC",
+      "stance": "neutro",
+      "framing": "",
+      "url": "https://www.cnbc.com/2026/10/19/putin-trump-xi-ukraine-war-energy.html"
+     }
+    ],
+    "side_a": "Enfatiza a disposição de Trump para negociações com Moscou",
+    "side_b": "Destaca o isolamento e as queixas de Zelensky contra os EUA",
+    "section": "mundo",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Mundo & Natureza (parte 1 de 2)"
+  },
+  {
+   "id": "pf-mira-ex-servidor-do-stj-por-suspeita-de-vazar",
+   "section": "juridico",
+   "headline": "PF mira ex-servidor do STJ por suspeita de vazar decisões a Willer Tomaz",
+   "dek": "Operação cumpre mandado de busca contra ex-secretário de tecnologia da corte após indícios de compartilhamento indevido de minutas judiciais com advogado.",
+   "body": [
+    "A **Polícia Federal** cumpriu nesta segunda-feira (19) mandado de busca e apreensão na residência de Humberto Fontoura Pradera, ex-secretário de Tecnologia da Informação e Comunicação do **Superior Tribunal de Justiça (STJ)**, em Brasília. Conforme noticiaram veículos como **JOTA**, **Valor Econômico** e **Folha de S.Paulo**, a corporação investiga suposto vazamento de informações sigilosas e minutas de decisões judiciais ao advogado Willer Tomaz, apontado como ligado à campanha do senador Flávio Bolsonaro (PL).",
+    "A investigação apura crimes de violação de sigilo funcional, corrupção, peculato eletrônico e lavagem de dinheiro, a partir de dados colhidos no celular do próprio advogado. O presidente do tribunal, ministro Luis Felipe Salomão, já havia exonerado Pradera na última sexta-feira (16). A defesa de Willer Tomaz negou ter tido acesso irregular a decisões ou pareceres. O STJ informou que afastou servidores envolvidos e lançará um programa de confiança digital para mitigar vulnerabilidades."
+   ],
+   "sources": [
+    {
+     "name": "JOTA",
+     "url": "https://www.jota.info/justica/stj-afasta-servidores-e-pf-faz-busca-contra-suspeito-de-vazamento-a-advogado-amigo-de-flavio"
+    },
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/politica/noticia/2026/10/19/pf-faz-operacao-contra-ex-servidor-do-stj-suspeito-de-vazar-informacoes-a-amigo-de-flavio-bolsonaro.ghtml"
+    },
+    {
+     "name": "STJ",
+     "url": "https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2026/19102026-STJ-afasta-servidores-suspeitos-de-irregularidades-e-tera-programa-de-confianca-digital-para-mitigar-novos-riscos.aspx"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/blogs/brasilia-hoje/2026/10/pf-faz-busca-em-ex-servidor-do-stj-suspeito-de-vazar-decisoes-a-amigo-de-flavio-bolsonaro.shtml"
+    },
+    {
+     "name": "g1",
+     "url": "https://g1.globo.com/politica/noticia/2026/10/19/pf-operacao-linceu.ghtml"
+    }
+   ],
+   "article_ids": [
+    "662b60d98b25",
+    "92137e7716fa"
+   ],
+   "importance": 3,
+   "why_it_matters": "A investigação atinge a cúpula técnica do STJ e envolve conexões políticas de destaque nacional na reta final das eleições presidenciais.",
+   "image": "https://images.jota.info/wp-content/uploads/2026/08/luis-felipe-salomao-novo-presidente-do-stj.jpg",
+   "published": "2026-10-19T19:06:05+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "PF mira ex-servidor do STJ por suspeita de vazar decisões a Willer Tomaz",
+    "conclusion": "A cobertura foi uniforme na divulgação dos fatos investigados pela PF e das medidas administrativas tomadas pelo STJ, com a imprensa geral frisando a ligação do advogado citado a Flávio Bolsonaro.",
+    "outlets": [
+     {
+      "name": "JOTA",
+      "stance": "neutro",
+      "framing": "Detalhou o afastamento funcional pelo STJ, os tipos penais sob apuração da PF e a ida do caso ao STF sob relatoria de Alexandre de Moraes.",
+      "url": "https://www.jota.info/justica/stj-afasta-servidores-e-pf-faz-busca-contra-suspeito-de-vazamento-a-advogado-amigo-de-flavio"
+     },
+     {
+      "name": "Valor Econômico",
+      "stance": "neutro",
+      "framing": "Concentrou-se no cumprimento do mandado contra o ex-secretário de TI e nas suspeitas de repasse de dados ao advogado Tomaz.",
+      "url": "https://valor.globo.com/politica/noticia/2026/10/19/pf-faz-operacao-contra-ex-servidor-do-stj-suspeito-de-vazar-informacoes-a-amigo-de-flavio-bolsonaro.ghtml"
+     },
+     {
+      "name": "STJ",
+      "stance": "neutro",
+      "framing": "Divulgou nota institucional sobre as medidas administrativas de afastamento de servidores e a criação de programa de confiança digital.",
+      "url": "https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2026/19102026-STJ-afasta-servidores-suspeitos-de-irregularidades-e-tera-programa-de-confianca-digital-para-mitigar-novos-riscos.aspx"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Frisou no título a proximidade de Tomaz com o senador e candidato a presidente Flávio Bolsonaro.",
+      "url": "https://www1.folha.uol.com.br/blogs/brasilia-hoje/2026/10/pf-faz-busca-em-ex-servidor-do-stj-suspeito-de-vazar-decisoes-a-amigo-de-flavio-bolsonaro.shtml"
+     },
+     {
+      "name": "g1",
+      "stance": "neutro",
+      "framing": "Informou a execução da operação policial e o foco no crime de violação de sigilo funcional praticado no tribunal.",
+      "url": "https://g1.globo.com/politica/noticia/2026/10/19/pf-operacao-linceu.ghtml"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "juridico",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Política & Justiça (parte 1 de 2)"
+  },
+  {
+   "id": "rebeca-andrade-brilha-no-salto-e-leva-selecao-a",
+   "section": "esporte",
+   "headline": "Rebeca Andrade brilha no salto e leva seleção a cinco finais no Mundial de Roterdã",
+   "dek": "Equipe feminina avança na disputa geral e classifica Rebeca, Flávia Saraiva e Lorrane Oliveira para decisões.",
+   "body": [
+    "O Brasil garantiu classificação para cinco finais no Campeonato Mundial de Ginástica Artística de 2026, em Roterdã, na Holanda. Na volta de **Rebeca Andrade** às grandes competições internacionais após os Jogos de Paris, a equipe feminina assegurou vaga na decisão coletiva e em provas individuais com início marcado para quarta-feira.",
+    "Rebeca cravou a maior nota do dia na qualificatória do salto e confirmou presença na final do aparelho. O país também terá Flávia Saraiva na decisão da trave e no individual geral, além de Lorrane Oliveira e do retorno de Thaís Fidelis após sete anos fora da seleção nacional."
+   ],
+   "sources": [
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/esportes/brasil-chega-para-o-mundial-de-roterda-com-retorno-de-ginasta-apos-sete-anos-e-jovens-promessas/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/esporte/2026/10/rebeca-andrade-volta-a-competir-no-mundial-de-ginastica-apos-tres-anos.shtml"
+    },
+    {
+     "name": "Gazeta Esportiva",
+     "url": "https://www.gazetaesportiva.com/mais-esportes/ginastica/brasil-garante-cinco-finais-e-segue-na-briga-por-medalhas-no-mundial-de-ginastica/"
+    },
+    {
+     "name": "Agência Brasil",
+     "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/rebeca-flavinha-e-lorrane-avancam-finais-do-mundial-de-ginastica"
+    }
+   ],
+   "article_ids": [
+    "8b63eca5efc2",
+    "1ab08f431b4a"
+   ],
+   "importance": 4,
+   "why_it_matters": "A performance consolida o Brasil na elite da ginástica artística mundial e confirma a boa fase de Rebeca Andrade após período sabático.",
+   "image": "https://www.estadao.com.br/resizer/v2/RUY2XTEGKNC5FKDIVRBRJSGECM.jpeg?auth=f840fb72239f613fcf503e1b43c62ad5f5775b387d0247c78b42823a00a2692f&smart=true&width=1000",
+   "published": "2026-10-19T08:30:00+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Rebeca Andrade brilha no salto e leva seleção a cinco finais no Mundial de Roterdã",
+    "conclusion": "A cobertura da imprensa brasileira convergiu de forma unânime e factual no destaque à classificação e no protagonismo de Rebeca Andrade.",
+    "outlets": [
+     {
+      "name": "Estadão",
+      "stance": "neutro",
+      "framing": "Ressaltou a mescla de veteranas com novatas e o retorno de Rebeca e Thaís Fidelis à equipe.",
+      "url": "https://www.estadao.com.br/esportes/brasil-chega-para-o-mundial-de-roterda-com-retorno-de-ginasta-apos-sete-anos-e-jovens-promessas/"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "neutro",
+      "framing": "Focou no regresso de Rebeca como a maior medalhista olímpica do esporte brasileiro.",
+      "url": "https://www1.folha.uol.com.br/esporte/2026/10/rebeca-andrade-volta-a-competir-no-mundial-de-ginastica-apos-tres-anos.shtml"
+     },
+     {
+      "name": "Gazeta Esportiva",
+      "stance": "neutro",
+      "framing": "Destacou a quantidade de finais garantidas e o potencial de medalhas do grupo.",
+      "url": "https://www.gazetaesportiva.com/mais-esportes/ginastica/brasil-garante-cinco-finais-e-segue-na-briga-por-medalhas-no-mundial-de-ginastica/"
+     },
+     {
+      "name": "Agência Brasil",
+      "stance": "neutro",
+      "framing": "Apresentou balanço factual das notas obtidas e do calendário das disputas de medalha.",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/rebeca-flavinha-e-lorrane-avancam-finais-do-mundial-de-ginastica"
+     }
+    ],
+    "side_a": "",
+    "side_b": "",
+    "section": "esporte",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Esporte, Cultura & Variedades (parte 1 de 2)"
+  },
+  {
+   "id": "morre-aos-84-anos-o-cantor-e-compositor-benito-d",
+   "section": "variedades",
+   "headline": "Morre aos 84 anos o cantor e compositor Benito Di Paula em São Paulo",
+   "dek": "Artista enfrentava complicações decorrentes de um câncer de próstata diagnosticado há cerca de um ano.",
+   "body": [
+    "O pianista, cantor e compositor **Benito Di Paula morreu na noite de domingo (18)**, aos 84 anos, no Hospital 9 de Julho, em São Paulo, de acordo com informações do Valor Econômico. O músico tratava um câncer de próstata diagnosticado há aproximadamente um ano e faleceu em decorrência de complicações da enfermidade.",
+    "Referência na história da música popular brasileira por sua contribuição ao samba de piano, a perda do artista repercutiu também no campo da saúde pública. A CNN Brasil sublinhou dados do Ministério da Saúde alertando que nove em cada dez homens com câncer de próstata no país têm mais de 55 anos."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/brasil/noticia/2026/10/20/1e6f3b6a-curtas.ghtml"
+    }
+   ],
+   "article_ids": [
+    "46627a7be2e0",
+    "192cebb0e6be"
+   ],
+   "importance": 3,
+   "why_it_matters": "Benito Di Paula foi um dos nomes mais emblemáticos da música brasileira, além de a notícia suscitar conscientização nacional sobre a prevenção do câncer de próstata.",
+   "image": "https://s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/public/fb_marca.png",
+   "published": "2026-10-20T08:00:00+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Morre aos 84 anos o cantor e compositor Benito Di Paula em São Paulo",
+    "conclusion": "A cobertura combinou a notificação da perda cultural com uma abordagem de conscientização médica sobre a doença.",
+    "outlets": [
+     {
+      "name": "Valor Econômico",
+      "stance": "a",
+      "framing": "Informou a morte no Hospital 9 de Julho e resumiu o histórico clínico recente do cantor de maneira sóbria.",
+      "url": "https://valor.globo.com/brasil/noticia/2026/10/20/1e6f3b6a-curtas.ghtml"
+     },
+     {
+      "name": "CNN Brasil",
+      "stance": "b",
+      "framing": "Utilizou a perda do cantor como gancho informativo para divulgar dados de prevenção e incidência do câncer de próstata.",
+      "url": "https://www.cnnbrasil.com.br/saude/benito-di-paula-9-em-cada-10-com-cancer-de-prostata-tem-mais-de-55-anos/"
+     }
+    ],
+    "side_a": "Foco no obituário e na trajetória musical do compositor",
+    "side_b": "Foco no alerta médico e estatísticas sobre câncer de próstata",
+    "section": "variedades",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Esporte, Cultura & Variedades (parte 2 de 2)"
+  },
+  {
+   "id": "globo-e-netflix-fecham-acordo-para-exibicao-de-1",
+   "section": "variedades",
+   "headline": "Globo e Netflix fecham acordo para exibição de 18 produções brasileiras no streaming",
+   "dek": "Parceria prevê a inclusão de filmes, novelas e séries originais da emissora no catálogo da plataforma norte-americana a partir de dezembro.",
+   "body": [
+    "A Netflix e o Grupo Globo formalizaram um acordo inédito de licenciamento que levará **18 obras originais da emissora brasileira** ao catálogo da plataforma americana de streaming a partir de dezembro deste ano, segundo noticiou o Valor Econômico. A negociação envolve filmes, novelas e séries produzidos pela empresa nacional.",
+    "O contrato representa a maior transação já firmada entre as duas gigantes do setor de entretenimento. Os termos financeiros e a lista integral dos títulos licenciados não foram detalhados pelas companhias na divulgação inicial."
+   ],
+   "sources": [
+    {
+     "name": "Valor Econômico",
+     "url": "https://valor.globo.com/empresas/noticia/2026/10/19/netflix-e-globo-anunciam-acordo-de-licenciamento-para-exibir-filmes-novelas-e-series.ghtml"
+    }
+   ],
+   "article_ids": [
+    "03e1f4b377e1",
+    "c214bb65380a"
+   ],
+   "importance": 3,
+   "why_it_matters": "O movimento amplia o alcance da teledramaturgia brasileira e consolida uma nova postura comercial da Globo ao negociar acervo estratégico com sua maior rival global.",
+   "image": "https://s2-valor.glbimg.com/r3_nlbFIxUOhSL7q-FFOYKENUUY=/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2026/u/X/seARuvTk6jU1d1ZdqLsw/1-destaques-eng-.png",
+   "published": "2026-10-19T19:21:29+00:00",
+   "lang": "pt",
+   "coverage": null,
+   "block": "Esporte, Cultura & Variedades (parte 2 de 2)"
+  },
+  {
+   "id": "federacao-portuguesa-suspende-cristiano-ronaldo",
+   "section": "esporte",
+   "headline": "Federação Portuguesa suspende Cristiano Ronaldo por 30 dias após saída de concentração",
+   "dek": "Astro é punido por infração disciplinar após desentendimento com Jorge Jesus, mas gancho não o tira de jogos.",
+   "body": [
+    "O Conselho de Disciplina da Federação Portuguesa de Futebol (FPF) puniu o atacante **Cristiano Ronaldo** com 30 dias de suspensão e multa de 255 euros (cerca de R$ 1.444). A punição decorre do abandono da concentração em Copenhague, em setembro, antes do jogo contra a Dinamarca pela Liga das Nações.",
+    "O astro deixou a equipe após divergências com o técnico Jorge Jesus a respeito de sua utilização em campo. Como a próxima Data Fifa ocorre somente em novembro, a punição não impede Cristiano de atuar por Portugal em partidas oficiais, cabendo ao treinador decidir sua convocação."
+   ],
+   "sources": [
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/esportes/futebol/cristiano-ronaldo-e-punido-por-30-dias-e-valor-irrisorio-e-pode-reforcar-portugal-em-novembro/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/esporte/2026/10/cristiano-ronaldo-recebe-suspensao-de-30-dias-por-deixar-concentracao-de-portugal.shtml"
+    },
+    {
+     "name": "Gazeta Esportiva",
+     "url": "https://www.gazetaesportiva.com/times/portugal/cristiano-ronaldo-suspensao-portugal-fpf/"
+    },
+    {
+     "name": "Exame",
+     "url": "https://exame.com/esporte/cristiano-ronaldo-recebe-suspensao-de-30-dias-apos-deixar-selecao-de-portugal/"
+    },
+    {
+     "name": "BBC Sport",
+     "url": "https://www.bbc.co.uk/sport/football/articles/ck9qznlywy8no"
+    }
+   ],
+   "article_ids": [
+    "e667c5d88c92",
+    "642aad8031bc"
+   ],
+   "importance": 4,
+   "why_it_matters": "A punição formal encerra o processo disciplinar sem gerar prejuízos práticos ao atleta, mantendo aberto seu futuro na seleção portuguesa.",
+   "image": "https://www.estadao.com.br/resizer/v2/FBFBXPMU5FGTJOG5EHATUJK7FM.jpg?quality=80&auth=ea4ed8281c68f03bf2d160e99c15d33c2fafcd00db807a64293b812a16f1b360&width=1200&height=630&smart=true",
+   "published": "2026-10-19T18:44:01+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Federação Portuguesa suspende Cristiano Ronaldo por 30 dias após saída de concentração",
+    "conclusion": "A imprensa relatou a penalidade de forma factual e neutra, à exceção do Estadão, que criticou abertamente a brandura da decisão.",
+    "outlets": [
+     {
+      "name": "Estadão",
+      "stance": "a",
+      "framing": "Classificou a sanção como inócua e a multa como irrisória para não indispor a federação com o jogador.",
+      "url": "https://www.estadao.com.br/esportes/futebol/cristiano-ronaldo-e-punido-por-30-dias-e-valor-irrisorio-e-pode-reforcar-portugal-em-novembro/"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "b",
+      "framing": "Cobriu factualmente a punição de 30 dias e a discordância com o técnico Jorge Jesus.",
+      "url": "https://www1.folha.uol.com.br/esporte/2026/10/cristiano-ronaldo-recebe-suspensao-de-30-dias-por-deixar-concentracao-de-portugal.shtml"
+     },
+     {
+      "name": "Gazeta Esportiva",
+      "stance": "b",
+      "framing": "Relatou os artigos do regulamento disciplinar utilizados no julgamento da comissão da FPF.",
+      "url": "https://www.gazetaesportiva.com/times/portugal/cristiano-ronaldo-suspensao-portugal-fpf/"
+     },
+     {
+      "name": "Exame",
+      "stance": "b",
+      "framing": "Apresentou a condenação e os valores da sanção financeira de forma estritamente factual.",
+      "url": "https://exame.com/esporte/cristiano-ronaldo-recebe-suspensao-de-30-dias-apos-deixar-selecao-de-portugal/"
+     },
+     {
+      "name": "BBC Sport",
+      "stance": "b",
+      "framing": "Registrou a pena aplicada e a saída do atleta do período de treinamentos internacionais.",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ck9qznlywy8no"
+     }
+    ],
+    "side_a": "Aponta punição como branda e inócua",
+    "side_b": "Noticia os fatos e a decisão disciplinar",
+    "section": "esporte",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Esporte, Cultura & Variedades (parte 1 de 2)"
+  },
+  {
+   "id": "corinthians-empata-com-vitoria-sob-olhar-de-seed",
+   "section": "esporte",
+   "headline": "Corinthians empata com Vitória sob olhar de Seedorf e continua ameaçado pelo rebaixamento",
+   "dek": "Gol de pênalti de Yuri Alberto encerra sequência de oito derrotas, mas mantém equipe sem vencer há nove rodadas.",
+   "body": [
+    "O Corinthians empatou por 1 a 1 com o Vitória nesta segunda-feira (19), na Neo Química Arena, no fechamento da 31ª rodada do Campeonato Brasileiro. O novo técnico, **Clarence Seedorf**, acompanhou o jogo da arquibancada devido a pendências no visto de trabalho e viu o time chegar a nove partidas sem vitória na competição.",
+    "Renê abriu o placar para o time baiano, mas Yuri Alberto empatou no segundo tempo em cobrança de pênalti, assinalado após intervenção do VAR em falta sobre André. O resultado encerrou uma sequência de oito derrotas seguidas do clube paulista, mas manteve a equipe em situação dramática colada no Z-4.",
+    "O Vitória segue sem vencer como visitante no campeonato, mas comemorou o ponto conquistado fora de casa, ampliando para cinco pontos a distância para a zona de degola após tropeços de concorrentes diretos na rodada."
+   ],
+   "sources": [
+    {
+     "name": "ge",
+     "url": "https://ge.globo.com/futebol/times/corinthians/noticia/2026/10/20/analise-seedorf-tenta-algo-novo-ao-mudar-esquema-mas-corinthians-mantem-agonia-a-beira-do-z-4.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "url": "https://www.estadao.com.br/esportes/futebol/corinthians-x-vitoria-31-rodada-campeonato-brasileiro-analise/"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "url": "https://www1.folha.uol.com.br/esporte/2026/10/corinthians-apos-oito-derrotas-consecutivas-empata-em-casa-contra-o-pior-visitante.shtml"
+    },
+    {
+     "name": "Gazeta Esportiva",
+     "url": "https://www.gazetaesportiva.com/times/corinthians/veja-os-melhores-momentos-de-corinthians-1-x-1-vitoria-pelo-brasileirao/"
+    },
+    {
+     "name": "UOL",
+     "url": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/20/ex-arbitros-penalti-corinthians-vitoria-brasileirao-2026.ghtm"
+    },
+    {
+     "name": "Placar",
+     "url": "https://placar.com/brasileirao/corinthians-empata-com-o-vitoria-e-chega-a-nove-jogos-sem-vencer/"
+    },
+    {
+     "name": "CNN Brasil",
+     "url": "https://www.cnnbrasil.com.br/esportes/brasileirao/corinthians-1-x-1-vitoria-veja-os-melhores-momentos-pelo-brasileirao/"
+    }
+   ],
+   "article_ids": [
+    "6c383ac555bc",
+    "4c2b047bb79f"
+   ],
+   "importance": 4,
+   "why_it_matters": "O resultado prolonga o momento crítico do Corinthians na Série A e eleva a pressão sobre Seedorf para reverter o risco de rebaixamento.",
+   "image": "https://s2-ge.glbimg.com/V0HcIfft9N5zg_Dusbl4-qDPKVY=/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2026/y/C/YHtkRUQzWXFL6Ajc7Xeg/rib5678.jpg",
+   "published": "2026-10-20T07:00:00+00:00",
+   "lang": "pt",
+   "coverage": {
+    "topic": "Corinthians empata com Vitória sob olhar de Seedorf e continua ameaçado pelo rebaixamento",
+    "conclusion": "Predominou o enfoque na persistência da crise e na ameaça de rebaixamento do Corinthians, com a postura de Seedorf no estádio no centro da cobertura.",
+    "outlets": [
+     {
+      "name": "ge",
+      "stance": "a",
+      "framing": "Deu grande ênfase às reações de Seedorf, à crise esportiva e à confissão de medo do goleiro Hugo Souza.",
+      "url": "https://ge.globo.com/futebol/times/corinthians/noticia/2026/10/20/analise-seedorf-tenta-algo-novo-ao-mudar-esquema-mas-corinthians-mantem-agonia-a-beira-do-z-4.ghtml"
+     },
+     {
+      "name": "Estadão",
+      "stance": "a",
+      "framing": "Apontou pouca criatividade ofensiva e a situação perigosa do Corinthians na classificação.",
+      "url": "https://www.estadao.com.br/esportes/futebol/auxiliar-do-corinthians-ressalta-uniao-do-grupo-e-aposta-em-evolucao-da-equipe-acredito-em-todos-npres/"
+     },
+     {
+      "name": "Folha de S.Paulo",
+      "stance": "a",
+      "framing": "Sublinhou o término da sequência de oito reveses contra um rival que ainda não venceu fora.",
+      "url": "https://www1.folha.uol.com.br/esporte/2026/10/corinthians-apos-oito-derrotas-consecutivas-empata-em-casa-contra-o-pior-visitante.shtml"
+     },
+     {
+      "name": "Gazeta Esportiva",
+      "stance": "a",
+      "framing": "Focou no discurso de união do elenco e nas chances perdidas pelo ataque alvinegro.",
+      "url": "https://www.gazetaesportiva.com/times/corinthians/hugo-souza-medo-rebaixamento-corinthians/"
+     },
+     {
+      "name": "UOL",
+      "stance": "neutro",
+      "framing": "Analisou de forma estrita a regularidade do pênalti assinalado a favor do time mandante.",
+      "url": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/10/20/ex-arbitros-penalti-corinthians-vitoria-brasileirao-2026.ghtm"
+     },
+     {
+      "name": "Placar",
+      "stance": "a",
+      "framing": "Frisou a marca de nove jogos sem vitórias no torneio nacional para a equipe paulista.",
+      "url": "https://placar.com/brasileirao/corinthians-empata-com-o-vitoria-e-chega-a-nove-jogos-sem-vencer/"
+     },
+     {
+      "name": "CNN Brasil",
+      "stance": "a",
+      "framing": "Destacou a interrupção da sequência de derrotas sob os olhares de Clarence Seedorf.",
+      "url": "https://www.cnnbrasil.com.br/esportes/brasileirao/corinthians-1-x-1-vitoria-veja-os-melhores-momentos-pelo-brasileirao/"
+     }
+    ],
+    "side_a": "Enfatiza a crise corintiana e a proximidade do Z-4",
+    "side_b": "Enfatiza o ganho pontual do Vitória no duelo direto",
+    "section": "esporte",
+    "published": null,
+    "url": null,
+    "article_ids": []
+   },
+   "block": "Esporte, Cultura & Variedades (parte 1 de 2)"
+  }
+ ],
+ "quotes": [
+  {
+   "id": "usd",
+   "label": "Dólar",
+   "value": 5.0497,
+   "display": "R$ 5,05",
+   "change_pct": 0.1051,
+   "kind": "fx",
+   "as_of": "2026-10-20T09:00:42+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "eur",
+   "label": "Euro",
+   "value": 5.6662,
+   "display": "R$ 5,67",
+   "change_pct": 0.0353,
+   "kind": "fx",
+   "as_of": "2026-10-20T09:29:26+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "cny",
+   "label": "Yuan",
+   "value": 0.7562,
+   "display": "R$ 0,76",
+   "change_pct": 0.0913,
+   "kind": "fx",
+   "as_of": "2026-10-20T09:29:26+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ibov",
+   "label": "Ibovespa",
+   "value": 205079.25,
+   "display": "205.079 pts",
+   "change_pct": -0.171,
+   "kind": "index",
+   "as_of": "2026-10-19T20:18:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "ifix",
+   "label": "IFIX",
+   "value": 3956.84,
+   "display": "3.957 pts",
+   "change_pct": 0.429,
+   "kind": "index",
+   "as_of": "2026-10-19T20:18:00+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "spx",
+   "label": "S&P 500",
+   "value": 7690.73,
+   "display": "7.691 pts",
+   "change_pct": 0.409,
+   "kind": "index",
+   "as_of": "2026-10-19T20:44:14+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "brent",
+   "label": "Brent",
+   "value": 111.69,
+   "display": "US$ 111,69",
+   "change_pct": 1.953,
+   "kind": "commodity",
+   "as_of": "2026-10-20T09:45:12+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "gold",
+   "label": "Ouro",
+   "value": 4137.8,
+   "display": "US$ 4.138",
+   "change_pct": -0.536,
+   "kind": "commodity",
+   "as_of": "2026-10-20T09:45:23+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "btc",
+   "label": "Bitcoin",
+   "value": 81353.99,
+   "display": "US$ 81.354",
+   "change_pct": -1.602,
+   "kind": "crypto",
+   "as_of": "2026-10-20T09:55:23+00:00",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "selic",
+   "label": "Selic",
+   "value": 13.75,
+   "display": "13,75%",
+   "change_pct": null,
+   "kind": "rate",
+   "as_of": "2026-10-20",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "ipca12m",
+   "label": "IPCA 12m",
+   "value": 4.58,
+   "display": "4,58%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-09",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "igpm12m",
+   "label": "IGP-M 12m",
+   "value": 3.3483781728321116,
+   "display": "3,35%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-09",
+   "source": "Banco Central (SGS)"
+  },
+  {
+   "id": "incc12m",
+   "label": "INCC 12m",
+   "value": 6.660891228790788,
+   "display": "6,66%",
+   "change_pct": null,
+   "kind": "inflation",
+   "as_of": "2026-09",
+   "source": "Banco Central (SGS)"
+  }
+ ],
+ "weather": [
+  {
+   "city": "São Paulo",
+   "current_c": 14.3,
+   "current_emoji": "☁️",
+   "current_desc": "Nublado",
+   "today_min": 13.7,
+   "today_max": 23.2,
+   "tomorrow_min": 13.9,
+   "tomorrow_max": 24.6,
+   "tomorrow_emoji": "☁️",
+   "tomorrow_desc": "Nublado"
+  },
+  {
+   "city": "Montevidéu",
+   "current_c": 10.0,
+   "current_emoji": "☀️",
+   "current_desc": "Céu limpo",
+   "today_min": 9.8,
+   "today_max": 14.7,
+   "tomorrow_min": 11.2,
+   "tomorrow_max": 16.8,
+   "tomorrow_emoji": "☁️",
+   "tomorrow_desc": "Nublado"
+  }
+ ],
+ "stats": {
+  "sources_total": 101,
+  "sources_ok": 90,
+  "sources_failed": [],
+  "articles_collected": 1581,
+  "articles_considered": 1581,
+  "llm_input_tokens": 210396,
+  "llm_output_tokens": 49836
+ },
+ "wire": [
+  {
+   "title": "Pesquisa eleitoral, petróleo, balanços da Netflix e SpaceX e mais destaques desta 3ª",
+   "url": "https://www.infomoney.com.br/mercados/pesquisa-eleitoral-balancos-netflix-spacex-agenda-20102026/",
+   "source": "InfoMoney",
+   "published": "2026-10-20T09:34:04+00:00",
+   "section": "mercados"
+  },
+  {
+   "title": "Governo Lula admite falta de recursos para manter políticas atuais a partir de 2028",
+   "url": "https://www.estadao.com.br/economia/governo-lula-ve-necessidade-de-rever-gastos-nos-proximos-4-anos-e-defende-esforco-contido-e-estavel/",
+   "source": "Estadão",
+   "published": "2026-10-20T08:30:00+00:00",
+   "section": "brasil"
+  }
+ ],
+ "compared": [
+  {
+   "topic": "Musk promete ações da SpaceX a crianças após dona do Claude destinar 5% de fatia ao público",
+   "conclusion": "A maioria dos veículos tratou as doações com ceticismo, vendo manobras de relações públicas pré-IPO, enquanto articulistas do WSJ exaltaram o plano de Musk.",
+   "outlets": [
+    {
+     "name": "The New York Times",
+     "stance": "a",
+     "framing": "Contextualizou a rivalidade entre Musk e Anthropic, destacando que os compromissos funcionam como resposta às críticas sobre concentração de lucros.",
+     "url": "https://www.nytimes.com/2026/10/19/technology/elon-musk-spacex-stock-anthropic-giveaway.html"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "stance": "b",
+     "framing": "Destacou em artigo opinativo que a iniciativa de Musk insere crianças no capitalismo de forma mais atraente que a proposta da concorrente.",
+     "url": "https://www.wsj.com/opinion/elon-musk-giving-spacex-shares-anthropic-fund-81d46772"
+    },
+    {
+     "name": "The Guardian",
+     "stance": "a",
+     "framing": "Enfatizou que o fundo de US$ 48 bilhões da Anthropic busca amaciar preocupações sociais e atrair investidores antes de sua estreia na bolsa.",
+     "url": "https://www.theguardian.com/technology/2026/oct/19/ai-firm-anthropic-to-commit-shares-to-fund-for-public-good"
+    },
+    {
+     "name": "BBC News",
+     "stance": "neutro",
+     "framing": "Manteve relato equilibrado ao noticiar conjuntamente os anúncios de doações de papéis feitos por Musk e pela desenvolvedora do Claude.",
+     "url": "https://www.bbc.co.uk/news/articles/cm2kez327gdko"
+    },
+    {
+     "name": "CNBC",
+     "stance": "a",
+     "framing": "Pontuou a ausência de explicações operacionais no plano de Musk para doar ações da SpaceX e esmiuçou o modelo jurídico do fundo da Anthropic.",
+     "url": "https://www.cnbc.com/2026/10/19/elon-musk-spacex-shares-giveaway-kids.html"
+    },
+    {
+     "name": "El País",
+     "stance": "a",
+     "framing": "Assinalou que as gigantes de IA buscam disfarçar seu foco lucrativo com fundos públicos diante de reações contrárias da sociedade.",
+     "url": "https://cincodias.elpais.com/opinion/2026-10-20/las-claves-los-gigantes-tecnologicos-intentan-que-no-se-note-tanto-su-animo-de-lucro.html"
+    },
+    {
+     "name": "TechCrunch",
+     "stance": "neutro",
+     "framing": "Noticiou objetivamente a promessa de entrega de papéis feita por Musk nas redes sociais sem tomar partido na disputa de anúncios.",
+     "url": "https://techcrunch.com/2026/10/19/musk-pledges-to-give-every-kid-in-america-one-of-his-spacex-shares/"
+    }
+   ],
+   "side_a": "Vê manobra de relações públicas antes de IPOs",
+   "side_b": "Exalta distribuição de ações como inclusão capitalista",
+   "section": "tecnologia",
+   "published": "2026-10-20T03:40:00+00:00",
+   "url": "https://www.nytimes.com/2026/10/19/technology/elon-musk-spacex-stock-anthropic-giveaway.html",
+   "article_ids": [
+    "1ff2b71fa9c0",
+    "2bf960106e4c",
+    "bb6337b78f4d",
+    "c2ced7e7825b",
+    "bec807856c71",
+    "980280d95c42",
+    "1ca82a3cde4e",
+    "d92e460ede7e",
+    "1995c4060533"
+   ]
+  },
+  {
+   "topic": "Justiça do Quênia condena líder de seita por morte de quase 200 crianças",
+   "conclusion": "A cobertura convergiu de maneira unânime na gravidade dos crimes e na confirmação do veredito de culpa contra os líderes da seita.",
+   "outlets": [
+    {
+     "name": "Valor Econômico",
+     "stance": "neutro",
+     "framing": "",
+     "url": "https://valor.globo.com/mundo/noticia/2026/10/19/jornalista-christiane-amanpour-esta-deixando-a-cnn-apos-43-anos.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "stance": "neutro",
+     "framing": "Relata os detalhes da condenação e o perfil do líder da seita com alertas sobre o teor sensível do conteúdo.",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/10/o-lider-de-seita-apocaliptica-que-deixou-quase-200-criancas-morrerem-de-fome.shtml"
+    },
+    {
+     "name": "g1",
+     "stance": "neutro",
+     "framing": "Foca na confirmação dos 191 homicídios, destacando que quase todas as vítimas eram menores de idade submetidas à inanição.",
+     "url": "https://g1.globo.com/economia/noticia/2026/10/19/apos-43-anos-christiane-amanpour-deixara-a-cnn-americana.ghtml"
+    },
+    {
+     "name": "Estadão",
+     "stance": "neutro",
+     "framing": "",
+     "url": "https://www.estadao.com.br/internacional/jornalista-christiane-amanpour-anuncia-deixara-cnn-apos-43-anos-npr/"
+    },
+    {
+     "name": "The New York Times",
+     "stance": "neutro",
+     "framing": "Registra a decisão judicial no tribunal de Mombasa sobre os crimes de assassinato em massa motivados por crenças apocalípticas.",
+     "url": "https://www.nytimes.com/2026/10/19/world/africa/kenya-cult-deaths-paul-mackenzie-court-ruling.html"
+    },
+    {
+     "name": "The Guardian",
+     "stance": "neutro",
+     "framing": "Detalha a atuação da promotoria e a responsabilização criminal de Mackenzie e seus cúmplices pelas mortes de crianças.",
+     "url": "https://www.theguardian.com/media/2026/oct/19/christiane-amanpour-leaving-cnn"
+    },
+    {
+     "name": "BBC News",
+     "stance": "neutro",
+     "framing": "Destaca a confirmação das 191 acusações de homicídio doloso imputadas ao falso pastor.",
+     "url": "https://www.bbc.co.uk/news/articles/ckd6d2l3dz4xo"
+    }
+   ],
+   "side_a": "",
+   "side_b": "",
+   "section": "mundo",
+   "published": "2026-10-20T06:00:00+00:00",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/19/jornalista-christiane-amanpour-esta-deixando-a-cnn-apos-43-anos.ghtml",
+   "article_ids": [
+    "01e720af75f1",
+    "3c0cfe79d974",
+    "fd876133f9f4",
+    "83534eb22fc9",
+    "1a021504efa6",
+    "f9f9844f8955",
+    "07e61ce5da4a",
+    "dc558460829a",
+    "8ae589bfc27c",
+    "e99b3d180cf7",
+    "2874b0c23ded"
+   ]
+  },
+  {
+   "topic": "Governo francês rejeita demissão de ministro após onda de tumultos",
+   "conclusion": "A cobertura divide-se entre o foco econômico nos riscos para a dívida soberana e o relato factual dos confrontos sociais e saques.",
+   "outlets": [
+    {
+     "name": "Valor Econômico",
+     "stance": "neutro",
+     "framing": "Noticia formalmente a decisão do Palácio do Eliseu de rejeitar a renúncia do ministro Laurent Nuñez após o fim de semana de tumultos.",
+     "url": "https://valor.globo.com/mundo/noticia/2026/10/19/macron-rejeita-renncia-de-ministro-do-interior-aps-tumultos-na-frana.ghtml"
+    },
+    {
+     "name": "Folha de S.Paulo",
+     "stance": "neutro",
+     "framing": "Relata a troca de acusações entre o governo centrista e a ultraesquerda, além da recusa de Macron em afastar o ministro do Interior.",
+     "url": "https://www1.folha.uol.com.br/mundo/2026/10/ultradireita-tira-vantagem-dos-protestos-na-franca-a-6-meses-da-eleicao-presidencial.shtml"
+    },
+    {
+     "name": "g1",
+     "stance": "neutro",
+     "framing": "Prioriza a cobertura visual dos saques a comércios e galerias em cidades como Bordeaux e Nice durante os protestos.",
+     "url": "https://g1.globo.com/mundo/noticia/2026/10/19/video-galerias-lafayette-sao-saqueadas-por-durante-disturbios-na-franca.ghtml"
+    },
+    {
+     "name": "The Wall Street Journal",
+     "stance": "neutro",
+     "framing": "Foca na dinâmica dos confrontos urbanos e no impacto limitado que a contágio da dívida francesa tem exercido sobre o restante da zona do euro.",
+     "url": "https://www.wsj.com/world/europe/rioting-in-france-whats-fueling-the-violence-and-what-happens-next-87f18199"
+    },
+    {
+     "name": "BBC News",
+     "stance": "neutro",
+     "framing": "Destaca a reação de plataformas digitais, como o bloqueio imediato de mercadorias roubadas colocadas à venda por vândalos.",
+     "url": "https://www.bbc.co.uk/news/articles/cm8xzrljv72ro"
+    },
+    {
+     "name": "CNBC",
+     "stance": "a",
+     "framing": "Ressalta o temor dos mercados de que a revolta popular e o impasse nos gastos do governo afetem diretamente os títulos soberanos e o euro.",
+     "url": "https://www.cnbc.com/2026/10/19/france-protests-worst-in-years-unrest-macron-.html"
+    },
+    {
+     "name": "El País",
+     "stance": "a",
+     "framing": "Enfatiza a gravidade da fratura social e política que elevou o custo de financiamento da dívida soberana e pressionou os mercados periféricos.",
+     "url": "https://cincodias.elpais.com/opinion/2026-10-20/el-temblor-de-francia-resuena-en-toda-europa.html"
+    }
+   ],
+   "side_a": "Culpabiliza a agitação política e defende linha dura",
+   "side_b": "Atribui os tumultos ao descontentamento social e fiscal",
+   "section": "mundo",
+   "published": "2026-10-20T03:40:00+00:00",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/19/macron-rejeita-renncia-de-ministro-do-interior-aps-tumultos-na-frana.ghtml",
+   "article_ids": [
+    "a7397bf009c4",
+    "475137f18913",
+    "109511ff7d05",
+    "30727e116628",
+    "9077c7ce494b",
+    "9150d4995a2c",
+    "8b6118eab181",
+    "41a1ae37a2b1",
+    "107c10422724",
+    "e0746adb0d73"
+   ]
+  }
+ ],
+ "rationale": {
+  "method": "blocos",
+  "provider": "gemini → gemini_lite",
+  "articles": 1581,
+  "outlets": 44,
+  "groups": 1223,
+  "topics": 1056,
+  "calls": 22,
+  "blocks": [
+   {
+    "name": "Economia & Mercados",
+    "sections": [
+     "brasil",
+     "mercados"
+    ],
+    "articles": 320,
+    "groups": 266,
+    "stories": 7,
+    "compared": 10,
+    "ok": true
+   }
+  ]
+ },
+ "index": [],
+ "termometro": null
+}

@@ -1,0 +1,62 @@
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% set launch = slot == 'lancamento' %}
+{% set fmt = 'Comece aqui' if launch else 'Em 1 minuto' %}
+{# no "Comece aqui" o cabeçalho não repete o chip; no Em 1 minuto o cabeçalho leva o nome da série e o chip, a editoria #}
+{% set hdr_label = 'Guia rápido' if launch else 'Em 1 minuto' %}
+{% set sec_color = s.section.color if s.section and s.section.color else '#1B2745' %}
+{#- Paginação: a mesma regra dos três carrosséis (slides do carrossel, "02/08", no rodapé à direita).
+    A barra de progresso do alto segue o mesmo critério (um segmento por slide, o atual em laranja).
+    O numeral grande é o número do item (fato 1 de 5, tópico 1 de 4), não a página. -#}
+{% set cur = page %}
+{% set tot = pages %}
+{% set text = s.text %}
+{# corpo pelo tamanho do texto: fato curto ganha letra maior (não sobra um vão no meio do slide) #}
+{% set tl = text|length %}
+{#- No "Comece aqui" os quatro textos têm o mesmo corpo (62 px), para o guia ler como uma peça só. -#}
+{#- Em 1 minuto: fato curto ganha letra grande (84 px até 90 caracteres) e o ajuste automático reduz se faltar altura. -#}
+{% set body_fs = 62 if launch else (84 if tl <= 90 else (76 if tl <= 140 else (68 if tl <= 190 else (62 if tl <= 240 else 56)))) %}
+{% block theme %}t-paper{% endblock %}
+{% block style %}
+.meta{display:flex;align-items:center;justify-content:space-between;margin-top:30px;flex:none;min-height:52px}
+.count{display:flex;align-items:center;gap:20px;margin-left:auto}
+.steps{display:flex;gap:6px}
+.steps i{display:block;width:{{ 30 if tot <= 8 else 24 }}px;height:10px;background:rgba(27,39,69,.16)}
+.steps i.on{background:{{ sec_color }}}
+.steps i.cur{background:var(--orange)}
+/* índice e texto ancorados no alto; fontes e rodapé no pé. O texto encolhe (flex) e o ajuste reduz a letra se faltar espaço */
+.body{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;padding:40px 0 0}
+.idx{font-size:150px;line-height:.8;color:{{ sec_color }};flex:none;display:flex;align-items:flex-end;gap:22px}
+.idx small{font-family:var(--mono);font-size:30px;letter-spacing:.06em;color:var(--ink3);font-weight:500;padding-bottom:4px;text-transform:uppercase}
+.txt{margin-top:44px;font-family:var(--sans);font-weight:500;font-size:{{ body_fs }}px;line-height:1.28;letter-spacing:-.006em;color:var(--ink);
+  flex:0 1 auto;min-height:0;overflow:hidden;--clamp:10;border-top:2px solid var(--rule3);padding-top:30px!important}
+.txt strong{font-weight:800;color:#1B2745;text-decoration:underline;text-decoration-color:#FF5A1F;text-decoration-thickness:.11em;text-underline-offset:.13em;text-decoration-skip-ink:none}
+.src{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;column-gap:20px;flex:none;padding-top:24px;border-top:2px solid var(--rule)}
+.src .v{font-family:var(--sans);font-weight:600;font-size:30px;line-height:1.3;color:var(--ink);max-height:86px;overflow:hidden;--clamp:2}
+.src .v .more{color:var(--ink3);font-family:var(--mono);font-weight:600}
+.src .c{font-family:var(--mono);font-weight:500;font-size:26px;color:var(--ink3);white-space:nowrap;letter-spacing:.03em}
+.ftr{margin-top:22px}
+{% endblock %}
+{% block body %}
+<div class="band"><i style="background:{{ sec_color }}"></i></div>
+<div class="frame">
+  {{ m.header(hdr_label) }}
+  <div class="meta">
+    {% if launch %}<span class="chip" style="background:#1B2745">{{ fmt }}</span>
+    {%- elif s.section %}{{ m.section_chip(s.section) }}{% endif %}
+    {% if kind == 'carousel' and tot > 1 %}
+    <div class="count">
+      <div class="steps">{% for i in range(1, tot + 1) %}<i class="{{ 'cur' if i == cur else ('on' if i < cur else '') }}"></i>{% endfor %}</div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="body">
+    <div class="idx"><span class="numd">{{ '%02d'|format(s.n) }}</span>{% if not launch %}<small>fato</small>{% endif %}</div>
+    <div class="txt" data-fit="fato-texto" data-min="44">{{ m.rich(text) }}</div>
+  </div>
+  {% if s.sources %}
+  <div class="src"><span class="lbl">Fontes</span><span class="v" data-fit="fato-fontes" data-min="26">{{ m.sources(s.sources) }}</span>{% if s.get('outlets') %}<span class="c">{{ s.outlets }} veículos</span>{% endif %}</div>
+  {% endif %}
+  {{ m.footer(brand.tagline if launch else 'Resumo automático por IA a partir das fontes citadas') }}
+</div>
+{% endblock %}
