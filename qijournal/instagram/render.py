@@ -26,7 +26,10 @@ FONT_FAMILIES = {
     "noto-sans": "Noto Sans",
     "ibm-plex-mono": "IBM Plex Mono",
     "newsreader": "Newsreader",
+    "archivo": "Archivo",  # ganchos e números de capa, na largura extracondensada (font-stretch: 62%)
 }
+# Fontes variáveis com eixo de largura: a faixa que o arquivo cobre.
+FONT_STRETCH = {"archivo": "62% 125%"}
 # unicode-range dos recortes do Google Fonts (latin e latin-ext).
 UNICODE_RANGES = {
     "latin": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, "
@@ -69,8 +72,9 @@ def fonts_css(root: Path) -> str:
         style, subset = parts[0], "latin-ext" if parts[-1] == "ext" else "latin"
         weight = " ".join(w for w in parts[1:] if w.isdigit()) or "400"
         family = FONT_FAMILIES[prefix]
+        stretch = f"font-stretch:{FONT_STRETCH[prefix]};" if prefix in FONT_STRETCH else ""
         rules.append(
-            f"@font-face{{font-family:'{family}';font-style:{style};font-weight:{weight};font-display:block;"
+            f"@font-face{{font-family:'{family}';font-style:{style};font-weight:{weight};{stretch}font-display:block;"
             f"src:url('{path.resolve().as_uri()}') format('woff2');unicode-range:{UNICODE_RANGES[subset]};}}"
         )
     return "\n".join(rules)
