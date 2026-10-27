@@ -1,0 +1,918 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-27",
+ "analises": [
+  {
+   "id": "f6dfa49ae431",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/26/reeleicao-de-lula-indica-continuidade-da-politica-de-minerais-criticos.ghtml",
+   "titulo": "Reeleição de Lula indica continuidade da política de minerais críticos",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "reeleicao-de-lula-assegura-continuidade-da-polit",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 79,
+    "rotulo": "Regular"
+   },
+   "palavras": 466,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "disse Marisa Cesar",
+     "paragrafo": "P4",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Uso de verbo neutro de atribuição para introduzir a fala da fonte."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "065a1e729d81",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/26/netanyahu-destaca-apoio-de-trump-na-vspera-de-eleio-e-sugere-retomar-guerra-contra-o-ir.ghtml",
+   "titulo": "Netanyahu destaca apoio de Trump na véspera de eleição e sugere retomar guerra contra o Irã",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "israel-vai-as-urnas-em-eleicao-decisiva-sobre-o",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 83,
+    "rotulo": "Boa"
+   },
+   "palavras": 874,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "5efa4baac37b",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/26/ita-anuncia-aquisio-da-neospace-por-r-2925-bilhes-e-amplia-investimento-em-ia-fundacional.ghtml",
+   "titulo": "Itaú anuncia aquisição da NeoSpace por R$ 2,925 bilhões e amplia investimento em IA fundacional",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "itau-unibanco-anuncia-a-aquisicao-total-da-start",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 430,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "R$ 2,925 bilhões",
+     "paragrafo": "P0",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresentação de valores financeiros detalhados com base em informações oficiais do banco."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "2f351b93b80c",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/26/vivo-fecha-parceria-com-starlink-para-lanar-servio-de-rede-via-satlite-no-brasil.ghtml",
+   "titulo": "Vivo fecha parceria com Starlink para lançar serviço de rede via satélite no Brasil",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "vivo-fecha-parceria-com-a-starlink-para-lancar-s",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 60,
+    "rotulo": "Regular"
+   },
+   "palavras": 317,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "atende a 98% da população brasileira",
+     "paragrafo": "P9",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Uso de dados estatísticos para contextualizar a cobertura atual da operadora."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "6787f2b00bc0",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/26/eleitores-desiludidos-com-netanyahu-so-alvo-da-disputa-eleitoral-em-israel.ghtml",
+   "titulo": "Eleitores desiludidos com Netanyahu são alvo da disputa eleitoral em Israel",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "israel-vai-as-urnas-em-eleicao-decisiva-sobre-o",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": -2,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 992,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -1.57,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "eleitores desiludidos estão fazendo campanha de porta em porta para seu principal adversário",
+     "paragrafo": "P2",
+     "direcao": "esquerda",
+     "contribuicao": -1.57,
+     "explicacao": "O texto abre com foco nos opositores de Netanyahu, mas traz na sequência contrapontos da base governista."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "28006e562c6f",
+   "url": "https://g1.globo.com/mundo/noticia/2026/10/27/russia-e-ucrania-suspendem-ataques-em-oleshky-para-acao-humanitaria.ghtml",
+   "titulo": "Rússia e Ucrânia iniciam trégua em Oleshky para ação humanitária; ataques na guerra continuam",
+   "veiculo": "g1",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "ucrania-e-russia-iniciam-tregua-humanitaria-na-c",
+   "data_publicacao": "2026-10-27",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 501,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a6639b0b49ed",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/26/dolar-a-vista-avanca-82percent-maior-alta-diaria-desde-1999-com-vitoria-de-lula.ghtml",
+   "titulo": "Dólar à vista avança 8,2%, maior alta diária desde 1999, com vitória de Lula",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "dolar-sobe-mais-de-8-e-fecha-a-r-5-40-na-maior-v",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 7,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 56,
+    "rotulo": "Regular"
+   },
+   "palavras": 967,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 7.06,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "O movimento refletiu a frustração dos agentes do mercado com a reeleição do presidente Luiz Inácio Lula da Silva",
+     "paragrafo": "P2",
+     "direcao": "direita",
+     "contribuicao": 7.06,
+     "explicacao": "Atribui a alta do dólar diretamente à frustração com a vitória da esquerda, adotando a perspectiva dos agentes financeiros."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "a5aeda5e82d6",
+   "url": "https://www1.folha.uol.com.br/poder/2026/10/quem-estava-com-flavio-bolsonaro-em-discurso-apos-derrota-no-2o-turno.shtml",
+   "titulo": "Quem estava com Flávio Bolsonaro em discurso após derrota no 2º turno",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-vence-flavio-bolsonaro-em-virada-historica",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 551,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "Segundo dados do TSE, só 34,3 mil votos foram registrados após as 17h. Ou seja, cerca de 0,03% dos votos foram contabilizados após prorrogação",
+     "paragrafo": "P8",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto contextualiza com dados oficiais do TSE o impacto real da decisão contestada pelo candidato derrotado."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "1eefa6447ab1",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/26/quem-so-os-principais-rivais-de-netanyahu-nas-eleies-de-israel.ghtml",
+   "titulo": "Quem são os principais rivais de Netanyahu nas eleições de Israel?",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "israel-vai-as-urnas-em-eleicao-decisiva-sobre-o",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "seguranca"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 89,
+    "rotulo": "Boa"
+   },
+   "palavras": 909,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "7b66c2a94701",
+   "url": "https://valor.globo.com/financas/intraday/post/2026/10/estresse-ps-eleio-pode-fazer-dlar-ter-maior-alta-diria-desde-adoo-de-cmbio-flutuante-em-1999.ghtml",
+   "titulo": "Estresse pós-eleição pode fazer dólar ter maior alta diária desde adoção de câmbio flutuante em 1999",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "dolar-sobe-mais-de-8-e-fecha-a-r-5-40-na-maior-v",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 69,
+    "rotulo": "Regular"
+   },
+   "palavras": 295,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "e8a2cda4d2ff",
+   "url": "https://www1.folha.uol.com.br/ambiente/2026/10/holanda-anuncia-us-500-milhoes-em-fundo-de-florestas-um-dia-apos-reeleicao-de-lula.shtml",
+   "titulo": "Holanda anuncia US$ 500 milhões em fundo de florestas um dia após reeleição de Lula",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "holanda-anuncia-us-500-milhoes-para-fundo-de-flo",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 843,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 1
+  },
+  {
+   "id": "81c7a0fb3e51",
+   "url": "https://c-level.folha.uol.com.br/ia/2026/10/itau-anuncia-compra-da-neospace-startup-de-inteligencia-artificial-por-r-29-bilhoes.shtml",
+   "titulo": "Itaú anuncia compra da NeoSpace, startup de inteligência artificial, por R$ 2,9 bilhões",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "itau-unibanco-anuncia-a-aquisicao-total-da-start",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 552,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "ce1039df1a7a",
+   "url": "https://neofeed.com.br/negocios/vivo-faz-conexao-com-starlink-de-elon-musk-para-ampliar-cobertura-movel-no-pais/",
+   "titulo": "Vivo faz conexão com Starlink, de Elon Musk, para ampliar cobertura móvel no País",
+   "veiculo": "NeoFeed",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "vivo-fecha-parceria-com-a-starlink-para-lancar-s",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 780,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "66d251c0b702",
+   "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/26/eleicao-2-turno-ranking-democratizacao.ghtml",
+   "titulo": "Eleição de 2026 é a 3ª mais acirrada no 2º turno desde a redemocratização; veja histórico",
+   "veiculo": "g1",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-vence-flavio-bolsonaro-em-virada-historica",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 637,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c203aa3f6cc7",
+   "url": "https://c-level.folha.uol.com.br/economia-sustentavel/2026/10/uniao-europeia-avalia-seguir-trump-e-comprar-participacao-em-projetos-de-minerais-criticos.shtml",
+   "titulo": "União Europeia avalia seguir Trump e comprar participação em projetos de minerais críticos",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "reeleicao-de-lula-assegura-continuidade-da-polit",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 90,
+    "rotulo": "Boa"
+   },
+   "palavras": 675,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "4fe2efcd0dca",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/26/dolar-dispara-865percent-a-r-542-bate-em-trava-no-exterior-vai-a-r-560-apos-vitoria-de-lula.ghtml",
+   "titulo": "Dólar à vista sobe 9% com eleição de Lula; exportador aproveita janela",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "dolar-sobe-mais-de-8-e-fecha-a-r-5-40-na-maior-v",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "analise",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 41,
+    "rotulo": "Fraca"
+   },
+   "palavras": 686,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "05e630513c2d",
+   "url": "https://umsoplaneta.globo.com/financas/noticia/2026/10/26/paises-baixos-anunciam-investimento-de-ate-us-500-milhoes-para-fundo-de-florestas-tropicais-tfff.ghtml",
+   "titulo": "Países Baixos anunciam investimento de até US$ 500 milhões para Fundo de Florestas Tropicais - TFFF",
+   "veiculo": "Um Só Planeta",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "holanda-anuncia-us-500-milhoes-para-fundo-de-flo",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 712,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "204c17ac1596",
+   "url": "https://neofeed.com.br/negocios/milton-maluhy-filho-explica-por-que-o-itau-desembolsou-r-292-bilhoes-pela-neospace/",
+   "titulo": "Milton Maluhy Filho explica por que o Itaú desembolsou R$ 2,92 bilhões pela NeoSpace",
+   "veiculo": "NeoFeed",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "itau-unibanco-anuncia-a-aquisicao-total-da-start",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 1139,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "2f3c30ace172",
+   "url": "https://www.cnnbrasil.com.br/economia/money/tecnologia/vivo-lanca-internet-movel-via-satelite-em-parceria-com-starlink/",
+   "titulo": "Vivo lança internet móvel via satélite em parceria com Starlink",
+   "veiculo": "CNN Brasil",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "vivo-fecha-parceria-com-a-starlink-para-lancar-s",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 81,
+    "rotulo": "Boa"
+   },
+   "palavras": 931,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "3630e965a094",
+   "url": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/26/eleicoes-presidenciais-quem-venceu-cada-disputa-desde-a-redemocratizacao.ghtml",
+   "titulo": "Eleições presidenciais: quem venceu cada disputa desde a redemocratização?",
+   "veiculo": "g1",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "lula-vence-flavio-bolsonaro-em-virada-historica",
+   "data_publicacao": "2026-10-26",
+   "analisado_em": "2026-10-27",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 546,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-27T10:22:19+00:00",
+   "provedor": "gemini_lite",
+   "modelo": "gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 16,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 36880,
+    "saida": 15781
+   },
+   "analises": [
+    "f6dfa49ae431",
+    "065a1e729d81",
+    "5efa4baac37b",
+    "2f351b93b80c",
+    "6787f2b00bc0",
+    "28006e562c6f",
+    "a6639b0b49ed",
+    "a5aeda5e82d6",
+    "1eefa6447ab1",
+    "7b66c2a94701",
+    "e8a2cda4d2ff",
+    "81c7a0fb3e51",
+    "ce1039df1a7a",
+    "66d251c0b702",
+    "c203aa3f6cc7",
+    "4fe2efcd0dca",
+    "05e630513c2d",
+    "204c17ac1596",
+    "2f3c30ace172",
+    "3630e965a094"
+   ]
+  }
+ ]
+}

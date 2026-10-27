@@ -1,159 +1,202 @@
 TRIANGULA
-Segunda-feira, 26 de outubro de 2026 · 06:56 BRT
+Terça-feira, 27 de outubro de 2026 · 06:56 BRT
 
 MERCADOS
 --------
-Dólar R$ 4,99 (+0,56%) · Euro R$ 5,59 (+0,56%) · Yuan R$ 0,75 (+0,62%) ·
-Ibovespa 205.083 pts (+0,47%) · IFIX 3.991 pts (+0,43%) · S&P 500 7.624
-pts (-0,52%) · Brent US$ 109,72 (-1,77%) · Ouro US$ 4.032 (+0,61%) ·
-Bitcoin US$ 80.420 (+0,24%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Dólar R$ 5,41 (+0,60%) · Euro R$ 6,03 (+0,42%) · Yuan R$ 0,81 (+0,83%) ·
+Ibovespa 176.608 pts (-13,88%) · IFIX 3.764 pts (-5,68%) · S&P 500 7.677
+pts (+0,70%) · Brent US$ 111,06 (+0,29%) · Ouro US$ 4.011 (-0,68%) ·
+Bitcoin US$ 79.576 (-1,05%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 15°C, nublado (mín. 13° / máx. 18°) · amanhã: garoa fraca,
-12° a 21°
-Montevidéu: 12°C, nublado (mín. 11° / máx. 13°) · amanhã: garoa fraca,
-10° a 15°
+São Paulo: 13°C, parcialmente nublado (mín. 12° / máx. 22°) · amanhã:
+garoa intensa, 14° a 23°
+Montevidéu: 10°C, nublado (mín. 10° / máx. 15°) · amanhã: nevoeiro, 11°
+a 15°
+
+EDITORIAL
+---------
+A reeleição de Luiz Inácio Lula da Silva desencadeou forte volatilidade
+nos mercados brasileiros, com o Ibovespa em queda acentuada e o dólar em
+disparada histórica. No cenário internacional, Israel realiza eleições
+cruciais e a Holanda anuncia novos fundos para florestas tropicais,
+enquanto o noticiário corporativo é movimentado pelo IPO da Anthropic e
+expansões no setor financeiro e tecnológico.
 
 EM 1 MINUTO
 -----------
-• Lula vence Flávio Bolsonaro em virada histórica e conquista quarto
-  mandato
-• Prorrogação do horário de votação pelo STF gera confusão e críticas no
-  segundo turno
-• Reeleição de Lula derruba ativos brasileiros e EWZ desaba até 26% no
-  exterior
-• Equipe econômica de Lula prepara medidas de ajuste fiscal para o
-  quarto mandato
-• Decisão de Cristiano Zanin prorroga votação até 19h e gera forte
-  debate político
+• O Ibovespa desabou 13,88% e acionou o circuit breaker, eliminando R$
+  734 bilhões em valor de mercado.
+• O dólar disparou e fechou a R$ 5,41, registrando sua maior alta diária
+  desde 1999.
+• A startup de IA Anthropic protocolou prospecto de IPO revelando
+  receita de US$ 16 bilhões.
+• O Itaú Unibanco anunciou a aquisição total da NeoSpace por R$ 2,925
+  bilhões.
+• O Flamengo venceu o Atlético-MG por 3 a 2 no Maracanã e reassumiu a
+  liderança do Brasileirão.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.345 notícias coletadas de 39 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 950 assuntos,
+A IA leu as 1.706 notícias coletadas de 44 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.101 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 18 assuntos e escolheu as 9 matérias desta edição. Nenhuma
+seguiu em 62 assuntos e escolheu as 12 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#racional
-Todas as 1.345 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#racional
+Todas as 1.706 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27-todas.html
 
 MANCHETE
 --------
 Lula vence Flávio Bolsonaro em virada histórica e conquista quarto
-mandato
-O presidente Luiz Inácio Lula da Silva foi reeleito neste domingo com
-51,79% dos votos válidos, quebrando uma tendência de avanço da direita.
-Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, g1, Money
-Times, Agência Brasil, CNN Brasil, The New York Times, The Wall Street
-Journal, The Guardian
-Cobertura: Equilíbrio: 0 × 0 de 11 veículos. A cobertura convergiu ao
-relatar o fato central da vitória de Lula e a contestação de Flávio
-Bolsonaro, com forte ênfase na virada inédita.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-lula-vence-flavio-bolsonaro-em-virada-historica
-
-BRASIL · ECONOMIA
------------------
-• Equipe econômica de Lula prepara medidas de ajuste fiscal para o
-  quarto mandato
-  Governo avalia PEC e propostas para conter despesas obrigatórias e
-  buscar o centro da meta fiscal diante de dívida crescente.
-  Fontes: Valor Econômico, Folha de S.Paulo, Money Times
-  Cobertura: Pende para: Enfoque na preservação de gastos sociais · 3 de
-  5 veículos. A maioria dos veículos apontou o desafio fiscal,
-  dividindo-se entre a narrativa oficial de preservação de políticas
-  públicas e a cobrança de medidas duras de contenção de gastos.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-equipe-economica-de-lula-prepara-medidas-de-ajus
+mandato presidencial
+O petista obteve 51,79% dos votos válidos contra 48,21% do adversário,
+em pleito marcado por abstenção em baixa e forte polarização.
+Fontes: Valor Econômico, JOTA, Folha de S.Paulo, g1, The Guardian, CNBC
+Cobertura: Pende para: Enfatiza a legitimidade institucional da virada ·
+1 de 6 veículos. A cobertura concentrou-se de forma factual nos dados
+divulgados pelo TSE e na repercussão política da vitória, com veículos
+divergindo na ênfase entre a estabilidade democrática e as contestações
+jurídicas da oposição.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-lula-vence-flavio-bolsonaro-em-virada-historica
 
 MERCADOS & FINANÇAS
 -------------------
-• Reeleição de Lula derruba ativos brasileiros e EWZ desaba até 26% no
-  exterior
-  A vitória do presidente Luiz Inácio Lula da Silva no segundo turno
-  gera forte volatilidade e perdas expressivas em ADRs e futuros antes
-  da abertura oficial da Bolsa.
-  Fontes: Valor Econômico, InfoMoney, g1, Seu Dinheiro, Exame
-  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
-  integralmente para o relato da aversão ao risco e das perdas severas
-  nos ativos brasileiros logo após o resultado eleitoral.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-reeleicao-de-lula-derruba-ativos-brasileiros-e-e
+• Dólar sobe mais de 8% e fecha a R$ 5,40 na maior valorização diária
+  desde 1999
+  Cotação da moeda americana registra recorde de alta após vitória de
+  Lula, levando o JP Morgan a rebaixar a recomendação de ativos
+  brasileiros.
+  Fontes: Valor Econômico, CNN Brasil, JOTA, Folha de S.Paulo, Estadão,
+  g1, Agência Brasil, Money Times, Exame
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura foi
+  unânime ao registrar o caráter histórico da disparada da moeda
+  americana e o pessimismo dos bancos de investimento internacionais
+  quanto à trajetória fiscal brasileira.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-dolar-sobe-mais-de-8-e-fecha-a-r-5-40-na-maior-v
+
+• Ibovespa desaba 13,88% e aciona circuit breaker pela primeira vez em
+  seis anos após eleição
+  Tombo elimina R$ 734 bilhões em valor de mercado das empresas na B3
+  diante da surpresa de investidores com a vitória de Lula no segundo
+  turno.
+  Fontes: Valor Econômico, Estadão, Brazil Journal, Folha de S.Paulo,
+  g1, Exame, CNN Brasil, Bloomberg Línea, NeoFeed, Suno Notícias, Seu
+  Dinheiro, The Wall Street Journal, The New York Times
+  Cobertura: Sem divergência entre os 7 veículos. A cobertura convergiu
+  no tom de forte aversão a risco e choque dos investidores com a
+  reeleição de Lula, destacando o primeiro circuit breaker desde 2020 e
+  as perdas bilionárias em empresas estatais e companhias sensíveis aos
+  juros.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-ibovespa-desaba-13-88-e-aciona-circuit-breaker-p
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Prorrogação do horário de votação pelo STF gera confusão e críticas no
-  segundo turno
-  Decisão de Cristiano Zanin estendeu o pleito até as 19h após problemas
-  no transporte público, causando impasses nas urnas e divergências
-  entre tribunais.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, InfoMoney,
-  Agência Senado, g1, Suno Notícias, Seu Dinheiro, Agência Brasil, CNN
-  Brasil
-  Cobertura: Pende para: Aponta instabilidade e falhas logísticas · 4 de
-  11 veículos. A cobertura convergiu ao relatar os fatos centrais da
-  decisão inédita, mas dividiu-se entre veículos que enfatizaram os
-  riscos e a confusão institucional gerada e aqueles que destacaram a
-  condução técnica e a normalização do pleito pelo TSE.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-prorrogacao-do-horario-de-votacao-pelo-stf-gera
+• Reeleição de Lula assegura continuidade da política de minerais
+  críticos
+  Setor produtivo aguarda regulamentação de decretos e do conselho
+  presidencial até dezembro, enquanto União Europeia avalia medidas.
+  Fontes: Valor Econômico, Folha de S.Paulo, Financial Times
+  Cobertura: Sem divergência entre os 3 veículos. Os veículos
+  convergiram ao analisar a relevância estratégica dos minerais
+  críticos, articulando o cenário regulatório interno com as tendências
+  globais de proteção industrial.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-reeleicao-de-lula-assegura-continuidade-da-polit
 
-• Decisão de Cristiano Zanin prorroga votação até 19h e gera forte
-  debate político
-  Ação do ministro do STF estendeu o horário do segundo turno devido a
-  problemas de filas e gerou contestações de aliados de Flávio
-  Bolsonaro.
-  Fontes: Valor Econômico
-  Cobertura: Equilíbrio: 0 × 0 de 3 veículos. A cobertura dividiu-se
-  entre registrar o impacto prático da decisão para assegurar eleitores
-  na fila e ecoar as críticas da oposição sobre a legalidade da medida.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-decisao-de-cristiano-zanin-prorroga-votacao-ate
+• STJ fixa novos critérios temporais para indenizações em
+  desapropriações
+  Primeira Seção estabeleceu teses sob o rito da relevância da questão
+  federal infraconstitucional com modulação de efeitos.
+  Fontes: Valor Econômico, STJ
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
+  integralmente ao relatar o teor técnico da decisão proferida pelo STJ.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-stj-fixa-novos-criterios-temporais-para-indeniza
 
-POLÍTICA
---------
-• Direita amplia força nos estados e define governadores em cinco
-  estados no segundo turno
-  PL e partidos do centrão garantem maioria nos governos estaduais,
-  enquanto PT mantém bancada nordestina.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Mongabay Brasil, g1,
-  Agência Brasil
-  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
-  na análise dos resultados estaduais, destacando o fortalecimento do
-  centrão e da direita nos governos locais.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-direita-amplia-forca-nos-estados-e-define-govern
+GEOPOLÍTICA & MUNDO
+-------------------
+• Israel vai às urnas em eleição decisiva sobre o futuro de Netanyahu
+  Mais de 7 milhões de israelenses votam nesta terça-feira em uma
+  disputa acirrada que testa a liderança do premiê Benjamin Netanyahu.
+  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, Estadão, g1, CNN
+  Brasil, Financial Times, The Wall Street Journal, The New York Times,
+  The Guardian, Al Jazeera
+  Cobertura: Equilíbrio: 2 × 2 de 11 veículos. A cobertura convergiu ao
+  tratar o pleito como um divisor de águas para Israel, com foco na
+  avaliação da gestão de Netanyahu e no equilíbrio instável das
+  pesquisas.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-israel-vai-as-urnas-em-eleicao-decisiva-sobre-o
 
-• Abstenção no segundo turno registra menor patamar em 20 anos e atrai 3
-  milhões a mais de eleitores
-  Queda na taxa de abstenção foi um dos fatores determinantes para a
-  virada de Lula e mobilização sem precedentes.
-  Fontes: Valor Econômico
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura foi
-  puramente factual, convergindo na análise dos dados estatísticos
-  fornecidos pelo TSE sobre a participação popular.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-abstencao-no-segundo-turno-registra-menor-patama
+• Ucrânia e Rússia iniciam trégua humanitária na cidade de Oleshky
+  Cessar-fogo negociado com apoio internacional visa permitir entrega de
+  ajuda e retirada de civis em área sob ocupação russa.
+  Fontes: Estadão, g1, The New York Times, The Guardian, BBC News
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  ao relatar o acordo humanitário pontual em Oleshky sem deixar de
+  registrar a persistência da guerra em outras frentes.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-ucrania-e-russia-iniciam-tregua-humanitaria-na-c
 
-• Presidentes do Senado e da Câmara telefonam para Lula e defendem
-  pacificação nacional
-  Davi Alcolumbre e Hugo Motta cumprimentaram o presidente reeleito e
-  cobraram postura de união e diálogo institucional.
-  Fontes: Folha de S.Paulo, InfoMoney, Agência Senado, CNN Brasil
-  Cobertura: Sem divergência entre os 4 veículos. A cobertura convergiu
-  na divulgação das mensagens institucionais de moderação e diálogo
-  vindas dos líderes do Congresso.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-presidentes-do-senado-e-da-camara-telefonam-para
+TECNOLOGIA & NEGÓCIOS
+---------------------
+• Itaú Unibanco anuncia a aquisição total da startup NeoSpace por R$
+  2,925 bilhões
+  Operação expande a capacidade do banco em desenvolver modelos próprios
+  de inteligência artificial generativa para serviços financeiros.
+  Fontes: Valor Econômico, Folha de S.Paulo, NeoFeed
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
+  de maneira estritamente factual na confirmação dos valores e nos
+  objetivos estratégicos da aquisição.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-itau-unibanco-anuncia-a-aquisicao-total-da-start
+
+• Vivo fecha parceria com a Starlink para lançar serviço de internet via
+  satélite
+  Tecnologia direct-to-device conectará celulares diretamente à órbita
+  de baixa altitude em zonas de sombra em todo o país.
+  Fontes: Valor Econômico, Estadão, NeoFeed, CNN Brasil
+  Cobertura: Sem divergência entre os 4 veículos. Todos os veículos
+  relataram os termos técnicos e comerciais da parceria de forma
+  homogênea e puramente informativa.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-vivo-fecha-parceria-com-a-starlink-para-lancar-s
 
 ESPORTE
 -------
-• Prêmio Bola de Ouro 2026 realiza cerimônia histórica em Londres
-  Pela primeira vez fora da França em edição regular, evento premia os
-  melhores da temporada e conta com indicados brasileiros.
-  Fontes: ge, Estadão, Gazeta Esportiva, Trivela, CNN Brasil
+• Flamengo vence Atlético-MG com gol no fim e reassume liderança
+  Rubro-negro supera os mineiros por 3 a 2 no Maracanã com pênalti nos
+  acréscimos e recupera a ponta do Brasileirão.
+  Fontes: ge, Folha de S.Paulo, Gazeta Esportiva, Agência Brasil, CNN
+  Brasil
   Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
-  na divulgação factual dos detalhes da premiação, da mudança de sede
-  para Londres e dos concorrentes ao título.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-premio-bola-de-ouro-2026-realiza-cerimonia-histo
+  ao relatar a vitória dramática do Flamengo no fim, destacando a
+  superação após a queda na Libertadores e a retomada da liderança.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-flamengo-vence-atletico-mg-com-gol-no-fim-e-reas
+
+• Fux marca audiência pública no STF para discutir MP que proíbe bets
+  Ministro ouvirá clubes de futebol, entidades e órgãos governamentais
+  no dia 3 de novembro sobre a suspensão das apostas.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
+  na divulgação da convocação da audiência por Luiz Fux, abordando os
+  impactos jurídicos e econômicos da proibição.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-fux-marca-audiencia-publica-no-stf-para-discutir
+
+NATUREZA & MEIO AMBIENTE
+------------------------
+• Holanda anuncia US$ 500 milhões para fundo de florestas tropicais após
+  reeleição de Lula
+  Governo neerlandês pretende destinar até US$ 500 milhões ao longo de
+  dez anos para o Tropical Forest Forever Facility (TFFF).
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Um Só Planeta,
+  ((o))eco, ClimaInfo, Agência Brasil
+  Cobertura: Sem divergência entre os 7 veículos. A cobertura convergiu
+  na divulgação factual do anúncio holandês de US$ 500 milhões para o
+  TFFF, destacando em sua maioria a proximidade temporal com a reeleição
+  de Lula.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-27.html#s-holanda-anuncia-us-500-milhoes-para-fundo-de-flo
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
 Gerado automaticamente em 06:56 (BRT) · Edição gerada por IA
-(gemini-flash-lite-latest)
+(gemini-flash-latest + gemini-flash-lite-latest)
