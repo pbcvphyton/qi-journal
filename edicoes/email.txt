@@ -1,228 +1,159 @@
 TRIANGULA
-Domingo, 25 de outubro de 2026 · 08:18 BRT
+Segunda-feira, 26 de outubro de 2026 · 06:56 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,00 (-1,11%) · Euro R$ 5,56 (-1,84%) · Yuan R$ 0,74 (-1,67%) ·
+Dólar R$ 4,99 (+0,56%) · Euro R$ 5,59 (+0,56%) · Yuan R$ 0,75 (+0,62%) ·
 Ibovespa 205.083 pts (+0,47%) · IFIX 3.991 pts (+0,43%) · S&P 500 7.624
-pts (-0,52%) · Brent US$ 111,70 (+2,80%) · Ouro US$ 4.008 (-1,29%) ·
-Bitcoin US$ 80.313 (-0,22%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+pts (-0,52%) · Brent US$ 109,72 (-1,77%) · Ouro US$ 4.032 (+0,61%) ·
+Bitcoin US$ 80.420 (+0,24%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 3,35% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 20°C, trovoadas (mín. 16° / máx. 21°) · amanhã: garoa fraca,
-13° a 19°
-Montevidéu: 13°C, nublado (mín. 12° / máx. 14°) · amanhã: garoa fraca,
-11° a 13°
-
-EDITORIAL
----------
-O Brasil vai às urnas neste domingo para decidir o segundo turno mais
-acirrado de sua história presidencial, em meio a pesquisas que apontam
-empate técnico. Enquanto os eleitores definem o futuro político do país
-sob forte esquema de segurança, os mercados e gestores acompanham a
-fatura fiscal herdada pelo vencedor e a movimentação corporativa e
-internacional. No esporte, Rebeca Andrade brilha no exterior e o
-Brasileirão registra mudanças na liderança e na zona de rebaixamento.
+São Paulo: 15°C, nublado (mín. 13° / máx. 18°) · amanhã: garoa fraca,
+12° a 21°
+Montevidéu: 12°C, nublado (mín. 11° / máx. 13°) · amanhã: garoa fraca,
+10° a 15°
 
 EM 1 MINUTO
 -----------
-• O Brasil realiza neste domingo o segundo turno mais acirrado da
-  história para definir a Presidência entre Lula e Flávio Bolsonaro.
-• Pesquisas Datafolha e Quaest divulgadas na véspera mostram empate
-  técnico na abertura das urnas.
-• O Ibovespa encerrou a última sessão aos 205.083 pontos, com alta de
-  0,47%, enquanto o dólar recuou a R$ 5,00.
-• A ginasta brasileira Rebeca Andrade conquistou o tricampeonato mundial
-  do salto em Roterdã, chegando a 10 medalhas em Mundiais.
-• O piloto italiano Kimi Antonelli, de 20 anos, cravou a pole position
-  para o GP dos Estados Unidos de Fórmula 1.
-• A França prendeu quase mil pessoas em meio a um forte esquema policial
-  para conter uma nova onda de protestos econômicos.
+• Lula vence Flávio Bolsonaro em virada histórica e conquista quarto
+  mandato
+• Prorrogação do horário de votação pelo STF gera confusão e críticas no
+  segundo turno
+• Reeleição de Lula derruba ativos brasileiros e EWZ desaba até 26% no
+  exterior
+• Equipe econômica de Lula prepara medidas de ajuste fiscal para o
+  quarto mandato
+• Decisão de Cristiano Zanin prorroga votação até 19h e gera forte
+  debate político
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.194 notícias coletadas de 34 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 738 assuntos,
+A IA leu as 1.345 notícias coletadas de 39 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 950 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 63 assuntos e escolheu as 21 matérias desta edição. Nenhuma
+seguiu em 18 assuntos e escolheu as 9 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#racional
-Todas as 1.194 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#racional
+Todas as 1.345 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26-todas.html
 
 MANCHETE
 --------
-Brasil vai às urnas neste domingo para o segundo turno mais acirrado da
-história
-Cerca de 158 milhões de eleitores decidem a Presidência entre Lula e
-Flávio Bolsonaro após campanha marcada por acirramento.
-Fontes: Valor Econômico, Folha de S.Paulo
-Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu ao
-tratar o pleito como o mais disputado da história recente, ressaltando o
-empate técnico nas pesquisas.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-brasil-vai-as-urnas-neste-domingo-para-o-segundo
+Lula vence Flávio Bolsonaro em virada histórica e conquista quarto
+mandato
+O presidente Luiz Inácio Lula da Silva foi reeleito neste domingo com
+51,79% dos votos válidos, quebrando uma tendência de avanço da direita.
+Fontes: Valor Econômico, JOTA, Folha de S.Paulo, InfoMoney, g1, Money
+Times, Agência Brasil, CNN Brasil, The New York Times, The Wall Street
+Journal, The Guardian
+Cobertura: Equilíbrio: 0 × 0 de 11 veículos. A cobertura convergiu ao
+relatar o fato central da vitória de Lula e a contestação de Flávio
+Bolsonaro, com forte ênfase na virada inédita.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-lula-vence-flavio-bolsonaro-em-virada-historica
 
 BRASIL · ECONOMIA
 -----------------
-• Eleição presidencial deixa fatura fiscal pesada para o vencedor de
-  disputa acirrada
-  O presidente eleito neste domingo herda uma dívida pública bilionária,
-  promessas eleitorais e o desafio de escolher um ministro da Fazenda
-  sob desconfiança.
-  Fontes: Estadão, Folha de S.Paulo
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
-  ao apontar o grave quadro fiscal e a pressão sobre o próximo governo.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-eleicao-presidencial-deixa-fatura-fiscal-pesada
+• Equipe econômica de Lula prepara medidas de ajuste fiscal para o
+  quarto mandato
+  Governo avalia PEC e propostas para conter despesas obrigatórias e
+  buscar o centro da meta fiscal diante de dívida crescente.
+  Fontes: Valor Econômico, Folha de S.Paulo, Money Times
+  Cobertura: Pende para: Enfoque na preservação de gastos sociais · 3 de
+  5 veículos. A maioria dos veículos apontou o desafio fiscal,
+  dividindo-se entre a narrativa oficial de preservação de políticas
+  públicas e a cobrança de medidas duras de contenção de gastos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-equipe-economica-de-lula-prepara-medidas-de-ajus
 
-• Braskem e credores avançam em acordo de reestruturação de dívida
-  Plano em negociação prevê prorrogação de prazos na recuperação
-  extrajudicial, compromisso de aporte da Petrobras e conversão de
-  dívidas.
-  Fontes: Valor Econômico, Folha de S.Paulo
-  Cobertura: Sem divergência entre os 2 veículos. Os veículos relataram
-  o avanço das negociações sem divergências de tom.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-braskem-e-credores-avancam-em-acordo-de-reestrut
+MERCADOS & FINANÇAS
+-------------------
+• Reeleição de Lula derruba ativos brasileiros e EWZ desaba até 26% no
+  exterior
+  A vitória do presidente Luiz Inácio Lula da Silva no segundo turno
+  gera forte volatilidade e perdas expressivas em ADRs e futuros antes
+  da abertura oficial da Bolsa.
+  Fontes: Valor Econômico, InfoMoney, g1, Seu Dinheiro, Exame
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  integralmente para o relato da aversão ao risco e das perdas severas
+  nos ativos brasileiros logo após o resultado eleitoral.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-reeleicao-de-lula-derruba-ativos-brasileiros-e-e
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• TSE reconsidera e autoriza uso de frota federal para transporte de
-  indígenas no 2º turno
-  Ministro Kassio Nunes Marques recuou após PGR acionar o STF para
-  suspender exigência de autorização prévia.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, CNN Brasil
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
-  inteiramente no relato factual da ação da PGR e na rápida resposta de
-  recuo por parte do TSE.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-tse-reconsidera-e-autoriza-uso-de-frota-federal
+• Prorrogação do horário de votação pelo STF gera confusão e críticas no
+  segundo turno
+  Decisão de Cristiano Zanin estendeu o pleito até as 19h após problemas
+  no transporte público, causando impasses nas urnas e divergências
+  entre tribunais.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, InfoMoney,
+  Agência Senado, g1, Suno Notícias, Seu Dinheiro, Agência Brasil, CNN
+  Brasil
+  Cobertura: Pende para: Aponta instabilidade e falhas logísticas · 4 de
+  11 veículos. A cobertura convergiu ao relatar os fatos centrais da
+  decisão inédita, mas dividiu-se entre veículos que enfatizaram os
+  riscos e a confusão institucional gerada e aqueles que destacaram a
+  condução técnica e a normalização do pleito pelo TSE.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-prorrogacao-do-horario-de-votacao-pelo-stf-gera
 
-• Primeira Seção do STJ define que ICMS-Difal não entra na base de
-  cálculo de PIS e Cofins
-  Corte julgou a matéria sob o rito dos recursos repetitivos (Tema
-  1.372) e estabeleceu a modulação temporal dos efeitos da decisão.
-  Fontes: STJ
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-primeira-secao-do-stj-define-que-icms-difal-nao
+• Decisão de Cristiano Zanin prorroga votação até 19h e gera forte
+  debate político
+  Ação do ministro do STF estendeu o horário do segundo turno devido a
+  problemas de filas e gerou contestações de aliados de Flávio
+  Bolsonaro.
+  Fontes: Valor Econômico
+  Cobertura: Equilíbrio: 0 × 0 de 3 veículos. A cobertura dividiu-se
+  entre registrar o impacto prático da decisão para assegurar eleitores
+  na fila e ecoar as críticas da oposição sobre a legalidade da medida.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-decisao-de-cristiano-zanin-prorroga-votacao-ate
 
 POLÍTICA
 --------
-• Pesquisas da véspera apontam empate técnico entre Flávio Bolsonaro e
-  Lula
-  Levantamentos de Datafolha e Quaest mostram o candidato do PL
-  numericamente à frente em votos válidos, dentro da margem de erro, na
-  abertura das urnas.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, InfoMoney,
-  Bloomberg Línea, g1, Money Times, CNN Brasil
-  Cobertura: Sem divergência entre os 9 veículos. A cobertura convergiu
-  na constatação de empate técnico absoluto na véspera da votação, sem
-  divergências substanciais de enquadramento analítico.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-pesquisas-da-vespera-apontam-empate-tecnico-entr
-
-GEOPOLÍTICA & MUNDO
--------------------
-• Trump anuncia que Audi construirá sua primeira fábrica nos EUA com
-  investimento bilionário
-  Montadora alemã instalará unidade na Geórgia com capacidade para
-  produzir 200 mil SUVs por ano.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
-  na divulgação do plano industrial da Audi nos Estados Unidos e nos
-  valores informados pelo governo.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-trump-anuncia-que-audi-construira-sua-primeira-f
-
-• Kim Jong-un visita a China em aproximação e cruza nova ponte na
-  fronteira
-  Líder norte-coreano viajou a Dandong pela ponte recém-inaugurada em
-  sua primeira viagem ao país em mais de um ano.
-  Fontes: Valor Econômico, g1, The Wall Street Journal, The New York
-  Times, The Guardian, South China Morning Post
+• Direita amplia força nos estados e define governadores em cinco
+  estados no segundo turno
+  PL e partidos do centrão garantem maioria nos governos estaduais,
+  enquanto PT mantém bancada nordestina.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Mongabay Brasil, g1,
+  Agência Brasil
   Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
-  inteiramente nos fatos da viagem de Kim Jong-un, na inauguração da
-  ponte de Dandong e no reforço dos laços com Pequim.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-kim-jong-un-visita-a-china-em-aproximacao-e-cruz
+  na análise dos resultados estaduais, destacando o fortalecimento do
+  centrão e da direita nos governos locais.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-direita-amplia-forca-nos-estados-e-define-govern
 
-• Israel impõe lockdown e desloca centenas de palestinos em operação
-  militar em Hebron
-  Ação ocorre após morte de dois soldados e antecede eleições gerais
-  marcadas para a próxima terça-feira.
-  Fontes: Folha de S.Paulo, The New York Times, The Guardian, BBC News,
-  Al Jazeera
-  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
-  nos impactos humanitários do cerco militar a Hebron e nas restrições
-  de trânsito devido às eleições.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-israel-impoe-lockdown-e-desloca-centenas-de-pale
+• Abstenção no segundo turno registra menor patamar em 20 anos e atrai 3
+  milhões a mais de eleitores
+  Queda na taxa de abstenção foi um dos fatores determinantes para a
+  virada de Lula e mobilização sem precedentes.
+  Fontes: Valor Econômico
+  Cobertura: Sem divergência entre os 2 veículos. A cobertura foi
+  puramente factual, convergindo na análise dos dados estatísticos
+  fornecidos pelo TSE sobre a participação popular.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-abstencao-no-segundo-turno-registra-menor-patama
 
-TECNOLOGIA & NEGÓCIOS
----------------------
-• Musk acusa Ucrânia de violar regras da Starlink após restabelecimento
-  de sinal
-  Kiev confirma estabilização dos serviços de satélite, enquanto
-  empresário afirma que rede foi empregada em ações ofensivas de drones.
-  Fontes: The New York Times, The Wall Street Journal, The Guardian, BBC
-  News, CNBC, TechCrunch
-  Cobertura: Pende para: Foco no restabelecimento do sinal militar pela
-  Ucrânia · 4 de 6 veículos. A maioria dos veículos (CNBC, Guardian, WSJ
-  e TechCrunch) priorizou a volta do serviço militar, enquanto NYT e BBC
-  deram destaque principal às queixas contratuais de Musk.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-musk-acusa-ucrania-de-violar-regras-da-starlink
+• Presidentes do Senado e da Câmara telefonam para Lula e defendem
+  pacificação nacional
+  Davi Alcolumbre e Hugo Motta cumprimentaram o presidente reeleito e
+  cobraram postura de união e diálogo institucional.
+  Fontes: Folha de S.Paulo, InfoMoney, Agência Senado, CNN Brasil
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura convergiu
+  na divulgação das mensagens institucionais de moderação e diálogo
+  vindas dos líderes do Congresso.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-presidentes-do-senado-e-da-camara-telefonam-para
 
 ESPORTE
 -------
-• Neymar é expulso por lei Vini Jr em jogo do Santos e dispara contra
-  Nestor
-  Atacante santista recebe cartão vermelho após cobrir a boca em
-  discussão e desfalca a equipe por quase um mês.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
-  Brasil
-  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
-  na apuração factual do incidente e na repercussão da expulsão de
-  Neymar sob a lei Vini Jr.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-neymar-e-expulso-por-lei-vini-jr-em-jogo-do-sant
-
-• Palmeiras assume liderança do Brasileirão e Corinthians entra na zona
-  de rebaixamento
-  Verdão vence o Bragantino por 2 a 0, enquanto Timão sofre virada nos
-  minutos finais na estreia de Seedorf.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
-  Brasil
-  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
-  ao relatar o impacto da rodada para os principais clubes de São Paulo.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-palmeiras-assume-lideranca-do-brasileirao-e-cori
-
-• Kimi Antonelli surpreende e crava pole position 'milagrosa' para o GP
-  dos Estados Unidos de Fórmula 1
-  Aos 20 anos, piloto italiano da Mercedes supera favoritismo de Ferrari
-  e Red Bull e fica perto de confirmar título mundial.
-  Fontes: ge
-  Cobertura: Sem divergência entre os 3 veículos. A imprensa destaca
-  unanimemente a façanha de Kimi Antonelli e a relevância da pole
-  position para o desfecho do campeonato da Fórmula 1.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-kimi-antonelli-surpreende-e-crava-pole-position
-
-• Michael Carrick tenta blindar cargo no Manchester United em meio a
-  turbulências e crise de resultados
-  Após goleada sofrida para o Como na Champions League, técnico tenta
-  provar viabilidade do comando antes de receber o Bournemouth.
-  Fontes: Trivela
-  Cobertura: Sem divergência entre os 2 veículos. Os veículos convergem
-  ao retratar a gravidade da crise no clube inglês e o cerco em torno do
-  comando técnico.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-michael-carrick-tenta-blindar-cargo-no-mancheste
-
-NATUREZA & MEIO AMBIENTE
-------------------------
-• Tempestade Boelo atinge o Reino Unido com ventos de até 135 km/h e
-  cortes de energia
-  Alertas âmbar continuam em vigor na Escócia, Irlanda do Norte e norte
-  da Inglaterra após estragos do temporal.
-  Fontes: The Guardian, BBC News
-  Cobertura: Sem divergência entre os 2 veículos. A cobertura convergiu
-  ao relatar os prejuízos causados pela tempestade Boelo e a manutenção
-  dos alertas de risco.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-25.html#s-tempestade-boelo-atinge-o-reino-unido-com-ventos
+• Prêmio Bola de Ouro 2026 realiza cerimônia histórica em Londres
+  Pela primeira vez fora da França em edição regular, evento premia os
+  melhores da temporada e conta com indicados brasileiros.
+  Fontes: ge, Estadão, Gazeta Esportiva, Trivela, CNN Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  na divulgação factual dos detalhes da premiação, da mudança de sede
+  para Londres e dos concorrentes ao título.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-26.html#s-premio-bola-de-ouro-2026-realiza-cerimonia-histo
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 08:18 (BRT) · Edição gerada por IA
-(gemini-flash-latest + gemini-flash-lite-latest)
+Gerado automaticamente em 06:56 (BRT) · Edição gerada por IA
+(gemini-flash-lite-latest)
