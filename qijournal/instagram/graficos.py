@@ -85,7 +85,58 @@ def _cabe(texto: str, fonte: str, tam: float, max_w: float) -> str:
     return texto.rstrip(" ,·") + "…"
 
 
+def _quebra(texto: str, fonte: str, tam: float, max_w: float, max_linhas: int = 2) -> list[str]:
+    """``texto`` em até ``max_linhas`` linhas de ``max_w``; a última leva reticências se sobrar."""
+    palavras = texto.split()
+    linhas: list[str] = []
+    atual = ""
+    for i, palavra in enumerate(palavras):
+        tentativa = f"{atual} {palavra}".strip()
+        if not atual or largura_texto(tentativa, fonte, tam) <= max_w:
+            atual = tentativa
+            continue
+        linhas.append(atual)
+        if len(linhas) == max_linhas - 1:
+            atual = " ".join(palavras[i:])
+            break
+        atual = palavra
+    linhas.append(atual)
+    return [_cabe(linha, fonte, tam, max_w) for linha in linhas if linha]
+
+
+def linhas_texto(texto: str, fonte: str, tam: float, max_w: float, tracking: float = 0.0) -> list[str]:
+    """Quebra gulosa de ``texto`` em linhas de até ``max_w`` px (``tracking`` em em, como o letter-spacing)."""
+    linhas: list[str] = []
+    atual = ""
+    for palavra in texto.split():
+        tentativa = f"{atual} {palavra}".strip()
+        w = largura_texto(tentativa, fonte, tam) + tracking * tam * len(tentativa)
+        if atual and w > max_w:
+            linhas.append(atual)
+            atual = palavra
+        else:
+            atual = tentativa
+    return linhas + ([atual] if atual else [])
+
+
+def tamanho_gancho(texto: str, *, largura: float = LARGURA, max_linhas: int = 4, tam_max: int = 150,
+                   tam_min: int = 112) -> int:
+    """Maior tamanho (px, par) em que o gancho cabe em ``max_linhas`` na ExtraCondensed Black em caixa alta.
+
+    Para o template passar ao ``hook`` (o ``data-fit`` ainda encolhe até o mínimo se a estimativa errar).
+    Se nem ``tam_min`` couber, devolve ``tam_min``.
+    """
+    caixa = texto.upper()
+    for tam in range(tam_max - tam_max % 2, tam_min - 1, -2):
+        if len(linhas_texto(caixa, "hook", tam, largura * 0.985, tracking=-0.01)) <= max_linhas:
+            return tam
+    return tam_min
+
+
 # ── Peças de SVG ──────────────────────────────────────────────────────────
+
+# Contorno na cor do fundo atrás do texto: linhas e pontos que passam por baixo não riscam as letras.
+HALO = "paint-order:stroke;stroke:var(--bg);stroke-width:8px;stroke-linejoin:round"
 
 
 def _f(v: float) -> str:
@@ -353,6 +404,7 @@ def relogio(
     largura: float = LARGURA,
     linha: float = 60,
     max_linhas: int = 12,
+    base: str | None = None,
 ) -> tuple[Markup, str]:
     """Relógio da notícia: quando cada veículo publicou o assunto (horário de Brasília).
 
@@ -366,12 +418,15 @@ def relogio(
 
     Eixo de tempo no topo, com marcas a cada 3 h (ou o passo que couber) e "00h 21/10" na virada
     do dia; o span (do primeiro ao último) fica marcado no eixo. Uma linha de ``linha`` px por
-    veículo, até ``max_linhas`` (as do meio viram uma linha "+k veículos").
+    veículo, até ``max_linhas`` (as do meio viram uma linha "+k veículos"). No pé, a base
+    (``base``; padrão "12 veículos · horário informado por cada veículo, em Brasília"; "" tira).
     """
     pts = sorted((_batida(b) for b in batidas), key=lambda p: p[1])
     if not pts:
         return _vazio("relogio", "nenhum horário informado", "Gráfico: linha do tempo sem horários informados.", largura)
     ref = ref_date or pts[-1][1].date()
+    if base is None:
+        base = f"{len(pts)} {_plural(len(pts), 'veículo')} · horário informado por cada veículo, em Brasília"
     rot = {"a": "lado A", "b": "lado B", "neutro": "sem lado", "fora": "fora da análise"} | dict(rotulos or {})
 
     def lado(nome: str) -> str | None:
@@ -440,6 +495,8 @@ def relogio(
     y_linhas = y_eixo + 52
     altura = y_linhas + nlinhas * linha + 6
     ocupado: list[tuple[float, float]] = []
+    viradas: list[float] = []  # x de cada meia-noite: fio tracejado que desce pelas linhas
+    rotulos_x: list[tuple[float, float, float]] = []  # (cy, x0, x1) de cada rótulo de linha
     for virada in (True, False):
         for t in marcas:
             if (t.hour == 0) != virada:
@@ -449,7 +506,7 @@ def relogio(
             x0 = min(max(X(t) - w / 2, 0), largura - w)
             corpo.append(_linha(X(t), y_eixo, X(t), y_eixo + 8, "var(--rule3)", 2))
             if virada:
-                corpo.append(_linha(X(t), y_eixo + 8, X(t), altura, "var(--rule2)", 2, " stroke-dasharray='4 8'"))
+                viradas.append(X(t))
             if any(not (x0 + w + 14 <= a or x0 >= b + 14) for a, b in ocupado):
                 continue
             ocupado.append((x0, x0 + w))
@@ -474,18 +531,12 @@ def relogio(
             w = largura_texto(txt, "mono", 22)
             xd = X(ocultas[-1][1]) + 18
             x_txt, anc = (xd, "start") if xd + w <= largura else (X(ocultas[0][1]) - 18, "end")
-            corpo.append(_texto(x_txt, cy + 8, txt, "mono", 22, "var(--ink2)", anc))
+            rotulos_x.append((cy, x_txt if anc == "start" else x_txt - w, x_txt + w if anc == "start" else x_txt))
+            corpo.append(_texto(x_txt, cy + 8, txt, "mono", 22, "var(--ink2)", anc, HALO))
             continue
         nome, t = p
         lo = lado(nome)
         x = X(t)
-        if n > 1:
-            corpo.append(_linha(X(t0), cy, x, cy, "var(--rule)", 2))
-        if lo is None:
-            corpo.append(_circulo(x, cy, 10, "var(--bg)", " stroke='var(--ink2)' stroke-width='3'"))
-        else:
-            cor = "var(--ink)" if lo == "sem" else _COR_STANCE[lo]
-            corpo.append(_circulo(x, cy, 12, cor, " stroke='var(--bg)' stroke-width='3'"))
         hora = _hora(t, ref)
         tag = "" if lo == "sem" else rot["fora" if lo is None else lo]
         w_h = largura_texto(hora, "mono", 24)
@@ -500,14 +551,34 @@ def relogio(
                 tag, w_t = "", 0
             nome_txt = _cabe(nome, "label", 28, lugar - w_h - 14 - w_t)
         w_tot = w_h + 14 + largura_texto(nome_txt, "label", 28) + w_t
-        if w_tot <= livre_d:
-            ax, anc = x + 24, "start"
+        ax, anc = (x + 24, "start") if w_tot <= livre_d else (x - 24, "end")
+        rotulos_x.append((cy, ax if anc == "start" else ax - w_tot, ax + w_tot if anc == "start" else ax))
+        # haste desde o primeiro horário: para antes do rótulo quando ele fica à esquerda do ponto
+        fim_haste = x if anc == "start" else ax - w_tot - 14
+        if n > 1 and fim_haste > X(t0) + 30:
+            corpo.append(_linha(X(t0), cy, fim_haste, cy, "var(--rule2)", 2))
+        if lo is None:
+            corpo.append(_circulo(x, cy, 10, "var(--bg)", " stroke='var(--ink2)' stroke-width='3'"))
         else:
-            ax, anc = x - 24, "end"
+            cor = "var(--ink)" if lo == "sem" else _COR_STANCE[lo]
+            corpo.append(_circulo(x, cy, 12, cor, " stroke='var(--bg)' stroke-width='3'"))
         spans = _tspan(hora, "mono", 24, "var(--ink2)") + _tspan(nome_txt, "label", 28, "var(--ink)", 14)
         if tag:
             spans += _tspan(tag, "mono", 21, "var(--ink2)", 16)
-        corpo.append(f"<text x='{_f(ax)}' y='{_f(cy + 9)}' text-anchor='{anc}'>{spans}</text>")
+        corpo.append(f"<text x='{_f(ax)}' y='{_f(cy + 9)}' text-anchor='{anc}' style='{HALO}'>{spans}</text>")
+    # a meia-noite desce pelas linhas, interrompida onde passaria por um rótulo
+    for xv in viradas:
+        trechos = [(y_eixo + 8, y_linhas)]
+        for i in range(len(mostradas)):
+            cy = y_linhas + i * linha + linha / 2
+            coberto = any(abs(c - cy) < 1 and x0 - 10 <= xv <= x1 + 10 for c, x0, x1 in rotulos_x)
+            if not coberto:
+                trechos.append((cy - linha / 2, cy + linha / 2))
+        for y0, y1 in trechos:
+            corpo.insert(0, _linha(xv, y0, xv, y1, "var(--rule2)", 2, " stroke-dasharray='4 8'"))
+    if base:
+        corpo.append(_texto(0, altura + 30, _cabe(base, "mono", 22, largura), "mono", 22, "var(--ink2)"))
+        altura += 42
     return _svg("relogio", largura, altura, corpo, descricao), descricao
 
 
@@ -565,10 +636,11 @@ def espectro(
 
     corpo: list[str] = []
     x = 0.0
-    y_nomes = 206
+    rot_linhas = [_quebra(rot, "label", 30, w) for (_, _, _, rot), w in zip(grupos, larguras)]
+    y_nomes = 206 + 36 * (max(len(r) for r in rot_linhas) - 1)
     passo_nome = 42
     max_linhas = 0
-    for (chave, nomes, cor, rot), w in zip(grupos, larguras):
+    for (chave, nomes, cor, rot), w, linhas_rot in zip(grupos, larguras, rot_linhas):
         k = len(nomes)
         if k:
             esp = min(36.0, (w - 28) / max(k - 1, 1))
@@ -577,7 +649,8 @@ def espectro(
         else:
             corpo.append(_circulo(x + 14, 16, 12, "none", " stroke='var(--rule3)' stroke-width='2' stroke-dasharray='4 4'"))
         corpo.append(_texto(x, 128, str(k), "hook", 104, "var(--ink)"))
-        corpo.append(_texto(x, 168, _cabe(rot, "label", 30, w), "label", 30, "var(--ink)"))
+        for j, txt in enumerate(linhas_rot):
+            corpo.append(_texto(x, 168 + 36 * j, txt, "label", 30, "var(--ink)"))
         visiveis = nomes if k <= max_nomes else nomes[: max_nomes - 1]
         for j, nome in enumerate(visiveis):
             corpo.append(_texto(x, y_nomes + 14 + j * passo_nome, _cabe(nome, "label", 28, w), "label", 28, "var(--ink2)"))
@@ -628,7 +701,8 @@ def waffle(
     Quadrados de 64 px, 7 por linha (com mais de 70, a grade alarga até 10 linhas). À direita,
     as duas contagens em número grande; embaixo, a base.
     """
-    plural = unidade_plural or (lambda p: p[0] + "s" + (" " + p[1] if len(p) > 1 else ""))(unidade.split(" ", 1))
+    primeira, _, resto = unidade.partition(" ")
+    plural = unidade_plural or f"{primeira}s {resto}".strip()
     marcados = set(range(destacados)) if isinstance(destacados, int) else set(destacados)
     marcados = {i for i in marcados if 0 <= i < total}
     d = len(marcados)
@@ -740,26 +814,29 @@ def matriz_pontos(
     hh = 56 if pos_destaque is not None else 0
     linhas = math.ceil(N / colunas)
     passo = min(mw / colunas, (altura_max - hh - 56) / linhas)
+    # folga para o ponto ampliado não sair do quadro na borda
+    folga = passo * 0.55 + 3 if pos_destaque is not None else 0
+    passo = min((mw - folga) / colunas, (altura_max - hh - 56 - folga) / linhas)
     r = passo * 0.36
+    rd = min(passo * 1.05, r * 2.8)
     corpo: list[str] = []
     for p, i in enumerate(ordem):
         if p == pos_destaque:
             continue
-        cx = passo * (p % colunas + 0.5)
-        cy = hh + passo * (p // colunas + 0.5)
+        cx = folga + passo * (p % colunas + 0.5)
+        cy = hh + folga + passo * (p // colunas + 0.5)
         _, _, cor, op = next(f for f in _FAIXAS if f[1](ks[i]))
         corpo.append(_circulo(cx, cy, r, cor, "" if op == 1 else f" fill-opacity='{op}'"))
     if pos_destaque is not None:
-        cx = passo * (pos_destaque % colunas + 0.5)
-        cy = hh + passo * (pos_destaque // colunas + 0.5)
-        rd = min(passo * 1.05, r * 2.8)
+        cx = folga + passo * (pos_destaque % colunas + 0.5)
+        cy = hh + folga + passo * (pos_destaque // colunas + 0.5)
         corpo.append(_circulo(cx, cy, rd, "var(--g-hi)", " stroke='var(--bg)' stroke-width='3'"))
         w = largura_texto(txt_d, "label", 28)
         xt = min(max(cx - rd, 0), largura - w)
         corpo.append(_texto(xt, 30, _cabe(txt_d, "label", 28, largura - xt), "label", 28, "var(--ink)"))
         if cy - rd > hh + 4:
             corpo.append(_linha(cx, 40, cx, cy - rd - 3, "var(--ink2)", 2))
-    altura_m = hh + linhas * passo
+    altura_m = hh + folga + linhas * passo
     if rotulos:
         xl = mw + 36
         prox = hh
@@ -767,14 +844,16 @@ def matriz_pontos(
         for rot, c, cor, op in faixas:
             if not c:
                 continue
-            alvo = hh + passo * (acumulado // colunas)
+            alvo = hh + folga + passo * (acumulado // colunas)
             y = max(alvo, prox)
             acumulado += c
             opac = "" if op == 1 else f" fill-opacity='{op}'"
             corpo.append(_circulo(xl + 11, y + 26, 11, cor, opac))
             corpo.append(_texto(xl + 32, y + 42, _num(c), "hook", 52, "var(--ink)"))
-            corpo.append(_texto(xl + 32, y + 76, _cabe(rot, "label", 24, lw - 32), "label", 24, "var(--ink2)"))
-            prox = y + 104
+            linhas_rot = _quebra(rot, "label", 24, lw - 32)
+            for j, txt in enumerate(linhas_rot):
+                corpo.append(_texto(xl + 32, y + 76 + 30 * j, txt, "label", 24, "var(--ink2)"))
+            prox = y + 104 + 30 * (len(linhas_rot) - 1)
         altura_m = max(altura_m, prox)
     com3, com5, com10 = (sum(1 for k in ks if k >= m) for m in (3, 5, 10))
     base = f"{_num(N)} {_plural(N, *item)} · {_num(com3)} com 3+ · {_num(com5)} com 5+ · {_num(com10)} com 10+"
@@ -812,7 +891,10 @@ def linha(
     """
     pts = sorted(((_dia(d), float(v)) for d, v in pontos), key=lambda p: p[0])
     n = len(pts)
-    fmt = lambda v: f"{prefixo}{_num(v, casas)}{sufixo}"  # noqa: E731
+
+    def fmt(v: float) -> str:
+        return f"{prefixo}{_num(v, casas)}{sufixo}"
+
     if n == 0:
         return _vazio("linha", "sem leituras", "Gráfico: linha sem leituras.", largura)
     d0, v0 = pts[0]
@@ -838,13 +920,16 @@ def linha(
             anotacoes = {"primeiro", "ultimo", "max", "min"}
     anotacoes = set(anotacoes)
     tv, td = (20, 17) if compacto else (30, 22)  # tamanho do valor e da data
-    topo = tv + td + 30
-    pe = td + 30 + (td + 18)
-    pad = 14
-    plot_h = altura - topo - pe
     lo, hi = pts[i_min][1], pts[i_max][1]
     if hi == lo:
         lo, hi = lo - abs(lo) * 0.01 - 1, hi + abs(hi) * 0.01 + 1
+    # margens: rótulo de duas linhas no alto; embaixo, também quando uma ponta está no terço de baixo
+    rotulo_h = tv + td + 6 + 18
+    topo = rotulo_h + 4
+    ponta_baixa = min(v0, vn) <= lo + (hi - lo) * 0.3
+    pe = (td + 22) + (rotulo_h + 4 if ponta_baixa else td + 26)
+    pad = 14
+    plot_h = altura - topo - pe
     dias = max((dn - d0).days, 1)
 
     def X(d: date) -> float:
@@ -871,45 +956,69 @@ def linha(
         corpo.append(_circulo(X(d), Y(v), 3.5 if compacto else 5, "var(--ink)"))
     corpo.append(_circulo(X(dn), Y(vn), 8 if compacto else 11, "var(--g-hi)", " stroke='var(--bg)' stroke-width='3'"))
 
+    # Rótulos: cada um tenta suas posições em ordem e fica na que não cruza a linha nem outro rótulo.
+    tracado = [(X(d), Y(v)) for d, v in pts]
+    amostras = list(tracado)
+    for (xa, ya), (xb, yb) in zip(tracado, tracado[1:]):
+        k = max(int(math.hypot(xb - xa, yb - ya) // 4), 1)
+        amostras += [(xa + (xb - xa) * j / k, ya + (yb - ya) * j / k) for j in range(1, k)]
     caixas: list[tuple[float, float, float, float]] = []
+    piso = altura - (td + 22)  # acima da linha de base
 
-    def cabe_caixa(x0: float, y0: float, x1: float, y1: float) -> bool:
-        return all(x1 + 8 <= a or x0 >= c + 8 or y1 + 4 <= b or y0 >= e + 4 for a, b, c, e in caixas)
+    def custo(x0: float, y0: float, x1: float, y1: float) -> float:
+        if x0 < -1 or x1 > largura + 1 or y0 < 0 or y1 > piso:
+            return 1e9
+        na_linha = sum(1 for px, py in amostras if x0 - 8 <= px <= x1 + 8 and y0 - 6 <= py <= y1 + 6)
+        em_rotulo = sum(1 for a, b, c, e in caixas if not (x1 + 10 <= a or x0 >= c + 10 or y1 + 4 <= b or y0 >= e + 4))
+        return na_linha + 1000 * em_rotulo
 
-    def ponta(i: int, ancora: str, cor_valor: str) -> None:
+    def rotular(i: int, linhas: list[tuple[str, str, float, str]], opcoes: list[tuple[str, str]], opcional: bool) -> None:
+        px, py = tracado[i]
+        w = max(largura_texto(t, f, tam) for t, f, tam, _ in linhas)
+        h = sum(tam for _, _, tam, _ in linhas) + 6 * (len(linhas) - 1)
+        melhor = None
+        # cada posição perto do ponto; depois, as mesmas afastadas (com fio até o ponto)
+        tentativas = [(a, o, 0) for a, o in opcoes] + [(a, o, k * 26) for k in (1, 2, 3) for a, o in opcoes if o != "lado"]
+        for ancora, onde, desvio in tentativas:
+            x = px + (18 if ancora == "start" else -18) if onde == "lado" else px
+            if ancora == "middle":
+                x = min(max(x, w / 2), largura - w / 2)
+            topo_txt = {"acima": py - 16 - h - desvio, "abaixo": py + 16 + desvio, "lado": py - h / 2}[onde]
+            x0 = x if ancora == "start" else (x - w if ancora == "end" else x - w / 2)
+            c = custo(x0, topo_txt, x0 + w, topo_txt + h)
+            if melhor is None or c < melhor[0]:
+                melhor = (c, x, topo_txt, ancora, (x0, topo_txt, x0 + w, topo_txt + h), onde, desvio)
+            if c == 0:
+                break
+        if melhor is None or (opcional and melhor[0] > 0) or melhor[0] >= 1e9:
+            return
+        _, x, y, ancora, caixa, onde, desvio = melhor
+        if desvio:
+            ponta_fio = caixa[3] + 4 if onde == "acima" else caixa[1] - 4
+            corpo.append(_linha(px, py + (-10 if onde == "acima" else 10), px, ponta_fio, "var(--ink3)", 2))
+        caixas.append(caixa)
+        for t, fonte, tam, cor in linhas:
+            y += tam
+            corpo.append(_texto(x, y - tam * 0.18, t, fonte, tam, cor, ancora, HALO))
+            y += 6
+
+    def ponta(i: int) -> list[tuple[str, str, float, str]]:
         d, v = pts[i]
         marca = " · máx." if i == i_max and n > 1 else (" · mín." if i == i_min and n > 1 else "")
-        valor, data = fmt(v), _ddmm(d) + marca
-        w = max(largura_texto(valor, "mono", tv), largura_texto(data, "mono", td))
-        x = X(d)
-        ax = min(max(x, 0), largura) if ancora != "middle" else min(max(x, w / 2), largura - w / 2)
-        acima = Y(v) - (tv + td + 22) >= 0 and (Y(v) > topo + plot_h / 2 or Y(v) + 20 + tv + td + 8 > topo + plot_h + 4)
-        if acima:
-            y_val, y_data = Y(v) - td - 24, Y(v) - 16
-        else:
-            y_val, y_data = Y(v) + 18 + tv, Y(v) + 26 + tv + td
-        x0 = ax if ancora == "start" else (ax - w if ancora == "end" else ax - w / 2)
-        caixas.append((x0, y_val - tv, x0 + w, y_data + 4))
-        corpo.append(_texto(ax, y_val, valor, "mono6", tv, cor_valor, ancora))
-        corpo.append(_texto(ax, y_data, data, "mono", td, "var(--ink2)", ancora))
+        cor = "var(--accent)" if i == n - 1 else "var(--ink)"
+        return [(fmt(v), "mono6", tv, cor), (_ddmm(d) + marca, "mono", td, "var(--ink2)")]
 
-    if "primeiro" in anotacoes and n > 1:
-        ponta(0, "start", "var(--ink)")
     if "ultimo" in anotacoes:
-        ponta(n - 1, "end" if n > 1 else "middle", "var(--accent)")
-    for chave, i, prefixo_txt, acima in (("max", i_max, "máx.", True), ("min", i_min, "mín.", False)):
+        lado = [("end", "acima"), ("end", "abaixo"), ("end", "lado")] if n > 1 else [("middle", "acima"), ("middle", "abaixo")]
+        rotular(n - 1, ponta(n - 1), lado, False)
+    if "primeiro" in anotacoes and n > 1:
+        rotular(0, ponta(0), [("start", "acima"), ("start", "abaixo"), ("start", "lado")], False)
+    for chave, i, prefixo_txt, ordem in (("max", i_max, "máx.", ("acima", "abaixo")), ("min", i_min, "mín.", ("abaixo", "acima"))):
         if chave not in anotacoes or i in (0, n - 1) or n < 3:
             continue
         d, v = pts[i]
         txt = f"{prefixo_txt} {fmt(v)} · {_ddmm(d)}"
-        w = largura_texto(txt, "mono", td)
-        ax = min(max(X(d), w / 2), largura - w / 2)
-        y = Y(v) - 18 if acima else Y(v) + 18 + td
-        caixa = (ax - w / 2, y - td, ax + w / 2, y + 4)
-        if not cabe_caixa(*caixa):
-            continue
-        caixas.append(caixa)
-        corpo.append(_texto(ax, y, txt, "mono", td, "var(--ink2)", "middle"))
+        rotular(i, [(txt, "mono", td, "var(--ink2)")], [("middle", o) for o in ordem], True)
 
     if n > 1:
         base = f"{n} leituras, de {_ddmm(d0)} a {_ddmm(dn)}"
@@ -945,12 +1054,12 @@ def barras_variacao(
     d0, dn = pts[0][0], pts[-1][0]
     hoje = pts[-1][1]
     z = abs(hoje) / escala if escala else None
-    vez = lambda z: _plural(2 if z >= 2 else 1, "vez", "vezes")  # noqa: E731
+    vez = "vez" if z is not None and z < 2 else "vezes"  # "1,6 vez", "2,6 vezes"
     descricao = f"Gráfico: barras com {n} {_plural(n, 'variação diária', 'variações diárias')}"
     descricao += f", de {_ddmm(d0)} a {_ddmm(dn)}" if n > 1 else f", em {_ddmm(d0)}"
     descricao += f"; {rotulo_hoje}, {_pct(hoje, casas)}"
     if z is not None:
-        descricao += (f", {_num(z, 1)} {vez(z)} a variação típica de {_num(escala, 2)}%; "
+        descricao += (f", {_num(z, 1)} {vez} a variação típica de {_num(escala, 2)}%; "
                       "linhas tracejadas em 2 e 3 vezes essa variação")
     descricao += "."
 
@@ -986,7 +1095,7 @@ def barras_variacao(
     linha1 = f"{rotulo_hoje}: {_pct(hoje, casas)}"
     corpo.append(_texto(xh, 32, linha1, "mono6", 30, "var(--accent)", "end"))
     if z is not None:
-        corpo.append(_texto(xh, 68, f"{_num(z, 1)} {vez(z)} a variação típica", "mono", 24, "var(--ink2)", "end"))
+        corpo.append(_texto(xh, 68, f"{_num(z, 1)} {vez} a variação típica", "mono", 24, "var(--ink2)", "end"))
     y_datas = topo + plot_h + 34
     corpo.append(_texto(passo * 0.5 - bw / 2, y_datas, _ddmm(d0), "mono", 22, "var(--ink2)"))
     if n > 1:

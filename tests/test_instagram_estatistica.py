@@ -185,7 +185,7 @@ def test_numero_do_dia_nao_repete_o_da_semana_e_cai_para_o_assunto_mais_coberto(
             stories=[_story("apple", "Apple vale US$ 5 trilhões", section="tecnologia")],
             index=[
                 _topic("Apple", [(f"V{i}", "Apple vale US$ 5 trilhões", None) for i in range(4)], story_id="apple"),
-                _topic("Protestos", [(f"W{i}", "Protestos", None) for i in range(13)], section="mundo"),
+                _topic("Protestos", [(f"W{i}", f"Protestos tomam as ruas ({i})", None) for i in range(13)], section="mundo"),
             ],
         )
 
@@ -218,8 +218,9 @@ def test_mercado_fora_do_comum_vira_o_numero_com_a_hora_da_leitura():
     assert n.tipo == "mercado"
     assert n.valor == "−4,42%" and n.tese == "Dólar cai 4,42%"
     assert n.selo.endswith("leitura das 14h06")  # o dólar não tem fechamento: diz a hora
-    # Com menos de 15 leituras não há escala confiável: nada de "fora do comum".
-    assert E.numero_do_dia(hoje, history[:10] + [hoje], election=True) is None
+    # Com menos de 15 leituras não há escala confiável: nada de "fora do comum"; sai o acumulado.
+    n = E.numero_do_dia(hoje, history[:10] + [hoje], election=True)
+    assert n.tipo == "acumulado" and n.passo == 5 and n.tese == "Dólar acumula −4,3% desde 29/09"
 
 
 def test_serie_uma_leitura_por_dia_e_acumulado_ponta_a_ponta():
@@ -272,3 +273,226 @@ def test_historico_le_so_o_periodo_pedido(tmp_path):
     (tmp_path / "latest.json").write_text("{}", encoding="utf-8")
     eds = E.load_history(tmp_path, date(2026, 10, 21), days=30)
     assert [e.date for e in eds] == ["2026-10-20", "2026-10-21"]
+
+
+# ── Dados reais (data/AAAA-MM-DD.json, com IA de 14 a 26/10) ───────────────
+
+import functools  # noqa: E402
+from pathlib import Path  # noqa: E402
+
+import pytest  # noqa: E402
+
+DATA = Path(__file__).resolve().parent.parent / "data"
+real = pytest.mark.skipif(not (DATA / "2026-10-21.json").is_file(), reason="sem os JSONs reais em data/")
+
+
+@functools.lru_cache(maxsize=None)
+def edicao(day: str) -> Edition:
+    return Edition.from_dict(json.loads((DATA / f"2026-10-{day}.json").read_text(encoding="utf-8")))
+
+
+def historia(day: str) -> list[Edition]:
+    return E.load_history(DATA, date(2026, 10, int(day)), 90)
+
+
+def materia(day: str, prefixo: str):
+    return next(s for s in edicao(day).stories if s.id.startswith(prefixo))
+
+
+@real
+def test_filtro_eleitoral_por_conteudo_nos_casos_reais():
+    tse = materia("20", "tse-intima-meta")
+    assert tse.section == "juridico" and E.story_is_electoral(tse)
+    iss = materia("22", "stf-decide-que-iss")
+    assert not E.story_is_electoral(iss)  # "6 votos a 5": voto de ministro não é eleição
+    alberta = next(c for c in edicao("21").compared if "Alberta" in c.topic)
+    assert alberta.section == "mundo" and not E.is_electoral(E.coverage_text(alberta), alberta.section)
+    assert not E.is_electoral("Flávio Dino suspende emendas e cobra transparência do Congresso", "juridico")
+    assert E.is_electoral("Flávio Bolsonaro visita o Nordeste", "brasil")
+    # A IBC-Br de 16/10 cita "pesquisa da Reuters" num enquadramento: pesquisa de mercado não é eleitoral.
+    assert not E.story_is_electoral(materia("16", "ibc-br"))
+
+
+def test_filtro_eleitoral_familias_e_excecoes():
+    nomes = ["Lula", "Flávio Bolsonaro", "Bolsonaro"]
+    assert E.is_electoral("Candidatos ao governo debatem na TV", "brasil", nomes)
+    assert not E.is_electoral("Candidatos ao governo debatem na TV", "mundo", nomes)  # forte não vale em Mundo
+    assert E.is_electoral("Lula viaja à Ásia", "mundo", nomes)  # nome vale em toda seção
+    assert not E.is_electoral("Lulas gigantes são filmadas no Pacífico", "natureza", nomes)  # borda de palavra
+    assert E.is_electoral("Deputado do PL apresenta emenda", "brasil", nomes)
+    assert not E.is_electoral("Câmara aprova o PL 2338 sobre IA", "brasil", nomes)  # PL = projeto de lei
+    assert not E.is_electoral("Deputado do PL apresenta emenda", "mundo", nomes)  # partido só nas 4 seções
+    assert not E.is_electoral("Ministro dá voto decisivo e eleição no Canadá termina", "juridico", nomes)
+    assert E.is_electoral("Datafolha mostra empate técnico", "brasil", nomes)
+    assert not E.is_electoral("Pesquisa do IBGE mostra alta de 0,5 ponto percentual", "brasil", nomes)
+
+
+@real
+def test_placar_real_tira_o_eleitoral_e_vai_sem_porcentagem():
+    p21 = E.placar(edicao("21"), election=True)
+    p19 = E.placar(edicao("19"), election=True)
+    # A spec simulou 4 de 26 e 0 de 16 sem o filtro por conteúdo; com ele saem
+    # "Nunes Marques diz que TSE..." (21/10) e duas coberturas com Lula e Flávio Bolsonaro (19/10).
+    assert (p21.rachas, p21.base) == (4, 25) and p21.texto_dia == "4 de 25"
+    assert (p19.rachas, p19.base) == (0, 14) and p19.texto_dia == "0 de 14"
+    assert "%" not in p21.texto_dia and p21.texto == "4 de 25 (16%)"
+    assert len(p21.itens) == p21.base
+    consenso, _story = E.maior_consenso(edicao("19"), election=True)
+    assert consenso.topic.startswith("Protestos") and len(consenso.outlets) == 8
+    assert consenso.count("a") == consenso.count("b") == 0
+    rachas = E.rachas_do_dia(edicao("21"), election=True)
+    assert len(rachas) == 4 and all(E.is_racha(c) for c, _ in rachas)
+
+
+@real
+def test_concentracao_real_de_21_10():
+    c = E.concentracao(edicao("21"), election=True)
+    assert (c.assuntos, c.uma_fonte, c.com3, c.com5, c.com10) == (1159, 1039, 60, 22, 1)
+    assert c.topo_veiculos == 12 and c.topo.story_id.startswith("spacex")
+    assert c.linha == "1.159 assuntos · 60 com 3+ · 22 com 5+ · 1 com 10+"
+
+
+@real
+def test_relogio_real_da_spacex_em_21_10():
+    e = edicao("21")
+    r = E.relogio(e, materia("21", "spacex"))
+    assert len(r.batidas) == 12
+    first, last = r.batidas[0], r.batidas[-1]
+    assert first.source == "The New York Times" and E.hora(first.at, date(2026, 10, 21)) == "20/10 13h17"
+    assert first.lang == "en"
+    assert last.source == "The Wall Street Journal" and E.hora(last.at) == "06h01" and last.stance is None
+    assert E.duracao(r.span) == "16h43" and E.relogio_valido(r)
+    assert not E.relogio_valido(E.Relogio(r.batidas[:3]))  # menos de 4 veículos
+    assert not E.relogio_valido(E.Relogio([r.batidas[0], E.Batida("X", r.batidas[0].at + timedelta(minutes=10))] * 2))
+
+
+@real
+def test_acumulados_e_juro_real_ate_21_10():
+    h = historia("21")
+    brent = E.serie(h, "brent")
+    a = E.acumulado(brent)
+    assert (a.first.value, a.last.value, round(a.pct, 1)) == (100.03, 110.14, 10.1)
+    ibov = E.serie(h, "ibov")
+    a = E.acumulado(ibov)
+    assert round(a.pct, 1) == 13.8 and len(ibov) == 14
+    assert round(a.high.value) == 209067 and a.high.day == date(2026, 10, 9)
+    assert round(E.acumulado(E.serie(h, "usd")).pct, 1) == -4.1
+    assert round(E.juro_real(edicao("21")), 2) == 8.77
+    # Dias úteis sem leitura do Ibovespa; 12/10 é feriado e não conta.
+    assert E.pregoes_faltantes(ibov, "ibov") == [date(2026, 9, 30), date(2026, 10, 13)]
+    assert E.pregoes_faltantes(brent, "brent") == []
+
+
+def test_selo_de_leitura_da_cotacao():
+    close = E.Ponto(datetime(2026, 10, 20, 20, 19, tzinfo=timezone.utc), 208296, 1.5)
+    assert E.selo_leitura("ibov", close) == "fech. 20/10"
+    intraday = E.Ponto(datetime(2026, 10, 5, 16, 51, tzinfo=timezone.utc), 200000, 8.25)
+    assert E.selo_leitura("ibov", intraday) == "leitura das 13h51"
+    btc = E.Ponto(datetime(2026, 10, 15, 9, 55, tzinfo=timezone.utc), 81198, -2.36)
+    assert E.selo_leitura("btc", btc) == "leitura das 06h55"
+    assert E.selo_leitura("btc", btc, date(2026, 10, 16)) == "leitura de 15/10, 06h55"
+    stale = E.Ponto(datetime(2026, 10, 15, 9, 0, tzinfo=timezone.utc), 5.03, 0.0)  # 06h00 com 0,00%
+    assert E.selo_leitura("usd", stale) == ""
+
+
+def test_placar_texto_dia_nunca_tem_porcentagem():
+    assert E.Placar(5, 36).texto_dia == "5 de 36" and E.Placar(5, 36).texto == "5 de 36 (14%)"
+
+
+def test_adjetivo_da_casa_corta_a_manchete_ou_usa_o_dek():
+    caju = "iFood Benefícios compra a Caju por cerca de R$ 1 bi e cria gigante de benefícios"
+    assert E.sem_adj_casa(caju, ["iFood compra Caju"] * 8) == "iFood Benefícios compra a Caju por cerca de R$ 1 bi"
+    titulos = ["SpaceX e Tesla avaliam fusão histórica"] + ["SpaceX e Tesla avaliam fusão"] * 11  # 1 de 12
+    assert E.sem_adj_casa("SpaceX e Tesla avaliam fusão histórica após salto", titulos, dek="O dek.") == "O dek."
+    # Com o adjetivo no título de metade ou mais dos veículos, ele fica.
+    assert E.sem_adj_casa("Embraer bate recorde de pedidos", ["recorde"] * 3 + ["outro"] * 3) == "Embraer bate recorde de pedidos"
+    assert E.sem_adj_casa("Sem adjetivo nenhum aqui", []) == "Sem adjetivo nenhum aqui"
+    assert E.sem_adj_casa("1,8 mil presos e onda histórica", []) == ""  # não corta na vírgula decimal
+
+
+@real
+def test_capa_sem_adjetivo_com_os_titulos_reais():
+    e = edicao("21")
+    caju = materia("21", "ifood-beneficios")
+    assert E.capa_sem_adj(e, caju) == "iFood Benefícios compra a Caju por cerca de R$ 1 bi"
+    spacex = materia("21", "spacex")
+    assert E.capa_sem_adj(e, spacex) == E._plain(spacex.dek)
+
+
+def test_numero_de_destaque_com_qualificador():
+    assert E.numero_destaque("iFood Benefícios compra a Caju por cerca de R$ 1 bi e cria gigante") == ("CERCA DE", "R$ 1 bi")
+    assert E.numero_destaque("Governo prevê renegociação de até R$ 90 bilhões") == ("ATÉ", "R$ 90 bi")
+    assert E.numero_destaque("IBC-Br sobe 0,3% em agosto de 2026") == ("", "0,3%")
+    assert E.numero_destaque("Lei de 2025 muda regras do setor") is None  # ano solto não é número de capa
+
+
+@real
+@pytest.mark.parametrize(
+    "dia, raiox, passo, tipo, qualificador, valor, tese, selo",
+    [
+        ("15", None, 4, "mercado", "", "−2,36%", "Bitcoin cai 2,36%", "Yahoo Finance · leitura das 06h55"),
+        ("16", None, 2, "triangulado", "", "0,3%", "IBC-Br sobe 0,3% em agosto com recuo do agro", "no título de 5 de 5 veículos"),
+        ("18", None, 3, "concentracao", "", "12 veículos", None, "o assunto mais coberto entre 663 do dia"),
+        ("21", "spacex", 5, "acumulado", "", "+13,8%", "Ibovespa acumula +13,8% desde 28/09", "fech. 28/09 → fech. 20/10"),
+        ("22", None, 2, "triangulado", "ATÉ", "R$ 90 bi", None, "no título de 5 de 6 veículos"),
+        ("24", "ipca-15", 2, "triangulado", "", "US$ 35,7 bi", None, "no título de 5 de 5 veículos"),
+    ],
+)
+def test_numero_do_dia_nos_dias_reais(dia, raiox, passo, tipo, qualificador, valor, tese, selo):
+    e = edicao(dia)
+    exclude = {e.lead} | ({materia(dia, raiox).id} if raiox else set())
+    n = E.numero_do_dia(e, historia(dia), election=True, exclude=exclude)
+    assert (n.passo, n.tipo, n.qualificador, n.valor, n.selo) == (passo, tipo, qualificador, valor, selo)
+    if tese:
+        assert n.tese == tese
+    assert len(n.tese.split()) <= E.TESE_MAX_PALAVRAS
+
+
+@real
+def test_numero_do_dia_prova_por_tipo():
+    btc = E.numero_do_dia(edicao("15"), historia("15"), election=True)
+    assert btc.prova["qid"] == "btc" and round(btc.prova["z"], 1) == 2.6 and btc.prova["variacoes"][-1]["hoje"]
+    assert len(btc.prova["variacoes"]) <= 30 and btc.prova["anotacao"] == "hoje: −2,36%, 2,6 vezes a variação típica"
+    ibc = E.numero_do_dia(edicao("16"), historia("16"), election=True)
+    assert ibc.prova["confirmados"] == ibc.prova["total"] == 5
+    assert ibc.prova["frase"] == "5 de 5 veículos puseram 0,3% no título"
+    assert all({"nome", "confirmado", "hora", "at"} <= set(v) for v in ibc.prova["veiculos"])
+    conc = E.numero_do_dia(edicao("18"), historia("18"), election=True)
+    assert conc.prova["assuntos"] == 663 and len(conc.prova["contagens"]) == 663
+    assert conc.prova["contagens"][conc.prova["destaque"]] >= 12
+    ibov = E.numero_do_dia(edicao("21"), historia("21"), election=True, exclude={materia("21", "spacex").id})
+    p = ibov.prova
+    assert (p["primeiro"]["valor_fmt"], p["ultimo"]["valor_fmt"], p["leituras"]) == ("182.991", "208.296", 14)
+    assert (p["max"]["valor_fmt"], p["max"]["dia"]) == ("209.067", "09/10")
+    assert [f["dia"] for f in p["faltantes"]] == ["30/09", "13/10"]
+    assert {o["qid"]: o["pct_fmt"] for o in p["outros"]}["brent"] == "+10,1%"
+
+
+@real
+def test_numero_do_dia_usa_as_chaves_publicadas_e_nunca_fica_vazio():
+    e, h = edicao("21"), historia("21")
+    sem_spacex = {materia("21", "spacex").id}
+    n = E.numero_do_dia(e, h, election=True, exclude=sem_spacex, usados={"acum:ibov"})
+    assert n.chave == "acum:brent" and n.passo == 5
+    todos = {f"acum:{q}" for q in E.ACUMULADO_IDS}
+    n = E.numero_do_dia(e, h, election=True, exclude=sem_spacex, usados=todos)
+    assert n.tipo == "juro_real" and n.valor == "8,77%" and n.tese == "Juro real ex-post de 8,77%"
+    assert n.prova["ipca_ref"] == "set/26" and n.prova["selic"] == 13.75
+    n = E.numero_do_dia(e, h, election=True, exclude=sem_spacex, usados=todos | {"juroreal"})
+    assert n.passo == 7 and n.chave == "acum:ibov"  # o 12:00 nunca fica vazio
+
+
+@real
+def test_numero_do_dia_sem_ia_so_mercado():
+    e = edicao("10")
+    assert e.mode != "ai"
+    n = E.numero_do_dia(e, historia("10"), election=True)
+    assert n.tipo in ("mercado", "acumulado", "juro_real")
+
+
+@real
+def test_selo_de_cobertura_do_em_1_minuto():
+    e = edicao("21")
+    spacex = materia("21", "spacex")
+    assert E.selo_cobertura(e, spacex, spacex.id) == "12 veículos · dividida 6 × 2 · Raio-X às 18h30"
+    assert E.selo_cobertura(e, materia("21", "ifood-beneficios"), spacex.id) == "8 veículos · sem divisão"

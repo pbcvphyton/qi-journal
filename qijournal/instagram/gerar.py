@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import logging
 import os
+import re
 import shutil
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
@@ -56,6 +57,8 @@ def brand_context(config: Config) -> dict:
         "logo": clean_svg(logo),
         "icon": clean_svg(icon),
         "fonts_css": Markup(fonts_css(root)),
+        # @ do perfil sem o @ ("" enquanto a conta não existe: a assinatura sai "▲ triangula").
+        "handle": re.sub(r"[^A-Za-z0-9._]", "", (config.instagram.handle or "").strip().lstrip("@")),
     }
 
 

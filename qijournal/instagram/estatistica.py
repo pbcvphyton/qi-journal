@@ -32,7 +32,7 @@ SERIE_MIN_PONTOS = 15  # para estimar a escala robusta de um ativo
 ACUMULADO_MIN_PONTOS = 10  # leituras para o acumulado virar Número (= limiares.grafico_min_pontos)
 REPETICAO_DIAS = 7  # o mesmo número não volta antes disso
 RELOGIO_MIN_VEICULOS = 4  # relógio da notícia só com 4+ veículos com horário...
-RELOGIO_MIN_SPAN = timedelta(minutes=30)  # ...e 30 min entre o primeiro e o último
+RELOGIO_MIN_SPAN_MIN = 30  # ...e 30 min entre o primeiro e o último
 TESE_MAX_PALAVRAS = 14
 MERCADO_Z_IDS = ["usd", "ibov", "brent", "btc", "spx", "gold"]
 ACUMULADO_IDS = ["ibov", "usd", "brent", "btc", "spx", "gold"]
@@ -171,17 +171,18 @@ _PARTIDO_SOLTO = re.compile(r"\b(?:" + "|".join(re.escape(p) for p in PARTIDOS) 
 
 
 @lru_cache(maxsize=32)
-def _nomes_re(nomes: tuple[str, ...]) -> re.Pattern | None:
+def _nomes_re(nomes: tuple[str, ...], ignora_caixa: bool) -> re.Pattern | None:
     nomes = tuple(n.strip() for n in nomes if n and n.strip())
     if not nomes:
         return None
     alts = sorted((re.escape(n) for n in nomes), key=len, reverse=True)
-    return re.compile(r"\b(?:" + "|".join(alts) + r")\b")
+    return re.compile(r"\b(?:" + "|".join(alts) + r")\b", re.I if ignora_caixa else 0)
 
 
-def cita_nome(text: str, nomes: Iterable[str] = NOMES_ELEICAO) -> bool:
-    """O texto cita um dos políticos da lista (com borda de palavra: "Flávio Dino" não é "Flávio Bolsonaro")."""
-    pattern = _nomes_re(tuple(nomes))
+def cita_nome(text: str, nomes: Iterable[str] = NOMES_ELEICAO, *, ignora_caixa: bool = False) -> bool:
+    """O texto cita um dos políticos da lista (com borda de palavra: "Flávio Dino" não é "Flávio
+    Bolsonaro"). Com ``ignora_caixa``, vale também em caixa alta ("LULA", no gancho e no destaque)."""
+    pattern = _nomes_re(tuple(nomes), ignora_caixa)
     return bool(pattern and pattern.search(text or ""))
 
 
@@ -328,19 +329,29 @@ def _corta_na_juncao(texto: str, limite: int) -> str:
     return head[:cut].strip() if cut > 0 and len(head[:cut].split()) >= 5 else ""
 
 
+def _limpo(texto: str) -> bool:
+    """Sem palavra proibida do lint (sensacionalismo e vícios de IA, :mod:`.redacao`)."""
+    from .redacao import palavras_proibidas  # redacao importa este módulo
+
+    return not palavras_proibidas(texto)
+
+
 def tese_da_materia(edition: Edition, story: Story, limite: int = TESE_MAX_PALAVRAS) -> str:
     """Tese de capa a partir da matéria (§4.4): a manchete sem adjetivo da casa; com mais de
     ``limite`` palavras, cortada no último " e " ou ","; senão o assunto da cobertura; se
-    ainda passar, a linha fina cortada na última vírgula antes da palavra ``limite``."""
+    ainda passar, a linha fina cortada na última vírgula antes da palavra ``limite``.
+    Candidata com palavra proibida do lint ("em meio a"...) passa a vez para a seguinte."""
     titulos = titulos_por_veiculo(topic_of(edition, story.id))
     topic = story.coverage.topic if story.coverage and story.coverage.topic else ""
+    candidatas = []
     for texto in (story.headline, topic):
         clean = sem_adj_casa(texto, titulos) if texto else ""
         cut = _corta_na_juncao(clean, limite) if clean else ""
         if cut:
-            return cut
+            candidatas.append(cut)
     dek = sem_adj_casa(story.dek, titulos) or _plain(story.dek)
-    return _corta_palavras(dek or _plain(story.headline), limite)
+    candidatas.append(_corta_palavras(dek or _plain(story.headline), limite))
+    return next((c for c in candidatas if _limpo(c)), candidatas[-1])
 
 
 def numero_destaque(texto: str) -> tuple[str, str] | None:
@@ -588,10 +599,11 @@ def relogio_valido(
     r: Relogio | None,
     *,
     min_veiculos: int = RELOGIO_MIN_VEICULOS,
-    min_span: timedelta = RELOGIO_MIN_SPAN,
+    min_span_min: int = RELOGIO_MIN_SPAN_MIN,
 ) -> bool:
-    """O relógio vale como slide: 4+ veículos com horário e 30 min ou mais do primeiro ao último."""
-    return r is not None and len(r.batidas) >= min_veiculos and r.span >= min_span
+    """O relógio vale como slide: 4+ veículos com horário e 30 min ou mais do primeiro ao último
+    (``limiares.relogio_min_veiculos`` e ``limiares.relogio_min_span_min``)."""
+    return r is not None and len(r.batidas) >= min_veiculos and r.span >= timedelta(minutes=min_span_min)
 
 
 # ── Mercado ───────────────────────────────────────────────────────────────
@@ -763,8 +775,8 @@ def _display_number(raw: str) -> str:
 def _ponto_json(qid: str, p: Ponto, ref: date | None = None) -> dict[str, Any]:
     return {
         "dia": f"{p.day:%d/%m}",
-        "data": p.day.isoformat(),
-        "as_of": p.as_of.isoformat(),
+        "data": p.day,
+        "as_of": p.as_of,
         "valor": p.value,
         "valor_fmt": valor_cotacao(qid, p.value),
         "pct": p.change_pct,
@@ -784,8 +796,6 @@ def _prova_triangulado(edition: Edition, topic: IndexTopic, core: str, valor: st
         if at is not None and (row["at"] is None or at < row["at"]):
             row["at"], row["hora"] = at, hora(at, day)
     ordered = sorted(rows.values(), key=lambda r: (r["at"] is None, r["at"] or datetime.min.replace(tzinfo=TZ)))
-    for r in ordered:
-        r["at"] = r["at"].isoformat() if r["at"] else None
     confirmados = sum(1 for r in ordered if r["confirmado"])
     return {
         "veiculos": ordered,
@@ -898,12 +908,12 @@ def _mercado(edition: Edition, history: list[Edition], z_min: float, passo: int)
 
 def _titulo_assunto(edition: Edition, topic: IndexTopic) -> str:
     """Título do assunto para a capa, sem adjetivo da casa e com até 14 palavras; nunca o
-    título literal de um veículo ("" se o assunto não tem outro título)."""
+    título literal de um veículo nem palavra proibida do lint ("" se não há outro título)."""
     story = next((s for s in edition.stories if s.id == topic.story_id), None) if topic.story_id else None
     literal = _plain(topic.title) in {_plain(i.title) for i in topic.items}
-    if story is not None and (literal or len(palavras(topic.title)) > TESE_MAX_PALAVRAS):
+    if story is not None and (literal or len(palavras(topic.title)) > TESE_MAX_PALAVRAS or not _limpo(topic.title)):
         return tese_da_materia(edition, story)
-    if literal:
+    if literal or not _limpo(topic.title):
         return ""
     title = sem_adj_casa(topic.title, titulos_por_veiculo(topic), dek=story.dek if story else "")
     return _corta_palavras(title or _plain(topic.title), TESE_MAX_PALAVRAS)
@@ -915,8 +925,9 @@ def _concentracao_numero(
     election: bool,
     nomes: Iterable[str] = NOMES_ELEICAO,
     exclude: Iterable[str] = (),
-    usados: set[str] = frozenset(),
+    usados: Iterable[str] = (),
 ) -> Numero | None:
+    usados = set(usados)
     conc = concentracao(edition, election=election, nomes=nomes)
     if conc is None:
         return None
@@ -990,7 +1001,7 @@ def _acumulados(edition: Edition, history: list[Edition], min_pontos: int) -> li
                     "qid": qid,
                     "ativo": label,
                     "pontos": [_ponto_json(qid, p, day) for p in pontos],
-                    "faltantes": [{"dia": f"{d:%d/%m}", "data": d.isoformat()} for d in pregoes_faltantes(pontos, qid)],
+                    "faltantes": [{"dia": f"{d:%d/%m}", "data": d} for d in pregoes_faltantes(pontos, qid)],
                     "primeiro": _ponto_json(qid, acc.first),
                     "ultimo": _ponto_json(qid, acc.last),
                     "max": _ponto_json(qid, acc.high),
@@ -1115,14 +1126,17 @@ def numero_do_dia(
 def selo_cobertura(edition: Edition, story: Story, raiox_story_id: str | None = None, *, hora_raiox: str = "18h30") -> str:
     """``"12 veículos · dividida 6 × 2 · Raio-X às 18h30"``, ``"8 veículos · sem divisão"``.
 
-    Conta os veículos do assunto no index (órgãos fora); sem assunto, as fontes da matéria.
+    Conta os veículos do assunto no index (órgãos fora); sem assunto, os da matéria (e, se
+    só houver órgãos públicos entre as fontes, ``"2 fontes"``).
     """
     topic = topic_of(edition, story.id)
     if topic is not None:
-        k = len(topic_sources(topic, veiculos=True))
+        k, unidade = len(topic_sources(topic, veiculos=True)), "veículo"
     else:
-        k = len({s.name for s in story.sources if s.name})
-    parts = [f"{k} veículo" if k == 1 else f"{k} veículos"]
+        nomes = {s.name for s in story.sources if s.name}
+        veiculos = nomes - ORGAOS
+        k, unidade = (len(veiculos), "veículo") if veiculos else (len(nomes), "fonte")
+    parts = [f"{k} {unidade}" if k == 1 else f"{k} {unidade}s"]
     c = story.coverage
     if c is not None:
         a, b = c.count("a"), c.count("b")

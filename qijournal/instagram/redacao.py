@@ -15,6 +15,7 @@ from . import estatistica as E
 LINHA1_MAX = 110  # 1ª linha da legenda (a que aparece no feed)
 LEGENDA_MAX = 1300
 ALT_MAX = 1000
+REPETICAO_MAX = 0.6  # similaridade com um gancho dos últimos 14 dias que já reprova (§5.4, item 11)
 
 # §5.4, item 3: sensacionalismo e vícios de texto de IA.
 SENSACIONALISMO = (
@@ -60,6 +61,16 @@ def palavras_proibidas(texto: str) -> list[str]:
 def verbos_proibidos(texto: str) -> list[str]:
     """Verbos que julgam o veículo ("omitiu", "errou"...) e "furo"/"primeiro a noticiar"."""
     return [re.sub(r"\s+", " ", m.group(0).lower()) for m in _VERBOS_PROIBIDOS_RE.finditer(texto or "")]
+
+
+def similaridade(a: str, b: str) -> float:
+    """Jaccard das palavras (sem acento e sem caixa; "13,8%" e "28/09" contam inteiros) de dois textos: 0 a 1."""
+
+    def tokens(texto: str) -> set[str]:
+        return {t for t in (w.strip(".,;:!?()[]“”\"'—–-") for w in E._fold(texto).split()) if t}
+
+    wa, wb = tokens(a), tokens(b)
+    return len(wa & wb) / len(wa | wb) if wa and wb else 0.0
 
 
 def assinatura(handle: str | None) -> str:
@@ -116,6 +127,7 @@ def lint(
     overflow: Iterable[int | str] = (),
     nomes: Iterable[str] = E.NOMES_ELEICAO,
     veiculos: Iterable[str] = (),
+    recentes: Iterable[str] = (),
 ) -> list[str]:
     """Problemas de texto de uma :class:`~.conteudo.Peca` (lista vazia: aprovada).
 
@@ -128,7 +140,9 @@ def lint(
       partido; o destaque também sem adjetivo da casa nem nome de veículo (``veiculos``);
     - limites: 1ª linha da legenda até 110 caracteres, legenda até 1.300, alt até 1.000;
     - ``overflow``: slides (número a partir de 1, ou descrição) em que o texto transbordou
-      mesmo com o ``data-fit`` no mínimo.
+      mesmo com o ``data-fit`` no mínimo;
+    - ``recentes`` (opcional): 1ªs linhas de legenda dos últimos 14 dias; similaridade acima de
+      0,6 com alguma delas reprova (§5.4, item 11).
 
     O enquadramento de cada veículo (chaves ``framing``/``framings``) é citado como está no
     JSON e não é julgado.
@@ -159,7 +173,7 @@ def lint(
                     problemas.append(f"{nome}: termo eleitoral no período eleitoral")
         for chave in ("destaque", "gancho"):
             for valor in _lista(slide.ctx.get(chave)):
-                if E.cita_nome(valor, nomes) or E.cita_partido(valor):
+                if E.cita_nome(valor, nomes, ignora_caixa=True) or E.cita_partido(valor):
                     problemas.append(f"{onde}: {chave} com nome de político ou partido (“{valor}”)")
                 if chave == "destaque" and E.ADJ_CASA.search(valor):
                     problemas.append(f"{onde}: destaque com adjetivo da casa (“{valor}”)")
@@ -180,6 +194,10 @@ def lint(
             problemas.append(f"legenda: 1ª linha com {len(primeira)} caracteres (máx. {LINHA1_MAX})")
         if len(caption) > LEGENDA_MAX:
             problemas.append(f"legenda: {len(caption)} caracteres (máx. {LEGENDA_MAX})")
+        for antiga in recentes:
+            if similaridade(primeira, antiga) > REPETICAO_MAX:
+                problemas.append(f"legenda: 1ª linha repete uma dos últimos dias (“{antiga[:60]}”)")
+                break
 
     for item in overflow:
         problemas.append(f"slide {item}: texto transbordou" if isinstance(item, int) else f"transbordou: {item}")

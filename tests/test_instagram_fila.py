@@ -240,3 +240,115 @@ def test_post_permanente_nunca_sai_da_fila():
     fila.prune(date(2026, 10, 20))
     assert [p.id for p in fila.posts] == ["lancamento-comece-aqui"]
     assert fila.has_published("lancamento-comece-aqui")
+
+
+# ── Séries numeradas e campos novos (§4.0.5) ────────────────────────────────
+
+
+def test_fila_antiga_sem_os_campos_novos_ainda_le(tmp_path):
+    import json
+
+    antigo = {
+        "posts": [{"id": "2026-10-20-raiox", "date": "2026-10-20", "kind": "carousel", "due": "2026-10-20T18:30:00-03:00",
+                   "expires": "2026-10-20T22:30:00-03:00", "images": ["a.jpg"], "caption": "x", "status": "published",
+                   "campo_que_nao_existe_mais": 1}],
+        "token": {"refreshed_at": "2026-10-20T07:00:00-03:00"},
+    }
+    (tmp_path / "fila.json").write_text(json.dumps(antigo), encoding="utf-8")
+    fila = Fila.load(tmp_path)
+    p = fila.posts[0]
+    assert (p.serie, p.numero_serie, p.story_ids, p.chave, p.entidades, p.formula, p.redacao, p.metricas) == ("", 0, [], "", [], "", {}, {})
+    assert fila.series == {}
+    fila.series["raiox"] = 3
+    fila.save()
+    data = json.loads((tmp_path / "fila.json").read_text(encoding="utf-8"))
+    assert data["series"] == {"raiox": 3} and data["posts"][0]["serie"] == ""
+    assert Fila.load(tmp_path).series == {"raiox": 3}
+
+
+def test_numero_de_serie_refazer_mantem_e_expirado_nao_consome():
+    fila = Fila(series={"raiox": 14})
+    assert fila.numero_para("raiox", "2026-10-21-noite") == 15
+    fila.upsert([post("2026-10-21-noite", serie="raiox", numero_serie=15)])
+    # Gerar de novo o mesmo dia mantém o número (mesmo id, mesma série).
+    assert fila.numero_para("raiox", "2026-10-21-noite") == 15
+    # O post expira sem sair: a série não avança e o dia seguinte reaproveita o 15.
+    fila.get("2026-10-21-noite").status = EXPIRED
+    assert fila.numero_para("raiox", "2026-10-22-noite") == 15
+    # O Placar do dia é da série do Raio-X; o Mercado em linha não leva número.
+    assert fila.numero_para("raiox", "2026-10-22-noite") == fila.numero_para("raiox", None)
+    assert fila.numero_para("mercado", "2026-10-22-noite") == 0 and fila.numero_para("", None) == 0
+    assert fila.numero_para("numero", "x") == 1  # série nova começa em 001
+
+
+def test_refazer_a_noite_trocando_de_serie_nao_herda_o_numero():
+    fila = Fila(series={"raiox": 14})
+    fila.upsert([post("2026-10-21-noite", serie="mercado", numero_serie=0)])
+    assert fila.numero_para("raiox", "2026-10-21-noite") == 15
+
+
+def test_publicar_avanca_a_serie_so_quando_sai():
+    fila = Fila(series={"raiox": 14, "numero": 2},
+                posts=[post("2026-10-20-noite", serie="raiox", numero_serie=15),
+                       post("2026-10-20-mercado", kind="image", images=["m.jpg"], serie="mercado", due="2026-10-20T07:00:00-03:00")])
+    res = publish_due(fila, FakeClient(fail=GraphError("instável", transient=True)), media_url=BASE, now=at("08:00"),
+                      check_url=lambda u: True)
+    assert res.falhas and fila.series == {"raiox": 14, "numero": 2}
+    publish_due(fila, FakeClient(), media_url=BASE, now=at("08:00"), check_url=lambda u: True)
+    assert fila.get("2026-10-20-mercado").status == PUBLISHED
+    assert fila.series == {"raiox": 14, "numero": 2}  # o Mercado em linha não mexe em série
+    publish_due(fila, FakeClient(), media_url=BASE, now=at("11:30"), check_url=lambda u: True)  # depois do intervalo do feed
+    assert fila.series == {"raiox": 15, "numero": 2}
+    assert fila.numero_para("raiox", "2026-10-21-noite") == 16
+
+
+def test_ja_estava_no_perfil_tambem_avanca_a_serie():
+    fila = Fila(series={"numero": 2}, posts=[post(caption="Número do dia: 0,3%\n\nx", serie="numero", numero_serie=3)])
+    recent = [{"id": "77", "caption": "Número do dia: 0,3%", "timestamp": "2026-10-20T10:31:00+0000"}]
+    publish_due(fila, FakeClient(recent=recent), media_url=BASE, now=at("08:00"), check_url=lambda u: True)
+    assert fila.series["numero"] == 3
+
+
+def test_chaves_do_numero_e_entidades_do_raiox_para_o_gerador():
+    def numero(day, chave, status=PUBLISHED):
+        return post(f"{day}-numero", due=f"{day}T12:00:00-03:00", expires=f"{day}T16:00:00-03:00", serie="numero",
+                    chave=chave, status=status)
+
+    def raiox(day, ents, status=PUBLISHED, serie="raiox"):
+        return post(f"{day}-noite", due=f"{day}T18:30:00-03:00", expires=f"{day}T22:30:00-03:00", serie=serie,
+                    entidades=ents, status=status)
+
+    fila = Fila()
+    assert fila.chaves_numero("2026-10-22") is None  # sem histórico: vale a regra antiga
+    fila.posts = [
+        numero("2026-10-13", "velho"),  # mais de 7 dias antes
+        numero("2026-10-15", "acum:ibov"),
+        numero("2026-10-20", "0,3%"),
+        numero("2026-10-21", "nao-saiu", status=EXPIRED),
+        numero("2026-10-22", "hoje"),  # o próprio dia não conta
+        raiox("2026-10-18", ["Velho", "Demais"]),
+        raiox("2026-10-19", ["Trump", "Rússia"]),
+        raiox("2026-10-20", [], serie="raiox"),  # Placar do dia: sem entidades
+        raiox("2026-10-21", ["SpaceX", "Tesla"], status=PENDING),
+        raiox("2026-10-21", ["Expirou", "Junto"], status=EXPIRED),
+    ]
+    assert fila.chaves_numero("2026-10-22") == {"acum:ibov", "0,3%"}
+    assert fila.entidades_raiox("2026-10-22") == [["Trump", "Rússia"], ["SpaceX", "Tesla"]]
+
+
+def test_refazer_o_dia_tira_o_que_nao_veio_na_geracao_nova():
+    fila = Fila(posts=[
+        post("2026-10-20-manha", caption="v1"),
+        post("2026-10-20-noite", caption="raiox"),  # a geração nova trocou a noite: sai
+        post("2026-10-20-numero", status=PUBLISHED),  # publicado: fica
+        post("2026-10-20-stories-4", kind="story", images=["s.jpg"], container_id="c9", status=FAILED, attempts=1),
+        post("lancamento-comece-aqui", permanent=True),  # permanente: fica
+        post("2026-10-19-noite"),  # outro dia: fica
+    ])
+    fila.posts[4].date = "2026-10-20"
+    changed = fila.replace_day("2026-10-20", [post("2026-10-20-manha", caption="v2"), post("2026-10-20-mercado", kind="image", images=["m.jpg"])])
+    ids = {p.id for p in fila.posts}
+    assert "2026-10-20-noite" not in ids
+    assert {"2026-10-20-numero", "2026-10-20-stories-4", "lancamento-comece-aqui", "2026-10-19-noite"} <= ids
+    assert sorted(changed) == ["2026-10-20-manha", "2026-10-20-mercado"]
+    assert fila.get("2026-10-20-manha").caption == "v2"
