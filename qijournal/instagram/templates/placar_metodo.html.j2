@@ -1,0 +1,28 @@
+{# Placar do dia, slide 4 (método + CTA, §4.3): o que conta como dividir, com dois exemplos em barra (2 × 2
+   dividiu; 3 × 1 não), a base, o limite da classificação e o CTA "Salve: o placar sai todo dia."
+   ctx: selo, kicker, titulo, destaque, exemplos [svg], itens [texto], cta, nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:34px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:12px;max-height:240px}
+.ex{flex:none;display:flex;justify-content:space-between;gap:48px;margin-top:40px}
+.ex .grafico{flex:1 1 0;min-width:0}
+.itens{flex:0 1 auto;min-height:0;overflow:hidden;margin-top:40px;font-family:var(--serif);font-size:34px;line-height:1.32;color:var(--ink)}
+.itens p{padding:18px 0;border-top:2px solid var(--rule)}
+.cta{flex:none;margin-top:auto;display:flex;align-items:center;gap:22px;padding:26px 0 0;border-top:3px solid var(--ink)}
+.cta b{flex:none;font-family:var(--label);font-weight:700;font-size:44px;line-height:1;color:var(--ink)}
+.cta span{text-wrap:balance;font-family:var(--label);font-weight:700;font-size:40px;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  {{ m.hook(s.titulo, s.destaque, 112, 76, none, 'metodo-titulo') }}
+  <div class="ex">{% for svg in s.exemplos %}{{ m.grafico(svg) }}{% endfor %}</div>
+  <div class="itens" data-fit="metodo-itens" data-min="24">{% for t in s.itens %}<p>{{ m.tx(t) }}</p>{% endfor %}</div>
+  <div class="cta"><b>→</b><span data-fit="cta" data-min="28">{{ s.cta }}</span></div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

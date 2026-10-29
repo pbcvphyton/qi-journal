@@ -1,0 +1,21 @@
+{# Raio-X 2.0, slide 6 (o que isso significa, §4.2): a conclusão da cobertura e o espectro em pontos com os
+   nomes (maioria à esquerda, sem lado no meio, minoria à direita; quem ficou fora da análise no pé). Sem
+   percentual. ctx: selo, kicker, conclusao, conclusao_px, grafico (espectro), nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:34px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.concl{flex:0 1 auto;min-height:0;overflow:hidden;margin-top:22px;font-family:var(--serif);font-weight:600;
+  font-size:{{ s.get('conclusao_px', 44) }}px;line-height:1.2;letter-spacing:-.006em;color:var(--ink)}
+.grafico{flex:none;margin-top:auto;padding-top:40px}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  <p class="concl" data-fit="conclusao" data-min="32">{{ m.tx(s.conclusao) }}</p>
+  {{ m.grafico(s.grafico) }}
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

@@ -1,0 +1,23 @@
+{# Raio-X 2.0, slide 1 (capa-tensão, §4.2): selo da série, o gancho pelos moldes (uma expressão em laranja),
+   "→ subtítulo" em serif itálico e a barra maioria | sem lado | minoria no terço de baixo. Nenhum nome de
+   veículo na capa. ctx: selo, gancho, destaque, gancho_px, subtitulo, grafico (barra_anb), nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.frame{justify-content:flex-start}
+.hook{flex:0 1 auto;min-height:0;margin-top:44px}
+.sub{flex:none;margin-top:36px;max-width:900px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:34px;line-height:1.3;
+  color:var(--ink2);max-height:178px;overflow:hidden}
+.sub b{font-style:normal;font-weight:600;color:var(--ink);margin-right:.25em}
+.bar{flex:none;margin-top:auto;padding-top:44px}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'raiox') }}
+<div class="frame">
+  {{ m.hook(s.gancho, s.destaque, s.gancho_px, 96) }}
+  {% if s.subtitulo %}<p class="sub" data-fit="subtitulo" data-min="28"><b>→</b>{{ m.tx(s.subtitulo) }}</p>{% endif %}
+  <div class="bar">{{ m.grafico(s.grafico) }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

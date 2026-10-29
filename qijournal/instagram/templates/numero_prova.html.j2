@@ -1,0 +1,26 @@
+{# Número do dia · slide 2, a prova (§4.4): título-achado (nunca a tese da capa) com o dado em laranja,
+   o gráfico do tipo como imagem-herói (graficos.py, svg pronto), 2 linhas de contexto e a base (fonte,
+   período e n) no pé. Papel. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:30px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:14px}
+.grafico{flex:none;margin-top:44px}
+.ctx{flex:none;margin-top:36px;margin-bottom:28px;font-family:var(--serif);font-size:32px;line-height:1.32;color:var(--ink);overflow:hidden}
+.ctx p{text-wrap:pretty}
+.ctx p+p{margin-top:12px}
+.pe{flex:none;margin-top:auto;padding-top:18px;border-top:2px solid var(--rule);font-family:var(--mono);font-size:22px;line-height:1.4;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'numero') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  {{ m.hook(s.titulo, s.destaque, s.tam, 64) }}
+  {{ m.grafico(s.grafico) }}
+  {% if s.contexto %}<div class="ctx" data-fit="contexto" data-min="26">{% for p in s.contexto %}<p>{{ m.tx(p) }}</p>{% endfor %}</div>{% endif %}
+  <div class="pe" data-fit="base" data-min="18">{{ s.pe }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

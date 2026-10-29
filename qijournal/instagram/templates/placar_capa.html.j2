@@ -1,0 +1,22 @@
+{# Placar do dia, slide 1 (capa, §4.3): "X DE Y ASSUNTOS DIVIDIRAM A COBERTURA HOJE" (selo "DIA DE CONSENSO"
+   com 0 rachas), o subtítulo com a base e a regra, e o waffle grande como imagem.
+   ctx: selo, gancho, gancho_px, destaque, subtitulo, grafico (waffle), nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.frame{justify-content:flex-start}
+.hook{flex:0 1 auto;min-height:0;margin-top:44px;max-height:430px}
+.sub{flex:none;margin-top:30px;max-width:900px;font-family:var(--serif);font-style:italic;font-size:34px;line-height:1.3;color:var(--ink2)}
+.sub b{font-style:normal;font-weight:600;color:var(--ink);margin-right:.25em}
+.grafico{flex:0 1 auto;min-height:0;margin-top:auto;padding-top:40px}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'raiox') }}
+<div class="frame">
+  {{ m.hook(s.gancho, s.destaque, s.get('gancho_px', 136), 96) }}
+  <p class="sub" data-fit="subtitulo" data-min="26"><b>→</b>{{ s.subtitulo }}</p>
+  {{ m.grafico(s.grafico) }}
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

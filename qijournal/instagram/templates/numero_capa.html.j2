@@ -1,0 +1,31 @@
+{# Número do dia · capa (§4.4): laranja chapado, todo texto em marinho #0F1730 (5,7:1).
+   Qualificador pequeno acima ("ATÉ"), o número em Archivo ExtraCondensed Black de 200 a 360 px
+   (s.tam vem calculado; o data-fit ainda encolhe), a tese em Noto Serif 600 de 44 px e a prova em mono.
+   Unidade por extenso ("12 VEÍCULOS") vai embaixo do número, menor. Sem logo: só a assinatura. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-orange v2{% endblock %}
+{% block style %}
+.frame{justify-content:flex-start}
+.hero{flex:0 1 auto;min-height:0;margin:auto 0;padding-bottom:56px;display:flex;flex-direction:column}
+.hero .numbox{flex:none}
+.hero .qual{margin-bottom:.12em;letter-spacing:.01em}
+.unid{display:block;font-family:var(--hook);font-stretch:62%;font-weight:900;line-height:.9;letter-spacing:-.005em;
+  text-transform:uppercase;white-space:nowrap;overflow:hidden;margin-top:-.42em}
+.tese{flex:none;margin-top:40px;max-width:900px;font-family:var(--serif);font-weight:600;font-size:44px;line-height:1.2;
+  letter-spacing:-.005em;text-wrap:balance;overflow:hidden;max-height:4.9em}
+.prova{flex:none;padding-top:22px;border-top:4px solid var(--ink);font-family:var(--mono);font-weight:600;font-size:28px;
+  line-height:1.35;letter-spacing:.01em;text-wrap:balance;overflow:hidden;max-height:3em}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'numero') }}
+<div class="frame">
+  <div class="hero">
+    {{ m.num_hero(s.valor, s.qual or none, s.tam, 200) }}
+    {% if s.unidade %}<span class="unid" data-fit="unidade" data-min="96" style="font-size:{{ (s.tam * 0.5)|round|int }}px">{{ s.unidade }}</span>{% endif %}
+    <p class="tese" data-fit="tese" data-min="36">{{ m.tx(s.tese) }}</p>
+  </div>
+  <div class="prova" data-fit="prova" data-min="20">{{ s.prova }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

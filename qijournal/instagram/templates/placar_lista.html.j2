@@ -1,0 +1,42 @@
+{# Placar do dia, slide 2 (§4.3). Com 0 rachas, o maior consenso: título "8 VEÍCULOS, NENHUM LADO", o assunto,
+   a conclusão, a barra (toda sem lado) e os nomes. Com rachas, até 3 assuntos com a barra (rótulos dos
+   lados) e "5 × 2 · rótulo × rótulo"; um só leva também a conclusão. ctx: selo, kicker, titulo, destaque,
+   assunto, assunto_px, texto, texto_px, itens [{assunto, grafico, linha, contagem, texto}], itens_px, nomes, grafico, nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:34px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:12px;max-height:240px}
+.assunto{flex:none;margin-top:26px;font-family:var(--serif);font-weight:700;font-size:{{ s.get('assunto_px', 44) }}px;line-height:1.16;letter-spacing:-.01em;color:var(--ink);max-height:240px;overflow:hidden}
+.texto{flex:0 1 auto;min-height:0;overflow:hidden;margin-top:20px;font-family:var(--serif);font-size:{{ s.get('texto_px', 32) }}px;line-height:1.32;color:var(--ink2)}
+.grafico{flex:none;margin-top:auto;padding-top:34px}
+.nomes{flex:none;margin-top:18px;font-family:var(--label);font-weight:600;font-size:28px;line-height:1.4;color:var(--ink2)}
+.itens{flex:0 1 auto;min-height:0;overflow:hidden;margin-top:30px;border-top:2px solid var(--rule2);font-size:{{ s.get('itens_px', 36) }}px}
+.it{padding:.66em 0 .7em;border-bottom:2px solid var(--rule)}
+.it:last-child{border-bottom:0}
+.it .as{font-family:var(--serif);font-weight:700;font-size:1em;line-height:1.18;color:var(--ink)}
+.it .grafico{margin-top:.5em}
+.it .ln{margin-top:.3em;font-family:var(--mono);font-weight:500;font-size:.56em;line-height:1.35;color:var(--ink2)}
+.it .tx{margin-top:.6em;font-family:var(--serif);font-size:.72em;line-height:1.32;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  {{ m.hook(s.titulo, s.destaque, 112, 76, none, 'lista-titulo') }}
+  {% if s.itens %}
+  <div class="itens" data-fit="lista-itens" data-min="26">
+    {% for i in s.itens %}
+    <div class="it"><p class="as">{{ m.tx(i.assunto) }}</p>{{ m.grafico(i.grafico) }}<p class="ln">{{ i.contagem }}</p>{% if i.texto %}<p class="tx">{{ m.tx(i.texto) }}</p>{% endif %}</div>
+    {% endfor %}
+  </div>
+  {% else %}
+  {% if s.assunto %}<p class="assunto" data-fit="lista-assunto" data-min="30">{{ m.tx(s.assunto) }}</p>{% endif %}
+  {% if s.texto %}<p class="texto" data-fit="lista-texto" data-min="24">{{ m.tx(s.texto) }}</p>{% endif %}
+  {% if s.grafico %}{{ m.grafico(s.grafico) }}{% endif %}
+  {% if s.nomes %}<p class="nomes" data-fit="lista-nomes" data-min="20">{{ s.nomes }}</p>{% endif %}
+  {% endif %}
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

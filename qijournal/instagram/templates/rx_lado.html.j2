@@ -1,0 +1,45 @@
+{# Raio-X 2.0, slides 3 e 4 (a maioria e a minoria, §4.2): fundo na cor do papel do lado (ardósia para a
+   maioria, petróleo para a minoria), título "6 DE 11 · SINERGIA EM IA", até 3 veículos "nome · hora ·
+   enquadramento" em ordem de horário e os demais em "Também"; no slide da minoria, os sem lado.
+   ctx: selo, lado ("a" maioria | "b" minoria), kicker, titulo, destaque, descricao, veiculos [{name, hora,
+   framing}], lista_px, tambem, neutros, nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}{{ 't-side-a' if s.lado == 'a' else 't-side-b' }} v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:34px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:14px;max-height:210px}
+.desc{flex:none;margin-top:18px;font-family:var(--serif);font-style:italic;font-size:32px;line-height:1.3;color:var(--ink2);max-height:126px;overflow:hidden}
+.lista{flex:0 1 auto;min-height:0;overflow:hidden;margin-top:34px;border-top:2px solid var(--rule2);font-size:{{ s.get('lista_px', 36) }}px}
+.o{padding:.62em 0 .66em;border-bottom:2px solid var(--rule)}
+.o:last-child{border-bottom:0}
+.o .nm{display:flex;align-items:baseline;justify-content:space-between;gap:24px;font-family:var(--label);font-weight:600;font-size:.88em;line-height:1.15;color:var(--ink)}
+.o .nm .h{flex:none;font-family:var(--mono);font-weight:500;font-size:.68em;letter-spacing:.02em;color:var(--ink2)}
+.o .fr{margin-top:.3em;font-family:var(--serif);font-weight:400;font-size:1em;line-height:1.3;color:var(--ink)}
+.pe{flex:none;margin-top:auto;padding-top:26px;font-family:var(--label);font-weight:500;font-size:28px;line-height:1.35;color:var(--ink2)}
+.pe p+p{margin-top:12px}
+.pe b{font-family:var(--mono);font-weight:600;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-right:.5em}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'papel') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  {{ m.hook(s.titulo, s.destaque, 96, 64, none, 'lado-titulo') }}
+  {% if s.descricao %}<p class="desc" data-fit="lado-descricao" data-min="26">{{ m.tx(s.descricao) }}</p>{% endif %}
+  <div class="lista" data-fit="lado-veiculos" data-min="26">
+    {% for v in s.veiculos %}
+    <div class="o">
+      <div class="nm"><span>{{ v.name }}</span>{% if v.hora %}<span class="h">{{ v.hora }}</span>{% endif %}</div>
+      <p class="fr">{{ m.tx(v.framing) }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% if s.tambem or s.neutros %}
+  <div class="pe" data-fit="lado-tambem" data-min="22">
+    {% if s.tambem %}<p><b>Também</b>{{ s.tambem }}</p>{% endif %}
+    {% if s.neutros %}<p>{{ s.neutros }}</p>{% endif %}
+  </div>
+  {% endif %}
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

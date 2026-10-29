@@ -1,0 +1,30 @@
+{# Raio-X 2.0, slide 2 (o fato, §4.2): é o slide que o Instagram reapresenta a quem não arrastou, então
+   se sustenta sozinho e nunca repete a capa. Serif de 46 a 76 px (texto_px, calculado no formato para ocupar o slide); no pé, a
+   mini barra com a contagem e a linha de fontes. ctx: selo, kicker, texto, texto_px, fontes, cobertura, a, n, b, nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% set size = s.get('texto_px', 58) %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:36px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.fato{flex:0 1 auto;min-height:0;overflow:hidden;margin-top:30px;font-family:var(--serif);font-weight:500;font-size:{{ size }}px;
+  line-height:1.22;letter-spacing:-.008em;color:var(--ink)}
+.pe{flex:none;margin-top:auto;padding-top:40px;border-top:0}
+.pe .regua{height:2px;background:var(--rule);margin-bottom:28px}
+.pe .selo-cob{font-size:24px}
+.fontes{margin-top:18px;font-family:var(--label);font-weight:600;font-size:26px;line-height:1.35;color:var(--ink2)}
+.fontes .lb{font-family:var(--mono);font-weight:500;font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin-right:.6em}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  <p class="fato" data-fit="fato" data-min="46">{{ m.tx(s.texto) }}</p>
+  <div class="pe">
+    <div class="regua"></div>
+    {{ m.selo_cobertura(s.cobertura, s.a, s.n, s.b) }}
+    {% if s.fontes %}<div class="fontes"><span class="lb">Fontes</span>{{ m.sources(s.fontes) }}</div>{% endif %}
+  </div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}
