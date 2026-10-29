@@ -1,0 +1,25 @@
+{# Manifesto · slide 5, como fazemos e o que não fazemos (§4.7): as 3 regras em gancho, uma por faixa, e a
+   frase do enquadramento em Noto Serif. Marinho (o manifesto passa pelas 3 cores da grade: laranja, papel e
+   marinho). #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-dark v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:30px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.rg{flex:none;margin-top:34px;list-style:none;border-top:2px solid var(--rule2)}
+.rg li{display:flex;align-items:baseline;gap:26px;padding:30px 0 28px;border-bottom:2px solid var(--rule2)}
+.rg li b{flex:none;width:56px;font-family:var(--mono);font-weight:600;font-size:26px;color:var(--ink2)}
+.rg li span{font-family:var(--hook);font-stretch:62%;font-weight:900;font-size:100px;line-height:.96;letter-spacing:-.01em;text-transform:uppercase;color:var(--ink);text-wrap:balance}
+.fr{flex:none;margin-top:52px;font-family:var(--serif);font-weight:600;font-size:52px;line-height:1.2;letter-spacing:-.008em;color:var(--ink);text-wrap:balance}
+.pe{flex:none;margin-top:auto;padding-top:18px;border-top:2px solid var(--rule);font-family:var(--mono);font-size:22px;line-height:1.4;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'em1min') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  <ol class="rg" data-fit="regras" data-min="60">{% for r in s.regras %}<li><b>{{ '%02d'|format(loop.index) }}</b><span>{{ r }}</span></li>{% endfor %}</ol>
+  <p class="fr" data-fit="frase" data-min="36">{{ m.tx(s.frase) }}</p>
+  <div class="pe" data-fit="base" data-min="16">{{ s.pe }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

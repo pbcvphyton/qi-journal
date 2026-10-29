@@ -1,0 +1,24 @@
+{# Manifesto · slides 3 e 4, os dados (§4.7): a métrica com nome no kicker ("Pauta solitária", "A divisão"),
+   o achado em gancho ("MAIS DE 8 EM CADA 10…", arredondado para baixo), o gráfico de graficos.py (matriz de
+   pontos do dia ou waffle de 100 quadrados), uma frase e, no pé, o período, o n e o limite do método. Papel. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:30px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:14px;line-height:.96}
+.grafico{flex:none;margin-top:40px}
+.txt{flex:none;margin-top:30px;font-family:var(--serif);font-weight:600;font-size:38px;line-height:1.25;color:var(--ink);text-wrap:pretty}
+.pe{flex:none;margin-top:auto;padding-top:18px;border-top:2px solid var(--rule);font-family:var(--mono);font-size:21px;line-height:1.4;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'numero') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  {{ m.hook(s.titulo, s.destaque or none, s.tam, 72) }}
+  {{ m.grafico(s.grafico) }}
+  {% if s.texto %}<p class="txt" data-fit="texto" data-min="28">{{ m.realce(s.texto, s.get('texto_destaque') or none) }}</p>{% endif %}
+  <div class="pe" data-fit="base" data-min="16">{{ s.pe }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

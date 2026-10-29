@@ -1,0 +1,40 @@
+{# Stories da manhã · tela 2, a manchete (§4.6): a editoria, o número em destaque (qualificador pequeno acima,
+   "CERCA DE / R$ 1 BI"), a manchete depois do adjetivo da casa em Noto Serif 800, o "por que importa", o selo
+   de cobertura (mini barra A | sem lado | B + "8 veículos · sem divisão") e as fontes. Marinho. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-dark v2{% endblock %}
+{% block style %}
+.frame{justify-content:flex-start}
+.sec{flex:none;margin-top:20px;font-family:var(--mono);font-weight:600;font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.numbox{flex:none;margin-top:26px}
+.numbox .qual{margin-bottom:.06em}
+.head{flex:0 1 auto;min-height:0;margin-top:{{ 30 if s.numero else 34 }}px;font-family:var(--serif);font-weight:800;font-size:{{ s.tam_titulo }}px;
+  line-height:1.06;letter-spacing:-.014em;color:var(--ink);text-wrap:balance;overflow:hidden}
+.why{flex:0 1 auto;min-height:0;margin-top:52px;padding-top:26px;border-top:2px solid var(--rule2);overflow:hidden;font-size:40px}
+.why .k{font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.why p{margin-top:16px;font-family:var(--serif);font-size:1em;line-height:1.3;color:var(--ink);text-wrap:pretty}
+.pe{flex:none;margin-top:auto;padding-top:26px;border-top:2px solid var(--rule);display:flex;flex-direction:column;gap:18px}
+.pe .selo-cob{font-size:24px}
+.pe .src{font-family:var(--mono);font-size:26px;line-height:1.35;color:var(--ink2);overflow:hidden;max-height:2.8em}
+.pe .src b{color:var(--ink);font-weight:600;margin-right:10px}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'em1min') }}
+<div class="frame">
+  <div class="sec">{{ s.secao }}</div>
+  {% if s.numero %}{{ m.num_hero(s.numero, s.qual or none, s.tam_num, 140, hl=true) }}{% endif %}
+  <h1 class="head" data-fit="story-manchete" data-min="56">{{ m.tx(s.titulo) }}</h1>
+  {% if s.por_que %}
+  <div class="why" data-fit="story-porque" data-min="30">
+    <div class="k">{{ s.rotulo_por_que }}</div>
+    <p>{{ m.tx(s.por_que) }}</p>
+  </div>
+  {% endif %}
+  <div class="pe">
+    {% if s.selo_cob %}{{ m.selo_cobertura(s.selo_cob, s.a, s.n, s.b) }}{% endif %}
+    {% if s.fontes %}<p class="src" data-fit="story-fontes" data-min="22"><b>Fontes</b>{{ m.sources(s.fontes) }}</p>{% endif %}
+  </div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

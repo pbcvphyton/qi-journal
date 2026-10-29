@@ -1,0 +1,23 @@
+{# Manifesto · capa (§4.7): laranja chapado, todo texto em marinho #0F1730 (5,7:1). "MESMO FATO, VÁRIAS
+   VERSÕES." em Archivo ExtraCondensed Black, uma palavra por linha, ocupando o quadro (é o 1º fixado do perfil:
+   precisa ler de longe na grade), o subtítulo em Noto Serif 600 no pé e a chamada para arrastar na nota da assinatura. Sem logo: o
+   triângulo laranja do letreiro some no laranja; fica a assinatura. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-orange v2{% endblock %}
+{% block style %}
+.frame{justify-content:flex-start}
+/* entrelinha .96: com .92 o acento de "VÁRIAS" e o til de "VERSÕES" encostam na linha de cima */
+.hook{flex:0 1 auto;min-height:0;margin-top:26px;line-height:.96;letter-spacing:-.012em;text-wrap:wrap}
+.sub{flex:none;margin-top:44px;padding-right:60px;font-family:var(--serif);font-weight:600;font-size:44px;line-height:1.22;letter-spacing:-.005em;text-wrap:balance}
+.sub b{font-weight:600;margin-right:.3em}
+.sub{margin-top:auto;padding-top:30px;border-top:4px solid var(--ink)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'numero') }}
+<div class="frame">
+  {{ m.hook(s.titulo, none, s.tam, 160) }}
+  <p class="sub" data-fit="subtitulo" data-min="34"><b>→</b>{{ m.tx(s.sub) }}</p>
+</div>
+{{ m.assinatura(s.chamada) }}
+{% endblock %}
