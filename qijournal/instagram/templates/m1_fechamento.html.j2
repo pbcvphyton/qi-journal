@@ -1,6 +1,6 @@
-{# Em 1 minuto 2.0 · fechamento (§4.5): marinho. Uma estatística do dia, a pauta solitária: o número em laranja
+{# Em 1 minuto 2.0 · fechamento (§5.4): marinho. Uma estatística do dia, a pauta solitária: o número em laranja
    ("1.039"), a frase com a base ("de 1.159 assuntos de hoje (90%) saíram em uma fonte só."), a matriz de pontos
-   pequena (graficos.matriz_pontos, svg pronto), a chamada para a edição e o único CTA. O laranja fica só no número. #}
+   (graficos.matriz_pontos, svg pronto) e o único CTA. O laranja fica no número e nos pontos de 1 fonte. #}
 {% extends "_base.html.j2" %}
 {% import "_macros.html.j2" as m with context %}
 {% block theme %}t-dark v2{% endblock %}
@@ -12,20 +12,16 @@
 .grafico{flex:none;margin-top:40px}
 /* a pauta solitária é o dado do slide: os pontos de 1 fonte (e o da legenda) saem do cinza apagado para o laranja */
 .graf-matriz circle[fill-opacity='0.26']{fill:var(--g-hi);fill-opacity:.9}
-.edicao{flex:none;margin-top:36px;margin-bottom:32px;font-family:var(--serif);font-size:34px;line-height:1.3;color:var(--ink);text-wrap:pretty}
-.edicao em{font-style:normal;font-weight:700;white-space:nowrap;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.18em}
 .cta{flex:none;margin-top:auto;padding-top:24px;border-top:4px solid var(--ink)}
 .cta .hook{font-size:84px;max-height:2.1em}
 {% endblock %}
 {% block body %}
 {{ m.serie_band(s.selo, true, 'em1min') }}
-{% set partes = s.edicao.rsplit(': ', 1) %}
 <div class="frame">
   <div class="kicker">{{ s.kicker }}</div>
   {{ m.num_hero(s.valor, none, s.tam, 140, true) }}
   <p class="frase" data-fit="fechamento-frase" data-min="34">{{ m.tx(s.frase) }}</p>
   {{ m.grafico(s.grafico) }}
-  <p class="edicao" data-fit="fechamento-edicao" data-min="26">{% if partes|length == 2 %}{{ m.tx(partes[0]) }}: <em>{{ partes[1]|replace('.', '') }}</em>{% else %}{{ m.tx(s.edicao) }}{% endif %}</p>
   <div class="cta"><h2 class="hook" data-fit="cta" data-min="60">{{ s.cta }}</h2></div>
 </div>
 {{ m.assinatura(s.nota) }}

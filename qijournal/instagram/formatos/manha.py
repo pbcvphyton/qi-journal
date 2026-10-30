@@ -1,15 +1,16 @@
-"""Em 1 minuto 2.0 (07:00, §4.5): carrossel de 8 em marinho.
+"""Em 1 minuto 2.0 (07:00, §5.4): carrossel de 8 em marinho.
 
 1. Capa: o número da manchete em laranja (com o qualificador), a manchete sem adjetivo
    da casa e sem linha fina, a faixa de dados do dia e o assunto mais coberto.
 2–6. Os 5 fatos: número em destaque, a frase em serif, o selo de cobertura e as fontes.
-   O 1º é a matéria da capa, nunca com o texto da capa (Jaccard ≥ 0,6 → linha fina), e
-   ganha a linha do relógio quando ele vale.
+   Fato sem número leva a cobertura no lugar dele ("NOTICIADO POR / 12 VEÍCULOS", com 5+
+   veículos); sem os dois, a frase sozinha ocupa o quadro. O 1º é a matéria da capa, nunca com o texto da
+   capa (Jaccard ≥ 0,6 → linha fina), e ganha a linha do relógio quando ele vale.
 7. Mercado em linha (:mod:`.mercado`), no tema marinho.
 8. Fechamento: a pauta solitária do dia, a matriz de pontos e o único CTA.
 
-Todo texto sai do JSON da edição (briefing, manchetes, linhas finas, index, cotações);
-nada de IA nova.
+Todo texto sai do JSON da edição (briefing, manchetes, linhas finas, index, cotações),
+de contas e de moldes; nada de IA nova.
 """
 
 from __future__ import annotations
@@ -55,13 +56,25 @@ FATOS_MIN = 3  # com menos, o 07:00 vira o Terminal da manhã
 MANCHETE_MAX = 90
 FRASE_MAX = 230
 JACCARD_CAPA = 0.6  # o slide 2 com texto parecido com a capa troca pela linha fina
+MESMO_ASSUNTO = 0.5  # dois itens com Jaccard ≥ 0,5 são o mesmo assunto
 MAIS_COBERTO_MIN = 5
+COBERTURA_MIN = 5  # fato sem número: a cobertura vira o número com 5+ veículos (a faixa "com 5+" da matriz)
 VESPERA_CADEIA = 3  # dias recalculados para saber o que a véspera publicou
-NUM_CAPA = 200
-NUM_FATO_MAX, NUM_FATO_MIN = 220, 180
 NOTA = "resumo por IA a partir das fontes citadas"
+NOTICIADO = "NOTICIADO POR"
 
-# Ordem de preferência das editorias (§4.5); esporte e variedades só se faltar fato.
+# Medidas do quadro (px), para escolher os tamanhos que enchem o slide sem transbordar.
+QUADRO = 1122  # altura útil (1350 − 116 da faixa − 112 da assinatura)
+NUM_CAPA_MAX, NUM_CAPA_MIN = 280, 160
+NUM_FATO_MAX, NUM_FATO_MIN = 260, 180
+FRASE_TAMS = (68, 64, 60, 56, 52, 48, 44)  # frase sob o número
+SOLO_TAMS = (96, 88, 80, 76, 72, 68, 64, 60)  # frase sozinha
+MANCHETE_TAMS = (80, 76, 72, 68, 64)  # Noto Serif 800 com número (§5.4)
+MANCHETE_SOLO_TAMS = (96, 88, 80, 76, 72)
+SERIF, SERIF_800 = 1.08, 1.12  # a Noto Serif 600/800 mede isso vezes a Archivo 600 da tabela de graficos
+OCUPACAO = 0.88  # o bloco do meio ocupa até 88% da área (o resto é respiro e a margem do balance)
+
+# Ordem de preferência das editorias (§5.4); esporte e variedades só se faltar fato.
 PREFERENCIA = (
     "brasil", "mercados", "tecnologia", "imobiliario", "mundo", "juridico", "natureza", "politica", "esporte", "variedades",
 )
@@ -84,6 +97,38 @@ _ELEICAO = re.compile(
     r"\belei[çc](?:ão|ões)\b|\beleit(?:or|ora|ores|oras|oral|orais|o|a|os|as)\b|\bpresidencial\b|\breelei[çc](?:ão|ões)\b",
     re.I,
 )
+# Na capa, no período eleitoral, nem eleição de outro país ("Israel vai às urnas", 27/10).
+_URNAS = re.compile(r"\burnas?\b|\bplebiscito\b|\breferendo\b", re.I)
+
+# A ressalva junto do número (§4): as de estatistica e mais "ao menos", "pelo menos"...
+_QUALIFICADOR = re.compile(
+    r"\b(cerca de|mais de|menos de|até|quase|aproximadamente|em torno de|ao menos|pelo menos|no mínimo|no máximo)\s*$",
+    re.I,
+)
+# Contagem sem unidade de E._NUMERO ("68 pessoas", "2.400 detidos", "70 mil policiais"), só com
+# estes substantivos: número de nome ("Emenda 141", "737 Max 10") e duração ("20 anos") ficam de fora.
+_CONTAVEIS = (
+    r"pessoas?|mort[oa]s|ferid[oa]s|pres[oa]s|detid[oa]s|vítimas|desabrigad[oa]s|desalojad[oa]s|manifestantes|"
+    r"policiais|militares|soldados|bombeiros|trabalhadores|empregos|vagas|usuários|clientes|consumidores|famílias|"
+    r"crianças|alunos|estudantes|pacientes|casos|empresas|municípios|cidades|países|veículos|carros|imóveis|casas|"
+    r"moradias|voos|passageiros|lojas|funcionários|servidores|(?:ex-)?executivos|palestinos|israelenses|toneladas|"
+    r"hectares|quilômetros|litros|barris|doses|leitos|shoppings|agências|fábricas|ppm"
+)
+_CONTAGEM = re.compile(
+    r"(?<![\w.,/-])(\d{1,3}(?:\.\d{3})+|\d+(?:,\d+)?)(\s(?:mil|milhão|milhões))?\s(" + _CONTAVEIS + r")\b"
+)
+
+# Verbo de sensacionalismo antes de um número vira o verbo neutro ("desabam até 10%" → "caem até 10%").
+_NEUTRO = {
+    "desaba": "cai", "desabam": "caem", "desabou": "caiu", "desabaram": "caíram",
+    "despenca": "cai", "despencam": "caem", "despencou": "caiu", "despencaram": "caíram",
+    "derrete": "cai", "derretem": "caem", "derreteu": "caiu", "derreteram": "caíram",
+    "dispara": "sobe", "disparam": "sobem", "disparou": "subiu", "dispararam": "subiram",
+}
+_NEUTRO_RE = re.compile(
+    r"\b(" + "|".join(_NEUTRO) + r")(?=\s(?:(?:até|mais de|quase|cerca de)\s)?(?:R\$|US\$|€)?\s?\d)",
+    re.I,
+)
 
 # Adjetivos da casa que saem sozinhos depois do substantivo ("fusão histórica após" →
 # "fusão após"); "gigante" e "recorde" costumam ser substantivo e só saem com o corte.
@@ -97,6 +142,11 @@ _PENDURADAS = E._PENDURADAS | {"que", "se"}
 # Onde uma frase pode ser cortada sem perder o sentido: primeiro as junções de oração, depois as preposições.
 _JUNCOES = ((", ", "; ", " e ", " após ", " enquanto ", " mas ", " em meio a "), (" com ", " para ", " em "))
 _LIGA = {"e", "de", "da", "do", "das", "dos"}
+# Palavras que não dizem o assunto (para comparar dois itens do mesmo dia).
+_VAZIAS = set(
+    "a o as os um uma uns umas de da do das dos em na no nas nos para por pela pelo pelas pelos com que sem apos ate "
+    "mais menos entre sobre ao aos seu sua seus suas e ou se nao diz contra como mas ja ser foi sao tem".split()
+)
 _DA = {5: "do", 6: "do"}  # "e mais 4 fatos do sábado"; nos dias úteis, "da"
 MESES = ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro",
          "novembro", "dezembro")
@@ -196,9 +246,14 @@ def _cabe(texto: str, limite: int) -> str:
     return texto if len(texto) <= limite else _corte(texto, limite + 1)
 
 
-def _sem_adj(texto: str, titulos: list[str], *, solta: bool = True, juncoes=_JUNCOES) -> tuple[str, bool]:
-    """Sem adjetivo da casa que não esteja no título de metade dos veículos (§4.1): sai a
-    palavra sozinha quando é adjetivo depois do substantivo (``solta``); senão, a frase é
+def _adj_sobrando(texto: str, titulos: list[str]) -> bool:
+    """Ainda há adjetivo da casa que não está no título de metade dos veículos?"""
+    return any(not E._adj_nos_titulos(E._raiz_adj(m.group(0)), titulos) for m in E.ADJ_CASA.finditer(texto))
+
+
+def _sem_adj(texto: str, titulos: list[str], *, juncoes=_JUNCOES) -> tuple[str, bool]:
+    """Sem adjetivo da casa que não esteja no título de metade dos veículos (§4): sai a palavra
+    sozinha quando é adjetivo depois do substantivo ("fusão histórica após"); senão, a frase é
     cortada na junção anterior. Devolve o texto ("" se não der) e se houve corte."""
     cortou = False
     while True:
@@ -214,7 +269,7 @@ def _sem_adj(texto: str, titulos: list[str], *, solta: bool = True, juncoes=_JUN
         if corte:  # "… com investimento bilionário" → corta antes de "com", não deixa "com investimento"
             texto, cortou = corte, True
             continue
-        if solta and E._raiz_adj(bad.group(0)) in _ADJ_SOLTOS and antes and antes[-1].lower() not in _ANTES_NAO:
+        if E._raiz_adj(bad.group(0)) in _ADJ_SOLTOS and antes and antes[-1].lower() not in _ANTES_NAO:
             texto = re.sub(r"\s+([,;:.])", r"\1", f"{texto[: bad.start()].rstrip()} {texto[bad.end():].lstrip()}").strip()
             continue
         texto, cortou = _corte(texto, bad.start(), juncoes=juncoes), True
@@ -222,9 +277,21 @@ def _sem_adj(texto: str, titulos: list[str], *, solta: bool = True, juncoes=_JUN
             return "", True
 
 
+def neutro(texto: str) -> str:
+    """O verbo de sensacionalismo seguido de número vira o neutro, no mesmo tempo e número
+    ("Ações da Alphabet desabam até 10%" → "caem até 10%"); o resto fica para o corte."""
+
+    def troca(m: re.Match) -> str:
+        novo = _NEUTRO[m.group(1).lower()]
+        return novo.capitalize() if m.group(1)[0].isupper() else novo
+
+    return _NEUTRO_RE.sub(troca, texto)
+
+
 def _sem_proibidas(texto: str) -> tuple[str, bool]:
-    """Sem palavra proibida do lint ("em meio a", "dispara"...): a frase é cortada antes dela.
-    Devolve o texto ("" se não der) e se houve corte."""
+    """Sem palavra proibida do lint ("em meio a", "dispara"...): antes de número, o verbo vira o
+    neutro; senão a frase é cortada antes dela. Devolve o texto ("" se não der) e se houve corte."""
+    texto = neutro(texto)
     cortou = False
     while True:
         achadas = palavras_proibidas(texto)
@@ -255,14 +322,13 @@ def _limpo(texto: str, titulos: list[str], limite: int = FRASE_MAX) -> tuple[str
 
 
 def _manchete_capa(edition: Edition, story: Story) -> str:
-    """A manchete da capa (§4.1 e §4.5): sem adjetivo da casa (corte no último " e " ou ","
-    com 5 palavras ou mais, nunca entre dois nomes; senão, a linha fina), sem palavra proibida
-    e com até 90 caracteres."""
+    """A manchete da capa (§4 e §5.4): :func:`.estatistica.capa_sem_adj` (corte no último " e "
+    ou "," com 5+ palavras; senão a linha fina), sem palavra proibida nem verbo que julga veículo
+    e com até 90 caracteres; "" se nada disso sobrar."""
     titulos = E.titulos_por_veiculo(E.topic_of(edition, story.id))
-    so_e = ((", ", " e "),)
-    texto, _ = _sem_adj(_frase(story.headline), titulos, solta=False, juncoes=so_e)
-    if not texto:
-        texto, _ = _sem_adj(_frase(story.dek), titulos, solta=False, juncoes=so_e)
+    texto = _frase(E.capa_sem_adj(edition, story))
+    if _adj_sobrando(texto, titulos):  # a linha fina de reserva também tinha adjetivo
+        texto = ""
     texto, _ = _sem_proibidas(texto) if texto else ("", False)
     if not texto or verbos_proibidos(texto):
         return ""
@@ -282,11 +348,25 @@ def _extenso(valor: str) -> str:
     return f"{m.group(1)} {nome[0] if um else nome[1]}"
 
 
-def numero_fato(texto: str, evitar: Iterable[str] = ()) -> tuple[str, str] | None:
-    """O número em destaque do texto: ``(qualificador, número)``, como :func:`.estatistica.numero_destaque`,
-    pulando os números de ``evitar`` (o slide 2 não repete o número da capa)."""
+def _qualificador(texto: str, pos: int) -> str:
+    q = _QUALIFICADOR.search(texto[:pos])
+    return q.group(1).upper() if q else ""
+
+
+def numero_fato(
+    texto: str, evitar: Iterable[str] = (), *, contagem: bool = True, minimo_px: int = NUM_FATO_MIN
+) -> tuple[str, str] | None:
+    """O número em destaque do texto: ``(qualificador, número)``.
+
+    Primeiro o número com unidade, como :func:`.estatistica.numero_destaque` ("R$ 1 bi", "0,32%");
+    sem ele (e com ``contagem``), a contagem de gente ou coisa ("68 pessoas", "70 mil policiais").
+    Pula os números de ``evitar`` (o slide 2 não repete o da capa). O qualificador inclui "ao
+    menos" e "pelo menos": a ressalva nunca se perde. A contagem que não cabe numa linha com
+    ``minimo_px`` perde o substantivo ("1,8 mil"), que está na frase logo abaixo.
+    """
     t = plain(texto)
     fora = {E._core(x) for x in evitar if x}
+    fora_digitos = {_digitos(x) for x in evitar if x}
     for m in E._NUMERO.finditer(t):
         raw = m.group(0).strip()
         if E._ANO.fullmatch(raw):
@@ -294,19 +374,126 @@ def numero_fato(texto: str, evitar: Iterable[str] = ()) -> tuple[str, str] | Non
         valor = E._display_number(raw)
         if E._core(valor) in fora:
             continue
-        q = E._QUALIFICADOR.search(t[: m.start()])
-        return (q.group(1).upper() if q else "", _extenso(valor))
+        return _qualificador(t, m.start()), _extenso(valor)
+    if not contagem:
+        return None
+    for m in _CONTAGEM.finditer(t):
+        if E._ANO.fullmatch(m.group(1)) or _digitos(m.group(0)) in fora_digitos:
+            continue
+        valor = m.group(0)
+        if px_cabe(valor) < minimo_px:  # "1,8 mil manifestantes" não cabe: fica "1,8 mil"
+            valor = m.group(1) + (m.group(2) or "")
+        return _qualificador(t, m.start()), valor
     return None
 
 
-def tamanho_numero(valor: str, *, maximo: int = NUM_FATO_MAX, minimo: int = NUM_FATO_MIN) -> int:
-    """O maior px (até ``maximo``) em que o número cabe numa linha da área útil."""
+def _digitos(valor: str) -> str:
+    """Os algarismos do primeiro número ("2.400 presos" → "2400"), para comparar contagens."""
+    m = re.search(r"\d[\d.,]*", valor)
+    return re.sub(r"\D", "", m.group(0)) if m else ""
+
+
+def numero_capa(texto: str) -> tuple[str, str] | None:
+    """O número da capa: :func:`.estatistica.numero_destaque`, com a unidade por extenso sem moeda
+    ("7 milhões") e a ressalva "ao menos"/"pelo menos" que ele não conhece; sem número com
+    unidade, a contagem ("2.400 presos")."""
+    n = E.numero_destaque(texto)
+    if n is None:
+        return numero_fato(texto, minimo_px=NUM_CAPA_MIN)
+    qual, valor = n
+    if not qual:
+        t = plain(texto)
+        m = next((m for m in E._NUMERO.finditer(t) if not E._ANO.fullmatch(m.group(0).strip())), None)
+        qual = _qualificador(t, m.start()) if m else ""
+    return qual, _extenso(valor)
+
+
+def px_cabe(valor: str) -> float:
+    """O maior px em que o número (Archivo condensada, caixa alta) cabe numa linha da área útil."""
     w = G.largura_texto(valor.upper(), "hook", 100) / 100
-    return int(max(minimo, min(maximo, (G.LARGURA - 8) / w if w else maximo)))
+    return (G.LARGURA - 8) / w if w else float("inf")
+
+
+def tamanho_numero(valor: str, *, maximo: int = NUM_FATO_MAX, minimo: int = NUM_FATO_MIN) -> int:
+    """O maior px (até ``maximo``, nunca abaixo de ``minimo``) em que o número cabe numa linha da área útil."""
+    return int(max(minimo, min(maximo, px_cabe(valor))))
 
 
 def _numeros(texto: str) -> set[str]:
     return set(_NUMEROS.findall(plain(texto)))
+
+
+# ── Medidas ───────────────────────────────────────────────────────────────
+
+
+def _linhas(texto: str, tam: float, fator: float = SERIF, largura: float = G.LARGURA) -> int:
+    """Linhas de ``texto`` em Noto Serif no tamanho ``tam`` (estimativa pela tabela da Archivo)."""
+    return max(1, len(G.linhas_texto(texto, "label", tam * fator, largura)))
+
+
+def _palavra_solta(texto: str, tam: float, fator: float = SERIF) -> bool:
+    """Alguma linha fica só com uma palavra curta ("para indenizações / em / desapropriações")?"""
+    return any(len(linha) <= 3 for linha in G.linhas_texto(texto, "label", tam * fator, G.LARGURA))
+
+
+def _altura_numero(tam: int, qual: str) -> float:
+    """O bloco do número: a linha (entrelinha .84) e o qualificador acima (20% do número)."""
+    return tam * 0.84 + (tam * 0.2 + 4 if qual else 0)
+
+
+def area_fato(*, relogio: bool, selo: bool, fontes: bool, chip: bool = True) -> float:
+    """Altura livre do miolo de um fato: o quadro menos o chip, o respiro e o pé (relógio, selo, fontes)."""
+    pe = [h for h, tem in ((112, relogio), (30, selo), (34, fontes)) if tem]
+    base = (26 + sum(pe) + 18 * (len(pe) - 1)) if pe else 0
+    return QUADRO - (74 if chip else 0) - 80 - base
+
+
+def tamanhos_fato(valor: str, qual: str, frase: str, area: float) -> tuple[int, int]:
+    """(px do número, px da frase): a maior frase de :data:`FRASE_TAMS` que cabe com o número
+    de 260 a 180 px; o número encolhe antes da frase. Sem número, ``(0, px)`` de :data:`SOLO_TAMS`,
+    em até 6 linhas. Tamanho que deixa uma palavra curta sozinha numa linha passa a vez."""
+    limite = area * OCUPACAO
+    if not valor:  # Noto Serif 700: mede como a 800
+        for f in SOLO_TAMS:
+            linhas = _linhas(frase, f, SERIF_800)
+            if linhas <= 6 and linhas * f * 1.14 <= limite and not _palavra_solta(frase, f, SERIF_800):
+                return 0, f
+        return 0, SOLO_TAMS[-1]
+    n_max = tamanho_numero(valor)
+    for f in FRASE_TAMS:
+        if _palavra_solta(frase, f) and f > FRASE_TAMS[-1]:
+            continue
+        h_frase = 30 + _linhas(frase, f) * f * 1.2
+        for n in range(n_max, NUM_FATO_MIN - 1, -10):
+            if _altura_numero(n, qual) + h_frase <= limite:
+                return n, f
+    return NUM_FATO_MIN, FRASE_TAMS[-1]
+
+
+def area_capa(mc: dict[str, Any] | None) -> float:
+    """Altura livre do miolo da capa: o quadro menos o letreiro, o respiro e o pé (mais coberto e faixa)."""
+    pe = 55
+    if mc:
+        pe += 78 + (0 if mc["proprio"] else 10 + 41 * min(2, _linhas(mc["nome"], 34, 1.0)))
+    return QUADRO - 70 - 88 - pe
+
+
+def tamanhos_capa(valor: str, qual: str, manchete: str, area: float) -> tuple[int, int]:
+    """(px do número, px da manchete): manchete em Noto Serif 800 de 64 a 80 px com número (até 96
+    sem ele) e o número de até 280 px, o maior par que cabe."""
+    limite = area * OCUPACAO
+    if not valor:
+        for m in MANCHETE_SOLO_TAMS:
+            if _linhas(manchete, m, SERIF_800) * m * 1.07 <= limite:
+                return 0, m
+        return 0, MANCHETE_SOLO_TAMS[-1]
+    n_max = tamanho_numero(valor, maximo=NUM_CAPA_MAX, minimo=NUM_CAPA_MIN)
+    for m in MANCHETE_TAMS:
+        h = 34 + _linhas(manchete, m, SERIF_800) * m * 1.07
+        for n in range(n_max, NUM_CAPA_MIN - 1, -10):
+            if _altura_numero(n, qual) + h <= limite:
+                return n, m
+    return NUM_CAPA_MIN, MANCHETE_TAMS[-1]
 
 
 # ── Seleção ───────────────────────────────────────────────────────────────
@@ -326,6 +513,27 @@ def _entidades(fato_story: Story | None, texto: str) -> set[str]:
     return {w for w in _ENTIDADE.findall(texto) if w not in {"Governo", "Brasil"}}
 
 
+def _palavras(texto: str) -> list[str]:
+    """As palavras que dizem o assunto, na ordem (sem acento nem caixa, sem as vazias)."""
+    out = []
+    for w in E._fold(plain(texto)).split():
+        w = w.strip(".,;:!?()[]“”\"'‘’—–-")
+        if len(w) >= 3 and w not in _VAZIAS:
+            out.append(w)
+    return out
+
+
+def mesmo_assunto(a: str, b: str) -> bool:
+    """Dois textos do mesmo dia tratam do mesmo assunto? Jaccard ≥ 0,5, ou 3+ palavras de assunto
+    em comum com o sujeito (a 1ª delas) entre elas ("Fed mantém taxa de juros…" e "Fed mantém
+    juros na faixa…"; "Colisão entre trens…" e "Colisão de trens…")."""
+    if similaridade(a, b) >= MESMO_ASSUNTO:
+        return True
+    pa, pb = _palavras(a), _palavras(b)
+    comuns = set(pa) & set(pb)
+    return len(comuns) >= 3 and bool(pa and pb) and (pa[0] in comuns or pb[0] in comuns)
+
+
 def _marca(f: Fato) -> tuple[set[str], set[str]]:
     """(entidades, números) de um fato publicado, para a regra da véspera."""
     s = f.story
@@ -333,7 +541,7 @@ def _marca(f: Fato) -> tuple[set[str], set[str]]:
 
 
 def _repete_vespera(story: Story | None, textos: list[str], vespera: list[tuple[set[str], set[str]]]) -> bool:
-    """2+ entidades em comum com a capa ou um fato da véspera e nenhum número novo (§4.5)."""
+    """2+ entidades em comum com a capa ou um fato da véspera e nenhum número novo (§5.4)."""
     if not vespera:
         return False
     ents = _entidades(story, " ".join(textos))
@@ -372,22 +580,40 @@ def _eleitoral(story: Story | None, textos: list[str], nomes: tuple[str, ...]) -
     return section != "mundo" and bool(_ELEICAO.search(" ".join([junto, story.headline, story.dek] if story else [junto])))
 
 
-def _texto(edition: Edition, story: Story | None, briefing: str, evitar: str = "") -> Fato | None:
-    """O texto do fato: o item do briefing; senão a manchete; senão a linha fina. Vale a primeira
-    versão limpa sem corte pesado; sem ela, a primeira com corte. Com ``evitar`` (a manchete da
-    capa), pula o que tiver Jaccard ≥ 0,6 com ela."""
+def eleitoral_capa(story: Story, textos: Iterable[str] = (), nomes: Iterable[str] = E.NOMES_ELEICAO) -> bool:
+    """Na capa do período eleitoral vale a regra mais dura: política, :func:`_eleitoral` ou eleição
+    de qualquer país na manchete ou nos ``textos`` ("Israel vai às urnas em eleição decisiva", 27/10).
+    A eleição de outro país citada só na linha fina não conta ("a poucas semanas das eleições de
+    meio de mandato", na suspensão de sanções de Trump, 18/10)."""
+    textos = [t for t in textos if t]
+    visivel = " ".join([*textos, story.headline])
+    return (
+        story.section == "politica"
+        or _eleitoral(story, textos, tuple(nomes))
+        or bool(_ELEICAO.search(visivel) or _URNAS.search(visivel))
+    )
+
+
+def _texto(edition: Edition, story: Story | None, briefing: str, evitar: str = "",
+           evitar_numero: Iterable[str] = ()) -> Fato | None:
+    """O texto do fato: o item do briefing, a manchete ou a linha fina. Vale a primeira versão
+    limpa sem corte pesado e com número em destaque; sem número, a primeira limpa sem corte
+    pesado; sem ela, a primeira com corte. Com ``evitar`` (a manchete da capa), pula o que tiver
+    Jaccard ≥ 0,6 com ela; ``evitar_numero`` são números que não contam (o da capa, no slide 2)."""
     titulos = _titulos(edition, story)
     candidatos = [("briefing", briefing)]
     if story is not None:
         candidatos += [("manchete", story.headline), ("dek", story.dek)]
+    evitar_numero = list(evitar_numero)
     limpos = []
-    for origem, bruto in candidatos:
+    for i, (origem, bruto) in enumerate(candidatos):
         t, pesado = _limpo(bruto, titulos) if bruto else ("", False)
         if t and not (evitar and similaridade(t, evitar) >= JACCARD_CAPA):
-            limpos.append((pesado, origem, t))
+            sem_numero = numero_fato(t, evitar_numero) is None
+            limpos.append((pesado, sem_numero, i, origem, t))
     if not limpos:
         return None
-    _, origem, t = min(limpos, key=lambda c: c[0])
+    _, _, _, origem, t = min(limpos)
     return Fato(_ponto(t), story, origem, briefing)
 
 
@@ -416,17 +642,18 @@ def selecionar(
     paineis: list[dict[str, Any]] | None = None,
     vespera: list[tuple[set[str], set[str]]] | None = None,
 ) -> Selecao | None:
-    """A capa e os 5 fatos do dia (§4.5).
+    """A capa e os 5 fatos do dia (§5.4).
 
-    - Capa: a manchete (no período eleitoral, a 1ª não política), fora de ``evitar_capa``
-      (as matérias do Raio-X e do Número: os três posts do dia nunca têm a mesma peça principal).
-      ``fora`` (a matéria do Número) não entra nem como fato: o número dela é a peça das 12:00.
+    - Capa: a manchete (no período eleitoral, a 1ª que não é política nem eleição, de nenhum
+      país), fora de ``evitar_capa`` (as matérias do Raio-X e do Número: os três posts do dia
+      nunca têm a mesma peça principal). ``fora`` (a matéria do Número) não entra nem como fato.
     - Fatos: o 1º é a matéria da capa; depois os itens do briefing e, para completar, as
       matérias, pela ordem de editoria (brasil > mercados > tecnologia > …); o item do briefing
       sem matéria (sem selo nem fontes) só depois delas; esporte e variedades só se faltar fato.
     - Fora: assunto eleitoral no período eleitoral (e só 1 de política, sempre o último); fato que
       cita Ibovespa, dólar, Brent ou bitcoin com a variação do slide de mercado (``paineis``); fato
-      com 2+ entidades em comum com a véspera (``vespera``) e sem número novo; o mesmo assunto duas vezes.
+      com 2+ entidades em comum com a véspera (``vespera``) e sem número novo; o mesmo assunto
+      duas vezes (2+ entidades em comum ou :func:`mesmo_assunto`).
 
     None se nenhuma matéria serve de capa.
     """
@@ -452,13 +679,14 @@ def selecionar(
         for story in ordem:
             if story.id in evitar or (passada == 0 and story.section in SO_SE_FALTAR and story.id != lead):
                 continue
-            if election and story.section == "politica":
-                continue
             b = por_story.get(story.id, "")
-            if bloqueado(story, [b]):
+            if (election and eleitoral_capa(story, [b], nomes)) or bloqueado(story, [b]):
                 continue
             m = _manchete_capa(edition, story)
-            f = _texto(edition, story, b, evitar=m) if m else None
+            if not m:
+                continue
+            n = numero_capa(f"{story.headline} {story.dek}")
+            f = _texto(edition, story, b, evitar=m, evitar_numero=[n[1]] if n else ())
             if f is not None:
                 capa, manchete, primeiro = story, m, f
                 break
@@ -480,6 +708,7 @@ def selecionar(
 
     escolhidos: list[Fato] = []
     ents_dia = [_entidades(capa, primeiro.texto)]
+    textos_dia = [capa.headline, primeiro.texto]
     politica = 0
     for _, _, _, story, b in candidatos:
         if len(escolhidos) == FATOS - 1:
@@ -493,10 +722,12 @@ def selecionar(
         if f is None:
             continue
         ents = _entidades(story, f.texto)
-        if any(len(ents & e) >= 2 for e in ents_dia):
+        proprios = [f.texto] + ([story.headline] if story is not None else [])
+        if any(len(ents & e) >= 2 for e in ents_dia) or any(mesmo_assunto(p, t) for p in proprios for t in textos_dia):
             continue
         politica += is_pol
         ents_dia.append(ents)
+        textos_dia.extend(proprios)
         escolhidos.append(f)
 
     def chave(f: Fato) -> tuple[int, int]:
@@ -520,6 +751,7 @@ def vespera(
     ``ontem`` é a edição da véspera (None: procura em ``history``). A véspera é recalculada
     com a mesma seleção, que também filtrou pela véspera dela (até :data:`VESPERA_CADEIA` dias);
     as matérias que o Raio-X e o Número daqueles dias tiraram da capa não são conhecidas aqui.
+    O modo eleitoral de cada dia é o de hoje (o período acaba no máximo um dia antes).
     """
     day = edition_day(edition)
     por_dia = {e.date: e for e in history}
@@ -580,42 +812,46 @@ def _corrida(words: list[str], proprios: set[str]) -> list[str]:
     return run
 
 
+def _varios_nomes(run: list[str]) -> bool:
+    """A sequência junta dois nomes ou mais ("SpaceX e Tesla"), não um nome de duas palavras ("Flávio Bolsonaro")?"""
+    return "e" in run and sum(1 for w in run if w.lower() not in _LIGA) >= 2
+
+
 def nome_do_assunto(edition: Edition, topic: IndexTopic) -> str:
     """Como o assunto aparece na capa: os nomes que abrem o título, se forem 2 ou mais
-    ("SpaceX e Tesla"); senão o título do assunto sem adjetivo da casa e com até 14 palavras
-    (nunca o título literal de um veículo); sem os dois, a 1ª sequência de 2+ nomes do título."""
+    ("SpaceX e Tesla"); senão o título da matéria sem adjetivo da casa e com até 90 caracteres
+    (nunca o título literal de um veículo); senão a tese do assunto."""
     story = next((s for s in edition.stories if s.id == topic.story_id), None) if topic.story_id else None
     titulo = _frase(story.headline if story else topic.title)
     literais = {_frase(i.title) for i in topic.items}
     textos = [i.title for i in topic.items] + ([story.headline, story.dek, *story.body[:1]] if story else [])
     proprios = _proprios(textos)
-    words = titulo.split()
-    abre = _corrida(words, proprios)
-    if sum(1 for w in abre if w.lower() not in _LIGA) >= 2:
+    abre = _corrida(titulo.split(), proprios)
+    if _varios_nomes(abre):
         return " ".join(abre)
     if story is not None and titulo not in literais:
         limpo, _ = _limpo(titulo, E.titulos_por_veiculo(topic), limite=MANCHETE_MAX)
         if limpo:
             return _sem_ponto(limpo)
     tese = E._titulo_assunto(edition, topic)
-    if tese:
-        return _sem_ponto(tese)
-    for i in range(1, len(words)):
-        run = _corrida(words[i:], proprios)
-        if sum(1 for w in run if w.lower() not in _LIGA) >= 2:
-            return " ".join(run)
-    return ""
+    return _sem_ponto(tese) if tese else ""
 
 
 def _mais_coberto(
     edition: Edition, capa: Story, *, election: bool, nomes: tuple[str, ...], paineis: list[dict[str, Any]] = ()
 ) -> dict[str, Any] | None:
     """O assunto com mais veículos (k ≥ 5). Se for o da capa, só a contagem; se for de mercado,
-    só o nome do ativo ("Petróleo Brent"): o número de mercado vem do slide 7, nunca do título."""
+    só o nome do ativo ("Petróleo Brent"): o número de mercado vem do slide 7, nunca do título.
+    No período eleitoral, se o mais coberto for eleição (de qualquer país), a linha sai."""
     conc = E.concentracao(edition, election=election, nomes=nomes)
     if conc is None or conc.topo is None or conc.topo_veiculos < MAIS_COBERTO_MIN:
         return None
     proprio = conc.topo.story_id == capa.id
+    story = next((s for s in edition.stories if s.id == conc.topo.story_id), None)
+    if election and not proprio:
+        texto = E.topic_text(edition, conc.topo)
+        if (story is not None and eleitoral_capa(story, [conc.topo.title], nomes)) or _ELEICAO.search(texto) or _URNAS.search(texto):
+            return None
     nome = "" if proprio else nome_do_assunto(edition, conc.topo)
     if nome and _repete_mercado([nome], list(paineis)):
         fins = [m.end() for rx in ATIVO_RE.values() for m in rx.finditer(nome) if len(nome[: m.start()].split()) <= 3]
@@ -635,23 +871,6 @@ def _faixa(edition: Edition) -> str:
     if edition.index:
         partes.append(f"{num(len(edition.index))} assuntos")
     return " · ".join(partes)
-
-
-def tamanho_manchete(manchete: str, com_numero: bool) -> int:
-    """Noto Serif 800 de 64 a 80 px (até 96 sem número), pelo comprimento."""
-    n = len(manchete)
-    if not com_numero:
-        return 96 if n <= 50 else 88 if n <= 75 else 80
-    return 80 if n <= 45 else 76 if n <= 60 else 72 if n <= 75 else 64
-
-
-def tamanho_frase(frase: str, com_numero: bool) -> int:
-    """Noto Serif de 52 px abaixo do número (menos, se a frase é longa); sem número, a frase
-    vira o destaque do slide: de 60 px para cima, mais quanto mais curta."""
-    n = len(frase)
-    if com_numero:
-        return 52 if n <= 140 else 48 if n <= 180 else 44
-    return 76 if n <= 90 else 68 if n <= 140 else 60 if n <= 190 else 56
 
 
 # ── Slides ────────────────────────────────────────────────────────────────
@@ -690,12 +909,15 @@ def linha_relogio(
 
 
 def _cobertura(edition: Edition, story: Story | None, raiox_story_id: str | None) -> dict[str, Any]:
+    """O selo de cobertura (:func:`.estatistica.selo_cobertura`), a contagem de veículos dele e a mini barra."""
     if story is None:
-        return {"cobertura": "", "cob_a": 0, "cob_n": 0, "cob_b": 0}
+        return {"cobertura": "", "cob_k": 0, "cob_a": 0, "cob_n": 0, "cob_b": 0}
     c = story.coverage
     a, b = (c.count("a"), c.count("b")) if c else (0, 0)
     n = len(c.outlets) - a - b if c else 0
-    return {"cobertura": E.selo_cobertura(edition, story, raiox_story_id), "cob_a": a, "cob_n": n, "cob_b": b}
+    selo = E.selo_cobertura(edition, story, raiox_story_id)
+    m = re.match(r"(\d+) veículos?\b", selo)
+    return {"cobertura": selo, "cob_k": int(m.group(1)) if m else 0, "cob_a": a, "cob_n": n, "cob_b": b}
 
 
 def _slide_fato(
@@ -709,25 +931,37 @@ def _slide_fato(
     evitar_numero: Iterable[str] = (),
     relogio: tuple[list[dict[str, str]], int] = ([], 0),
 ) -> Slide:
+    """Um fato: número (ou a cobertura, ou nada) + frase, com os tamanhos que enchem o miolo."""
     story = f.story
     numero = numero_fato(f.texto, evitar_numero)
     qual, valor = numero if numero else ("", "")
     nomes = source_names(story) if story else []
     cob = _cobertura(edition, story, raiox_story_id)
+    selo_pe = cob["cobertura"]
+    heroi = "numero" if valor else ""
+    if not valor and cob["cob_k"] >= COBERTURA_MIN:  # a cobertura medida vira o número do slide
+        heroi, qual = "cobertura", NOTICIADO
+        valor = f"{cob['cob_k']} veículos"
+        selo_pe = selo_pe.split(" · ", 1)[1] if " · " in selo_pe else ""
     batidas, mais = relogio
     section = section_info(edition, story.section) if story else None
+    fontes = sources_line(nomes)
+    area = area_fato(relogio=bool(batidas), selo=bool(selo_pe), fontes=bool(fontes), chip=bool(section))
+    tam, tam_frase = tamanhos_fato(valor, qual, f.texto, area)
     ctx = {
         "selo": selo,
         "contador": True,
         "editoria": section["title"] if section else "",
+        "heroi": heroi,
         "qual": qual,
         "valor": valor,
-        "tam": tamanho_numero(valor) if valor else 0,
+        "tam": tam,
         "frase": f.texto,
-        "tam_frase": tamanho_frase(f.texto, bool(valor)),
+        "tam_frase": tam_frase,
         "solo": not valor,
         **cob,
-        "fontes": sources_line(nomes),
+        "cobertura": selo_pe,
+        "fontes": fontes,
         "relogio": batidas,
         "relogio_mais": mais,
         "destaque": valor,
@@ -736,7 +970,7 @@ def _slide_fato(
     }
     partes = [f"Fato {i} de {total}: {f.texto}"]
     if cob["cobertura"]:
-        partes.append(f"{cob['cobertura']}.")
+        partes.append(f"{cob['cobertura'][:1].upper()}{cob['cobertura'][1:]}.")
     if batidas:
         lista = ", ".join(f"{b['nome']} {b['hora']}" for b in batidas)
         partes.append(f"Relógio: {lista}" + (f" e mais {mais}" if mais else "") + "; horário informado por cada veículo, em Brasília.")
@@ -752,15 +986,14 @@ def _colunas(total: int, largura: float, altura: float) -> int:
 
 
 def _slide_fechamento(edition: Edition, selo: str, *, election: bool, nomes: tuple[str, ...]) -> Slide | None:
+    """A pauta solitária: "1.039 de 1.159 assuntos de hoje (90%) saíram em uma fonte só", a matriz e o CTA."""
     conc = E.concentracao(edition, election=election, nomes=nomes)
     if conc is None or not conc.assuntos:
         return None
     contagens = [len(E.topic_sources(t)) for t in edition.index]
     pct = f" ({conc.uma_fonte_pct}%)" if conc.assuntos >= E.PCT_MIN else ""
     frase = f"de {num(conc.assuntos)} assuntos de hoje{pct} saíram em uma fonte só."
-    n_stories = len(edition.stories)
-    edicao = f"Os {n_stories} que mais importam estão na edição: link na bio."
-    altura = 300
+    altura = 330
     largura = G.LARGURA - 266
     svg, descricao = G.matriz_pontos(contagens, None, colunas=_colunas(len(contagens), largura, altura - 56), altura_max=altura)
     ctx = {
@@ -771,13 +1004,12 @@ def _slide_fechamento(edition: Edition, selo: str, *, election: bool, nomes: tup
         "tam": tamanho_numero(num(conc.uma_fonte), maximo=240, minimo=160),
         "frase": frase,
         "grafico": svg,
-        "edicao": edicao,
         "cta": CTA,
         "destaque": num(conc.uma_fonte),
         "section": "",
         "nota": f"fonte: índice da edição de {short_date(edition_day(edition))}",
     }
-    alt = f"Pauta solitária: {num(conc.uma_fonte)} {frase} {descricao} {edicao} {CTA}"
+    alt = f"Pauta solitária: {num(conc.uma_fonte)} {frase} {descricao} {CTA}"
     return Slide("m1_fechamento", ctx, alt=alt)
 
 
@@ -791,6 +1023,18 @@ def _linha_mercado(paineis: list[dict[str, Any]]) -> list[str]:
     return out
 
 
+def linha1(manchete: str, resto: int, day: date) -> str:
+    """``"{capa} · e mais 4 fatos da quarta"`` em até 110 caracteres; se não couber, a manchete
+    é cortada numa junção; sem junção, fica só a manchete (cortada se precisar)."""
+    sufixo = f" · e mais {resto} fatos {_DA.get(day.weekday(), 'da')} {DIAS[day.weekday()]}"
+    if len(manchete) + len(sufixo) <= LINHA1_MAX:
+        return manchete + sufixo
+    curta = _corte(manchete, LINHA1_MAX - len(sufixo) + 1)
+    if curta:
+        return curta + sufixo
+    return manchete if len(manchete) <= LINHA1_MAX else (_corte(manchete, LINHA1_MAX + 1) or manchete[:LINHA1_MAX])
+
+
 def _legenda(
     edition: Edition,
     sel: Selecao,
@@ -799,12 +1043,8 @@ def _legenda(
     *,
     election: bool,
 ) -> str:
-    day = edition_day(edition)
-    dia = DIAS[day.weekday()]
-    resto = len(sel.fatos) - 1
-    linha1 = f"{sel.manchete} · e mais {resto} fatos {_DA.get(day.weekday(), 'da')} {dia}"
-    if len(linha1) > LINHA1_MAX:
-        linha1 = sel.manchete if len(sel.manchete) <= LINHA1_MAX else _corte(sel.manchete, LINHA1_MAX + 1) or sel.manchete[:LINHA1_MAX]
+    """Linha 1 com a capa, "▸ fato (selo)" para cada fato, o mercado com o acumulado, o método, o CTA e as hashtags."""
+    primeira = linha1(sel.manchete, len(sel.fatos) - 1, edition_day(edition))
     artigos = edition.stats.articles_collected if edition.stats else 0
     fontes = edition.rationale.outlets if edition.rationale else 0
     metodo = f"Resumo por IA a partir de {num(artigos)} notícias de {num(fontes)} fontes."
@@ -821,7 +1061,7 @@ def _legenda(
             linhas.append(f"▸ {texto}" + (f" ({selo})" if selo else ""))
         if mercado[:n_mercado]:
             linhas.append("Mercado: " + " · ".join(mercado[:n_mercado]) + ".")
-        return finish_caption([linha1, "\n".join([*linhas, metodo, CTA, tags])])
+        return finish_caption([primeira, "\n".join([*linhas, metodo, CTA, tags])])
 
     for n_mercado, corte in ((len(mercado), None), (1, None), (1, 140), (0, 110)):
         caption = monta(n_mercado, corte)
@@ -851,10 +1091,11 @@ def em_1_minuto(
     - ``history``: :func:`.estatistica.load_history` até o dia (inclusive), para o mercado e a véspera.
     - ``raiox_story_id``: a matéria do Raio-X da noite (fato com o selo "Raio-X às 18h30"; não vira capa).
     - ``ontem``: a edição da véspera (None: procura em ``history``), para não repetir assunto sem número novo.
-    - ``numero``: a :class:`~.conteudo.Peca` do Número do dia: a matéria dele não vira capa e, se o
-      Número for o acumulado de um ativo (``acum:ibov``), esse ativo não vira o título do mercado.
+    - ``numero``: a :class:`~.conteudo.Peca` do Número do dia: a matéria dele não vira capa nem fato e,
+      se o Número for o acumulado de um ativo (``acum:ibov``), esse ativo não vira o título do mercado.
 
-    None sem IA, sem briefing nem matérias, ou com menos de 3 fatos (o 07:00 vira o Terminal).
+    None sem IA, sem briefing nem matérias, ou com menos de 3 fatos (o 07:00 vira o Terminal):
+    em 26/10, dia seguinte ao 2º turno, só o Bola de Ouro escapa do filtro eleitoral.
     """
     if edition.mode != "ai" or not edition.stories:
         return None
@@ -879,11 +1120,12 @@ def em_1_minuto(
     capa = sel.capa
     selo_capa, selo = selo_serie(numero_serie, day), selo_serie(numero_serie)
     total = len(sel.fatos)
-    numero_capa = E.numero_destaque(f"{capa.headline} {capa.dek}")
-    qual, valor = numero_capa if numero_capa else ("", "")
+    numero_capa_ = numero_capa(f"{capa.headline} {capa.dek}")
+    qual, valor = numero_capa_ if numero_capa_ else ("", "")
     mc = _mais_coberto(edition, capa, election=election, nomes=nomes, paineis=paineis)
     faixa = _faixa(edition)
     chamada = f"{total} fatos + mercado" if mercado else f"{total} fatos"
+    tam, tam_manchete = tamanhos_capa(valor, qual, sel.manchete, area_capa(mc))
 
     alt_capa = [f"{_nome_serie(numero_serie)}, {day.day} de {MESES[day.month - 1]}."]
     if valor:
@@ -903,13 +1145,14 @@ def em_1_minuto(
                 "selo": selo_capa,
                 "qual": qual,
                 "valor": valor,
-                "tam": tamanho_numero(valor, maximo=NUM_CAPA, minimo=150) if valor else 0,
+                "tam": tam,
                 "manchete": sel.manchete,
-                "tam_manchete": tamanho_manchete(sel.manchete, bool(valor)),
+                "tam_manchete": tam_manchete,
                 "faixa": faixa,
                 "mais_coberto": mc,
                 "chamada": chamada,
-                "destaque": valor,
+                # sem número na manchete, o laranja vai para a contagem do mais coberto
+                "destaque": valor or (f"{mc['k']} veículos" if mc else ""),
                 "section": capa.section,
                 "nota": NOTA,
             },
@@ -929,7 +1172,7 @@ def em_1_minuto(
             evitar_numero=[valor] if primeiro else (),
             relogio=linha_relogio(edition, capa, lim) if primeiro else ([], 0),
         )
-        selos.append(slide.ctx["cobertura"])
+        selos.append(_cobertura(edition, f.story, raiox_story_id)["cobertura"])
         slides.append(slide)
     if mercado is not None:
         mercado.ctx.update(selo=selo, contador=True)

@@ -1,6 +1,8 @@
-{# Em 1 minuto 2.0 · fato (§4.5): marinho. Chip da editoria vazado; o número do fato em laranja (180 a 220 px,
-   qualificador acima) e a frase em Noto Serif 600 de 52 px (sem número, 60 px), juntos no meio do quadro;
-   no pé, a linha do relógio (só no slide 2, quando ele vale), o selo de cobertura com a mini barra A/N/B e as
+{# Em 1 minuto 2.0 · fato (§5.4): marinho. Chip da editoria vazado; o número do fato em laranja (qualificador
+   acima) e a frase em Noto Serif 600, juntos no meio do quadro, nos tamanhos que manha.tamanhos_fato escolhe
+   para encher o miolo. Fato sem número: a cobertura (5+ veículos) vira o número ("NOTICIADO POR /
+   12 VEÍCULOS") e o selo do pé fica só com a divisão; sem os dois, a frase sozinha em Noto Serif 700, grande.
+   No pé, a linha do relógio (só no slide 2, quando ele vale), o selo de cobertura com a mini barra A/N/B e as
    fontes. Fato sem matéria casada sai sem selo e sem chip. Sem o "01 FATO": o contador está na faixa. #}
 {% extends "_base.html.j2" %}
 {% import "_macros.html.j2" as m with context %}
@@ -10,10 +12,12 @@
   border:2px solid var(--rule3);color:var(--ink)}
 .corpo{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:36px 0 44px}
 .corpo .numbox{flex:none;margin-bottom:30px}
-.corpo .qual{margin-bottom:.1em;letter-spacing:.02em}
+.corpo .qual{margin-bottom:.12em;letter-spacing:.02em}
+.corpo.cob .qual{font-family:var(--mono);font-stretch:100%;font-weight:600;font-size:26px!important;letter-spacing:.08em;color:var(--ink2);
+  margin-bottom:.5em}
 .frase{flex:0 1 auto;min-height:0;overflow:hidden;font-family:var(--serif);font-weight:600;line-height:1.2;letter-spacing:-.01em;
   color:var(--ink);text-wrap:pretty}
-.frase.solo{font-weight:700;line-height:1.14;letter-spacing:-.014em;text-wrap:balance}
+.frase.solo{font-weight:700;line-height:1.12;letter-spacing:-.018em;text-wrap:pretty}
 .base{flex:none;display:flex;flex-direction:column;gap:18px;padding-top:24px;border-top:2px solid var(--rule2)}
 .rel{font-family:var(--label);font-stretch:100%;font-weight:600;font-size:26px;line-height:1.35;color:var(--ink)}
 .rel .k{font-family:var(--mono);font-weight:600;font-size:20px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-right:14px}
@@ -30,9 +34,9 @@
 {{ m.serie_band(s.selo, true, 'em1min') }}
 <div class="frame">
   {% if s.editoria %}<span class="chip">{{ s.editoria }}</span>{% endif %}
-  <div class="corpo">
+  <div class="corpo{{ ' cob' if s.heroi == 'cobertura' }}">
     {% if s.valor %}{{ m.num_hero(s.valor, s.qual or none, s.tam, 140, true) }}{% endif %}
-    <p class="frase{{ ' solo' if s.solo }}" data-fit="fato-frase" data-min="38" style="font-size:{{ s.tam_frase }}px">{{ m.tx(s.frase) }}</p>
+    <p class="frase{{ ' solo' if s.solo }}" data-fit="fato-frase" data-min="{{ 44 if s.solo else 36 }}" style="font-size:{{ s.tam_frase }}px">{{ m.tx(s.frase) }}</p>
   </div>
   {% if s.relogio or s.cobertura or s.fontes %}
   <div class="base">

@@ -1,7 +1,8 @@
-{# Em 1 minuto 2.0 · capa (§4.5): marinho. Selo da série, o letreiro pequeno (o único slide com logo), o número
+{# Em 1 minuto 2.0 · capa (§5.4): marinho. Selo da série, o letreiro pequeno (o único slide com logo), o número
    da manchete em laranja com o qualificador acima ("CERCA DE / R$ 1 BI"), a manchete em Noto Serif 800 (64 a
-   80 px; até 96 sem número) e, no pé, o mais coberto do dia e a faixa de dados em Plex Mono. Sem linha fina:
-   ela vai para o slide 2. #}
+   80 px; até 96 sem número; manha.tamanhos_capa) e, no pé, o mais coberto do dia e a faixa de dados em Plex
+   Mono. Sem número na manchete, o laranja vai para a contagem do mais coberto. Sem linha fina: ela vai para o
+   slide 2. #}
 {% extends "_base.html.j2" %}
 {% import "_macros.html.j2" as m with context %}
 {% block theme %}t-dark v2{% endblock %}
@@ -17,6 +18,7 @@
 .mc{padding:22px 0 24px;border-top:3px solid var(--ink)}
 .mc .k{font-family:var(--mono);font-weight:600;font-size:22px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
 .mc .k b{font-weight:600;color:var(--ink)}
+.mc .k b.hl{color:var(--accent)}
 .mc .nome{margin-top:10px;font-family:var(--label);font-stretch:100%;font-weight:600;font-size:34px;line-height:1.2;color:var(--ink);
   overflow:hidden;max-height:2.7em}
 .faixa{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:20px;border-top:2px solid var(--rule2);
@@ -37,9 +39,9 @@
     {% if s.mais_coberto %}
     <div class="mc">
       {% if s.mais_coberto.proprio %}
-      <div class="k">É o assunto mais coberto do dia · <b>{{ s.mais_coberto.k }} veículos</b></div>
+      <div class="k">É o assunto mais coberto do dia · <b{{ ' class=hl' if not s.valor }}>{{ s.mais_coberto.k }} veículos</b></div>
       {% else %}
-      <div class="k">O mais coberto · <b>{{ s.mais_coberto.k }} veículos</b></div>
+      <div class="k">O mais coberto · <b{{ ' class=hl' if not s.valor }}>{{ s.mais_coberto.k }} veículos</b></div>
       <div class="nome" data-fit="capa-mais-coberto" data-min="26">{{ m.tx(s.mais_coberto.nome) }}</div>
       {% endif %}
     </div>
