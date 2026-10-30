@@ -314,15 +314,56 @@ class InstagramSlot:
     expires: str = "23:00"  # prazo no mesmo dia; passou disso, não sai mais
 
 
+SLOT_APELIDOS = {"raiox": "noite"}  # nome antigo → nome atual (o antigo continua valendo na leitura)
+
+
 def _instagram_slots(raw: Any) -> dict[str, InstagramSlot]:
-    defaults = {
-        "manha": InstagramSlot(weekdays="07:00", weekends="08:30", expires="13:00"),
-        "stories": InstagramSlot(weekdays="07:10", weekends="08:40", expires="13:00"),
-        "raiox": InstagramSlot(weekdays="18:30", weekends=None, expires="22:30"),
+    """Slots do dia (§3.2); a chave antiga "raiox" vale como "noite" e fica como apelido dela."""
+    slots = {
+        "manha": InstagramSlot(weekdays="07:00", weekends="08:30", expires="11:00"),
+        "stories": InstagramSlot(weekdays="07:10", weekends="08:40", expires="11:00"),
+        "numero": InstagramSlot(weekdays="12:00", weekends="12:00", expires="16:00"),
+        "noite": InstagramSlot(weekdays="18:30", weekends="18:30", expires="22:30"),
     }
-    for name, value in (raw or {}).items():
-        defaults[name] = InstagramSlot(**value) if isinstance(value, Mapping) else InstagramSlot()
-    return defaults
+    raw = dict(raw or {})
+    for old, new in SLOT_APELIDOS.items():
+        if old in raw:
+            value = raw.pop(old)
+            raw.setdefault(new, value)
+    for name, value in raw.items():
+        slots[name] = InstagramSlot(**value) if isinstance(value, Mapping) else InstagramSlot()
+    for old, new in SLOT_APELIDOS.items():
+        slots[old] = slots[new]  # o mesmo objeto: código que ainda pede "raiox" recebe a noite
+    return slots
+
+
+@dataclass
+class EleicaoConfig:
+    """Período eleitoral: nomes que tornam um texto eleitoral em qualquer editoria (com borda de palavra)."""
+
+    # O dono revisa a cada eleição; nunca "Flávio" sozinho (pega Flávio Dino, do STF).
+    nomes: list[str] = field(default_factory=lambda: ["Lula", "Flávio Bolsonaro", "Bolsonaro"])
+
+
+@dataclass
+class LimiaresConfig:
+    """Mínimos das contas dos posts (§3.2)."""
+
+    raiox_min_veiculos: int = 4  # = estatistica.PLACAR_MIN_OUTLETS
+    raiox_min_por_lado: int = 2  # = estatistica.RACHA_MIN_SIDE
+    raiox_min_framings: int = 4
+    placar_min_base: int = 10
+    relogio_min_veiculos: int = 4
+    relogio_min_span_min: int = 30
+    grafico_min_pontos: int = 10
+    numero_repeticao_dias: int = 7
+    raiox_repeticao_dias: int = 3
+
+
+def _known(cls: type, raw: Any) -> dict[str, Any]:
+    """Só as chaves que o dataclass conhece (chave nova ou velha no YAML não derruba a leitura)."""
+    fields = cls.__dataclass_fields__
+    return {k: v for k, v in dict(raw or {}).items() if k in fields}
 
 
 @dataclass
@@ -330,11 +371,15 @@ class InstagramConfig:
     """Publicações do Instagram geradas a partir da edição (qijournal/instagram)."""
 
     enabled: bool = True
-    handle: str | None = None  # @ do perfil (sem o @): link no rodapé do site e do e-mail
+    # @ do perfil (sem o @): link no rodapé do site e do e-mail e assinatura das artes.
+    # Sem ele, a assinatura é "▲ triangula" e nada falha.
+    handle: str | None = None
     # Período eleitoral: até esta data (inclusive), nada de pesquisa eleitoral e
     # política fora do Raio-X; no "Em 1 minuto", no máximo um item de política.
     election_until: str | None = None
     keep_days: int = 7  # dias de imagens guardados na branch instagram
+    eleicao: EleicaoConfig = field(default_factory=EleicaoConfig)
+    limiares: LimiaresConfig = field(default_factory=LimiaresConfig)
     slots: dict[str, InstagramSlot] = field(default_factory=lambda: _instagram_slots(None))
 
 
@@ -479,7 +524,9 @@ def load_config(root: Path | None = None, env: Mapping[str, str] | None = None) 
 
     instagram_raw = dict(site_raw.get("instagram") or {})
     slots = _instagram_slots(instagram_raw.pop("slots", None))
-    instagram = InstagramConfig(**instagram_raw, slots=slots)
+    eleicao = EleicaoConfig(**_known(EleicaoConfig, instagram_raw.pop("eleicao", None)))
+    limiares = LimiaresConfig(**_known(LimiaresConfig, instagram_raw.pop("limiares", None)))
+    instagram = InstagramConfig(**_known(InstagramConfig, instagram_raw), eleicao=eleicao, limiares=limiares, slots=slots)
 
     return Config(
         root=root,

@@ -1,0 +1,47 @@
+{# Mercado em linha (§4.8): slide 7 do Em 1 minuto (marinho) e substituto da noite (papel, s.tema).
+   Título-achado com o maior acumulado; 4 painéis em 2×2 (nome, variação do dia com seta, valor em Plex Mono
+   40 px, selo da leitura + acumulado e a linha da série); faixa Selic · IPCA 12m · juro real; rodapé.
+   Painel com menos leituras que o mínimo mostra só o valor. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}{{ s.tema }} v2{% endblock %}
+{% block style %}
+.hook{flex:0 1 auto;min-height:0;margin-top:30px}
+.grid4{flex:none;display:grid;grid-template-columns:440px 440px;column-gap:56px;row-gap:36px;margin-top:40px}
+.pn{min-width:0;display:flex;flex-direction:column}
+.pn .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pn .nm{font-family:var(--label);font-stretch:100%;font-weight:600;font-size:30px;color:var(--ink);white-space:nowrap}
+.pn .chg{font-size:28px}
+.pn .v{font-family:var(--mono);font-weight:600;font-size:40px;line-height:1.1;color:var(--ink);margin-top:4px;white-space:nowrap}
+.pn .sl{font-family:var(--mono);font-weight:500;font-size:20px;line-height:1.3;color:var(--ink2);margin-top:6px;white-space:nowrap;overflow:hidden}
+.pn .ac{font-family:var(--mono);font-weight:600;font-size:22px;line-height:1.3;color:var(--ink);margin-top:2px;white-space:nowrap;overflow:hidden}
+.pn .grafico{margin-top:10px}
+.pn .so{margin-top:16px;padding-top:12px;border-top:2px solid var(--rule);font-family:var(--mono);font-size:20px;color:var(--ink2)}
+/* sem série para gráfico (começo da série): valores grandes, grade no meio do quadro */
+.curta .grid4{margin:auto 0;row-gap:72px}
+.curta .pn .v{font-size:64px;margin-top:10px}
+.curta .pn .nm{font-size:36px}
+.curta .pn .sl,.curta .pn .ac{font-size:24px}
+.faixa{flex:none;margin-top:auto;padding-top:20px;border-top:2px solid var(--rule3);font-family:var(--mono);font-weight:600;font-size:25px;line-height:1.3;color:var(--ink)}
+.pe{flex:none;margin-top:10px;font-family:var(--mono);font-size:19px;line-height:1.35;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, s.contador or none, s.cor) }}
+<div class="frame{{ '' if s.graficos else ' curta' }}">
+  {{ m.hook(s.titulo, s.destaque or none, s.tam, 60) }}
+  <div class="grid4">
+  {% for p in s.paineis %}
+    <div class="pn">
+      <div class="hd"><span class="nm">{{ p.nome }}</span>{{ m.change(p, 28) }}</div>
+      <div class="v">{{ p.valor }}</div>
+      {% if p.selo %}<div class="sl">{{ p.selo }}</div>{% endif %}
+      {% if p.acumulado %}<div class="ac">{{ p.acumulado }}</div>{% endif %}
+      {% if p.grafico %}{{ m.grafico(p.grafico) }}{% else %}<div class="so">{{ p.leituras }} {{ 'leitura' if p.leituras == 1 else 'leituras' }} na série: curta para o gráfico</div>{% endif %}
+    </div>
+  {% endfor %}
+  </div>
+  {% if s.faixa %}<div class="faixa" data-fit="faixa" data-min="18">{{ s.faixa }}</div>{% endif %}
+  <div class="pe" data-fit="rodape" data-min="15">{{ s.pe }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

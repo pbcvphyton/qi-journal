@@ -140,7 +140,7 @@ def test_generate_renderiza_e_monta_a_fila(tmp_path, edition):
     assert lancamento.due == "2026-10-20T00:00:00-03:00" and len(lancamento.images) == 6
     assert lancamento.caption.startswith("Comece aqui")
     assert manha.kind == "carousel" and len(manha.images) == 8 and len(manha.alt_texts) == 8
-    assert manha.due == "2026-10-20T07:00:00-03:00" and manha.expires == "2026-10-20T13:00:00-03:00"
+    assert manha.due == "2026-10-20T07:00:00-03:00" and manha.expires == "2026-10-20T11:00:00-03:00"  # prazo da manhã: §3.2 da spec
     assert all((tmp_path / img).is_file() for p in posts for img in p.images)
     assert all(img.startswith("2026-10-20/") and len(img.rsplit("-", 1)[-1]) == len("0123456789.jpg") for p in posts for img in p.images)
     assert posts[2].due < posts[3].due  # stories na ordem

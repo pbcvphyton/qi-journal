@@ -1,0 +1,23 @@
+{# "A atenção" (substituto do relógio no Raio-X 2.0, §4.2; e o "mais coberto" do Placar do dia sem relógio):
+   "12 VEÍCULOS, 19 TEXTOS", o lugar do assunto entre os do dia e os textos em inglês, com a matriz de pontos
+   (um por assunto) e o assunto em laranja. ctx: selo, titulo, destaque, linhas, grafico, nota; opcional kicker. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:30px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:{{ 12 if s.get('kicker') else 30 }}px;max-height:230px}
+.linhas{flex:none;margin-top:22px;font-family:var(--serif);font-size:34px;line-height:1.3;color:var(--ink)}
+.linhas p+p{margin-top:12px}
+.grafico{flex:0 1 auto;min-height:0;margin-top:auto;padding-top:36px}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  {% if s.get('kicker') %}<div class="kicker">{{ s.kicker }}</div>{% endif %}
+  {{ m.hook(s.titulo, s.destaque, 120, 80, none, 'atencao-titulo') }}
+  {% if s.linhas %}<div class="linhas" data-fit="atencao-linhas" data-min="26">{% for l in s.linhas %}<p>{{ m.tx(l) }}</p>{% endfor %}</div>{% endif %}
+  {% if s.grafico %}{{ m.grafico(s.grafico) }}{% endif %}
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

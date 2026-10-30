@@ -1,0 +1,24 @@
+{# Manifesto · slide 6, CTA (§4.7): "Todo dia, 3 posts" com a agenda (horário, formato, o que traz e o que muda
+   no fim de semana ou sem racha) e o único CTA, "SIGA.", em gancho grande. Laranja chapado, como a capa. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-orange v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:30px;font-family:var(--hook);font-stretch:62%;font-weight:900;font-size:96px;line-height:.92;text-transform:uppercase}
+.ag{flex:none;margin-top:40px;list-style:none;border-top:4px solid var(--ink)}
+.ag li{display:grid;grid-template-columns:196px 1fr;align-items:baseline;padding:30px 0 28px;border-bottom:2px solid var(--rule2)}
+.ag .h{font-family:var(--mono);font-weight:600;font-size:46px;line-height:1}
+.ag .n{display:block;font-family:var(--label);font-stretch:100%;font-weight:700;font-size:60px;line-height:1.02}
+.ag .d{display:block;margin-top:10px;font-family:var(--serif);font-size:32px;line-height:1.25}
+.ag .o{display:block;margin-top:8px;font-family:var(--mono);font-weight:500;font-size:23px;line-height:1.3}
+.cta{flex:none;margin-top:auto;font-family:var(--hook);font-stretch:62%;font-weight:900;font-size:260px;line-height:.84;letter-spacing:-.01em;text-transform:uppercase}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'numero') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  <ol class="ag">{% for i in s.agenda %}<li><span class="h">{{ i.hora }}</span><span><span class="n">{{ i.nome }}</span><span class="d">{{ i.desc }}</span>{% if i.obs %}<span class="o">{{ i.obs }}</span>{% endif %}</span></li>{% endfor %}</ol>
+  <div class="cta" data-fit="cta" data-min="160">{{ s.cta }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

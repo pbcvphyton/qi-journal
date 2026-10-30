@@ -1,0 +1,45 @@
+{# Stories da manhã · tela 3, mercado (§4.6): a tabela com o valor, a variação do dia com a hora da leitura
+   ("leitura das 06h00", "fech. 20/10") e a coluna do acumulado desde a 1ª leitura da série ("desde 28/09":
+   no cabeçalho quando a data é a mesma para todos, senão em cada linha). Embaixo, a faixa Selic · IPCA 12m ·
+   juro real ex-post e o rodapé. Laranja nenhum: alta e queda vêm nas cores do tema, com seta. Marinho. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-dark v2{% endblock %}
+{% block style %}
+.hook{flex:none;margin-top:20px;line-height:.96}
+.tab{flex:none;margin-top:40px}
+.tab .hd,.tab .r{display:grid;grid-template-columns:1fr 268px 204px;column-gap:20px;align-items:start}
+.tab .hd{padding-bottom:14px;border-bottom:2px solid var(--rule3);font-family:var(--mono);font-weight:600;font-size:22px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink2)}
+.tab .hd span+span{text-align:right}
+.tab .r{padding:18px 0 16px;border-bottom:2px solid var(--rule)}
+.tab .nm{display:block;font-family:var(--label);font-stretch:100%;font-weight:700;font-size:40px;line-height:1.1;color:var(--ink);white-space:nowrap}
+.tab .v{display:block;margin-top:8px;font-family:var(--mono);font-weight:600;font-size:42px;line-height:1.05;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
+.tab .c{text-align:right;min-width:0}
+.tab .c .chg{font-size:40px;line-height:1.1}
+.tab .c .nil{display:block;font-family:var(--mono);font-weight:600;font-size:40px;line-height:1.1;color:var(--ink3)}
+/* a hora da leitura quebra em 2 linhas quando vem com a data ("leitura de 23/10, / 17h59") */
+.tab .c small{display:block;margin-top:8px;font-family:var(--mono);font-weight:500;font-size:22px;line-height:1.25;color:var(--ink2);text-wrap:balance}
+.tab .c small.ate{margin-top:2px}
+.faixa{flex:none;margin-top:auto;padding-top:20px;border-top:2px solid var(--rule3);font-family:var(--mono);font-weight:600;font-size:24px;line-height:1.35;color:var(--ink)}
+.pe{flex:none;margin-top:10px;font-family:var(--mono);font-size:20px;line-height:1.4;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'em1min') }}
+<div class="frame">
+  {{ m.hook(s.titulo, none, s.tam, 96) }}
+  <div class="tab">
+    <div class="hd"><span>Última leitura</span><span>{{ s.col_dia }}</span><span>{{ s.col_acum }}</span></div>
+    {% for x in s.linhas %}
+    <div class="r">
+      <div><span class="nm">{{ x.nome }}</span><span class="v">{{ x.valor }}</span></div>
+      <div class="c">{% if x.change %}{{ m.change(x, 40) }}{% else %}<span class="nil">—</span>{% endif %}<small>{{ x.selo }}</small></div>
+      <div class="c">{% if x.acum %}{{ m.change({'change': x.acum, 'trend': x.acum_trend}, 40) }}{% if s.por_linha %}<small>desde {{ x.desde }}</small>{% endif %}{% if x.ate %}<small class="ate">até {{ x.ate }}</small>{% endif %}{% else %}<span class="nil">—</span>{% endif %}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if s.faixa %}<div class="faixa" data-fit="faixa" data-min="20">{{ s.faixa }}</div>{% endif %}
+  <div class="pe" data-fit="rodape" data-min="16">{{ s.pe }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

@@ -1,0 +1,30 @@
+{# Raio-X 2.0, slide 8 (Placar do dia + método + CTA, §4.2): "4 DE 26 ASSUNTOS DIVIDIRAM A COBERTURA HOJE",
+   o waffle com o quadrado deste Raio-X em contorno, a definição, o método, o CTA único e a série.
+   ctx: selo, kicker, titulo, destaque, grafico (waffle), definicao, metodo, cta, serie, nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:30px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:{{ 12 if s.kicker else 34 }}px;max-height:240px}
+.grafico{flex:none;margin-top:34px}
+.def{flex:none;margin-top:28px;font-family:var(--serif);font-size:30px;line-height:1.32;color:var(--ink)}
+.met{flex:none;margin-top:12px;font-family:var(--mono);font-size:22px;line-height:1.4;color:var(--ink2)}
+.cta{flex:none;margin-top:auto;display:flex;align-items:center;gap:22px;padding:26px 0 0;border-top:3px solid var(--ink)}
+.cta b{flex:none;font-family:var(--label);font-weight:700;font-size:44px;line-height:1;color:var(--ink)}
+.cta span{text-wrap:balance;font-family:var(--label);font-weight:700;font-size:38px;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.serie{flex:none;margin-top:12px;font-family:var(--mono);font-size:22px;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  {% if s.kicker %}<div class="kicker">{{ s.kicker }}</div>{% endif %}
+  {{ m.hook(s.titulo, s.destaque, 104, 72, none, 'placar-titulo') }}
+  {{ m.grafico(s.grafico) }}
+  <p class="def" data-fit="placar-definicao" data-min="24">{{ s.definicao }}</p>
+  <p class="met" data-fit="placar-metodo" data-min="18">{{ s.metodo }}</p>
+  <div class="cta"><b>→</b><span data-fit="cta" data-min="28">{{ s.cta }}</span></div>
+  <p class="serie">{{ s.serie }}</p>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

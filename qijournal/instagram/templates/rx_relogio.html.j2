@@ -1,0 +1,31 @@
+{# Relógio da notícia (Raio-X 2.0, slide 5, §4.2; Placar do dia, slide 3, §4.3): título-achado
+   "12 VEÍCULOS EM 16H43", o gráfico de graficos.relogio, a linha de virada (só fato) e o rodapé do horário.
+   ctx: selo, titulo, destaque, grafico, virada, rodape, nota; opcionais kicker e assunto (Placar) e contexto (as
+   linhas de "A atenção", quando há poucos veículos e o espaço sobra). #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:30px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:{{ 12 if s.get('kicker') else 30 }}px;max-height:230px}
+.assunto{flex:none;margin-top:16px;font-family:var(--serif);font-weight:600;font-size:32px;line-height:1.28;color:var(--ink);max-height:124px;overflow:hidden}
+.grafico{flex:0 1 auto;min-height:0;margin-top:30px}
+.virada{flex:none;margin-top:24px;font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.3;color:var(--ink)}
+.ctx{flex:none;margin-top:auto;padding-top:30px;font-family:var(--label);font-weight:500;font-size:30px;line-height:1.3;color:var(--ink)}
+.ctx p{padding:14px 0;border-top:2px solid var(--rule)}
+.ctx + .pe{margin-top:18px}
+.pe{flex:none;margin-top:auto;padding-top:18px;border-top:2px solid var(--rule);font-family:var(--mono);font-size:22px;line-height:1.4;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  {% if s.get('kicker') %}<div class="kicker">{{ s.kicker }}</div>{% endif %}
+  {{ m.hook(s.titulo, s.destaque, 112, 80, none, 'relogio-titulo') }}
+  {% if s.get('assunto') %}<p class="assunto" data-fit="relogio-assunto" data-min="26">{{ m.tx(s.assunto) }}</p>{% endif %}
+  {{ m.grafico(s.grafico) }}
+  {% if s.virada %}<p class="virada" data-fit="virada" data-min="24">{{ m.tx(s.virada) }}</p>{% endif %}
+  {% if s.get('contexto') %}<div class="ctx" data-fit="relogio-contexto" data-min="22">{% for l in s.contexto %}<p>{{ m.tx(l) }}</p>{% endfor %}</div>{% endif %}
+  <p class="pe">{{ s.rodape }}</p>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

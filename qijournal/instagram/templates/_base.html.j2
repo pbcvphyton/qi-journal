@@ -2,24 +2,35 @@
 <html lang="pt-BR"><head><meta charset="utf-8">
 <style>
 {{ brand.fonts_css }}
-/* ── Triangula · "Terminal de Dados" (versão final) ──────────────────────
-   Vozes: manchetes e títulos de seção em Noto Serif 800 · texto em Noto Sans ·
-   rótulos e dados em IBM Plex Mono · numerais de display (≥ 60 px) em Noto Sans 800
-   tabular (o zero do Plex Mono tem ponto e o ponto ocupa uma célula inteira).
-   Laranja só no elemento que importa; alta/queda sempre com sinal + seta em SVG.
-   Raio-X: lado A ardósia #394A7A · neutro cinza #4B5563 · lado B petróleo #0F7C8C
-   (fundo inteiro e texto pequeno do lado B em #0B6470, para todo texto passar de 4,5:1).
-   Cores de editoria: vêm do site (s.section.color). Jurídico & Regulação (#394A7A) e Geopolítica & Mundo
-   (#0E7C8B) coincidem com os lados A e B; decisão consciente (as editorias ficam como estão). Para não
-   misturar os dois sentidos, no Raio-X a editoria nunca entra em cor: só em chip vazado (.chip.line).
-   Paginação (uma regra só nos três carrosséis): conta os slides do carrossel ("02/08"), no rodapé à
-   direita, em todos os slides menos a capa. A barra de progresso dos fatos segue o mesmo critério.
-   Setas: → só onde há mais slides (arraste); ↗ quando a ação sai do post (link na bio, perfil). */
+/* ── Triangula · sistema visual 2 (Onda 1) ────────────────────────────────
+   Três famílias:
+   · Archivo: ganchos e números de capa na ExtraCondensed Black (font-stretch 62%, peso 900, caixa alta,
+     entrelinha .92, tracking −.01em: .hook, .num-hero, .qual); nomes de veículo, chips e rótulos curtos na
+     largura 100, peso 600 (var(--label), .label).
+   · Noto Serif: manchetes, frases e texto corrido (a voz de jornal).
+   · IBM Plex Mono: horas, selos, dados e rodapés; nunca nome de veículo longo.
+   Cor: laranja só no dado (o número, o ponto de hoje, o quadrado do racha, a expressão do gancho), nunca
+   em adjetivo, nome de veículo, partido ou político. Texto em laranja usa var(--accent), ajustado a cada
+   tema para passar de 4,5:1; as marcas dos gráficos usam --g-a/--g-b/--g-n/--g-hi (≥ 3:1 sobre o fundo).
+   Temas: .t-dark (marinho: Em 1 minuto) · .t-paper (papel: Raio-X, Placar, provas) · .t-orange (laranja
+   chapado: capa do Número e do manifesto; todo texto em marinho #0F1730, 5,7:1; branco daria 3,1:1) ·
+   .t-side-a/.t-side-b (os lados do Raio-X: ardósia #394A7A e petróleo #0B6470, não partidários).
+   Moldura: faixa de 8 px na cor da série com o selo em pílula e o contador "03/08" (macro serie_band) e
+   um rodapé de uma linha, "▲ @handle" + nota curta (macro assinatura). Nada essencial a menos de 72 px
+   das laterais (o grid do perfil corta 34 px de cada lado).
+   Templates novos põem "v2" na classe do body ({% raw %}{% block theme %}t-paper v2{% endblock %}{% endraw %}): some a
+   grade de terminal, a fonte padrão vira var(--label) e o .frame abre espaço para a faixa e a assinatura.
+   Legado (sistema "Terminal de Dados", em uso pelos templates antigos até a integração): --sans (Noto Sans),
+   .grid, .band, .hdr, .rule2x, .logo, .ftr/.pg, .sec-title, .numd, .chip, .tag, .cta-bar, .datebox.
+   Lado A ardósia #394A7A · neutro cinza #4B5563 · lado B petróleo #0F7C8C (fundo e texto pequeno do lado
+   B em #0B6470). No Raio-X a editoria nunca entra em cor, só em chip vazado (.chip.line). */
 :root{
   --navy:#1B2745; --deep:#0F1730; --orange:#FF5A1F; --paper:#F6F4EF;
   --up-dark:#7FC8FF; --down-dark:#FF5C9A; --up-light:#2E6BD6; --down-light:#C90055;
   --side-a:#394A7A; --side-b:#0F7C8C; --side-b-ink:#0B6470; --side-n:#4B5563;
-  --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Noto Sans',sans-serif; --serif:'Noto Serif',serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --serif:'Noto Serif',serif;
+  --label:'Archivo',sans-serif; --hook:'Archivo',sans-serif;
+  --sans:'Noto Sans',sans-serif; /* legado: sai com os templates antigos */
   --mx:72px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,14 +39,23 @@ body{position:relative;font-family:var(--sans);-webkit-font-smoothing:antialiase
   background:var(--bg);color:var(--ink)}
 /* temas: --ink texto principal · --ink2 secundário · --ink3 metadados (todos ≥ 4,5:1 sobre --bg) */
 .t-dark{--bg:#0F1730;--ink:#F6F4EF;--ink2:#B4BED6;--ink3:#8E9AB8;--rule:rgba(246,244,239,.16);--rule2:rgba(246,244,239,.32);--rule3:rgba(246,244,239,.62);
-  --gridc:rgba(127,200,255,.055);--up:var(--up-dark);--down:var(--down-dark);--chipb:rgba(246,244,239,.30);--panel:#16213F}
+  --gridc:rgba(127,200,255,.055);--up:var(--up-dark);--down:var(--down-dark);--chipb:rgba(246,244,239,.30);--panel:#16213F;
+  --accent:#FF5A1F;--tri:#FF5A1F;--g-a:#8C9BD0;--g-b:#3FB3C4;--g-n:#9AA3B2;--g-hi:#FF5A1F;--g-a-ink:#0F1730;--g-b-ink:#0F1730;--g-n-ink:#0F1730}
 .t-paper{--bg:#F6F4EF;--ink:#1B2745;--ink2:#4B5563;--ink3:#5A6474;--rule:rgba(27,39,69,.16);--rule2:rgba(27,39,69,.34);--rule3:rgba(27,39,69,.82);
-  --gridc:rgba(27,39,69,.05);--up:var(--up-light);--down:var(--down-light);--chipb:transparent;--panel:#ECE9E1}
+  --gridc:rgba(27,39,69,.05);--up:var(--up-light);--down:var(--down-light);--chipb:transparent;--panel:#ECE9E1;
+  --accent:#C2410C;--tri:#FF5A1F;--g-a:#394A7A;--g-b:#0F7C8C;--g-n:#4B5563;--g-hi:#E04A12;--g-a-ink:#FFFFFF;--g-b-ink:#FFFFFF;--g-n-ink:#FFFFFF}
+/* laranja chapado: a hierarquia vem do peso e do tamanho, não da opacidade (todo texto em marinho, 5,7:1) */
+.t-orange{--bg:#FF5A1F;--ink:#0F1730;--ink2:#0F1730;--ink3:#0F1730;--rule:rgba(15,23,48,.22);--rule2:rgba(15,23,48,.4);--rule3:rgba(15,23,48,.8);
+  --gridc:rgba(15,23,48,.06);--up:#0F1730;--down:#0F1730;--chipb:rgba(15,23,48,.5);--panel:rgba(15,23,48,.08);
+  --accent:#0F1730;--tri:#0F1730;--g-a:#0F1730;--g-b:#0F1730;--g-n:#0F1730;--g-hi:#0F1730;--g-a-ink:#FF5A1F;--g-b-ink:#FF5A1F;--g-n-ink:#FF5A1F}
 .t-side-a{--bg:#394A7A;--ink:#FFFFFF;--ink2:rgba(255,255,255,.94);--ink3:rgba(255,255,255,.86);--rule:rgba(255,255,255,.24);--rule2:rgba(255,255,255,.48);--rule3:rgba(255,255,255,.7);
-  --gridc:rgba(255,255,255,.06);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.22);--side-dark:#2A3760}
+  --gridc:rgba(255,255,255,.06);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.22);--side-dark:#2A3760;
+  --accent:#FFD3C2;--tri:#FF5A1F;--g-a:#FFFFFF;--g-b:#FFFFFF;--g-n:#C9CFDD;--g-hi:#FFB59A;--g-a-ink:#0F1730;--g-b-ink:#0F1730;--g-n-ink:#0F1730}
 .t-side-b{--bg:#0B6470;--ink:#FFFFFF;--ink2:#FFFFFF;--ink3:rgba(255,255,255,.92);--rule:rgba(255,255,255,.26);--rule2:rgba(255,255,255,.5);--rule3:rgba(255,255,255,.72);
-  --gridc:rgba(255,255,255,.07);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.18);--side-dark:#08505A}
+  --gridc:rgba(255,255,255,.07);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.18);--side-dark:#08505A;
+  --accent:#FFD3C2;--tri:#FF5A1F;--g-a:#FFFFFF;--g-b:#FFFFFF;--g-n:#C4DADD;--g-hi:#FFB59A;--g-a-ink:#0F1730;--g-b-ink:#0F1730;--g-n-ink:#0F1730}
 
+/* ── legado (sistema "Terminal de Dados"): usado pelos templates antigos até a integração ── */
 /* grade de terminal: módulo de 72 px alinhado às margens, esmaecendo para baixo */
 .grid{position:absolute;inset:0;pointer-events:none;
   background-image:linear-gradient(var(--gridc) 1px,transparent 1px),linear-gradient(90deg,var(--gridc) 1px,transparent 1px);
@@ -113,6 +133,49 @@ p,.txt{text-wrap:pretty}
 .datebox.plain{font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.08em}
 /* folga para acentos e descendentes (o ajuste mede scrollHeight, que inclui o desenho dos glifos) */
 [data-fit]:not([data-clamp]){padding-top:.06em;padding-bottom:.18em}
+
+/* ── sistema 2 ──────────────────────────────────────────────────────────── */
+.v2{font-family:var(--label);font-stretch:100%;font-weight:500}
+.v2 .grid{display:none}
+.v2 .frame{top:116px;bottom:112px}
+.v2.story .frame{top:330px;bottom:420px}
+.label{font-family:var(--label);font-stretch:100%;font-weight:600}
+.serif{font-family:var(--serif)}
+/* gancho: ExtraCondensed Black em caixa alta; a expressão em laranja vem em <em> (macro realce) */
+.hook{font-family:var(--hook);font-stretch:62%;font-weight:900;font-size:128px;line-height:.92;letter-spacing:-.01em;
+  text-transform:uppercase;font-variant-numeric:lining-nums;color:var(--ink);overflow:hidden;text-wrap:balance}
+.hook em,.hl{font-style:normal;color:var(--accent)}
+/* número de capa (200 a 360 px) com o qualificador pequeno acima ("CERCA DE") */
+.numbox{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.num-hero{display:block;max-width:100%;font-family:var(--hook);font-stretch:62%;font-weight:900;font-size:320px;line-height:.84;
+  letter-spacing:-.01em;font-variant-numeric:tabular-nums lining-nums;text-transform:uppercase;white-space:nowrap;overflow:hidden;color:var(--ink)}
+.num-hero.hl{color:var(--accent)}
+.qual{display:block;font-family:var(--hook);font-stretch:62%;font-weight:900;font-size:64px;line-height:1;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink)}
+/* faixa da série: 8 px na cor da série + selo em pílula + contador */
+.sb{position:absolute;left:0;right:0;top:0;z-index:3}
+.sb-band{height:8px}
+.sb-row{display:flex;align-items:center;justify-content:space-between;gap:24px;height:44px;margin:32px var(--mx) 0}
+.story .sb-row{margin-top:250px}
+.pill{display:block;min-width:0;max-width:100%;height:44px;line-height:44px;padding:0 20px!important;border-radius:22px;background:var(--ink);color:var(--bg);
+  font-family:var(--mono);font-weight:600;font-size:22px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
+.cnt{flex:none;font-family:var(--mono);font-weight:600;font-size:22px;letter-spacing:.06em;color:var(--ink2);white-space:nowrap}
+/* assinatura: uma linha no pé, "▲ @handle" à esquerda e a nota curta à direita */
+.assin{position:absolute;left:var(--mx);right:var(--mx);bottom:44px;height:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;
+  z-index:3;font-family:var(--mono);font-size:24px;line-height:1;color:var(--ink)}
+.story .assin{bottom:350px}
+.assin .who{flex:none;display:inline-flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.assin .who .tri{position:relative;top:-1px}
+.assin .note{display:block;min-width:0;flex:0 1 auto;font-weight:500;font-size:22px;color:var(--ink2);white-space:nowrap;overflow:hidden;
+  padding:0!important;line-height:40px}
+/* selo de cobertura dos fatos: mini barra A/N/B de 240 × 16 + texto */
+.selo-cob{display:flex;align-items:center;gap:20px;min-width:0;font-family:var(--mono);font-weight:500;font-size:24px;line-height:1.25;color:var(--ink2)}
+.selo-cob .anb{flex:none;display:flex;gap:2px;width:240px;height:16px}
+.selo-cob .anb i{display:block;min-width:8px;border-radius:2px}
+.selo-cob .txt{min-width:0}
+/* gráficos de graficos.py (SVG com tamanho natural; encolhe para caber) */
+.grafico{display:block;margin:0;min-width:0}
+.graf{display:block;max-width:100%;height:auto;overflow:visible}
 {% block style %}{% endblock %}
 </style></head>
 <body class="{% block theme %}t-dark{% endblock %}{{ ' story' if kind == 'story' else '' }}">
@@ -123,10 +186,12 @@ p,.txt{text-wrap:pretty}
    1) ajusta cada [data-fit] como o FIT_JS (−2 px até caber, sem passar de data-min);
    2) se a soma ainda transborda o .frame (tolerância de 4 px, o arredondamento das linhas), encolhe mais os [data-fit] que de fato liberam altura;
    3) se nem no mínimo couber, marca o .frame com data-fit, e o FIT_JS o reporta como "texto cortado".
+   Ao começar, marca <html data-fit-guard="pending">; ao terminar, "ok": o Renderer espera o "ok" antes do FIT_JS.
    Textos com corte fixo de linhas (-webkit-line-clamp, marcados com data-clamp="nome" e --clamp = nº de linhas):
    o corte não aparece no contêiner, então, se ele atuou, o guarda encolhe o [data-fit] que os contém até o texto
    aparecer inteiro; se nem no mínimo, o elemento ganha data-fit e o FIT_JS registra "texto cortado". */
 (function () {
+  document.documentElement.dataset.fitGuard = 'pending';
   function over(el) { return el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1; }
   function fs(el) { return parseFloat(getComputedStyle(el).fontSize); }
   function run() {
@@ -163,9 +228,10 @@ p,.txt{text-wrap:pretty}
     if (tall() > 4) { fr.dataset.fit = 'quadro-transborda'; fr.dataset.min = String(fs(fr)); }
     flagClamps();
   }
+  function done() { document.documentElement.dataset.fitGuard = 'ok'; }
   window.addEventListener('load', function () {
     void document.body.offsetHeight;
-    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(run);
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(run).then(done, done);
   });
 })();
 </script>

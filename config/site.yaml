@@ -257,13 +257,29 @@ termometro:
 # (expires) do mesmo dia. Sem horário no fim de semana (null), não sai.
 instagram:
   enabled: true
-  handle: null                  # @ do perfil, sem o @ (ex.: triangula.jornal): vira "Siga no Instagram" no site e no e-mail
-  election_until: "2026-10-27"  # 2º turno em 25/10: sem pesquisa eleitoral e sem política no Raio-X
+  # @ do perfil, sem o @ (ex.: triangula): vai na assinatura de toda arte ("▲ @triangula") e vira
+  # "Siga no Instagram" no site e no e-mail. Enquanto a conta não existe, fica null: a assinatura
+  # sai "▲ triangula" (sem @) e a geração não falha.
+  handle: null
+  election_until: "2026-10-27"  # 2º turno em 25/10: até aqui vale o filtro eleitoral por conteúdo (§4.0.1)
+  eleicao:
+    nomes: ["Lula", "Flávio Bolsonaro", "Bolsonaro"]   # o dono revisa a cada eleição; nunca "Flávio" sozinho (pega Flávio Dino, do STF)
   keep_days: 7
   slots:
-    manha:   {weekdays: "07:00", weekends: "08:30", expires: "13:00"}  # carrossel "Em 1 minuto" (ou "Terminal da manhã" sem IA)
-    stories: {weekdays: "07:10", weekends: "08:40", expires: "13:00"}  # bom dia, manchete, mercado, chamada para o feed
-    raiox:   {weekdays: "18:30", weekends: null, expires: "22:30"}     # "Raio-X da cobertura"
+    manha:   {weekdays: "07:00", weekends: "08:30", expires: "11:00"}  # "Em 1 minuto" (ou "Terminal da manhã" sem IA)
+    stories: {weekdays: "07:10", weekends: "08:40", expires: "11:00"}  # bom dia, manchete, mercado, chamada para o feed
+    numero:  {weekdays: "12:00", weekends: "12:00", expires: "16:00"}  # "Número do dia"
+    noite:   {weekdays: "18:30", weekends: "18:30", expires: "22:30"}  # Raio-X, Placar do dia ou Mercado em linha (era "raiox")
+  limiares:
+    raiox_min_veiculos: 4        # = PLACAR_MIN_OUTLETS
+    raiox_min_por_lado: 2        # = RACHA_MIN_SIDE
+    raiox_min_framings: 4
+    placar_min_base: 10
+    relogio_min_veiculos: 4
+    relogio_min_span_min: 30
+    grafico_min_pontos: 10
+    numero_repeticao_dias: 7
+    raiox_repeticao_dias: 3
 
 # Cotações e indicadores do ticker, na ordem de exibição.
 # provider: yahoo (símbolo do Yahoo Finance), coingecko (id da moeda),

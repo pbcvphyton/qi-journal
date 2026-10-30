@@ -1,0 +1,18 @@
+{# Raio-X 2.0, slide 7 (por que importa, §4.2): o why_it_matters em serif grande, centrado na altura. O slide some quando o
+   campo vem vazio (o carrossel fica com 7). ctx: selo, kicker, texto, texto_px, nota. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-paper v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:34px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.why{flex:0 1 auto;min-height:0;overflow:hidden;margin:auto 0;padding-bottom:40px;font-family:var(--serif);font-weight:600;
+  font-size:{{ s.get('texto_px', 68) }}px;line-height:1.12;letter-spacing:-.012em;color:var(--ink)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, true, 'raiox') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  <p class="why" data-fit="importa" data-min="44">{{ m.tx(s.texto) }}</p>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

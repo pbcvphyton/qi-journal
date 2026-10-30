@@ -3,7 +3,9 @@
 Os templates marcam com ``data-fit`` os textos de tamanho variável: antes da
 captura, :data:`FIT_JS` reduz a fonte de cada um, de 2 em 2 px, até caber na
 caixa (ou até ``data-min``); o que ainda assim não couber é cortado com
-reticências e informado de volta, para o gerador registrar no log.
+reticências e informado de volta (``RenderResult.clamped`` e, já tipado para o
+lint, ``RenderResult.transbordos``). O guarda do ``_base.html.j2`` roda antes e
+marca com ``data-fit`` o quadro que transborda mesmo com tudo no mínimo.
 """
 
 from __future__ import annotations
@@ -26,7 +28,10 @@ FONT_FAMILIES = {
     "noto-sans": "Noto Sans",
     "ibm-plex-mono": "IBM Plex Mono",
     "newsreader": "Newsreader",
+    "archivo": "Archivo",  # ganchos e números de capa, na largura extracondensada (font-stretch: 62%)
 }
+# Fontes variáveis com eixo de largura: a faixa que o arquivo cobre.
+FONT_STRETCH = {"archivo": "62% 125%"}
 # unicode-range dos recortes do Google Fonts (latin e latin-ext).
 UNICODE_RANGES = {
     "latin": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, "
@@ -47,12 +52,26 @@ FIT_JS = """
       el.style.fontSize = size + 'px';
     }
     if (over()) {
+      const altura = Math.max(0, el.scrollHeight - el.clientHeight);
+      const largura = Math.max(0, el.scrollWidth - el.clientWidth);
+      const texto = (el.textContent || '').replace(/\\s+/g, ' ').trim().slice(0, 120);
       el.classList.add('fit-clamp');
-      report.push({fit: el.dataset.fit, size});
+      report.push({fit: el.dataset.fit, size, min, altura_px: altura, largura_px: largura, texto});
     }
   }
   return report;
 }
+"""
+# Espera o guarda do _base.html.j2 (que marca "pending" ao começar e "ok" ao terminar).
+GUARD_WAIT_JS = """
+() => new Promise((resolve) => {
+  const t0 = Date.now();
+  (function poll() {
+    if (document.documentElement.dataset.fitGuard !== 'pending') return resolve(true);
+    if (Date.now() - t0 > 3000) return resolve(false);
+    setTimeout(poll, 20);
+  })();
+})
 """
 
 
@@ -69,17 +88,53 @@ def fonts_css(root: Path) -> str:
         style, subset = parts[0], "latin-ext" if parts[-1] == "ext" else "latin"
         weight = " ".join(w for w in parts[1:] if w.isdigit()) or "400"
         family = FONT_FAMILIES[prefix]
+        stretch = f"font-stretch:{FONT_STRETCH[prefix]};" if prefix in FONT_STRETCH else ""
         rules.append(
-            f"@font-face{{font-family:'{family}';font-style:{style};font-weight:{weight};font-display:block;"
+            f"@font-face{{font-family:'{family}';font-style:{style};font-weight:{weight};{stretch}font-display:block;"
             f"src:url('{path.resolve().as_uri()}') format('woff2');unicode-range:{UNICODE_RANGES[subset]};}}"
         )
     return "\n".join(rules)
 
 
 @dataclass
+class Transbordo:
+    """Elemento ``data-fit`` que não coube nem no tamanho mínimo: a peça não pode sair assim."""
+
+    fit: str  # o nome em data-fit ("gancho", "quadro-transborda"...)
+    size: float  # tamanho final da fonte, em px
+    min: float  # o data-min
+    altura_px: int = 0  # quanto passou da caixa
+    largura_px: int = 0
+    texto: str = ""  # o começo do texto, para o log
+
+    def __str__(self) -> str:
+        excesso = " e ".join(f"{v} px na {k}" for k, v in (("altura", self.altura_px), ("largura", self.largura_px)) if v)
+        return f"{self.fit}: transborda {excesso or 'a caixa'} com {self.size:g} px (mínimo {self.min:g}): {self.texto!r}"
+
+
+@dataclass
 class RenderResult:
     path: Path
     clamped: list[dict[str, Any]] = field(default_factory=list)  # textos cortados por não caberem
+
+    @property
+    def transbordos(self) -> list[Transbordo]:
+        """Os mesmos cortes de ``clamped``, tipados para o lint."""
+        return [
+            Transbordo(
+                fit=str(c.get("fit") or ""),
+                size=float(c.get("size") or 0),
+                min=float(c.get("min") or 0),
+                altura_px=int(c.get("altura_px") or 0),
+                largura_px=int(c.get("largura_px") or 0),
+                texto=str(c.get("texto") or ""),
+            )
+            for c in self.clamped
+        ]
+
+    @property
+    def ok(self) -> bool:
+        return not self.clamped
 
 
 class Renderer:
@@ -123,6 +178,8 @@ class Renderer:
         try:
             page.goto(page_file.as_uri(), wait_until="load")
             page.evaluate("document.fonts.ready.then(() => true)")
+            if not page.evaluate(GUARD_WAIT_JS):
+                log.warning("Instagram: o guarda do quadro não terminou em %s", out.name)
             clamped = page.evaluate(FIT_JS)
             missing = page.evaluate(
                 "() => [...document.fonts].filter(f => f.status === 'error').map(f => f.family)"
@@ -137,6 +194,7 @@ class Renderer:
             )
         finally:
             page.close()
-        if clamped:
-            log.warning("Instagram: texto cortado em %s: %s", out.name, clamped)
-        return RenderResult(path=out, clamped=list(clamped))
+        result = RenderResult(path=out, clamped=list(clamped))
+        for t in result.transbordos:
+            log.warning("Instagram: texto cortado em %s: %s", out.name, t)
+        return result

@@ -1,0 +1,37 @@
+{# Stories da manhã · tela 1, bom dia (§4.6): sem clima. A data no selo, o número vivo do dia como gancho
+   ("Hoje lemos 1.640 notícias de 46 fontes", o número em laranja), o funil do dia em mono e a agenda só com
+   o que foi gerado, numa linha do tempo. Marinho; zona segura de story (o quadro vai de 330 a 1500 px). #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-dark v2{% endblock %}
+{% block style %}
+.hook{flex:0 1 auto;min-height:0;margin-top:20px;line-height:.96;max-height:{{ (s.tam * 0.96 * 4 + 40)|round|int }}px}
+.funil{flex:none;margin-top:34px;font-family:var(--mono);font-weight:500;font-size:30px;line-height:1.4;color:var(--ink2)}
+.agenda{flex:none;margin-top:auto;padding-top:30px;border-top:2px solid var(--rule2)}
+.agenda .t{font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.agenda ol{list-style:none;margin-top:26px}
+.agenda li{position:relative;display:grid;grid-template-columns:148px 48px 1fr;align-items:start;padding:14px 0 16px}
+/* a linha do tempo: um fio que sai de cada ponto e chega ao ponto do horário seguinte */
+.agenda li:not(:last-child)::before{content:"";position:absolute;left:170px;top:56px;bottom:-34px;width:3px;background:var(--rule2)}
+.agenda .h{font-family:var(--mono);font-weight:600;font-size:38px;line-height:58px;color:var(--ink);white-space:nowrap}
+.agenda .p{position:relative;justify-self:center;width:22px;height:22px;margin-top:18px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 5px var(--ink)}
+.agenda .x{min-width:0}
+.agenda .n{display:block;font-family:var(--label);font-stretch:100%;font-weight:700;font-size:56px;line-height:58px;color:var(--ink);white-space:nowrap;overflow:hidden}
+.agenda .d{display:block;margin-top:6px;font-family:var(--serif);font-style:italic;font-size:30px;line-height:1.25;color:var(--ink2)}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'em1min') }}
+<div class="frame">
+  {{ m.hook(s.titulo, s.destaque, s.tam, 96) }}
+  {% if s.funil %}<p class="funil" data-fit="funil" data-min="22">{{ s.funil }}</p>{% endif %}
+  {% if s.agenda %}
+  <div class="agenda">
+    <div class="t">Hoje no feed</div>
+    <ol>
+      {% for i in s.agenda %}<li><span class="h">{{ i.hora }}</span><span class="p"></span><span class="x"><span class="n">{{ i.nome }}</span>{% if i.desc %}<span class="d">{{ i.desc }}</span>{% endif %}</span></li>{% endfor %}
+    </ol>
+  </div>
+  {% endif %}
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

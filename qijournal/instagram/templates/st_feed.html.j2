@@ -1,0 +1,59 @@
+{# Stories da manhã · tela 4, chamada para o carrossel (§4.6): o gancho, a miniatura do Em 1 minuto 2.0 (capa
+   marinho com o número em laranja, um fato com o selo de cobertura e o mercado em linha: só forma, sem dado)
+   e "Toque no perfil ↗". O story sai às 07:10 e o carrossel pode atrasar: o texto não diz que ele "já"
+   está no ar, diz o que é e onde fica. A ação sai do story (vai ao perfil): ↗, não →. Marinho. #}
+{% extends "_base.html.j2" %}
+{% import "_macros.html.j2" as m with context %}
+{% block theme %}t-dark v2{% endblock %}
+{% block style %}
+.kicker{flex:none;margin-top:20px;font-family:var(--mono);font-weight:600;font-size:26px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:18px;line-height:.96}
+.strip{flex:none;position:relative;height:470px;margin-top:64px}
+.card{position:absolute;top:0;width:300px;height:375px;overflow:hidden;border-radius:6px;background:#1B2745;
+  box-shadow:0 0 0 2px rgba(246,244,239,.22),0 22px 48px rgba(0,0,0,.5)}
+.card.c1{left:0;top:40px;z-index:3;width:336px;height:420px;box-shadow:0 0 0 3px rgba(246,244,239,.7),0 26px 56px rgba(0,0,0,.55)}
+.card.c2{left:310px;top:62px;z-index:2;transform:rotate(2.5deg)}
+.card.c3{left:600px;top:84px;z-index:1;transform:rotate(5deg);opacity:.9}
+.card .bd{position:absolute;left:0;right:0;top:0;height:5px;background:#1B2745}
+.card .pl{position:absolute;left:22px;top:22px;width:132px;height:20px;border-radius:10px;background:#F6F4EF}
+.card .q{position:absolute;left:22px;top:70px;width:96px;height:16px;background:#FF5A1F}
+.card .nb{position:absolute;left:22px;top:94px;width:200px;height:82px;background:#FF5A1F}
+.card .ln{position:absolute;left:22px;height:15px;background:rgba(246,244,239,.9);width:calc((100% - 44px) * var(--w, .85))}
+.card .mb{position:absolute;left:22px;bottom:58px;width:120px;height:9px;display:flex;gap:2px}
+.card .mb i{display:block;height:100%}
+.card .ft{position:absolute;left:22px;bottom:26px;width:96px;height:12px;background:rgba(246,244,239,.45)}
+.card svg.mk{position:absolute;left:22px;top:66px}
+.dots{flex:none;display:flex;gap:12px;margin-top:20px}
+.dots i{display:block;width:14px;height:14px;border-radius:50%;background:rgba(246,244,239,.28)}
+.dots i:first-child{background:#F6F4EF}
+.go{flex:none;margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 0 6px;border-top:2px solid var(--rule2)}
+.go .t{font-family:var(--hook);font-stretch:62%;font-weight:900;font-size:96px;line-height:.92;text-transform:uppercase;color:var(--ink)}
+.go svg{flex:none}
+{% endblock %}
+{% block body %}
+{{ m.serie_band(s.selo, none, 'em1min') }}
+<div class="frame">
+  <div class="kicker">{{ s.kicker }}</div>
+  {{ m.hook(s.titulo, s.destaque, s.tam, 96) }}
+  <div class="strip" aria-hidden="true">
+    <div class="card c1"><div class="pl"></div><div class="q"></div><div class="nb"></div>
+      <div class="ln" style="top:206px;--w:.92"></div><div class="ln" style="top:232px;--w:.84"></div><div class="ln" style="top:258px;--w:.9"></div><div class="ln" style="top:284px;--w:.5"></div>
+      <div class="ft"></div></div>
+    <div class="card c2"><div class="pl" style="width:96px"></div><div class="nb" style="top:70px;width:150px;height:62px"></div>
+      <div class="ln" style="top:160px;--w:.9;height:13px"></div><div class="ln" style="top:184px;--w:.82;height:13px"></div><div class="ln" style="top:208px;--w:.88;height:13px"></div><div class="ln" style="top:232px;--w:.44;height:13px"></div>
+      <div class="mb"><i style="flex:6;background:#8C9BD0"></i><i style="flex:3;background:#9AA3B2"></i><i style="flex:2;background:#3FB3C4"></i></div><div class="ft"></div></div>
+    <div class="card c3"><div class="pl" style="width:96px"></div>
+      <svg class="mk" width="256" height="240" viewBox="0 0 256 240" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M0 70 L20 60 L40 64 L60 40 L80 46 L100 30 L118 34" stroke="#F6F4EF"/><circle cx="118" cy="34" r="6" fill="#FF5A1F" stroke="none"/>
+        <path d="M138 40 L158 52 L178 48 L198 66 L218 62 L238 76 L256 74" stroke="#F6F4EF"/>
+        <path d="M0 190 L20 176 L40 182 L60 160 L80 166 L100 150 L118 156" stroke="#F6F4EF"/>
+        <path d="M138 150 L158 170 L178 160 L198 182 L218 176 L238 196 L256 190" stroke="#F6F4EF"/>
+        <path d="M0 110 H256 M0 228 H256" stroke="rgba(246,244,239,.25)" stroke-width="2"/>
+      </svg>
+      <div class="ft"></div></div>
+  </div>
+  <div class="dots">{% for i in range(8) %}<i></i>{% endfor %}</div>
+  <div class="go"><span class="t">{{ s.cta }}</span>{{ m.out_arrow(84, 7) }}</div>
+</div>
+{{ m.assinatura(s.nota) }}
+{% endblock %}

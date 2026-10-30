@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo
 from qijournal import text as qtext
 from qijournal.models import Coverage, CoverageOutlet, Edition, Quote, Story
 
+from . import estatistica
 from .selecao import ordered_stories
 
 DIAS = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
@@ -69,6 +70,11 @@ class Peca:
     slides: list[Slide]
     caption: str = ""
     story_ids: list[str] = field(default_factory=list)  # matérias usadas (para não repetir no dia)
+    serie: str = ""  # série numerada (Post.serie): "em1min", "numero", "raiox" (Placar do dia também), "mercado"
+    numero_serie: int = 0  # preenchido pelo gerar com Fila.numero_para
+    chave: str = ""  # do Número do dia (Numero.chave)
+    entidades: list[str] = field(default_factory=list)  # do Raio-X (selecao.entidades)
+    formula: str = ""  # molde do gancho (selecao.Gancho.formula)
 
 
 # ── Utilidades de texto e números ─────────────────────────────────────────
@@ -274,8 +280,15 @@ def is_poll(value: str) -> bool:
     return bool(_PESQUISA.search(plain(value)))
 
 
-def is_political(story: Story | None, value: str = "") -> bool:
-    return (story is not None and story.section == "politica") or is_poll(value)
+def is_electoral(story: Story | None, value: str = "", nomes: Iterable[str] = estatistica.NOMES_ELEICAO) -> bool:
+    """:func:`.estatistica.is_electoral` sobre ``value`` e a matéria inteira (com a seção dela)."""
+    text = " ".join(t for t in (plain(value), estatistica.story_text(story) if story is not None else "") if t)
+    return estatistica.is_electoral(text, story.section if story is not None else None, nomes)
+
+
+def is_political(story: Story | None, value: str = "", nomes: Iterable[str] = estatistica.NOMES_ELEICAO) -> bool:
+    """Política, pesquisa ou texto eleitoral: no período eleitoral, fica fora das capas e do Raio-X."""
+    return (story is not None and story.section == "politica") or is_poll(value) or is_electoral(story, value, nomes)
 
 
 # ── Legendas ──────────────────────────────────────────────────────────────
@@ -321,7 +334,7 @@ def _briefing_items(edition: Edition, *, election: bool, limit: int = 5) -> list
     for raw, story in candidates:
         if len(items) == limit:
             break
-        if election and is_poll(raw):
+        if election and (is_poll(raw) or is_electoral(story, raw)):
             continue
         if election and story is not None and story.section == "politica":
             if politics:

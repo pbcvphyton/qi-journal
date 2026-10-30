@@ -183,6 +183,7 @@ def publish_due(
             post.status, post.media_id = PUBLISHED, str(found.get("id"))
             post.permalink = found.get("permalink")
             post.published_at = now.isoformat(timespec="seconds")
+            fila.registrar_publicacao(post)
             resultado.publicados.append(post)
             save(f"{post.id}: já publicado")
             continue
@@ -217,6 +218,7 @@ def publish_due(
         post.last_error = None
         post.published_at = now.isoformat(timespec="seconds")
         post.permalink = client.permalink(media_id) if post.feed else None
+        fila.registrar_publicacao(post)  # a série só avança com o post no ar
         log.info("Instagram: %s publicado (%s)", post.id, post.permalink or media_id)
         resultado.publicados.append(post)
         save(f"{post.id}: publicado")
