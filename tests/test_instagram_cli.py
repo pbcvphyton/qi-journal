@@ -140,3 +140,75 @@ def test_oscilacao_da_api_no_teste_do_token_nao_bloqueia_a_publicacao(tmp_path, 
     monkeypatch.setattr(cli, "client_from_env", lambda env: Instavel())
     assert cli.cmd_token(args(tmp_path), load_config(), env=ENV) == cli.EXIT_OK
     assert not (tmp_path / "alerta.txt").exists()
+
+
+# ── gerar ─────────────────────────────────────────────────────────────────
+
+
+def _pasta_publicada(tmp_path, raw=None):
+    import json as _json
+    from pathlib import Path
+
+    fixture = Path(__file__).parent / "fixtures" / "edicao-2026-10-20.json"
+    raw = raw or _json.loads(fixture.read_text(encoding="utf-8"))
+    (tmp_path / "data").mkdir(exist_ok=True)
+    (tmp_path / "edicoes").mkdir(exist_ok=True)
+    (tmp_path / "data" / "2026-10-20.json").write_text(_json.dumps(raw, ensure_ascii=False), encoding="utf-8")
+    (tmp_path / "edicoes" / "latest.json").write_text('{"date": "2026-10-20"}', encoding="utf-8")
+    return raw
+
+
+def gerar_args(tmp_path, **kw):
+    base = dict(dir=str(tmp_path), media_dir=str(tmp_path / "midia"), now=None, force=False, date=None)
+    base.update(kw)
+    return argparse.Namespace(**base)
+
+
+def test_gerar_dia_especifico_e_refazer_o_dia(tmp_path, monkeypatch):
+    from datetime import date
+
+    from qijournal.instagram import gerar
+    from qijournal.instagram.fila import PUBLISHED, Fila
+    from tests.test_instagram_conteudo import FakeRenderer
+
+    monkeypatch.setattr(gerar, "Renderer", FakeRenderer)
+    raw = _pasta_publicada(tmp_path)
+    config = load_config()
+    # Sem --date, a última edição (20/10) não é de hoje: nada a gerar.
+    assert cli.cmd_gerar(gerar_args(tmp_path, now=datetime(2026, 10, 30, 9, tzinfo=timezone.utc)), config) == cli.EXIT_OK
+    assert not (tmp_path / "midia" / "fila.json").exists()
+    # --date: o dia de data/, com "agora" no começo do dia (tudo dentro do prazo).
+    assert cli.cmd_gerar(gerar_args(tmp_path, date=date(2026, 10, 20)), config) == cli.EXIT_OK
+    fila = Fila.load(tmp_path / "midia")
+    ids = [p.id for p in fila.posts]
+    assert ids == ["lancamento-comece-aqui", "2026-10-20-manha", "2026-10-20-stories-1", "2026-10-20-stories-2",
+                   "2026-10-20-stories-3", "2026-10-20-stories-4", "2026-10-20-numero", "2026-10-20-noite"]
+    noite = fila.get("2026-10-20-noite")
+    assert (noite.serie, noite.numero_serie, noite.title) == ("raiox", 1, "Raio-X da cobertura") and noite.entidades
+    # A manhã saiu; a edição é refeita sem IA: a manhã publicada fica, a noite vira o Mercado em linha
+    # (mesmo id) e os stories que a geração nova não tem mais saem da fila.
+    manha = fila.get("2026-10-20-manha")
+    manha.status = PUBLISHED
+    fila.save()
+    raw["mode"] = "heuristic"
+    _pasta_publicada(tmp_path, raw)
+    assert cli.cmd_gerar(gerar_args(tmp_path, date=date(2026, 10, 20)), config) == cli.EXIT_OK
+    fila = Fila.load(tmp_path / "midia")
+    assert fila.get("2026-10-20-manha").title == "Em 1 minuto" and fila.get("2026-10-20-manha").status == PUBLISHED
+    assert fila.get("2026-10-20-noite").title == "Mercado em linha" and fila.get("2026-10-20-noite").numero_serie == 0
+    stories = [p.id for p in fila.posts if p.kind == "story"]
+    assert 2 <= len(stories) < 4 and "2026-10-20-stories-4" not in stories
+    assert fila.get("lancamento-comece-aqui") is not None  # permanente: não sai com o dia refeito
+    # as imagens que nenhum post usa mais foram apagadas
+    usadas = {img for p in fila.posts for img in p.images}
+    assert {f"2026-10-20/{f.name}" for f in (tmp_path / "midia" / "2026-10-20").glob("*.jpg")} == usadas
+
+
+def test_opcao_date_no_parser():
+    from datetime import date
+
+    from qijournal.__main__ import build_parser
+
+    args = build_parser().parse_args(["instagram", "gerar", "--date", "2026-10-21", "--media-dir", "m"])
+    assert args.date == date(2026, 10, 21) and args.handler is cli.cmd_gerar
+    assert build_parser().parse_args(["instagram", "gerar"]).date is None

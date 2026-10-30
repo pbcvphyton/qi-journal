@@ -1,5 +1,6 @@
 {# Mercado em linha (§4.8): slide 7 do Em 1 minuto (marinho) e substituto da noite (papel, s.tema).
-   Título-achado com o maior acumulado; 4 painéis em 2×2 (nome, variação do dia com seta, valor em Plex Mono
+   Título-achado com o maior acumulado (e, embaixo, "até a leitura das 06h00" quando o acumulado termina no meio do
+   pregão); 4 painéis em 2×2 (nome, variação do dia com seta, valor em Plex Mono
    40 px, selo da leitura + acumulado e a linha da série); faixa Selic · IPCA 12m · juro real; rodapé.
    Painel com menos leituras que o mínimo mostra só o valor. #}
 {% extends "_base.html.j2" %}
@@ -7,6 +8,7 @@
 {% block theme %}{{ s.tema }} v2{% endblock %}
 {% block style %}
 .hook{flex:0 1 auto;min-height:0;margin-top:30px}
+.st{flex:none;margin-top:10px;font-family:var(--mono);font-weight:500;font-size:24px;line-height:1.25;color:var(--ink2);white-space:nowrap}
 .grid4{flex:none;display:grid;grid-template-columns:440px 440px;column-gap:56px;row-gap:36px;margin-top:40px}
 .pn{min-width:0;display:flex;flex-direction:column}
 .pn .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
@@ -29,6 +31,7 @@
 {{ m.serie_band(s.selo, s.contador or none, s.cor) }}
 <div class="frame{{ '' if s.graficos else ' curta' }}">
   {{ m.hook(s.titulo, s.destaque or none, s.tam, 60) }}
+  {% if s.selo_titulo %}<div class="st">{{ s.selo_titulo }}</div>{% endif %}
   <div class="grid4">
   {% for p in s.paineis %}
     <div class="pn">

@@ -220,36 +220,6 @@ def colunas_matriz(total: int, altura_max: float, *, largura: float = LARGURA - 
 # ── Gráfico de juros (Selic, IPCA e juro real) ───────────────────────────
 
 
-def barras_juros(selic: float, ipca: float, real: float, formula: str, *, largura: float = LARGURA) -> tuple[Markup, str]:
-    """Três barras horizontais: Selic, IPCA de 12 meses e o juro real ex-post (em laranja).
-
-    O juro real não é a diferença simples entre as barras (13,75 − 4,58 = 9,17), e sim a
-    fórmula escrita na base; por isso ele tem a própria barra, e não um colchete entre as duas.
-    """
-    linhas = (
-        ("Selic", selic, "var(--ink)", "var(--ink)"),
-        ("IPCA de 12 meses", ipca, "var(--g-n)", "var(--ink)"),
-        ("Juro real ex-post", real, "var(--g-hi)", "var(--accent)"),
-    )
-    topo = max(selic, ipca, real, 0.01)
-    w_max = largura - (G.largura_texto("00,00%", "hook", 72) + 24)
-    corpo: list[str] = []
-    y = 0.0
-    for rotulo, valor, cor, tinta in linhas:
-        corpo.append(G._texto(0, y + 30, rotulo, "label", 30, "var(--ink)"))
-        w = max(8.0, w_max * max(valor, 0) / topo)
-        corpo.append(G._rect(0, y + 48, w, 64, cor, rx=4))
-        corpo.append(G._texto(w + 20, y + 106, f"{E.num(valor, 2)}%", "hook", 72, tinta))
-        y += 152
-    corpo.append(G._linha(0, y + 4, largura, y + 4, "var(--rule2)", 2))
-    corpo.append(G._texto(0, y + 46, G._cabe(formula, "mono", 26, largura), "mono", 26, "var(--ink2)"))
-    descricao = (
-        f"Gráfico: barras com a Selic de {E.num(selic, 2)}%, o IPCA de 12 meses de {E.num(ipca, 2)}% "
-        f"e o juro real ex-post de {E.num(real, 2)}%, pela conta {formula}."
-    )
-    return G._svg("juros", largura, y + 60, corpo, descricao), descricao
-
-
 # ── Slide 2: a prova, por tipo ───────────────────────────────────────────
 # Cada função devolve os textos do slide, a ficha do slide 3 (fonte, período, base),
 # ``desenha(altura) -> (svg, descricao)``, chamada depois que se sabe quanto espaço sobra, e
@@ -410,7 +380,7 @@ def _prova_juro(n: E.Numero, edition: Edition, day: date) -> dict[str, Any]:
     return {
         "titulo": f"Selic de {E.num(p['selic'], 2)}% contra inflação de {E.num(p['ipca'], 2)}% em 12 meses",
         "destaque": f"{E.num(p['selic'], 2)}%",
-        "desenha": lambda altura: barras_juros(p["selic"], p["ipca"], p["real"], p["formula"]),
+        "desenha": lambda altura: G.barras_juros(p["selic"], p["ipca"], p["real"], p["formula"]),
         "minimo": 516,
         "teto": 516,
         "contexto": [
@@ -556,14 +526,18 @@ def numero_do_dia(
     exclude: Iterable[str] = (),
     usados: Iterable[str] | None = None,
     min_pontos: int = E.ACUMULADO_MIN_PONTOS,
+    apos: int = 0,
+    rejeitadas: Iterable[str] = (),
 ) -> Peca | None:
     """O carrossel do Número do dia, com o número de :func:`.estatistica.numero_do_dia`.
 
     ``exclude`` = {lead, story do Raio-X}; ``usados`` = ``fila.chaves_numero(dia)``; ``history``
-    precisa incluir a edição do dia. None só se a edição não tiver cotações.
+    precisa incluir a edição do dia. ``apos`` e ``rejeitadas``: o substituto de uma peça
+    reprovada (o próximo passo da cadeia, senão o acumulado). None só se a edição não tiver cotações.
     """
     n = E.numero_do_dia(
-        edition, history, election=election, nomes=nomes, exclude=exclude, usados=usados, min_pontos=min_pontos
+        edition, history, election=election, nomes=nomes, exclude=exclude, usados=usados, min_pontos=min_pontos,
+        apos=apos, rejeitadas=rejeitadas,
     )
     if n is None:
         return None

@@ -357,6 +357,41 @@ def test_linha_compacta_e_bordas():
     assert "de 1 (19/10) a 2 (20/10)" in G.linha(dts)[1]
 
 
+def test_linha_compacta_com_pregao_faltante_quebra_a_base_sem_cortar():
+    # No Mercado em linha (440 px), "14 leituras, de 28/09 a 20/10 · 2 pregões…" saía cortada.
+    faltantes = [date(2026, 10, 10), date(2026, 10, 13)]
+    svg, _ = G.linha(ibov(), faltantes, largura=440, altura=250, compacto=True)
+    valido(svg)
+    ts = textos(svg)
+    assert ts[-2:] == ["14 leituras, de 28/09 a 20/10", "2 pregões sem leitura (tracejado)"]
+    assert not any(t.endswith("…") for t in ts)
+    sem_sobreposicao(svg)
+    # cabendo numa linha (a versão grande), fica numa só
+    svg, _ = G.linha(ibov(), faltantes, altura=560)
+    assert textos(svg)[-1] == "14 leituras, de 28/09 a 20/10 · 2 pregões sem leitura (tracejado)"
+
+
+# ── barras_juros ─────────────────────────────────────────────────────────
+
+
+def test_barras_juros_selic_ipca_e_juro_real():
+    svg, desc = G.barras_juros(13.75, 4.58, 8.77, "(1 + 13,75%) ÷ (1 + 4,58%) − 1 = 8,77%")
+    raiz = valido(svg)
+    assert conta(svg, "rect") == 3
+    assert svg.count("fill='var(--g-hi)'") == 1  # só o juro real em laranja
+    ts = textos(svg)
+    assert ["Selic", "13,75%", "IPCA de 12 meses", "4,58%", "Juro real ex-post", "8,77%"] == ts[:6]
+    assert ts[-1] == "(1 + 13,75%) ÷ (1 + 4,58%) − 1 = 8,77%"
+    larguras = [float(r.get("width")) for r in raiz.iter(f"{NS}rect")]
+    assert larguras[0] > larguras[2] > larguras[1]  # proporcionais aos valores
+    assert desc == (
+        "Gráfico: barras com a Selic de 13,75%, o IPCA de 12 meses de 4,58% e o juro real ex-post de 8,77%, "
+        "pela conta (1 + 13,75%) ÷ (1 + 4,58%) − 1 = 8,77%."
+    )
+    negativo, desc = G.barras_juros(10.0, 11.0, -0.9, "conta")
+    assert "−0,9%" in desc or "−0,90%" in desc
+
+
 # ── barras_variacao ──────────────────────────────────────────────────────
 
 
@@ -484,10 +519,21 @@ def test_selo_cobertura_realce_e_numero(env):
     assert 'data-fit="gancho"' in gancho and '<em class="hl">fato</em>' in gancho
 
 
-def test_macros_antigos_continuam(env):
+def test_macros_do_sistema_2_e_o_legado_fora(env):
     m = env.get_template("_macros.html.j2").make_module({"brand": {"logo": ""}, "page": 1, "pages": 1, "kind": "carousel"})
-    for nome in ("logo", "header", "footer", "spectrum", "spectrum_css", "rx_band", "datebox", "names_line", "rich"):
+    for nome in ("logo", "tri", "change", "out_arrow", "go_arrow", "rich", "tx", "sources", "serie_band", "assinatura"):
         assert hasattr(m, nome), nome
+    for nome in ("header", "footer", "spectrum", "rx_band", "datebox", "names_line", "weather_icon", "section_chip"):
+        assert not hasattr(m, nome), nome
+    base = (TEMPLATES / "_base.html.j2").read_text(encoding="utf-8")
+    assert "--sans" not in base and ".datebox" not in base and 'class="grid"' not in base
+
+
+def test_todo_template_e_do_sistema_2():
+    usados = {p.stem.removesuffix(".html") for p in TEMPLATES.glob("[!_]*.html.j2")}
+    assert {"capa", "fato", "fechamento", "mercado", "raiox_capa", "story_bomdia"}.isdisjoint(usados)
+    for p in TEMPLATES.glob("[!_]*.html.j2"):
+        assert " v2{% endblock %}" in p.read_text(encoding="utf-8"), p.name
 
 
 def _tema(css: str, classe: str) -> dict[str, str]:

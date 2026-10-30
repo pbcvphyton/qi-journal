@@ -82,6 +82,13 @@ def _frases(texto: str) -> list[str]:
     return [f.strip() for f in _FRASE.split(plain(texto)) if f.strip()]
 
 
+def _frases_limpas(texto: str) -> str:
+    """Só as frases sem termo proibido ("" se nenhuma sobrar: frase cortada no meio não vai para a arte)."""
+    if _limpo(texto):
+        return texto
+    return " ".join(f for f in _frases(texto) if _limpo(f))
+
+
 def _tem_dado(texto: str) -> bool:
     """Pelo menos 1 número ou 1 nome próprio (palavra com maiúscula fora do começo de frase)."""
     if re.search(r"\d", texto):
@@ -121,6 +128,11 @@ def _sem_adj(texto: str, titulos: list[str]) -> str:
         return cut.rstrip(" ,;:") + "."
     out = E.ADJ_CASA.sub(lambda m: m.group(0) if E._adj_nos_titulos(E._raiz_adj(m.group(0)), titulos) else "", texto)
     return re.sub(r"\s+([,.;:])", r"\1", re.sub(r"\s{2,}", " ", out)).strip()
+
+
+def _eleicao(cov: Coverage, st: Story | None) -> bool:
+    """A cobertura é de uma eleição com todas as letras (:func:`.estatistica.eleicao_escrita`), de qualquer país."""
+    return E.eleicao_escrita(cov.topic, st.headline if st else "")
 
 
 def _cita_veiculo(texto: str, nomes: Iterable[str]) -> bool:
@@ -511,8 +523,10 @@ def raio_x(
         at = S.atencao(edition, story)
         linha_relogio = f"▸ A atenção: {at.veiculos} veículos, {at.textos} textos; {at.linhas[1]}." if at else ""
 
-    # 6. O que isso significa
-    conclusao = _sem_adj(_conclusao(c), titulos)
+    # 6. O que isso significa (sem as frases com termo proibido: o lint reprovaria o Raio-X inteiro)
+    conclusao = _frases_limpas(_sem_adj(_conclusao(c), titulos))
+    if not conclusao and rot_maj and rot_min:  # nenhuma frase limpa: a conta dos lados, por molde
+        conclusao = f"{len(maioria)} veículos destacaram {rot_maj}; {len(minoria)}, {rot_min}."
     svg, d_esp = G.espectro(
         [o.name for o in maioria],
         [o.name for o in neutros],
@@ -750,11 +764,24 @@ def placar_do_dia(
         )
     )
 
-    # 2. O maior consenso, ou os rachas
-    if consenso:
+    # 2. O maior consenso, ou os rachas (sem eleição de outro país no período eleitoral)
+    pares = []
+    for cov, st in [] if consenso else E.rachas_do_dia(edition, election=election, nomes=nomes):
+        if election and _eleicao(cov, st):
+            continue
+        assunto = _titulo_cobertura(edition, cov, st)
+        if assunto:
+            pares.append((cov, st, assunto))
+        if len(pares) == RACHAS_MAX:
+            break
+    if consenso or not pares:
         par = E.maior_consenso(edition, election=election, nomes=nomes)
         if par is None:  # nenhuma sem lado: a maior cobertura da base
             par = max(p.itens, key=lambda cs: len(cs[0].outlets))
+        if election and _eleicao(*par):  # eleição de outro país não vira destaque no período eleitoral
+            sem_eleicao = [cs for cs in p.itens if not _eleicao(*cs)]
+            sem_lado = [cs for cs in sem_eleicao if cs[0].count("a") == 0 and cs[0].count("b") == 0]
+            par = max(sem_lado or sem_eleicao or [par], key=lambda cs: len(cs[0].outlets))
         cov, st = par
         assunto = _titulo_cobertura(edition, cov, st)
         a, b = cov.count("a"), cov.count("b")
@@ -791,13 +818,6 @@ def placar_do_dia(
             story_ids.append(st.id)
         secoes.append(section["id"])
     else:
-        pares = []
-        for cov, st in E.rachas_do_dia(edition, election=election, nomes=nomes):
-            assunto = _titulo_cobertura(edition, cov, st)
-            if assunto:
-                pares.append((cov, st, assunto))
-            if len(pares) == RACHAS_MAX:
-                break
         itens, descricoes = [], []
         sozinho = len(pares) == 1
         for cov, st, assunto in pares:
@@ -847,9 +867,11 @@ def placar_do_dia(
     # 3. O mais coberto
     conc = E.concentracao(edition, election=election, nomes=nomes)
     linha3 = ""
-    if conc is not None and conc.topo is not None:
-        topo = conc.topo
-        st = next((s for s in edition.stories if s.id == topo.story_id), None) if topo.story_id else None
+    topo = conc.topo if conc is not None else None
+    st = next((s for s in edition.stories if s.id == topo.story_id), None) if topo is not None and topo.story_id else None
+    if election and topo is not None and E.eleicao_escrita(topo.title, st.headline if st else ""):
+        topo = None  # o mais coberto é uma eleição (de outro país): o slide sai
+    if conc is not None and topo is not None:
         k, t = conc.topo_veiculos, E.topic_texts(topo)
         mesmo = st is not None and st.id in story_ids
         assunto = _titulo_topico(edition, topo)

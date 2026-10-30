@@ -22,12 +22,11 @@ log = logging.getLogger(__name__)
 FONTS_DIR = Path("assets") / "fonts"
 JPEG_QUALITY = 92
 
-# Família CSS de cada arquivo em assets/fonts (prefixo do nome do arquivo).
+# Família CSS de cada arquivo em assets/fonts (prefixo do nome do arquivo) que os posts usam; as outras
+# (Noto Sans, Newsreader: só do site) ficam fora do HTML (§6).
 FONT_FAMILIES = {
     "noto-serif": "Noto Serif",
-    "noto-sans": "Noto Sans",
     "ibm-plex-mono": "IBM Plex Mono",
-    "newsreader": "Newsreader",
     "archivo": "Archivo",  # ganchos e números de capa, na largura extracondensada (font-stretch: 62%)
 }
 # Fontes variáveis com eixo de largura: a faixa que o arquivo cobre.

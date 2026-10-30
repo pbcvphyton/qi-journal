@@ -1,47 +1,41 @@
+{# Terminal da manhã (07:00 nos dias sem IA, ou quando o Em 1 minuto não sai): imagem única em marinho.
+   Título-achado com a maior variação entre as leituras que valem (laranja só no número); a tabela com
+   indicador, último valor, variação com seta e de quando é a leitura ("fech. 19/10" só no fechamento do
+   pregão, "leitura das 06h00", "set/26"); o CTA e a assinatura.
+   ctx: selo, titulo, destaque, quotes [{label, value, change, trend, ref}], cta, nota. #}
 {% extends "_base.html.j2" %}
 {% import "_macros.html.j2" as m with context %}
-{% set parts = s.kicker.split(' · ', 1) %}
-{% set wx = s.weather[0] if s.get('weather') else None %}
 {% set nq = s.quotes|length %}
-{% set rowh = [86, (790 // (nq if nq else 1))]|min %}
-{% block theme %}t-dark{% endblock %}
+{% set rowh = [84, (700 // (nq if nq else 1))]|min %}
+{% block theme %}t-dark v2{% endblock %}
 {% block style %}
-.row1{display:flex;align-items:center;justify-content:space-between;margin-top:30px;flex:none}
-.row1 .date{font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.08em}
-table{width:100%;border-collapse:collapse;margin-top:28px}
-th{font-family:var(--mono);font-weight:500;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);text-align:left;padding:0 0 10px;border-bottom:2px solid var(--rule2)}
+.hook{flex:0 1 auto;min-height:0;margin-top:30px}
+table{flex:none;width:100%;border-collapse:collapse;margin-top:36px}
+th{font-family:var(--mono);font-weight:500;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);text-align:left;padding:0 0 10px;border-bottom:2px solid var(--rule2)}
 th.r,td.r{text-align:right}
 td{border-bottom:2px solid var(--rule);height:{{ rowh }}px;vertical-align:middle;white-space:nowrap}
-td.l{font-family:var(--sans);font-weight:700;font-size:{{ 34 if rowh >= 60 else 30 }}px}
-td.v{font-family:var(--mono);font-weight:600;font-size:{{ 36 if rowh >= 60 else 32 }}px}
-td.c{width:200px}
-td.f{width:196px;font-family:var(--mono);font-size:26px;color:var(--ink3);padding-left:20px}
-
-.bottom{margin-top:auto;display:flex;align-items:center;height:84px;border-top:2px solid var(--rule2);border-bottom:2px solid var(--rule2);flex:none}
-.bottom .cta{flex:1}
-.wxh{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:26px;color:var(--ink2);letter-spacing:.02em;white-space:nowrap;line-height:1}
-.wxh svg{color:var(--ink2)}
-.wx{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:28px;color:var(--ink2)}
-.wx b{color:var(--ink);font-weight:600}
-.cta{font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:14px}
-.ftr{margin-top:18px;border-top:0;padding-top:0}
+td.l{font-family:var(--label);font-stretch:100%;font-weight:600;font-size:{{ 32 if rowh >= 60 else 28 }}px;color:var(--ink)}
+td.v{font-family:var(--mono);font-weight:600;font-size:{{ 32 if rowh >= 60 else 28 }}px;color:var(--ink)}
+td.c{width:180px}
+td.f{width:250px;font-family:var(--mono);font-size:21px;color:var(--ink2);padding-left:24px}
+.nada{font-family:var(--mono);font-size:26px;color:var(--ink3)}
+.cta{flex:none;margin-top:auto;display:flex;align-items:center;gap:14px;height:76px;border-top:2px solid var(--rule3);
+  font-family:var(--mono);font-weight:600;font-size:26px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
 {% endblock %}
 {% block body %}
+{{ m.serie_band(s.selo, none, 'em1min') }}
 <div class="frame">
-  <div class="hdr">{{ m.logo(196) }}{% if wx %}<span class="wxh">{{ m.weather_icon(wx.current_desc, 40) }}{{ wx.city }} {{ m.t0(wx.current_c) }} °C · {{ m.t0(wx.today_min) }}–{{ m.t0(wx.today_max) }} °C</span>{% else %}<span class="lbl">{{ brand.tagline }}</span>{% endif %}</div>
-  <div class="row1"><span class="tag orange">{{ parts[0] }}</span>{% if parts|length > 1 %}<span class="date">{{ parts[1] }}</span>{% endif %}</div>
+  {{ m.hook(s.titulo, s.destaque or none, 96, 60) }}
   <table>
-    <tr><th>Indicador</th><th class="r">Último</th><th class="r">Var.</th><th style="padding-left:20px">Ref.</th></tr>
+    <tr><th>Indicador</th><th class="r">Último</th><th class="r">Var.</th><th style="padding-left:24px">Leitura</th></tr>
     {% for q in s.quotes %}
-    <tr class="{{ 'rate' if not q.change else '' }}"><td class="l">{{ q.label }}</td><td class="v r">{{ q.value }}</td>
-      <td class="c r">{% if q.change %}{{ m.change(q, 32) }}{% else %}<span class="mono" style="color:var(--ink3);font-size:28px">—</span>{% endif %}</td>
-      <td class="f">{{ q.ref or ('hoje' if q.change else 'vigente') }}</td></tr>
+    <tr><td class="l">{{ q.label }}</td><td class="v r">{{ q.value }}</td>
+      <td class="c r">{% if q.change %}{{ m.change(q, 28) }}{% else %}<span class="nada">—</span>{% endif %}</td>
+      <td class="f">{{ q.ref or 'vigente' }}</td></tr>
     {% endfor %}
   </table>
-  <div class="bottom">
-    {# post de imagem única: → sugeriria arrastar; o link sai do post, então ↗ #}
-    <span class="cta">Edição de hoje no link da bio{{ m.out_arrow(30, 4.4) }}</span>
-  </div>
-  {{ m.footer('Dados: Yahoo Finance, Banco Central', paged=False) }}
+  {# post de imagem única: o link sai do post, então ↗ (a → fica só para "arraste") #}
+  <div class="cta">{{ s.cta }}{{ m.out_arrow(28, 4.4) }}</div>
 </div>
+{{ m.assinatura(s.nota) }}
 {% endblock %}

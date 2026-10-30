@@ -8,8 +8,9 @@
 {% import "_macros.html.j2" as m with context %}
 {% block theme %}t-dark v2{% endblock %}
 {% block style %}
-.chip{flex:none;align-self:flex-start;margin-top:28px;height:46px;padding:0 18px;font-size:21px;background:transparent;
-  border:2px solid var(--rule3);color:var(--ink)}
+.chip{flex:none;align-self:flex-start;display:inline-flex;align-items:center;margin-top:28px;height:46px;padding:0 18px;
+  border:2px solid var(--rule3);background:transparent;color:var(--ink);font-family:var(--mono);font-weight:600;font-size:21px;
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .corpo{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:36px 0 44px}
 .corpo .numbox{flex:none;margin-bottom:30px}
 .corpo .qual{margin-bottom:.12em;letter-spacing:.02em}

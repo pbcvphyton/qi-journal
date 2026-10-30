@@ -18,49 +18,36 @@
    Moldura: faixa de 8 px na cor da série com o selo em pílula e o contador "03/08" (macro serie_band) e
    um rodapé de uma linha, "▲ @handle" + nota curta (macro assinatura). Nada essencial a menos de 72 px
    das laterais (o grid do perfil corta 34 px de cada lado).
-   Templates novos põem "v2" na classe do body ({% raw %}{% block theme %}t-paper v2{% endblock %}{% endraw %}): some a
-   grade de terminal, a fonte padrão vira var(--label) e o .frame abre espaço para a faixa e a assinatura.
-   Legado (sistema "Terminal de Dados", em uso pelos templates antigos até a integração): --sans (Noto Sans),
-   .grid, .band, .hdr, .rule2x, .logo, .ftr/.pg, .sec-title, .numd, .chip, .tag, .cta-bar, .datebox.
+   Todo template põe "v2" na classe do body ({% raw %}{% block theme %}t-paper v2{% endblock %}{% endraw %}): a fonte
+   padrão vira var(--label) e o .frame abre espaço para a faixa e a assinatura. Três famílias só (§6).
    Lado A ardósia #394A7A · neutro cinza #4B5563 · lado B petróleo #0F7C8C (fundo e texto pequeno do lado
-   B em #0B6470). No Raio-X a editoria nunca entra em cor, só em chip vazado (.chip.line). */
+   B em #0B6470). No Raio-X a editoria nunca entra em cor. */
 :root{
   --navy:#1B2745; --deep:#0F1730; --orange:#FF5A1F; --paper:#F6F4EF;
   --up-dark:#7FC8FF; --down-dark:#FF5C9A; --up-light:#2E6BD6; --down-light:#C90055;
-  --side-a:#394A7A; --side-b:#0F7C8C; --side-b-ink:#0B6470; --side-n:#4B5563;
   --mono:'IBM Plex Mono',ui-monospace,monospace; --serif:'Noto Serif',serif;
   --label:'Archivo',sans-serif; --hook:'Archivo',sans-serif;
-  --sans:'Noto Sans',sans-serif; /* legado: sai com os templates antigos */
   --mx:72px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1080px;height:{{ 1920 if kind == 'story' else 1350 }}px;overflow:hidden}
-body{position:relative;font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;
+body{position:relative;font-family:var(--label);-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;
   background:var(--bg);color:var(--ink)}
 /* temas: --ink texto principal · --ink2 secundário · --ink3 metadados (todos ≥ 4,5:1 sobre --bg) */
 .t-dark{--bg:#0F1730;--ink:#F6F4EF;--ink2:#B4BED6;--ink3:#8E9AB8;--rule:rgba(246,244,239,.16);--rule2:rgba(246,244,239,.32);--rule3:rgba(246,244,239,.62);
-  --gridc:rgba(127,200,255,.055);--up:var(--up-dark);--down:var(--down-dark);--chipb:rgba(246,244,239,.30);--panel:#16213F;
+  --up:var(--up-dark);--down:var(--down-dark);
   --accent:#FF5A1F;--tri:#FF5A1F;--g-a:#8C9BD0;--g-b:#3FB3C4;--g-n:#9AA3B2;--g-hi:#FF5A1F;--g-a-ink:#0F1730;--g-b-ink:#0F1730;--g-n-ink:#0F1730}
 .t-paper{--bg:#F6F4EF;--ink:#1B2745;--ink2:#4B5563;--ink3:#5A6474;--rule:rgba(27,39,69,.16);--rule2:rgba(27,39,69,.34);--rule3:rgba(27,39,69,.82);
-  --gridc:rgba(27,39,69,.05);--up:var(--up-light);--down:var(--down-light);--chipb:transparent;--panel:#ECE9E1;
+  --up:var(--up-light);--down:var(--down-light);
   --accent:#C2410C;--tri:#FF5A1F;--g-a:#394A7A;--g-b:#0F7C8C;--g-n:#4B5563;--g-hi:#E04A12;--g-a-ink:#FFFFFF;--g-b-ink:#FFFFFF;--g-n-ink:#FFFFFF}
 /* laranja chapado: a hierarquia vem do peso e do tamanho, não da opacidade (todo texto em marinho, 5,7:1) */
 .t-orange{--bg:#FF5A1F;--ink:#0F1730;--ink2:#0F1730;--ink3:#0F1730;--rule:rgba(15,23,48,.22);--rule2:rgba(15,23,48,.4);--rule3:rgba(15,23,48,.8);
-  --gridc:rgba(15,23,48,.06);--up:#0F1730;--down:#0F1730;--chipb:rgba(15,23,48,.5);--panel:rgba(15,23,48,.08);
+  --up:#0F1730;--down:#0F1730;
   --accent:#0F1730;--tri:#0F1730;--g-a:#0F1730;--g-b:#0F1730;--g-n:#0F1730;--g-hi:#0F1730;--g-a-ink:#FF5A1F;--g-b-ink:#FF5A1F;--g-n-ink:#FF5A1F}
 .t-side-a{--bg:#394A7A;--ink:#FFFFFF;--ink2:rgba(255,255,255,.94);--ink3:rgba(255,255,255,.86);--rule:rgba(255,255,255,.24);--rule2:rgba(255,255,255,.48);--rule3:rgba(255,255,255,.7);
-  --gridc:rgba(255,255,255,.06);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.22);--side-dark:#2A3760;
   --accent:#FFD3C2;--tri:#FF5A1F;--g-a:#FFFFFF;--g-b:#FFFFFF;--g-n:#C9CFDD;--g-hi:#FFB59A;--g-a-ink:#0F1730;--g-b-ink:#0F1730;--g-n-ink:#0F1730}
 .t-side-b{--bg:#0B6470;--ink:#FFFFFF;--ink2:#FFFFFF;--ink3:rgba(255,255,255,.92);--rule:rgba(255,255,255,.26);--rule2:rgba(255,255,255,.5);--rule3:rgba(255,255,255,.72);
-  --gridc:rgba(255,255,255,.07);--chipb:rgba(255,255,255,.4);--panel:rgba(15,23,48,.18);--side-dark:#08505A;
   --accent:#FFD3C2;--tri:#FF5A1F;--g-a:#FFFFFF;--g-b:#FFFFFF;--g-n:#C4DADD;--g-hi:#FFB59A;--g-a-ink:#0F1730;--g-b-ink:#0F1730;--g-n-ink:#0F1730}
-
-/* ── legado (sistema "Terminal de Dados"): usado pelos templates antigos até a integração ── */
-/* grade de terminal: módulo de 72 px alinhado às margens, esmaecendo para baixo */
-.grid{position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(var(--gridc) 1px,transparent 1px),linear-gradient(90deg,var(--gridc) 1px,transparent 1px);
-  background-size:72px 72px;background-position:0 0;
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.15) 100%)}
 
 /* o quadro corta o que passar dele: nada invade a zona da interface (story: 250 px no topo, 340 px na base).
    Antes de cortar, o script do fim da página encolhe os textos ajustáveis; se nem assim couber,
@@ -69,49 +56,10 @@ body{position:relative;font-family:var(--sans);-webkit-font-smoothing:antialiase
 .story .frame{top:250px;bottom:340px}
 .frame[data-fit]{padding:0!important}
 .frame.fit-clamp{display:flex!important;-webkit-line-clamp:none}
-/* faixa de topo: cor da editoria (fatos) ou ardósia | petróleo (assinatura do Raio-X) */
-.band{position:absolute;left:0;right:0;top:0;height:14px;display:flex;z-index:2}
-.band i{flex:1}
-
-/* cabeçalho com régua dupla de jornal (3 px + 1 px) */
-.hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex:none;padding-bottom:18px;
-  border-bottom:3px solid var(--rule3);position:relative;margin-bottom:9px}
-.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:1px;background:var(--rule3)}
-.rule2x{flex:none;height:3px;background:var(--rule3);position:relative;margin-bottom:9px}
-.rule2x::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--rule3)}
+/* letreiro (só na capa do Em 1 minuto, pequeno) e o triângulo da marca */
 .logo{display:block;color:var(--ink);line-height:0}
 .logo svg{width:100%;height:auto;display:block}
-.mono{font-family:var(--mono)}
-.lbl{font-family:var(--mono);font-weight:500;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);line-height:1.2}
-.lbl.strong{color:var(--ink);font-weight:600}
-.hdr .lbl{line-height:1;padding-bottom:4px}
-.hr{height:2px;background:var(--rule);flex:none}
-.ftr{flex:none;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-top:2px solid var(--rule);padding-top:18px;margin-top:auto}
-.ftr .note{font-family:var(--sans);font-size:26px;line-height:1.25;color:var(--ink3);font-weight:500}
-.ftr .pg{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--ink2);letter-spacing:.04em;white-space:nowrap}
-.ftr .pg b{color:var(--ink);font-weight:600}
-
-/* título de seção: a mesma voz das manchetes */
-.sec-title{font-family:var(--serif);font-weight:800;font-size:80px;line-height:1;letter-spacing:-.018em;color:var(--ink)}
-/* numerais de display: sem zero pontilhado e com ponto de milhar justo */
-.numd{font-family:var(--sans);font-weight:800;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.025em}
-
-/* chip de editoria e etiquetas */
-.chip{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 20px;border:2px solid var(--chipb);
-  font-family:var(--mono);font-weight:600;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap}
-.chip.line{background:transparent!important;border-color:var(--rule3);color:var(--ink)}
-.tag{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 22px;font-family:var(--mono);font-weight:600;
-  font-size:30px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-.tag.orange{background:var(--orange);color:#0F1730}
-.tag.navy{background:#1B2745;color:#F6F4EF}
 .tri{display:inline-block;flex:none}
-
-/* chamada de rodapé das capas: MONO CAIXA ALTA à esquerda, ARRASTE → em laranja à direita */
-.cta-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;flex:none;
-  border-top:2px solid var(--rule3);border-bottom:2px solid var(--rule3);
-  font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
-.cta-bar .go{display:flex;align-items:center;gap:16px;white-space:nowrap}
-.cta-bar .go svg{width:58px;height:26px;flex:none}
 
 /* alta/queda: sinal + seta em traço (o triângulo é só da marca) */
 .chg{display:inline-flex;align-items:center;gap:.26em;font-family:var(--mono);font-weight:600;white-space:nowrap}
@@ -123,20 +71,13 @@ body{position:relative;font-family:var(--sans);-webkit-font-smoothing:antialiase
 strong{font-weight:800}
 .nw{white-space:nowrap}
 /* manchetes com quebra equilibrada; parágrafos sem palavra órfã na última linha */
-h1,h2,.sec-title{text-wrap:balance}
+h1,h2{text-wrap:balance}
 p,.txt{text-wrap:pretty}
-/* data da capa: dia em numeral de display + mês/dia da semana em mono */
-.datebox{display:flex;align-items:center;gap:14px;color:var(--ink)}
-.datebox .dd{font-family:var(--sans);font-weight:800;font-variant-numeric:tabular-nums lining-nums;font-size:112px;line-height:.78;letter-spacing:-.04em}
-.datebox .mm{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-weight:500;font-size:28px;letter-spacing:.08em;color:var(--ink3);line-height:1}
-.datebox .mm b{font-weight:600;color:var(--ink);font-size:34px}
-.datebox.plain{font-family:var(--mono);font-weight:600;font-size:30px;letter-spacing:.08em}
 /* folga para acentos e descendentes (o ajuste mede scrollHeight, que inclui o desenho dos glifos) */
 [data-fit]:not([data-clamp]){padding-top:.06em;padding-bottom:.18em}
 
 /* ── sistema 2 ──────────────────────────────────────────────────────────── */
 .v2{font-family:var(--label);font-stretch:100%;font-weight:500}
-.v2 .grid{display:none}
 .v2 .frame{top:116px;bottom:112px}
 .v2.story .frame{top:330px;bottom:420px}
 .label{font-family:var(--label);font-stretch:100%;font-weight:600}
@@ -179,7 +120,6 @@ p,.txt{text-wrap:pretty}
 {% block style %}{% endblock %}
 </style></head>
 <body class="{% block theme %}t-dark{% endblock %}{{ ' story' if kind == 'story' else '' }}">
-<div class="grid"></div>
 {% block body %}{% endblock %}
 <script>
 /* Guarda do quadro (roda antes do FIT_JS do gerador, assim que as fontes carregam):

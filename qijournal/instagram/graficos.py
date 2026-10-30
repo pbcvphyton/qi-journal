@@ -923,11 +923,20 @@ def linha(
     lo, hi = pts[i_min][1], pts[i_max][1]
     if hi == lo:
         lo, hi = lo - abs(lo) * 0.01 - 1, hi + abs(hi) * 0.01 + 1
+    # a base no pé: numa linha; se não couber (o compacto, com pregão faltante), em duas, sem cortar
+    base = []
+    if n > 1:
+        base = [f"{n} leituras, de {_ddmm(d0)} a {_ddmm(dn)}"]
+        if buracos:
+            falta = f"{len(buracos)} {_plural(len(buracos), 'pregão', 'pregões')} sem leitura (tracejado)"
+            junta = f"{base[0]} · {falta}"
+            base = [junta] if largura_texto(junta, "mono", td) <= largura else [base[0], falta]
+    base_h = (td + 22) + (td + 6) * (len(base) - 1)
     # margens: rótulo de duas linhas no alto; embaixo, também quando uma ponta está no terço de baixo
     rotulo_h = tv + td + 6 + 18
     topo = rotulo_h + 4
     ponta_baixa = min(v0, vn) <= lo + (hi - lo) * 0.3
-    pe = (td + 22) + (rotulo_h + 4 if ponta_baixa else td + 26)
+    pe = base_h + (rotulo_h + 4 if ponta_baixa else td + 26)
     pad = 14
     plot_h = altura - topo - pe
     dias = max((dn - d0).days, 1)
@@ -963,7 +972,7 @@ def linha(
         k = max(int(math.hypot(xb - xa, yb - ya) // 4), 1)
         amostras += [(xa + (xb - xa) * j / k, ya + (yb - ya) * j / k) for j in range(1, k)]
     caixas: list[tuple[float, float, float, float]] = []
-    piso = altura - (td + 22)  # acima da linha de base
+    piso = altura - base_h  # acima da linha de base
 
     def custo(x0: float, y0: float, x1: float, y1: float) -> float:
         if x0 < -1 or x1 > largura + 1 or y0 < 0 or y1 > piso:
@@ -1020,11 +1029,9 @@ def linha(
         txt = f"{prefixo_txt} {fmt(v)} · {_ddmm(d)}"
         rotular(i, [(txt, "mono", td, "var(--ink2)")], [("middle", o) for o in ordem], True)
 
-    if n > 1:
-        base = f"{n} leituras, de {_ddmm(d0)} a {_ddmm(dn)}"
-        if buracos:
-            base += f" · {len(buracos)} {_plural(len(buracos), 'pregão', 'pregões')} sem leitura (tracejado)"
-        corpo.append(_texto(0, altura - 8, _cabe(base, "mono", td, largura), "mono", td, "var(--ink2)"))
+    for k, texto in enumerate(base):
+        y = altura - 8 - (td + 6) * (len(base) - 1 - k)
+        corpo.append(_texto(0, y, _cabe(texto, "mono", td, largura), "mono", td, "var(--ink2)"))
     return _svg("linha", largura, altura, corpo, descricao), descricao
 
 
@@ -1105,6 +1112,39 @@ def barras_variacao(
         base += f" · variação típica {_num(escala, 2)}% (escala robusta)"
     corpo.append(_texto(0, altura - 8, _cabe(base, "mono", 22, largura), "mono", 22, "var(--ink2)"))
     return _svg("barras", largura, altura, corpo, descricao), descricao
+
+
+# ── barras_juros ──────────────────────────────────────────────────────────
+
+
+def barras_juros(selic: float, ipca: float, real: float, formula: str, *, largura: float = LARGURA) -> tuple[Markup, str]:
+    """Três barras horizontais: Selic, IPCA de 12 meses e o juro real ex-post (em laranja).
+
+    O juro real não é a diferença simples entre as barras (13,75 − 4,58 = 9,17), e sim a
+    fórmula escrita na base; por isso ele tem a própria barra, e não um colchete entre as duas.
+    """
+    linhas = (
+        ("Selic", selic, "var(--ink)", "var(--ink)"),
+        ("IPCA de 12 meses", ipca, "var(--g-n)", "var(--ink)"),
+        ("Juro real ex-post", real, "var(--g-hi)", "var(--accent)"),
+    )
+    topo = max(selic, ipca, real, 0.01)
+    w_max = largura - (largura_texto("00,00%", "hook", 72) + 24)
+    corpo: list[str] = []
+    y = 0.0
+    for rotulo, valor, cor, tinta in linhas:
+        corpo.append(_texto(0, y + 30, rotulo, "label", 30, "var(--ink)"))
+        w = max(8.0, w_max * max(valor, 0) / topo)
+        corpo.append(_rect(0, y + 48, w, 64, cor, rx=4))
+        corpo.append(_texto(w + 20, y + 106, f"{_num(valor, 2)}%", "hook", 72, tinta))
+        y += 152
+    corpo.append(_linha(0, y + 4, largura, y + 4, "var(--rule2)", 2))
+    corpo.append(_texto(0, y + 46, _cabe(formula, "mono", 26, largura), "mono", 26, "var(--ink2)"))
+    descricao = (
+        f"Gráfico: barras com a Selic de {_num(selic, 2)}%, o IPCA de 12 meses de {_num(ipca, 2)}% "
+        f"e o juro real ex-post de {_num(real, 2)}%, pela conta {formula}."
+    )
+    return _svg("juros", largura, y + 60, corpo, descricao), descricao
 
 
 # ── checklist ─────────────────────────────────────────────────────────────

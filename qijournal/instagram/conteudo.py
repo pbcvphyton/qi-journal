@@ -1,9 +1,9 @@
-"""Conteúdo de cada publicação do Instagram, montado só com campos da edição do dia.
+"""Base comum dos formatos do Instagram e o Terminal da manhã (dias sem IA).
 
 Nada aqui chama IA: textos, legendas e textos alternativos saem do JSON da
 edição por template, para não criar um novo ponto em que fatos possam ser
-inventados. Cada formato devolve uma :class:`Peca` (slides + legenda); a
-renderização fica em :mod:`.gerar`.
+inventados. Cada formato (:mod:`.formatos`) devolve uma :class:`Peca` (slides +
+legenda); a escolha do dia e a renderização ficam em :mod:`.gerar`.
 """
 
 from __future__ import annotations
@@ -11,23 +11,19 @@ from __future__ import annotations
 import re
 import unicodedata
 from dataclasses import dataclass, field
-from datetime import date, datetime
+from datetime import date
 from typing import Any, Iterable
-from zoneinfo import ZoneInfo
+
+from markupsafe import Markup
 
 from qijournal import text as qtext
-from qijournal.models import Coverage, CoverageOutlet, Edition, Quote, Story
+from qijournal.models import Edition, Quote, Story
 
 from . import estatistica
-from .selecao import ordered_stories
 
 DIAS = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
 DIAS_CURTOS = ["SEG", "TER", "QUA", "QUI", "SEX", "SÁB", "DOM"]
 MESES_CURTOS = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"]
-
-# Cotações dos slides de mercado, na ordem de exibição.
-MERCADO_IDS = ["usd", "eur", "ibov", "spx", "brent", "gold", "btc", "selic", "ipca12m"]
-STORY_MERCADO_IDS = ["usd", "ibov", "spx", "brent", "btc", "selic"]
 
 HASHTAG_SECAO = {
     "brasil": "#economia",
@@ -64,7 +60,7 @@ class Slide:
 class Peca:
     """Uma publicação pronta para renderizar: um carrossel, uma imagem ou uma sequência de stories."""
 
-    slot: str  # "manha", "stories", "raiox", "terminal"...
+    slot: str  # "manha", "stories", "numero", "noite", "lancamento"
     kind: str  # "carousel" | "image" | "story"
     title: str
     slides: list[Slide]
@@ -134,15 +130,6 @@ def num(value: int | None) -> str:
     return qtext.format_number_pt(int(value or 0), 0)
 
 
-def more_than(value: int | None, step: int) -> str:
-    """``1581, 100`` → ``"mais de 1.500"``; abaixo de ``step``, o próprio número."""
-    value = int(value or 0)
-    if value < step:
-        return num(value)
-    floor = value // step * step
-    return f"mais de {num(floor)}" if floor < value else num(value)
-
-
 _DQUOTES = re.compile(r'"([^"\n]+)"')
 _SQUOTES = re.compile(r"(^|[\s(\[{—–*-])'([^'\n]+)'(?=[\s.,;:!?)\]}—–*-]|$)")
 _EMPHASIS = re.compile(r"\*\*(.+?)\*\*")
@@ -174,7 +161,10 @@ def tidy(value: str) -> str:
 
 
 def polish(ctx: Any) -> Any:
-    """Aplica :func:`tidy` a todos os textos do contexto de um slide (recursivo)."""
+    """Aplica :func:`tidy` a todos os textos do contexto de um slide (recursivo); ``Markup``
+    (o SVG dos gráficos) passa sem mexer."""
+    if isinstance(ctx, Markup):
+        return ctx
     if isinstance(ctx, str):
         return tidy(ctx)
     if isinstance(ctx, dict):
@@ -225,25 +215,21 @@ def match_story(edition: Edition, item: str) -> Story | None:
 
 
 def quote_items(edition: Edition, ids: Iterable[str]) -> list[dict[str, Any]]:
-    """Cotações para os slides: valor, variação com sinal e seta e a referência (fechamento de ontem etc.)."""
+    """Cotações para os slides: valor, variação com sinal e seta e de quando é a leitura ("fech. 19/10"
+    só no fechamento de pregão, "leitura das 06h00", "set/26"); leitura velha sai sem variação."""
     by_id = {q.id: q for q in edition.quotes}
     day = edition_day(edition)
-    tz = ZoneInfo("America/Sao_Paulo")
     items = []
     for qid in ids:
         q: Quote | None = by_id.get(qid)
         if q is None or not q.display:
             continue
-        ref = ""
-        if q.kind in ("fx", "index", "commodity", "crypto") and q.as_of:
-            try:
-                as_of = datetime.fromisoformat(q.as_of)
-                if as_of.tzinfo is not None:
-                    as_of_day = as_of.astimezone(tz).date()
-                    if as_of_day < day:
-                        ref = f"fech. {short_date(as_of_day)}"
-            except ValueError:
-                pass
+        ref, change = "", q.change_pct
+        if q.kind in ("fx", "index", "commodity", "crypto"):
+            ponto = estatistica.ponto_da_cotacao(q)
+            ref = estatistica.selo_leitura(q.id, ponto, day) if ponto is not None else ""
+            if ponto is not None and not ref:  # leitura do começo do dia sem variação: não é dado
+                change = None
         elif q.kind == "inflation" and q.as_of:
             year, _, month = q.as_of.partition("-")
             if month.isdigit():
@@ -253,8 +239,8 @@ def quote_items(edition: Edition, ids: Iterable[str]) -> list[dict[str, Any]]:
                 "id": q.id,
                 "label": q.label,
                 "value": q.display,
-                "change": pct(q.change_pct),
-                "trend": trend(q.change_pct),
+                "change": pct(change),
+                "trend": trend(change),
                 "ref": ref,
             }
         )
@@ -318,151 +304,52 @@ def alt(value: str) -> str:
     return truncate_sentence(value, ALT_LIMIT)
 
 
-# ── Formatos ──────────────────────────────────────────────────────────────
+# ── Terminal da manhã ─────────────────────────────────────────────────────
 
 
-def _briefing_items(edition: Edition, *, election: bool, limit: int = 5) -> list[dict[str, Any]]:
-    """Itens do 'Em 1 minuto' com a matéria correspondente; no período eleitoral, sem
-    pesquisa e com no máximo um item de política (trocados pelas próximas matérias)."""
-    items: list[dict[str, Any]] = []
-    used: set[str] = set()
-    politics = 0
-    lead = edition.story(edition.lead) if edition.lead in {s.id for s in edition.stories} else None
-    candidates = [(b, match_story(edition, b)) for b in edition.briefing if plain(b)]
-    # O item da manchete vai primeiro (é o slide que o Instagram reapresenta).
-    candidates.sort(key=lambda bs: 0 if lead is not None and bs[1] is lead else 1)
-    for raw, story in candidates:
-        if len(items) == limit:
-            break
-        if election and (is_poll(raw) or is_electoral(story, raw)):
-            continue
-        if election and story is not None and story.section == "politica":
-            if politics:
-                continue
-            politics += 1
-        if story is not None and story.id in used:
-            continue
-        items.append({"text": raw, "story": story})
-        if story is not None:
-            used.add(story.id)
-    for story in ordered_stories(edition):  # completa com as próximas matérias
-        if len(items) == limit:
-            break
-        if story.id in used or (election and (is_political(story, f"{story.headline} {story.dek}"))):
-            continue
-        # Só a linha fina (uma frase, sem a manchete colada na frente).
-        items.append({"text": plain(story.dek) or plain(story.headline), "story": story})
-        used.add(story.id)
-    return items
+TERMINAL_MERCADO = ["usd", "ibov", "brent", "btc"]  # as linhas "▸" da legenda (os juros vão numa linha só)
+TERMINAL_CTA = "Edição de hoje no link da bio."
 
 
-def em_1_minuto(edition: Edition, brand: dict[str, Any], *, election: bool) -> Peca | None:
-    """Carrossel da manhã: capa, 5 fatos, mercado e fechamento (8 slides)."""
-    if edition.mode != "ai" or not edition.briefing:
-        return None
-    day = edition_day(edition)
-    lead = edition.story(edition.lead)
-    election_lead = election and is_political(lead, f"{lead.headline} {lead.dek}")
-    items = _briefing_items(edition, election=election)
-    if len(items) < 3:
-        return None
-    if election_lead:  # a capa não estampa pesquisa nem política no período eleitoral
-        lead = next((i["story"] for i in items if i["story"] is not None and not is_political(i["story"])), lead)
-        # O 1º fato é o da capa (é o slide que o Instagram reapresenta a quem não deslizou).
-        items.sort(key=lambda i: 0 if i["story"] is lead else 1)
-    stats = edition.stats
-    outlets = edition.rationale.outlets if edition.rationale else 0
-    total = len(items)
-    slides = [
-        Slide(
-            "capa",
-            {
-                "kicker": f"EM 1 MINUTO · {kicker_date(day)}",
-                "headline": plain(lead.headline),
-                "dek": plain(lead.dek),
-                "section": section_info(edition, lead.section),
-                "teaser": f"{total} fatos + mercado · arraste",
-            },
-            alt=f"Em 1 minuto, {edition.date_label}. Manchete: {plain(lead.headline)}. {plain(lead.dek)}",
-        )
-    ]
-    for n, item in enumerate(items, 1):
-        story = item["story"]
-        names = source_names(story) if story else []
-        slides.append(
-            Slide(
-                "fato",
-                {
-                    "n": n,
-                    "total": total,
-                    "text": item["text"],
-                    "section": section_info(edition, story.section) if story else None,
-                    "sources": sources_line(names),
-                    "outlets": len(names),
-                },
-                alt=f"Fato {n} de {total}: {plain(item['text'])}" + (f" Fontes: {', '.join(names)}." if names else ""),
-            )
-        )
-    quotes = quote_items(edition, MERCADO_IDS)
-    if quotes:
-        slides.append(
-            Slide(
-                "mercado",
-                {"title": "Mercado", "quotes": quotes, "weather": edition.weather[:1], "date": short_date(day)},
-                alt="Mercado: " + quote_sentence(quotes, MERCADO_IDS) + ".",
-            )
-        )
-    slides.append(
-        Slide(
-            "fechamento",
-            {
-                "articles": num(stats.articles_collected),
-                "outlets": outlets,
-                "stories": len(edition.stories),
-                "compared": sum(1 for s in edition.stories if s.coverage) + len(edition.compared),
-                "cta": "Salve · Envie · Siga",
-            },
-            alt=f"Hoje lemos {num(stats.articles_collected)} notícias de {outlets} veículos. "
-            f"A edição completa, com {len(edition.stories)} matérias e como cada veículo cobriu cada assunto, está no link da bio.",
-        )
-    )
-    sections = [i["story"].section for i in items if i["story"] is not None]
-    hook = f"{plain(lead.headline)} — e mais {total - 1} fatos para começar a {DIAS[day.weekday()]}"
-    market = quote_sentence(quotes, ["usd", "ibov", "brent", "btc", "selic"])
-    caption = finish_caption(
-        [
-            hook,
-            "\n".join(f"▸ {plain(i['text'])}" for i in items),
-            f"Mercado: {market}." if market else "",
-            f"Resumo automático por IA a partir de {num(stats.articles_collected)} notícias de {outlets} veículos.\n"
-            "Salve e mande no grupo de quem precisa começar o dia informado. "
-            f"Edição completa, com {len(edition.stories)} matérias e como cada veículo cobriu cada assunto: link na bio.",
-            hashtags("#noticias", sections, election=election),
-        ]
-    )
-    return Peca(
-        slot="manha",
-        kind="carousel",
-        title="Em 1 minuto",
-        slides=slides,
-        caption=caption,
-        story_ids=[i["story"].id for i in items if i["story"] is not None],
-    )
+def _achado_terminal(quotes: list[dict[str, Any]], day: date) -> tuple[str, str]:
+    """O título do Terminal e o trecho em laranja: a maior variação entre as leituras que valem
+    ("Brent +1,95% na leitura das 06h45"); sem nenhuma, "Mercado em 20/10"."""
+    com_var = [q for q in quotes if q["change"] and q["ref"] and q["id"] not in ("selic", "ipca12m")]
+    if not com_var:
+        return f"Mercado em {short_date(day)}", ""
+    q = max(com_var, key=lambda q: abs(float(q["change"].replace("−", "-").replace(",", ".").rstrip("%"))))
+    onde = q["ref"].replace("fech.", "no fechamento de", 1) if q["ref"].startswith("fech.") else f"na {q['ref']}"
+    return f"{q['label']} {q['change']} {onde}", q["change"]
 
 
 def terminal(edition: Edition, brand: dict[str, Any]) -> Peca | None:
-    """Post único com os indicadores (dias de edição automática, sem IA)."""
+    """Imagem única com os indicadores (07:00 dos dias sem IA, ou quando o Em 1 minuto não sai)."""
+    from .formatos.mercado import faixa_juros  # o mercado importa daqui
+
     quotes = quote_items(edition, [q.id for q in edition.quotes])
     if len(quotes) < 4:
         return None
     day = edition_day(edition)
-    hook = f"Terminal da manhã · {short_date(day)}: " + quote_sentence(quotes, ["usd", "ibov"])
+    titulo, destaque = _achado_terminal(quotes, day)
+    juros = faixa_juros(edition)
+    linhas = [
+        f"▸ {q['label']}: {q['value']}" + (f" ({', '.join(x for x in (q['change'], q['ref']) if x)})" if q["change"] or q["ref"] else "") + "."
+        for q in quotes if q["id"] in TERMINAL_MERCADO
+    ]
+    if juros:
+        linhas.append(f"▸ {juros[0].upper()}{juros[1:]}.")
     caption = finish_caption(
         [
-            hook,
-            "\n".join(f"▸ {q['label']}: {q['value']}" + (f" ({', '.join(x for x in (q['change'], q['ref']) if x)})" if q["change"] or q["ref"] else "") for q in quotes),
-            "Fontes: Yahoo Finance e Banco Central. Edição de hoje: link na bio.",
-            "#triangula #mercadofinanceiro #economia #investimentos",
+            f"Terminal da manhã · {short_date(day)}: {titulo}",
+            "\n".join(
+                linhas
+                + [
+                    "Como medimos: a última leitura de cada indicador (Yahoo Finance e Banco Central), em horário de "
+                    "Brasília; fech. = fechamento do pregão.",
+                    TERMINAL_CTA,
+                    "#triangula #dados #mercadofinanceiro #economia",
+                ]
+            ),
         ]
     )
     return Peca(
@@ -472,240 +359,17 @@ def terminal(edition: Edition, brand: dict[str, Any]) -> Peca | None:
         slides=[
             Slide(
                 "terminal",
-                {"kicker": f"TERMINAL DA MANHÃ · {kicker_date(day)}", "quotes": quotes, "weather": edition.weather[:1]},
-                alt="Terminal da manhã: " + quote_sentence(quotes, [q["id"] for q in quotes]) + ".",
+                {
+                    "selo": f"TERMINAL DA MANHÃ · {kicker_date(day)}",
+                    "titulo": titulo,
+                    "destaque": destaque,
+                    "quotes": quotes,
+                    "cta": TERMINAL_CTA,
+                    "nota": "fonte: Yahoo Finance e BCB",
+                    "section": "mercados",
+                },
+                alt=f"Terminal da manhã, {short_date(day)}: {titulo}. " + quote_sentence(quotes, [q["id"] for q in quotes]) + ".",
             )
         ],
         caption=caption,
     )
-
-
-def stories_manha(edition: Edition, brand: dict[str, Any], *, election: bool) -> Peca | None:
-    """Sequência de stories da manhã: bom dia + clima, manchete, mercado e chamada para o feed."""
-    day = edition_day(edition)
-    slides: list[Slide] = []
-    weather = edition.weather[0] if edition.weather else None
-    slides.append(
-        Slide("story_bomdia", {"weekday": DIAS[day.weekday()], "date": short_date(day), "weather": weather})
-    )
-    lead = edition.story(edition.lead)
-    if edition.mode == "ai" and not (election and is_political(lead, f"{lead.headline} {lead.dek}")):
-        slides.append(
-            Slide(
-                "story_manchete",
-                {
-                    "section": section_info(edition, lead.section),
-                    "headline": plain(lead.headline),
-                    "why": plain(lead.why_it_matters or lead.dek),
-                    "sources": sources_line(source_names(lead)),
-                },
-            )
-        )
-    quotes = quote_items(edition, STORY_MERCADO_IDS)
-    if quotes:
-        slides.append(Slide("story_mercado", {"quotes": quotes, "date": short_date(day)}))
-    stats = edition.stats
-    outlets = edition.rationale.outlets if edition.rationale else 0
-    if edition.mode == "ai":
-        slides.append(
-            Slide(
-                "story_feed",
-                {"articles": num(stats.articles_collected), "outlets": outlets, "stories": len(edition.stories)},
-            )
-        )
-    if len(slides) < 2:
-        return None
-    return Peca(slot="stories", kind="story", title="Stories da manhã", slides=slides)
-
-
-def raiox_score(story: Story) -> float:
-    c = story.coverage
-    assert c is not None
-    a, b = c.count("a"), c.count("b")
-    return 2 * story.importance + 4 * min(a, b) + 0.5 * (a + b)
-
-
-def raiox_story(edition: Edition, *, election: bool, exclude: Iterable[str] = ()) -> Story | None:
-    """A matéria do Raio-X: cobertura dividida (lado A e lado B com veículos), ≥4 veículos
-    com enquadramento e ≥3 fontes; no período eleitoral, nada de política nem pesquisa."""
-    excluded = set(exclude)
-    best: tuple[float, int, Story] | None = None
-    for i, story in enumerate(ordered_stories(edition)):
-        c = story.coverage
-        if story.id in excluded or c is None or not c.has_debate:
-            continue
-        if c.count("a") < 1 or c.count("b") < 1:
-            continue
-        if sum(1 for o in c.outlets if o.framing.strip()) < 4 or len(source_names(story)) < 3:
-            continue
-        if election and is_political(story, f"{story.headline} {story.dek} {c.topic} {c.side_a} {c.side_b}"):
-            continue
-        key = (raiox_score(story), -i, story)
-        if best is None or key[:2] > best[:2]:
-            best = key
-    return best[2] if best else None
-
-
-def _outlet_ctx(o: CoverageOutlet) -> dict[str, str]:
-    return {"name": o.name, "framing": plain(o.framing), "stance": o.stance}
-
-
-def raio_x(edition: Edition, brand: dict[str, Any], *, election: bool, exclude: Iterable[str] = ()) -> Peca | None:
-    """Carrossel da noite: como a imprensa cobriu o assunto que mais a dividiu (7 slides)."""
-    if edition.mode != "ai":
-        return None
-    story = raiox_story(edition, election=election, exclude=exclude)
-    if story is None:
-        return None
-    c: Coverage = story.coverage  # type: ignore[assignment]
-    day = edition_day(edition)
-    side_a = [o for o in c.outlets if o.stance == "a"]
-    side_b = [o for o in c.outlets if o.stance == "b"]
-    neutral = [o for o in c.outlets if o.stance not in ("a", "b")]
-    section = section_info(edition, story.section)
-    counts = {"a": len(side_a), "b": len(side_b), "n": len(neutral), "total": len(c.outlets)}
-    common = {
-        "section": section,
-        "counts": counts,
-        "side_a": plain(c.side_a),
-        "side_b": plain(c.side_b),
-        "headline": plain(story.headline),
-        "a": [o.name for o in side_a],
-        "b": [o.name for o in side_b],
-        "n": [o.name for o in neutral],
-    }
-    slides = [
-        Slide(
-            "raiox_capa",
-            {**common, "kicker": f"RAIO-X DA COBERTURA · {kicker_date(day)}", "headline": plain(story.headline)},
-            alt=f"Raio-X da cobertura: {plain(story.headline)}. {counts['total']} veículos; "
-            f"lado A: {plain(c.side_a)} ({counts['a']}); lado B: {plain(c.side_b)} ({counts['b']}); neutros: {counts['n']}.",
-        ),
-        Slide(
-            "raiox_fato",
-            {**common, "headline": plain(story.headline), "dek": plain(story.dek)},
-            alt=f"O fato: {plain(story.dek)}",
-        ),
-    ]
-    for side, outlets, label in (("a", side_a, c.side_a), ("b", side_b, c.side_b)):
-        slides.append(
-            Slide(
-                "raiox_lado",
-                {**common, "side": side, "label": plain(label), "outlets": [_outlet_ctx(o) for o in outlets]},
-                alt=f"Lado {side.upper()}: {plain(label)}. "
-                + " ".join(f"{o.name}: {plain(o.framing)}" for o in outlets),
-            )
-        )
-    slides.append(
-        Slide(
-            "raiox_espectro",
-            {
-                **common,
-                "a": [o.name for o in side_a],
-                "b": [o.name for o in side_b],
-                "n": [o.name for o in neutral],
-            },
-            alt=f"O espectro: lado A ({', '.join(o.name for o in side_a)}); neutros ({', '.join(o.name for o in neutral) or 'nenhum'}); "
-            f"lado B ({', '.join(o.name for o in side_b)}).",
-        )
-    )
-    slides.append(
-        Slide(
-            "raiox_conclusao",
-            {**common, "conclusion": plain(c.conclusion), "why": plain(story.why_it_matters or "")},
-            alt=f"Conclusão: {plain(c.conclusion)}" + (f" Por que importa: {plain(story.why_it_matters)}" if story.why_it_matters else ""),
-        )
-    )
-    slides.append(
-        Slide(
-            "raiox_metodo",
-            {**common},
-            alt="Como fazemos: a IA compara os textos publicados e classifica a ênfase de cada veículo. "
-            "Enquadramento não é erro nem mentira. Leu só uma versão? Mande para quem leu a outra. Edição completa no link da bio.",
-        )
-    )
-    hook = f"Mesmo fato, 2 enquadramentos: {plain(c.topic) or plain(story.headline)}"
-    caption = finish_caption(
-        [
-            hook,
-            "\n".join(
-                [
-                    f"▸ O fato: {plain(story.dek)}",
-                    f"▸ Lado A — {plain(c.side_a)}: {', '.join(o.name for o in side_a)}.",
-                    f"▸ Lado B — {plain(c.side_b)}: {', '.join(o.name for o in side_b)}.",
-                    *([f"▸ Sem tomar lado: {', '.join(o.name for o in neutral)}."] if neutral else []),
-                    f"▸ Conclusão: {plain(c.conclusion)}",
-                    *([f"▸ Por que importa: {plain(story.why_it_matters)}"] if story.why_it_matters else []),
-                ]
-            ),
-            "Análise automática por IA dos textos de cada veículo. Enquadramento é a escolha do que destacar, não erro.\n"
-            "Leu só uma versão? Mande para quem leu a outra. Os assuntos comparados hoje estão na edição completa: link na bio.",
-            hashtags("#jornalismo", [story.section], election=election),
-        ]
-    )
-    return Peca(slot="raiox", kind="carousel", title="Raio-X da cobertura", slides=slides, caption=caption, story_ids=[story.id])
-
-
-def comece_aqui(edition: Edition, brand: dict[str, Any]) -> Peca:
-    """Carrossel de apresentação (o primeiro post do perfil, para fixar): sai uma única vez."""
-    stats = edition.stats
-    outlets = edition.rationale.outlets if edition.rationale else 0
-    # O post fica fixado no perfil: números arredondados, não a contagem do dia.
-    articles = more_than(stats.articles_collected, 100)
-    texts = [
-        f"**Como funciona.** Toda manhã, um robô coleta as notícias de {more_than(stats.sources_total, 10)} fontes, "
-        f"de {more_than(outlets, 10)} veículos. "
-        "Uma IA compila as matérias do dia por editoria e compara como cada veículo cobriu cada assunto.",
-        "**O que sai aqui.** Toda manhã, o **Em 1 minuto**: os fatos do dia e o mercado. "
-        "À noite, o **Raio-X da cobertura**: o assunto em que a imprensa mais se dividiu.",
-        "**Lado A x lado B.** Mesmo fato, enquadramentos diferentes. O Raio-X mostra o que cada veículo destacou. "
-        "Enquadramento é a escolha do que destacar, não erro nem mentira.",
-        "**O que não fazemos.** Sem opinião, sem foto de jornal, sem pesquisa eleitoral e sem publicidade política. "
-        "Tudo é resumo automático por IA, sempre com as fontes.",
-    ]
-    total = len(texts)
-    slides = [
-        Slide(
-            "capa",
-            {
-                "kicker": "COMECE AQUI",
-                "headline": f"Todo dia, {articles} notícias. 1 minuto para você.",  # "mais de 1.500"
-                "dek": "A Triangula lê a imprensa inteira e mostra o que aconteceu, quanto o mercado andou "
-                "e como cada veículo contou a mesma história.",
-                "section": {"id": "triangula", "title": "Triangula", "color": "#FF5A1F"},
-                "teaser": "Como funciona · arraste",
-            },
-            alt=f"Comece aqui. Todo dia, {articles} notícias. 1 minuto para você.",
-        )
-    ]
-    for n, value in enumerate(texts, 1):
-        slides.append(
-            Slide("fato", {"n": n, "total": total, "text": value, "section": None, "sources": "", "outlets": 0}, alt=plain(value))
-        )
-    slides.append(
-        Slide(
-            "fechamento",
-            {
-                "articles": articles,
-                "outlets": more_than(outlets, 10),
-                "stories": len(edition.stories),
-                "compared": sum(1 for s in edition.stories if s.coverage) + len(edition.compared),
-                "cta": "Salve · Envie · Siga",
-            },
-            alt=f"Todo dia, lemos {articles} notícias de {more_than(outlets, 10)} veículos. A edição completa, "
-            "com o que cada veículo destacou em cada assunto, está no link da bio. Salve, envie, siga.",
-        )
-    )
-    caption = finish_caption(
-        [
-            "Comece aqui: o jornal que lê a imprensa inteira por você",
-            f"Toda manhã, a Triangula lê {articles} notícias de {more_than(outlets, 10)} veículos e entrega três coisas: "
-            "o que aconteceu, quanto o mercado andou e como cada veículo contou a mesma história.",
-            "▸ Toda manhã: Em 1 minuto, os fatos do dia e o mercado.\n"
-            "▸ À noite: Raio-X da cobertura, o lado A x lado B da imprensa.\n"
-            "▸ Conta automática: resumo por IA, sempre com as fontes. Sem opinião e sem foto de jornal.",
-            "Siga e ative as notificações. Edição completa do dia: link na bio.",
-            "#triangula #noticias #jornalismo #mercadofinanceiro",
-        ]
-    )
-    return Peca(slot="lancamento", kind="carousel", title="Comece aqui", slides=slides, caption=caption)

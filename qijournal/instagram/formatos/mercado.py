@@ -14,6 +14,7 @@ from qijournal.models import Edition, Quote
 
 from .. import estatistica as E
 from .. import graficos as G
+from ..redacao import LINHA1_MAX
 from ..conteudo import ALT_LIMIT, MESES_CURTOS, Peca, Slide, edition_day, finish_caption, hashtags, kicker_date, short_date
 
 ATIVOS = ["ibov", "usd", "brent", "btc"]
@@ -85,12 +86,15 @@ def _painel(edition: Edition, history: list[Edition], qid: str, min_pontos: int)
         "desde": "",
         "grafico": "",
         "leituras": len(pontos),
+        "ate": "",  # "leitura das 06h00" quando o acumulado não termina num fechamento
     }
     descricao = ""
     acc = E.acumulado(pontos)
     if acc is not None:  # ponta a ponta com as duas datas: vale mesmo com série curta
         desde = f"{acc.first.day:%d/%m}"
         painel.update(pct=acc.pct, desde=desde, acumulado=f"{E.sinal(acc.pct)} desde {desde}")
+        if not E.is_close(qid, acc.last.as_of):  # termina numa leitura do meio do pregão: o título diz a hora
+            painel["ate"] = E.selo_leitura(qid, acc.last, day) or f"leitura de {acc.last.day:%d/%m}"
     if acc is not None and len(pontos) >= min_pontos:
         svg, descricao = G.linha(
             [(p.day, p.value) for p in pontos],
@@ -106,31 +110,32 @@ def _painel(edition: Edition, history: list[Edition], qid: str, min_pontos: int)
     return painel, descricao
 
 
-def _achado(paineis: list[dict[str, Any]], day: str, evitar: Iterable[str] = ()) -> tuple[str, str]:
-    """O título-achado e o trecho em laranja: o maior |acumulado| ("Ibovespa +13,8% desde 28/09"), fora
-    dos ativos em ``evitar`` se houver outro; sem série (uma leitura só), a maior variação da leitura
-    ("Dólar −4,42% na leitura das 14h06")."""
+def _achado(paineis: list[dict[str, Any]], day: str, evitar: Iterable[str] = ()) -> tuple[str, str, str]:
+    """O título-achado, o trecho em laranja e o selo do título: o maior |acumulado| ("Ibovespa +13,8%
+    desde 28/09"), fora dos ativos em ``evitar`` se houver outro, com "até a leitura das 06h00" quando
+    o acumulado termina no meio do pregão; sem série (uma leitura só), a maior variação da leitura
+    ("Dólar −4,42% na leitura das 14h06", que já diz a hora)."""
     evitar = set(evitar)
     com_serie = [p for p in paineis if p["pct"] is not None]
     com_serie = [p for p in com_serie if p["id"] not in evitar] or com_serie
     if com_serie:
         p = max(com_serie, key=lambda p: abs(p["pct"]))
-        return f"{p['nome']} {p['acumulado']}", E.sinal(p["pct"])
+        return f"{p['nome']} {p['acumulado']}", E.sinal(p["pct"]), f"até a {p['ate']}" if p["ate"] else ""
     com_var = [p for p in paineis if p["variacao"] is not None]
     if com_var:
         p = max(com_var, key=lambda p: abs(p["variacao"]))
-        return f"{p['nome']} {p['change']} na {p['selo']}", p["change"]
-    return f"Mercado em {day}", ""
+        return f"{p['nome']} {p['change']} na {p['selo']}", p["change"], ""
+    return f"Mercado em {day}", "", ""
 
 
-def _alt(titulo: str, day: str, paineis: list[dict[str, Any]], faixa: str, graficos: list[str]) -> str:
+def _alt(titulo: str, day: str, paineis: list[dict[str, Any]], faixa: str, graficos: list[str], selo_titulo: str = "") -> str:
     """Texto alternativo com os valores, a faixa e a frase de cada gráfico; se passar de 1.000
     caracteres, cada gráfico fica só com a primeira frase ("linha com 14 leituras, de … a …")."""
     frases = []
     for p in paineis:
         partes = [x for x in (p["selo"], f"{p['change']} no dia" if p["change"] else "", p["acumulado"]) if x]
         frases.append(f"{p['nome']} {p['valor']}" + (f" ({', '.join(partes)})" if partes else ""))
-    base = f"Mercado em linha, {day}: {titulo}. " + "; ".join(frases) + "."
+    base = f"Mercado em linha, {day}: {titulo}" + (f", {selo_titulo}" if selo_titulo else "") + ". " + "; ".join(frases) + "."
     if faixa:
         base += f" {faixa[0].upper()}{faixa[1:]}."
     for desc in (graficos, [g.split(";")[0].rstrip(".") + "." for g in graficos], []):
@@ -163,7 +168,7 @@ def mercado_slide(
     if not feitos:
         return None
     paineis = [p for p, _ in feitos]
-    titulo, destaque = _achado(paineis, short_date(day), evitar)
+    titulo, destaque, selo_titulo = _achado(paineis, short_date(day), evitar)
     faixa = faixa_juros(edition)
     ctx = {
         "tema": "t-paper" if tema == "paper" else "t-dark",
@@ -172,6 +177,7 @@ def mercado_slide(
         "cor": "mercado" if tema == "paper" else "em1min",
         "titulo": titulo,
         "destaque": destaque,
+        "selo_titulo": selo_titulo,
         "tam": G.tamanho_gancho(titulo, max_linhas=1, tam_max=104, tam_min=64),
         "paineis": paineis,
         "graficos": any(p["grafico"] for p in paineis),
@@ -180,13 +186,23 @@ def mercado_slide(
         "nota": "fonte: Yahoo Finance e BCB",
         "section": "mercados",
     }
-    alt = _alt(titulo, short_date(day), paineis, faixa, [d for _, d in feitos if d])
+    alt = _alt(titulo, short_date(day), paineis, faixa, [d for _, d in feitos if d], selo_titulo)
     return Slide("mercado_linha", ctx, alt=alt)
 
 
-def mercado_em_linha(edition: Edition, brand: dict[str, Any], history: list[Edition], *, min_pontos: int = E.ACUMULADO_MIN_PONTOS) -> Peca | None:
-    """Substituto da noite (18:30): imagem única em papel, sem número de série."""
-    slide = mercado_slide(edition, history, tema="paper", min_pontos=min_pontos)
+def mercado_em_linha(
+    edition: Edition,
+    brand: dict[str, Any],
+    history: list[Edition],
+    *,
+    min_pontos: int = E.ACUMULADO_MIN_PONTOS,
+    evitar: Iterable[str] = (),
+) -> Peca | None:
+    """Substituto da noite (18:30): imagem única em papel, sem número de série.
+
+    ``evitar``: ativos que não viram título (o do Número do dia, para os posts do dia não repetirem o assunto).
+    """
+    slide = mercado_slide(edition, history, tema="paper", min_pontos=min_pontos, evitar=evitar)
     if slide is None:
         return None
     day = edition_day(edition)
@@ -204,7 +220,10 @@ def mercado_em_linha(edition: Edition, brand: dict[str, Any], history: list[Edit
         CTA,
         hashtags("#dados", ["mercados", "brasil"], election=False),
     ]
-    caption = finish_caption([f"Mercado em linha · {short_date(day)}: {ctx['titulo']}", "\n".join(corpo)])
+    linha1 = f"Mercado em linha · {short_date(day)}: {ctx['titulo']}"
+    if ctx["selo_titulo"] and len(linha1) + len(ctx["selo_titulo"]) + 3 <= LINHA1_MAX:
+        linha1 += f" ({ctx['selo_titulo']})"
+    caption = finish_caption([linha1, "\n".join(corpo)])
     return Peca(
         slot="noite",
         kind="image",

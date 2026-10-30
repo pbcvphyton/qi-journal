@@ -8,9 +8,11 @@ import logging
 import os
 import subprocess
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
+from datetime import time as dtime
 from pathlib import Path
 from typing import Mapping
+from zoneinfo import ZoneInfo
 
 from qijournal import pipeline
 from qijournal.config import Config
@@ -59,6 +61,11 @@ def latest_edition(root: Path) -> Edition:
     day = manifest.get("date")
     if not day:
         raise FileNotFoundError(root / pipeline.ARCHIVE_DIR / "latest.json")
+    return edition_of(root, day)
+
+
+def edition_of(root: Path, day: str) -> Edition:
+    """A edição de ``data/<dia>.json``."""
     path = root / pipeline.DATA_DIR / f"{day}.json"
     return Edition.from_dict(json.loads(path.read_text(encoding="utf-8")))
 
@@ -71,20 +78,34 @@ def _write_alert(path: str | None, message: str) -> None:
 
 
 def cmd_gerar(args: argparse.Namespace, config: Config) -> int:
-    from .gerar import LAUNCH_ID, clean_media, generate  # importa o Playwright só aqui
+    from . import estatistica
+    from .gerar import HISTORICO_DIAS, LAUNCH_ID, clean_media, generate  # importa o Playwright só aqui
 
     root = Path(args.dir)
     media_dir = Path(args.media_dir)
-    edition = latest_edition(root)
-    now = args.now or datetime.now(timezone.utc)
-    today = pipeline.local_date(now, config.site.timezone)
-    if edition.date != today.isoformat() and not args.force:
-        log.warning("Instagram: a última edição é de %s, não de hoje (%s); nada a gerar", edition.date, today)
-        return EXIT_OK
+    tz = ZoneInfo(config.site.timezone)
+    if getattr(args, "date", None):
+        # Um dia específico de data/ (prévias e testes); sem --now, vale o começo do dia.
+        edition = edition_of(root, args.date.isoformat())
+        now = args.now or datetime.combine(args.date, dtime(0, 0), tz)
+    else:
+        edition = latest_edition(root)
+        now = args.now or datetime.now(timezone.utc)
+        today = pipeline.local_date(now, config.site.timezone)
+        if edition.date != today.isoformat() and not args.force:
+            log.warning("Instagram: a última edição é de %s, não de hoje (%s); nada a gerar", edition.date, today)
+            return EXIT_OK
+    day = date.fromisoformat(edition.date)
     fila = Fila.load(media_dir)
-    # O "Comece aqui" sai uma vez só: depois de publicado, nunca mais é gerado.
-    posts = generate(edition, config, root=root, media_dir=media_dir, now=now, launch=not fila.has_published(LAUNCH_ID))
-    changed = fila.upsert(posts)
+    history = estatistica.load_history(root / pipeline.DATA_DIR, day, HISTORICO_DIAS)
+    # O manifesto sai uma vez só: depois de publicado, nunca mais é gerado.
+    posts = generate(
+        edition, config, root=root, media_dir=media_dir, now=now, launch=not fila.has_published(LAUNCH_ID),
+        fila=fila, history=history,
+    )
+    # Refazer o dia tira da fila o que a geração nova não tem mais (ex.: Raio-X que virou Placar).
+    changed = fila.replace_day(edition.date, posts)
+    today = pipeline.local_date(now, config.site.timezone)
     fila.prune(today)
     removed = clean_media(fila, media_dir, today, config.instagram.keep_days)
     fila.save()
@@ -233,6 +254,10 @@ def add_parser(commands: argparse._SubParsersAction, common: argparse.ArgumentPa
     gerar.add_argument("--media-dir", default=DEFAULT_MEDIA_DIR, metavar="DIR", help="cópia da branch instagram (fila e imagens)")
     gerar.add_argument("--now", type=iso_datetime, metavar="ISO", help="data/hora de referência (sem fuso = UTC)")
     gerar.add_argument("--force", action="store_true", help="gera mesmo que a última edição não seja de hoje")
+    gerar.add_argument(
+        "--date", type=date.fromisoformat, metavar="AAAA-MM-DD",
+        help="gera o dia AAAA-MM-DD de data/ (prévias e testes; sem --now, vale o começo do dia)",
+    )
     gerar.set_defaults(handler=cmd_gerar)
 
     publicar = sub.add_parser("publicar", parents=[common], help="publica o que já venceu na fila")

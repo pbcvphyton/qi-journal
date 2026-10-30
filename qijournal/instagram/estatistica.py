@@ -229,6 +229,20 @@ def story_is_electoral(story: Story, nomes: Iterable[str] = NOMES_ELEICAO) -> bo
     return is_electoral(story_text(story), story.section, nomes)
 
 
+# Eleição com todas as letras, de qualquer país (o is_electoral deixa passar a de Mundo): no período
+# eleitoral, nenhum post de feed a estampa como assunto principal ("Israel vai às urnas em eleição
+# decisiva", 27/10). Vale para o título (manchete ou assunto), não para a linha fina.
+_ELEICAO_ESCRITA = re.compile(
+    r"\b(?:re)?elei[çc](?:ão|ao|ões|oes)\b|\beleit(?:or|ora|ores|oras|oral|orais)\b|\burnas?\b|\bplebiscito\b|\breferendo\b",
+    re.I,
+)
+
+
+def eleicao_escrita(*textos: str | None) -> bool:
+    """Eleição, eleitor, urna, plebiscito ou referendo com todas as letras em algum dos ``textos``."""
+    return any(_ELEICAO_ESCRITA.search(t) for t in textos if t)
+
+
 def is_political_coverage(cov: Coverage, story: Story | None, nomes: Iterable[str] = NOMES_ELEICAO) -> bool:
     section = coverage_section(cov, story)
     head = " ".join([cov.topic, cov.side_a, cov.side_b, story.headline if story else "", story.dek if story else ""])
@@ -819,7 +833,7 @@ def triangulados(edition: Edition, *, election: bool, nomes: Iterable[str] = NOM
         if election and (story.section == "politica" or is_poll(text) or story_is_electoral(story, nomes)):
             continue
         topic = topic_of(edition, story.id)
-        if topic is None:
+        if topic is None or (election and eleicao_escrita(story.headline, topic.title)):
             continue
         sources = topic_sources(topic, veiculos=True)
         for m in _NUMERO.finditer(text):
@@ -936,7 +950,7 @@ def _concentracao_numero(
             return None
         chave = f"conc:{_fold(topic.title)[:40]}"
         tese = _titulo_assunto(edition, topic)
-        if chave in usados or not tese:
+        if chave in usados or not tese or (election and eleicao_escrita(topic.title, tese)):
             continue
         rank = rank_assunto(edition, topic)
         onde = "o assunto mais coberto" if rank == 1 else f"o {rank}º assunto mais coberto"
@@ -1070,6 +1084,8 @@ def numero_do_dia(
     exclude: Iterable[str] = (),
     usados: Iterable[str] | None = None,
     min_pontos: int = ACUMULADO_MIN_PONTOS,
+    apos: int = 0,
+    rejeitadas: Iterable[str] = (),
 ) -> Numero | None:
     """O Número do dia, pelo primeiro passo que tiver candidato (§4.4):
 
@@ -1084,40 +1100,52 @@ def numero_do_dia(
     Sem IA, só os passos 1, 4, 5, 6 e 7. ``usados`` são as chaves publicadas nos últimos
     7 dias; ``None`` (fila sem histórico) cai na regra antiga: o número triangulado de
     cada um dos 7 dias anteriores.
+
+    Substituto (peça reprovada no lint): ``apos`` pula os passos até ele (inclusive) e
+    ``rejeitadas`` são chaves que não saem de jeito nenhum; o passo 7 vale sempre, com o
+    maior acumulado ainda não rejeitado.
     """
     nomes = tuple(nomes)
     day = date.fromisoformat(edition.date)
     past = [e for e in history if date.fromisoformat(e.date) < day]
     upto = [e for e in history if date.fromisoformat(e.date) <= day]
     excluded = set(exclude)
+    fora = set(rejeitadas)
     ja = set(usados) if usados is not None else set()
-    forte = _mercado(edition, past, Z_FORTE, 1)
-    if forte:
+
+    def vale(n: Numero | None, passo: int) -> bool:
+        return n is not None and passo > apos and n.chave not in fora
+
+    forte = _mercado(edition, past, Z_FORTE, 1) if apos < 1 else None
+    if vale(forte, 1):
         return forte
     if edition.mode == "ai":
-        repetidos = ja if usados is not None else _usados_legado(past, day, election=election, nomes=nomes)
-        for n in triangulados(edition, election=election, nomes=nomes):
-            if n.story_id not in excluded and n.chave not in repetidos:
-                return n
-        conc = _concentracao_numero(edition, election=election, nomes=nomes, exclude=excluded, usados=ja)
-        if conc:
-            return conc
-    medio = _mercado(edition, past, Z_MEDIO, 4)
-    if medio:
+        if apos < 2:
+            repetidos = (ja if usados is not None else _usados_legado(past, day, election=election, nomes=nomes)) | fora
+            for n in triangulados(edition, election=election, nomes=nomes):
+                if n.story_id not in excluded and n.chave not in repetidos:
+                    return n
+        if apos < 3:
+            conc = _concentracao_numero(edition, election=election, nomes=nomes, exclude=excluded, usados=ja | fora)
+            if conc:
+                return conc
+    medio = _mercado(edition, past, Z_MEDIO, 4) if apos < 4 else None
+    if vale(medio, 4):
         return medio
-    acumulados = _acumulados(edition, upto, min_pontos)
+    acumulados = [n for n in _acumulados(edition, upto, min_pontos) if n.chave not in fora]
     novo = next((n for n in acumulados if n.chave not in ja), None)
-    if novo:
+    if vale(novo, 5):
         return novo
     real = _juro_real_numero(edition)
-    if real and real.chave not in ja:
+    if vale(real, 6) and real.chave not in ja:
         return real
     if acumulados:
         acumulados[0].passo = 7
         return acumulados[0]
-    if real:
+    if real is not None and real.chave not in fora:
         real.passo = 7
-    return real
+        return real
+    return None
 
 
 # ── Selo de cobertura (Em 1 minuto) ───────────────────────────────────────
