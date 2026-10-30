@@ -1,256 +1,261 @@
 TRIANGULA
-Quinta-feira, 29 de outubro de 2026 · 06:56 BRT
+Sexta-feira, 30 de outubro de 2026 · 06:55 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,35 (+0,04%) · Euro R$ 5,96 (-0,04%) · Yuan R$ 0,80 (+0,30%) ·
-Ibovespa 171.006 pts (-2,68%) · IFIX 3.654 pts (-1,75%) · S&P 500 7.744
-pts (+0,28%) · Brent US$ 110,63 (-0,91%) · Ouro US$ 4.038 (-0,35%) ·
-Bitcoin US$ 80.117 (-1,62%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
-3,35% · INCC 12m 6,66%
+Dólar R$ 5,36 (-0,47%) · Euro R$ 6,01 (-0,16%) · Yuan R$ 0,81 (-0,24%) ·
+Ibovespa 169.186 pts (-1,06%) · IFIX 3.632 pts (-0,60%) · S&P 500 7.720
+pts (-0,30%) · Brent US$ 113,01 (+2,00%) · Ouro US$ 4.000 (-0,79%) ·
+Bitcoin US$ 77.494 (-3,24%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+5,25% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 17°C, nublado (mín. 16° / máx. 20°) · amanhã: pancadas de
-chuva moderadas, 17° a 24°
-Montevidéu: 13°C, pancadas de chuva fracas (mín. 13° / máx. 17°) ·
-amanhã: trovoadas, 13° a 19°
+São Paulo: 17°C, nublado (mín. 16° / máx. 26°) · amanhã: pancadas de
+chuva fracas, 15° a 24°
+Montevidéu: 14°C, nublado (mín. 14° / máx. 19°) · amanhã: pancadas de
+chuva fracas, 14° a 18°
+
+EDITORIAL
+---------
+O cálculo do TCU para a alíquota da CBS reacende temores sobre a carga
+do novo IVA no Brasil, em meio à deterioração fiscal e à cautela nos
+mercados financeiros. No exterior, o ataque hacker bilionário contra a
+Binance e a queima de caixa das gigantes de tecnologia com inteligência
+artificial pressionam os ativos de risco globais. Em paralelo, o
+pós-eleição brasileiro reverbera na articulação política e na diplomacia
+regional, enquanto a Europa lida com uma grave tragédia ferroviária.
 
 EM 1 MINUTO
 -----------
-• Flávio Bolsonaro desembarca nos EUA e divulga carta em que contesta
-  resultado eleitoral
-• Colisão entre trens de alta velocidade mata ao menos 68 pessoas na
-  Espanha
-• TCU fixa CBS em 11,3% para 2027 e Fazenda estima alíquota média
-  efetiva inferior a 8,5%
-• Ações da Alphabet desabam até 10% com queima de caixa e US$ 51 bi em
-  gastos com IA
-• Flávio Bolsonaro desembarca nos Estados Unidos e divulga carta em que
-  contesta resultado eleitoral
+• O TCU estimou em 11,3% a alíquota da CBS, elevando o alerta entre
+  empresas e tributaristas sobre o risco de o novo IVA ultrapassar a
+  marca de 30%.
+• A Binance suspendeu saques após sofrer um roubo de US$ 6,3 bilhões no
+  maior ataque hacker da história contra o setor de criptomoedas.
+• Sob apreensão fiscal pós-eleitoral e aversão a risco no exterior, o
+  Ibovespa caiu 1,06%, aos 169.186 pontos, enquanto o dólar fechou
+  cotado a R$ 5,36.
+• Lideranças do PL e governadores de direita isolaram Flávio Bolsonaro
+  após sua saída para os EUA e a divulgação de manifesto contestando o
+  pleito.
+• A Alphabet perdeu US$ 500 bilhões em valor de mercado após a
+  divulgação de balanço marcar salto em custos operacionais com
+  inteligência artificial.
+• Uma colisão entre trens de alta velocidade na Espanha deixou 69 mortos
+  e abriu crise política para o premiê Pedro Sánchez a um mês das
+  eleições.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.747 notícias coletadas de 47 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 1.154 assuntos,
+A IA leu as 1.738 notícias coletadas de 44 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.112 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 89 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+seguiu em 103 assuntos e escolheu as 24 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#racional
-Todas as 1.747 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#racional
+Todas as 1.738 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30-todas.html
 
 MANCHETE
 --------
-Flávio Bolsonaro desembarca nos EUA e divulga carta em que contesta
-resultado eleitoral
-Senador viajou após derrota nas urnas, montou rota por terra e aviões
-privados e se autodeclarou líder do país, gerando isolamento entre
-aliados e reação do STF.
-Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência Brasil,
-CNN Brasil, Financial Times, The New York Times, The Wall Street
-Journal, The Guardian, BBC News
-Cobertura: Sem divergência entre os 13 veículos. A imprensa nacional e
-estrangeira convergiu ao qualificar o episódio como fuga motivada por
-cercos judiciais, salientando o isolamento do senador após a divulgação
-de sua carta.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-flavio-bolsonaro-desembarca-nos-eua-e-divulga-ca
+TCU define alíquota de 11,3% para a CBS e acende alerta para risco de
+IVA superior a 30%
+Cálculo do tribunal surpreende tributaristas e eleva a apreensão de
+empresas quanto ao peso do novo imposto sobre o consumo a partir de
+2027.
+Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Exame
+Cobertura: Pende para: Destaca risco de IVA recorde e aumento de carga
+tributária · 4 de 5 veículos. A maioria dos veículos deu ênfase aos
+riscos de encarecimento e sobrecarga fiscal decorrentes do cálculo de
+11,3%, enquanto a Folha ponderou com os mecanismos de redução efetiva.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-tcu-define-aliquota-de-11-3-para-a-cbs-e-acende
 
 BRASIL · ECONOMIA
 -----------------
-• TCU fixa CBS em 11,3% para 2027 e Fazenda estima alíquota média
-  efetiva inferior a 8,5%
-  Tribunal de Contas valida alíquota de referência acima do esperado
-  pelo mercado, enquanto o governo reforça que isenções e regimes
-  diferenciados limitarão o peso sobre o consumo.
-  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo, g1, Agência
-  Senado, Agência Brasil, CNN Brasil
-  Cobertura: Pende para: Alerta para alíquota alta e risco de alta da
-  carga · 3 de 8 veículos. Houve clara polarização entre veículos com
-  foco em negócios, que repercutiram a apreensão com o patamar de 11,3%,
-  e a defesa técnica do Ministério da Fazenda sobre os redutores.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-tcu-fixa-cbs-em-11-3-para-2027-e-fazenda-estima
+• Setor público tem déficit de R$ 5,5 bilhões em setembro e dívida bruta
+  fica em 82,9% do PIB
+  Superávit no governo central não impede saldo consolidado negativo sob
+  pressão de gastos de estatais e juros nominais.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura foi
+  unânime e factual, convergindo no relato do déficit de R$ 5,5 bilhões
+  e na permanência da dívida bruta no maior patamar em cinco anos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-setor-publico-tem-deficit-de-r-5-5-bilhoes-em-se
 
 MERCADOS & FINANÇAS
 -------------------
-• Ibovespa cai a 171 mil pontos e fundos perdem mais de R$ 100 bilhões
-  com estresse pós-eleitoral
-  Fuga de capital estrangeiro e disparada dos juros futuros aprofundam
-  aversão ao risco no mercado financeiro local.
-  Fontes: Valor Econômico, Brazil Journal, Folha de S.Paulo, InfoMoney
-  Cobertura: Pende para: Alerta para risco fiscal e perdas expressivas ·
-  4 de 6 veículos. A maior parte da cobertura concentrou-se na
-  destruição de valor e no aumento do prêmio de risco após as eleições,
-  enquanto análises técnicas ponderaram o processo de rebalanceamento
-  dos portfólios institucionais.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-ibovespa-cai-a-171-mil-pontos-e-fundos-perdem-ma
+• Binance suspende saques após roubo de US$ 6,3 bilhões no maior ataque
+  hacker a criptomoedas
+  Corretora congela ativos, promete ressarcir usuários e vê cotações do
+  setor despencarem após invasão atribuída por analistas à Coreia do
+  Norte.
+  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, g1, Poder360,
+  Money Times, Exame, CNN Brasil, The New York Times, The Wall Street
+  Journal, South China Morning Post, CNBC, MarketWatch, TechCrunch,
+  Financial Times, The Guardian, BBC News
+  Cobertura: Pende para: Enfatiza tamanho recorde do roubo e fragilidade
+  do setor · 6 de 14 veículos. A maior parte da mídia internacional e
+  nacional dividiu-se entre enfatizar o choque sistêmico do roubo
+  recorde atribuído a agentes da Coreia do Norte e destacar o rápido
+  congelamento de ativos com a promessa de cobertura das perdas.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-binance-suspende-saques-apos-roubo-de-us-6-3-bil
 
-• Fed mantém taxa de juros inalterada e projeta retomada de altas em
-  dezembro
-  Presidente Kevin Warsh sinaliza postura cautelosa diante da inflação e
-  anuncia redução no número de reuniões do comitê.
-  Fontes: Valor Econômico, The Wall Street Journal, The New York Times,
-  CNBC
-  Cobertura: Equilíbrio: 2 × 2 de 4 veículos. Predominou a análise das
-  sinalizações duras do Fed sobre a inflação e possível alta em
-  dezembro, embora veículos de mercado tenham ressaltado o alívio
-  imediato no câmbio e nas bolsas.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-fed-mantem-taxa-de-juros-inalterada-e-projeta-re
+• Petrobras confirma terceira descoberta de petróleo em poço na Margem
+  Equatorial
+  Estatal conclui perfuração no poço Morpho, no bloco FZA-M-59 em águas
+  ultraprofundas do Amapá, e prepara deslocamento de sonda para a Bacia
+  Potiguar.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência
+  Senado, Agência Brasil, Seu Dinheiro
+  Cobertura: Sem divergência entre os 7 veículos. A cobertura foi
+  unânime e factual, destacando o sucesso operacional da Petrobras na
+  confirmação do terceiro reservatório e o cronograma de deslocamento da
+  sonda.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-petrobras-confirma-terceira-descoberta-de-petrol
 
-• Fed mantém juros na faixa de 3,75% a 4% ao ano em votação com duas
-  dissidências
-  Banco central dos Estados Unidos segura taxa básica no maior patamar
-  em um ano e evita antecipar passos para a reunião de dezembro.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Suno Notícias,
-  The New York Times, The Guardian, CNBC
-  Cobertura: Sem divergência entre os 8 veículos. A cobertura nacional e
-  internacional convergiu de maneira uniforme ao relatar a manutenção
-  esperada dos juros, frisando a dissidência de votos e a dependência
-  dos dados futuros.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-fed-mantem-juros-na-faixa-de-3-75-a-4-ao-ano-em
-
-• Balanços de big techs dividem Wall Street após tombo de 10% da
-  Alphabet e salto da Microsoft
-  Consumo acelerado de caixa com inteligência artificial derruba dona do
-  Google, enquanto rival surpreende positivamente.
-  Fontes: Valor Econômico, InfoMoney, The Wall Street Journal, CNBC,
-  MarketWatch
-  Cobertura: Pende para: Foca no ceticismo com gastos e retorno de IA na
-  Alphabet · 3 de 6 veículos. A cobertura dividiu-se entre a euforia com
-  os lucros e controle de custos da Microsoft e a forte aversão
-  provocada pelo consumo de caixa e rentabilidade de IA na Alphabet.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-balancos-de-big-techs-dividem-wall-street-apos-t
-
-• Lucro do Santander Brasil cai 28% no terceiro trimestre e vai a R$ 2,9
-  bilhões
-  Retorno sobre o patrimônio recua para 11,9% sob política de concessão
-  de crédito mais seletiva adotada pela gestão.
-  Fontes: Valor Econômico, Brazil Journal, Bloomberg Línea, NeoFeed, Seu
-  Dinheiro
-  Cobertura: Pende para: Enfatiza fraqueza operacional e queda no lucro
-  e ROE · 3 de 5 veículos. A maioria dos veículos apontou a deterioração
-  dos números do trimestre e o recuo das ações, enquanto a gestão e
-  análises de longo prazo defenderam a limpeza da carteira.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-lucro-do-santander-brasil-cai-28-no-terceiro-tri
+• Ibovespa recua pela quarta sessão consecutiva e perde mais de 17% após
+  eleições
+  Índice encerra aos 169.186 pontos e dólar sobe a R$ 5,39, pressionados
+  por incertezas sobre o novo mandato de Lula e aversão a risco no
+  exterior.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil, Seu
+  Dinheiro, Suno Notícias, Money Times, Exame
+  Cobertura: Pende para: Enfatiza a reação negativa às diretrizes
+  fiscais do governo eleito · 5 de 8 veículos. Predominou o enfoque de
+  que o mercado reagiu com forte aversão fiscal à reeleição de Lula
+  (Lado A), com veículos como Valor, Exame e Folha frisando o
+  descontentamento interno, enquanto agências e notas operacionais deram
+  ênfase neutra ou dividida com fatores externos.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-ibovespa-recua-pela-quarta-sessao-consecutiva-e
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• PF indicia Daniel Vorcaro e ex-presidente do BRB por fraude de R$ 12,2
-  bilhões em carteiras de crédito
-  Relatório enviado ao STF na Operação Compliance Zero aponta cessão de
-  ativos sem lastro do Banco Master ao banco distrital e indicia 15
-  pessoas.
-  Fontes: Valor Econômico, JOTA, Estadão, Folha de S.Paulo, g1, Agência
-  Brasil
-  Cobertura: Sem divergência entre os 6 veículos. A cobertura foi
-  unânime e factual, convergindo na descrição das acusações da PF sobre
-  o rombo bilionário e as condutas atribuídas a Vorcaro e à antiga
-  gestão do BRB.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-pf-indicia-daniel-vorcaro-e-ex-presidente-do-brb
+• Justiça do Trabalho determina que Meta remova publicações de assédio
+  eleitoral
+  Ação civil pública do MPT cobra exclusão em 24 horas de conteúdos que
+  pregam demissão por voto e pede R$ 50 milhões em danos morais
+  coletivos.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, g1, Poder360, Agência
+  Brasil, CNN Brasil
+  Cobertura: Sem divergência entre os 7 veículos. A cobertura foi
+  unânime e factual, destacando a agilidade da Justiça do Trabalho em
+  acolher o pleito do MPT frente ao salto de casos pós-eleição.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-justica-do-trabalho-determina-que-meta-remova-pu
 
 POLÍTICA
 --------
-• Flávio Bolsonaro desembarca nos Estados Unidos e divulga carta em que
-  contesta resultado eleitoral
-  Senador viajou a Miami após ordem para retenção de passaporte,
-  divulgou texto autodeclarando-se presidente e depois recuou para o
-  termo "líder do Brasil".
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, Money
-  Times, Agência Brasil, Exame, CNN Brasil
-  Cobertura: Pende para: Enfatiza o teor golpista e a fuga do senador ·
-  4 de 9 veículos. A maior parte dos veículos adotou tom crítico à saída
-  do parlamentar e ao conteúdo da carta, enquanto outra parte priorizou
-  as respostas formais do TSE e de aliados que reafirmaram a
-  legitimidade do resultado.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-flavio-bolsonaro-desembarca-nos-estados-unidos-e
+• Aliados isolam Flávio Bolsonaro após fuga para os Estados Unidos e
+  carta contestando eleição
+  Lideranças do PL e governadores de direita rejeitam teor golpista de
+  manifesto divulgado pelo senador derrotado.
+  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, NeoFeed, Agência
+  Senado, g1, Money Times, Agência Brasil, CNN Brasil
+  Cobertura: Sem divergência entre os 9 veículos. A cobertura foi
+  unânime ao registrar o rechaço imediato de aliados e partidos ao
+  manifesto de Flávio Bolsonaro, consolidando seu isolamento.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-aliados-isolam-flavio-bolsonaro-apos-fuga-para-o
+
+• Cotação de Rafael Fonteles para a Fazenda gera debate no PT sobre
+  rumos do ajuste fiscal
+  Governador reeleito do Piauí defende corte de privilégios, enquanto
+  correntes petistas rejeitam aperto social.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, CNN Brasil
+  Cobertura: Pende para: Defende disciplina fiscal e corte de
+  privilégios · 2 de 4 veículos. Predominou a análise sobre a
+  viabilidade de um perfil focado em equilíbrio fiscal, confrontada com
+  manifestações partidárias contrárias a freios em gastos sociais.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-cotacao-de-rafael-fonteles-para-a-fazenda-gera-d
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Colisão entre trens de alta velocidade mata ao menos 68 pessoas na
-  Espanha
-  Desastre na província de Toledo deixa mais de cem feridos e mobiliza
-  investigações sobre falha no sistema e ordens emitidas pelo controle
-  de tráfego.
+• Governo Milei defende saída de Flávio Bolsonaro e crise diplomática
+  atinge Brasil e Argentina
+  Chefe de gabinete argentino alega regularidade migratória, enquanto
+  Itamaraty avalia cenário e Washington Post aponta impactos
+  institucionais.
+  Fontes: JOTA, Folha de S.Paulo, Estadão, Exame
+  Cobertura: Pende para: Enfatiza o abalo diplomático e a ajuda política
+  à fuga · 4 de 5 veículos. A cobertura brasileira e internacional
+  concentrou-se nos custos diplomáticos e na interferência política
+  externa, contrapondo-se à versão técnica de normalidade burocrática
+  sustentada pela Casa Rosada.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-governo-milei-defende-saida-de-flavio-bolsonaro
+
+• Colisão de trens de alta velocidade na Espanha deixa 69 mortos e afeta
+  disputa eleitoral
+  Tragédia ferroviária em Toledo mobiliza equipes de resgate, envolve
+  ferimento de brasileira e pressiona o premiê Pedro Sánchez a um mês do
+  pleito.
   Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, The New York Times, The Wall Street Journal, The Guardian, BBC
-  News, CNBC, Al Jazeera
-  Cobertura: Equilíbrio: 5 × 5 de 11 veículos. A maior parte da imprensa
-  internacional focou o drama humano e as queixas sobre a manutenção da
-  rede, enquanto veículos espanhóis e agências priorizaram a admissão
-  oficial de erro de comunicação do centro de controle.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-colisao-entre-trens-de-alta-velocidade-mata-ao-m
-
-• Eleição em Israel termina sem maioria clara e mantém Netanyahu no
-  centro do poder
-  Apuração aponta premiê à frente com apoio expressivo na direita,
-  enquanto oposição e partidos árabes enfrentam impasse para formar
-  coalizão governista.
-  Fontes: Folha de S.Paulo, CNN Brasil, The New York Times, The Wall
-  Street Journal, The Guardian, BBC News
-  Cobertura: Pende para: Enfatiza a falta de maioria e o impasse para
-  governar · 4 de 6 veículos. A maior parte dos veículos internacionais
-  destacou a incapacidade dos blocos em formar maioria simples, enquanto
-  a cobertura americana e brasileira enfatizou a capacidade de Netanyahu
-  de permanecer no poder.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-eleicao-em-israel-termina-sem-maioria-clara-e-ma
-
-• Eleição em Israel termina sem maioria definida e põe partidos árabes
-  no centro das negociações
-  Com apuração superior a 90%, nem o bloco de Benjamin Netanyahu nem o
-  de Gadi Eisenkot atingiram 61 assentos, abrindo cenário de impasse
-  institucional.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, CNN Brasil,
-  Financial Times, The Wall Street Journal, The New York Times, The
-  Guardian, BBC News
-  Cobertura: Pende para: Destaca a força do voto árabe e a perda de
-  maioria governista · 3 de 9 veículos. A imprensa financeira e
-  anglo-saxã se dividiu entre a capacidade de sobrevivência
-  institucional de Netanyahu e a emergência do voto árabe como divisor
-  de águas na governabilidade do país.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-eleicao-em-israel-termina-sem-maioria-definida-e
+  Brasil, The Wall Street Journal, The New York Times, The Guardian, Al
+  Jazeera, BBC News, El País
+  Cobertura: Pende para: Foca no resgate das vítimas e na crise de
+  segurança da malha · 5 de 9 veículos. A maior parte da imprensa tratou
+  a gravidade humanitária e técnica da tragédia, enquanto análises
+  internacionais e políticas pontuaram a vulnerabilidade eleitoral do
+  governo espanhol.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-colisao-de-trens-de-alta-velocidade-na-espanha-d
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Ações da Alphabet desabam até 10% com queima de caixa e US$ 51 bi em
-  gastos com IA
-  Aumento dos investimentos em inteligência artificial e pressão sobre a
-  receita publicitária tradicional decepcionam analistas e derrubam
-  lucro da dona do Google.
-  Fontes: Valor Econômico, The New York Times, The Guardian, CNBC
-  Cobertura: Pende para: Foca na decepção dos lucros e nos riscos da
-  queima acelerada de caixa com IA · 6 de 8 veículos. A maioria dos
-  veículos convergiu ao tratar os resultados da Alphabet como um alerta
-  negativo sobre os custos da IA, com apenas duas publicações
-  ressaltando primordialmente a expansão da receita.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-acoes-da-alphabet-desabam-ate-10-com-queima-de-c
+• Alphabet perde US$ 500 bilhões em valor após custos de IA e impacto em
+  anúncios
+  Queda de 13% nas ações reflete recuo de 25% no lucro líquido e
+  preocupações de Wall Street com a rentabilidade das ferramentas de
+  busca com inteligência artificial.
+  Fontes: Valor Econômico, Folha de S.Paulo, CNN Brasil, The Guardian,
+  BBC News
+  Cobertura: Pende para: Destaca impacto da IA nas receitas de
+  publicidade · 3 de 6 veículos. A cobertura convergiu sobre o choque
+  nos balanços das big techs, dividindo-se entre a erosão de margens na
+  publicidade e os altos gastos com data centers.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-alphabet-perde-us-500-bilhoes-em-valor-apos-cust
 
-• Lucro da Microsoft salta 32% para US$ 36,6 bi puxado por nuvem e IA
-  Receita trimestral alcança US$ 92,3 bilhões impulsionada pela
-  plataforma Azure, mas gargalos em data centers limitam despesas de
-  capital.
-  Fontes: Valor Econômico, The New York Times, The Guardian, CNBC,
-  TechCrunch
-  Cobertura: Sem divergência entre os 7 veículos. A cobertura foi
-  unânime ao considerar o balanço da Microsoft sólido e acima do
-  esperado, impulsionado pela divisão Azure, com atenção pontual aos
-  gargalos de infraestrutura.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-lucro-da-microsoft-salta-32-para-us-36-6-bi-puxa
+IMOBILIÁRIO
+-----------
+• Bancos privados elevam juros do financiamento imobiliário após avanço
+  nas taxas futuras
+  Itaú, Bradesco e Santander aumentam taxas contratuais diante da piora
+  nas condições de captação de recursos.
+  Fontes: Valor Econômico, Folha de S.Paulo, g1
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
+  na explicação de que o repasse aos tomadores decorre diretamente do
+  estresse nas taxas de juros de longo prazo praticadas no mercado
+  financeiro.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-bancos-privados-elevam-juros-do-financiamento-im
+
+ESPORTE
+-------
+• Flamengo goleia o Vasco por 4 a 1 e se isola na liderança do
+  Campeonato Brasileiro
+  Com dois gols de Pedro e dois de Samuel Lino no Nilton Santos, time
+  rubro-negro abre três pontos sobre o Palmeiras a cinco rodadas do fim
+  da competição.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, UOL, Placar,
+  CNN Brasil
+  Cobertura: Pende para: Destaca a arrancada rubro-negra rumo ao título
+  nacional · 4 de 7 veículos. A maioria dos veículos deu ênfase ao
+  impacto decisivo da goleada na corrida pelo título do Brasileirão,
+  enquanto análises esportivas especializadas focaram na crise do Vasco
+  por poupar titulares.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-flamengo-goleia-o-vasco-por-4-a-1-e-se-isola-na
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Queda no desmatamento na Amazônia e no Cerrado evita emissões anuais
-  equivalentes às do Japão
-  Ministério do Meio Ambiente aponta redução histórica de perdas em
-  unidades de conservação federais e freio no carbono liberado à
-  atmosfera.
-  Fontes: ((o))eco, ClimaInfo, Agência Brasil
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura foi
-  unânime e factual ao registrar as métricas positivas do sistema Prodes
-  e as avaliações da pasta ambiental.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-29.html#s-queda-no-desmatamento-na-amazonia-e-no-cerrado-e
+• Cinco ecorregiões de recifes de corais do Brasil entram em risco
+  crítico de colapso, alerta IUCN
+  Avaliação inédita apresentada na conferência de biodiversidade COP17
+  aponta que ondas de calor marinhas ameaçam a integridade dos recifes
+  costeiros no país.
+  Fontes: ((o))eco, Agência Brasil, CNN Brasil
+  Cobertura: Sem divergência entre os 3 veículos. Os veículos
+  convergiram integralmente na divulgação técnica do relatório da IUCN,
+  enfatizando a ameaça crítica do aquecimento marinho aos recifes.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-cinco-ecorregioes-de-recifes-de-corais-do-brasil
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
-Gerado automaticamente em 06:56 (BRT) · Edição gerada por IA
+Gerado automaticamente em 06:55 (BRT) · Edição gerada por IA
 (gemini-flash-latest)

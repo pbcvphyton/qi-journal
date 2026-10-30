@@ -1,0 +1,845 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-30",
+ "analises": [
+  {
+   "id": "729e582e0aee",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/29/flvio-se-isola-na-direita-e-sofre-desgaste-nas-redes-mas-articulao-externa-preocupa.ghtml",
+   "titulo": "Flávio se isola na direita e sofre desgaste nas redes, mas articulação externa preocupa",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "aliados-isolam-flavio-bolsonaro-apos-fuga-para-o",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -6,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 60,
+    "rotulo": "Regular"
+   },
+   "palavras": 889,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": -5.56,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ROTULOS",
+     "citacao": "concluiu a fuga para os Estados Unidos",
+     "paragrafo": "P3",
+     "direcao": "esquerda",
+     "contribuicao": -5.56,
+     "explicacao": "O texto adota na voz da redação o termo 'fuga' para a viagem do senador, conferindo carga condenatória sem atribuição judicial prévia."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "apontou que as menções positivas ao senador recuaram de 39,73% para 34,19% desde a eleição",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Os dados sobre imagem nas redes são reportados com métricas precisas, período e menção direta à consultoria responsável."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "229a70911ade",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/29/possivel-indicacao-de-fonteles-a-fazenda-agrada-ao-mercado.ghtml",
+   "titulo": "Possível indicação de Fonteles à Fazenda agrada ao mercado",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "cotacao-de-rafael-fonteles-para-a-fazenda-gera-d",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": -1,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 56,
+    "rotulo": "Regular"
+   },
+   "palavras": 386,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": -0.78,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "operadores do mercado que tiveram a oportunidade de conversar com Fonteles antes das eleições elogiaram o governador reeleito.",
+     "paragrafo": "P2",
+     "direcao": "esquerda",
+     "contribuicao": -0.78,
+     "explicacao": "O texto ancora a recepção positiva exclusivamente em fontes do setor financeiro mantidas em anonimato."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "o dólar à vista que avançava mais de 1,5% nesta tarde, passou a ter alta de 1,02%, a R$ 5,3944",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Os dados sobre o comportamento das moedas e juros são detalhados com comparações internacionais e referências temporais claras."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "4e199983269e",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/30/mpt-processa-meta-por-posts-com-assedio-eleitoral.ghtml",
+   "titulo": "MPT processa Meta por posts com assédio eleitoral",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "justica-do-trabalho-determina-que-meta-remova-pu",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "instituicoes",
+     "costumes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 649,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Procurada, a Meta não se manifestou.",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem registra o espaço concedido à plataforma ré para apresentar sua manifestação."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "Em nota, a deputada afirmou que não foi intimada da decisão judicial",
+     "paragrafo": "P10",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto inclui integralmente a resposta e versão da deputada citada na investigação."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "91c427420a35",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/30/brasil-podera-ter-o-maior-iva-do-mundo-a-partir-de-2027.ghtml",
+   "titulo": "Brasil poderá ter o maior IVA do mundo a partir de 2027",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "tcu-define-aliquota-de-11-3-para-a-cbs-e-acende",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 607,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "Ela lembra que o Projeto de Lei nº 3887/2020, proposto pelo então ministro da Economia, Paulo Guedes, propunha alíquota de 12% de CBS",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto contextualiza que o patamar de alíquota já havia sido proposto pelo governo anterior, evitando atribuir a alta tributária unicamente à gestão atual."
+    },
+    {
+     "id": "E2",
+     "criterio": "NUMEROS",
+     "citacao": "Atualmente, segundo a Organização para Cooperação e Desenvolvimento Econômico (OCDE), Finlândia, Dinamarca e Suécia, por exemplo, têm IVA de 25%",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A matéria cita fonte multilateral oficial e dados comparativos de alíquotas de diversos países para contextualizar o número brasileiro."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "665bf20773f1",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/29/setor-publico-consolidado-tem-deficit-primario-de-r-55-bi-em-setembro-informa-bc.ghtml",
+   "titulo": "Setor público consolidado tem déficit primário de R$ 5,5 bi em setembro, informa BC",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "setor-publico-tem-deficit-de-r-5-5-bilhoes-em-se",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 718,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "O setor público consolidado fechou setembro com déficit primário de R$ 5,5 bilhões, conforme divulgou o Banco Central (BC) nesta quinta-feira (29).",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem apresenta dados estatísticos oficiais acompanhados da fonte (Banco Central), período e comparação com o ano anterior."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "c391d20acee4",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/29/juro-do-cartao-de-credito-rotativo-sobe-a-4517percent-ao-ano-em-setembro-mostra-bc.ghtml",
+   "titulo": "Juro do cartão de crédito rotativo sobe a 451,7% ao ano em setembro, mostra BC",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "inadimplencia-de-pessoas-fisicas-atinge-recorde",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 185,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "A taxa de juros do cartão de crédito rotativo saiu de 444,9% ao ano em agosto para 451,7% em setembro.",
+     "paragrafo": "P2",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Informação objetiva baseada em relatório oficial do BC com indicação clara de bases e comparações temporais."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "b092a6f57ded",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/29/equipes-buscam-vtimas-de-coliso-de-trens-na-espanha-mortes-chegam-a-69.ghtml",
+   "titulo": "Equipes buscam vítimas de colisão de trens na Espanha; mortes chegam a 69",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "colisao-de-trens-de-alta-velocidade-na-espanha-d",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 747,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Enquanto isso, Alberto Núñez Feijóo, líder do Partido Popular, de centro-direita, que atualmente lidera as pesquisas eleitorais, deveria visitar a cidade de Urda",
+     "paragrafo": "P15",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto equilibra o registro dos atos do primeiro-ministro Pedro Sánchez (P14) com a atuação do líder da oposição, Alberto Núñez Feijóo (P15)."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "4ec386cd9a9b",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/29/christine-lagarde-deixar-presidncia-do-bce-em-fevereiro-de-2027-oito-meses-antes-do-fim-do-mandato.ghtml",
+   "titulo": "Christine Lagarde deixará presidência do BCE em fevereiro de 2027, oito meses antes do fim do mandato",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "christine-lagarde-antecipa-saida-da-presidencia",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 305,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "Lagarde publicou uma mensagem na rede social X informando sobre a decisão.",
+     "paragrafo": "P6",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "A reportagem ouve e cita diretamente a protagonista do fato, o comunicado oficial da instituição e uma liderança europeia de destaque."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "6e7a0efd42a9",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/29/comisso-eleitoral-de-israel-pede-investigao-sobre-interferncia-estrangeira-na-votao.ghtml",
+   "titulo": "Comissão eleitoral de Israel pede investigação sobre interferência estrangeira na votação",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "apuracao-em-israel-termina-sem-maioria-para-neta",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 462,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0.0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ENQUADRAMENTO",
+     "citacao": "Ele reconheceu não poder confirmar a veracidade das alegações, mas defendeu uma investigação minuciosa",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "O texto deixa explícito desde o início que o próprio solicitante da apuração admite a falta de comprovação prévia das suspeitas."
+    },
+    {
+     "id": "E2",
+     "criterio": "FONTES",
+     "citacao": "Negamos categoricamente as alegações de que o Catar tenha interferido nas eleições israelenses ou financiado quaisquer atividades destinadas a influenciar seus resultados",
+     "paragrafo": "P7",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Apresenta prontamente o contraponto e a fala literal do Ministério das Relações Exteriores do Catar negando a interferência."
+    },
+    {
+     "id": "E3",
+     "criterio": "FONTES",
+     "citacao": "Já chega de nos desculparmos e de nos defendermos das mentiras repugnantes e das acusações infundadas de figuras da direita que se recusam a aceitar os resultados das eleições",
+     "paragrafo": "P10",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Concede espaço substancial de resposta em citação direta para a coalizão árabe contra-atacar a retórica da direita israelense."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "45bf22ceb75f",
+   "url": "https://valor.globo.com/financas/criptomoedas/noticia/2026/10/29/suposto-ataque-hacker-de-bilhoes-de-dolares-a-binance-gera-temor-no-mercado-de-criptomoedas.ghtml",
+   "titulo": "Binance suspende saques após suspeita de ataque hacker provocar onda de vendas de criptomoedas",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "binance-suspende-saques-apos-roubo-de-us-6-3-bil",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 894,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "NUMEROS",
+     "citacao": "A Binance informou que cerca de US$ 2,54 bilhões em ativos estão atualmente congelados, mas ressaltou que \"esse valor pode continuar a aumentar\".",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Valores expressivos são devidamente atribuídos à fonte institucional e contextualizados como passíveis de alteração."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "c5d54a3dd346",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/29/petrobras-conclui-perfurao-com-terceira-descoberta-de-petrleo-em-guas-ultraprofundas-do-amap.ghtml",
+   "titulo": "Petrobras conclui perfuração com terceira descoberta de petróleo em águas ultraprofundas do Amapá",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "petrobras-confirma-terceira-descoberta-de-petrol",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 171,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "61ae6dfe72b7",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/29/vale-registra-queda-de-53percent-no-lucro-do-terceiro-trimestre-para-us-125-bi.ghtml",
+   "titulo": "Vale registra queda de 53% no lucro do terceiro trimestre, para US$ 1,25 bi",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "lucro-da-vale-recua-53-no-terceiro-trimestre-e-t",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 1109,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "9b8aaa49059a",
+   "url": "https://oeco.org.br/salada-verde/avaliacao-da-iucn-revela-situacao-critica-de-cinco-ecorregioes-de-recifes-brasileiros/",
+   "titulo": "Avaliação da IUCN revela situação crítica de cinco ecorregiões de recifes brasileiros",
+   "veiculo": "((o))eco",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "cinco-ecorregioes-de-recifes-de-corais-do-brasil",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 597,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "180a70bc17da",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/30/valor-de-mercado-da-alphabet-cai-us-500-bilhoes.ghtml",
+   "titulo": "Valor de mercado da Alphabet cai US$ 500 bilhões",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "alphabet-perde-us-500-bilhoes-em-valor-apos-cust",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 788,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c79c1fc7fb98",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/29/doordash-compra-rival-instacart-por-us-17-bilhoes.ghtml",
+   "titulo": "DoorDash compra rival Instacart por US$ 17 bilhões",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "doordash-compra-instacart-por-us-17-bilhoes-e-co",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 542,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "2184a1c14e0b",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/29/bancos-elevam-taxas-de-financiamento-imobilirio-aps-disparada-dos-juros-futuros.ghtml",
+   "titulo": "Bancos elevam taxas de financiamento imobiliário após disparada dos juros futuros",
+   "veiculo": "Valor Econômico",
+   "editoria": "Imobiliário",
+   "secao": "imobiliario",
+   "materia": "bancos-privados-elevam-juros-do-financiamento-im",
+   "data_publicacao": "2026-10-29",
+   "analisado_em": "2026-10-30",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 6,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 55,
+    "rotulo": "Regular"
+   },
+   "palavras": 539,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 5.88,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "HIERARQUIA",
+     "citacao": "Desde o resultado do segundo turno das eleições, os juros futuros sobem, refletindo o pessimismo do mercado com a política econômica no quarto mandato do presidente Luiz Inácio Lula da Silva (PT).",
+     "paragrafo": "P3",
+     "direcao": "direita",
+     "contribuicao": 5.88,
+     "explicacao": "Atribui a alta dos juros futuros diretamente ao pessimismo com o governo sem apresentar evidência causal objetiva além da interpretação de mercado."
+    }
+   ],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-30T10:39:07+00:00",
+   "provedor": "gemini → gemini_lite",
+   "modelo": "gemini-flash-latest + gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 5,
+   "falhas": 4,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 26631,
+    "saida": 13247
+   },
+   "analises": [
+    "729e582e0aee",
+    "229a70911ade",
+    "4e199983269e",
+    "91c427420a35",
+    "665bf20773f1",
+    "c391d20acee4",
+    "b092a6f57ded",
+    "4ec386cd9a9b",
+    "6e7a0efd42a9",
+    "45bf22ceb75f",
+    "c5d54a3dd346",
+    "61ae6dfe72b7",
+    "9b8aaa49059a",
+    "180a70bc17da",
+    "c79c1fc7fb98",
+    "2184a1c14e0b"
+   ]
+  }
+ ]
+}
