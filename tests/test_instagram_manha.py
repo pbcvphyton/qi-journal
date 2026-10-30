@@ -149,6 +149,11 @@ def test_numero_do_dia_nao_vira_capa_nem_fato_e_tira_o_ativo_do_titulo():
 # ── 26 e 27/10: período eleitoral ──────────────────────────────────────
 
 
+def politica(section: str | None, texto: str) -> bool:
+    """O item ocupa a vaga de política do período eleitoral (a seção, ou eleição de outro país)?"""
+    return section == "politica" or bool(MH._ELEICAO.search(texto) or MH._URNAS.search(texto))
+
+
 @pytest.mark.parametrize("dia", [26, 27])
 def test_periodo_eleitoral_capa_nunca_eleitoral_e_politica_por_ultimo(dia):
     e = edicao(dia)
@@ -156,10 +161,10 @@ def test_periodo_eleitoral_capa_nunca_eleitoral_e_politica_por_ultimo(dia):
     assert sel is not None
     assert not MH.eleitoral_capa(sel.capa, [sel.manchete], NOMES)
     assert not is_electoral(sel.capa, sel.manchete, NOMES)
-    secoes = [f.story.section if f.story else None for f in sel.fatos]
-    assert secoes.count("politica") <= 1
-    if "politica" in secoes:
-        assert secoes[-1] == "politica"
+    pol = [politica(f.story.section if f.story else None, f.texto) for f in sel.fatos[1:]]
+    assert sum(pol) <= 1
+    if any(pol):
+        assert pol[-1]
     for f in sel.fatos:
         assert not MH._eleitoral(f.story, [f.texto], NOMES)
 
@@ -181,6 +186,8 @@ def test_27_10_capa_nao_e_a_eleicao_de_israel():
     assert c["mais_coberto"] is None  # o mais coberto do dia é a eleição de Israel: a linha sai
     for s in p.slides:
         assert not E.is_electoral(s.alt, s.ctx.get("section"), NOMES)
+    # a eleição de Israel fica, como fato de Mundo, na vaga única de política: por último
+    assert fatos(p)[-1].ctx["frase"].startswith("Israel vai às urnas")
     assert "Ibovespa" not in " ".join(s.ctx["frase"] for s in fatos(p))  # o circuit breaker está no slide 7
 
 
@@ -240,8 +247,8 @@ def test_lint_e_regras_em_todos_os_dias(dia):
     assert len(c["manchete"]) <= MH.MANCHETE_MAX and not MH._adj_sobrando(c["manchete"], MH._titulos(e, materia(e, p.story_ids[0])))
     if eleicao(dia):
         assert not MH.eleitoral_capa(materia(e, p.story_ids[0]), [c["manchete"]], NOMES)
-        secoes = [s.ctx["section"] for s in fatos(p)]
-        assert secoes.count("politica") <= 1 and ("politica" not in secoes or secoes[-1] == "politica")
+        pol = [politica(s.ctx["section"], s.ctx["frase"]) for s in fatos(p)[1:]]
+        assert sum(pol) <= 1 and (not any(pol) or pol[-1])
     if c["mais_coberto"]:
         assert c["mais_coberto"]["k"] >= MH.MAIS_COBERTO_MIN
     for s in fatos(p):
@@ -284,6 +291,7 @@ def test_numero_fato_contagem_qualificador_e_nomes():
     assert MH.numero_fato("iFood compra a Caju por cerca de R$ 1 bilhão", evitar=["R$ 1 bi"]) is None
     assert MH.numero_capa("iFood Benefícios compra a Caju por cerca de R$ 1 bi e cria gigante") == ("CERCA DE", "R$ 1 bi")
     assert MH.numero_capa("Azul fecha financiamento de pelo menos R$ 2 bilhões") == ("PELO MENOS", "R$ 2 bi")
+    assert MH.numero_fato("o planeta caminha para um aquecimento de 2,8°C") == ("", "2,8°C")
 
 
 def test_verbo_neutro_so_antes_de_numero():
