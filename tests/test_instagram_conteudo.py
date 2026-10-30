@@ -361,3 +361,14 @@ def test_dias_reais_com_a_fila_avancando():
     assert fila.series == contagem
     assert contagem["numero"] == 16  # o 12:00 nunca fica vazio
     assert fila.chaves_numero(date(2026, 10, 30)) and len(fila.chaves_numero(date(2026, 10, 30))) == 7
+
+
+def test_sem_ia_o_terminal_nao_repete_o_titulo_do_mercado_em_linha(raw):
+    raw = deepcopy(raw)
+    raw["mode"] = "heuristic"
+    e = Edition.from_dict(raw)
+    pecas = {p.slot: p for p in build_pieces(e, config(), {}, Fila(), [e])}
+    ativo_noite = pecas["noite"].slides[0].ctx["ativo"]
+    assert ativo_noite == "brent"
+    assert not pecas["manha"].slides[0].ctx["titulo"].startswith("Brent")
+    assert conteudo.terminal(e, {}).slides[0].ctx["titulo"].startswith("Brent")  # sem evitar, seria o mesmo

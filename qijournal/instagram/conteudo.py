@@ -311,10 +311,12 @@ TERMINAL_MERCADO = ["usd", "ibov", "brent", "btc"]  # as linhas "▸" da legenda
 TERMINAL_CTA = "Edição de hoje no link da bio."
 
 
-def _achado_terminal(quotes: list[dict[str, Any]], day: date) -> tuple[str, str]:
+def _achado_terminal(quotes: list[dict[str, Any]], day: date, evitar: Iterable[str] = ()) -> tuple[str, str]:
     """O título do Terminal e o trecho em laranja: a maior variação entre as leituras que valem
-    ("Brent +1,95% na leitura das 06h45"); sem nenhuma, "Mercado em 20/10"."""
+    ("Brent +1,95% na leitura das 06h45"), fora dos ativos em ``evitar`` se houver outro; sem
+    nenhuma, "Mercado em 20/10"."""
     com_var = [q for q in quotes if q["change"] and q["ref"] and q["id"] not in ("selic", "ipca12m")]
+    com_var = [q for q in com_var if q["id"] not in set(evitar)] or com_var
     if not com_var:
         return f"Mercado em {short_date(day)}", ""
     q = max(com_var, key=lambda q: abs(float(q["change"].replace("−", "-").replace(",", ".").rstrip("%"))))
@@ -322,15 +324,19 @@ def _achado_terminal(quotes: list[dict[str, Any]], day: date) -> tuple[str, str]
     return f"{q['label']} {q['change']} {onde}", q["change"]
 
 
-def terminal(edition: Edition, brand: dict[str, Any]) -> Peca | None:
-    """Imagem única com os indicadores (07:00 dos dias sem IA, ou quando o Em 1 minuto não sai)."""
+def terminal(edition: Edition, brand: dict[str, Any], *, evitar: Iterable[str] = ()) -> Peca | None:
+    """Imagem única com os indicadores (07:00 dos dias sem IA, ou quando o Em 1 minuto não sai).
+
+    ``evitar``: ativos que já são o assunto de outro post do dia (o do Número, o do título do
+    Mercado em linha) e por isso não viram o título daqui.
+    """
     from .formatos.mercado import faixa_juros  # o mercado importa daqui
 
     quotes = quote_items(edition, [q.id for q in edition.quotes])
     if len(quotes) < 4:
         return None
     day = edition_day(edition)
-    titulo, destaque = _achado_terminal(quotes, day)
+    titulo, destaque = _achado_terminal(quotes, day, evitar)
     juros = faixa_juros(edition)
     linhas = [
         f"▸ {q['label']}: {q['value']}" + (f" ({', '.join(x for x in (q['change'], q['ref']) if x)})" if q["change"] or q["ref"] else "") + "."

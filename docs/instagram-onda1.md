@@ -77,11 +77,14 @@ Ordem de seleção do dia (`gerar.build_pieces`), com a `Fila`:
 4. **Stories:** `stories_manha(agenda=…)` com o que de fato foi gerado.
 
 Os três posts do dia nunca têm o mesmo assunto como peça principal. A ordem na
-fila fica: manhã, stories, número, noite.
+fila fica: manhã, stories, número, noite. Quando a noite cai para o Mercado em
+linha, ele é montado depois do Número e não repete o ativo dele no título; o
+Terminal também evita os ativos dos outros dois.
 
 **Período eleitoral** (`election_until`, hoje 2026-10-27): política e assunto
-eleitoral fora do Raio-X, do Placar, do Número e da capa; no Em 1 minuto, no
-máximo um item de política (sempre o último). Duas regras são **permanentes**:
+eleitoral fora do Raio-X, do Placar, do Número e da capa (também a eleição de
+outro país no título, `estatistica.eleicao_escrita`: "Israel vai às urnas", 27/10);
+no Em 1 minuto, no máximo um item de política (sempre o último). Duas regras são **permanentes**:
 o destaque em laranja e o gancho nunca levam nome de partido ou de político, e
 nenhum veículo é rotulado com campo político.
 

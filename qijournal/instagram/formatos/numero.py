@@ -431,8 +431,10 @@ def _linha1(n: E.Numero, history: list[Edition]) -> str:
     if n.tipo == "mercado":
         ativo = nome_corrido(p["qid"], p["ativo"])
         z = f"{E.num(p['z'], 1)} {_vezes(p['z'])}"
+        leitura = p["leitura"]
+        quando = f"no fechamento de {leitura[6:]}" if leitura.startswith("fech. ") else f"na {leitura}"
         return _cabe(
-            f"{n.valor}: a variação do {ativo} na {p['leitura']} é {z} a típica da série.",
+            f"{n.valor}: a variação do {ativo} {quando} é {z} a típica da série.",
             f"{n.valor}: {n.tese}, {z} a variação típica.",
         )
     if n.tipo == "triangulado":

@@ -204,9 +204,9 @@ def build_pieces(
 
     Escolha (§2): 1) a noite: Raio-X, senão Placar do dia, senão (ou reprovada) Mercado em
     linha, montado depois do Número para não repetir o ativo dele no título; 2) o Número, sem
-    a manchete nem a matéria da noite e sem as chaves publicadas na semana; 3) a manhã: Em 1 minuto (sem a matéria da noite na capa nem a do Número), senão
-    (ou reprovada) Terminal; 4) os stories, com a agenda do que saiu. Os três posts de feed
-    nunca estampam a mesma matéria.
+    a manchete nem a matéria da noite e sem as chaves publicadas na semana; 3) a manhã: Em 1
+    minuto (sem a matéria da noite na capa nem a do Número), senão (ou reprovada) Terminal;
+    4) os stories, com a agenda do que saiu. Os três posts de feed nunca estampam a mesma matéria.
 
     - ``fila``: numeração das séries (``numero_para``), entidades dos Raio-X recentes e chaves
       dos Números publicados (sem ela, uma fila vazia);
@@ -292,14 +292,15 @@ def build_pieces(
         raiox_story_id=raiox_id, ontem=ontem, numero=numero, limiares=lim,
     )
     manha = aprovada(manha, "a manhã vira o Terminal")
-    if manha is None:
-        manha = aprovada(conteudo.terminal(edition, brand), "a manhã fica sem post")
-
     # Os três posts de feed nunca estampam a mesma matéria (a manhã cede).
     principais = [assunto_principal(p) for p in (numero, noite)]
     if manha is not None and assunto_principal(manha) in [x for x in principais if x]:
         log.warning("Instagram: a capa do Em 1 minuto repete a matéria de outro post; a manhã vira o Terminal")
-        manha = aprovada(conteudo.terminal(edition, brand), "a manhã fica sem post")
+        manha = None
+    if manha is None:  # o Terminal, sem o ativo do Número nem o do título do Mercado em linha
+        ocupados = {_ativo(numero.chave) if numero is not None else ""}
+        ocupados |= {str(s.ctx.get("ativo") or "") for s in (noite.slides if noite is not None else []) if s.template == "mercado_linha"}
+        manha = aprovada(conteudo.terminal(edition, brand, evitar=ocupados - {""}), "a manhã fica sem post")
 
     # 4. Stories, com a agenda do que de fato foi gerado.
     feed = [p for p in (manha, numero, noite) if p is not None]

@@ -110,8 +110,8 @@ def _painel(edition: Edition, history: list[Edition], qid: str, min_pontos: int)
     return painel, descricao
 
 
-def _achado(paineis: list[dict[str, Any]], day: str, evitar: Iterable[str] = ()) -> tuple[str, str, str]:
-    """O título-achado, o trecho em laranja e o selo do título: o maior |acumulado| ("Ibovespa +13,8%
+def _achado(paineis: list[dict[str, Any]], day: str, evitar: Iterable[str] = ()) -> tuple[str, str, str, str]:
+    """O título-achado, o trecho em laranja, o selo do título e o ativo dele: o maior |acumulado| ("Ibovespa +13,8%
     desde 28/09"), fora dos ativos em ``evitar`` se houver outro, com "até a leitura das 06h00" quando
     o acumulado termina no meio do pregão; sem série (uma leitura só), a maior variação da leitura
     ("Dólar −4,42% na leitura das 14h06", que já diz a hora)."""
@@ -120,12 +120,12 @@ def _achado(paineis: list[dict[str, Any]], day: str, evitar: Iterable[str] = ())
     com_serie = [p for p in com_serie if p["id"] not in evitar] or com_serie
     if com_serie:
         p = max(com_serie, key=lambda p: abs(p["pct"]))
-        return f"{p['nome']} {p['acumulado']}", E.sinal(p["pct"]), f"até a {p['ate']}" if p["ate"] else ""
+        return f"{p['nome']} {p['acumulado']}", E.sinal(p["pct"]), f"até a {p['ate']}" if p["ate"] else "", p["id"]
     com_var = [p for p in paineis if p["variacao"] is not None]
     if com_var:
         p = max(com_var, key=lambda p: abs(p["variacao"]))
-        return f"{p['nome']} {p['change']} na {p['selo']}", p["change"], ""
-    return f"Mercado em {day}", "", ""
+        return f"{p['nome']} {p['change']} na {p['selo']}", p["change"], "", p["id"]
+    return f"Mercado em {day}", "", "", ""
 
 
 def _alt(titulo: str, day: str, paineis: list[dict[str, Any]], faixa: str, graficos: list[str], selo_titulo: str = "") -> str:
@@ -168,7 +168,7 @@ def mercado_slide(
     if not feitos:
         return None
     paineis = [p for p, _ in feitos]
-    titulo, destaque, selo_titulo = _achado(paineis, short_date(day), evitar)
+    titulo, destaque, selo_titulo, ativo = _achado(paineis, short_date(day), evitar)
     faixa = faixa_juros(edition)
     ctx = {
         "tema": "t-paper" if tema == "paper" else "t-dark",
@@ -178,6 +178,7 @@ def mercado_slide(
         "titulo": titulo,
         "destaque": destaque,
         "selo_titulo": selo_titulo,
+        "ativo": ativo,  # o ativo do título (os outros posts do dia não repetem)
         "tam": G.tamanho_gancho(titulo, max_linhas=1, tam_max=104, tam_min=64),
         "paineis": paineis,
         "graficos": any(p["grafico"] for p in paineis),

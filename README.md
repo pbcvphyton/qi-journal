@@ -437,13 +437,13 @@ Outra marca pode usar cabeçalho em bloco de cor com `colors.masthead` e
 
 ## Instagram
 
-Depois de cada edição, o workflow **Instagram** gera os posts do dia e os publica pela API oficial do Instagram, cada um no seu horário:
-- carrossel "Em 1 minuto" de manhã;
-- stories;
-- "Raio-X da cobertura" à noite;
-- "Terminal da manhã" nos dias sem IA.
+Depois de cada edição, o workflow **Instagram** gera os posts do dia e os publica pela API oficial do Instagram, cada um no seu horário (3 posts de feed por dia, sempre na mesma ordem de cor):
+- 07:00, "Em 1 minuto" (marinho), e os stories da manhã logo depois; nos dias sem IA, o "Terminal da manhã";
+- 12:00, "Número do dia" (laranja chapado);
+- 18:30, "Raio-X" (papel), ou o "Placar do dia", ou o "Mercado em linha";
+- uma vez, o Manifesto, para fixar no perfil.
 
-Todo o texto vem do JSON da edição. As imagens e a fila de publicação ficam na branch `instagram`. A configuração da conta e dos segredos é feita uma vez: veja **[docs/instagram.md](docs/instagram.md)**.
+Cada peça passa por um lint antes de sair e, reprovada, cai para um substituto; as séries são numeradas ("RAIO-X Nº 014"). Todo o texto vem do JSON da edição, de contas e de moldes, sem IA nova. As imagens e a fila de publicação ficam na branch `instagram`. A configuração da conta e dos segredos é feita uma vez: veja **[docs/instagram.md](docs/instagram.md)**.
 
 ---
 
@@ -518,9 +518,10 @@ qijournal/                código do jornal
                           da especificação), agregacao.py (aba analítica),
                           analise.py (textos → IA → cálculo) e historico.py
   deliver/smtp.py         envio do e-mail por SMTP
-  instagram/              Instagram: conteudo.py (posts a partir da edição),
-                          gerar.py + templates/ (imagens), fila.py e publicar.py
-                          (fila e publicação), graph.py (API do Instagram)
+  instagram/              Instagram: formatos/ (um módulo por post do dia),
+                          estatistica.py, selecao.py e redacao.py (contas, escolha
+                          e lint), gerar.py + templates/ (grade do dia e imagens),
+                          fila.py e publicar.py (fila e publicação), graph.py (API)
   pipeline.py             orquestra coleta → edição → páginas → e-mail
   __main__.py             comandos (python -m qijournal …)
 config/site.yaml          marca, seções, cotações, clima, limites da edição

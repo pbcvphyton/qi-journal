@@ -10,21 +10,45 @@ Ninguém precisa abrir o Instagram. A configuração abaixo é feita **uma vez**
 
 ## O que sai e quando
 
-| Horário (Brasília) | Formato | Conteúdo |
-|---|---|---|
-| 07:00 seg–sex · 08:30 sáb–dom | Carrossel de 8 slides | **Em 1 minuto**: capa com a manchete, 5 fatos do dia (com a editoria e as fontes), mercado e fechamento |
-| 07:10 seg–sex · 08:40 sáb–dom | 4 stories | Bom dia + clima, manchete, mercado e uma chamada para o carrossel |
-| 18:30 seg–sex | Carrossel de 7 slides | **Raio-X da cobertura**: o assunto em que a imprensa mais se dividiu (lado A, lado B, o espectro dos veículos, a conclusão e por que importa) |
-| Dias sem IA | 1 imagem | **Terminal da manhã**: os 13 indicadores, no lugar do "Em 1 minuto" (sem Raio-X) |
+A especificação completa (princípios, regras de texto, cada formato) está em
+[docs/instagram-onda1.md](instagram-onda1.md). Resumo: **3 posts de feed por dia, sempre na mesma
+ordem de cor** (marinho, laranja, papel), cada dia uma linha do grid, mais os stories da manhã.
 
-Os horários e prazos ficam em `config/site.yaml`, no bloco `instagram`.
+| Horário (Brasília) | Formato | Série | Substituto |
+|---|---|---|---|
+| 07:00 seg–sex · 08:30 sáb–dom | **Em 1 minuto**, carrossel de 8 em marinho: capa com o número da manchete, 5 fatos com o selo de cobertura, Mercado em linha e a pauta solitária do dia | `EM 1 MINUTO Nº 031` | **Terminal da manhã** (1 imagem com os indicadores) nos dias sem IA, se o Em 1 minuto não juntar 3 fatos ou se for reprovado |
+| 07:10 seg–sex · 08:40 sáb–dom | **Stories da manhã**, até 4 telas: bom dia com o número vivo do dia e a agenda do que foi gerado, manchete, mercado com o acumulado e a chamada para o carrossel (sem clima) | — | — (reprovados, não saem) |
+| 12:00 | **Número do dia**, carrossel de 3 com a capa laranja chapada: o número, a prova (gráfico) e como medimos | `NÚMERO DO DIA Nº 004` | o próximo passo da cadeia de escolha; no fim dela, o maior acumulado do mercado |
+| 18:30 | **Raio-X**, carrossel de 8 em papel: o assunto em que a imprensa mais se dividiu, com o Relógio da notícia e o Placar do dia | `RAIO-X Nº 014` | **Placar do dia** (4 slides, mesma série) sem assunto elegível; **Mercado em linha** (1 imagem, sem número) com base < 10, sem IA ou com o Raio-X/Placar reprovado |
+| uma vez | **Manifesto**, carrossel de 6 em laranja: "Mesmo fato, várias versões." | — | — |
+
+Os horários e prazos ficam em `config/site.yaml`, no bloco `instagram` (`slots`: `manha`, `stories`,
+`numero`, `noite`; os limiares das contas em `limiares`).
 
 - Cada publicação sai na primeira execução depois do horário. Logo depois da edição, o workflow espera até 75 min pelo horário-alvo. Mais tarde, o agendamento de hora em hora cuida do resto.
-- Se o horário passar do prazo (`expires`, 13:00 de manhã e 22:30 à noite), a publicação não sai. Notícia velha não vai ao ar.
+- Se o horário passar do prazo (`expires`: 11:00 a manhã, 16:00 o Número, 22:30 a noite), a publicação não sai. Notícia velha não vai ao ar.
 - Entre dois posts de feed há sempre pelo menos 3 h. Stories não contam.
-- **Período eleitoral** (`election_until`, hoje até 27/10/2026): pesquisa de intenção de voto não sai, o Raio-X não trata de política e o "Em 1 minuto" tem no máximo um item de política.
+- **Os três posts do dia nunca estampam a mesma matéria.** A escolha segue a ordem: primeiro a noite
+  (a mais escassa), depois o Número (sem a manchete nem a matéria da noite, sem repetir um número da
+  semana), depois a manhã (a capa não é a matéria da noite nem a do Número) e, por fim, os stories.
+  Na fila, a ordem é manhã, stories, número, noite.
+- **Séries numeradas.** O número de cada série (`Fila.series`, em `fila.json`) só avança quando o
+  post é publicado: refazer o dia mantém o número, e um post que expirou não gasta número. O Placar do
+  dia é da série do Raio-X; o Mercado em linha, o Terminal e os stories não têm número.
+- **Lint antes de sair.** Toda peça passa por `redacao.lint` (palavras proibidas, verbos que julgam
+  veículo, léxico eleitoral no período, limites de caracteres e texto que transbordou no render).
+  Reprovada, cai para o substituto da tabela e o motivo vai para o log.
+- **Período eleitoral** (`election_until`, até 27/10/2026): política e assunto eleitoral ficam fora
+  do Raio-X, do Placar, do Número e da capa do Em 1 minuto (eleição de outro país no título também);
+  no Em 1 minuto, no máximo um item de política, sempre o último. Sempre, fora do período também: o
+  laranja e o gancho nunca levam nome de partido ou de político (`instagram.eleicao.nomes`), e nenhum
+  veículo é rotulado com campo político.
+- **Assinatura.** Toda arte leva "▲ @handle" com o `instagram.handle` de `config/site.yaml`; enquanto
+  ele for `null`, sai "▲ triangula" e nada falha.
 
-Todo texto vem do JSON da edição; nenhuma IA reescreve legenda. Cada slide leva texto alternativo e cada legenda leva quatro hashtags. O design é só tipografia e dados: nada de foto de jornal.
+Todo texto vem do JSON da edição, de contas e de moldes; nenhuma IA nova escreve legenda. Cada slide
+leva texto alternativo (com a frase do gráfico) e cada legenda leva 3 ou 4 hashtags. O design é só
+tipografia e dados: o gráfico faz o papel da foto.
 
 ## Configuração (uma vez, ~15 min)
 
@@ -99,7 +123,13 @@ A issue é fechada sozinha quando o Instagram volta a publicar.
 
 ## Como funciona por dentro
 
-- `python -m qijournal instagram gerar` lê a edição do dia (`data/AAAA-MM-DD.json`) e renderiza os slides. Os templates ficam em `qijournal/instagram/templates`, e a renderização usa o Chromium do Playwright com as fontes de `assets/fonts`. A fila é montada em `fila.json`.
+- `python -m qijournal instagram gerar` lê a edição do dia (`data/AAAA-MM-DD.json`) e os 90 dias
+  anteriores de `data/` (séries do mercado, véspera, histórico do manifesto), monta a grade do dia
+  (`gerar.build_pieces`, com os formatos de `qijournal/instagram/formatos/`) e renderiza cada peça
+  antes de aprová-la no lint. Os templates ficam em `qijournal/instagram/templates`, e a renderização
+  usa o Chromium do Playwright com as fontes de `assets/fonts`. Os posts do dia entram em `fila.json`
+  com `Fila.replace_day`: refazer a edição tira da fila o que a geração nova não tem mais (menos o que
+  já saiu ou tem container criado).
 - As imagens e a fila ficam na branch **`instagram`**, reescrita a cada execução só com os últimos 7 dias, o que não aumenta o histórico da `main`. A API do Instagram baixa as imagens de `raw.githubusercontent.com`. O nome de cada imagem leva o hash do conteúdo, então uma imagem refeita nunca reaproveita cache.
 - `python -m qijournal instagram publicar` publica o que venceu, com estas proteções contra post em dobro:
   - o container é gravado na branch antes do `media_publish`;
@@ -114,6 +144,8 @@ Para gerar localmente (sem publicar):
 pip install -r requirements.txt -r requirements-instagram.txt
 python -m playwright install chromium
 python -m qijournal instagram gerar --dir . --media-dir /tmp/instagram --force
+# um dia específico de data/ (prévias e testes; sem --now, vale o começo do dia):
+python -m qijournal instagram gerar --dir . --media-dir /tmp/instagram --date 2026-10-21
 ```
 
 ## Kit do perfil
@@ -121,10 +153,11 @@ python -m qijournal instagram gerar --dir . --media-dir /tmp/instagram --force
 - **Nome** (aparece na busca): `Triangula | Notícias e Mercado`
 - **@**, nesta ordem de preferência: `@triangula`, `@triangula.jornal`, `@triangulajornal`, `@triangula.br`
 - **Categoria**: Site de notícias e mídia. Sem botões de contato: ninguém atende.
-- **Bio**: Seu terminal financeiro diário 🔺 O essencial da manhã em 1 minuto e como cada jornal contou a mesma notícia. Resumo por IA, com fontes ↓
+- **Bio**: MESMO FATO, VÁRIAS VERSÕES. ▲ ~1.500 notícias por dia (média), de dezenas de veículos: o fato, o mercado e como cada um contou. Por IA, com fontes ↓
 - **Link**: https://pbcvphyton.github.io/qi-journal/ (sempre a edição de hoje)
 - **Foto do perfil**: `assets/instagram/avatar.png`
-- **Destaques** (capas em `assets/instagram/destaques/`): Comece aqui · Raio-X · Método · Terminal · Editorias · Correções
+- **Destaques** (capas em `assets/instagram/destaques/`): Comece aqui · Raio-X · Método
+- **Fixado**: o Manifesto (sai uma vez, no primeiro dia com a conta conectada); "Como ler um Raio-X" e "Nossos números" chegam na Onda 2
 - **Moderação**, ligada uma vez no app:
   - "Ocultar comentários ofensivos" e "Palavras ocultas";
   - resposta automática de DM: "Conta automática, não lemos mensagens. A edição de hoje está no link da bio."
