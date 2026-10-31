@@ -1,0 +1,905 @@
+{
+ "versao_calculo": "1.1.0",
+ "data": "2026-10-31",
+ "analises": [
+  {
+   "id": "4db7b59c5412",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/30/mauro-vieira-conversa-com-marco-rubio-dias-aps-fuga-de-flvio-bolsonaro-aos-eua.ghtml",
+   "titulo": "Mauro Vieira conversa com Marco Rubio dias após fuga de Flávio Bolsonaro aos EUA",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "governo-brasileiro-adota-pragmatismo-e-evita-cri",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": -6,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 67,
+    "rotulo": "Regular"
+   },
+   "palavras": 334,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": -5.88,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "ROTULOS",
+     "citacao": "fuga de Flávio Bolsonaro",
+     "paragrafo": "P0",
+     "direcao": "esquerda",
+     "contribuicao": -5.88,
+     "explicacao": "Usa o termo 'fuga' na voz da redação para caracterizar a viagem legal de um parlamentar."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "8b5bf7dd7b32",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/30/conta-de-luz-segue-com-bandeira-verde-em-novembro-sem-taxa-adicional.ghtml",
+   "titulo": "Conta de luz segue com bandeira verde em novembro, sem taxa adicional",
+   "veiculo": "Valor Econômico",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "aneel-mantem-bandeira-tarifaria-verde-em-novembr",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 304,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "5ad79dc66f8b",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/30/eleicoes-podem-ter-influenciado-no-numero-de-ocupados-no-3o-trimestre-diz-ibge.ghtml",
+   "titulo": "Eleições podem ter influenciado no número de ocupados no 3º trimestre, diz IBGE",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "desemprego-cai-para-5-2-no-3o-trimestre-e-atinge",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 231,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "6cef6a1d4759",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/30/ita-corta-projeo-de-pib-de-2027-para-05-pontos-percentuais-e-eleva-ipca-para-61.ghtml",
+   "titulo": "Itaú corta projeção de PIB de 2027 para 0,5% e eleva IPCA para 6,1%",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "itau-corta-projecao-do-pib-de-2027-para-0-5-e-ve",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 1,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 75,
+    "rotulo": "Regular"
+   },
+   "palavras": 402,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 1.37,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "OMISSAO",
+     "citacao": "maiores incertezas sobre a trajetória das contas públicas e sobre a perspectiva de ajuste fiscal",
+     "paragrafo": "P4",
+     "direcao": "direita",
+     "contribuicao": 1.37,
+     "explicacao": "Atribui a deterioração a riscos fiscais sem trazer o contraponto ou a defesa da política econômica do governo atual."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "1aae7177e19d",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/30/neoenergia-tem-crescido-rapido-em-transmissao-e-negocio-e-estrategico-diz-ceo-apos-leilao.ghtml",
+   "titulo": "Neoenergia tem crescido rápido em transmissão e negócio é estratégico, diz CEO após leilão",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "leilao-de-transmissao-da-aneel-viabiliza-r-8-9-b",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 296,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "afirmou Eduardo Capelastegui",
+     "paragrafo": "P3",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Uso de verbo neutro para atribuição de fala."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "8b9e937e1e32",
+   "url": "https://valor.globo.com/financas/criptomoedas/noticia/2026/10/30/hackers-norte-coreanos-ligados-a-roubos-de-criptomoedas-esto-entre-os-melhores-do-mundo-dizem-especialistas.ghtml",
+   "titulo": "Ataque à Binance: Hackers norte-coreanos de criptomoedas estão entre os melhores do mundo, dizem especialistas",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "hackers-norte-coreanos-roubam-us-6-3-bilhoes-da",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 70,
+    "rotulo": "Regular"
+   },
+   "palavras": 702,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "afirmaram especialistas",
+     "paragrafo": "P1",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Uso de verbo neutro de atribuição."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "eca9f3cf5b96",
+   "url": "https://www1.folha.uol.com.br/mundo/2026/10/eua-aprovam-venda-de-500-misseis-patriot-a-ucrania-por-us-21-bilhoes.shtml",
+   "titulo": "EUA aprovam venda de 500 mísseis Patriot à Ucrânia por US$ 2,1 bilhões",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "estados-unidos-aprovam-venda-de-500-misseis-patr",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "seguranca",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 80,
+    "rotulo": "Boa"
+   },
+   "palavras": 806,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0.0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "VERBOS",
+     "citacao": "informou o Departamento de Estado",
+     "paragrafo": "P5",
+     "direcao": "equilibrio",
+     "contribuicao": 0.0,
+     "explicacao": "Atribuição neutra de informações oficiais."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "489491313551",
+   "url": "https://valor.globo.com/financas/noticia/2026/10/30/trade-eleitoral-machuca-investidor-em-outubro.ghtml",
+   "titulo": "‘Trade eleitoral’ machuca investidor em outubro",
+   "veiculo": "Valor Econômico",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "ibovespa-acumula-queda-historica-de-mais-de-18-n",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": "Opinião",
+   "genero": "analise",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 6,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 1351,
+   "cortado": true,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 6.27,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [
+    {
+     "id": "E1",
+     "criterio": "FONTES",
+     "citacao": "A expectativa do mercado era que, se Flávio vencesse a eleição, o ajuste fiscal seria mais provável",
+     "paragrafo": "P15",
+     "direcao": "direita",
+     "contribuicao": 6.27,
+     "explicacao": "Dá destaque à visão de que a oposição traria mais responsabilidade fiscal, criticando a condução do governo atual."
+    }
+   ],
+   "descartadas": 0
+  },
+  {
+   "id": "17b7af1fb5a4",
+   "url": "https://valor.globo.com/mundo/noticia/2026/10/30/cop-18-sobre-biodiversidade-ser-em-quito-no-equador.ghtml",
+   "titulo": "COP 18 sobre Biodiversidade será em Quito, no Equador",
+   "veiculo": "Valor Econômico",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "cop17-de-biodiversidade-e-encerrada-na-armenia-c",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 9 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 70,
+    "rotulo": "Regular"
+   },
+   "palavras": 165,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "b6f0d808a7e6",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/30/acoes-da-amazon-caem-mais-de-7percent-com-resultado-aquem-do-esperado-no-3o-trimestre.ghtml",
+   "titulo": "Ações da Amazon caem mais de 7% com resultado aquém do esperado no 3º trimestre",
+   "veiculo": "Valor Econômico",
+   "editoria": "Tecnologia & Negócios",
+   "secao": "tecnologia",
+   "materia": "big-techs-perdem-centenas-de-bilhoes-em-bolsa-co",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 878,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "742ec75648ee",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/30/governo-lula-convoca-representante-argentina-para-pedir-esclarecimentos-sobre-fuga-de-flavio-bolsonaro.ghtml",
+   "titulo": "Governo Lula convoca representante da Argentina para pedir explicações sobre fuga de Flávio Bolsonaro",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "governo-brasileiro-adota-pragmatismo-e-evita-cri",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 67,
+    "rotulo": "Regular"
+   },
+   "palavras": 461,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a0f6d862f4dc",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/30/nivel-de-ocupacao-atinge-recorde-de-59percent-no-3o-trimestre-diz-ibge.ghtml",
+   "titulo": "Nível de ocupação atinge recorde de 59% no 3º trimestre, diz IBGE",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "desemprego-cai-para-5-2-no-3o-trimestre-e-atinge",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 88,
+    "rotulo": "Boa"
+   },
+   "palavras": 183,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "b94a64feb946",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/itau-corta-projecao-do-pib-de-2027-para-05-e-ve-inflacao-acima-da-meta.shtml",
+   "titulo": "Itaú corta projeção do PIB de 2027 para 0,5% e vê inflação acima da meta",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "itau-corta-projecao-do-pib-de-2027-para-0-5-e-ve",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 828,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "b3f6eaadabb3",
+   "url": "https://valor.globo.com/empresas/noticia/2026/10/30/lote-arrematado-ficou-dentro-da-nossa-expectativa-de-rentabilidade-diz-edp.ghtml",
+   "titulo": "Lote arrematado ficou dentro da nossa expectativa de rentabilidade, diz EDP",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "leilao-de-transmissao-da-aneel-viabiliza-r-8-9-b",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "media",
+   "resumo": "Equilibrado (confiança média): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 240,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "f290c5461a8f",
+   "url": "https://valor.globo.com/financas/criptomoedas/noticia/2026/10/30/binance-brasil-tambem-suspende-saques-de-criptomoedas-apos-ataque-a-operacao-global.ghtml",
+   "titulo": "Binance Brasil também suspende saques de criptomoedas após ataque à operação global",
+   "veiculo": "Valor Econômico",
+   "editoria": "Geopolítica & Mundo",
+   "secao": "mundo",
+   "materia": "hackers-norte-coreanos-roubam-us-6-3-bilhoes-da",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "nenhuma",
+    "eixos": [
+     "geral"
+    ]
+   },
+   "estado": "nao_se_aplica",
+   "T": null,
+   "rotulo": "Não se aplica",
+   "confianca": null,
+   "resumo": "Não se aplica: o texto não tem dimensão político-ideológica relevante.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 92,
+    "rotulo": "Boa"
+   },
+   "palavras": 237,
+   "cortado": false,
+   "decomposicao": null,
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "24cd86d22856",
+   "url": "https://c-level.folha.uol.com.br/financas/2026/10/fundos-de-investimento-perdem-r-1575-bilhoes-apos-reeleicao-de-lula.shtml",
+   "titulo": "Fundos de investimento perdem R$ 157,5 bilhões após reeleição de Lula",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Mercados & Finanças",
+   "secao": "mercados",
+   "materia": "ibovespa-acumula-queda-historica-de-mais-de-18-n",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "economico",
+     "instituicoes"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 1107,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "a34169579653",
+   "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/paises-consideram-insuficientes-acoes-contra-crise-da-biodiversidade",
+   "titulo": "Países consideram insuficientes ações contra crise da biodiversidade",
+   "veiculo": "Agência Brasil",
+   "editoria": "Natureza & Meio Ambiente",
+   "secao": "natureza",
+   "materia": "cop17-de-biodiversidade-e-encerrada-na-armenia-c",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "geral",
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 94,
+    "rotulo": "Boa"
+   },
+   "palavras": 745,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "d5319cc86d59",
+   "url": "https://valor.globo.com/politica/noticia/2026/10/30/dono-de-avio-usado-na-fuga-de-flvio-bolsonaro-afirma-que-voo-foi-pago-a-partir-dos-eua-diz-agncia.ghtml",
+   "titulo": "Dono de avião usado na fuga de Flávio Bolsonaro afirma que voo foi pago a partir dos EUA, diz agência",
+   "veiculo": "Valor Econômico",
+   "editoria": "Política",
+   "secao": "politica",
+   "materia": "governo-brasileiro-adota-pragmatismo-e-evita-cri",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "alta",
+    "eixos": [
+     "instituicoes",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 95,
+    "rotulo": "Boa"
+   },
+   "palavras": 497,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "9f974d0a4fde",
+   "url": "https://www1.folha.uol.com.br/mercado/2026/10/aneel-mantem-bandeira-verde-na-conta-de-luz-em-novembro.shtml",
+   "titulo": "Aneel mantém bandeira verde na conta de luz em novembro",
+   "veiculo": "Folha de S.Paulo",
+   "editoria": "Jurídico & Regulação",
+   "secao": "juridico",
+   "materia": "aneel-mantem-bandeira-tarifaria-verde-em-novembr",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "baixa",
+    "eixos": [
+     "economico",
+     "geral"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 100,
+    "rotulo": "Boa"
+   },
+   "palavras": 355,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  },
+  {
+   "id": "c2dfb07dc1e9",
+   "url": "https://valor.globo.com/brasil/noticia/2026/10/30/desemprego-cai-para-52percent-no-3o-trimestre-menor-da-serie-historica-para-o-periodo-diz-ibge.ghtml",
+   "titulo": "Desemprego cai para 5,2% no 3º trimestre, menor da série histórica para o período, diz IBGE",
+   "veiculo": "Valor Econômico",
+   "editoria": "Brasil · Economia",
+   "secao": "brasil",
+   "materia": "desemprego-cai-para-5-2-no-3o-trimestre-e-atinge",
+   "data_publicacao": "2026-10-30",
+   "analisado_em": "2026-10-31",
+   "versao_calculo": "1.1.0",
+   "selo": null,
+   "genero": "noticia",
+   "triagem": {
+    "relevancia_politica": "media",
+    "eixos": [
+     "economico"
+    ]
+   },
+   "estado": "ok",
+   "T": 0,
+   "rotulo": "Equilibrado",
+   "confianca": "alta",
+   "resumo": "Equilibrado (confiança alta): sinais fracos ou ausentes nos 11 critérios avaliados.",
+   "motivo_estado": null,
+   "qualidade_apuracao": {
+    "Q": 93,
+    "rotulo": "Boa"
+   },
+   "palavras": 440,
+   "cortado": false,
+   "decomposicao": {
+    "premissas": 0,
+    "atores": 0,
+    "divergente": false
+   },
+   "por_eixo": {},
+   "evidencias": [],
+   "descartadas": 0
+  }
+ ],
+ "execucoes": [
+  {
+   "gerado_em": "2026-10-31T10:09:38+00:00",
+   "provedor": "gemini_lite",
+   "modelo": "gemini-flash-lite-latest",
+   "candidatos": 40,
+   "textos_curtos": 1,
+   "falhas": 0,
+   "chamadas": 5,
+   "tokens": {
+    "entrada": 29695,
+    "saida": 13707
+   },
+   "analises": [
+    "4db7b59c5412",
+    "8b5bf7dd7b32",
+    "5ad79dc66f8b",
+    "6cef6a1d4759",
+    "1aae7177e19d",
+    "8b9e937e1e32",
+    "eca9f3cf5b96",
+    "489491313551",
+    "17b7af1fb5a4",
+    "b6f0d808a7e6",
+    "742ec75648ee",
+    "a0f6d862f4dc",
+    "b94a64feb946",
+    "b3f6eaadabb3",
+    "f290c5461a8f",
+    "24cd86d22856",
+    "a34169579653",
+    "d5319cc86d59",
+    "9f974d0a4fde",
+    "c2dfb07dc1e9"
+   ]
+  }
+ ]
+}

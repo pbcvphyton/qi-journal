@@ -1,261 +1,218 @@
 TRIANGULA
-Sexta-feira, 30 de outubro de 2026 · 06:55 BRT
+Sábado, 31 de outubro de 2026 · 06:55 BRT
 
 MERCADOS
 --------
-Dólar R$ 5,36 (-0,47%) · Euro R$ 6,01 (-0,16%) · Yuan R$ 0,81 (-0,24%) ·
-Ibovespa 169.186 pts (-1,06%) · IFIX 3.632 pts (-0,60%) · S&P 500 7.720
-pts (-0,30%) · Brent US$ 113,01 (+2,00%) · Ouro US$ 4.000 (-0,79%) ·
-Bitcoin US$ 77.494 (-3,24%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
+Dólar R$ 5,44 (+1,02%) · Euro R$ 6,07 (+0,84%) · Yuan R$ 0,82 (+1,13%) ·
+Ibovespa 167.922 pts (-0,75%) · IFIX 3.647 pts (+0,40%) · S&P 500 7.580
+pts (-1,82%) · Brent US$ 113,43 (+2,37%) · Ouro US$ 3.899 (-3,29%) ·
+Bitcoin US$ 77.292 (-0,34%) · Selic 13,75% · IPCA 12m 4,58% · IGP-M 12m
 5,25% · INCC 12m 6,66%
 
 CLIMA
 -----
-São Paulo: 17°C, nublado (mín. 16° / máx. 26°) · amanhã: pancadas de
-chuva fracas, 15° a 24°
-Montevidéu: 14°C, nublado (mín. 14° / máx. 19°) · amanhã: pancadas de
-chuva fracas, 14° a 18°
+São Paulo: 16°C, parcialmente nublado (mín. 15° / máx. 25°) · amanhã:
+trovoadas, 17° a 26°
+Montevidéu: 15°C, garoa fraca (mín. 14° / máx. 18°) · amanhã: trovoadas,
+15° a 22°
 
 EDITORIAL
 ---------
-O cálculo do TCU para a alíquota da CBS reacende temores sobre a carga
-do novo IVA no Brasil, em meio à deterioração fiscal e à cautela nos
-mercados financeiros. No exterior, o ataque hacker bilionário contra a
-Binance e a queima de caixa das gigantes de tecnologia com inteligência
-artificial pressionam os ativos de risco globais. Em paralelo, o
-pós-eleição brasileiro reverbera na articulação política e na diplomacia
-regional, enquanto a Europa lida com uma grave tragédia ferroviária.
+O mercado financeiro internacional e doméstico sofre fortes pressões com
+o ataque cibernético à Binance e os reflexos econômicos da reeleição no
+Brasil. Enquanto isso, o desemprego recua ao menor patamar histórico, ao
+passo que agências reguladoras e o setor energético mantêm foco em novos
+leilões de infraestrutura.
 
 EM 1 MINUTO
 -----------
-• O TCU estimou em 11,3% a alíquota da CBS, elevando o alerta entre
-  empresas e tributaristas sobre o risco de o novo IVA ultrapassar a
-  marca de 30%.
-• A Binance suspendeu saques após sofrer um roubo de US$ 6,3 bilhões no
-  maior ataque hacker da história contra o setor de criptomoedas.
-• Sob apreensão fiscal pós-eleitoral e aversão a risco no exterior, o
-  Ibovespa caiu 1,06%, aos 169.186 pontos, enquanto o dólar fechou
-  cotado a R$ 5,36.
-• Lideranças do PL e governadores de direita isolaram Flávio Bolsonaro
-  após sua saída para os EUA e a divulgação de manifesto contestando o
-  pleito.
-• A Alphabet perdeu US$ 500 bilhões em valor de mercado após a
-  divulgação de balanço marcar salto em custos operacionais com
-  inteligência artificial.
-• Uma colisão entre trens de alta velocidade na Espanha deixou 69 mortos
-  e abriu crise política para o premiê Pedro Sánchez a um mês das
-  eleições.
+• Binance sofre roubo recorde de US$ 6,3 bilhões em criptomoedas após
+  ataque cibernético associado a hackers da Coreia do Norte.
+• Ibovespa acumula forte queda de mais de 18% na semana pós-eleição e
+  dólar dispara com reflexos de estresse nos ativos.
+• Desemprego cai para 5,2% no terceiro trimestre, atingindo o menor
+  patamar histórico para o período desde 2012.
+• Aneel mantém a bandeira tarifária verde em novembro sem cobrança
+  adicional nas contas de luz devido a melhores reservatórios.
+• COP17 de Biodiversidade é encerrada na Armênia com críticas às metas
+  globais e definição do Equador como sede da COP18.
 
 COMO FOI COMPILADA
 ------------------
-A IA leu as 1.738 notícias coletadas de 44 veículos, compiladas em 8
-blocos por editoria; uniu as notícias repetidas em 1.112 assuntos,
+A IA leu as 1.480 notícias coletadas de 42 veículos, compiladas em 8
+blocos por editoria; uniu as notícias repetidas em 1.069 assuntos,
 interpretou o foco de cada veículo e comparou para que lado cada um
-seguiu em 103 assuntos e escolheu as 24 matérias desta edição. Nenhuma
+seguiu em 61 assuntos e escolheu as 13 matérias desta edição. Nenhuma
 notícia foi descartada: todas estão na lista completa do dia.
-Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#racional
-Todas as 1.738 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30-todas.html
+Racional: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#racional
+Todas as 1.480 notícias do dia: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31-todas.html
 
 MANCHETE
 --------
-TCU define alíquota de 11,3% para a CBS e acende alerta para risco de
-IVA superior a 30%
-Cálculo do tribunal surpreende tributaristas e eleva a apreensão de
-empresas quanto ao peso do novo imposto sobre o consumo a partir de
-2027.
-Fontes: Valor Econômico, Estadão, Folha de S.Paulo, NeoFeed, Exame
-Cobertura: Pende para: Destaca risco de IVA recorde e aumento de carga
-tributária · 4 de 5 veículos. A maioria dos veículos deu ênfase aos
-riscos de encarecimento e sobrecarga fiscal decorrentes do cálculo de
-11,3%, enquanto a Folha ponderou com os mecanismos de redução efetiva.
-Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-tcu-define-aliquota-de-11-3-para-a-cbs-e-acende
+Hackers norte-coreanos roubam US$ 6,3 bilhões da Binance no maior ataque
+da história das criptomoedas
+A Binance informou que cobrirá as perdas com recursos próprios e
+suspendeu saques para clientes no Brasil após o roubo recorde.
+Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, NeoFeed, Exame,
+TechCrunch, Financial Times, The New York Times, The Wall Street
+Journal, The Guardian, BBC News, CNBC, Brazil Journal, Money Times
+Cobertura: Sem divergência entre os 8 veículos. A cobertura convergiu na
+confirmação do valor recorde de US$ 6,3 bilhões roubados, na atribuição
+da autoria a hackers norte-coreanos e no impacto sobre os saques e a
+segurança da corretora.
+Ler na edição: https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-hackers-norte-coreanos-roubam-us-6-3-bilhoes-da
 
 BRASIL · ECONOMIA
 -----------------
-• Setor público tem déficit de R$ 5,5 bilhões em setembro e dívida bruta
-  fica em 82,9% do PIB
-  Superávit no governo central não impede saldo consolidado negativo sob
-  pressão de gastos de estatais e juros nominais.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil
-  Cobertura: Sem divergência entre os 4 veículos. A cobertura foi
-  unânime e factual, convergindo no relato do déficit de R$ 5,5 bilhões
-  e na permanência da dívida bruta no maior patamar em cinco anos.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-setor-publico-tem-deficit-de-r-5-5-bilhoes-em-se
+• Itaú corta projeção do PIB de 2027 para 0,5% e vê Selic estável em
+  13,75%
+  Banco revisa cenário macroeconômico, elevando estimativa de inflação
+  para 6,1% no próximo ano devido a pressões domésticas e externas.
+  Fontes: Valor Econômico, Folha de S.Paulo
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura converge
+  ao destacar o pessimismo das novas projeções do Itaú, que reduziu o
+  crescimento do PIB e elevou a inflação para o próximo ano.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-itau-corta-projecao-do-pib-de-2027-para-0-5-e-ve
+
+• Leilão de transmissão da Aneel viabiliza R$ 8,9 bilhões em obras e
+  agência prevê R$ 50 bi em 2027
+  Grupos espanhóis e EDP arrematam oito lotes ofertados na B3; agência
+  reguladora programa três certames no próximo ano.
+  Fontes: Valor Econômico, Estadão, Agência Brasil
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura convergiu
+  na divulgação do pleno sucesso do certame na B3 e no anúncio do
+  expressivo plano de investimentos projetado pela Aneel para 2027.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-leilao-de-transmissao-da-aneel-viabiliza-r-8-9-b
+
+• Desemprego cai para 5,2% no 3º trimestre e atinge menor patamar
+  histórico
+  Taxa é a menor para o período desde 2012, mas analistas apontam
+  influência de cautela eleitoral nas contratações.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência Brasil
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura é unânime
+  em registrar a queda do desemprego para 5,2% e o recorde de ocupação,
+  com variações na inclusão da análise sobre o fator eleitoral.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-desemprego-cai-para-5-2-no-3o-trimestre-e-atinge
 
 MERCADOS & FINANÇAS
 -------------------
-• Binance suspende saques após roubo de US$ 6,3 bilhões no maior ataque
-  hacker a criptomoedas
-  Corretora congela ativos, promete ressarcir usuários e vê cotações do
-  setor despencarem após invasão atribuída por analistas à Coreia do
-  Norte.
-  Fontes: Valor Econômico, Folha de S.Paulo, InfoMoney, g1, Poder360,
-  Money Times, Exame, CNN Brasil, The New York Times, The Wall Street
-  Journal, South China Morning Post, CNBC, MarketWatch, TechCrunch,
-  Financial Times, The Guardian, BBC News
-  Cobertura: Pende para: Enfatiza tamanho recorde do roubo e fragilidade
-  do setor · 6 de 14 veículos. A maior parte da mídia internacional e
-  nacional dividiu-se entre enfatizar o choque sistêmico do roubo
-  recorde atribuído a agentes da Coreia do Norte e destacar o rápido
-  congelamento de ativos com a promessa de cobertura das perdas.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-binance-suspende-saques-apos-roubo-de-us-6-3-bil
-
-• Petrobras confirma terceira descoberta de petróleo em poço na Margem
-  Equatorial
-  Estatal conclui perfuração no poço Morpho, no bloco FZA-M-59 em águas
-  ultraprofundas do Amapá, e prepara deslocamento de sonda para a Bacia
-  Potiguar.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência
-  Senado, Agência Brasil, Seu Dinheiro
-  Cobertura: Sem divergência entre os 7 veículos. A cobertura foi
-  unânime e factual, destacando o sucesso operacional da Petrobras na
-  confirmação do terceiro reservatório e o cronograma de deslocamento da
-  sonda.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-petrobras-confirma-terceira-descoberta-de-petrol
-
-• Ibovespa recua pela quarta sessão consecutiva e perde mais de 17% após
-  eleições
-  Índice encerra aos 169.186 pontos e dólar sobe a R$ 5,39, pressionados
-  por incertezas sobre o novo mandato de Lula e aversão a risco no
-  exterior.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1, Agência Brasil, Seu
-  Dinheiro, Suno Notícias, Money Times, Exame
-  Cobertura: Pende para: Enfatiza a reação negativa às diretrizes
-  fiscais do governo eleito · 5 de 8 veículos. Predominou o enfoque de
-  que o mercado reagiu com forte aversão fiscal à reeleição de Lula
-  (Lado A), com veículos como Valor, Exame e Folha frisando o
-  descontentamento interno, enquanto agências e notas operacionais deram
-  ênfase neutra ou dividida com fatores externos.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-ibovespa-recua-pela-quarta-sessao-consecutiva-e
+• Ibovespa acumula queda histórica de mais de 18% na semana pós-eleição
+  e dólar dispara
+  A reeleição de Luiz Inácio Lula da Silva desencadeou uma onda de
+  estresse nos ativos brasileiros, levando a bolsa à pior semana desde
+  março de 2020 e pressionando os juros futuros.
+  Fontes: Valor Econômico, Suno Notícias, Seu Dinheiro, CNN Brasil,
+  Folha de S.Paulo, g1, Agência Brasil
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  na constatação de que o resultado eleitoral e as incertezas fiscais
+  provocaram um choque de proporções históricas nos ativos locais.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-ibovespa-acumula-queda-historica-de-mais-de-18-n
 
 JURÍDICO & REGULAÇÃO
 --------------------
-• Justiça do Trabalho determina que Meta remova publicações de assédio
-  eleitoral
-  Ação civil pública do MPT cobra exclusão em 24 horas de conteúdos que
-  pregam demissão por voto e pede R$ 50 milhões em danos morais
-  coletivos.
-  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, g1, Poder360, Agência
-  Brasil, CNN Brasil
-  Cobertura: Sem divergência entre os 7 veículos. A cobertura foi
-  unânime e factual, destacando a agilidade da Justiça do Trabalho em
-  acolher o pleito do MPT frente ao salto de casos pós-eleição.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-justica-do-trabalho-determina-que-meta-remova-pu
+• Aneel mantém bandeira tarifária verde em novembro sem cobrança
+  adicional
+  Contas de luz seguem sem taxa extra pelo segundo mês consecutivo
+  devido ao aumento das chuvas e melhora nos reservatórios.
+  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, g1, Agência
+  Brasil, Exame
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  integralmente para a divulgação factual do anúncio da Aneel,
+  destacando o alívio na tarifa para os consumidores.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-aneel-mantem-bandeira-tarifaria-verde-em-novembr
 
 POLÍTICA
 --------
-• Aliados isolam Flávio Bolsonaro após fuga para os Estados Unidos e
-  carta contestando eleição
-  Lideranças do PL e governadores de direita rejeitam teor golpista de
-  manifesto divulgado pelo senador derrotado.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, NeoFeed, Agência
-  Senado, g1, Money Times, Agência Brasil, CNN Brasil
-  Cobertura: Sem divergência entre os 9 veículos. A cobertura foi
-  unânime ao registrar o rechaço imediato de aliados e partidos ao
-  manifesto de Flávio Bolsonaro, consolidando seu isolamento.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-aliados-isolam-flavio-bolsonaro-apos-fuga-para-o
-
-• Cotação de Rafael Fonteles para a Fazenda gera debate no PT sobre
-  rumos do ajuste fiscal
-  Governador reeleito do Piauí defende corte de privilégios, enquanto
-  correntes petistas rejeitam aperto social.
-  Fontes: Valor Econômico, Estadão, Folha de S.Paulo, CNN Brasil
-  Cobertura: Pende para: Defende disciplina fiscal e corte de
-  privilégios · 2 de 4 veículos. Predominou a análise sobre a
-  viabilidade de um perfil focado em equilíbrio fiscal, confrontada com
-  manifestações partidárias contrárias a freios em gastos sociais.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-cotacao-de-rafael-fonteles-para-a-fazenda-gera-d
+• Governo brasileiro adota pragmatismo e evita crise com EUA após fuga
+  de Flávio Bolsonaro
+  Itamaraty convoca diplomata argentina e ministros minimizam ajuda da
+  Casa Branca na saída do senador derrotado.
+  Fontes: Valor Econômico, JOTA, Folha de S.Paulo, Estadão, g1, CNN
+  Brasil
+  Cobertura: Equilíbrio: 1 × 1 de 6 veículos. A cobertura convergiu ao
+  relatar os fatos centrais da fuga e a articulação internacional,
+  dividindo-se entre a ênfase nas cobranças da oposição democrata nos
+  EUA e o tom de pragmatismo adotado pelo Palácio do Planalto.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-governo-brasileiro-adota-pragmatismo-e-evita-cri
 
 GEOPOLÍTICA & MUNDO
 -------------------
-• Governo Milei defende saída de Flávio Bolsonaro e crise diplomática
-  atinge Brasil e Argentina
-  Chefe de gabinete argentino alega regularidade migratória, enquanto
-  Itamaraty avalia cenário e Washington Post aponta impactos
-  institucionais.
-  Fontes: JOTA, Folha de S.Paulo, Estadão, Exame
-  Cobertura: Pende para: Enfatiza o abalo diplomático e a ajuda política
-  à fuga · 4 de 5 veículos. A cobertura brasileira e internacional
-  concentrou-se nos custos diplomáticos e na interferência política
-  externa, contrapondo-se à versão técnica de normalidade burocrática
-  sustentada pela Casa Rosada.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-governo-milei-defende-saida-de-flavio-bolsonaro
+• Estados Unidos aprovam venda de 500 mísseis Patriot à Ucrânia por US$
+  2,1 bilhões
+  O presidente Volodymyr Zelenskyy celebrou a decisão, mas advertiu que
+  a entrega dos interceptadores pode levar anos.
+  Fontes: Folha de S.Paulo, Financial Times, The Guardian, BBC News, Al
+  Jazeera
+  Cobertura: Sem divergência entre os 5 veículos. A cobertura convergiu
+  na divulgação do acordo de US$ 2,1 bilhões para a venda de mísseis
+  Patriot e na ressalva feita por Kiev quanto aos prazos de entrega.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-estados-unidos-aprovam-venda-de-500-misseis-patr
 
-• Colisão de trens de alta velocidade na Espanha deixa 69 mortos e afeta
-  disputa eleitoral
-  Tragédia ferroviária em Toledo mobiliza equipes de resgate, envolve
-  ferimento de brasileira e pressiona o premiê Pedro Sánchez a um mês do
-  pleito.
-  Fontes: Valor Econômico, Folha de S.Paulo, Estadão, g1, Agência
-  Brasil, The Wall Street Journal, The New York Times, The Guardian, Al
-  Jazeera, BBC News, El País
-  Cobertura: Pende para: Foca no resgate das vítimas e na crise de
-  segurança da malha · 5 de 9 veículos. A maior parte da imprensa tratou
-  a gravidade humanitária e técnica da tragédia, enquanto análises
-  internacionais e políticas pontuaram a vulnerabilidade eleitoral do
-  governo espanhol.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-colisao-de-trens-de-alta-velocidade-na-espanha-d
+• Ataques russos e ucranianos intensificam perdas civis e danos
+  ecológicos no Mar Negro
+  Bombardeios deixam cidades ucranianas às escuras e retomam ataques a
+  refinarias; conflito já causou a morte de mais de 120 mil golfinhos.
+  Fontes: The Wall Street Journal, The Guardian, CNBC, Al Jazeera
+  Cobertura: Sem divergência entre os 4 veículos. A cobertura convergiu
+  ao relatar a escalada militar e os impactos severos sobre a
+  infraestrutura, civis e o meio ambiente.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-ataques-russos-e-ucranianos-intensificam-perdas
 
 TECNOLOGIA & NEGÓCIOS
 ---------------------
-• Alphabet perde US$ 500 bilhões em valor após custos de IA e impacto em
-  anúncios
-  Queda de 13% nas ações reflete recuo de 25% no lucro líquido e
-  preocupações de Wall Street com a rentabilidade das ferramentas de
-  busca com inteligência artificial.
-  Fontes: Valor Econômico, Folha de S.Paulo, CNN Brasil, The Guardian,
-  BBC News
-  Cobertura: Pende para: Destaca impacto da IA nas receitas de
-  publicidade · 3 de 6 veículos. A cobertura convergiu sobre o choque
-  nos balanços das big techs, dividindo-se entre a erosão de margens na
-  publicidade e os altos gastos com data centers.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-alphabet-perde-us-500-bilhoes-em-valor-apos-cust
-
-IMOBILIÁRIO
------------
-• Bancos privados elevam juros do financiamento imobiliário após avanço
-  nas taxas futuras
-  Itaú, Bradesco e Santander aumentam taxas contratuais diante da piora
-  nas condições de captação de recursos.
-  Fontes: Valor Econômico, Folha de S.Paulo, g1
-  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
-  na explicação de que o repasse aos tomadores decorre diretamente do
-  estresse nas taxas de juros de longo prazo praticadas no mercado
-  financeiro.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-bancos-privados-elevam-juros-do-financiamento-im
+• Big techs perdem centenas de bilhões em bolsa com escalada de gastos
+  em data centers e inteligência artificial
+  Balanços de gigantes como Alphabet e Amazon frustram Wall Street ao
+  revelarem queima recorde de caixa sem retorno equivalente a curto
+  prazo.
+  Fontes: Valor Econômico, Folha de S.Paulo, Suno Notícias, Seu
+  Dinheiro, The New York Times, South China Morning Post
+  Cobertura: Sem divergência entre os 9 veículos. A cobertura concordou
+  que os resultados trimestrais das big techs geraram uma onda de
+  ceticismo do mercado quanto ao retorno dos volumosos desembolsos em
+  inteligência artificial.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-big-techs-perdem-centenas-de-bilhoes-em-bolsa-co
 
 ESPORTE
 -------
-• Flamengo goleia o Vasco por 4 a 1 e se isola na liderança do
-  Campeonato Brasileiro
-  Com dois gols de Pedro e dois de Samuel Lino no Nilton Santos, time
-  rubro-negro abre três pontos sobre o Palmeiras a cinco rodadas do fim
-  da competição.
-  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, UOL, Placar,
-  CNN Brasil
-  Cobertura: Pende para: Destaca a arrancada rubro-negra rumo ao título
-  nacional · 4 de 7 veículos. A maioria dos veículos deu ênfase ao
-  impacto decisivo da goleada na corrida pelo título do Brasileirão,
-  enquanto análises esportivas especializadas focaram na crise do Vasco
-  por poupar titulares.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-flamengo-goleia-o-vasco-por-4-a-1-e-se-isola-na
+• Corinthians vence o Mirassol por 2 a 0, encerra jejum de dez jogos e
+  deixa o Z4 provisoriamente
+  Com gols de Matheus Bidu e Kaio César na Neo Química Arena, equipe
+  comandada por Clarence Seedorf respira no Brasileirão.
+  Fontes: ge, Estadão, Folha de S.Paulo, Gazeta Esportiva, Placar, CNN
+  Brasil
+  Cobertura: Sem divergência entre os 6 veículos. A cobertura convergiu
+  ao relatar de forma factual e direta o fim do jejum corinthiano, a
+  importância dos gols de Bidu e Kaio César e a declaração de prudência
+  de Seedorf.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-corinthians-vence-o-mirassol-por-2-a-0-encerra-j
+
+• Brasileira de 9 anos entra para o Guinness como a skatista mais jovem
+  a descer a megarrampa
+  Laura Voigt recebeu o certificado oficial após realizar a descida
+  histórica na pista de Gui Khury, no Paraná.
+  Fontes: ge, Estadão, Gazeta Esportiva
+  Cobertura: Sem divergência entre os 3 veículos. Os veículos
+  convergiram totalmente na celebração do recorde mundial de Laura
+  Voigt, detalhando a idade e o local da façanha.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-brasileira-de-9-anos-entra-para-o-guinness-como
 
 NATUREZA & MEIO AMBIENTE
 ------------------------
-• Cinco ecorregiões de recifes de corais do Brasil entram em risco
-  crítico de colapso, alerta IUCN
-  Avaliação inédita apresentada na conferência de biodiversidade COP17
-  aponta que ondas de calor marinhas ameaçam a integridade dos recifes
-  costeiros no país.
-  Fontes: ((o))eco, Agência Brasil, CNN Brasil
-  Cobertura: Sem divergência entre os 3 veículos. Os veículos
-  convergiram integralmente na divulgação técnica do relatório da IUCN,
-  enfatizando a ameaça crítica do aquecimento marinho aos recifes.
-  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-30.html#s-cinco-ecorregioes-de-recifes-de-corais-do-brasil
+• COP17 de Biodiversidade é encerrada na Armênia com críticas e
+  definição de nova sede
+  Conferência da ONU sobre biodiversidade termina em Yerevan com
+  avaliação negativa sobre metas globais, e Equador é escolhido para
+  sediar a COP18.
+  Fontes: Valor Econômico, Agência Brasil
+  Cobertura: Sem divergência entre os 3 veículos. A cobertura convergiu
+  na abordagem factual do encerramento da COP17, ressaltando o tom
+  insatisfatório dos resultados e o anúncio da sede equatoriana.
+  https://pbcvphyton.github.io/qi-journal/edicoes/2026-10-31.html#s-cop17-de-biodiversidade-e-encerrada-na-armenia-c
 
 ========================================================================
 Abrir edição completa: https://pbcvphyton.github.io/qi-journal/
 Edições anteriores: https://pbcvphyton.github.io/qi-journal/edicoes/
 Código-fonte: https://github.com/pbcvphyton/qi-journal
 Gerado automaticamente em 06:55 (BRT) · Edição gerada por IA
-(gemini-flash-latest)
+(gemini-flash-latest + gemini-flash-lite-latest)
